@@ -1,0 +1,191 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./resume_file.php?"+send_url+"&page_rows=" + sel;
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var deletes = function( no ){	// 삭제 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("첨부파일을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '첨부파일 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_deletes = function(){
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 첨부파일을 선택해 주세요.');
+		return false;
+	} else {
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 첨부파일 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '첨부파일 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 지원정보 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:'alba_file_delete', no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			// 선택 지원정보 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:'alba_file_sel_delete', no:no }, function(result){
+					if(result){
+						//alert('선택하신 회원정보 '+nos_cnt+'건이 삭제되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+						return false;
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr>-->
+<tr><td width="1"></td>
+<td class=nb>
+<dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+개인회원들이 자신의 마이페이지에서 이력서파일 및 기타 구인구직에 필요한 파일등을 저장해 놓은 공간입니다. <br>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">이력서 첨부파일 관리
+	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건이 검색되었습니다.</span>
+	<dt>
+		<!-- <label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp; -->
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+</dl>
+<dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+	</dt>
+</dl>
+
+<table width="100%" class="ttlt">
+<col width="2%"><col width="7%"><col width="7%"><col><col width="10%"><col width="4%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>회원구분</td>
+	<td>회원정보</td>
+	<td>파일명</td>
+	<td>등록일</td>
+	<td>삭제</td>
+</tr>
+<tbody>
+<?php if(!$list['total_count']){?>
+<tr><td colspan="6" class="stlt"></td></tr>
+<?php } else { 
+	foreach($list['result'] as $val){ 
+	$get_member = $member_control->get_member($val['wr_id']);
+	$mb_type = ($get_member['mb_type']=='individual') ? "개인회원" : "기업회원";
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><?php echo $mb_type;?></td>
+	<td><a onclick="pop_member('<?php echo $get_member['mb_id'];?>');">
+		<?php echo $get_member['mb_name'];?><Br/>
+		(<?php echo $get_member['mb_id'];?>)
+		</a>
+	</td>
+	<td class="tl"><a href="javascript:file_download('../../alba/file_download.php?no=<?php echo $val['no'];?>','<?php echo $val['wr_content'];?>');"><?php echo stripslashes($val['wr_source']);?></a></td>
+	<td><?php echo $val['wr_wdate'];?></td>
+	<td><a onclick="deletes('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+</tr>
+<?php 
+	} // foreach end.
+}	// if end.
+?>
+</tbody>
+</table>
+
+<dl class="page">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+	</dt>
+</dl>
+
+<div id='pop_info'></div>
+
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>
+<?php include_once "../include/tail.php";?>

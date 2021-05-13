@@ -1,0 +1,127 @@
+<?php
+		/*
+		* /application/nad/config/map_preview.php
+		* @author Harimao
+		* @since 2013/06/11
+		* @last update 2013/06/11
+		* @Module v3.5 ( Alice )
+		* @Brief :: Map preview test
+		* @Comment :: 설정된 지도 엔진 미리보기/테스트
+		*/
+
+		$alice_path = "../../../";
+
+		$cat_path = "../../";
+
+		include_once $alice_path . "_core.php";
+
+		$admin_control->is_admin();	// 관리자 체크
+
+		## 기본 헤더
+		$style_arr = array( 'nad' );
+		$plugin_arr = array( 'cookie', 'form' );
+		echo $config->_admin_header( '', $style_arr, '', $plugin_arr);		// body, css style, css media, plugin
+
+		$map_control->get_map();
+
+		$test_maps = array("'37.538779843072824','127.00200500605618'", "'37.538635699652154','127.00030778301571'", "'37.537338259427315','126.9998325645435'", "'37.53377026138633','127.00288736856231'", "'37.534941239454476','127.00920075758009'");
+		$test_maps_count = count($test_maps);
+
+?>
+<script>
+window.top.resizeTo(750,650);
+<?php if($env['use_map']=='daum'){	// 다음 지도 ?>
+var APIKEY = "<?php echo $env['daum_map_key'];?>";
+var local_key = "<?php echo $env['daum_local_key'];?>";
+var Lat = '37.537123', Lng = '127.005523';	// 기본 위치
+var tmpLat = Lat, tmpLng = Lng;
+var map;
+var init = function() {
+	map = new daum.maps.Map(document.getElementById('map'), {
+		center: new daum.maps.LatLng(tmpLat, tmpLng),
+		level: 4
+	});
+	var zoomControl = new daum.maps.ZoomControl();
+	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+	var mapTypeControl = new daum.maps.MapTypeControl();
+	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+	<?php for($i=0;$i<$test_maps_count;$i++){?>
+	LatLng = [<?php echo $test_maps[$i];?>];
+	onload_map(<?php echo $i;?>,LatLng);
+	<?php } ?>
+}
+var infowindowObj = new Object();
+var onload_map = function(no,LatLng){
+	var x = LatLng[0];
+	var y = LatLng[1];
+	var position = new daum.maps.LatLng(x, y);
+	var icon = new daum.maps.MarkerImage(
+		'http://localimg.daum-img.net/localimages/07/2009/map/icon/blog_icon01_on.png',
+		new daum.maps.Size(31, 34),
+		new daum.maps.Point(16,34),
+		"poly",
+		"1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+	);
+	var marker = new daum.maps.Marker({
+		position: position,
+		image: icon
+	});
+	marker.setMap(this.map); 
+	if(marker){
+		daum.maps.event.addListener(marker, "click", function(MouseEvent) {
+			infowindowObj[no] = new daum.maps.InfoWindow({
+				content: "<p>[No."+no+"] <br/>채용정보(알바정보) 가 출력됩니다.</p>",
+				removable : true
+			});
+			
+			infowindowObj[no].open(map, marker);
+		});
+	}
+}
+<?php } ?>
+</script>
+<body <?php echo ($env['use_map']=='daum') ? "onload='init();'" : "";?>>
+	
+	<div id="map" style="width:100%;height:100%;"></div>
+
+<?php if($env['use_map']=='naver'){ // 네이버 지도 ?>
+<script>
+var oPoint = new nhn.api.map.LatLng(37.5010226, 127.0396037);
+var oMarkerParam = new Array();
+nhn.api.map.setDefaultPoint('LatLng');
+	oMap = new nhn.api.map.Map('map' ,{
+			point : oPoint,
+			zoom : 10,
+			enableWheelZoom : true,
+			enableDragPan : true,
+			enableDblClickZoom : false,
+			mapMode : 0,
+			activateTrafficMap : false,
+			activateBicycleMap : false,
+			minMaxLevel : [ 1, 14 ],
+			size : new nhn.api.map.Size(724, 590)
+	});
+	var mapZoom = new nhn.api.map.ZoomControl(); // - 줌 컨트롤 선언
+	mapTypeChangeButton = new nhn.api.map.MapTypeBtn(); // - 지도 타입 버튼 선언
+	mapTypeChangeButton.setPosition({top:10, left:10}); // - 지도 타입 버튼 위치 지정
+	mapZoom.setPosition({left:10, bottom:40}); // - 줌 컨트롤 위치 지정
+	oMap.addControl(mapTypeChangeButton);
+	oMap.addControl(mapZoom); // - 줌 컨트롤 추가.
+
+var oSize = new nhn.api.map.Size(28, 37); 
+var oOffset = new nhn.api.map.Size(14, 37); 
+var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset); 
+
+var oPoint1 = new nhn.api.map.LatLng(37.5010226, 127.0396037); //마커포인트 
+var oMarker1 = new nhn.api.map.Marker(oIcon);  //마커 생성 
+oMarker1.setPoint(oPoint1); 
+oMap.addOverlay(oMarker1); 
+var oLabel1 = new nhn.api.map.MarkerLabel(); // - 마커 라벨 선언. 
+oMap.addOverlay(oLabel1); // - 마커 라벨 지도에 추가. 기본은 라벨이 보이지 않는 상태로 추가됨. 
+oLabel1.setVisible(true, oMarker1); // 마커 라벨 보이기 
+
+
+</script>
+<?php } ?>
+</body>
+</html>

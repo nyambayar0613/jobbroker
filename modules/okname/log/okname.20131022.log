@@ -1,0 +1,1424 @@
+[2013-10-22 18:11:35.408] # OKNAME v3.70 start!<br>
+[2013-10-22 18:11:35.408] # mode=IPIN_CKEY<br>
+[2013-10-22 18:11:35.408] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:11:35.408] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:11:35.408] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:11:35.408] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:11:35.408] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:11:35.408] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:11:35.408] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:11:35.408] # Generating monthly key..
+[2013-10-22 18:11:35.410] pub1: Agf4scYHNyp3Sf8kewG/cuf1c/t2gw==
+[2013-10-22 18:11:35.410] pri1: ALciIFb1p0C5EpqQ00dBy49fUG2r
+[2013-10-22 18:11:35.410] sig1: d5X2bJ6jGM+CCGbKC/Pv+g==
+[2013-10-22 18:11:35.410] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:11:35.493] retmsg: Agc1KTU7Uy1dcmD1quDlJ/wO5nB6ag==:xu8U00n72NWrDrGmJhT+Hg==:Jwmr1bze330MGJn6B/oIazymiB5s//Hr+TycMVqah9qXxwfWztHDZUgFih030Ty4kXShWiiDoWLQBCtIYw67ppe9UCT/R4M5MZqMjMjfhfCqVl9ZSic=
+[2013-10-22 18:11:35.493] pub3: Agc1KTU7Uy1dcmD1quDlJ/wO5nB6ag==
+[2013-10-22 18:11:35.493] sig3: xu8U00n72NWrDrGmJhT+Hg==
+[2013-10-22 18:11:35.493] pub2pri2sig2: Jwmr1bze330MGJn6B/oIazymiB5s//Hr+TycMVqah9qXxwfWztHDZUgFih030Ty4kXShWiiDoWLQBCtIYw67ppe9UCT/R4M5MZqMjMjfhfCqVl9ZSic=
+[2013-10-22 18:11:35.494] srvSecurekey: BNSIyEMR59vrKuQZb52BqZ+tS8QF
+[2013-10-22 18:11:35.494] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:11:35.494] # ERROR S203: (Client key generation error.)<br>
+[2013-10-22 18:11:35.494] # final ret code=203<br>
+[2013-10-22 18:11:52.968] # OKNAME v3.70 start!<br>
+[2013-10-22 18:11:52.969] # mode=IPIN_CKEY<br>
+[2013-10-22 18:11:52.969] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:11:52.969] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:11:52.969] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:11:52.969] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:11:52.969] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:11:52.969] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:11:52.969] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:11:52.970] # Generating monthly key..
+[2013-10-22 18:11:52.970] pub1: AwJMvsBeUeh+Jf5NZOaYXRveoHy4PQ==
+[2013-10-22 18:11:52.971] pri1: Ak7ILvoM3IqikFW32tSsDTlyZZCU
+[2013-10-22 18:11:52.971] sig1: f8kEDz/ar7pOMSp2dZsDEA==
+[2013-10-22 18:11:52.971] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:11:53.013] retmsg: AwefyrpLpQi/A1IZUoQqy7WTvTY0Ew==:cchngFMziE/N+wLkP8mnfw==:zel48mTAPN/L6VKo/kNQzT6hqkP0CjlyfcP7uU7rd3kAFyKEMq5aglo4GG66X+KQBSp4ybj2AEq2++O8oYM/bxGID9bcYoF448rkxn5ion/rud2kQ7c=
+[2013-10-22 18:11:53.013] pub3: AwefyrpLpQi/A1IZUoQqy7WTvTY0Ew==
+[2013-10-22 18:11:53.013] sig3: cchngFMziE/N+wLkP8mnfw==
+[2013-10-22 18:11:53.013] pub2pri2sig2: zel48mTAPN/L6VKo/kNQzT6hqkP0CjlyfcP7uU7rd3kAFyKEMq5aglo4GG66X+KQBSp4ybj2AEq2++O8oYM/bxGID9bcYoF448rkxn5ion/rud2kQ7c=
+[2013-10-22 18:11:53.014] srvSecurekey: BcjrMAvqqV3/8jFPYBLjXlBfuV1E
+[2013-10-22 18:11:53.014] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:11:53.014] # ERROR S203: (Client key generation error.)<br>
+[2013-10-22 18:11:53.014] # final ret code=203<br>
+[2013-10-22 18:11:55.998] # OKNAME v3.70 start!<br>
+[2013-10-22 18:11:55.998] # mode=IPIN_CKEY<br>
+[2013-10-22 18:11:55.998] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:11:55.998] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:11:55.998] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:11:55.998] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:11:55.998] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:11:55.998] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:11:55.999] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:11:55.999] # Generating monthly key..
+[2013-10-22 18:11:56.000] pub1: AwYHbRiecf4gjPUOxGGDnAeSiSA74g==
+[2013-10-22 18:11:56.000] pri1: ApPXKRnh0iPmb16NpfweaUP2EATm
+[2013-10-22 18:11:56.000] sig1: MsMnRQ980jSufRiCBgeqIQ==
+[2013-10-22 18:11:56.000] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:11:56.039] retmsg: AwTYEajXjg73D1YsS5srheHITbAg9g==:hTY6wP2g6fSkRWrooqBkeA==:/GrXgT38qN60cx6D1Sxm11c3dD1MwBWBfmRHRLrFDAhqI6PU3SQFc5iIg/pg1momuKI7VTYne6Nd5iIa7r0Fkl6nxUWV5o5/ZbPBLKwjZfjEM4rjHJQ=
+[2013-10-22 18:11:56.039] pub3: AwTYEajXjg73D1YsS5srheHITbAg9g==
+[2013-10-22 18:11:56.039] sig3: hTY6wP2g6fSkRWrooqBkeA==
+[2013-10-22 18:11:56.039] pub2pri2sig2: /GrXgT38qN60cx6D1Sxm11c3dD1MwBWBfmRHRLrFDAhqI6PU3SQFc5iIg/pg1momuKI7VTYne6Nd5iIa7r0Fkl6nxUWV5o5/ZbPBLKwjZfjEM4rjHJQ=
+[2013-10-22 18:11:56.040] srvSecurekey: B7IcryMmySZLaOcLzjJo5IEegCKY
+[2013-10-22 18:11:56.040] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:11:56.040] # ERROR S203: (Client key generation error.)<br>
+[2013-10-22 18:11:56.040] # final ret code=203<br>
+[2013-10-22 18:11:58.831] # OKNAME v3.70 start!<br>
+[2013-10-22 18:11:58.831] # mode=IPIN_CKEY<br>
+[2013-10-22 18:11:58.831] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:11:58.831] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:11:58.831] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:11:58.831] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:11:58.831] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:11:58.832] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:11:58.832] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:11:58.832] # Generating monthly key..
+[2013-10-22 18:11:58.833] pub1: AwA3VgzNTa0jgxOOIURsa1StXSiw1w==
+[2013-10-22 18:11:58.833] pri1: AnYanJENcrtSnWHcVD8Yg+8aytAX
+[2013-10-22 18:11:58.833] sig1: Efv/T82ggDUpkCEojqQYtg==
+[2013-10-22 18:11:58.833] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:11:58.874] retmsg: AgXyf2krBLGZEHP8B7ftUV8APyZONw==:Q5pso+wO2jwQzBAv8WVMmw==:b87tI877IDj/r1+oLeIY3Kcl5QJwSbZri7AmHnB7n8+oLLmhFPZynVTX+2TkhMNHTKcNkcI/BSTD2U2TVra20CJNM5skFOIRSBBsMrspwpebnZdryt0=
+[2013-10-22 18:11:58.874] pub3: AgXyf2krBLGZEHP8B7ftUV8APyZONw==
+[2013-10-22 18:11:58.874] sig3: Q5pso+wO2jwQzBAv8WVMmw==
+[2013-10-22 18:11:58.875] pub2pri2sig2: b87tI877IDj/r1+oLeIY3Kcl5QJwSbZri7AmHnB7n8+oLLmhFPZynVTX+2TkhMNHTKcNkcI/BSTD2U2TVra20CJNM5skFOIRSBBsMrspwpebnZdryt0=
+[2013-10-22 18:11:58.876] srvSecurekey: BcO5Qck0C9EnyVD29pfDsP1wrc6f
+[2013-10-22 18:11:58.876] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:11:58.876] # ERROR S203: (Client key generation error.)<br>
+[2013-10-22 18:11:58.876] # final ret code=203<br>
+[2013-10-22 18:13:15.673] # OKNAME v3.70 start!<br>
+[2013-10-22 18:13:15.673] # mode=IPIN_CKEY<br>
+[2013-10-22 18:13:15.673] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:13:15.673] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:13:15.673] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:13:15.673] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:13:15.673] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:13:15.673] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:13:15.673] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:13:15.674] # Generating monthly key..
+[2013-10-22 18:13:15.674] pub1: AweCHgAZ5lS3Eyq25kXR2JvC+4pK0g==
+[2013-10-22 18:13:15.675] pri1: Awe9YkHGX3rZOwpiCbmmnjAhoCR+
+[2013-10-22 18:13:15.675] sig1: WJB34jJv7LNwj0upPtod8Q==
+[2013-10-22 18:13:15.675] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:13:15.716] retmsg: AwZfgbZ0OJym7OQ685lKXTvBhT6BMQ==:/03eBYRLRZciFulp95660A==:dfWR0owYsvc863mSeVng2s3sXm5jNWFWmAvboC2PgIiBIoW2VtzD+zyotiYNQHERL1piwmCG69Gsj+DSqRTqo1txZLiWr80llX8Mu7KTJNEOddU0uwU=
+[2013-10-22 18:13:15.717] pub3: AwZfgbZ0OJym7OQ685lKXTvBhT6BMQ==
+[2013-10-22 18:13:15.717] sig3: /03eBYRLRZciFulp95660A==
+[2013-10-22 18:13:15.717] pub2pri2sig2: dfWR0owYsvc863mSeVng2s3sXm5jNWFWmAvboC2PgIiBIoW2VtzD+zyotiYNQHERL1piwmCG69Gsj+DSqRTqo1txZLiWr80llX8Mu7KTJNEOddU0uwU=
+[2013-10-22 18:13:15.718] srvSecurekey: B/jJ3oMPFblLFNemWrsk3PUQCi81
+[2013-10-22 18:13:15.718] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:13:15.718] # ERROR S203: (Client key generation error.)<br>
+[2013-10-22 18:13:15.718] # final ret code=203<br>
+[2013-10-22 18:16:09.052] # OKNAME v3.70 start!<br>
+[2013-10-22 18:16:09.053] # mode=IPIN_CKEY<br>
+[2013-10-22 18:16:09.053] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:16:09.053] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:16:09.053] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:16:09.053] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:16:09.053] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 18:16:09.053] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:16:09.053] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:16:09.053] # Generating monthly key..
+[2013-10-22 18:16:09.054] pub1: AgVg8MsKSfH2c7EM0ayaeyrYP8eHAQ==
+[2013-10-22 18:16:09.054] pri1: Ay1BoPub526KZLQ40khuWcFZ8YCj
+[2013-10-22 18:16:09.054] sig1: HqYTL8q/xzVueYughuAtgA==
+[2013-10-22 18:16:09.054] # soap_timeout: 30000 ms<br>
+[2013-10-22 18:16:09.090] retmsg: AgUtiOcnOxMnvXSOKakHIOJ/lpmPwg==:Bky18XuxZHAzIkFt3oYYBw==:znJ0Zvk06mPAEq7VaLrU0x7C1tx+hWXMM9eRjzsCNeMuk011EGq4UqcHD2QMi++9Tjv/GI4Er9zApeIgoSDWY7F0r+GJYAzOephVmQ8sv+soe+Ma4AM=
+[2013-10-22 18:16:09.090] pub3: AgUtiOcnOxMnvXSOKakHIOJ/lpmPwg==
+[2013-10-22 18:16:09.090] sig3: Bky18XuxZHAzIkFt3oYYBw==
+[2013-10-22 18:16:09.090] pub2pri2sig2: znJ0Zvk06mPAEq7VaLrU0x7C1tx+hWXMM9eRjzsCNeMuk011EGq4UqcHD2QMi++9Tjv/GI4Er9zApeIgoSDWY7F0r+GJYAzOephVmQ8sv+soe+Ma4AM=
+[2013-10-22 18:16:09.091] srvSecurekey: BF1wozJvktEuW3rwkoyOwTz797M2
+[2013-10-22 18:16:09.091] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:16:09.092] # Current month<br>
+[2013-10-22 18:16:09.092] # public_key   : AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==<br>
+[2013-10-22 18:16:09.092] # private_key  : APUzy7lF3gq9CGCjscRgr2OeEHiW<br>
+[2013-10-22 18:16:09.092] # signature    : vMbA282Uhj5mg2opYURaRQ==<br>
+[2013-10-22 18:16:09.092] # Last month<br>
+[2013-10-22 18:16:09.092] # public_key1  : <br>
+[2013-10-22 18:16:09.092] # private_key1 : <br>
+[2013-10-22 18:16:09.092] # signature1   : <br>
+[2013-10-22 18:16:09.092] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 18:16:09.092] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:16:09.092] 20131022181609092121
+[2013-10-22 18:16:09.092] # final ret code=0<br>
+[2013-10-22 18:17:05.608] # OKNAME v3.70 start!<br>
+[2013-10-22 18:17:05.608] # mode=IPIN_CKEY<br>
+[2013-10-22 18:17:05.608] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:17:05.608] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 18:17:05.608] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:17:05.608] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:17:05.608] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 18:17:05.609] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:17:05.609] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:17:05.609] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 18:17:05.609] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:17:05.609] 20131022181705609299
+[2013-10-22 18:17:05.609] # final ret code=0<br>
+[2013-10-22 18:18:09.901] # OKNAME v3.70 start!<br>
+[2013-10-22 18:18:09.901] # mode=IPIN_CKEY<br>
+[2013-10-22 18:18:09.901] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:18:09.901] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 18:18:09.901] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:18:09.901] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:18:09.901] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 18:18:09.901] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:18:09.901] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:18:09.901] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 18:18:09.901] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:18:09.901] 20131022181809901060
+[2013-10-22 18:18:09.901] # final ret code=0<br>
+[2013-10-22 18:18:42.911] # OKNAME v3.70 start!<br>
+[2013-10-22 18:18:42.911] # mode=IPIN_CKEY<br>
+[2013-10-22 18:18:42.911] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:18:42.911] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 18:18:42.911] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:18:42.911] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:18:42.911] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 18:18:42.911] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:18:42.911] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:18:42.911] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 18:18:42.911] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:18:42.911] 20131022181842911010
+[2013-10-22 18:18:42.912] # final ret code=0<br>
+[2013-10-22 18:19:20.843] # OKNAME v3.70 start!<br>
+[2013-10-22 18:19:20.843] # mode=IPIN_CKEY<br>
+[2013-10-22 18:19:20.844] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 18:19:20.844] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 18:19:20.844] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 18:19:20.844] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 18:19:20.844] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 18:19:20.844] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 18:19:20.844] # argv[ 7](Option     )=CL<br>
+[2013-10-22 18:19:20.844] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 18:19:20.844] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 18:19:20.844] 20131022181920844376
+[2013-10-22 18:19:20.844] # final ret code=0<br>
+[2013-10-22 19:38:38.365] # OKNAME v3.70 start!<br>
+[2013-10-22 19:38:38.390] # mode=IPIN_CKEY<br>
+[2013-10-22 19:38:38.391] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:38:38.391] # argv[ 2](memid      )=P00000000000<br>
+[2013-10-22 19:38:38.391] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:38:38.391] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:38:38.391] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 19:38:38.391] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:38:38.391] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:38:38.391] # Generating monthly key..
+[2013-10-22 19:38:38.392] pub1: Awc6FbLeu82f6gBqFe+IcIgXIppWnw==
+[2013-10-22 19:38:38.392] pri1: An/r1bP3cXCXD3ZrTGIxVDtNCR/r
+[2013-10-22 19:38:38.392] sig1: zz7bcORzFOZFIngtIENhIA==
+[2013-10-22 19:38:38.393] # soap_timeout: 30000 ms<br>
+[2013-10-22 19:38:38.471] retmsg: AwFGmuHHtWw33uexU92s7FWLY6YGhQ==:qgVXQxlJ64pI9cMX55MwwQ==:iM0WUrj0UU5yxnS6KR3lGMgtLbB2dDrA8UvJ6KC03wkxq57uWgCSmtaBBuRtl2lTFPMQgOk5ssYT4cC5JwcC187enlyVK0kJju25tJSZbMSSIqSYIyM=
+[2013-10-22 19:38:38.471] pub3: AwFGmuHHtWw33uexU92s7FWLY6YGhQ==
+[2013-10-22 19:38:38.471] sig3: qgVXQxlJ64pI9cMX55MwwQ==
+[2013-10-22 19:38:38.472] pub2pri2sig2: iM0WUrj0UU5yxnS6KR3lGMgtLbB2dDrA8UvJ6KC03wkxq57uWgCSmtaBBuRtl2lTFPMQgOk5ssYT4cC5JwcC187enlyVK0kJju25tJSZbMSSIqSYIyM=
+[2013-10-22 19:38:38.473] srvSecurekey: Bno4ghwW5ByGyCY8e28cs+26Gni/
+[2013-10-22 19:38:38.473] decData: AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==:APUzy7lF3gq9CGCjscRgr2OeEHiW:vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:38:38.473] # Current month<br>
+[2013-10-22 19:38:38.473] # public_key   : AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==<br>
+[2013-10-22 19:38:38.473] # private_key  : APUzy7lF3gq9CGCjscRgr2OeEHiW<br>
+[2013-10-22 19:38:38.473] # signature    : vMbA282Uhj5mg2opYURaRQ==<br>
+[2013-10-22 19:38:38.473] # Last month<br>
+[2013-10-22 19:38:38.473] # public_key1  : <br>
+[2013-10-22 19:38:38.473] # private_key1 : <br>
+[2013-10-22 19:38:38.474] # signature1   : <br>
+[2013-10-22 19:38:38.474] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:38:38.474] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:38:38.474] 20131022193838474321
+[2013-10-22 19:38:38.474] # final ret code=0<br>
+[2013-10-22 19:39:50.077] # OKNAME v3.70 start!<br>
+[2013-10-22 19:39:50.078] # mode=IPIN_CKEY<br>
+[2013-10-22 19:39:50.078] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:39:50.078] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:39:50.078] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:39:50.078] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:39:50.078] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:39:50.078] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:39:50.078] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:39:50.078] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:39:50.078] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:39:50.078] 20131022193950078690
+[2013-10-22 19:39:50.078] # final ret code=0<br>
+[2013-10-22 19:40:40.607] # OKNAME v3.70 start!<br>
+[2013-10-22 19:40:40.607] # mode=IPIN_CKEY<br>
+[2013-10-22 19:40:40.607] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:40:40.607] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:40:40.607] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:40:40.607] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:40:40.607] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:40:40.607] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:40:40.607] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:40:40.607] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:40:40.607] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:40:40.607] 20131022194040607504
+[2013-10-22 19:40:40.607] # final ret code=0<br>
+[2013-10-22 19:40:45.891] # OKNAME v3.70 start!<br>
+[2013-10-22 19:40:45.891] # mode=IPIN_CKEY<br>
+[2013-10-22 19:40:45.891] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:40:45.891] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:40:45.891] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:40:45.891] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:40:45.891] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:40:45.891] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:40:45.891] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:40:45.892] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:40:45.892] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:40:45.892] 20131022194045891029
+[2013-10-22 19:40:45.892] # final ret code=0<br>
+[2013-10-22 19:43:43.915] # OKNAME v3.70 start!<br>
+[2013-10-22 19:43:43.915] # mode=IPIN_CKEY<br>
+[2013-10-22 19:43:43.915] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:43:43.915] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:43:43.915] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:43:43.915] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:43:43.915] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:43:43.915] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:43:43.915] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:43:43.916] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:43:43.916] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:43:43.916] 20131022194343916317
+[2013-10-22 19:43:43.916] # final ret code=0<br>
+[2013-10-22 19:46:17.182] # OKNAME v3.70 start!<br>
+[2013-10-22 19:46:17.183] # mode=IPIN_CKEY<br>
+[2013-10-22 19:46:17.183] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:46:17.183] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:46:17.183] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:46:17.183] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:46:17.183] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:46:17.183] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:46:17.183] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:46:17.183] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:46:17.183] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:46:17.183] 20131022194617183094
+[2013-10-22 19:46:17.183] # final ret code=0<br>
+[2013-10-22 19:51:52.880] # OKNAME v3.70 start!<br>
+[2013-10-22 19:51:52.880] # mode=IPIN_CKEY<br>
+[2013-10-22 19:51:52.880] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:51:52.880] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:51:52.880] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:51:52.880] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:51:52.880] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:51:52.880] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:51:52.880] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:51:52.880] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:51:52.880] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:51:52.880] 20131022195152880405
+[2013-10-22 19:51:52.880] # final ret code=0<br>
+[2013-10-22 19:53:47.454] # OKNAME v3.70 start!<br>
+[2013-10-22 19:53:47.455] # mode=IPIN_CKEY<br>
+[2013-10-22 19:53:47.455] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:53:47.455] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:53:47.455] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:53:47.455] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:53:47.455] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:53:47.455] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:53:47.455] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:53:47.455] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:53:47.455] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:53:47.455] 20131022195347455862
+[2013-10-22 19:53:47.455] # final ret code=0<br>
+[2013-10-22 19:55:43.240] # OKNAME v3.70 start!<br>
+[2013-10-22 19:55:43.240] # mode=IPIN_CKEY<br>
+[2013-10-22 19:55:43.241] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:55:43.241] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:55:43.241] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:55:43.241] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:55:43.241] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:55:43.241] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:55:43.241] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:55:43.241] AgKgh8+fc6sQk5lGEtoamBOpCqmQdA==
+[2013-10-22 19:55:43.241] vMbA282Uhj5mg2opYURaRQ==
+[2013-10-22 19:55:43.241] 20131022195543241288
+[2013-10-22 19:55:43.241] # final ret code=0<br>
+[2013-10-22 19:55:54.436] # OKNAME v3.70 start!<br>
+[2013-10-22 19:55:54.436] # mode=IPIN_CKDEC<br>
+[2013-10-22 19:55:54.437] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:55:54.437] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:55:54.437] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:55:54.437] # argv[ 4](cPubKey     )=AgS0Nbshi6PeYjx3Smi7a8rZ9D9zmQ==<br>
+[2013-10-22 19:55:54.437] # argv[ 5](cSig )=sUuHyBEwKifuqYe1oAiLhg==<br>
+[2013-10-22 19:55:54.437] # argv[ 6](EncData  )=pWgmdv9WzKpoTLRAN1QQ7DakSLKPKYl5mvCfPKlmTX3ERa43pN21Z87f2CammlkLb2jIEC2n5MXER75mhuNsGTBZM+ai8ASxr5f1nrEO9Y8DPFTAE0+wIV5hYF3kk/qSxkN07bGviLqRNQTbUlMMpNFnzliLc0802DzFsVMbDp/GjZZOTUCCltvHTLF/2B4Jy59H/US6B3qoisIUEP9Jj9GR1Vdmy9pTtoiQ2vU6JG0YizRZBk0uPM5PeHzOHNDS8mW8v+5kVIGBFJHK9T5YWepGQ7DrDgSDSCUCUQRj/eNCNxKr3eMyzg==<br>
+[2013-10-22 19:55:54.437] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:55:54.437] # argv[ 8](Option     )=SL<br>
+[2013-10-22 19:55:54.438] # clnPublicKey : AgS0Nbshi6PeYjx3Smi7a8rZ9D9zmQ==<br>
+[2013-10-22 19:55:54.438] # clnSignature : sUuHyBEwKifuqYe1oAiLhg==<br>
+[2013-10-22 19:55:54.438] # srvPrivateKey: APUzy7lF3gq9CGCjscRgr2OeEHiW<br>
+[2013-10-22 19:55:54.438] # srvSecurekey : Apz37nQNVV7XlARjAAo6HdzQhXc/<br>
+[2013-10-22 19:55:54.438] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195543241288|7|1|0|19821203|2<br>
+[2013-10-22 19:55:54.438] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 19:55:54.438] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 19:55:54.439] NULL
+[2013-10-22 19:55:54.439] 1
+[2013-10-22 19:55:54.439] 6316669587913
+[2013-10-22 19:55:54.439] V05280000000
+[2013-10-22 19:55:54.439] 강진우
+[2013-10-22 19:55:54.439] 20131022195543241288
+[2013-10-22 19:55:54.439] 7
+[2013-10-22 19:55:54.439] 1
+[2013-10-22 19:55:54.439] 0
+[2013-10-22 19:55:54.439] 19821203
+[2013-10-22 19:55:54.439] 2
+[2013-10-22 19:55:54.439] # final ret code=0<br>
+[2013-10-22 19:58:01.060] # OKNAME v3.70 start!<br>
+[2013-10-22 19:58:01.060] # mode=IPIN_CKEY<br>
+[2013-10-22 19:58:01.060] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:58:01.061] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:58:01.061] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 19:58:01.061] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 19:58:01.061] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:58:01.061] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:58:01.061] # argv[ 7](Option     )=CL<br>
+[2013-10-22 19:58:01.061] # Generating monthly key..
+[2013-10-22 19:58:01.062] pub1: AgcBlG/DiEeqhH36h60k6bAQCUpigg==
+[2013-10-22 19:58:01.062] pri1: AVQsj53Y5Q3ph7UM6URQheScRUgZ
+[2013-10-22 19:58:01.062] sig1: JfQ5QKElMU/3Yf0jHYh1sw==
+[2013-10-22 19:58:01.062] # soap_timeout: 30000 ms<br>
+[2013-10-22 19:58:01.109] retmsg: AgEpL5mqyanXX4at0NR9rDmXPYymMg==:SIESeBwGfjgAiuhCPSdWFQ==:oCFxjnyFzTfk3PhBBrZY3OoazI33tmCU3C5XJnlE6Izsj1d9KCwhGGQpSf/HEFln6oPhDLx2JOa/TWqlHzNy9Ecsxy9cz0Pu2e77lsLkNXsnIMfWVcw=
+[2013-10-22 19:58:01.109] pub3: AgEpL5mqyanXX4at0NR9rDmXPYymMg==
+[2013-10-22 19:58:01.109] sig3: SIESeBwGfjgAiuhCPSdWFQ==
+[2013-10-22 19:58:01.109] pub2pri2sig2: oCFxjnyFzTfk3PhBBrZY3OoazI33tmCU3C5XJnlE6Izsj1d9KCwhGGQpSf/HEFln6oPhDLx2JOa/TWqlHzNy9Ecsxy9cz0Pu2e77lsLkNXsnIMfWVcw=
+[2013-10-22 19:58:01.110] srvSecurekey: BrTxEeOBB8CWFm9iXw0UFqaS/7RU
+[2013-10-22 19:58:01.110] decData: AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==:A4e7SKz2uVhKE+zZ2wANWtaypaR8:nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 19:58:01.111] # Current month<br>
+[2013-10-22 19:58:01.111] # public_key   : AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==<br>
+[2013-10-22 19:58:01.111] # private_key  : A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 19:58:01.111] # signature    : nqm7DwLUrKOth+Y9x87lTQ==<br>
+[2013-10-22 19:58:01.111] # Last month<br>
+[2013-10-22 19:58:01.111] # public_key1  : <br>
+[2013-10-22 19:58:01.111] # private_key1 : <br>
+[2013-10-22 19:58:01.111] # signature1   : <br>
+[2013-10-22 19:58:01.111] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 19:58:01.111] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 19:58:01.111] 20131022195801111153
+[2013-10-22 19:58:01.111] # final ret code=0<br>
+[2013-10-22 19:58:21.697] # OKNAME v3.70 start!<br>
+[2013-10-22 19:58:21.697] # mode=IPIN_CKDEC<br>
+[2013-10-22 19:58:21.697] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 19:58:21.697] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 19:58:21.697] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 19:58:21.697] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 19:58:21.697] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 19:58:21.697] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 19:58:21.697] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 19:58:21.697] # argv[ 8](Option     )=SL<br>
+[2013-10-22 19:58:21.699] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 19:58:21.699] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 19:58:21.699] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 19:58:21.699] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 19:58:21.699] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 19:58:21.699] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 19:58:21.699] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 19:58:21.699] NULL
+[2013-10-22 19:58:21.699] 1
+[2013-10-22 19:58:21.699] 6316669587913
+[2013-10-22 19:58:21.699] V05280000000
+[2013-10-22 19:58:21.699] 강진우
+[2013-10-22 19:58:21.699] 20131022195801111153
+[2013-10-22 19:58:21.699] 7
+[2013-10-22 19:58:21.699] 1
+[2013-10-22 19:58:21.699] 0
+[2013-10-22 19:58:21.699] 19821203
+[2013-10-22 19:58:21.699] 2
+[2013-10-22 19:58:21.699] # final ret code=0<br>
+[2013-10-22 20:00:10.220] # OKNAME v3.70 start!<br>
+[2013-10-22 20:00:10.220] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:00:10.220] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:00:10.220] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:00:10.220] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:00:10.220] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:00:10.220] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:00:10.220] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:00:10.220] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:00:10.220] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:00:10.221] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:00:10.222] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:00:10.222] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:00:10.222] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:00:10.222] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:00:10.222] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:00:10.222] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:00:10.222] NULL
+[2013-10-22 20:00:10.222] 1
+[2013-10-22 20:00:10.222] 6316669587913
+[2013-10-22 20:00:10.222] V05280000000
+[2013-10-22 20:00:10.222] 강진우
+[2013-10-22 20:00:10.222] 20131022195801111153
+[2013-10-22 20:00:10.222] 7
+[2013-10-22 20:00:10.222] 1
+[2013-10-22 20:00:10.222] 0
+[2013-10-22 20:00:10.222] 19821203
+[2013-10-22 20:00:10.222] 2
+[2013-10-22 20:00:10.222] # final ret code=0<br>
+[2013-10-22 20:02:14.081] # OKNAME v3.70 start!<br>
+[2013-10-22 20:02:14.095] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:02:14.095] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:02:14.095] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:02:14.095] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:02:14.095] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:02:14.095] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:02:14.095] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:02:14.095] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:02:14.095] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:02:14.178] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:02:14.178] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:02:14.178] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:02:14.178] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:02:14.178] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:02:14.178] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:02:14.178] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:02:14.178] NULL
+[2013-10-22 20:02:14.178] 1
+[2013-10-22 20:02:14.178] 6316669587913
+[2013-10-22 20:02:14.178] V05280000000
+[2013-10-22 20:02:14.178] 강진우
+[2013-10-22 20:02:14.178] 20131022195801111153
+[2013-10-22 20:02:14.178] 7
+[2013-10-22 20:02:14.178] 1
+[2013-10-22 20:02:14.178] 0
+[2013-10-22 20:02:14.178] 19821203
+[2013-10-22 20:02:14.178] 2
+[2013-10-22 20:02:14.178] # final ret code=0<br>
+[2013-10-22 20:02:54.303] # OKNAME v3.70 start!<br>
+[2013-10-22 20:02:54.323] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:02:54.323] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:02:54.323] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:02:54.323] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:02:54.323] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:02:54.323] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:02:54.323] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:02:54.323] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:02:54.324] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:02:54.325] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:02:54.325] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:02:54.325] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:02:54.325] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:02:54.325] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:02:54.325] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:02:54.325] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:02:54.325] NULL
+[2013-10-22 20:02:54.325] 1
+[2013-10-22 20:02:54.325] 6316669587913
+[2013-10-22 20:02:54.325] V05280000000
+[2013-10-22 20:02:54.325] 강진우
+[2013-10-22 20:02:54.325] 20131022195801111153
+[2013-10-22 20:02:54.325] 7
+[2013-10-22 20:02:54.325] 1
+[2013-10-22 20:02:54.325] 0
+[2013-10-22 20:02:54.325] 19821203
+[2013-10-22 20:02:54.326] 2
+[2013-10-22 20:02:54.326] # final ret code=0<br>
+[2013-10-22 20:03:31.035] # OKNAME v3.70 start!<br>
+[2013-10-22 20:03:31.035] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:03:31.035] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:03:31.035] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:03:31.035] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:03:31.036] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:03:31.036] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:03:31.036] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:03:31.036] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:03:31.036] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:03:31.037] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:03:31.037] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:03:31.037] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:03:31.037] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:03:31.037] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:03:31.037] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:03:31.037] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:03:31.037] NULL
+[2013-10-22 20:03:31.037] 1
+[2013-10-22 20:03:31.037] 6316669587913
+[2013-10-22 20:03:31.038] V05280000000
+[2013-10-22 20:03:31.038] 강진우
+[2013-10-22 20:03:31.038] 20131022195801111153
+[2013-10-22 20:03:31.038] 7
+[2013-10-22 20:03:31.038] 1
+[2013-10-22 20:03:31.038] 0
+[2013-10-22 20:03:31.038] 19821203
+[2013-10-22 20:03:31.038] 2
+[2013-10-22 20:03:31.038] # final ret code=0<br>
+[2013-10-22 20:03:59.099] # OKNAME v3.70 start!<br>
+[2013-10-22 20:03:59.099] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:03:59.099] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:03:59.099] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:03:59.099] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:03:59.100] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:03:59.100] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:03:59.100] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:03:59.100] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:03:59.100] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:03:59.101] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:03:59.101] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:03:59.101] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:03:59.101] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:03:59.101] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:03:59.101] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:03:59.101] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:03:59.101] NULL
+[2013-10-22 20:03:59.101] 1
+[2013-10-22 20:03:59.101] 6316669587913
+[2013-10-22 20:03:59.101] V05280000000
+[2013-10-22 20:03:59.101] 강진우
+[2013-10-22 20:03:59.101] 20131022195801111153
+[2013-10-22 20:03:59.101] 7
+[2013-10-22 20:03:59.102] 1
+[2013-10-22 20:03:59.102] 0
+[2013-10-22 20:03:59.102] 19821203
+[2013-10-22 20:03:59.102] 2
+[2013-10-22 20:03:59.102] # final ret code=0<br>
+[2013-10-22 20:04:22.879] # OKNAME v3.70 start!<br>
+[2013-10-22 20:04:22.879] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:04:22.879] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:04:22.879] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:04:22.879] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:04:22.879] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:04:22.879] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:04:22.879] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:04:22.880] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:04:22.880] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:04:22.881] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:04:22.881] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:04:22.881] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:04:22.881] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:04:22.881] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:04:22.881] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:04:22.881] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:04:22.881] NULL
+[2013-10-22 20:04:22.881] 1
+[2013-10-22 20:04:22.881] 6316669587913
+[2013-10-22 20:04:22.881] V05280000000
+[2013-10-22 20:04:22.881] 강진우
+[2013-10-22 20:04:22.881] 20131022195801111153
+[2013-10-22 20:04:22.881] 7
+[2013-10-22 20:04:22.881] 1
+[2013-10-22 20:04:22.881] 0
+[2013-10-22 20:04:22.881] 19821203
+[2013-10-22 20:04:22.882] 2
+[2013-10-22 20:04:22.882] # final ret code=0<br>
+[2013-10-22 20:04:28.765] # OKNAME v3.70 start!<br>
+[2013-10-22 20:04:28.765] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:04:28.765] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:04:28.765] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:04:28.765] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:04:28.765] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:04:28.765] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:04:28.765] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:04:28.765] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:04:28.765] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:04:28.767] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:04:28.767] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:04:28.767] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:04:28.767] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:04:28.767] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:04:28.767] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:04:28.767] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:04:28.767] NULL
+[2013-10-22 20:04:28.767] 1
+[2013-10-22 20:04:28.767] 6316669587913
+[2013-10-22 20:04:28.767] V05280000000
+[2013-10-22 20:04:28.767] 강진우
+[2013-10-22 20:04:28.767] 20131022195801111153
+[2013-10-22 20:04:28.767] 7
+[2013-10-22 20:04:28.767] 1
+[2013-10-22 20:04:28.767] 0
+[2013-10-22 20:04:28.767] 19821203
+[2013-10-22 20:04:28.767] 2
+[2013-10-22 20:04:28.767] # final ret code=0<br>
+[2013-10-22 20:05:10.274] # OKNAME v3.70 start!<br>
+[2013-10-22 20:05:10.274] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:05:10.274] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:05:10.274] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:05:10.274] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:05:10.274] # argv[ 4](cPubKey     )=AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:05:10.274] # argv[ 5](cSig )=6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:05:10.274] # argv[ 6](EncData  )=m7reKtU4lO9RQT5EBHf8AK1u+kX+Bo0TRqEH3o60TMYvpX2vBL+RWF63Kj+JcaagWD/N0V8HUeEHiaxqXhQsWOyGKOE8OxlpemXlYWSYNnGNUi60FG5pAHIHXOk44ZeIQqbRzgo7y4jzxZEIXQt9VWI/U0x6nEuqI9el+ngi+YDD9fAdn8n5aZQj28XE4npO2ySkua1F56qHua1mWJzpHVYSGhBifCurQHZaXtb7r0AAdxxf8DNhgQ/VCf2JObd7yN7kc/AG4kClILUeamYLukxs5R1xkrOvYWea/ese6SUATwfQa+sUNg==<br>
+[2013-10-22 20:05:10.274] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:05:10.274] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:05:10.275] # clnPublicKey : AgB7EsSfxkyu8p3FEnTknxEUxPy7Kg==<br>
+[2013-10-22 20:05:10.275] # clnSignature : 6ak1TSOkVpASdMwPlDV3Yg==<br>
+[2013-10-22 20:05:10.275] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:05:10.275] # srvSecurekey : APaU+TXBZet2uABBrkitagkBioyT<br>
+[2013-10-22 20:05:10.275] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022195801111153|7|1|0|19821203|2<br>
+[2013-10-22 20:05:10.276] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:05:10.276] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:05:10.276] NULL
+[2013-10-22 20:05:10.276] 1
+[2013-10-22 20:05:10.276] 6316669587913
+[2013-10-22 20:05:10.276] V05280000000
+[2013-10-22 20:05:10.276] 강진우
+[2013-10-22 20:05:10.276] 20131022195801111153
+[2013-10-22 20:05:10.276] 7
+[2013-10-22 20:05:10.276] 1
+[2013-10-22 20:05:10.276] 0
+[2013-10-22 20:05:10.276] 19821203
+[2013-10-22 20:05:10.276] 2
+[2013-10-22 20:05:10.276] # final ret code=0<br>
+[2013-10-22 20:05:23.894] # OKNAME v3.70 start!<br>
+[2013-10-22 20:05:23.894] # mode=IPIN_CKEY<br>
+[2013-10-22 20:05:23.894] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:05:23.894] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:05:23.894] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:05:23.894] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:05:23.894] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:05:23.894] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:05:23.895] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:05:23.895] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:05:23.895] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:05:23.895] 20131022200523895969
+[2013-10-22 20:05:23.895] # final ret code=0<br>
+[2013-10-22 20:05:52.902] # OKNAME v3.70 start!<br>
+[2013-10-22 20:05:52.902] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:05:52.902] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:05:52.902] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:05:52.902] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:05:52.902] # argv[ 4](cPubKey     )=AwJ1UH2BG2Jt2O2deNVToU1rlxAIqA==<br>
+[2013-10-22 20:05:52.903] # argv[ 5](cSig )=frVlywZIQQWNUSb/b2o/cw==<br>
+[2013-10-22 20:05:52.903] # argv[ 6](EncData  )=YTfcLj6AYTNUDxBxTqLhl7JYM5cXJv9c2OAaJOg8bO+u2VNgwz8IKdaK50akrTAoAJcfZWmShLMLCRe8RfP5cQ/f++H4yRedEnvHO0xl4+ItNKcU1h16eyTv27cs32g26YdQqoLI8y3QCYuNharE0OJqQwKrTIJ8wzKvOPYEdOdSt/H3LqQz/1OR1CrBW4jq5jIzyxe7x6d6oghCZsQMh/UfvzBH4LEfW4eQwYouIdhvcQQ0IeDosZyL1bD1k1IhZISW8PQTifX+B3h2i+0Y67tbTo9UnN6OBBL3aLsOTN0KCGgxwastKA==<br>
+[2013-10-22 20:05:52.903] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:05:52.903] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:05:52.904] # clnPublicKey : AwJ1UH2BG2Jt2O2deNVToU1rlxAIqA==<br>
+[2013-10-22 20:05:52.904] # clnSignature : frVlywZIQQWNUSb/b2o/cw==<br>
+[2013-10-22 20:05:52.904] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:05:52.904] # srvSecurekey : BUenCWPm+gFxRr4wJ3tj1qxpIn8p<br>
+[2013-10-22 20:05:52.904] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022200523895969|7|1|0|19821203|2<br>
+[2013-10-22 20:05:52.904] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:05:52.904] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:05:52.904] NULL
+[2013-10-22 20:05:52.904] 1
+[2013-10-22 20:05:52.904] 6316669587913
+[2013-10-22 20:05:52.904] V05280000000
+[2013-10-22 20:05:52.904] 강진우
+[2013-10-22 20:05:52.905] 20131022200523895969
+[2013-10-22 20:05:52.905] 7
+[2013-10-22 20:05:52.905] 1
+[2013-10-22 20:05:52.905] 0
+[2013-10-22 20:05:52.905] 19821203
+[2013-10-22 20:05:52.905] 2
+[2013-10-22 20:05:52.905] # final ret code=0<br>
+[2013-10-22 20:08:02.288] # OKNAME v3.70 start!<br>
+[2013-10-22 20:08:02.288] # mode=IPIN_CKEY<br>
+[2013-10-22 20:08:02.288] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:08:02.288] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:08:02.288] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:08:02.288] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:08:02.288] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:08:02.288] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:08:02.288] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:08:02.289] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:08:02.289] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:08:02.289] 20131022200802289528
+[2013-10-22 20:08:02.289] # final ret code=0<br>
+[2013-10-22 20:08:14.521] # OKNAME v3.70 start!<br>
+[2013-10-22 20:08:14.522] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:08:14.522] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:08:14.522] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:08:14.522] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:08:14.522] # argv[ 4](cPubKey     )=AwSOq5Dhj7eyIXgvprHNu8NoG66Dpg==<br>
+[2013-10-22 20:08:14.522] # argv[ 5](cSig )=I8RWVrlDobZXlU/UwPOfTQ==<br>
+[2013-10-22 20:08:14.522] # argv[ 6](EncData  )=ZhvbgRbbIcmwwr/NaifEs89+jiFz7LT6K8pfkSfbJKwRfDWr3EYoMMHe6nTAvA0Ik2Cl1IqeIIjpkeTGSy/LhEMmc8tz/0G3kDDy5DgHzBvojvCkvVDkQcCxehO1VpvINCQB/4oflDvAeZeMIXqxB1tXCqPcICUd4n6SXhs2YXe9hpPJmtASbPMKvOMjq/qKqlOgIfsRONuBIvstUduzJ3ThNJs7X+ALR4KS/ed1HKM3bjEipNcy3Q/fSgm+Y8SD0ip+CojfAGOy62D/+w225dDcU0uzn1SbjoyECkuBPkXiIzctUCHfDQ==<br>
+[2013-10-22 20:08:14.522] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:08:14.522] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:08:14.523] # clnPublicKey : AwSOq5Dhj7eyIXgvprHNu8NoG66Dpg==<br>
+[2013-10-22 20:08:14.523] # clnSignature : I8RWVrlDobZXlU/UwPOfTQ==<br>
+[2013-10-22 20:08:14.523] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:08:14.523] # srvSecurekey : AGJTJ8JyhMrO3cQG4DqlrduPhf77<br>
+[2013-10-22 20:08:14.523] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022200802289528|7|1|0|19821203|2<br>
+[2013-10-22 20:08:14.523] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:08:14.524] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:08:14.524] NULL
+[2013-10-22 20:08:14.524] 1
+[2013-10-22 20:08:14.524] 6316669587913
+[2013-10-22 20:08:14.524] V05280000000
+[2013-10-22 20:08:14.524] 강진우
+[2013-10-22 20:08:14.524] 20131022200802289528
+[2013-10-22 20:08:14.524] 7
+[2013-10-22 20:08:14.524] 1
+[2013-10-22 20:08:14.524] 0
+[2013-10-22 20:08:14.524] 19821203
+[2013-10-22 20:08:14.524] 2
+[2013-10-22 20:08:14.524] # final ret code=0<br>
+[2013-10-22 20:10:44.827] # OKNAME v3.70 start!<br>
+[2013-10-22 20:10:44.828] # mode=IPIN_CKEY<br>
+[2013-10-22 20:10:44.828] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:10:44.828] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:10:44.828] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:10:44.828] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:10:44.828] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:10:44.828] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:10:44.828] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:10:44.828] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:10:44.828] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:10:44.828] 20131022201044828212
+[2013-10-22 20:10:44.828] # final ret code=0<br>
+[2013-10-22 20:10:58.201] # OKNAME v3.70 start!<br>
+[2013-10-22 20:10:58.201] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:10:58.201] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:10:58.201] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:10:58.201] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:10:58.201] # argv[ 4](cPubKey     )=AgQTrijQfiknUR+fEtP+K+FjTukdBw==<br>
+[2013-10-22 20:10:58.201] # argv[ 5](cSig )=2jvUAgi13ksaNxYQYBPGKw==<br>
+[2013-10-22 20:10:58.201] # argv[ 6](EncData  )=LbMvCWuBb/VhSnGW/n/B9mh2bwC9xD1xWTANRHNU3J8u0Y1LZdCbhSbP9Dm1GJqCPoKpbtbye/JSX5fnouto6eAHkg/mO1d8pGp/VfkVs5lmwo0+b6LkOZZb4aDomuKxes1LGNnZr+QywYpVuiFcy+fhROXP5WX5k991ds+vZVfQUrtA+4N4dgtVrFsb7H4qWkjNEJklZaABNcwJN9TUvRfARMRcuxVAxYlietWpnBbdjBsMgqHyLDYZaxovn0uSOqLdWhpWo/MAka9K3HPVLz5oGQ3T0my22yK7SewW+sGXP3kwEgo4Ig==<br>
+[2013-10-22 20:10:58.201] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:10:58.201] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:10:58.203] # clnPublicKey : AgQTrijQfiknUR+fEtP+K+FjTukdBw==<br>
+[2013-10-22 20:10:58.203] # clnSignature : 2jvUAgi13ksaNxYQYBPGKw==<br>
+[2013-10-22 20:10:58.203] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:10:58.203] # srvSecurekey : AaLn08pWVlyx7nX632VKXKHfCIvD<br>
+[2013-10-22 20:10:58.203] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201044828212|7|1|0|19821203|2<br>
+[2013-10-22 20:10:58.203] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:10:58.203] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:10:58.203] NULL
+[2013-10-22 20:10:58.203] 1
+[2013-10-22 20:10:58.203] 6316669587913
+[2013-10-22 20:10:58.203] V05280000000
+[2013-10-22 20:10:58.203] 강진우
+[2013-10-22 20:10:58.203] 20131022201044828212
+[2013-10-22 20:10:58.203] 7
+[2013-10-22 20:10:58.203] 1
+[2013-10-22 20:10:58.203] 0
+[2013-10-22 20:10:58.203] 19821203
+[2013-10-22 20:10:58.203] 2
+[2013-10-22 20:10:58.203] # final ret code=0<br>
+[2013-10-22 20:12:54.808] # OKNAME v3.70 start!<br>
+[2013-10-22 20:12:54.808] # mode=IPIN_CKEY<br>
+[2013-10-22 20:12:54.808] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:12:54.808] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:12:54.809] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:12:54.809] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:12:54.809] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:12:54.809] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:12:54.809] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:12:54.809] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:12:54.809] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:12:54.809] 20131022201254809182
+[2013-10-22 20:12:54.809] # final ret code=0<br>
+[2013-10-22 20:13:06.564] # OKNAME v3.70 start!<br>
+[2013-10-22 20:13:06.564] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:13:06.565] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:13:06.565] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:13:06.565] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:13:06.565] # argv[ 4](cPubKey     )=AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:13:06.565] # argv[ 5](cSig )=ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:13:06.565] # argv[ 6](EncData  )=LRa+VJ//VnA5MqpETdXCppNWthxarpMcDFLNgcz8Dggi+rHCVzt/w97VaOz7/LXjbxTbdFa57WEftsczh6wZzhrEAqm7+B0Sh180F2UhM5LDU4A7xMacRxCPd0X3AAuPQLsjQ3KQmWUI8dOMkPpYakQB4JvouSC3IQ5opTb+6sDBs6zKuG0+du3c1DY7SrKl+76Ki7LqTV0ywg6Ao6vMa2zZawxKixdTt1ksyC9WU1EjoDduIOwNl0rka8v3smcTtRH5s06o2gaLlcOc4u2WNp1QHPgobeWekcpv+OG5eD/ttpOX3Xlgnw==<br>
+[2013-10-22 20:13:06.565] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:13:06.565] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:13:06.566] # clnPublicKey : AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:13:06.566] # clnSignature : ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:13:06.566] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:13:06.566] # srvSecurekey : BoML3NNU5RO4cxQKWDYZXgNn6HSe<br>
+[2013-10-22 20:13:06.566] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201254809182|7|1|0|19821203|2<br>
+[2013-10-22 20:13:06.566] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:13:06.566] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:13:06.566] NULL
+[2013-10-22 20:13:06.566] 1
+[2013-10-22 20:13:06.566] 6316669587913
+[2013-10-22 20:13:06.566] V05280000000
+[2013-10-22 20:13:06.567] 강진우
+[2013-10-22 20:13:06.567] 20131022201254809182
+[2013-10-22 20:13:06.567] 7
+[2013-10-22 20:13:06.567] 1
+[2013-10-22 20:13:06.567] 0
+[2013-10-22 20:13:06.567] 19821203
+[2013-10-22 20:13:06.567] 2
+[2013-10-22 20:13:06.567] # final ret code=0<br>
+[2013-10-22 20:13:33.103] # OKNAME v3.70 start!<br>
+[2013-10-22 20:13:33.103] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:13:33.103] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:13:33.103] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:13:33.103] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:13:33.103] # argv[ 4](cPubKey     )=AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:13:33.103] # argv[ 5](cSig )=ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:13:33.103] # argv[ 6](EncData  )=LRa+VJ//VnA5MqpETdXCppNWthxarpMcDFLNgcz8Dggi+rHCVzt/w97VaOz7/LXjbxTbdFa57WEftsczh6wZzhrEAqm7+B0Sh180F2UhM5LDU4A7xMacRxCPd0X3AAuPQLsjQ3KQmWUI8dOMkPpYakQB4JvouSC3IQ5opTb+6sDBs6zKuG0+du3c1DY7SrKl+76Ki7LqTV0ywg6Ao6vMa2zZawxKixdTt1ksyC9WU1EjoDduIOwNl0rka8v3smcTtRH5s06o2gaLlcOc4u2WNp1QHPgobeWekcpv+OG5eD/ttpOX3Xlgnw==<br>
+[2013-10-22 20:13:33.104] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:13:33.104] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:13:33.105] # clnPublicKey : AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:13:33.105] # clnSignature : ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:13:33.105] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:13:33.105] # srvSecurekey : BoML3NNU5RO4cxQKWDYZXgNn6HSe<br>
+[2013-10-22 20:13:33.105] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201254809182|7|1|0|19821203|2<br>
+[2013-10-22 20:13:33.105] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:13:33.105] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:13:33.105] NULL
+[2013-10-22 20:13:33.105] 1
+[2013-10-22 20:13:33.105] 6316669587913
+[2013-10-22 20:13:33.105] V05280000000
+[2013-10-22 20:13:33.105] 강진우
+[2013-10-22 20:13:33.105] 20131022201254809182
+[2013-10-22 20:13:33.105] 7
+[2013-10-22 20:13:33.105] 1
+[2013-10-22 20:13:33.105] 0
+[2013-10-22 20:13:33.105] 19821203
+[2013-10-22 20:13:33.106] 2
+[2013-10-22 20:13:33.106] # final ret code=0<br>
+[2013-10-22 20:14:00.009] # OKNAME v3.70 start!<br>
+[2013-10-22 20:14:00.009] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:14:00.009] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:14:00.009] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:14:00.010] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:14:00.010] # argv[ 4](cPubKey     )=AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:00.010] # argv[ 5](cSig )=ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:00.010] # argv[ 6](EncData  )=LRa+VJ//VnA5MqpETdXCppNWthxarpMcDFLNgcz8Dggi+rHCVzt/w97VaOz7/LXjbxTbdFa57WEftsczh6wZzhrEAqm7+B0Sh180F2UhM5LDU4A7xMacRxCPd0X3AAuPQLsjQ3KQmWUI8dOMkPpYakQB4JvouSC3IQ5opTb+6sDBs6zKuG0+du3c1DY7SrKl+76Ki7LqTV0ywg6Ao6vMa2zZawxKixdTt1ksyC9WU1EjoDduIOwNl0rka8v3smcTtRH5s06o2gaLlcOc4u2WNp1QHPgobeWekcpv+OG5eD/ttpOX3Xlgnw==<br>
+[2013-10-22 20:14:00.010] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:14:00.010] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:14:00.011] # clnPublicKey : AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:00.011] # clnSignature : ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:00.011] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:14:00.011] # srvSecurekey : BoML3NNU5RO4cxQKWDYZXgNn6HSe<br>
+[2013-10-22 20:14:00.011] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201254809182|7|1|0|19821203|2<br>
+[2013-10-22 20:14:00.011] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:14:00.011] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:14:00.011] NULL
+[2013-10-22 20:14:00.011] 1
+[2013-10-22 20:14:00.011] 6316669587913
+[2013-10-22 20:14:00.011] V05280000000
+[2013-10-22 20:14:00.011] 강진우
+[2013-10-22 20:14:00.012] 20131022201254809182
+[2013-10-22 20:14:00.012] 7
+[2013-10-22 20:14:00.012] 1
+[2013-10-22 20:14:00.012] 0
+[2013-10-22 20:14:00.012] 19821203
+[2013-10-22 20:14:00.012] 2
+[2013-10-22 20:14:00.012] # final ret code=0<br>
+[2013-10-22 20:14:06.868] # OKNAME v3.70 start!<br>
+[2013-10-22 20:14:06.869] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:14:06.869] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:14:06.869] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:14:06.869] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:14:06.869] # argv[ 4](cPubKey     )=AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:06.869] # argv[ 5](cSig )=ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:06.869] # argv[ 6](EncData  )=LRa+VJ//VnA5MqpETdXCppNWthxarpMcDFLNgcz8Dggi+rHCVzt/w97VaOz7/LXjbxTbdFa57WEftsczh6wZzhrEAqm7+B0Sh180F2UhM5LDU4A7xMacRxCPd0X3AAuPQLsjQ3KQmWUI8dOMkPpYakQB4JvouSC3IQ5opTb+6sDBs6zKuG0+du3c1DY7SrKl+76Ki7LqTV0ywg6Ao6vMa2zZawxKixdTt1ksyC9WU1EjoDduIOwNl0rka8v3smcTtRH5s06o2gaLlcOc4u2WNp1QHPgobeWekcpv+OG5eD/ttpOX3Xlgnw==<br>
+[2013-10-22 20:14:06.869] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:14:06.869] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:14:06.870] # clnPublicKey : AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:06.870] # clnSignature : ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:06.870] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:14:06.870] # srvSecurekey : BoML3NNU5RO4cxQKWDYZXgNn6HSe<br>
+[2013-10-22 20:14:06.870] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201254809182|7|1|0|19821203|2<br>
+[2013-10-22 20:14:06.870] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:14:06.870] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:14:06.871] NULL
+[2013-10-22 20:14:06.871] 1
+[2013-10-22 20:14:06.871] 6316669587913
+[2013-10-22 20:14:06.871] V05280000000
+[2013-10-22 20:14:06.871] 강진우
+[2013-10-22 20:14:06.871] 20131022201254809182
+[2013-10-22 20:14:06.871] 7
+[2013-10-22 20:14:06.871] 1
+[2013-10-22 20:14:06.871] 0
+[2013-10-22 20:14:06.871] 19821203
+[2013-10-22 20:14:06.871] 2
+[2013-10-22 20:14:06.871] # final ret code=0<br>
+[2013-10-22 20:14:14.801] # OKNAME v3.70 start!<br>
+[2013-10-22 20:14:14.802] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:14:14.802] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:14:14.802] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:14:14.802] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:14:14.802] # argv[ 4](cPubKey     )=AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:14.802] # argv[ 5](cSig )=ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:14.802] # argv[ 6](EncData  )=LRa+VJ//VnA5MqpETdXCppNWthxarpMcDFLNgcz8Dggi+rHCVzt/w97VaOz7/LXjbxTbdFa57WEftsczh6wZzhrEAqm7+B0Sh180F2UhM5LDU4A7xMacRxCPd0X3AAuPQLsjQ3KQmWUI8dOMkPpYakQB4JvouSC3IQ5opTb+6sDBs6zKuG0+du3c1DY7SrKl+76Ki7LqTV0ywg6Ao6vMa2zZawxKixdTt1ksyC9WU1EjoDduIOwNl0rka8v3smcTtRH5s06o2gaLlcOc4u2WNp1QHPgobeWekcpv+OG5eD/ttpOX3Xlgnw==<br>
+[2013-10-22 20:14:14.802] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:14:14.802] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:14:14.803] # clnPublicKey : AwcJT5fX4/7rIz7Eoc798F29mKQLCw==<br>
+[2013-10-22 20:14:14.803] # clnSignature : ZtjwZZQUSo2fUyKDHLB+lw==<br>
+[2013-10-22 20:14:14.803] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:14:14.803] # srvSecurekey : BoML3NNU5RO4cxQKWDYZXgNn6HSe<br>
+[2013-10-22 20:14:14.803] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201254809182|7|1|0|19821203|2<br>
+[2013-10-22 20:14:14.803] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:14:14.803] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:14:14.803] NULL
+[2013-10-22 20:14:14.803] 1
+[2013-10-22 20:14:14.804] 6316669587913
+[2013-10-22 20:14:14.804] V05280000000
+[2013-10-22 20:14:14.804] 강진우
+[2013-10-22 20:14:14.804] 20131022201254809182
+[2013-10-22 20:14:14.804] 7
+[2013-10-22 20:14:14.804] 1
+[2013-10-22 20:14:14.804] 0
+[2013-10-22 20:14:14.804] 19821203
+[2013-10-22 20:14:14.804] 2
+[2013-10-22 20:14:14.804] # final ret code=0<br>
+[2013-10-22 20:18:22.275] # OKNAME v3.70 start!<br>
+[2013-10-22 20:18:22.275] # mode=IPIN_CKEY<br>
+[2013-10-22 20:18:22.275] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:18:22.275] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:18:22.275] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:18:22.275] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:18:22.275] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:18:22.275] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:18:22.275] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:18:22.276] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:18:22.276] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:18:22.276] 20131022201822276587
+[2013-10-22 20:18:22.276] # final ret code=0<br>
+[2013-10-22 20:18:40.252] # OKNAME v3.70 start!<br>
+[2013-10-22 20:18:40.252] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:18:40.252] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:18:40.252] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:18:40.252] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:18:40.252] # argv[ 4](cPubKey     )=AwSkZGLbfxrSure/9u9c23bso17Uqw==<br>
+[2013-10-22 20:18:40.252] # argv[ 5](cSig )=Br0PxjzM09A2SzkJuV5zlA==<br>
+[2013-10-22 20:18:40.252] # argv[ 6](EncData  )=Jd0o4TYuQR9rzAiVQGKbQRLEHn7j0MCBfydJGxCPEBC1qWcw7lXqdrruEJa/ABx5Ei8xTdTHRnhg2K2znr44rn2KGK7VmBhvaFIA9lQ4tkwk7jPrd0rt0tZs9eCXgYGw58jHwPN3Ru2aRy7ofyp3tZAcSMJpPpl/BdVGVDywoTg0WUUBa7KRjOHEWK8DbObCP2lZahDQ/GmXR6y2J9JRG6CfURHh70nWi2inBQReQO1vFsMAAr7Lv83cxOEIFRbmah86KCnKXP0qrjAV00ezcfy3uaMn/vZpsEjiENqCaBDd8/gWYpwkHQ==<br>
+[2013-10-22 20:18:40.252] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:18:40.252] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:18:40.253] # clnPublicKey : AwSkZGLbfxrSure/9u9c23bso17Uqw==<br>
+[2013-10-22 20:18:40.253] # clnSignature : Br0PxjzM09A2SzkJuV5zlA==<br>
+[2013-10-22 20:18:40.254] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:18:40.254] # srvSecurekey : BxPK/N5quPkjxMbhJsHSBjzEkYHE<br>
+[2013-10-22 20:18:40.254] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022201822276587|7|1|0|19821203|2<br>
+[2013-10-22 20:18:40.254] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:18:40.254] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:18:40.254] NULL
+[2013-10-22 20:18:40.254] 1
+[2013-10-22 20:18:40.254] 6316669587913
+[2013-10-22 20:18:40.254] V05280000000
+[2013-10-22 20:18:40.254] 강진우
+[2013-10-22 20:18:40.254] 20131022201822276587
+[2013-10-22 20:18:40.254] 7
+[2013-10-22 20:18:40.254] 1
+[2013-10-22 20:18:40.254] 0
+[2013-10-22 20:18:40.254] 19821203
+[2013-10-22 20:18:40.254] 2
+[2013-10-22 20:18:40.254] # final ret code=0<br>
+[2013-10-22 20:39:22.821] # OKNAME v3.70 start!<br>
+[2013-10-22 20:39:22.851] # mode=IPIN_CKEY<br>
+[2013-10-22 20:39:22.851] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:39:22.851] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:39:22.851] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:39:22.851] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:39:22.851] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2013-10-22 20:39:22.851] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:39:22.851] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:39:22.859] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:39:22.859] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:39:22.859] 20131022203922859646
+[2013-10-22 20:39:22.859] # final ret code=0<br>
+[2013-10-22 20:39:39.935] # OKNAME v3.70 start!<br>
+[2013-10-22 20:39:39.936] # mode=IPIN_CKEY<br>
+[2013-10-22 20:39:39.936] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:39:39.936] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:39:39.936] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:39:39.936] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:39:39.936] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:39:39.936] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:39:39.936] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:39:39.936] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:39:39.936] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:39:39.936] 20131022203939936816
+[2013-10-22 20:39:39.936] # final ret code=0<br>
+[2013-10-22 20:40:05.618] # OKNAME v3.70 start!<br>
+[2013-10-22 20:40:05.618] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:40:05.618] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:40:05.618] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:40:05.618] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:40:05.618] # argv[ 4](cPubKey     )=AgTr1gosMtI617cZZqx9lW2bS8crMg==<br>
+[2013-10-22 20:40:05.618] # argv[ 5](cSig )=CCoiCslOGaHnrPSYD8UPOg==<br>
+[2013-10-22 20:40:05.618] # argv[ 6](EncData  )=Uqt0LkoMs6gIKCMWJL668SHcuqIMqVZoX3IZJXdjVXSeOCjZ0tdp0wzyCVWQC8P2bQe+FfKJZWdRpIEWQSGl3lxn5Gw/12wUBWq2GpjS5AMwNHkjgUazjRWoKGsxEhLD6zKy92oG9NKtuoeqNrLTCgHmg+IK1w8J/IWkASjrFlqiC4IZ5pjDoH+R1AeaUNrY6DmtidMjyiAATGC4jePhX4kOR35Wc6Fc04Pziz0nNsjBO/cUO/5s1GJrFImf+V2RJzgLsiqH+hxB8h+qkKHXIehzJbs5eKmc9UsW0kahzH1evmXED5aTdw==<br>
+[2013-10-22 20:40:05.618] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:40:05.619] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:40:05.633] # clnPublicKey : AgTr1gosMtI617cZZqx9lW2bS8crMg==<br>
+[2013-10-22 20:40:05.633] # clnSignature : CCoiCslOGaHnrPSYD8UPOg==<br>
+[2013-10-22 20:40:05.633] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:40:05.633] # srvSecurekey : A6np0W6BSVxfx8qASHT8RKpW4cVJ<br>
+[2013-10-22 20:40:05.633] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022203939936816|7|1|0|19821203|2<br>
+[2013-10-22 20:40:05.633] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:40:05.633] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:40:05.633] NULL
+[2013-10-22 20:40:05.633] 1
+[2013-10-22 20:40:05.633] 6316669587913
+[2013-10-22 20:40:05.633] V05280000000
+[2013-10-22 20:40:05.633] 강진우
+[2013-10-22 20:40:05.633] 20131022203939936816
+[2013-10-22 20:40:05.633] 7
+[2013-10-22 20:40:05.633] 1
+[2013-10-22 20:40:05.634] 0
+[2013-10-22 20:40:05.634] 19821203
+[2013-10-22 20:40:05.634] 2
+[2013-10-22 20:40:05.634] # final ret code=0<br>
+[2013-10-22 20:40:33.176] # OKNAME v3.70 start!<br>
+[2013-10-22 20:40:33.177] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:40:33.177] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:40:33.177] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:40:33.177] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:40:33.177] # argv[ 4](cPubKey     )=AgTr1gosMtI617cZZqx9lW2bS8crMg==<br>
+[2013-10-22 20:40:33.177] # argv[ 5](cSig )=CCoiCslOGaHnrPSYD8UPOg==<br>
+[2013-10-22 20:40:33.177] # argv[ 6](EncData  )=Uqt0LkoMs6gIKCMWJL668SHcuqIMqVZoX3IZJXdjVXSeOCjZ0tdp0wzyCVWQC8P2bQe+FfKJZWdRpIEWQSGl3lxn5Gw/12wUBWq2GpjS5AMwNHkjgUazjRWoKGsxEhLD6zKy92oG9NKtuoeqNrLTCgHmg+IK1w8J/IWkASjrFlqiC4IZ5pjDoH+R1AeaUNrY6DmtidMjyiAATGC4jePhX4kOR35Wc6Fc04Pziz0nNsjBO/cUO/5s1GJrFImf+V2RJzgLsiqH+hxB8h+qkKHXIehzJbs5eKmc9UsW0kahzH1evmXED5aTdw==<br>
+[2013-10-22 20:40:33.177] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:40:33.177] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:40:33.178] # clnPublicKey : AgTr1gosMtI617cZZqx9lW2bS8crMg==<br>
+[2013-10-22 20:40:33.178] # clnSignature : CCoiCslOGaHnrPSYD8UPOg==<br>
+[2013-10-22 20:40:33.178] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:40:33.178] # srvSecurekey : A6np0W6BSVxfx8qASHT8RKpW4cVJ<br>
+[2013-10-22 20:40:33.178] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022203939936816|7|1|0|19821203|2<br>
+[2013-10-22 20:40:33.179] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:40:33.179] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:40:33.179] NULL
+[2013-10-22 20:40:33.179] 1
+[2013-10-22 20:40:33.179] 6316669587913
+[2013-10-22 20:40:33.179] V05280000000
+[2013-10-22 20:40:33.179] 강진우
+[2013-10-22 20:40:33.179] 20131022203939936816
+[2013-10-22 20:40:33.179] 7
+[2013-10-22 20:40:33.179] 1
+[2013-10-22 20:40:33.179] 0
+[2013-10-22 20:40:33.179] 19821203
+[2013-10-22 20:40:33.179] 2
+[2013-10-22 20:40:33.179] # final ret code=0<br>
+[2013-10-22 20:41:01.406] # OKNAME v3.70 start!<br>
+[2013-10-22 20:41:01.406] # mode=IPIN_CKEY<br>
+[2013-10-22 20:41:01.407] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:41:01.407] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:41:01.407] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:41:01.407] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:41:01.407] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:41:01.407] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:41:01.407] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:41:01.407] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:41:01.407] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:41:01.407] 20131022204101407252
+[2013-10-22 20:41:01.407] # final ret code=0<br>
+[2013-10-22 20:41:12.722] # OKNAME v3.70 start!<br>
+[2013-10-22 20:41:12.722] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:41:12.722] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:41:12.722] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:41:12.722] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:41:12.722] # argv[ 4](cPubKey     )=AgUZqADLiqvraTkegdLdrvijUbNX5g==<br>
+[2013-10-22 20:41:12.722] # argv[ 5](cSig )=vribQQKAFyxvoCnjkKGCPw==<br>
+[2013-10-22 20:41:12.722] # argv[ 6](EncData  )=dpmlhB2TYLi0+BzSfiT3oqQD4tOkNer/Zh0QBiKGPLCFGOWScGKX6xy511Yd62Yo6kAuEbNy2MiFMeD0vSOE9usv1w0vI8tTJI6NCY8ov4FqmzGaRTkJ9qrlbIBzXJkQ04ElqeTT4cNkj7M4IW/79zPudXJ+1P1D4286XFYs+cE/EqFay9MGkQCij6DPKs9JIbdjFYr+YxlRK+q4v9i/wau+IWtVOH5URoL49sknBi5UNTjt10aRKxenVSV66auc8R9z/I/ko4vu86ja/eoa0FpbL9FbT71z7NhVicWGUQX+FMK+Dt7qmA==<br>
+[2013-10-22 20:41:12.722] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:41:12.722] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:41:12.723] # clnPublicKey : AgUZqADLiqvraTkegdLdrvijUbNX5g==<br>
+[2013-10-22 20:41:12.724] # clnSignature : vribQQKAFyxvoCnjkKGCPw==<br>
+[2013-10-22 20:41:12.724] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:41:12.724] # srvSecurekey : B1AEd45PAlo4l/Son39XYmbjp0OA<br>
+[2013-10-22 20:41:12.724] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022204101407252|7|1|0|19821203|2<br>
+[2013-10-22 20:41:12.724] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:41:12.724] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:41:12.724] NULL
+[2013-10-22 20:41:12.724] 1
+[2013-10-22 20:41:12.724] 6316669587913
+[2013-10-22 20:41:12.724] V05280000000
+[2013-10-22 20:41:12.724] 강진우
+[2013-10-22 20:41:12.724] 20131022204101407252
+[2013-10-22 20:41:12.724] 7
+[2013-10-22 20:41:12.724] 1
+[2013-10-22 20:41:12.724] 0
+[2013-10-22 20:41:12.724] 19821203
+[2013-10-22 20:41:12.724] 2
+[2013-10-22 20:41:12.724] # final ret code=0<br>
+[2013-10-22 20:41:45.623] # OKNAME v3.70 start!<br>
+[2013-10-22 20:41:45.623] # mode=IPIN_CKEY<br>
+[2013-10-22 20:41:45.623] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:41:45.624] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:41:45.624] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:41:45.624] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:41:45.624] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:41:45.624] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:41:45.624] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:41:45.624] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:41:45.624] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:41:45.624] 20131022204145624363
+[2013-10-22 20:41:45.624] # final ret code=0<br>
+[2013-10-22 20:41:56.489] # OKNAME v3.70 start!<br>
+[2013-10-22 20:41:56.489] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:41:56.489] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:41:56.489] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:41:56.489] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:41:56.489] # argv[ 4](cPubKey     )=AgOGKy5yZp3BU72tPk73Iehi38KgQg==<br>
+[2013-10-22 20:41:56.489] # argv[ 5](cSig )=PsUvyP6+B48JvQDvIF5VVQ==<br>
+[2013-10-22 20:41:56.489] # argv[ 6](EncData  )=Ak8fcNZ5hbhop8VSVRTMMBgo/plSZyGnN6lLXLY6xjnbHJCrGVb91E3R79SDkJqIKAVTfeQpOqERXci6jkdV22tm/rINhZbtNFsYV/l27GXYUQSdotNBokbBlIJOMHj1mnSL+up0QINbcVynHvCJqYlsWMy8D8hpeY9icF34TQYeCe6/hv9/V40kszpdbk1/fxdIv6R4i18Nr86yYWcpeWBUiJPUOxuPUzhd5dmC4ma2xCoESEXTgTnFXH1HK417BUN15Glk9OsNbN+nNZ6ZCLxga3o99ZQY0v8Cqr4DQ1O2fHxb7FJgTw==<br>
+[2013-10-22 20:41:56.489] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:41:56.489] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:41:56.491] # clnPublicKey : AgOGKy5yZp3BU72tPk73Iehi38KgQg==<br>
+[2013-10-22 20:41:56.491] # clnSignature : PsUvyP6+B48JvQDvIF5VVQ==<br>
+[2013-10-22 20:41:56.491] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:41:56.491] # srvSecurekey : BM69+cvfDF8MKVta0s6HmhzYEDCQ<br>
+[2013-10-22 20:41:56.491] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022204145624363|7|1|0|19821203|2<br>
+[2013-10-22 20:41:56.491] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:41:56.491] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:41:56.491] NULL
+[2013-10-22 20:41:56.491] 1
+[2013-10-22 20:41:56.491] 6316669587913
+[2013-10-22 20:41:56.491] V05280000000
+[2013-10-22 20:41:56.491] 강진우
+[2013-10-22 20:41:56.491] 20131022204145624363
+[2013-10-22 20:41:56.491] 7
+[2013-10-22 20:41:56.491] 1
+[2013-10-22 20:41:56.491] 0
+[2013-10-22 20:41:56.491] 19821203
+[2013-10-22 20:41:56.491] 2
+[2013-10-22 20:41:56.491] # final ret code=0<br>
+[2013-10-22 20:42:11.996] # OKNAME v3.70 start!<br>
+[2013-10-22 20:42:11.996] # mode=IPIN_CKEY<br>
+[2013-10-22 20:42:11.996] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:42:11.996] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:42:11.996] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:42:11.996] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:42:11.996] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:42:11.996] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:42:11.996] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:42:11.996] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:42:11.996] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:42:11.996] 20131022204211996612
+[2013-10-22 20:42:11.997] # final ret code=0<br>
+[2013-10-22 20:42:22.326] # OKNAME v3.70 start!<br>
+[2013-10-22 20:42:22.326] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:42:22.326] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:42:22.326] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:42:22.326] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:42:22.326] # argv[ 4](cPubKey     )=AgGw/JCE4Qc7vNGPqi42Snv6OqQqww==<br>
+[2013-10-22 20:42:22.326] # argv[ 5](cSig )=myRCHvmyEqnDpJj8ddVM3g==<br>
+[2013-10-22 20:42:22.326] # argv[ 6](EncData  )=bhk4MDqz/GR6MuJ8duk4X4r62/QNtlXj5kylQZvNZ4Ynts89spcXDFR97rD22rPYcwCqL1olrP+2+RUb7vAVf9kLuKBDdoDYsg66H2INsVAJCj6r+fJMWisYNNZtiQEUWZM7rEzEMkluJABumF+cBPhx0y0jx1DkBhN2oU0vJQgRkgVegYbIEaR/DfJuM+p5ffLhFgT1K6lT3kdQ0tX5mtozrgqmjbHq9kXM5D8jvRgh5QvCFqTNUKFHooQP64oR3ICWi7aRUSg7bYt7HtnDjYdVLAmPHs2yOLlEy/CsFCCmbOP/96hB0A==<br>
+[2013-10-22 20:42:22.326] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:42:22.326] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:42:22.328] # clnPublicKey : AgGw/JCE4Qc7vNGPqi42Snv6OqQqww==<br>
+[2013-10-22 20:42:22.328] # clnSignature : myRCHvmyEqnDpJj8ddVM3g==<br>
+[2013-10-22 20:42:22.328] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:42:22.328] # srvSecurekey : Be2CI45Y3HH/CDhWL+vjuaJqRJ5M<br>
+[2013-10-22 20:42:22.328] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022204211996612|7|1|0|19821203|2<br>
+[2013-10-22 20:42:22.328] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:42:22.328] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:42:22.328] NULL
+[2013-10-22 20:42:22.328] 1
+[2013-10-22 20:42:22.328] 6316669587913
+[2013-10-22 20:42:22.328] V05280000000
+[2013-10-22 20:42:22.328] 강진우
+[2013-10-22 20:42:22.328] 20131022204211996612
+[2013-10-22 20:42:22.328] 7
+[2013-10-22 20:42:22.328] 1
+[2013-10-22 20:42:22.328] 0
+[2013-10-22 20:42:22.328] 19821203
+[2013-10-22 20:42:22.328] 2
+[2013-10-22 20:42:22.328] # final ret code=0<br>
+[2013-10-22 20:47:32.596] # OKNAME v3.70 start!<br>
+[2013-10-22 20:47:32.596] # mode=IPIN_CKEY<br>
+[2013-10-22 20:47:32.596] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:47:32.596] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:47:32.596] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:47:32.596] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:47:32.596] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:47:32.596] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:47:32.596] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:47:32.596] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:47:32.596] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:47:32.596] 20131022204732596128
+[2013-10-22 20:47:32.596] # final ret code=0<br>
+[2013-10-22 20:47:43.734] # OKNAME v3.70 start!<br>
+[2013-10-22 20:47:43.734] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:47:43.734] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:47:43.734] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:47:43.734] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:47:43.734] # argv[ 4](cPubKey     )=AwPis6GsL2DXQFosNLTOgsJffEw0Yg==<br>
+[2013-10-22 20:47:43.734] # argv[ 5](cSig )=vTMBFmSeDf0XN3zsj5ZM9Q==<br>
+[2013-10-22 20:47:43.734] # argv[ 6](EncData  )=UtW1M+FfT6V0+xvMpcTph4Yu15nKPMbdfH6mDV9fQgdGQ6erssusqQfguKLiwFfvQGTe9eMmp9ymJYB46rJ45BL21dIJloYnij+aK6CmJTlI25VjGo81wHTraNuwl1nSsHc72Dm7VOHK4kI7OFVznbgppfjeRv7M5LYuImmPa+sQjFNU+yCQezqYWtWmgFYJjeSwZ2yOarOv2him/4njc3V1qaADJDeJN0oG/nFErTdTjDeYnKVC4UCT9+iGWmj+ksHUnq/RmibY+edhU7iCFc/gVxtvC0J1S1bYLm0oGDcQiYErwm5TxQ==<br>
+[2013-10-22 20:47:43.734] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:47:43.734] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:47:43.735] # clnPublicKey : AwPis6GsL2DXQFosNLTOgsJffEw0Yg==<br>
+[2013-10-22 20:47:43.735] # clnSignature : vTMBFmSeDf0XN3zsj5ZM9Q==<br>
+[2013-10-22 20:47:43.736] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:47:43.736] # srvSecurekey : AK/tHVDGp7wwxGIo+1L744u0PEgW<br>
+[2013-10-22 20:47:43.736] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022204732596128|7|1|0|19821203|2<br>
+[2013-10-22 20:47:43.736] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:47:43.736] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:47:43.736] NULL
+[2013-10-22 20:47:43.736] 1
+[2013-10-22 20:47:43.736] 6316669587913
+[2013-10-22 20:47:43.736] V05280000000
+[2013-10-22 20:47:43.736] 강진우
+[2013-10-22 20:47:43.736] 20131022204732596128
+[2013-10-22 20:47:43.736] 7
+[2013-10-22 20:47:43.736] 1
+[2013-10-22 20:47:43.736] 0
+[2013-10-22 20:47:43.736] 19821203
+[2013-10-22 20:47:43.736] 2
+[2013-10-22 20:47:43.736] # final ret code=0<br>
+[2013-10-22 20:50:54.054] # OKNAME v3.70 start!<br>
+[2013-10-22 20:50:54.055] # mode=IPIN_CKEY<br>
+[2013-10-22 20:50:54.055] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:50:54.055] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:50:54.055] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:50:54.055] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:50:54.055] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:50:54.055] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:50:54.055] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:50:54.055] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:50:54.055] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:50:54.055] 20131022205054055089
+[2013-10-22 20:50:54.055] # final ret code=0<br>
+[2013-10-22 20:51:09.686] # OKNAME v3.70 start!<br>
+[2013-10-22 20:51:09.687] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:51:09.687] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:51:09.687] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:51:09.687] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:51:09.687] # argv[ 4](cPubKey     )=AwBBkFp/CC1RXN4El9/RLfIrv3V+BQ==<br>
+[2013-10-22 20:51:09.687] # argv[ 5](cSig )=Y0M7U6aBjKY2oe+qcyHY9A==<br>
+[2013-10-22 20:51:09.687] # argv[ 6](EncData  )=QUDeT+mXA5RZ/Q+M9t0/sCXr+Bs74kgg5QiVVZftkZoopMPqcK85jdavGkmwJsQq401VFyBl2PKPpU56LgCRGRAjREwkwb/0Ul44PHpeSVlsny/y/dS8UnHqbJmbtWC+id/v+twb4W89BVDA1hySa5Jfh/eJptXTedE7NhqvnqJo15u1ZPmO1EssrPADCQbXd2c8a9UkdwUt5UibKQuXKZ/X3LKXtLoNqkRiCw51qe+J7bS331CTqfBumvPpGc8lp2b531fj5M1oGz/dImTMjPW2qD7Eva7JrE3bnQ8kwiYCXw7nYUSQwA==<br>
+[2013-10-22 20:51:09.687] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:51:09.687] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:51:09.688] # clnPublicKey : AwBBkFp/CC1RXN4El9/RLfIrv3V+BQ==<br>
+[2013-10-22 20:51:09.688] # clnSignature : Y0M7U6aBjKY2oe+qcyHY9A==<br>
+[2013-10-22 20:51:09.688] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:51:09.688] # srvSecurekey : AJ/UZOXEnRZHRWx0YxS54vBbyiLg<br>
+[2013-10-22 20:51:09.689] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022205054055089|7|1|0|19821203|2<br>
+[2013-10-22 20:51:09.689] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:51:09.689] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:51:09.689] NULL
+[2013-10-22 20:51:09.689] 1
+[2013-10-22 20:51:09.689] 6316669587913
+[2013-10-22 20:51:09.689] V05280000000
+[2013-10-22 20:51:09.689] 강진우
+[2013-10-22 20:51:09.689] 20131022205054055089
+[2013-10-22 20:51:09.689] 7
+[2013-10-22 20:51:09.689] 1
+[2013-10-22 20:51:09.689] 0
+[2013-10-22 20:51:09.689] 19821203
+[2013-10-22 20:51:09.689] 2
+[2013-10-22 20:51:09.689] # final ret code=0<br>
+[2013-10-22 20:51:41.952] # OKNAME v3.70 start!<br>
+[2013-10-22 20:51:41.952] # mode=IPIN_CKEY<br>
+[2013-10-22 20:51:41.952] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:51:41.953] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:51:41.953] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:51:41.953] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:51:41.953] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:51:41.953] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:51:41.953] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:51:41.953] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:51:41.953] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:51:41.953] 20131022205141953335
+[2013-10-22 20:51:41.953] # final ret code=0<br>
+[2013-10-22 20:51:54.519] # OKNAME v3.70 start!<br>
+[2013-10-22 20:51:54.519] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:51:54.519] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:51:54.519] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:51:54.519] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:51:54.519] # argv[ 4](cPubKey     )=AgJnib/oOZClJ5MniS55XXdy8oUGkg==<br>
+[2013-10-22 20:51:54.519] # argv[ 5](cSig )=JLJoOZ8gJVSFjYMUttd7Sg==<br>
+[2013-10-22 20:51:54.519] # argv[ 6](EncData  )=nV5OT9d6c+Qri5Es68WC76Aruao+OUL/k2CphqqGv+1H+wMZ9AbBXReJ597lnPvuMK84arYY1bfOrkDwIbzIJkCHyOPzNE1LJTrhCJ/8eem4QwsJHrgB7ycopHL38/NcU/Byv/qzf7ETSEMxO542nN/QfONd6g8nCNp+odyVoUU9bdD4eT43X8SYXLqSCqQzpVIUf+6LgoGb5U2RohmOpLD/YzY8ErpdwmOXHFfBeAEhwfaAIRR013+HL3iWnf4cgCafpILd5YMzGgNkSStKbMcn+MHwz4/onaXSQ6DuzTYv5+logbrpEg==<br>
+[2013-10-22 20:51:54.519] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:51:54.519] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:51:54.521] # clnPublicKey : AgJnib/oOZClJ5MniS55XXdy8oUGkg==<br>
+[2013-10-22 20:51:54.521] # clnSignature : JLJoOZ8gJVSFjYMUttd7Sg==<br>
+[2013-10-22 20:51:54.521] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:51:54.521] # srvSecurekey : ABOQ6Vuryu8jqRCena37izJLmyVr<br>
+[2013-10-22 20:51:54.521] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022205141953335|7|1|0|19821203|2<br>
+[2013-10-22 20:51:54.521] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:51:54.521] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:51:54.521] NULL
+[2013-10-22 20:51:54.521] 1
+[2013-10-22 20:51:54.521] 6316669587913
+[2013-10-22 20:51:54.521] V05280000000
+[2013-10-22 20:51:54.521] 강진우
+[2013-10-22 20:51:54.521] 20131022205141953335
+[2013-10-22 20:51:54.521] 7
+[2013-10-22 20:51:54.521] 1
+[2013-10-22 20:51:54.521] 0
+[2013-10-22 20:51:54.521] 19821203
+[2013-10-22 20:51:54.522] 2
+[2013-10-22 20:51:54.522] # final ret code=0<br>
+[2013-10-22 20:55:33.780] # OKNAME v3.70 start!<br>
+[2013-10-22 20:55:33.780] # mode=IPIN_CKEY<br>
+[2013-10-22 20:55:33.780] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:55:33.780] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:55:33.780] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 20:55:33.780] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 20:55:33.780] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:55:33.780] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:55:33.780] # argv[ 7](Option     )=CL<br>
+[2013-10-22 20:55:33.781] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 20:55:33.781] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 20:55:33.781] 20131022205533780097
+[2013-10-22 20:55:33.781] # final ret code=0<br>
+[2013-10-22 20:55:44.826] # OKNAME v3.70 start!<br>
+[2013-10-22 20:55:44.826] # mode=IPIN_CKDEC<br>
+[2013-10-22 20:55:44.826] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 20:55:44.827] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 20:55:44.827] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 20:55:44.827] # argv[ 4](cPubKey     )=Agde1k/6pf0Md4ZEligE7WeNogKNTQ==<br>
+[2013-10-22 20:55:44.827] # argv[ 5](cSig )=V3zn5lYJEbyWy8Ei+2KxtA==<br>
+[2013-10-22 20:55:44.827] # argv[ 6](EncData  )=5EGd6A8lQ+EXbsM+kffHQ/ScWsmQsWrw4882B+KFO+J0zSiNtmMeNw66PqgHP2WZQMlV8tI9hjA6ljawQEdQ23N2SlCEMzkBXNhNNZKdoy5atquwbOf3a5iXE35CFEo22vf8mBWzT7fqIfK8Gv3puidw2qCDFiSdSVp7fMr8XIci4mpG8DY0d2h4G7TZOLnD+JOumn/lO31aggNQgicxEmiQeSnSU/svj9pznumBuDSkfEEjiQT7GL6YUfGdGiWktdF64wb/EeqbTlvBZmEd0lxKqExijhM9Y1qXu52Vvz70diHIPF2+kA==<br>
+[2013-10-22 20:55:44.827] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 20:55:44.827] # argv[ 8](Option     )=SL<br>
+[2013-10-22 20:55:44.828] # clnPublicKey : Agde1k/6pf0Md4ZEligE7WeNogKNTQ==<br>
+[2013-10-22 20:55:44.828] # clnSignature : V3zn5lYJEbyWy8Ei+2KxtA==<br>
+[2013-10-22 20:55:44.828] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 20:55:44.828] # srvSecurekey : AWL58TE5zaEz8prGOatmrl6+4ror<br>
+[2013-10-22 20:55:44.828] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022205533780097|7|1|0|19821203|2<br>
+[2013-10-22 20:55:44.828] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 20:55:44.828] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 20:55:44.828] NULL
+[2013-10-22 20:55:44.828] 1
+[2013-10-22 20:55:44.829] 6316669587913
+[2013-10-22 20:55:44.829] V05280000000
+[2013-10-22 20:55:44.829] 강진우
+[2013-10-22 20:55:44.829] 20131022205533780097
+[2013-10-22 20:55:44.829] 7
+[2013-10-22 20:55:44.829] 1
+[2013-10-22 20:55:44.829] 0
+[2013-10-22 20:55:44.829] 19821203
+[2013-10-22 20:55:44.829] 2
+[2013-10-22 20:55:44.829] # final ret code=0<br>
+[2013-10-22 21:02:50.767] # OKNAME v3.70 start!<br>
+[2013-10-22 21:02:50.810] # mode=IPIN_CKEY<br>
+[2013-10-22 21:02:50.810] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 21:02:50.810] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 21:02:50.810] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 21:02:50.810] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 21:02:50.810] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 21:02:50.810] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 21:02:50.810] # argv[ 7](Option     )=CL<br>
+[2013-10-22 21:02:50.836] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 21:02:50.836] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 21:02:50.836] 20131022210250818274
+[2013-10-22 21:02:50.836] # final ret code=0<br>
+[2013-10-22 21:09:26.737] # OKNAME v3.70 start!<br>
+[2013-10-22 21:09:26.737] # mode=IPIN_CKEY<br>
+[2013-10-22 21:09:26.737] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 21:09:26.737] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 21:09:26.737] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 21:09:26.737] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 21:09:26.737] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 21:09:26.737] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 21:09:26.737] # argv[ 7](Option     )=CL<br>
+[2013-10-22 21:09:26.738] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 21:09:26.738] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 21:09:26.738] 20131022210926738322
+[2013-10-22 21:09:26.738] # final ret code=0<br>
+[2013-10-22 21:09:37.071] # OKNAME v3.70 start!<br>
+[2013-10-22 21:09:37.071] # mode=IPIN_CKEY<br>
+[2013-10-22 21:09:37.071] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 21:09:37.071] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 21:09:37.071] # argv[ 3](reserved1  )=0<br>
+[2013-10-22 21:09:37.071] # argv[ 4](reserved2  )=0<br>
+[2013-10-22 21:09:37.071] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 21:09:37.071] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 21:09:37.071] # argv[ 7](Option     )=CL<br>
+[2013-10-22 21:09:37.071] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-22 21:09:37.072] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-22 21:09:37.072] 20131022210937071627
+[2013-10-22 21:09:37.072] # final ret code=0<br>
+[2013-10-22 21:09:52.177] # OKNAME v3.70 start!<br>
+[2013-10-22 21:09:52.178] # mode=IPIN_CKDEC<br>
+[2013-10-22 21:09:52.178] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-22 21:09:52.178] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-22 21:09:52.178] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-22 21:09:52.178] # argv[ 4](cPubKey     )=AwJvEogD1ZjZerVS3ECJEEXFVhEimQ==<br>
+[2013-10-22 21:09:52.178] # argv[ 5](cSig )=sQK4d/Ew5pnakTSJ6DU69g==<br>
+[2013-10-22 21:09:52.178] # argv[ 6](EncData  )=Vysq6iqr2vjloHOtpe3mAdKi0p/pVWBEmFWouHGGNCXlokpw9F0VMGtAqNjpi8THJEh+6IMMXN+dQLMPZ60JwYFrQketFbZPL0XgownSAnJTNhZftFV0bpTJM7N4yWYEnDdTj9JJ8kQlk3VPzQ65sPhuTk6FubIE/PQG1deyMAUiw8tKwWFEZLibMBrAPx6FIlQ0wDPRRHnKhbydKIhy19M6myD1l/T6bV4u+ULYlJ5lFkscsPg9qCUsV7R4IV4R9fZFh0tclT20EvDOiWqL132COeVAZt5Bgdf8FX7WACs0sfqze0D0vQ==<br>
+[2013-10-22 21:09:52.178] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-22 21:09:52.178] # argv[ 8](Option     )=SL<br>
+[2013-10-22 21:09:52.195] # clnPublicKey : AwJvEogD1ZjZerVS3ECJEEXFVhEimQ==<br>
+[2013-10-22 21:09:52.195] # clnSignature : sQK4d/Ew5pnakTSJ6DU69g==<br>
+[2013-10-22 21:09:52.195] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-22 21:09:52.195] # srvSecurekey : A2QEgyoVlytI2W0H8eU7V3swkVOo<br>
+[2013-10-22 21:09:52.195] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131022210937071627|7|1|0|19821203|2<br>
+[2013-10-22 21:09:52.195] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-22 21:09:52.195] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-22 21:09:52.195] NULL
+[2013-10-22 21:09:52.195] 1
+[2013-10-22 21:09:52.195] 6316669587913
+[2013-10-22 21:09:52.195] V05280000000
+[2013-10-22 21:09:52.195] 강진우
+[2013-10-22 21:09:52.195] 20131022210937071627
+[2013-10-22 21:09:52.195] 7
+[2013-10-22 21:09:52.195] 1
+[2013-10-22 21:09:52.195] 0
+[2013-10-22 21:09:52.195] 19821203
+[2013-10-22 21:09:52.195] 2
+[2013-10-22 21:09:52.195] # final ret code=0<br>

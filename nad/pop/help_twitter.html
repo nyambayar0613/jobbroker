@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body>
+    <div class="wrapper_help">  
+      <div class="admin_pop01">       
+        <div class="admin_pop0302">
+          <div class="admin_help_title01">■ 트위터 컨슈머 Key 와 Screct 발급 방법</div>
+          <div class="admin_pop_title01">트위터의 컨슈머키와 컨슈머 시크릿이 있어야 리턴받는 페이지를 통해 리퀘스트 토큰을 얻어 정보나 서비스를 끌어올 수 있습니다.
+          </div>        
+          <div class="admin_pop_title01"><span>1.</span> <b>Twitter Apps</b> <a href="https://apps.twitter.com/">(https://apps.twitter.com/)</a>로 이동하여 트위터 계정으로 로그인 합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/twitter01.png"></div>
+          <div class="admin_pop_title01"><span>2.</span> <b>Creat New App</b> 버튼을 눌러 트위터 앱을 생성합니다.</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/twitter02.png"></div>            
+          <div class="admin_pop_title01"><span>3.</span> 신규 앱 등록을 위한 정보 입력란에 <b>앱이름, 설명, 사이트주소, Callback URL</b>을 입력하고 확인란을 체크하신 후 <b>Create your Twitter application</b> 버튼을 클릭합니다. 이때 <b>callback URL</b> 주소</b>는 http://<b style="color:#ff0000">등록할 사이트 URL 주소</b>/member/process/twitter_callback.php 입니다. <span style="color:#19aae2;font-weight:normal">( 예시 - http://news2.netfu.co.kr/member/process/twitter_callback.php )</span><br>만약 신규 앱 생성시 오류가 발생하면 <b>트위터 계정에서 휴대폰 등록 여부</b> 등을 확인해 보시기 바랍니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/twitter03.png"></div>              
+          <div class="admin_pop_title01"><span>4.</span> 등록된 앱은 <b>Keys and Access Tokens</b>에서 <b>컨슈머 키</b> 와 <b>컨슈머 시크릿</b>을 확인 하실 수 있습니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/twitter04.png"></div>             
+          <div class="admin_pop_title01"><span>5.</span> 뉴스 홈페이지 관리자의 <b>환경설정 - 사이트관리 - 기본정보설정</b>에서 <b>트위터 컨슈머 Key / 트위터 컨슈머 Secret 코드</b>를 입력한 후 <b>저장</b>버튼을 눌러 앱 연동을 완료합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/twitter05.png"></div>               
+					
+        </div>
+        <div class="admin_pop0103"><a onclick="self.close();" class="cursor">닫기</div>
+      </div>
+    </div>  
+  </body>
+</html>

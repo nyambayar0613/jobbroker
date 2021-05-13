@@ -1,0 +1,63 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr><td class=nb_04></td><td class=nb>
+<dl class="loc"><img src="../../images/comn/bul_11.png" class="t"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+가이드를 입력해 주세요.<br>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기본 정보 설정</dl>
+
+<form name="AlbaConfigFrm" method="post" id="AlbaConfigFrm" action="./process/alba.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="alba_update"/><!-- 알바 설정정보 수정 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+<input type="hidden" name="no" value="<?=$alba_info['no'];?>"/>
+
+	<table width="100%" class="bg_col">
+	<col width=150><col> 
+		<tr>
+			<td class="ctlt">최저임금</td>
+			<td class="pdlnb2">
+			기준 연도 
+			<select name="pay_year">
+			<?php for($i=date('Y');$i>=2000;--$i){ ?>
+				<option value='<?=$i?>'><?=$i?></option>
+			<?php } ?>
+			</select> 년 / 시급 <input type='text' name="time_pay" class="txt" id="time_pay" value=""> 원
+			</td>
+		</tr>
+	</table>
+
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+
+</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>

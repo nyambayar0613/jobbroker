@@ -1,0 +1,286 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $member_list['send_url'];?>";
+	location.href = "./custom_individual.php?"+send_url+"&page_rows=" + sel;
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var customInfo_open = function( mb_id ){
+	var customInfo_length = $('.customInfo_'+mb_id).length;
+	if( $('.customInfo_'+mb_id).css('display')  == 'none' ){
+		$('.customInfo_'+mb_id).show();
+		$('#tr_'+mb_id).attr('rowspan',customInfo_length+1);
+	} else {
+		$('.customInfo_'+mb_id).hide();
+		$('#tr_'+mb_id).removeAttr('rowspan');
+	}
+}
+var update_custom = function( no, mb_id ){
+	$('#pop_info').load('./views/_load/member.php', { mode:'custom_individual', no:no, mb_id:mb_id }, function(result){
+		$('#pop_custom').show();
+		$('#pop_custom').draggable({ handle: "#customHandle" });
+		$('#pop_custom').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		var form_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#CustomFrm').ajaxForm(form_options);	// memo ajax form submit
+
+	});
+}
+var job_blocks = 0;
+var job_type_sel_first = function( vals, target ){	// 첫번째 직종값 선택
+	var sel = vals.value;
+	$('#'+target+'_display').load('../../individual/views/_load/alba_resume_regist.php', { mode:'second_job_type', type:'job_type', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var area_blocks = 0;
+var area_sel_first = function( vals, target ){	// 첫번째 지역값 선택
+	var sel = vals.value;
+	$('#'+target+'_display').load('../../individual/views/_load/alba_resume_regist.php', { mode:'second_area', type:'area', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var age_sel = function( vals ){	// 연령 제한 선택
+	var sel = vals.value;
+	if(sel=='1'){
+		$('.wr_age').attr('required',true);
+		$('#wr_age_display').show();
+	} else {
+		$('.wr_age').val('');
+		$('.wr_age').attr('required',false);
+		$('#wr_age_display').hide();
+	}
+}
+var delete_custom = function( no ){	 // 삭제
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능 합니다.<br/><br/>맞춤 인재정보 설정을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '맞춤 인재정보 설정 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 회원 삭제 (단수)
+			case 'delete':
+				$.post('./process/custom.php', { mode:'individual_delete', no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_company_control->_errors('0009');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+		}	// switch end.
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+<div id="email_status" style="display:none; cursor: default;">
+	<div id='status_info'></div>	
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1"></td>
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+		<tr>
+		<td width="1"></td>
+		<td class="nb">
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+			<dl class="notbox">
+				<dl>
+				가입된 기업회원 정보를 기준으로 맞춤 인재정보 관리를 합니다.<br/>
+				각 회원별 <span class="btn23 wbl">설정정보열람</span> 을 클릭하시면 맞춤 인재정보를 확인할수 있습니다.
+				</dl>
+			</dl>
+			<?php include_once "./views/_include/search.php"; ?>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">맞춤인재정보 기업회원관리
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
+				<dt>
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+					<select name="page_rows" onchange="page_rows(this);">
+						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25개 출력</option>
+						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40개 출력</option>
+						<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60개 출력</option>
+						<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+					</select>
+				</dt>
+			</dl>  
+
+			<table width="100%" class="ttlt">
+			<col width="2%"><col width="12%"><col><col><col><col><col><col><col><col><col width="6%">
+			<tr class="bg">
+				<td><!-- <input name="check_all" type="checkbox"> --></td>
+				<td>회원정보</td>
+				<td>업직종</td>
+				<td>근무지</td>
+				<td>근무일시</td>
+				<td>성별</td>
+				<td>연령</td>
+				<td>근무형태</td>
+				<td>메일링수신</td>
+				<td>저장일</td>
+				<td class="e">편집</td>
+			</tr>
+
+			<tbody id="member_list">
+			<?php if(!$member_list['total_count']){ ?>
+			<tr><td colspan="18" class="stlt"></td></tr>
+			<?php } else { 
+				foreach($member_list['result'] as $val){
+				$custom_titles = $alba_company_control->custom_titles($val['mb_id']);	 // 타이틀 뽑기
+				//$custom_list = $alba_company_control->custom_list("", "", " where `is_delete` = 0 ");
+				$custom_title_count = count($custom_titles);
+				$last_save_time = $custom_titles[$custom_title_count-1]['wdate'];
+			?>
+			<tr>
+				<td><!-- <input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"> --></td>
+				<td id="tr_<?php echo $val['mb_id'];?>"><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class="b"><?php echo $val['mb_id'];?> (<?php echo $val['mb_name'];?>)</a></td>
+				<td colspan="8">
+					<span<?php echo ($custom_title_count)?" class='b'":"";?>>최종 맞춤 인재정보 저장 :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / 총 <?php echo number_format($custom_title_count);?>건 저장</span>
+				</td>
+				<td class="edit e">
+					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">설정정보열람</h1></a></dt>
+				</td>
+			</tr>
+			<?php 
+			if($custom_titles){ 
+				foreach($custom_titles as $custom){
+				$job_type_0 = array();	// 업직종 1
+				$job_type0 = $category_control->get_categoryCodeName($custom['wr_job_type0']);
+				if($job_type0) @array_push($job_type_0,$job_type0);
+				$job_type1 = $category_control->get_categoryCodeName($custom['wr_job_type1']);
+				if($job_type1) @array_push($job_type_0,$job_type1);
+				$job_type2 = $category_control->get_categoryCodeName($custom['wr_job_type2']);
+				if($job_type2) @array_push($job_type_0,$job_type2);
+				$job_type_1 = array();	// 업직종 2
+				$job_type3 = $category_control->get_categoryCodeName($custom['wr_job_type3']);
+				if($job_type3) @array_push($job_type_1,$job_type3);
+				$job_type4 = $category_control->get_categoryCodeName($custom['wr_job_type4']);
+				if($job_type4) @array_push($job_type_1,$job_type4);
+				$job_type5 = $category_control->get_categoryCodeName($custom['wr_job_type5']);
+				if($job_type5) @array_push($job_type_1,$job_type5);
+				$job_type_2 = array();	// 업직종 3
+				$job_type6 = $category_control->get_categoryCodeName($custom['wr_job_type6']);
+				if($job_type6) @array_push($job_type_2,$job_type6);
+				$job_type7 = $category_control->get_categoryCodeName($custom['wr_job_type7']);
+				if($job_type7) @array_push($job_type_2,$job_type7);
+				$job_type8 = $category_control->get_categoryCodeName($custom['wr_job_type8']);
+				if($job_type8) @array_push($job_type_2,$job_type8);
+				$area_0 = array();	// 근무지 1
+				$area0 = $category_control->get_categoryCodeName($custom['wr_area0']);
+				if($area0) @array_push($area_0,$area0);
+				$area_1 = array();	// 근무지 2
+				$area1 = $category_control->get_categoryCodeName($custom['wr_area1']);
+				if($area1) @array_push($area_1,$area1);
+				$custom_date = $category_control->get_categoryCodeName($custom['wr_date']);
+				$custom_week = $category_control->get_categoryCodeName($custom['wr_week']);
+				$custom_time = $category_control->get_categoryCodeName($custom['wr_time']);
+				$custom_gender = ($custom['wr_gender']) ? $member_control->mb_gender[$custom['wr_gender']] : "무관";
+				$custom_age = ($custom['wr_age_limit']) ? str_replace('-','세 이상 ~',$custom['wr_age']).'세 이하' : "무관";
+				$custom_work_types = array();
+				$custom_work_type = explode(",",$custom['wr_work_type']);
+				$custom_work_type_cnt = count($custom_work_type);
+				$is_work_type = false;
+				for($i=0;$i<$custom_work_type_cnt;$i++){
+					if($custom_work_type[$i]){
+						$is_work_type = true;
+						$work_type = $category_control->get_categoryCodeName($custom_work_type[$i]);
+						array_push($custom_work_types,$work_type);
+					}
+				}
+			?>
+				<tr class="customInfo_<?php echo $val['mb_id'];?> customInfo" style="display:none;">
+					<td></td>
+					<td>
+						<?php echo ($job_type_0)?@implode($job_type_0,", "):"";?>
+						<?//php echo ($job_type_1)?" / ".implode($job_type_1,","):"";?>
+						<?//php echo ($job_type_2)?" / ".implode($job_type_2,","):"";?>
+					</td>
+					<td>
+						<?php echo ($area_0)?@implode($area_0,","):"";?>
+						<?//php echo ($area_1)?" ".implode($area_1,","):"";?>
+					</td>
+					<td><?php echo $custom_date;?><?php echo ($custom_week)?' / '.$custom_week:'';?><?php echo ($custom_time)?' / '.$custom_time:'';?></td>
+					<td><?php echo $custom_gender;?></td>
+					<td><?php echo $custom_age;?></td>
+					<td><?php echo @implode($custom_work_types,",");?></td>
+					<td>이메일 : <?php echo ($custom['wr_email'])?'<b>수신</b>':'미수신';?>/ SMS : <?php echo ($custom['wr_sms'])?'<b>수신</b>':'미수신';?></td>
+					<td><?php echo $custom['wdate'];?></td>
+					<td class="edit e">
+						<p style="display:inline-block; width:85px;">
+							<span style="display:inline-block;width:40px;cursor:pointer;margin-right:1px;" onClick="update_custom('<?php echo $custom['no'];?>','<?php echo $val['mb_id'];?>');"><img src="../../images/btn/19_05.gif"></span><span style="display:inline-block;width:40px;cursor:pointer;" onClick="delete_custom('<?php echo $custom['no'];?>');"><img src="../../images/btn/19_06.gif"></span>
+						</p>
+					</td>
+				</tr>
+			<?php 
+				}	// custom_titles foreach end.
+			} // custom_titles if end.
+			?>
+			<?php 
+				}	// foreach end.
+			} // if end.
+			?>
+			</tbody>
+
+			</table>
+
+			<dl class="page">
+				<?php include_once "../include/paging.php"; ?>
+			</dl>
+
+			<div id='pop_info'></div>
+			<div id='zipcode_info'></div>
+		</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, form_options){
+	var queryString = $.param(formData); 
+	return true;
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		location.reload();
+	} else {
+		alert("<?php echo $alba_company_control->_errors('0008');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

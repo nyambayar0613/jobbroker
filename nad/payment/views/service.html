@@ -1,0 +1,1069 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var mode = "<?php echo $mode;?>";
+var type = "<?php echo $type;?>";
+var sel_code = "<?php echo $sel_code;?>";
+$(function(){
+	$("#ServiceRegistFrm input[name='service_price'], #ServiceRegistFrm input[name='service_percent']").keydown(function(event){
+		if(event.keyCode==13){
+			update_service('insert','',false);
+			return false;
+		}
+	});
+	$("#GoldServiceRegistFrm input[name='service_price'], #GoldServiceRegistFrm input[name='service_percent']").keydown(function(event){
+		if(event.keyCode==13){
+			update_service('insert','',true);
+			return false;
+		}
+	});
+	$("#LogoServiceRegistFrm input[name='service_price'], #LogoServiceRegistFrm input[name='service_percent']").keydown(function(event){
+		if(event.keyCode==13){
+			update_service('insert','',false,true);
+			return false;
+		}
+	});
+	$("input[name='service_price']").autoNumeric('init');
+});
+var service_name = "<?php echo $service_lists[$sel_code]['name'];?>";
+var is_pays = function( vals, type, is_gold, is_logo ){	// 서비스 사용 유무
+	var sel = vals.value;
+	$.post('./process/service.php', { mode:'pay_type', type:type, is_pay:sel, is_gold:is_gold, is_logo:is_logo }, function(result){
+		if(result){
+			alert("<?php echo $service_control->_success('0005');?>");
+		} else {
+			alert("<?php echo $service_control->_errors('0008');?>");
+		}
+	});
+	/*
+	if(sel_code=='list'){
+		if(sel=='1') {
+			$('#etc_block').hide();
+			$.post('./process/service.php', { mode:'pay_type', type:type, is_pay:sel, is_gold:is_gold }, function(result){
+				if(result){
+					alert("<?php echo $service_control->_success('0005');?>");
+				} else {
+					alert("<?php echo $service_control->_errors('0008');?>");
+				}
+			});
+		} else {
+			$('#etc_block').show();
+		}
+	} else {
+		$.post('./process/service.php', { mode:'pay_type', type:type, is_pay:sel, is_gold:is_gold }, function(result){
+			if(result){
+				alert("<?php echo $service_control->_success('0005');?>");
+			} else {
+				alert("<?php echo $service_control->_errors('0008');?>");
+			}
+		});
+	}
+	*/
+}
+var list_services = function( no ){
+	var etc_0 = $('#etc_0').val();
+	var etc_1 = $('#etc_1 :selected').val();
+	var is_pay = $("input[name=is_pay]:checked").val();
+	$.post('./process/service.php', { mode:'list_service', type:type, no:no, is_pay:is_pay, etc_0:etc_0, etc_1:etc_1 }, function(result){
+		if(result){
+			location.reload();
+		} else {
+			alert("<?php echo $config->_errors('0005');?>");
+		}
+	});
+}
+var update_service = function(mode, no, is_gold, is_logo){	// 등록/수정
+	
+	var service_options = { beforeSubmit: service_showRequest, success : service_showResponse };	// 서비스 등록
+	var gold_options = { beforeSubmit: gold_showRequest, success : gold_showResponse };	 // 골드 서비스 등록
+	var logo_options = { beforeSubmit: logo_showRequest, success : logo_showResponse };	 // 로고강조 서비스 등록
+	if(is_gold){	// 골드 서비스
+		if(mode=='insert')
+			$('#GoldServiceRegistFrm').ajaxSubmit(gold_options);
+		else
+			location.href = "./service.php?type="+type+"&mode=update&no="+no+"&is_gold=1#<?php echo $sel_code;?>_gold";
+	} else if(is_logo){	 // 로고강조 서비스
+		if(mode=='insert')
+			$('#LogoServiceRegistFrm').ajaxSubmit(logo_options);
+		else
+			location.href = "./service.php?type="+type+"&mode=update&no="+no+"&is_logo=1#<?php echo $sel_code;?>_logo";
+	} else {
+		if(mode=='insert')
+			$('#ServiceRegistFrm').ajaxSubmit(service_options);
+			//$('#ServiceRegistFrm').submit();
+		else
+			location.href = "./service.php?type="+type+"&mode=update&no="+no+"#<?php echo $sel_code;?>";
+	}
+}
+var service_showRequest = function(formData, jqForm, service_options){
+	var ServiceRegistFrm = document.getElementById('ServiceRegistFrm');
+	var queryString = $.param(formData);
+	return validate(ServiceRegistFrm);
+}
+var service_showResponse = function(responseText, statusText, xhr, $form){	
+	if(responseText){
+		if(mode=='update'){	// 수정
+			location.href = "./service.php?type=" + type;
+		} else {	 // 입력
+			location.reload();
+		}
+	} else {
+		alert("<?php echo $config->_errors('0006');?>");
+	}
+}
+var gold_showRequest = function(formData, jqForm, gold_options){
+	var GoldServiceRegistFrm = document.getElementById('GoldServiceRegistFrm');
+	var queryString = $.param(formData);
+	return validate(GoldServiceRegistFrm);
+}
+var gold_showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		if(mode=='update'){	// 수정
+			location.href = "./service.php?type="+type;
+		} else {	 // 입력
+			location.reload();
+		}
+	} else {
+		alert("<?php echo $config->_errors('0005');?>");
+	}
+}
+var logo_showRequest = function(formData, jqForm, gold_options){
+	var LogoServiceRegistFrm = document.getElementById('LogoServiceRegistFrm');
+	var queryString = $.param(formData);
+	return validate(LogoServiceRegistFrm);
+}
+var logo_showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		if(mode=='update'){	// 수정
+			location.href = "./service.php?type="+type;
+		} else {	 // 입력
+			location.reload();
+		}
+	} else {
+		alert("<?php echo $config->_errors('0005');?>");
+	}
+}
+var service_change_rank = function( direction, src ){	// 서비스 순위 조절
+	var parent = $('#service_list');
+	var no = $(src).parents('tr.service_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.service_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.service_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.service_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.service_list').next().attr('no');
+		}
+	}
+	$.post('./process/service.php', { mode:'rank', type:type, no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.service_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var gold_change_rank = function( direction, src ){	// 골드 서비스 순위 조절
+	var parent = $('#gold_service_list');
+	var no = $(src).parents('tr.gold_service_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.gold_service_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.gold_service_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.gold_service_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.gold_service_list').next().attr('no');
+		}
+	}
+	$.post('./process/service.php', { mode:'rank', type:type+'_gold', no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.gold_service_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var logo_change_rank = function( direction, src ){	// 로고 서비스 순위 조절
+	var parent = $('#logo_service_list');
+	var no = $(src).parents('tr.logo_service_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.logo_service_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.logo_service_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.logo_service_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.logo_service_list').next().attr('no');
+		}
+	}
+	$.post('./process/service.php', { mode:'rank', type:type+'_logo', no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.logo_service_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var delete_service = function( no, is_gold, is_logo ){	 // 서비스 삭제
+	var gold = (is_gold==true) ? 'gold_' : '';
+	var logo = (is_logo==true) ? 'logo_' : '';
+	var service_info = $('#'+gold+logo+'service_info'+no).html(), service_price = $('#'+gold+logo+'service_price'+no).html();
+	$('#service_cntunit').html(service_info);
+	$('#service_price').html(service_price);
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '서비스 금액 정보 삭제',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+}
+var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'delete':
+				$.post('./process/service.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+var is_opens = function( vals ){
+	var sel = vals.value;
+	$('.is_open').hide();
+	if(sel=='count') $('.is_open').show();
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>설정값 : <span id='service_cntunit'></span></p>
+		<p>금액 : <span id='service_price'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+		유료 상품 사용여부 및 금액/기간을 설정하는 페이지입니다. <br/>
+		각각의 유료상품 서비스별 유무료설정 및 기간, 할인율등을 설정하실수 있습니다. <br/>		
+		구인, 이력서 옵션서비스에서 아이콘은 직접 등록/수정/삭제 가능하며, 형광펜은 색상 설정이 가능합니다. <br/>		
+		구인정보, 인재정보의 일반리스트 설정에서 <b>유료/무료 설정</b>부분에 <b>무료 설정으로 선택</b>시 공고등록과 동시에 <b>일반리스트에 무료 등록</b>이 됩니다. 
+	</dl>
+</dl>
+
+<?php include_once "./views/_include/service.php"; ?>
+
+<?php #서비스 등록 ########################################################################## ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?><a name="<?php echo $sel_code;?>"></a></dl>  
+
+<form name="ServiceRegistFrm" method="post" id="ServiceRegistFrm" action="./process/service.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="<?php echo ($mode)?$mode:'insert';?>" id="mode"/><!-- 서비스 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+<input type="hidden" name="type" value="<?php echo $type;?>"/>
+
+<table width="100%" class="bg_col">
+<col width=130><col> 
+  <tr>
+    <td class="ctlt"><?php echo ($type=='main_basic' || $type=='alba_resume_basic') ? "유료/무료" : "사용/미사용설정"; ?></td>
+    <td class="pdlnb2">
+		<label><input name="is_pay" type="radio" value="1" class="radio" onclick="is_pays(this,'<?php echo $type;?>',0);" <?php echo ($service_check['is_pay']=='1')?'checked':'';?>><?php echo ($type=='main_basic' || $type=='alba_resume_basic') ? "유료" : "사용"; ?></label> &nbsp;
+		<label><input name="is_pay" type="radio" value="0" class="radio" onclick="is_pays(this,'<?php echo $type;?>',0);" <?php echo ($service_check['is_pay']=='0')?'checked':'';?>><?php echo ($type=='main_basic' || $type=='alba_resume_basic') ? "무료" : "미사용"; ?></label>&nbsp;
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">서비스설정</td>
+    <td class="pdlnb2">
+	<?php if(!$is_jump_service){ ?>
+		<input name="service_cnt" type="text" class="tnum tc" size="3" required hname='서비스설정 값' value="<?php echo $get_service['service_cnt'];?>" placeholder="0">
+		<?php if($type=='etc_sms'){ ?>
+			<input type="hidden" name="service_unit" value="count"/>건
+		<?php } else { ?>
+			<select name="service_unit" <?php if($is_open){ ?>onchange="is_opens(this);"<?php } ?>>
+				<option value='day' <?php echo ($get_service['service_unit']=='day')?'selected':'';?>>일</option>
+				<!-- <option value='week' <?php echo ($get_service['service_unit']=='week')?'selected':'';?>>주일</option> -->
+				<option value='month' <?php echo ($get_service['service_unit']=='month')?'selected':'';?>>개월</option>
+				<option value='year' <?php echo ($get_service['service_unit']=='year')?'selected':'';?>>년</option>
+				<?php if($type=='etc_open' || $type=='etc_alba'){ ?>
+				<option value='count' <?php echo ($get_service['service_unit']=='count')?'selected':'';?>>건</option>
+				<?php } ?>
+			</select>&nbsp;
+		<?php } ?>
+	<?php } ?>
+
+		<?php if($is_jump_service){ ?>
+			<input name="etc_3" type="text" class="tnum tc" size="3" required hname='서비스설정 값' value="<?php echo $get_service['etc_3'];?>" placeholder="0"> 건
+		<?php } ?>
+
+		<input name="service_price" type="text" class="tnum tc" size="10" required hname='서비스설정 금액' value="<?php echo $get_service['service_price']?>" placeholder="0" data-v-min="0" data-v-max="10000000000"> <label style="vertical-align:-0.1em">원</label>,
+
+		<?php if($is_open){ ?>
+		<span class="is_open" style="display:<?php echo ( ($type=='etc_open' || $type=='etc_alba') && $get_service['service_unit']=='count')?'':'none';?>;">
+			사용기간 <input name="etc_0" type="text" class="tnum" size="3" value="<?php echo ($get_service['etc_0'])?$get_service['etc_0']:'0';?>">
+			<select name="etc_1">
+				<option value='day' <?php echo ($get_service['service_unit']=='day')?'selected':'';?>>일</option>
+				<option value='month' <?php echo ($get_service['service_unit']=='month')?'selected':'';?>>개월</option>
+				<option value='year' <?php echo ($get_service['service_unit']=='year')?'selected':'';?>>년</option>
+			</select>&nbsp;
+		</span>
+		<?php } ?>
+
+		할인율 <input name="service_percent" type="text" class="tnum tc" size="2" hname='할인율' value="<?php echo ($get_service['service_percent'])?$get_service['service_percent']:'';?>" placeholder="0"> <label style="vertical-align:-0.1em">%</label>&nbsp;&nbsp;
+		<a onClick="update_service('insert','',false);" class="cbtn grf_col lnb_col"><h1 class="btn19"><strong>+</strong>등록</h1></a>
+		<?php if($is_open){ ?>
+			<span class="subtlt is_open" style="display:none;">금액을 '0'으로 등록시 무료로 설정 되며, 사용기간 설정시 열람권은 설정기간 이후 자동 소멸됩니다</span>
+		<?php } else { ?>
+			<span class="subtlt">금액을 '0'으로 등록시 무료로 설정 됩니다</span>
+		<?php } ?>
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">서비스금액</td>
+    <td class="pdlnb2">
+    <table width="100%" class="ttlt tf lnb_gr bt2">
+      <col width="50"><col span="<?php echo ($is_open||$is_jump_service)?'3':'2';?>"><col span="3" width="56">
+      <tr class="bg">
+        <td>순서</td>
+		<?php if(!$is_jump_service){ ?>
+        <td>설정값</td>
+		<?php } ?>
+		<?php if($is_jump_service){ ?>
+        <td>건수</td>
+		<?php } ?>
+        <td>금액</td>
+		<?php if($is_open){ ?>
+        <td>사용기간</td>
+		<?php } ?>
+        <td>할인율</td>
+        <td>수정</td>
+        <td class="e">삭제</td>
+      </tr>
+
+		<?php if(!$service_list){ ?>
+		<tr><td colspan="6" class="stlt"></td></tr>
+		<?php } else { ?>
+
+		<tbody id="service_list">
+		<?php 
+			foreach($service_list as $val){ 
+			$service_price = $service_control->service_discount($val['service_price'], $val['service_percent']);
+			if($service_price['total_price']){
+				if($service_price['service_percent']){
+					$service_price_text = "<span class='num3'><strike>".number_format($service_price['service_price'])."</strike> => ".number_format($service_price['total_price'])."</span>원";
+				} else {
+					$service_price_text = "<span class='num3'>".number_format($service_price['service_price'])."</span>원";
+				}
+			} else {
+				$service_price_text = "<span class='red'>무료</span>";
+			}
+		?>
+		<tr class="service_list" no="<?php echo $val['no'];?>">
+			<td class="none num3">
+				<a onclick="service_change_rank('up',this);">▲</a>
+				<a onclick="service_change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<?php if(!$is_jump_service){ ?>
+			<td id="service_info<?php echo $val['no'];?>"><?php echo number_format($val['service_cnt']).$service_control->_unit($val['service_unit']);?></td>
+			<?php } ?>
+			<?php if($is_jump_service){ ?>
+			<td><?php echo number_format($val['etc_3']);?>건</td>
+			<?php } ?>
+			<td class="b" id="service_price<?php echo $val['no'];?>"><?php echo $service_price_text;?></td>
+			<?php if($is_open){ ?>
+			<td><?php 
+			if($val['service_unit']=='count'){ 
+				echo ($val['etc_0']) ? number_format($val['etc_0']).$service_control->_unit($val['etc_1']) : "무제한";
+			} else {
+				echo "기간제";
+			}
+			?></td>
+			<?php } ?>
+			<td><?php echo $val['service_percent'];?>%</td>
+			<td><a onClick="update_service('update','<?php echo $val['no'];?>','',false);"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="delete_service('<?php echo $val['no'];?>',false);"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php } ?>
+		</tbody>
+
+		<?php } ?>
+
+    </table>
+    </td>
+  </tr>
+</table>
+
+</form>
+<?php # //서비스 등록 ########################################################################## ?>
+
+<?php if($service_is_gold){ # 골드 서비스 등록 ########################################################## ?>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?> > 골드서비스<a name="<?php echo $sel_code;?>_gold"></a></dl>  
+<form name="GoldServiceRegistFrm" method="post" id="GoldServiceRegistFrm" action="./process/service.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="<?php echo ($mode)?$mode:'insert';?>" id="mode"/><!-- 서비스 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+<input type="hidden" name="type" value="<?php echo $type;?>"/>
+<input type="hidden" name="is_gold" value="<?php echo $service_is_gold;?>"/>
+
+<table width="100%" class="bg_col">
+<col width=130><col> 
+  <tr>
+    <td class="ctlt">골드 사용/미사용설정</td>
+    <td class="pdlnb2">
+		<label><input name="is_pay" type="radio" value="1" class="radio" onclick="is_pays(this,'<?php echo $type;?>',1);" <?php echo ($service_gold_check['is_pay']=='1')?'checked':'';?>>사용</label> &nbsp;
+		<label><input name="is_pay" type="radio" value="0" class="radio" onclick="is_pays(this,'<?php echo $type;?>',1);" <?php echo ($service_gold_check['is_pay']=='0')?'checked':'';?>>미사용</label>
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">골드 서비스설정</td>
+    <td class="pdlnb2">
+		<input name="service_cnt" type="text" class="tnum tc" size="3" required hname='골드 서비스설정 값' value="<?php echo $get_gold_service['service_cnt'];?>" placeholder="0">
+		<select name="service_unit">
+			<option value='day' <?php echo ($get_gold_service['service_unit']=='day')?'selected':'';?>>일</option>
+			<!-- <option value='week' <?php echo ($get_gold_service['service_unit']=='week')?'selected':'';?>>주일</option> -->
+			<option value='month' <?php echo ($get_gold_service['service_unit']=='month')?'selected':'';?>>개월</option>
+			<option value='year' <?php echo ($get_gold_service['service_unit']=='year')?'selected':'';?>>년</option>
+		</select>&nbsp;
+		<input name="service_price" type="text" class="tnum tc" size="10" required hname='골드 서비스설정 금액' value="<?php echo $get_gold_service['service_price']?>" placeholder="0" data-v-min="0" data-v-max="10000000000"> <label style="vertical-align:-0.1em">원</label>,
+		할인율 <input name="service_percent" type="text" class="tnum tc" size="2" hname='할인율' value="<?php echo ($get_gold_service['service_percent'])?$get_gold_service['service_percent']:"";?>" placeholder="0"> <label style="vertical-align:-0.1em">%</label>&nbsp;&nbsp;
+		<a onClick="update_service('insert','',true);" class="cbtn grf_col lnb_col"><h1 class="btn19"><strong>+</strong>등록</h1></a>
+		<span class="subtlt">금액을 '0'으로 등록시 무료로 설정 됩니다</span>
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">골드 서비스금액</td>
+    <td class="pdlnb2">
+    <table width="100%" class="ttlt tf lnb_gr bt2">
+      <col width="50"><col span="2"><col span="3" width="56">
+      <tr class="bg">
+        <td>순서</td>
+        <td>설정값</td>
+        <td>금액</td>
+        <td>할인율</td>
+        <td>수정</td>
+        <td class="e">삭제</td>
+      </tr>
+
+		<?php if(!$service_gold_list){ ?>
+		<tr><td colspan="6" class="stlt"></td></tr>
+		<?php } else { ?>
+
+		<tbody id="gold_service_list">
+		<?php 
+			foreach($service_gold_list as $val){ 
+			$service_price = $service_control->service_discount($val['service_price'], $val['service_percent']);
+			if($service_price['total_price']){
+				if($service_price['service_percent']){
+					$service_price_text = "<span class='num3'><strike>".number_format($service_price['service_price'])."</strike> => ".number_format($service_price['total_price'])."</span>원";
+				} else {
+					$service_price_text = "<span class='num3'>".number_format($service_price['service_price'])."</span>원";
+				}
+			} else {
+				$service_price_text = "<span class='red'>무료</span>";
+			}
+		?>
+		<tr class="gold_service_list" no="<?php echo $val['no'];?>">
+			<td class="none num3">
+				<a onclick="gold_change_rank('up',this);">▲</a>
+				<a onclick="gold_change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<td id="gold_service_info<?php echo $val['no'];?>"><?php echo number_format($val['service_cnt']).$service_control->_unit($val['service_unit']);?></td>
+			<td class="b" id="gold_service_price<?php echo $val['no'];?>"><?php echo $service_price_text;?></td>
+			<td><?php echo $val['service_percent'];?>%</td>
+			<td><a onClick="update_service('update','<?php echo $val['no'];?>',true);"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="delete_service('<?php echo $val['no'];?>',true);"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php } ?>
+		</tbody>
+
+		<?php } ?>
+
+    </table>
+    </td>
+  </tr>
+</table>
+
+</form>
+<?php } # // 골드 서비스 등록 #################################################################### ?>
+
+<?php if($service_is_logo){ # 로고강조 서비스 등록 ######################################################## ?>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?> > 로고강조<a name="<?php echo $sel_code;?>_logo"></a></dl>  
+<form name="LogoServiceRegistFrm" method="post" id="LogoServiceRegistFrm" action="./process/service.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="<?php echo ($mode)?$mode:'insert';?>" id="mode"/><!-- 서비스 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+<input type="hidden" name="type" value="<?php echo $type;?>"/>
+<input type="hidden" name="is_logo" value="<?php echo $service_is_logo;?>"/>
+
+<table width="100%" class="bg_col">
+<col width=130><col> 
+  <tr>
+    <td class="ctlt">로고강조 사용/미사용설정</td>
+    <td class="pdlnb2">
+		<label><input name="is_pay" type="radio" value="1" class="radio" onclick="is_pays(this,'<?php echo $type;?>',0,1);" <?php echo ($service_logo_check['is_pay']=='1')?'checked':'';?>>사용</label> &nbsp;
+		<label><input name="is_pay" type="radio" value="0" class="radio" onclick="is_pays(this,'<?php echo $type;?>',0,1);" <?php echo ($service_logo_check['is_pay']=='0')?'checked':'';?>>미사용</label>
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">로고 서비스설정</td>
+    <td class="pdlnb2">
+		<input name="service_cnt" type="text" class="tnum tc" size="3" required hname='로고 서비스설정 값' value="<?php echo $get_logo_service['service_cnt'];?>" placeholder="0">
+		<select name="service_unit">
+			<option value='day' <?php echo ($get_logo_service['service_unit']=='day')?'selected':'';?>>일</option>
+			<!-- <option value='week' <?php echo ($get_logo_service['service_unit']=='week')?'selected':'';?>>주일</option> -->
+			<option value='month' <?php echo ($get_logo_service['service_unit']=='month')?'selected':'';?>>개월</option>
+			<option value='year' <?php echo ($get_logo_service['service_unit']=='year')?'selected':'';?>>년</option>
+		</select>&nbsp;
+		<input name="service_price" type="text" class="tnum tc" size="10" required hname='골드 서비스설정 금액' value="<?php echo $get_logo_service['service_price']?>" placeholder="0" data-v-min="0" data-v-max="10000000000"> <label style="vertical-align:-0.1em">원</label>,
+		할인율 <input name="service_percent" type="text" class="tnum tc" size="2" hname='할인율' value="<?php echo ($get_logo_service['service_percent'])?$get_logo_service['service_percent']:"";?>" placeholder="0"> <label style="vertical-align:-0.1em">%</label>&nbsp;&nbsp;
+		<a onClick="update_service('insert','',false,true);" class="cbtn grf_col lnb_col"><h1 class="btn19"><strong>+</strong>등록</h1></a>
+		<span class="subtlt">금액을 '0'으로 등록시 무료로 설정 됩니다</span>
+	</td>
+  </tr>
+  <tr>
+    <td class="ctlt">골드 서비스금액</td>
+    <td class="pdlnb2">
+    <table width="100%" class="ttlt tf lnb_gr bt2">
+      <col width="50"><col span="2"><col span="3" width="56">
+      <tr class="bg">
+        <td>순서</td>
+        <td>설정값</td>
+        <td>금액</td>
+        <td>할인율</td>
+        <td>수정</td>
+        <td class="e">삭제</td>
+      </tr>
+
+		<?php if(!$service_logo_list){ ?>
+		<tr><td colspan="6" class="stlt"></td></tr>
+		<?php } else { ?>
+
+		<tbody id="logo_service_list">
+		<?php 
+			foreach($service_logo_list as $val){ 
+			$service_price = $service_control->service_discount($val['service_price'], $val['service_percent']);
+			if($service_price['total_price']){
+				if($service_price['service_percent']){
+					$service_price_text = "<span class='num3'><strike>".number_format($service_price['service_price'])."</strike> => ".number_format($service_price['total_price'])."</span>원";
+				} else {
+					$service_price_text = "<span class='num3'>".number_format($service_price['service_price'])."</span>원";
+				}
+			} else {
+				$service_price_text = "<span class='red'>무료</span>";
+			}
+		?>
+		<tr class="logo_service_list" no="<?php echo $val['no'];?>">
+			<td class="none num3">
+				<a onclick="logo_change_rank('up',this);">▲</a>
+				<a onclick="logo_change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<td id="logo_service_info<?php echo $val['no'];?>"><?php echo number_format($val['service_cnt']).$service_control->_unit($val['service_unit']);?></td>
+			<td class="b" id="logo_service_price<?php echo $val['no'];?>"><?php echo $service_price_text;?></td>
+			<td><?php echo $val['service_percent'];?>%</td>
+			<td><a onClick="update_service('update','<?php echo $val['no'];?>',false,true);"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="delete_service('<?php echo $val['no'];?>',false,true);"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php } ?>
+		</tbody>
+
+		<?php } ?>
+
+    </table>
+    </td>
+  </tr>
+</table>
+
+</form>
+<?php } # // 로고강조 서비스 등록 ################################################################## ?>
+
+<div id="icon_question" style="display:none; cursor: default">
+	<div id='icon_quest_info'>
+		<p>아이콘 : <span id='icon_quest_name'></span></p><br/>
+	</div>
+	<p align='center' id='icon_confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='icon_questionAnswerYes'><input type="button" onClick="icon_questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="icon_questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<?php if($service_type=='icon'){ # 아이콘 등록 ######################################################### ?>
+
+<script>
+$(function(){
+	$('#busy_icon').filestyle({
+		image : "../../images/btn/23_01.gif",
+		imageheight : 23,
+		imagewidth : 48,
+		marginleft : 5,
+		width : 320
+	});
+	// 급구 아이콘 업로드
+	var busy_icon_options = { target : '#busy_icon_preview', beforeSubmit:busy_icon_Request, success:busy_icon_Response }
+	$('#busy_icon').live('change', function(){
+		var icon_type = $('#icon_type').val();		
+		$('#busy_icon_preview').html("");
+		$('#busy_icon_preview').html("<img src=\"<?php echo $alice['helper_img_path'];?>/bar_loader.gif\" alt='업로드중...'/>");
+		$('#IconFileFrm').ajaxSubmit(busy_icon_options);
+	});
+});
+var busy_icon_Request = function(formData, jqForm, busy_icon_options){
+	var queryString = $.param(formData);
+}
+var busy_icon_Response = function(responseText, statusText, xhr, $form){
+	if(responseText=='0003'){
+		alert("<?php echo $service_control->_errors('0003');?>");
+		return false;
+	} else {
+		if(responseText){
+			var result = responseText.split('@');
+			var type = result[0], service_name = result[1];
+			var img_file = result[2];
+			$('#busy_icon_preview').html("<img src='<?php echo $alice['data_icon_path'];?>/"+img_file+"'/>");
+			$('#busy_icon_field').html("<input type='file' name='busy_icon' class='txt i23' id='busy_icon' title='급구아이콘'>");
+			$('#busy_icon').filestyle({
+				image : "../../images/btn/23_01.gif",
+				imageheight : 23,
+				imagewidth : 48,
+				marginleft : 5,
+				width : 320
+			});
+		} else {
+			alert("<?php echo $service_control->_errors('0005');?>");
+			return false;
+		}
+	}
+}
+
+var icon_update = function( ){	// 강조 아이콘 업로드
+	var icon_options = { target : '', beforeSubmit:icon_Request, success:icon_Response }
+	$('#IconFileFrm').ajaxSubmit(icon_options);
+}
+var icon_Request = function(formData, jqForm, busy_icon_options){
+	var queryString = $.param(formData);
+}
+var icon_Response = function(responseText, statusText, xhr, $form){
+	if(responseText=='0003'){
+		alert("<?php echo $service_control->_errors('0003');?>");
+		return false;
+	} else {
+		location.href = "./service.php?type=" + type;
+	}
+}
+var icon_change_rank = function( direction, src ){	// 아이콘 순위 조절
+	var parent = $('#icon_list');
+	var no = $(src).parents('tr.icon_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.icon_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.icon_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.icon_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.icon_list').next().attr('no');
+		}
+	}
+	$.post('./process/service.php', { mode:'icon_rank', type:'service_icon', no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.icon_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var icon_delete = function( no ){
+	var icon_info = $('#icon_'+no).html();
+	$('#icon_quest_name').html(icon_info);
+	$('#icon_question').show();
+	$('#icon_confirm_msg').html("위의 아이콘을 삭제하시겠습니까?");	
+	$('#icon_questionAnswerYes').html('<input type="button" onClick="icon_questionAnswer(\'yes\', \'icon_delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '아이콘 정보 삭제',
+		showOverlay: false,
+		message: $('#icon_question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+}
+var icon_questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'icon_delete':	// 아이콘 삭제
+				$.post('./process/service.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?> > 아이콘 설정</dl>  
+
+<form name="IconFileFrm" method="post" id="IconFileFrm" action="./process/service.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="icon_update" id="mode"/>
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+<input type="hidden" name="type" value="<?php echo $type;?>"/>
+<input type="hidden" name="service_name" value="<?php echo $sel_code;?>"/>
+<input type="hidden" name="icon_mode" value="<?php echo $icon_mode;?>"/><!-- 옵션 아이콘 업로드 모드 -->
+
+	<?php if($sel_code=='busy'){ // 급구 아이콘 업로드 ?>
+
+		<table width="100%" class="bg_col">
+		<col width=130><col> 
+		<tr>
+			<td class="ctlt">현재 등록된 아이콘</td>
+			<td class="pdlnb2" id="busy_icon_preview"><?php if($service_check['busy_icon']){ ?><img src="<?php echo $alice['data_icon_path'];?>/<?php echo $service_check['busy_icon'];?>"/><?php } ?></td>
+		</tr>
+		<tr>
+			<td class="ctlt">아이콘 업로드</td>
+			<td class="pdlnb2">
+				<span style="margin-left:-20px;" id="busy_icon_field">
+					<input type='file' name="busy_icon" class='txt i23' id="busy_icon" title="급구아이콘">
+				</span>
+				<span class="subtlt" style="margin-left:52px;">권장 사이즈 : 17px * 16px , 업로드 확장자 : *.jpg, *.gif, *.png</span>
+			</td>
+		</tr>
+		</table>
+
+	<?php } else if($sel_code=='icon') { // 아이콘 업로드 ?>
+
+		<table width="100%" class="bg_col">
+		<col width=130><col> 
+			<tr>
+				<td class="ctlt">아이콘등록</td>
+				<td class="pdlnb2">
+					<input type="file" name="icon" class="txt" style="width:330px;"/> 
+					<a onClick="icon_update();" class="cbtn grf_col lnb_col"><h1 class="btn19"><strong>+</strong>등록</h1></a>
+				</td>
+			</tr>
+			<?php 
+				if($icon_mode=='update'){
+					$get_category = $category_control->get_category($no);
+					$icon = $alice['data_icon_path'] . "/" . $get_category['name'];
+			?>
+			<tr>
+				<td class="ctlt">등록된아이콘</td>
+				<td class="pdlnb2"><img src="<?php echo $icon;?>"/></td>
+			</tr>
+			<?php } ?>
+			<tr>
+				<td class="ctlt">아이콘목록</td>
+				<td class="pdlnb2">
+					<table width="100%" class="ttlt tf lnb_gr bt2">
+					<col width="50"><col><col span="2" width="56">
+					<tr class="bg">
+						<td>순서</td>
+						<td>아이콘</td>
+						<td>수정</td>
+						<td class="e">삭제</td>
+					</tr>
+					<?php if(!$icon_list){ ?>
+					<tr><td colspan="4" class="stlt"></td></tr>
+					<?php } else { ?>
+
+					<tbody id="icon_list">
+					<?php 
+						foreach($icon_list as $val){
+						$icon = $alice['data_icon_path'] . "/" . $val['name'];
+					?>
+					<tr class="icon_list" no="<?php echo $val['no'];?>">
+						<td class="none num3">
+							<a onclick="icon_change_rank('up',this);">▲</a>
+							<a onclick="icon_change_rank('down',this);">▼</a>&nbsp;
+						</td>
+						<td id="icon_<?php echo $val['no'];?>"><img src="<?php echo $icon;?>"/></td>
+						<td><a href="./service.php?type=<?php echo $type;?>&icon_mode=update&no=<?php echo $val['no'];?>"><img src="../../images/btn/19_05.gif"></a></td>
+						<td class="e"><a onClick="icon_delete('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+					</tr>
+					<?php } // foreach end. ?>
+					</tbody>
+					<?php } //if end. ?>
+
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	<?php } ?>
+
+</form>
+<?php } # // 아이콘 등록 ###################################################################### ?>
+
+<?php if($service_type=='slide'){ # 로고강조 등록 ###################################################### ?>
+
+<script>
+$(function(){
+	$("input[name='effect[]']").click(function(){	// 슬라이드 선택시
+		var effect = $(this).val();
+		var checked = $(this).is(':checked');
+		if(effect == 'slide'){
+			if(checked == true){
+				$('#effect_slide_direction').show();
+			} else {
+				$('#effect_slide_direction').hide();
+			}
+		}
+	});
+	fade_images('fade_image');	// 페이드 형태
+	setInterval(function(){
+		fade_images('fade_image');
+	}, 3000);
+
+	blink('blink_image',900000,1500);	// 깜빡임
+
+	$('.slide_image').cycle({ 
+		fx:     '<?php echo $logo_checks[1];?>', 
+		/*easing: 'easeOutBounce', */
+		easing: 'easeInOutBack',
+		delay:  -2000 
+	});
+
+});
+var logo_effect_use = function( vals ){	 // 로고 강조효과 사용 유무
+	var sel = vals.value;
+	$.post('./process/service.php', { mode:'slide_update', service_name:'<?php echo $type;?>', type:'effect_use', effect_use:sel }, function(result){
+		if(result){
+			alert("<?php echo $service_control->_success('0003');?>");
+		} else {
+			alert("<?php echo $service_control->_errors('0006');?>");
+		}
+	});
+}
+var logo_effect_direction = function( vals ){	// 로고 슬라이드 방향
+	var sel = vals.value;
+	$.post('./process/service.php', { mode:'slide_update', service_name:'<?php echo $type;?>', type:'effect_direction', effect_direction:sel }, function(result){
+		if(result){
+			alert("<?php echo $service_control->_success('0004');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $service_control->_errors('0007');?>");
+		}
+	});
+}
+</script>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?> > 로고 설정</dl>  
+
+<table width="100%" class="bg_col">
+<col width=130><col> 
+<!-- <tr>
+	<td class="ctlt">강조효과 사용유무</td>
+	<td class="pdlnb2">
+		<label><input type="radio" name="effect_use" value="1" checked onclick="logo_effect_use(this);"/> 사용</label>&nbsp;
+		<label><input type="radio" name="effect_use" value="0" <?php echo ($logo_checks[0]=='0')?'checked':'';?> onclick="logo_effect_use(this);"/> 미사용</label>
+	</td>
+</tr> -->
+<tr>
+	<td class="ctlt">효과 미리보기</td>
+	<td class="pdlnb2">
+		<div style="float:left;">
+			<img src="../../images/basic/img_aniLogo.gif" class="fade_image"/>&nbsp;
+			<span style="width:106px;height:42px;"><img src="../../images/basic/img_aniLogo.gif" class="blink_image"/></span>&nbsp;
+			<div style="float:right;margin-left:5px;" class="slide_image">
+				<img src="../../images/basic/img_aniLogo.gif" width="106" height="42"/>
+				<img src="../../images/basic/img_aniLogo.gif" width="106" height="42"/>
+			</div>
+		</div>
+	</td>
+</tr>	
+<tr id="effect_slide_direction" style="display:;?>;">
+	<td class="ctlt">로고 슬라이드 방향</td>
+	<td class="pdlnb2">
+		<label><input type="radio" name="effect_slide_direction" value="scrollUp" checked onclick="logo_effect_direction(this);"/> 상</label>&nbsp;
+		<label><input type="radio" name="effect_slide_direction" value="scrollDown" <?php echo ($logo_checks[1]=='scrollDown')?'checked':'';?> onclick="logo_effect_direction(this);"/> 하</label>&nbsp;
+		<label><input type="radio" name="effect_slide_direction" value="scrollLeft" <?php echo ($logo_checks[1]=='scrollLeft')?'checked':'';?> onclick="logo_effect_direction(this);"/> 좌</label>&nbsp;
+		<label><input type="radio" name="effect_slide_direction" value="scrollRight" <?php echo ($logo_checks[1]=='scrollRight')?'checked':'';?> onclick="logo_effect_direction(this);"/> 우</label>
+	</td>
+</tr>
+</table>
+
+<?php } # // 로고강조 등록 ##################################################################### ?>
+
+<?php if($service_type=='color'){ # 색상 설정 ######################################################### ?>
+
+<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo $alice['helper_css_path']."/plugins/jquery.colourPicker.css"?>" />
+
+<script>
+$(function(){
+	$('#color_list select').colourPicker({
+		ico:	'../../images/btn/23_col.gif', 
+		title:	false
+	});
+});
+var field_cnt = <?php echo $color_checks_cnt-1;?>;
+var field_add = function(){	// 항목 추가
+field_cnt++;
+	if(field_cnt > 5){
+		alert("최대 5개 까지 추가 가능합니다.");
+		return false;
+	}
+	$('#field_'+field_cnt).show();
+}
+var field_remove = function(){	// 항목 제거
+	if(field_cnt==0){
+		alert("최소 1개 이상 있어야 합니다.");
+		return false;
+	} else {
+		var font_color = $("#field_"+field_cnt+" > input[name='<?php echo $sel_field;?>[]']");
+		font_color.val('000000');	
+		$('#color_list > #field_'+field_cnt).hide();
+		field_cnt--;
+	}
+}
+var field_update = function(){	// 색상 저장
+	var color_options = { target : '', beforeSubmit:color_Request, success:color_Response }
+	$('#ColorFrm').ajaxSubmit(color_options);
+}
+var color_Request = function(formData, jqForm, color_options){
+	var queryString = $.param(formData);
+}
+var color_Response = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		location.reload();
+	} else {
+		alert("<?php echo $config->_errors('0009');?>");
+	}
+}
+</script>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $service_sel_title;?> > 색상 설정</dl>  
+
+<form name="ColorFrm" method="post" id="ColorFrm" action="./process/service.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="color_update" id="mode"/>
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+<input type="hidden" name="type" value="<?php echo $type;?>"/>
+<input type="hidden" name="service_name" value="<?php echo $sel_code;?>"/>
+	
+		<table width="100%" class="bg_col">
+		<col width=130><col>
+		<tr>
+			<td class="ctlt"><?php echo ($sel_code=='neon')?"형광색":"글자색";?> 설정</td>
+			<td class="pdlnb2">
+				<ul class="pl2" id='color_list'>
+					<?php 
+						for($i=0;$i<5;$i++){ 
+							if($i==0){
+								$_display = '';
+							} else {
+								if($color_checks[$i]){
+									$_display = '';
+								} else {
+									$_display = 'none';
+								}
+							}
+					?>
+					<li id="field_<?php echo $i;?>" style="display:<?php echo $_display;?>;">
+						<select name="<?php echo $sel_field;?>[]"><?php echo $utility->gwsc($color_checks[$i]); ?></select>
+					</li>
+					<?php } ?>
+				</ul>
+				<dd style='margin-left:150px;'>
+					<a onClick="field_add();" class="btn"><h1 class="btn23"><strong class="col">O</strong>추가</h1></a>
+					<a onClick="field_remove();" class="btn"><h1 class="btn23"><strong>X</strong>제거</h1></a>
+					<a onClick="field_update();" class="cbtn grf_col lnb_col"><h1 class="btn23">저장</h1></a>
+				</dd>
+			</td>
+		</tr>
+		</table>
+
+</form>
+<?php } # // 색상 설정 ######################################################################## ?>
+
+<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+</script>
+<?php include_once "../include/tail.php";?>

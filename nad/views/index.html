@@ -1,0 +1,44 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<style>
+body{background-color: #e9f0f4; width:100%;}
+.nbg{width:558px;height:296px;background:url('../images/nad/nad_bg.png') no-repeat center;}
+.nbg table{margin-top:130px;display:inline-block;position:relative}
+.loginWrap{position:absolute; top:50%; left:50%; margin-top:-150px; margin-left:-200px; width:400px; height:270px; background-color:#fff; }
+.loginBox {width:330px; margin:25px auto;}
+.loginBox li.inputbox input{width:330px; height:40px; border:1px solid #dae4eb; }
+.loginBox li.loginbtn input{ background-color:#2e3641; }
+</style>
+<script>
+$(document).ready(function() {	// Handler for .ready() called.
+	
+	// Form Submit
+	$("#AdminLoginFrm").bind('keypress', function(e){
+		if(e.which == 13) $("#AdminLoginFrm").submit();
+	});
+
+	// Form Focusing
+	$("#Admin_uid").focus();
+
+});
+</script>
+<body>
+
+	<div class="loginWrap">
+	<h2 class="pt15" style="width:400px; height:40px; background-color:#2e3641;"><img style="padding-left:24px; vertical-align:middle;" src="../images/nad/tit_login_01.gif"></h2>
+	<ul class="loginBox">
+	<form name="AdminLoginFrm" method="post" id="AdminLoginFrm" onsubmit="return validate(this);" action="./process/login.php">
+	<input type="hidden" name="mode" value="login"/>
+	<li class="inputbox">
+	<input style="background:url(../images/nad/text_bg_01.gif) no-repeat 98% 50%" type="text" hname="관리자 아이디" required="" value="<?=$Admin_uid?>" tabindex="1" id="Admin_uid" name="uid"  class="txt">
+	</li>
+	<li class="inputbox mt10">
+	<input style="background:url(../images/nad/text_bg_02.gif) no-repeat 98% 50%" type="password" hname="관리자 비밀번호" required="" value="<?=$Admin_passwd?>" tabindex="2" id="Admin_passwd" name="passwd" class="txt">
+	</li>
+	<li class="loginbtn mt15"><input type="image" tabindex="3" style="height:42px" src="../images/nad/btn_login_01.gif"></li>
+	<div class="mt15" style="text-align:center; color:#9eb2c0; ">로그인에 애로사항이 있으시면 넷퓨에 문의하세요.</div>
+	</form>
+	</ul>
+	</div>
+
+</body>
+</html>

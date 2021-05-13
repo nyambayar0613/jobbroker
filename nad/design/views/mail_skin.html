@@ -1,0 +1,424 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	$("input[name='skin_name']").click(function(){
+		var sel = $(this).val();
+		$('#skinContent').load('./views/_load/mail.php', { mail_skin:sel }, function(result){
+		});
+	});
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#MailSkinRegistFrm').submit(function(){
+		<?php echo $utility->input_cheditor('content');?>	// 에디터 내용 전달
+		$(this).ajaxSubmit(form_options);
+		return false;
+	});
+});
+</script>
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+기본메일 발송내용을 편집할 수 있습니다.<br>
+치환코드를 삽입하시면 각 상황별 문자로 치환됩니다. 잘못된 코드를 삽입하여 문제가 발생할 경우 책임지지 않습니다.
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">MAIL스킨관리</dl>  
+
+<form name="MailSkinRegistFrm" method="post" id="MailSkinRegistFrm" action="./process/mail.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="update" id="mode"/><!-- 메일 스킨 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+
+	<table width="100%" class="bg_col">
+	<col width=120><col>
+	<tr>
+		<td class="ctlt">편집메일 선택</td>
+		<td class="pdlnb2">
+			<?php foreach($mail_skins as $key => $val){ ?>
+			<label><input name="skin_name" type="radio" value="<?php echo $key;?>" class="radio" <?php echo ($key==$mail_type)?'checked':'';?>/><?php echo $val;?> &nbsp;</label>
+			<?php } ?>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">공통 치환문자</td>
+		<td class="pdlnb2"><?php echo implode($design_control->mail_skin_var," ");?></td>
+	</tr>
+	<tr>
+		<td class="ctlt">입사지원 치환문자</td>
+		<td class="pdlnb2"><?php echo implode($design_control->mail_become_var," ");?></td>
+	</tr>
+	<tr>
+		<td class="ctlt">공고 치환문자</td>
+		<td class="pdlnb2"><?php echo implode($design_control->mail_alba_employ_var," ");?></td>
+	</tr>
+	<!-- <tr>
+		<td class="ctlt">정규직 이력서 치환문자</td>
+		<td class="pdlnb2"><?php echo implode($design_control->mail_alba_resume_var," ");?></td>
+	</tr> -->
+	<!-- <tr>
+		<td class="ctlt">메일제목</td>
+		<td class="pdlnb2"><input name="mail_title" type="text" class="txt w50"></td>
+	</tr> -->
+	<tr>
+		<td class="ctlt">내용편집</td>
+		<td class="pdlnb2">
+
+			<div id="skinContent">
+				<?php echo $utility->make_cheditor('content', stripslashes($get_mail_skin['content']));	// 에디터 생성?>
+			</div>
+
+			<!--회원가입-->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="join">
+			<tr>
+				<td style="text-align:center;padding-bottom:15px">{메일상단로고}</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+					<div style="margin:0 auto;padding:70px 0 25px;background:#fff;border:5px solid #ccc;" align="center">
+						<table cellspacing="0" cellpadding="0" width="540">
+						<tr><td><img src="../../images/mail/box_top.gif"></td></tr>
+						<tr>
+							<td style="padding:15px 20px;text-align:left;background:url('../../images/mail/box_bg.gif') repeat-y;font:14px/170% 'dotum'">
+							<b style="color:#000;">{회원이름}</b>님 안녕하세요?<br>
+							{사이트이름} 회원이 되신 것을 진심으로 축하드립니다.<br>
+							회원님께서는 <b style="color:#666;">{가입일시}</b>에 <b style="color:#666;">{아이디}</b>로 회원가입이 되셨습니다.
+							</td>
+						</tr>    
+						<tr><td><img src="../../images/mail/box_bottom.gif"></td></tr>
+						<tr>
+							<td style="padding:50px 0 20px;font:12px/180% 'dotum';color:#666;text-align:left;">
+							회원님께서는 진행중인 이벤트 참여 등 다양한 서비스를 편리하게 누리실 수 있습니다.<br>
+							회원님의 소중한 개인정보는 철저히 보안되어짐을 약속드리겠습니다.
+							</td>
+						</tr>
+						</table>
+						<div align="center" style="margin:50px 0"><a href="/" target="_blank"><img src="../../images/mail/site.gif"></a></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<ul style="text-align:left;list-style-type:none;margin:0px auto;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+						<li><b>ㆍ</b>본 메일은 메일수신에 동의한 회원에게만 발송되며, 발신전용 메일이므로 회신되지 않습니다. </li>
+						<li><b>ㆍ</b>메일 수신을 원하지 않는 경우는 회원의 경우 회원정보를 수정하여 주세요. </li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-right:10px">{메일하단로고}</td>
+						<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!--//회원가입-->
+
+			<!-- 아이디/비번찾기 -->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="idpw">
+			<tr><td style="text-align:center;padding-bottom:15px">{메일상단로고}</td></tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+					<div style="margin:0 auto;padding:70px 0 25px;background:#fff;border:5px solid #ccc;" align="center">
+						<table cellspacing="0" cellpadding="0" width="540">
+						<tr><td><img src="../../images/mail/box_top.gif"></td></tr>
+						<tr>
+							<td style="padding:15px 20px;text-align:left;background:url('../../images/mail/box_bg.gif') repeat-y;font:14px/170% 'dotum'">
+								<b style="color:#000;">{회원이름}</b>님 안녕하세요?<br>
+								안전한 비밀번호 관리를 위해서 비밀번호는 반드시 정기적으로 변경해주시고 다른사람이 비밀번호를 알수 없도록 관리해주세요.<br>
+								회원님께서는 요청하신 비밀번호는 아래와 같습니다.
+							</td>
+						</tr>
+						<tr><td><img src="../../images/mail/box_bottom.gif"></td></tr>        
+						<tr>
+							<td style="padding:50px 0;">
+								<ul style="text-align:left;list-style-type:none;margin:0px auto;color:#515050;font:12px/200% 'dotum';padding:15px 0">
+								<li><b>ㆍ</b>아이디 : <b style="color:#000">{회원아이디}</b></li>
+								<li><b>ㆍ</b>비밀번호 : <b style="color:#000">{비밀번호}</b></li>
+								</ul>
+							</td>
+						</tr>
+						</table>
+						<div align="center" style="margin:50px 0"><a href="/" target="_blank"><img src="../../images/mail/site.gif"></a></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<ul style="text-align:left;list-style-type:none;margin:0px auto;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+					<li><b>ㆍ</b>본 메일은 메일수신에 동의한 회원에게만 발송되며, 발신전용 메일이므로 회신되지 않습니다. </li>
+					<li><b>ㆍ</b>메일 수신을 원하지 않는 경우는 회원의 경우 회원정보를 수정하여 주세요. </li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					<td style="padding-right:10px">{메일하단로고}</td>
+					<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- //아이디/비번찾기 -->
+
+			<!-- 뉴스레터 -->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="letter">
+			<tr><td style="text-align:center;padding-bottom:15px">{메일상단로고}</td></tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+					<div style="margin:0 auto;padding:25px 0;background:#fff;border:5px solid #ccc;font:12px/170% 'dotum';color:#555;" align="center">
+					원하는 내용을 삽입해주세요
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<ul style="text-align:left;list-style-type:none;margin:0px auto;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+					<li>· 본 메일은 메일수신에 동의한 회원에게만 발송되며, 발신전용 메일이므로 회신되지 않습니다. </li>
+					<li>· 메일 수신을 원하지 않는 경우는 회원의 경우 회원정보를 수정하여 주세요. </li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-right:10px">{메일하단로고}</td>
+						<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- //뉴스레터 -->
+
+			<!-- 제휴문의 -->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="partner">
+			<tr><td style="text-align:center;padding-bottom:15px">{메일상단로고}</td></tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+
+					<div style="margin:0 auto;padding:25px 0;background:#fff;border:5px solid #ccc;" align="center">
+
+						<table cellspacing="0" cellpadding="0" width="540">
+						<tr><td><img src="../../images/mail/box_top.gif"></td></tr>
+						<tr>
+							<td style="padding:15px 20px;text-align:left;background:url('../../images/mail/box_bg.gif') repeat-y;font:14px/170% 'dotum'">
+								<b style="color:#000;">{이름}</b>님 안녕하세요? {사이트이름} 입니다.<br>
+								고객님이 문의하신 내용에 대한 답변입니다.
+							</td>
+						</tr>    
+						<tr><td><img src="../../images/mail/box_bottom.gif"></td></tr>        
+						<tr>
+							<td style="padding-top:50px;">
+								<table width="100%" border="0" cellspacing="1" cellpadding="0" style="background:#d9d9d9;text-align:left;font:12px/170% 'dotum';color:#555;border-collapse:separate">
+								<tr>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">등록일</td>
+								<td style="background:#fff;padding:7px">0000-00-00</td>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">답변일</td>
+								<td style="background:#fff;padding:7px">0000-00-00</td>
+								</tr>
+								<tr>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">문의종류</td>
+								<td style="background:#fff;padding:7px">광고문의</td>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">첨부파일</td>
+								<td style="background:#fff;padding:7px">파일명</td>
+								</tr>        
+								<tr>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px">문의제목</td>
+								<td style="background:#fff;padding:7px" colspan="3">광고문의</td>
+								</tr>       
+								<tr>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">문의내용</td>
+								<td style="background:#fff;padding:7px;line-height:18px" colspan="3">문의내용<br>문의내용</td>
+								</tr>
+
+								<tr>
+								<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">답변내용</td>
+								<td style="background:#fff;padding:7px;line-height:18px" colspan="3">문의내용<br>문의내용</td>
+								</tr>
+								</table>
+								<div align="center" style="margin:50px 0"><a href="/" target="_blank"><img src="../../images/mail/site.gif"></a></div>
+							</td>
+						</tr>
+						</table>
+
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+				본 메일은 발신전용 메일이므로 회신되지 않습니다. 문의사항은 1:1상담게시판을 이용주세요.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-right:10px">{메일하단로고}</td>
+						<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- //제휴문의 -->
+
+			<!-- 1:1문의 -->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="cs">
+			<tr><td style="text-align:center;padding-bottom:15px">{메일상단로고}</td></tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+					<div style="margin:0 auto;padding:25px 0;background:#fff;border:5px solid #ccc;" align="center">
+
+						<table cellspacing="0" cellpadding="0" width="540">
+						<tr><td><img src="../../images/mail/box_top.gif"></td></tr>
+						<tr>
+							<td style="padding:15px 20px;text-align:left;background:url('../../images/mail/box_bg.gif') repeat-y;font:14px/170% 'dotum'">
+								<b style="color:#000;">{이름}</b>님 안녕하세요? {사이트이름} 입니다.<br>
+								고객님이 문의하신 내용에 대한 답변입니다.
+							</td>
+						</tr>
+						<tr><td><img src="../../images/mail/box_bottom.gif"></td></tr>        
+						<tr>
+							<td style="padding-top:50px;">
+
+								<table width="100%" border="0" cellspacing="1" cellpadding="0" style="background:#d9d9d9;text-align:left;font:12px/170% 'dotum';color:#555;border-collapse:separate">
+								<tr>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">등록일</td>
+									<td style="background:#fff;padding:7px">0000-00-00</td>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">답변일</td>
+									<td style="background:#fff;padding:7px">0000-00-00</td>
+								</tr>
+								<tr>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">문의종류</td>
+									<td style="background:#fff;padding:7px">결제문의</td>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">첨부파일</td>
+									<td style="background:#fff;padding:7px">파일명</td>
+								</tr>        
+								<tr>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px">문의제목</td>
+									<td style="background:#fff;padding:7px" colspan="3">광고문의</td>
+								</tr>       
+								<tr>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">문의내용</td>
+									<td style="background:#fff;padding:7px;line-height:18px" colspan="3">문의내용<br>문의내용</td>
+								</tr>
+
+								<tr>
+									<td style="background:#eee;font:bold 11px/100% 'dotum';color:#000;padding-left:10px;width:80px;height:30px;">답변내용</td>
+									<td style="background:#fff;padding:7px;line-height:18px" colspan="3">문의내용<br>문의내용</td>
+								</tr>
+								</table>
+
+								<div align="center" style="margin:50px 0"><a href="/" target="_blank"><img src="../../images/mail/site.gif"></a></div>
+							</td>
+						</tr>
+						</table>
+
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:left;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+				본 메일은 발신전용 메일이므로 회신되지 않습니다. 문의사항은 1:1상담게시판을 이용주세요.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-right:10px">{메일하단로고}</td>
+						<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- //1:1문의 -->
+
+			<!-- 기타안내 -->
+			<table width="650" border="0" cellspacing="0" cellpadding="0" style="margin:30px;display:none;" id="etc">
+			<tr><td style="text-align:center;padding-bottom:15px">{메일상단로고}</td></tr>
+			<tr>
+				<td style="text-align:center;vertical-align:top;">
+					<div style="margin:0 auto;padding:25px 0;background:#fff;border:5px solid #ccc;font:12px/170% 'dotum';color:#555;" align="center">
+					원하는 내용을 삽입해주세요
+					</div>
+				</td>
+			</tr>
+			<tr>
+			<td>
+				<ul style="text-align:left;list-style-type:none;margin:0px auto;color:#515050;font:11px/160% 'dotum';padding:15px 0">
+					<li>· 본 메일은 메일수신에 동의한 회원에게만 발송되며, 발신전용 메일이므로 회신되지 않습니다. </li>
+					<li>· 메일 수신을 원하지 않는 경우는 회원의 경우 회원정보를 수정하여 주세요. </li>
+				</ul>
+			</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-right:10px">{메일하단로고}</td>
+						<td>{메일하단}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- //기타안내 -->
+
+		</td>
+	</tr>
+	</table>
+
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+	var MailSkinRegistFrm = document.getElementById('MailSkinRegistFrm');
+	var queryString = $.param(formData);
+	return validate(MailSkinRegistFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+	if(responseText=='0052'){
+		alert("<?php echo $config->_success('0052');?>");
+	} else {
+		if(responseText){
+			alert("<?php echo $design_control->_success('0000');?>");
+			//location.reload();
+		} else {
+			alert("<?php echo $design_control->_errors('0000');?>");
+		}
+	}
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

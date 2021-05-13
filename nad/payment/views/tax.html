@@ -1,0 +1,420 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_tax = function( no ){	// 세금계산서 정보
+	$('#pop_info').load('./views/_load/layer.php', { mode:'tax_info', no:no }, function(result){
+		$('#pop_tax').show();
+		$('#pop_tax').draggable({ handle: "#taxHandle" });
+		$('#pop_tax').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_email = function( no ){	// 이메일 발송 창
+	$('#pop_info').load('../member/views/_load/layer.php', { mode:'email', no:no }, function(result){
+		$('#pop_mail').show();
+		$('#pop_mail').draggable({ handle: "#emailFrmHandle" });
+		$('#pop_mail').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var mail_send = function( no ){	// 메일 발송
+	var MemberEmailFrm = document.getElementById('MemberEmailFrm');
+	if(validate(MemberEmailFrm)==false){
+		return false;
+	} else {
+		if(!ed_content.outputBodyText()){	// 내용이 없는 경우
+			alert("<?php echo $config->_errors('0042');?>");
+			ed_content.returnFalse();
+			return false;
+		}
+		$('#quest_info').show();
+		$('#confirm_msg').html("메일을 전송하시겠습니까?<br/><br/>메일 수신거부와 상관없이 무조건 메일이 전송 되오니<br/> 유념하시기 바랍니다.");	
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '메일 전송 확인',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_status = function( vals, no){
+	var sel = vals.value;
+	$('#quest_info').show();
+	$('#confirm_msg').html("세금 계산서 신청 상태를 변경하겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'status\',\''+no+'\',\''+sel+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '세금계산서 상태 변경',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var pop_memo = function( no ){	// 메모 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'memo', no:no }, function(result){
+		$('#pop_memo').show();
+		$('#pop_memo').draggable({ handle: "#memoFrmHandle" });
+		$('#pop_memo').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var memo_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#TaxMemoFrm').ajaxForm(memo_options);	// memo ajax form submit
+	});
+}
+var update_tax = function( no ){	// 수정
+	$('#pop_info').load('./views/_load/layer.php', { mode:'tax_update', no:no }, function(result){
+		$('#pop_tax').show();
+		$('#pop_tax').draggable({ handle: "#taxHandle" });
+		$('#pop_tax').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		$('#wr_pay_date').datepicker({dateFormat: 'yy-mm-dd'});
+
+		var tax_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#taxFrm').ajaxForm(tax_options);	// memo ajax form submit
+
+	});
+}
+var delete_tax = function( no ){	// 삭제
+	$('#quest_info').show();
+	$('#confirm_msg').html("세금계산서 정보를 삭제하시겠습니까?<br/><br/>한번 삭제된 데이터는 복구가 불가능합니다.");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '세금계산서 정보 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_tax = function(){	// 선택 삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 세금계산서 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>선택하신 세금계산서 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '세금계산서 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var postSearchPops = function(mb_type){	// 우편번호 검색창 띄우기
+	var mode = 'zipcode_'+mb_type;
+	var map_color = "<?php echo $map_color;?>";
+	$('#zipcode_info').load('../member/views/_load/layer.php', { mode:mode, mb_type:mb_type, map_color:map_color }, function(result){
+		$('.closeBtn, .close').click(function(){	// 우편번호 검색창 닫기
+			$('#postSearchPop').hide();
+		});
+
+		$('#postSearchPop').show();
+		$('#postSearchKeyword').focus();
+		$('#postSearchPop').draggable({ handle: "#postSearchPop_handle" });
+		$('#postSearchKeyword').keydown(function(event){	// 우편번호 검색창 엔터키 이벤트
+			if(event.keyCode==13){	
+				postSearchs(mb_type);
+				return false;
+			}
+		});
+	});
+}
+var postSearchs = function(mb_type){
+	var keyword = $('#postSearchKeyword').val();
+	if(!keyword || keyword==''){
+		alert("동명을 입력해 주세요.");
+		$('#postSearchKeyword').focus();
+		return false;
+	} else {
+		$.post('../member/views/_ajax/post_search.php', { mode:mb_type, keyword:keyword }, function(result){
+			$('#post_List').html("");
+			var data = eval("(" + result + ")");
+			if(data.list!=''){
+				$.each(data.list, function(key,lists){
+					zipcode = lists.ZIPCODE.split('-');
+					sido = lists.SIDO;
+					gugun = lists.GUGUN;
+					dong = lists.DONG;
+					ri = lists.RI;
+					bunji = lists.BUNJI;
+					doseo = (lists.DOSEO) ? "(도서지역)" : "";
+					bldg_name = lists.BLDG;
+					bldg = (bldg_name) ? " " + bldg_name : "";	// 건물명
+
+					if(mb_type=='individual'){	// 개인회원 우편번호 검색 결과
+						$('#post_List').append("<tr><td>"+lists.ZIPCODE+"</td><td class=\"address_list brend\"><a href=\"javascript:addPost('"+lists.ZIPCODE+"','"+sido+"','"+gugun+"','"+dong+"','"+ri+"','"+bunji+"', '"+bldg_name+"');\">"+lists.ADDRESS+"</a></td></tr>");
+					} else if(mb_type=='company'){	// 기업회원 우편번호 검색 결과
+						$('#post_List').append("<tr><td>"+lists.ZIPCODE+"</td><td class=\"address_list brend\"><a href=\"javascript:addPost_position('"+lists.ZIPCODE+"','"+sido+"','"+gugun+"','"+dong+"','"+ri+"','"+bunji+"', '"+bldg_name+"');\">"+lists.ADDRESS+"</a></td></tr>");
+					}
+				});
+			} else {
+				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+			}
+		});
+	}
+}
+var addPost = function( zipcode, sido, gugun, dong, ri, bunji, bldg ){	// 우편번호 적용
+	// 우편번호
+	var zipcodes = zipcode.split('-');
+	$('#wr_zipcode0').val(zipcodes[0]);
+	$('#wr_zipcode1').val(zipcodes[1]);
+	// 기본주소
+	ris = (ri) ? ' ' + ri : '';	// 리가 없는 경우 공백이 들어올수 없다
+	bunjis = (bunji) ? ' ' + bunji : '';	// 번지가 없는 경우 공백이 들어올수 없다
+	$('#wr_address0').val(sido+' '+gugun+' '+dong+ris+bunjis+' '+bldg);
+	$('#postSearchPop').hide();
+	$('#wr_address1').focus();
+}
+
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 이메일 전송
+			case 'email':
+				<?php echo $utility->input_cheditor('content');?>	// 에디터 내용 전달
+				var mail_options = { beforeSubmit: showRequest, success: showResponse };	// email ajax options
+				$('#MemberEmailFrm').ajaxSubmit(mail_options);	// email ajax form submit
+			break;
+			// 상태변경
+			case 'status':
+				$.post('./process/regist.php', { mode:'status', no:no, status:sels }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $tax_control->_errors('0001');?>");
+					}
+				});
+			break;
+			// 삭제(단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:'tax_delete', no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $tax_control->_errors('0002');?>");
+					}
+				});
+			break;
+			// 삭제(복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:'tax_sel_delete', no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $tax_control->_errors('0002');?>");
+					}
+				});
+			break;
+		}	// switch end.
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+<div id="email_status" style="display:none; cursor: default;">
+	<div id='status_info'></div>	
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1"></td>
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+		<tr>
+			<td width="1"></td>
+			<td class="nb">
+
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+			<dl class="notbox">
+				<dl>
+					세금계산서(현금영수증) 신청 내역을 토대로 전문 세금계산서 발행업체 또는 국세청 홈페이지에서 세금계산서(현금영수증)를 발행해주시면 됩니다. <br>					
+				</dl>
+			</dl>
+			<?php include_once "./views/_include/tax_search.php"; ?>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name; ?>
+				<span>총 <b class="num3 col"><?php echo number_format($tax_list['total_count']);?></b>건의의 신청이 검색되었습니다.</span>
+				<dt>
+					<!-- <label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp; -->
+					<select name="page_rows" onchange="page_rowss(this);">
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+					</select>
+				</dt>
+			</dl>  
+
+	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_tax();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+			</dl>
+
+			<table width="100%" class="ttlt">
+			<col width="2%"><col ><col ><col ><col ><col ><col><col ><col ><col ><col ><col ><col ><col ><col >
+			<tr class="bg">
+				<td><input name="check_all" type="checkbox"></td>
+				<td>신청자명</td>
+				<td>신청회원ID</td>
+				<td>회사명</td>
+				<td>대표자명</td>
+				<td>업태 / 종목</td>
+				<td>E-mail</td>
+				<td>담당자명 / 연락처</td>
+				<td>결제일자</td>
+				<td>결제금액</td>
+				<td>신청일</td>
+				<td>상태</td>
+				<td>메모</td>
+				<td>수정</td>
+				<td class="e">삭제</td>
+			</tr>
+
+			<tbody id="tax_list">
+			<?php if(!$tax_list['total_count']){ ?>
+			<tr><td colspan="18" class="stlt"></td></tr>
+			<?php 
+			} else {
+				foreach($tax_list['result'] as $val){ 
+				$mb_info = $member_control->get_member($val['wr_id']);
+			?>
+			<tr>
+				<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+				<td title="회원정보"><a onclick="pop_member('<?php echo $val['wr_id']?>');"><?php echo $val['wr_name'];?></a></td>
+				<td title="신청정보"><a onclick="pop_tax('<?php echo $val['no'];?>');"><?php echo $val['wr_id'];?></a></td>
+				<td title="신청정보"><a onclick="pop_tax('<?php echo $val['no'];?>');"><?php echo $val['wr_company_name'];?></td>
+				<td title="신청정보"><a onclick="pop_tax('<?php echo $val['no'];?>');"><?php echo $val['wr_ceo_name'];?></td>
+				<td title="신청정보"><a onclick="pop_tax('<?php echo $val['no'];?>');"><?php echo $val['wr_condition'];?> / <?php echo $val['wr_item'];?></td>
+				<td title="이메일전송"><a onclick="pop_email('<?php echo $mb_info['no']?>');"><?php echo $val['wr_email'];?></td>
+				<td title="신청정보"><a onclick="pop_tax('<?php echo $val['no'];?>');"><?php echo $val['wr_manager'];?> / <?php echo $val['wr_phone'];?></td>
+				<td><?php echo $val['wr_pay_date'];?></td>
+				<td><?php echo number_format($val['wr_price']);?> 원</td>
+				<td><?php echo $val['wdate'];?></td>
+				<td>
+					<select name="wr_status[]" id="wr_status_<?php echo $val['no'];?>" onchange="sel_status(this,'<?php echo $val['no'];?>');">
+					<?php foreach($tax_status as $status_key => $status_val){ ?>
+					<option value="<?php echo $status_key;?>" <?php echo ($status_key==$val['wr_status'])?'selected':'';?>><?php echo $status_val['name'];?></option>
+					<?php } ?>
+					</select>
+				</td>
+				<td>
+					<a onClick="pop_memo('<?php echo $val['no'];?>');" class="btn"><h1 class="btn19<?php echo ($val['wr_memo'])?" org":"";?>" id="memo_<?php echo $val['no'];?>">
+					<span class="ic" style="background-image:url(../../images/ic/memo.gif)"></span>메모</h1>
+					</a>
+				</td>
+				<td><a onClick="update_tax('<?php echo $val['no'];?>');"><img src="../../images/btn/19_05.gif"></a></td>
+				<td class="e"><a onClick="delete_tax('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+			</tr>
+			<?php 
+				} 
+			}	// if end.
+			?>
+			</tbody>
+			</table>
+
+			<dl class="page mb50">
+				<?php include_once "../include/paging.php"; ?>
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_tax();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+			</dl>
+
+			<div id='pop_info'></div>
+			<div id='zipcode_info'></div>
+		</td>
+		<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+// ajax form 전송 전 데이터
+var showRequest = function(formData, jqForm, memo_options){
+	var queryString = $.param(formData); 
+
+	var sendFrm = jqForm.attr('name');
+	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
+		$('#pop_mail').hide();
+		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
+		$.blockUI({ 
+			theme: true,
+			title: '회원 이메일 전송중',
+			showOverlay: false,
+			message: $('#email_status')
+		});
+	}
+}
+// ajax form 전송 후 결과
+var showResponse = function(responseText, statusText, xhr, $form){
+	
+	var results = responseText.split('/');
+	var mode = results[0];
+
+	switch(mode){
+		case 'memo':
+			if( results[1] ){
+				alert("<?php echo $member_control->_success('0002');?>");
+				$('#pop_memo').hide();
+				if( results[3] != "" ){	// 메모값이 있다면
+					$('#memo_'+results[2]).addClass('org');
+				} else {	 // 없다면
+					$('#memo_'+results[2]).removeClass('org');
+				}
+			} else {
+				alert("<?php echo $member_control->_errors('0002');?>");
+				return false;
+			}
+		break;
+
+		case 'email':
+
+			$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+
+		break;
+
+		case 'tax_update':
+		
+			location.reload();
+
+		break;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

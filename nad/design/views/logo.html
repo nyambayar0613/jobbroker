@@ -1,0 +1,134 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	$('input[type=file]').filestyle({
+		image : "../../images/btn/23_01.gif",
+		imageheight : 23,
+		imagewidth : 48,
+		marginleft : 5,
+		width : 220
+	});
+
+	$('.logos').each(function(){
+		var type = $(this).attr('name');
+
+		var logo_options = {
+			target : '#'+type+'_preview',
+			beforeSubmit : showRequest,
+			success : showResponse
+		}
+
+		$('#'+type+'_upload').live('change', function(){
+			$('#type').val(type);
+			$('#'+type+'_preview').html('');
+			$('#'+type+'_preview').html("<img src=\"<?php echo $alice['helper_img_path'];?>/bar_loader.gif\" alt='업로드중...'/>");
+
+			$('#SiteLogoFrm').ajaxSubmit(logo_options);
+
+		});
+
+	});
+});
+</script>
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+로고등록시 권장사이즈(가로*세로)는 최대사이즈이므로 권장사이즈를 초과하지 않도록 등록하시기 바랍니다.<br>
+메일로고를 플래시로 등록할 경우 로고가 출력이 안될수 있으므로 이미지로 등록하시기 바랍니다. 
+</dl></dl>
+
+<form name="SiteLogoFrm" method="post" id="SiteLogoFrm" action="./process/logo.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="update" id="mode"/><!-- 사이트 기본 설정정보 수정 -->
+<input type="hidden" name="type" id='type'/>
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+<input type="hidden" name="no" value="<?=$logo['no']?>"/><!-- 현재 설정 no -->
+
+	<div class="fl" style="width:33%;margin-right:0.5%;overflow:hidden">
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">상단로고</dl>
+	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">100px * 51px</font> <b>]</b></td></tr>      
+	<tr height="100"><td class="wbg tc" id="top_preview"><?php echo $design_control->view_logo($logo['top']);?></td></tr>
+	<tr><td id='top_logo'><input type='file' name='top' class='txt i23 logos' id="top_upload" title="상단로고"></td></tr>  
+	</table>
+	</div>
+
+	<div class="fl" style="width:33%;margin-right:0.5%">
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일상단로고</dl>
+	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">180px * 60px</font> <b>]</b></td></tr>      
+	<tr height="100"><td class="wbg tc" id="mail_preview"><?php echo $design_control->view_logo($logo['mail']);?></td></tr>
+	<tr><td id='mail_logo'><input type='file' name='mail' class='txt i23 logos' id="mail_upload" title="메일상단로고"></td></tr>  
+	</table>
+	</div>
+
+	<div class="fl" style="width:33%">
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일하단로고</dl>
+	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">180px * 60px</font> <b>]</b></td></tr>      
+	<tr height="100"><td class="wbg tc" id="mail_bottom_preview"><?php echo $design_control->view_logo($logo['mail_bottom']);?></td></tr>
+	<tr><td id='mail_bottom_logo'><input type='file' name='mail_bottom' class='txt i23 logos' id="mail_bottom_upload" title="메일하단로고"></td></tr>  
+	</table>
+	</div>
+
+</form>
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options) {	// 폼 전송전 데이터
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송 후 결과
+	var responseData = responseText.split(',');
+	var type = responseData[0];
+	var _imgs = responseData[1];
+	var extension = responseData[2];
+	var width = responseData[3], height = responseData[4];
+
+	if(_imgs){
+
+		if(extension=='swf'){
+			/*
+			swf_result = "<object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' width='"+width+"' height='"+height+"' codebase='http://fpdownload.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0'>";
+			swf_result += "<param name='movie' value='../../data/logo/"+_imgs+"'>";
+			swf_result += "<param name='wmode' value='opaque'>";
+			swf_result += "<param name='play' value='true'>";
+			swf_result += "<param name='loop' value='true'>";
+			swf_result += "<param name='quality' value='high'>";
+			swf_result += "<embed src='../../data/logo/"+_imgs+"' width='"+width+"' height='"+height+"' play='true' loop='true' quality='high' pluginspage='http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'></embed>";
+			*/
+			$('#'+type+'_preview').html("<embed src='../../data/logo/"+_imgs+"' width='"+width+"' height='"+height+"' play='true' loop='true' quality='high' pluginspage='http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'></embed>");
+		} else {
+			$('#'+type+'_preview').html("<img src='../../data/logo/"+_imgs+"'>");
+		}
+		$('#'+type+'_logo').html("<input type='file' name='"+type+"' class='txt i23 logos' id='"+type+"_upload'/>");
+
+		$('#'+type+'_upload').filestyle({
+			image : "../../images/btn/23_01.gif",
+			imageheight : 23,
+			imagewidth : 48,
+			marginleft : 5,
+			width : 220
+		});
+	} else {
+		alert(responseText);
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

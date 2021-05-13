@@ -1,0 +1,210 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var point_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+	$('#MemberPointFrm').ajaxForm(point_options);	// point ajax form submit
+
+});
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $point_list['send_url'];?>";
+	location.href = "./point.php?"+send_url+"&page_rows=" + sel;
+}
+var sel_delete_member = function(){	// 포인트 내역 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 포인트를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 포인트내역 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '포인트내역 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 선택 포인트 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/point.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $point_control->_errors('0001');?>");
+						return false;
+					}
+				});
+			break;
+		}
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1">
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+			<dl class="notbox">
+				<dl>
+					회원별 포인트 적립 내용을 출력합니다.<br> 
+					관리자가 임의로 회원별로 포인트를 지급/수정/삭제 할수 있습니다.<br/>
+					차감시 (-) 를 입력하시면 됩니다. ex) -100
+				</dl>
+			</dl>
+			<?php include_once "./views/_include/point_search.php"; ?>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">포인트관리 (전체 포인트 합계 : <?php echo number_format($total_point['point']);?> 포인트 )
+				<span>총 <b class="num3 col"><?php echo number_format($point_list['total_count']);?></b>건의 포인트가 등록되었습니다.</span>
+				<dt>
+					<select name="page_rows" onchange="page_rows(this);">
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+					</select>
+				</dt>
+			</dl>  
+			<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<!-- <dd>
+					<a onClick="point_insert();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>포인트입력</h1></a>
+				</dd> -->
+			</dl>
+			<table width="100%" class="ttlt">
+			<col width="30"><col width="150"><col width="150"><col width="150"><col ><col width="100"><col width="100"><col width="150">
+			<tr class="bg">
+				<td><input name="check_all" type="checkbox"></td>
+				<td>회원ID</td>
+				<td>이름/대표자</td>
+				<td>별명</td>
+				<td>적립/사용내역</td>
+				<td>포인트</td>
+				<td>포인트합</td>
+				<td>일시</td>
+			</tr>
+
+			<tbody id="point_list">
+			<?php if(!$point_list['total_count']){ ?>
+			<tr><td colspan="8" class="stlt"></td></tr>
+			<?php } else { 
+				foreach($point_list['result'] as $val){
+				$member = $member_control->get_member($val['mb_id']);
+				$mb_name  = $member['mb_name'];
+				$mb_name .= ($member['mb_company_name']) ? "/" . $member['mb_company_name'] : "";
+			?>
+			<tr>
+				<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+				<td><?php echo $val['mb_id'];?></td>
+				<td><?php echo $mb_name;?></td>
+				<td><?php echo $member['mb_nick'];?></td>
+				<td><?php echo $val['point_content'];?></td>
+				<td><?php echo number_format($val['point_point']);?></td>
+				<td><?php echo number_format($member['mb_point']);?></td>
+				<td><?php echo $val['point_datetime'];?></td>
+			</tr>
+			<?php 
+				}	// foreach end.
+			} // if end.
+			?>
+			</tbody>
+			</table>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">포인트지급</dl>
+
+			<form name="MemberPointFrm" method="post" id="MemberPointFrm" action="./process/point.php">
+			<input type="hidden" name="mode" value="insert" id="mode"/>
+			<input type="hidden" name="ajax" value="1"/>
+			<input type="hidden" name="point_rel_table" value="@passive"/>
+			<input type="hidden" name="point_rel_id" value="<?php echo $admin_info['uid'];?>"/>
+
+			<table width="100%" class="ttlt">
+			<col width=150><col><col width="150"><col width="60"> 
+			<tr class="bg">
+				<td>회원아이디</td>
+				<td>적립/사용내역</td>
+				<td>포인트</td>
+				<td>입력</td>
+			</tr>
+			<tbody>
+			<tr>
+				<td class="pdlnb2">
+					<select name="mb_id" id="mb_id">
+					<option value="">회원아이디</option>
+					<?php foreach($member_id['result'] as $val){	// 회원 id 리스트 ?>
+					<option value="<?php echo $val['mb_id'];?>"><?php echo $val['mb_id'];?></option>
+					<?php } ?>
+					</select>
+				</td>
+				<td class="pdlnb2"><input type='text' name="point_content" class="txt w100" id="point_content"></td>
+				<td class="pdlnb2"><input type='text' name="point_point" class="txt w100" id="point_point"></td>
+				<td class="pdlnb2 e"><input type='image' src="../../images/btn/19_01.gif" /></td>
+			</tr>
+			</tbody>
+			</table>
+			</form>
+
+			<dl class="page">
+				<?php include_once "../include/paging.php"; ?>
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<!-- <dd>
+					<a onClick="point_insert();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>포인트입력</h1></a>
+				</dd> -->
+			</dl>
+
+			<div id='pop_info'></div>
+		</td>
+		<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, options){
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		location.reload();
+	} else {
+		alert("<?php echo $point_control->_errors('0002');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

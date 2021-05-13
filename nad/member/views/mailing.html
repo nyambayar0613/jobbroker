@@ -1,0 +1,395 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+
+	$('#MailingConfigFrm').submit(function(){
+		<?php echo $utility->input_cheditor('wr_company_mailing');?>	// 에디터 내용 전달
+		<?php echo $utility->input_cheditor('wr_individual_mailing');?>	// 에디터 내용 전달
+		$(this).ajaxSubmit(form_options);
+		return false;
+	});
+});
+var mail_autos = function( vals ){
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#mailing_auto_block').show();
+	} else {
+		$('#mailing_auto_block').hide();
+	}
+}
+var sms_autos = function( vals ){
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#sms_auto_block').show();
+	} else {
+		$('#sms_auto_block').hide();
+	}
+}
+function length_count(num,filed, max_count) { 
+    var str; 
+    var str_count = 0; 
+    var cut_count = 0; 
+    var max_length = max_count; 
+    var str_length = filed.value.length; 
+
+    for (k=0;k<str_length;k++) { 
+        str = filed.value.charAt(k); 
+        if (escape(str).length > 4) { 
+            str_count += 2; 
+            max_length -= 2; 
+        } else { 
+            // (\r\n은 1byte 처리) 
+            if (escape(str) == '%0A') { 
+            } else { 
+                str_count++; 
+                max_length--; 
+            } 
+        } 
+
+        if (max_count < str_count) { 
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능 합니다"); 
+            if (escape(str).length > 4) { 
+                str_count -= 2; 
+                max_length += 2; 
+            } else { 
+                str_count--; 
+                max_length++; 
+            } 
+            filed.value = filed.value.substring(0,k); 
+            break; 
+        } 
+    } 
+	max_length=max_count-max_length;
+	 eval("this.span_byte"+num+".innerText = max_length;"); 
+} 
+var self_mailing = function(){	// 메일링 수동 발송
+	$('#pop_info').load('./views/_load/layer.php', { mode:'mailing_list' }, function(){
+		$('#pop_content').draggable({ handle: "#contentHandle" });
+		$('#pop_content').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		// 기본 리스트 전체 체크 ( Check Box )
+		$("input[name='check_all']").click(function(){
+			var sel = $(this).attr('checked');		
+			if(sel=='checked') $('.check_all').attr('checked',true);
+			else $('.check_all').attr('checked',false);	
+		});
+
+	});
+}
+var send_mailing = function( type ){
+	var chk_length = $("input[name='no[]']:checked").length;
+	var send_subject = (type=='mail') ? '메일링' : 'SMS';
+	if(chk_length==0){
+		alert(send_subject+'을(를) 수동으로 발송할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("기업회원은 맞춤 인재정보 설정이 저장되 있어야 하며, <br/><br/>개인회원은 맞춤 채용정보 설정이 저장되 잇어야 발송 됩니다.<br/><br/>수동 발송시엔 <b>수신 거부한 회원도 체크</b>하셨다면 무조건 발송 됩니다.<br/><br/>선택하신 회원 "+chk_length+"명에 "+send_subject+"을(를) 발송 하시겠습니까?");
+		var send_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			send_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_send\',\''+send_no+'\',\''+type+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '선택회원 정기메일링 / SMS 수동 발송',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 정기메일링
+			case 'sel_send':
+				$.post('./process/regist.php', { mode:'mailing_send', no:no, type:sels }, function(result){
+					var results = result.split("/");
+					var mail_count = results[0], sms_count = results[1];
+					if(sels=='mail'){
+						alert("맞춤 인재/채용정보 정기 메일링 "+mail_count.number_format()+"건이 발송되었습니다.");
+					} else if(sels=='sms'){
+						alert("맞춤 인재/채용정보 정기 SMS "+sms_count.number_format()+"건이 발송되었습니다.");
+					}
+					$.unblockUI();
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div>
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><? include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left"><? include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+	<table class="ltbl">
+	<tr>
+	<td width="1"></td><td class="nb">
+
+		<dl class="loc">
+			<?php echo $sub_menu_name;?>
+			<?php include_once "../include/navi.php"; ?>
+		</dl>
+		<dl class="notbox"><dl>
+		기업회원 : 맞춤인재정보, 개인회원 : 맞춤채용정보 기준으로 정기 메일, SMS 발송 정보를 설정합니다.<br>
+		정기메일링은 자동/수동 설정이 가능하며 수동은 원하시는 시간에 직접 수동발송 버튼을 클릭하여 발송을 하실수 있습니다.<br>
+		정기 SMS 발송 문구는 아래 5가지중 한가지만 전송 가능하며, 내용 길이에 따라 자동으로 LMS 로 발송됩니다.<br/>
+		문자(SMS) 발송건수가 없는 경우 SMS메일링이 발송되지 않사오니 SMS발송 건수를 확인하시기 바랍니다.<br/>		
+		</dl></dl>
+
+		<form name="MailingConfigFrm" method="post" id="MailingConfigFrm" action="./process/regist.php" enctype="multipart/form-data">
+		<input type="hidden" name="mode" value="mailing_update" id="mode"/><!-- 메일 스킨 등록 -->
+		<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+		<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+		<input type="hidden" name="no" value="<?php echo $mailing_config['no'];?>"/>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정기메일링 / SMS 설정</dl>  
+
+		<table width="100%" class="bg_col">
+		<col width=150><col>
+		<tr>
+			<td class="ctlt">메일링 사용유무</td>
+			<td class="pdlnb2">
+				<label><input type="radio" class="radio" name="wr_mail_use" value="1" <?php echo ($mailing_config['wr_mail_use'])?'checked':'';?>/>사용</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_use" value="0" <?php echo (!$mailing_config['wr_mail_use'])?'checked':'';?>/>미사용</label> &nbsp;&nbsp;/&nbsp;&nbsp; 
+				<label><input type="radio" class="radio" name="wr_mail_auto" value="1" <?php echo ($mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>자동</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_auto" value="0" <?php echo (!$mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>수동</label>
+				<span class="subtlt">자동설정시 1일 1회만 발송 됩니다.</span>
+			</td>
+		</tr>
+		<tr id="mailing_auto_block" style="display:<?php echo ($mailing_config['wr_mail_auto'])?'':'none';?>;">
+			<td class="ctlt">메일 발송시간</td>
+			<td class="pdlnb2">
+				<label><input type="radio" class="radio" name="wr_mail_time" value="1" checked/>오전</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_mail_time" value="2" <?php echo ($mailing_config['wr_mail_time']=='2')?'checked':'';?>/>오후</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_mail_time" value="3" <?php echo ($mailing_config['wr_mail_time']=='3')?'checked':'';?>/>저녁</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="ctlt">SMS 사용유무</td>
+			<td class="pdlnb2">
+				<label><input type="radio" class="radio" name="wr_sms_use" value="1" <?php echo ($mailing_config['wr_sms_use'])?'checked':'';?>/>사용</label> &nbsp;<label><input type="radio" class="radio" name="wr_sms_use" value="0" <?php echo (!$mailing_config['wr_sms_use'])?'checked':'';?>/>미사용</label> &nbsp;&nbsp;/&nbsp;&nbsp; 
+				<label><input type="radio" class="radio" name="wr_sms_auto" value="1" <?php echo ($mailing_config['wr_sms_auto'])?'checked':'';?> onclick="sms_autos(this);"/>자동</label> &nbsp;<label><input type="radio" class="radio" name="wr_sms_auto" value="0" <?php echo (!$mailing_config['wr_sms_auto'])?'checked':'';?> onclick="sms_autos(this);"/>수동</label>
+				<span class="subtlt">자동설정시 1일 1회만 발송 됩니다.</span>
+			</td>
+		</tr>
+		<tr id="sms_auto_block" style="display:<?php echo ($mailing_config['wr_sms_auto'])?'':'none';?>;">
+			<td class="ctlt">SMS 발송시간</td>
+			<td class="pdlnb2">
+				<label><input type="radio" class="radio" name="wr_sms_time" value="1" checked/>오전</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_sms_time" value="2" <?php echo ($mailing_config['wr_sms_time']=='2')?'checked':'';?>/>오후</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_sms_time" value="3" <?php echo ($mailing_config['wr_sms_time']=='3')?'checked':'';?>/>저녁</label>
+			</td>
+		</tr>
+		</table>
+
+		<dl class="pbtn">
+			<input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;
+			<img src="../../images/btn/b35_24.png" class="ln_col hand" onclick="self_mailing();"/>
+		</dl>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정기메일링 내용 설정</dl>  
+
+		<table width="100%" class="bg_col">
+		<col width=150><col>
+		<tr>
+			<td class="ctlt">치환문자</td>
+			<td class="pdlnb2">
+				{메일상단로고}  {메일하단로고}  {메일하단}  {사이트명}  {도메인}  {회원이름}  {회원아이디}  {희망직종}  {희망근무지역}  {채용직종}  {근무지역}  {맞춤인재정보}  {맞춤채용정보}  <!-- {성명}  {기업명}  {직종}  {근무지역}  {경력}  {학력}  {등록일} -->
+			</td>
+		</tr>
+		<tr>
+			<td class="ctlt">기업회원 (맞춤 인재정보)<br/>메일링 내용 편집</td>
+			<td class="pdlnb2">
+				<div id="skinContent">
+					<?php echo $utility->make_cheditor('wr_company_mailing', stripslashes($mailing_config['wr_company_mailing']));	// 에디터 생성?>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="ctlt">개인회원 (맞춤 채용정보)<br/>메일링 내용 편집</td>
+			<td class="pdlnb2">
+				<?php echo $utility->make_cheditor('wr_individual_mailing', stripslashes($mailing_config['wr_individual_mailing']));	// 에디터 생성?>
+			</td>
+		</tr>
+		</table>
+
+		<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+		<dl style="width:95.4%" class="ntlt lnb6_col"><img src="../../images/comn/bul_10.png" class="t">메세지 출력 안내</dl>
+		<table cellspacing="0" width="95.4%" class="smsbox smsbottom">
+		 <tbody bgcolor="#ffffff">
+			<tr>
+				<td class="smsboxbg" width="98%"colspan="4">
+					<p>※ SMS 최대 글자수는 90Byte이며, LMS 최대 글자수는 2,000Byte 입니다.</p>
+					<p>※ <strong>LMS 사용시</strong> : 문자내용이 90byte를 초과하면 <u>LMS(장문)</u>로 발송 됩니다.</p>
+					<p>※ <strong>LMS 미사용시</strong> : 문자내용이 90byte를 초과하면 <u>SMS(단문)로 90byte 까지</u>만 잘려서 발송 됩니다.</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="12%"   class="smsName" >
+					<p>{사이트명}</p>
+				</td>
+				<td width="48%"  class="smsNamep">
+					<p>고객님의 사이트명이 출력됩니다 <br> 예)<?php echo $env['site_name'];?></p>
+				</td>
+				<td width="12%"  class="smsName">
+					<p>{도메인}</p>
+				</td>
+				<td width="28%"  class="smsNamep">
+					<p>사이트의 도메인명이 출력됩니다 <br>예)<?php echo str_replace('/','',$host_name);?></p>
+				</td>
+			</tr>
+			<tr>
+				<td width="12%"   class="smsName" >
+					<p>{회원명}</p>
+				</td>
+				<td width="48%"  class="smsNamep">
+					<p>회원 이름이 출력됩니다 <br> 예)홍길동</p>
+				</td>
+				<td width="12%"  class="smsName">
+					<p>{아이디}</p>
+				</td>
+				<td width="28%"  class="smsNamep">
+					<p>회원 아이디가 출력됩니다 <br>예)netfu</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="12%"   class="smsName" >
+					<p>{희망직종}</p>
+				</td>
+				<td width="48%"  class="smsNamep">
+					<p>구인,구직 희망직종이 출력됩니다 <br> 예)서비스</p>
+				</td>
+				<td width="12%"  class="smsName">
+					<p>{희망근무지역}</p>
+				</td>
+				<td width="28%"  class="smsNamep">
+					<p>희망근무지역이 출력됩니다 <br>예)서울</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="12%"   class="smsName" >
+					<p>{근무형태}</p>
+				</td>
+				<td width="48%"  class="smsNamep">
+					<p>설정한 근무형태가 출력됩니다 <br> 예)아르바이트,정규직</p>
+				</td>
+				<td width="12%"  class="smsName">
+					<p>{등록건수}</p>
+				</td>
+				<td width="28%"  class="smsNamep">
+					<p>인재정보, 채용정보 등록건수가 출력됩니다 <br>예)10</p>
+				</td>
+			</tr>
+
+		</tbody>
+		</table>
+
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기업회원 (맞춤 인재정보) 정기 LMS 내용 설정</dl>  
+
+		<table style="width:100%;">
+		<tr>
+			<td>
+				<ul class="smsb">
+					<?php for($i=0;$i<5;$i++){ ?>
+					<li style="width:19%;">
+						<h1 style="text-align:center;">
+							<label><input type="radio" name="wr_sms_company[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_company_use==$i)?'checked':'';?>/>사용</label>
+						</h1>
+						<ul>
+							<li style="width:97%;">
+								<dl class="gr2_col bgb2_col">
+									<p><textarea name="wr_sms_company[content][<?php echo $i;?>]" onkeyup="length_count(<?=$i?>,this, 2000)" onchange="length_count(<?=$i?>,this, 2000)" onfocus="length_count(<?=$i?>,this, 2000)" style="height:300px;" class="sms_msg"><?php echo $sms_company_content[$i];?></textarea></p>
+									<!-- <span id="span_byte<?=$i?>" class="b lsm num11 dho">0</span> Byte -->
+								</dl>
+							</li>
+						</ul>
+					</li>
+					<?php } ?>
+				</ul>
+			</td>
+		</tr>
+		</table>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">개인회원 (맞춤 채용정보) 정기 LMS 내용 설정</dl>  
+
+		<table style="width:100%;">
+		<tr>
+			<td>
+				<ul class="smsb">
+					<?php for($i=0;$i<5;$i++){ ?>
+					<li style="width:19%;">
+						<h1 style="text-align:center;">
+							<label><input type="radio" name="wr_sms_individual[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_individual_use==$i)?'checked':'';?>/>사용</label>
+						</h1>
+						<ul>
+							<li style="width:97%;">
+								<dl class="gr2_col bgb2_col">
+									<p><textarea name="wr_sms_individual[content][<?php echo $i;?>]" onkeyup="length_count(<?=$i?>,this, 2000)" onchange="length_count(<?=$i?>,this, 2000)" onfocus="length_count(<?=$i?>,this, 2000)" style="height:300px;" class="sms_msg"><?php echo $sms_individual_content[$i];?></textarea></p>
+									<!-- <span id="span_byte<?=$i?>" class="b lsm num11 dho">0</span> Byte -->
+								</dl>
+							</li>
+						</ul>
+					</li>
+					<?php } ?>
+				</ul>
+			</td>
+		</tr>
+		</table>
+
+		<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+		</form>
+
+	</td>
+	</tr>
+	</table>
+
+	<div id='pop_info'></div>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, form_options){
+	var MailingConfigFrm = document.getElementById('MailingConfigFrm');
+	var queryString = $.param(formData);
+	return validate(MailingConfigFrm);
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText=='0000') {	 // 성공
+		alert("<?php echo $mailing_control->_success('0000');?>");
+		location.reload();
+	} else if(responseText=='0001') {	// 실패
+		alert("<?php echo $mailing_control->_errors('0001');?>");
+		return false;
+	}
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

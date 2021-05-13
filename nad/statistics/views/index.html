@@ -1,0 +1,535 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb access">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+시간 흐름(시간/일간/월간)에 따른 방문자/회원가입/등록현황 등을 한눈에 볼 수 있습니다.<br> 
+시간 흐름에 따른 중요 데이터를 쉽게 분석할 수 있습니다.<br> 
+하루 하루 나타나는 데이터를 출력하여 모아 놓으면, 아주 소중한 사이트 운영가이드책이 될 수 있습니다.
+</dl></dl>
+<?php 
+	include_once "./views/_include/section.php"; 
+	if($type){
+		include_once "./views/_include/search_date.php"; 
+		if($type=='domain'){	// 접속전 도메인
+			$domain_data = $statistics_control->statistics_IO('domain',$sdate,$edate,$page_rows,$page);
+			if($domain){
+?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 경로</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>IP</td>
+		<td>접속 경로</td>
+		<td>브라우저</td>
+		<td>OS</td>
+		<td class="e">접속일</td>
+	</tr>
+	<?php foreach($domain_data as $val){?>
+	<tr class="num3">
+		<td><?php echo $val['ip'];?></td>
+		<td><?php echo $val['url'];?></td>
+		<td><?php echo $val['browser'];?></td>
+		<td><?php echo $val['os'];?></td>
+		<td class="e"><?php echo $val['wdate'];?></td>
+	</tr>
+	<?php } ?>
+	</table>
+<?php } else { ?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속전 도메인</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>접속전 도메인</td>
+		<td>접속자수</td>
+		<td class="e">비율</td>
+	</tr>
+	<?php foreach($domain_data['result'] as $val){ ?>
+	<tr class="num3">
+		<td><?php echo $val['key'];?></td>
+		<td><?php echo number_format($val['count']);?></td>
+		<td class="e"><?php echo $val['rate'];?> %</td>
+	</tr>
+	<?php } ?>
+	<tr class="num3 b col">
+		<td>합계</td>
+		<td><?php echo number_format($domain_data['total_count']);?></td>
+		<td class="e">100 %</td>
+	</tr>
+	</table>
+	<?php 
+			}	// get domain if
+		} else if($type=="ip"){	// 접속 IP 
+			$ip_data = $statistics_control->statistics_IO('ip',$sdate,$edate,$page_rows,$page);
+			$ip_data_total_page = $ip_data['total_count'] / $page_rows;
+			$pages = $utility->get_paging($page_rows, $page, $ip_data['total_page'],"./?mode=search&type=ip&start_day=".$start_day."&end_day=".$end_day."&page=");
+	?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 IP</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>접속 IP</td>
+		<td style="width:30%;">접속 경로</td>
+		<td>브라우저</td>
+		<td>OS</td>
+		<td class="e">접속일</td>
+	</tr>
+	<?php foreach($ip_data['result'] as $val){ ?>
+	<tr class="num3">
+		<td><?php echo $val['ip']?></td>
+		<td style="padding:5px 10px"><?php echo $val['url']?></td>
+		<td><?php echo $val['browser']?></td>
+		<td><?php echo $val['os']?></td>
+		<td class="e"><?php echo $val['wdate'];?></td>
+	</tr>
+	<?php } ?>
+	<!-- <tr class="num3 b col">
+		<td>합계</td>
+		<td colspan="4" class="e"><?//php echo number_format($ip_data['total_count']);?></td>
+	</tr> -->
+	</table>
+	<?php 
+		} else if($type=="browser"){	// 접속 브라우저 
+			$browser_data = $statistics_control->statistics_IO('browser',$sdate,$edate,$page_rows,$page);
+	?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 브라우저</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>브라우저</td>
+		<td>방문자수</td>
+		<td class="e">비율</td>
+	</tr>
+	<?php foreach($browser_data['result'] as $val){ ?>
+	<tr class="num3">
+		<td><?php echo $val['key'];?></td>
+		<td><?php echo $val['count'];?></td>
+		<td class="e"><?php echo $val['rate'];?> %</td>
+	</tr>
+	<?php } ?>
+	<tr class="num3 b col">
+		<td>합계</td>
+		<td><?php echo number_format($browser_data['total_count']);?></td>
+		<td class="e">100 %</td>
+	</tr>
+	</table>
+	<?php 
+		} else if($type=="os"){	 // 접속 OS 
+			$os_data = $statistics_control->statistics_IO('os',$sdate,$edate,$page_rows,$page);
+	?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 OS</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>OS</td>
+		<td>방문자수</td>
+		<td class="e">비율</td>
+	</tr>
+	<?php foreach($os_data['result'] as $val){ ?>
+	<tr class="num3">
+		<td><?php echo $val['key'];?></td>
+		<td><?php echo $val['count'];?></td>
+		<td class="e"><?php echo $val['rate'];?> %</td>
+	</tr>
+	<?php } ?>
+	<tr class="num3 b col">
+		<td>합계</td>
+		<td><?php echo number_format($os_data['total_count']);?></td>
+		<td class="e">100 %</td>
+	</tr>
+	</table>
+		<?php } else if($type=='week'){
+			$week_query = $db->_query("select count(*) as c, weekday(visit_date) as week, visit_ip from alice_visit where visit_date>='".$sdate."' and visit_date<='".$edate."' group by week, visit_ip");
+			$week_group_length = $db->num_rows($week_query);
+			$total_num = 0;
+			$dupl_ip_arr = array();
+			$dupl_hour_arr = array();
+			while($week_row=$db->afetch($week_query)) {
+				if(!is_array($dupl_ip_arr[$week_row['week']])) $dupl_ip_arr[$week_row['week']] = array();
+				$dupl_ip_arr[$week_row['week']][$week_row['visit_ip']] = $week_row['visit_ip'];
+				$dupl_hour_arr[$week_row['week']] += $week_row['c'];
+				$total_num += $week_row['c'];
+			}
+		?>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">요일별 통계</dl>
+			<table width="100%" class="access ttlt tf">
+			<colgroup>
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="" />
+			</colgroup>
+			<tr class="bg">
+				<td>요일</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
+			</tr>
+			<?php
+			for($i=0; $i<7; $i++) {
+				$_int = $i;
+				$_hour = $time_arr[$_int];
+
+				$_ip_int = is_array($dupl_ip_arr[$_int]) ? count($dupl_ip_arr[$_int]) : 0;
+				$_time_int = number_format(intval($dupl_hour_arr[$_int]));
+
+				$_ip_total = $_ip_int>0 ? $_ip_int : 1;
+				$_time_total = $_time_int>0 ? $_time_int : 1;
+
+				$graph_width1 = round($_ip_int/$week_group_length*100).'%';
+				$graph_width2 = round($_time_int/$total_num*100).'%';
+			?>
+			<tr>
+				<td><?php echo $netfu_util->week_arr[$_int];?>요일</td>
+				<td style="color:red;font-weight:bold;"><?php echo number_format($_ip_int);?></td>
+				<td style="font-weight:bold;"><?php echo number_format($_time_int);?></td>
+				<td>
+					<?php echo $graph_width1;?><br/>
+					<?php echo $graph_width2;?><br/>
+				</td>
+				<td class="e">
+					<div style="background-color:red;width:<?php echo $graph_width1;?>;color:#ffffff;text-align:center;margin-bottom:5px;"><?php echo $graph_width1;?></div>
+					<div style="background-color:#627ab8;width:<?php echo $graph_width2;?>;color:#ffffff;text-align:center;"><?php echo $graph_width2;?></div>
+				</td>
+			</tr>
+			<?php }?>
+			</table>
+		<?php } else if($type=='time') {
+				$time_query = $db->_query("select count(*) as c, date_format(visit_time, '%H') as hour, visit_ip from alice_visit where visit_date>='".$sdate."' and visit_date<='".$edate."' group by hour, visit_ip");
+				$time_group_length = $db->num_rows($time_query);
+				$total_num = 0;
+				$dupl_ip_arr = array();
+				$dupl_hour_arr = array();
+				while($time_row=$db->afetch($time_query)) {
+					if(!is_array($dupl_ip_arr[$time_row['hour']])) $dupl_ip_arr[$time_row['hour']] = array();
+					$dupl_ip_arr[$time_row['hour']][$time_row['visit_ip']] = $time_row['visit_ip'];
+					$dupl_hour_arr[$time_row['hour']] += $time_row['c'];
+					$total_num += $time_row['c'];
+				}
+		?>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">시간별 통계</dl>
+			<table width="100%" class="access ttlt tf">
+			<colgroup>
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="" />
+			</colgroup>
+			<tr class="bg">
+				<td>시간</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
+			</tr>
+			<?php
+			$time_total = 0;
+			$ip_total = 0;
+			for($i=0; $i<23; $i++) {
+				$_int = sprintf("%02d", $i);
+				$_hour = $time_arr[$_int];
+
+				$_ip_int = is_array($dupl_ip_arr[$_int]) ? count($dupl_ip_arr[$_int]) : 0;
+				$_time_int = number_format(intval($dupl_hour_arr[$_int]));
+
+				$_ip_total = $_ip_int>0 ? $_ip_int : 1;
+				$_time_total = $_time_int>0 ? $_time_int : 1;
+
+				$graph_width1 = round($_ip_int/$time_group_length*100).'%';
+				$graph_width2 = round($_time_int/$total_num*100).'%';
+
+
+				$time_total += $_time_int;
+				$ip_total += $_ip_int;
+			?>
+			<tr>
+				<td><?php echo $_int;?></td>
+				<td style="color:red;font-weight:bold;"><?php echo number_format($_ip_int);?></td>
+				<td style="font-weight:bold;"><?php echo number_format($_time_int);?></td>
+				<td>
+					<?php echo $graph_width1;?><br/>
+					<?php echo $graph_width2;?><br/>
+				</td>
+				<td class="e">
+					<div style="background-color:red;width:<?php echo $graph_width1;?>;color:#ffffff;text-align:center;margin-bottom:5px;"><?php echo $graph_width1;?></div>
+					<div style="background-color:#627ab8;width:<?php echo $graph_width2;?>;color:#ffffff;text-align:center;"><?php echo $graph_width2;?></div>
+				</td>
+			</tr>
+			<?php }?>
+			</table>
+		<?php
+			} else if($type=='date') {
+				$date_query = $db->_query("select count(*) as c, date_format(visit_date, '%d') as date, visit_ip from alice_visit where visit_date>='".$sdate."' and visit_date<='".$edate."' group by date, visit_ip");
+				$date_group_length = $db->num_rows($date_query);
+				$total_num = 0;
+				$dupl_ip_arr = array();
+				$dupl_hour_arr = array();
+				while($date_row=$db->afetch($date_query)) {
+					if(!is_array($dupl_ip_arr[$date_row['date']])) $dupl_ip_arr[$date_row['date']] = array();
+					$dupl_ip_arr[$date_row['date']][$date_row['visit_ip']] = $date_row['visit_ip'];
+					$dupl_hour_arr[$date_row['date']] += $date_row['c'];
+					$total_num += $date_row['c'];
+				}
+		?>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">일별 통계</dl>
+			<table width="100%" class="access ttlt tf">
+			<colgroup>
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="" />
+			</colgroup>
+			<tr class="bg">
+				<td>일</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
+			</tr>
+			<?php
+			$date_total = 0;
+			$ip_total = 0;
+			for($i=1; $i<=31; $i++) {
+				$_int = sprintf("%02d", $i);
+				$_hour = $date_arr[$_int];
+
+				$_ip_int = is_array($dupl_ip_arr[$_int]) ? count($dupl_ip_arr[$_int]) : 0;
+				$_date_int = number_format(intval($dupl_hour_arr[$_int]));
+
+				$_ip_total = $_ip_int>0 ? $_ip_int : 1;
+				$_date_total = $_date_int>0 ? $_date_int : 1;
+
+				$graph_width1 = round($_ip_int/$date_group_length*100).'%';
+				$graph_width2 = round($_date_int/$total_num*100).'%';
+
+				$total_dfd += $_date_int;
+			?>
+			<tr>
+				<td><?php echo $_int;?></td>
+				<td style="color:red;font-weight:bold;"><?php echo number_format($_ip_int);?></td>
+				<td style="font-weight:bold;"><?php echo number_format($_date_int);?></td>
+				<td>
+					<?php echo $graph_width1;?><br/>
+					<?php echo $graph_width2;?><br/>
+				</td>
+				<td class="e">
+					<div style="background-color:red;width:<?php echo $graph_width1;?>;color:#ffffff;text-align:center;margin-bottom:5px;"><?php echo $graph_width1;?></div>
+					<div style="background-color:#627ab8;width:<?php echo $graph_width2;?>;color:#ffffff;text-align:center;"><?php echo $graph_width2;?></div>
+				</td>
+			</tr>
+			<?php }?>
+			</table>
+		<?php
+			} else if($type=='month') {
+				$date_query = $db->_query("select count(*) as c, date_format(visit_date, '%m') as date, visit_ip from alice_visit where visit_date>='".$sdate."' and visit_date<='".$edate."' group by date, visit_ip");
+				$date_group_length = $db->num_rows($date_query);
+				$total_num = 0;
+				$dupl_ip_arr = array();
+				$dupl_hour_arr = array();
+				while($date_row=$db->afetch($date_query)) {
+					if(!is_array($dupl_ip_arr[$date_row['date']])) $dupl_ip_arr[$date_row['date']] = array();
+					$dupl_ip_arr[$date_row['date']][$date_row['visit_ip']] = $date_row['visit_ip'];
+					$dupl_hour_arr[$date_row['date']] += $date_row['c'];
+					$total_num += $date_row['c'];
+				}
+		?>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">월별 통계</dl>
+			<table width="100%" class="ttlt tf">
+			<colgroup>
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="" />
+			</colgroup>
+			<tr class="bg">
+				<td>월</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
+			</tr>
+			<?php
+			$date_total = 0;
+			$ip_total = 0;
+			for($i=1; $i<=12; $i++) {
+				$_int = sprintf("%02d", $i);
+				$_hour = $date_arr[$_int];
+
+				$_ip_int = is_array($dupl_ip_arr[$_int]) ? count($dupl_ip_arr[$_int]) : 0;
+				$_date_int = number_format(intval($dupl_hour_arr[$_int]));
+
+				$_ip_total = $_ip_int>0 ? $_ip_int : 1;
+				$_date_total = $_date_int>0 ? $_date_int : 1;
+
+				$graph_width1 = round($_ip_int/$date_group_length*100).'%';
+				$graph_width2 = round($_date_int/$total_num*100).'%';
+
+				$total_dfd += $_date_int;
+			?>
+			<tr>
+				<td><?php echo $_int;?></td>
+				<td style="color:red;font-weight:bold;"><?php echo number_format($_ip_int);?></td>
+				<td style="font-weight:bold;"><?php echo number_format($_date_int);?></td>
+				<td>
+					<?php echo $graph_width1;?><br/>
+					<?php echo $graph_width2;?><br/>
+				</td>
+				<td class="e">
+					<div style="background-color:red;width:<?php echo $graph_width1;?>;color:#ffffff;text-align:center;margin-bottom:5px;"><?php echo $graph_width1;?></div>
+					<div style="background-color:#627ab8;width:<?php echo $graph_width2;?>;color:#ffffff;text-align:center;"><?php echo $graph_width2;?></div>
+				</td>
+			</tr>
+			<?php }?>
+			</table>
+		<?php
+			}else { ?>
+			<dl class="pt10"></dl>
+			<table width="100%" class="access ttlt tf">
+			<tr>
+				<td><?php echo $statistics_control->statistics_search($type,'bar_3d',$sdate,$edate); ?></td>
+				<td class="e"><?php echo $statistics_control->statistics_search($type,'pie',$sdate,$edate); ?></td>
+			</tr>
+			</table>
+		<?php
+			}
+	} else { 
+?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">사이트 접속현황</dl>
+	<table width="100%" class="ttlt tf">
+	
+	<tr class="bg">
+		<td>총 접속자 수</td>
+		<td>오늘 접속자 수</td>
+		<td>가장 많이 접속한 날짜</td>
+		<td class="e">가장 많이 접속한 요일</td>
+	</tr>
+	<tr class="num3 b col">
+		<td><?php echo number_format($get_visits['total']);?></td>
+		<td><?php echo number_format($get_visits['today']);?></td>
+		<td><?php echo $get_visits['max_date'];?></td>
+		<td class="e"><?php echo $get_visits['max_week'];?></td>
+	</tr>
+	</table>  
+
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">최근 일주일 방문자 통계</dl>
+	<table width="100%" class="ttlt tf">
+	<tr>
+		<td><?php echo $statistics_control->week_statistics('bar_3d'); ?></td>
+		<td class="e"><?php echo $statistics_control->week_statistics('pie'); ?></td>
+	</tr>
+	</table>
+
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속전 도메인 TOP 10</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>오늘 접속전 도메인 TOP 10</td>
+		<td>어제 접속전 도메인 TOP 10</td>
+		<td>이번주 접속전 도메인 TOP 10</td>
+		<td class="e">이번달 접속전 도메인 TOP 10</td>
+	</tr>
+
+	<tr class="num3 b">
+		<td>
+			<?php $today_data = $statistics_control->domain_top10('today'); ?>
+			<ol class="mt3" style="vertical-aling:top;padding:20px;">
+				<?php foreach($today_data as $val){ ?>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td>
+			<?php $yesterday_data = $statistics_control->domain_top10('yesterday'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($yesterday_data as $val){ ?>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td>
+			<?php $week_data = $statistics_control->domain_top10('week'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($week_data as $val){ ?>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td class="e">
+			<?php $month_data = $statistics_control->domain_top10('month'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($month_data as $val){ ?>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+	</tr>
+	</table>
+
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 IP TOP 10</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>오늘 접속 IP TOP 10</td>
+		<td>어제 접속 IP TOP 10</td>
+		<td>이번주 접속 IP TOP 10</td>
+		<td class="e">이번달 접속 IP TOP 10</td>
+	</tr>
+	<tr class="num3 b">
+		<td>
+			<?php $today_ip = $statistics_control->ip_top10('today'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($today_ip as $val){ ?>
+				<li class="psr"><span style="width:80%;"><?php echo $val['visit_ip'];?></span><span class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</span></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td>
+			<?php $yesterday_ip = $statistics_control->ip_top10('yesterday'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($yesterday_ip as $val){ ?>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td>
+			<?php $week_ip = $statistics_control->ip_top10('week'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($week_ip as $val){ ?>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+		<td class="e">
+			<?php $month_ip = $statistics_control->ip_top10('month'); ?>
+			<ol class="mt3"  style="padding:20px;">
+				<?php foreach($month_ip as $val){ ?>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
+				<?php } ?>
+			</ol>
+		</td>
+	</tr>
+	</table>
+
+<?php 
+	}	// type if end. 
+?>
+
+	<dl class="page mb50"><?php include_once "../include/paging.php"; ?></dl>
+
+</table>
+</td>
+</tr>
+</table>
+
+
+<?php include_once "../include/tail.php";?>

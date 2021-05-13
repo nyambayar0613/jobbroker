@@ -1,0 +1,84 @@
+[2014-11-28 01:17:12.453] # OKNAME v3.70 start!<br>
+[2014-11-28 01:17:12.453] # mode=IPIN_CKEY<br>
+[2014-11-28 01:17:12.453] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-11-28 01:17:12.453] # argv[ 2](memid      )=V00000000000<br>
+[2014-11-28 01:17:12.453] # argv[ 3](reserved1  )=0<br>
+[2014-11-28 01:17:12.453] # argv[ 4](reserved2  )=0<br>
+[2014-11-28 01:17:12.453] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-11-28 01:17:12.453] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-11-28 01:17:12.453] # argv[ 7](Option     )=CL<br>
+[2014-11-28 01:17:12.453] # Generating monthly key..
+[2014-11-28 01:17:12.454] pub1: AgdZIfAyuEx/fYBM+r0L9x/vZ2tknQ==
+[2014-11-28 01:17:12.454] pri1: Axwmh/tUsmROEFLUZ0KtjJbMWp4A
+[2014-11-28 01:17:12.454] sig1: g7iVfSI42n8Qx5tfoRsb7Q==
+[2014-11-28 01:17:12.454] # soap_timeout: 30000 ms<br>
+[2014-11-28 01:17:12.496] retmsg: AwHWTig5Y44Ba2Ep42oBMv9zS52Bdw==:qNWiUOqSORK48XLxmEGvwQ==:jm3S6uRC/NuXnYqnO92Defb/SOnqbYeYQ9EErTfDUNpMc8n+d4QN4oW6Vsp4VfLTkh2REN2sNBq2pa/EwxJxGaVAOBBLfliLki/C5kxwyI8kW722bl4=
+[2014-11-28 01:17:12.496] pub3: AwHWTig5Y44Ba2Ep42oBMv9zS52Bdw==
+[2014-11-28 01:17:12.496] sig3: qNWiUOqSORK48XLxmEGvwQ==
+[2014-11-28 01:17:12.496] pub2pri2sig2: jm3S6uRC/NuXnYqnO92Defb/SOnqbYeYQ9EErTfDUNpMc8n+d4QN4oW6Vsp4VfLTkh2REN2sNBq2pa/EwxJxGaVAOBBLfliLki/C5kxwyI8kW722bl4=
+[2014-11-28 01:17:12.497] srvSecurekey: B6uZN6++jrpVRVltYfRNFoWQ/1sn
+[2014-11-28 01:17:12.497] decData: AgDHEUklroEQuoQpJjOkPz4bCN6teQ==:ABal3b/pAgnRUNxfLRQrzj1I0ozu:OJcoXU2NMGaa3YvNR5feuQ==
+[2014-11-28 01:17:12.497] # ERROR S203: (Client key generation error.)<br>
+[2014-11-28 01:17:12.497] # final ret code=203<br>
+[2014-11-28 01:18:30.823] # OKNAME v3.70 start!<br>
+[2014-11-28 01:18:30.823] # mode=IPIN_CKEY<br>
+[2014-11-28 01:18:30.823] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-11-28 01:18:30.823] # argv[ 2](memid      )=V00000000000<br>
+[2014-11-28 01:18:30.823] # argv[ 3](reserved1  )=0<br>
+[2014-11-28 01:18:30.823] # argv[ 4](reserved2  )=0<br>
+[2014-11-28 01:18:30.823] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-11-28 01:18:30.823] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-11-28 01:18:30.823] # argv[ 7](Option     )=CL<br>
+[2014-11-28 01:18:30.823] # Generating monthly key..
+[2014-11-28 01:18:30.824] pub1: AgIG4PlYcndkS1fej+WUbeMYQvxqTA==
+[2014-11-28 01:18:30.824] pri1: A0n8xpoqVoQ3JBXP/ncmXq4cs/Qg
+[2014-11-28 01:18:30.824] sig1: DssPPqJZLyTxO/8rBClDYg==
+[2014-11-28 01:18:30.824] # soap_timeout: 30000 ms<br>
+[2014-11-28 01:18:30.860] retmsg: AgatgFW9SAh9RUUC9gs9/6WE479PHQ==:WtGe5QLp7HdQejcRKNAi7g==:5Z0L4ht9oTnRoB6B+V1y/ixEc8G4sTy0LnzYnLtSLOZJIovZuuUP0VG/VZ9orEaeQz2hvIbB4Qxjhl1q9QDd1Q9xtXh31Gz4QVLNweJjWGxqz2XswKI=
+[2014-11-28 01:18:30.860] pub3: AgatgFW9SAh9RUUC9gs9/6WE479PHQ==
+[2014-11-28 01:18:30.860] sig3: WtGe5QLp7HdQejcRKNAi7g==
+[2014-11-28 01:18:30.860] pub2pri2sig2: 5Z0L4ht9oTnRoB6B+V1y/ixEc8G4sTy0LnzYnLtSLOZJIovZuuUP0VG/VZ9orEaeQz2hvIbB4Qxjhl1q9QDd1Q9xtXh31Gz4QVLNweJjWGxqz2XswKI=
+[2014-11-28 01:18:30.861] srvSecurekey: BKRz5UVRBfe3mwTjkQ8KtIKERBmn
+[2014-11-28 01:18:30.861] decData: AgDHEUklroEQuoQpJjOkPz4bCN6teQ==:ABal3b/pAgnRUNxfLRQrzj1I0ozu:OJcoXU2NMGaa3YvNR5feuQ==
+[2014-11-28 01:18:30.861] # ERROR S203: (Client key generation error.)<br>
+[2014-11-28 01:18:30.862] # final ret code=203<br>
+[2014-11-28 15:09:24.524] # OKNAME v3.70 start!<br>
+[2014-11-28 15:09:24.525] # mode=HS_CNFRM_POPUP<br>
+[2014-11-28 15:09:24.525] # Parameter IP: 	114.108.128.129<br>
+[2014-11-28 15:09:24.525] # argv[ 1](hs_cert_svc_tx_seqno)=2014112815092471664<br>
+[2014-11-28 15:09:24.525] # argv[ 2](nm)=김현우<br>
+[2014-11-28 15:09:24.525] # argv[ 3](brdt)=19851118<br>
+[2014-11-28 15:09:24.525] # argv[ 4](sex)=0<br>
+[2014-11-28 15:09:24.525] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-11-28 15:09:24.525] # argv[ 6](var1)=01<br>
+[2014-11-28 15:09:24.525] # argv[ 7](var2)=01036570944<br>
+[2014-11-28 15:09:24.525] # argv[ 8](var3)=0<br>
+[2014-11-28 15:09:24.525] # argv[ 9](var4)=0<br>
+[2014-11-28 15:09:24.525] # argv[10](var5)=0<br>
+[2014-11-28 15:09:24.525] # argv[11](return_msg)=x<br>
+[2014-11-28 15:09:24.525] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2014-11-28 15:09:24.525] # argv[13](in_tp_bit)=15<br>
+[2014-11-28 15:09:24.525] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-11-28 15:09:24.525] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-11-28 15:09:24.525] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2014-11-28 15:09:24.525] # argv[17](server_ip)=114.108.128.129<br>
+[2014-11-28 15:09:24.525] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-11-28 15:09:24.525] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-11-28 15:09:24.525] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-11-28 15:09:24.525] # argv[21](option)=QL<br>
+[2014-11-28 15:09:24.525] # soap_timeout: 30000 ms<br>
+[2014-11-28 15:09:24.577] # key   : AwJYFQ0PoZUczdV5xOCytPMWrTVZYw==:5i6nvhAZbKY5leEO3KXV9Q==<br>
+[2014-11-28 15:09:24.577] # spkey : AwJYFQ0PoZUczdV5xOCytPMWrTVZYw==<br>
+[2014-11-28 15:09:24.577] # ssig  : 5i6nvhAZbKY5leEO3KXV9Q==<br>
+[2014-11-28 15:09:24.579] # nm               : 김현우<br>
+[2014-11-28 15:09:24.579] # brdt             : 19851118<br>
+[2014-11-28 15:09:24.579] # e_nm             : +qO59oY3<br>
+[2014-11-28 15:09:24.579] # e_brdt           : enJGNQjqFQY=<br>
+[2014-11-28 15:09:24.579] # cpkey : Agaj2/ZS32VhRacSbJjK8uET1zClxg==<br>
+[2014-11-28 15:09:24.579] # csig  : WRGjt8w8i4gd7fyvbVgO2A==<br>
+[2014-11-28 15:09:24.609] retmsg: CXtOOAMTnIHQ7jWstXpXsgPkqL3gbZrJn75SpyW4z6PpD9mnCymj5apP9/IvR1KBzIjcNoa8AP7ainrytfsn+Kw7BT1qcd0MwgS7Fvea7oh3pYQvwJn5TnkjdDIomu/s1yX/v2XP56hDdfTWZ/SS4cv8pRUbLDYiX/0J0ezCa8W8M383pd0tjqQhU27E90xJhZwvVg0qrCEnizVfA3yyDDWB4UUMjlzuEMbxnSxSe7jN57lLz62PusvBmYvp88oFiRHmnAEgrx1umiqseIpthdgkzHlc2hAOfefgZMo0dAXx7AZhc+2c860DNHI3fBH7IoN/AtyoWC6zwSeieB62zNQfah1rEwSMtTQJ3T7Rbynr+g==
+[2014-11-28 15:09:24.609] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNonqoW8SEI8OwW29eLoZRG1lSbcbIk7KD+Z2faB0L+cDo0DMXQ22D8wKfhWn/Wlzj6J3epKoFqB+fJULjyu+0MuYM+Af2pyLSukRwtIeHY9i2defP6JPmvko/H2fbSq+yFRSGe5+7MrPXnwQTKYY2QBVWVv9YV1ZbgB5PgJeiKyhgebJ05BTvBVFQldeOg+nxOCLE/QBdZ1kBBe7J+pusq8=
+[2014-11-28 15:09:24.609] B008
+[2014-11-28 15:09:24.610] 회원사 정보가 존재하지 않습니다.
+[2014-11-28 15:09:24.610] RuOtuDWMKBYx9YFHHtKsNonqoW8SEI8OwW29eLoZRG1lSbcbIk7KD+Z2faB0L+cDo0DMXQ22D8wKfhWn/Wlzj6J3epKoFqB+fJULjyu+0MuYM+Af2pyLSukRwtIeHY9i2defP6JPmvko/H2fbSq+yFRSGe5+7MrPXnwQTKYY2QBVWVv9YV1ZbgB5PgJeiKyhgebJ05BTvBVFQldeOg+nxOCLE/QBdZ1kBBe7J+pusq8=
+[2014-11-28 15:09:24.610] # final ret code=8<br>

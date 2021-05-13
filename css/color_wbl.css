@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/*** 하늘색 ***/
+
+/*** HEADER ***/
+.head_top{background:#3498db}
+.gradient_img{background:#3498db url('../images/top_bar.png') repeat-x}
+.search_bar{background:#3498db}
+
+/*** MAIN ***/
+/* images/title_icon01.png */
+section{border-top:2px solid #3498db;}
+
+/* 박스 - 공통 */
+.cont_box .tit_ico{background:#3498db}
+.paging a:hover{background:#3498db;border:1px solid #3498db}
+.paging a.active{background:#3498db;border:1px solid #3498db}
+
+/*검색버튼*/
+.schbtn_con .sch_bt2 button{background:#3498db;}
+.schbtn_con .sch_button{border:1px solid #3498db !important;color:#3498db}
+
+/*검색버튼*/
+.schbtn_con .sch_bt2 button{background:#3498db;}
+.schbtn_con .sch_button{border:1px solid #4572a5;}
+
+/* 하단버튼 */
+.bottom_btn01{background:#3498db;border:1px solid #3498db;}
+.bottom_btn07{background:#3498db;border:1px solid #3498db;}
+
+/*** 상세페이지 ***/
+/* 공통 */
+.detail_con .tab1-con{border-bottom:1px solid #3498db}
+.detail_con .tab1-con ul .active{background:#3498db;}
+.detail_con .tab2-con{border-bottom:1px solid #3498db}
+.detail_con .tab2-con ul .active{background:#3498db;}
+
+/*** 마이페이지 ***/
+header .right_nav .nav_wrap{background:#3498db}
+header .left_nav .nav_wrap{background:#3498db}
+
+/* 개인 */
+.mypage_btn ul .active a{background:#3498db;}
+
+/* 메뉴상단 */
+.nav_wrap .close_btn{background:#3498db;}
+.nav_wrap .title_area{background:#3498db;}
+.nav_wrap .id_area{background:#3498db;}
+
+/* 서비스 신청 */
+.item_con h2 span{border-left:7px solid #3498db;}
+
+/* 서비스 결제 */
+.pay_con{border-top: 2px solid #3498db !important;}
+
+/*** 광고안내 ***/
+.guide_tab ul li a.active{background:#3498db}
+.guide_tab ul li{border:1px solid #3498db}
+
+/*** 실시간 검색어 ***/
+.realtime_con{border:1px solid #3498db !important;}
+
+/*** 로그인 ***/
+.login_con .login_bt{background:#3498db}
+
+/* 이력서 정보 */
+.tab-box h3{border-left:3px solid #3498db}
+
+/* 검색결과 더보기 버튼 */
+.cont_box .text_box2 #sch_result_more{background:#3498db;}
+
+/* 페이징 */
+.paging a:hover, .paging a.cycle-pager-active, .paging a.active{background:#3498db;border:1px solid #3498db}
+
+
+
+
+

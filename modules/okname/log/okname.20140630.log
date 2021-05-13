@@ -1,0 +1,106 @@
+[2014-06-30 09:14:39.215] # OKNAME v3.70 start!<br>
+[2014-06-30 09:14:39.216] # mode=HS_CNFRM_POPUP<br>
+[2014-06-30 09:14:39.216] # Parameter IP: 	114.108.128.129<br>
+[2014-06-30 09:14:39.216] # argv[ 1](hs_cert_svc_tx_seqno)=20140630091439107479<br>
+[2014-06-30 09:14:39.216] # argv[ 2](nm)=권오승<br>
+[2014-06-30 09:14:39.216] # argv[ 3](brdt)=19710903<br>
+[2014-06-30 09:14:39.216] # argv[ 4](sex)=1<br>
+[2014-06-30 09:14:39.216] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-06-30 09:14:39.216] # argv[ 6](var1)=02<br>
+[2014-06-30 09:14:39.216] # argv[ 7](var2)=01098331767<br>
+[2014-06-30 09:14:39.216] # argv[ 8](var3)=0<br>
+[2014-06-30 09:14:39.216] # argv[ 9](var4)=0<br>
+[2014-06-30 09:14:39.216] # argv[10](var5)=0<br>
+[2014-06-30 09:14:39.216] # argv[11](return_msg)=x<br>
+[2014-06-30 09:14:39.216] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-06-30 09:14:39.216] # argv[13](in_tp_bit)=15<br>
+[2014-06-30 09:14:39.216] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-06-30 09:14:39.216] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-06-30 09:14:39.216] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2014-06-30 09:14:39.216] # argv[17](server_ip)=114.108.128.129<br>
+[2014-06-30 09:14:39.216] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-06-30 09:14:39.216] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-06-30 09:14:39.216] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-06-30 09:14:39.216] # argv[21](option)=QL<br>
+[2014-06-30 09:14:39.216] # soap_timeout: 30000 ms<br>
+[2014-06-30 09:14:39.253] # key   : AgAzXNt7fPcrPSmKdBqy1I8tq7LZPw==:B/IoTXjUtQhu7Q9IuxMmNw==<br>
+[2014-06-30 09:14:39.253] # spkey : AgAzXNt7fPcrPSmKdBqy1I8tq7LZPw==<br>
+[2014-06-30 09:14:39.253] # ssig  : B/IoTXjUtQhu7Q9IuxMmNw==<br>
+[2014-06-30 09:14:39.255] # nm               : 권오승<br>
+[2014-06-30 09:14:39.255] # brdt             : 19710903<br>
+[2014-06-30 09:14:39.255] # e_nm             : u9QrDfUV<br>
+[2014-06-30 09:14:39.255] # e_brdt           : Oyqj/HjuM3c=<br>
+[2014-06-30 09:14:39.255] # cpkey : AwU9reb6iJfd6sXE3ckw4dt/vrhR8g==<br>
+[2014-06-30 09:14:39.255] # csig  : SzJndXdHdwJwPV7N1i3zcQ==<br>
+[2014-06-30 09:14:39.287] retmsg: SCOk9XIfu/tUBdG8sWRw6Fha8mKG1Eg5pduCOLFCPBbk8EYrgV02Qd2oyG0Q+RpWSxsF8Th6Myu9cA2TW3uJWkBn2Jat22GeGMCVb8aKYdW8El6H7AMegjTUn8E2YuEZc/756LobUTzcBzu3J3P/iGGT/Ns25rC1V9GsbVzTa+gdKQsy25rvTmznwUh3eZjwjhXK6i2p1ddgubQPUvoSLi0AWZkwSmESZfkxaHJoiyI02qMfrWAX5FsUZBCYT8xxNtEjIuZTM07sLN7xBZ0+IpS48mKn73mbFdDUG5ZoqaX9/7DI5GqWO76vWVpwk/hZPYCg9FvxzjK14A7B+OY=
+[2014-06-30 09:14:39.287] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNlJt7KXQ8+GMQNFbu3iMnJfNAb+tPmMz0afpJIFbZYcacQshhbtgkoZX66Tu6Fvg7LCCWfEb6+1fjyaRXXNQ+RTdP9wagBHcSRqPDEpGqiT7tSbETrf41W3WpEuJ1m7Y/Cq8ayNUWJE6T/cEcJJ6ktzwLXVUpKkjyhSCq6q3EE7baXVqx6YfpNBsbFVeEMCjYA==
+[2014-06-30 09:14:39.288] B008
+[2014-06-30 09:14:39.288] 회원사 정보가 존재하지 않습니다.
+[2014-06-30 09:14:39.288] RuOtuDWMKBYx9YFHHtKsNlJt7KXQ8+GMQNFbu3iMnJfNAb+tPmMz0afpJIFbZYcacQshhbtgkoZX66Tu6Fvg7LCCWfEb6+1fjyaRXXNQ+RTdP9wagBHcSRqPDEpGqiT7tSbETrf41W3WpEuJ1m7Y/Cq8ayNUWJE6T/cEcJJ6ktzwLXVUpKkjyhSCq6q3EE7baXVqx6YfpNBsbFVeEMCjYA==
+[2014-06-30 09:14:39.288] # final ret code=8<br>
+[2014-06-30 13:10:49.842] # OKNAME v3.70 start!<br>
+[2014-06-30 13:10:49.842] # mode=IPIN_CKEY<br>
+[2014-06-30 13:10:49.842] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-06-30 13:10:49.842] # argv[ 2](memid      )=V00000000000<br>
+[2014-06-30 13:10:49.842] # argv[ 3](reserved1  )=0<br>
+[2014-06-30 13:10:49.843] # argv[ 4](reserved2  )=0<br>
+[2014-06-30 13:10:49.843] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-06-30 13:10:49.843] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-06-30 13:10:49.843] # argv[ 7](Option     )=CL<br>
+[2014-06-30 13:10:49.843] # Generating monthly key..
+[2014-06-30 13:10:49.844] pub1: AwIlNztpJfaDcnFAZSNJ25l5yxircA==
+[2014-06-30 13:10:49.844] pri1: AirMaLTUdwWsuw4DtFANHFLZgTyu
+[2014-06-30 13:10:49.844] sig1: 7rMdeg+SCNbdLfhqZ5D2pQ==
+[2014-06-30 13:10:49.844] # soap_timeout: 30000 ms<br>
+[2014-06-30 13:10:49.917] retmsg: AwViFJEwEqquBojCDM3twFsOk8/G/w==:uUogD1duD2tJ98GUpnqWjA==:OFG6g/ZjKuUxm11/UYKicSwzgSPyenKzOFeNOclpVCWUbi+Qqw0O3rNuNmGnVjQ2aTkDHEbfxUVqPImkqpAbuLNbaDWeh+VXAkPDQ3Tq3gWWtOU/ISY=
+[2014-06-30 13:10:49.917] pub3: AwViFJEwEqquBojCDM3twFsOk8/G/w==
+[2014-06-30 13:10:49.918] sig3: uUogD1duD2tJ98GUpnqWjA==
+[2014-06-30 13:10:49.918] pub2pri2sig2: OFG6g/ZjKuUxm11/UYKicSwzgSPyenKzOFeNOclpVCWUbi+Qqw0O3rNuNmGnVjQ2aTkDHEbfxUVqPImkqpAbuLNbaDWeh+VXAkPDQ3Tq3gWWtOU/ISY=
+[2014-06-30 13:10:49.919] srvSecurekey: B71knDt7O18j+YN0hN0odkxVj9l/
+[2014-06-30 13:10:49.919] decData: AwFAzh+KB19ID6+YPtX2PcNWRC6pIQ==:A6Cqm4fFiX9zrmUSp5uJaPCfFLoB:u6SeUlnLp7O1iMDEm60Ebw==
+[2014-06-30 13:10:49.919] # ERROR S203: (Client key generation error.)<br>
+[2014-06-30 13:10:49.919] # final ret code=203<br>
+[2014-06-30 13:10:57.051] # OKNAME v3.70 start!<br>
+[2014-06-30 13:10:57.051] # mode=IPIN_CKEY<br>
+[2014-06-30 13:10:57.051] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-06-30 13:10:57.051] # argv[ 2](memid      )=V00000000000<br>
+[2014-06-30 13:10:57.051] # argv[ 3](reserved1  )=0<br>
+[2014-06-30 13:10:57.051] # argv[ 4](reserved2  )=0<br>
+[2014-06-30 13:10:57.051] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-06-30 13:10:57.051] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-06-30 13:10:57.051] # argv[ 7](Option     )=CL<br>
+[2014-06-30 13:10:57.051] # Generating monthly key..
+[2014-06-30 13:10:57.052] pub1: Ageh8cQeBtCosewg7VDUN5FhpooWiA==
+[2014-06-30 13:10:57.052] pri1: Ai/C/1fBZ2GlVKYYHWh2B+vCHpxV
+[2014-06-30 13:10:57.052] sig1: CyHJlywhbmuuGK5QWhVWPw==
+[2014-06-30 13:10:57.052] # soap_timeout: 30000 ms<br>
+[2014-06-30 13:10:57.093] retmsg: AgCMu/AQK1cX3JFDCuewrE5XpUDpGg==:8iA+Qn/vKlGIW5Uxq+u4Ng==:DcV6mzYOlM4YtTxziWsyRXtoGLiFd/XKHJgNh18bt4qVdng/HUBPi7vEVFLeYS/ZqO6RPw2xIFEusZuVASDH9ch6s3upRmA0ctFXzkJCg2QcBe/ITLo=
+[2014-06-30 13:10:57.093] pub3: AgCMu/AQK1cX3JFDCuewrE5XpUDpGg==
+[2014-06-30 13:10:57.093] sig3: 8iA+Qn/vKlGIW5Uxq+u4Ng==
+[2014-06-30 13:10:57.093] pub2pri2sig2: DcV6mzYOlM4YtTxziWsyRXtoGLiFd/XKHJgNh18bt4qVdng/HUBPi7vEVFLeYS/ZqO6RPw2xIFEusZuVASDH9ch6s3upRmA0ctFXzkJCg2QcBe/ITLo=
+[2014-06-30 13:10:57.094] srvSecurekey: A/bOZHtRwYgn27MLgBKb/vLdBcBe
+[2014-06-30 13:10:57.094] decData: AwFAzh+KB19ID6+YPtX2PcNWRC6pIQ==:A6Cqm4fFiX9zrmUSp5uJaPCfFLoB:u6SeUlnLp7O1iMDEm60Ebw==
+[2014-06-30 13:10:57.094] # ERROR S203: (Client key generation error.)<br>
+[2014-06-30 13:10:57.094] # final ret code=203<br>
+[2014-06-30 13:11:12.744] # OKNAME v3.70 start!<br>
+[2014-06-30 13:11:12.744] # mode=IPIN_CKEY<br>
+[2014-06-30 13:11:12.744] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-06-30 13:11:12.744] # argv[ 2](memid      )=V00000000000<br>
+[2014-06-30 13:11:12.744] # argv[ 3](reserved1  )=0<br>
+[2014-06-30 13:11:12.744] # argv[ 4](reserved2  )=0<br>
+[2014-06-30 13:11:12.744] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-06-30 13:11:12.744] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-06-30 13:11:12.744] # argv[ 7](Option     )=CL<br>
+[2014-06-30 13:11:12.744] # Generating monthly key..
+[2014-06-30 13:11:12.745] pub1: AgXB1+O0AUZc4NpcqegxUK8Vl3j4ZQ==
+[2014-06-30 13:11:12.745] pri1: AUs/V8/HFmdX7sxEk+Fo6gsM19qV
+[2014-06-30 13:11:12.745] sig1: 31yguSZVGtjvlsWh0QRrng==
+[2014-06-30 13:11:12.745] # soap_timeout: 30000 ms<br>
+[2014-06-30 13:11:12.786] retmsg: AgQYPXEtmVfxXyfWcDFv9nS1+OlFfA==:2j3ZEohIRbh9YfsqX6oscA==:zX7/gTR6p+EdJ7YrQsdeZTxG8mF0ekHUEa/dWE7bqt038WzXq0IipWbg8bMuO+Mgaxc2KDPcClQw36V2cev5G4nyd/UhIi8OYyxvWVCz0pi1kkEni4Q=
+[2014-06-30 13:11:12.786] pub3: AgQYPXEtmVfxXyfWcDFv9nS1+OlFfA==
+[2014-06-30 13:11:12.787] sig3: 2j3ZEohIRbh9YfsqX6oscA==
+[2014-06-30 13:11:12.787] pub2pri2sig2: zX7/gTR6p+EdJ7YrQsdeZTxG8mF0ekHUEa/dWE7bqt038WzXq0IipWbg8bMuO+Mgaxc2KDPcClQw36V2cev5G4nyd/UhIi8OYyxvWVCz0pi1kkEni4Q=
+[2014-06-30 13:11:12.788] srvSecurekey: AkaY6J1PeeHveEiOdnc9P8433WPU
+[2014-06-30 13:11:12.788] decData: AwFAzh+KB19ID6+YPtX2PcNWRC6pIQ==:A6Cqm4fFiX9zrmUSp5uJaPCfFLoB:u6SeUlnLp7O1iMDEm60Ebw==
+[2014-06-30 13:11:12.788] # ERROR S203: (Client key generation error.)<br>
+[2014-06-30 13:11:12.788] # final ret code=203<br>

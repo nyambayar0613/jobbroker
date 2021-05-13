@@ -1,0 +1,32 @@
+[2017-04-14 12:22:28.422] # OKNAME v3.70 start!<br>
+[2017-04-14 12:22:28.424] # mode=IPIN_CKEY<br>
+[2017-04-14 12:22:28.424] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2017-04-14 12:22:28.424] # argv[ 2](memid      )=V05280000000<br>
+[2017-04-14 12:22:28.424] # argv[ 3](reserved1  )=0<br>
+[2017-04-14 12:22:28.424] # argv[ 4](reserved2  )=0<br>
+[2017-04-14 12:22:28.424] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2017-04-14 12:22:28.424] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2017-04-14 12:22:28.424] # argv[ 7](Option     )=CL<br>
+[2017-04-14 12:22:28.425] # Generating monthly key..
+[2017-04-14 12:22:28.425] pub1: AwfvLqdCWpIdA1uvayyxxEok+odcWQ==
+[2017-04-14 12:22:28.425] pri1: AhLx3TJXjLS5JIceRYjJ4UwWuiUM
+[2017-04-14 12:22:28.426] sig1: vBQ8D26zK6ztbGFWpmKzWA==
+[2017-04-14 12:22:28.426] # soap_timeout: 30000 ms<br>
+[2017-04-14 12:22:28.464] retmsg: AwA0IjjdL0AvrXA2qqaj1oZ5Ylge7w==:XC/Idx0knQ82BOwZABxBtA==:+YyD8b9Tq6DBAQdP8uvJ5v7bvAzxK3EH8znepcS2EqpqumKbj9Ku/5hF9RrVntZVzmXaFo9RF1ca3xYS+IcfbLVLnTYT9dCJx8zbCHIwQhLzs403fUk=
+[2017-04-14 12:22:28.464] pub3: AwA0IjjdL0AvrXA2qqaj1oZ5Ylge7w==
+[2017-04-14 12:22:28.464] sig3: XC/Idx0knQ82BOwZABxBtA==
+[2017-04-14 12:22:28.464] pub2pri2sig2: +YyD8b9Tq6DBAQdP8uvJ5v7bvAzxK3EH8znepcS2EqpqumKbj9Ku/5hF9RrVntZVzmXaFo9RF1ca3xYS+IcfbLVLnTYT9dCJx8zbCHIwQhLzs403fUk=
+[2017-04-14 12:22:28.465] srvSecurekey: A+o5LgqrTYMjhWQpOtwEXmYaObA9
+[2017-04-14 12:22:28.465] decData: AwL6Tfp49ylmHgAc1HVaS9nEC4psLQ==:ArSuSUQw21keboJ7uGTQ70x32723:+mNmGPlQFYXWgQV3y8ujxw==
+[2017-04-14 12:22:28.488] # Current month<br>
+[2017-04-14 12:22:28.488] # public_key   : AwL6Tfp49ylmHgAc1HVaS9nEC4psLQ==<br>
+[2017-04-14 12:22:28.488] # private_key  : ArSuSUQw21keboJ7uGTQ70x32723<br>
+[2017-04-14 12:22:28.488] # signature    : +mNmGPlQFYXWgQV3y8ujxw==<br>
+[2017-04-14 12:22:28.488] # Last month<br>
+[2017-04-14 12:22:28.488] # public_key1  : AwJQbR1gLnlKqX5WtrYOiS7bd5y39A==<br>
+[2017-04-14 12:22:28.488] # private_key1 : A44Fb9J7MAmo8QtUkLAuQJv22Nlr<br>
+[2017-04-14 12:22:28.488] # signature1   : 1SOFc9MclLfVQXzLpPemwg==<br>
+[2017-04-14 12:22:28.488] AwL6Tfp49ylmHgAc1HVaS9nEC4psLQ==
+[2017-04-14 12:22:28.488] +mNmGPlQFYXWgQV3y8ujxw==
+[2017-04-14 12:22:28.488] 20170414122228488361
+[2017-04-14 12:22:28.488] # final ret code=0<br>

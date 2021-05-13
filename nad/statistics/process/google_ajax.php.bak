@@ -1,0 +1,142 @@
+<?php
+		/*
+		* /application/nad/config/process/google_ajax.php
+		* @author Harimao
+		* @since 2013/06/24
+		* @last update 2013/06/25
+		* @Module v3.5 ( Alice )
+		* @Brief :: Google analytics API
+		* @Comment :: 구글 analytics 연동
+		*/
+
+		$alice_path = "../../../../";
+
+		$cat_path = "../../../";
+
+		include_once $alice_path . "_core.php";
+
+		$admin_control->is_admin( $ajax );	// 관리자 체크
+	
+		$mode = $_POST['mode'];
+		$ajax = $_POST['ajax'];
+		$sdate = $_POST['sdate'];
+		$edate = $_POST['edate'];
+		$kind = $_POST['kind'];
+
+		$google_infos = $statistics_control->google_infos( $kind, $sdate, $edate);
+
+		$ga = new gapi($env['google_id'], $env['google_pass']);
+		
+		$max = 0;
+		$titles = $datas = array();
+
+		switch($mode){
+
+			## 접속자 수 출력 형태
+			case 'area_chart':
+
+				$ga->requestReportData($env['google_profile_id'], array($kind), array('visits'), 'date', null, $sdate, $edate);
+				foreach($ga->getResults() as $result) {
+					$dimensions = $result->getDimesions();
+					array_push($titles, date('Y.m.d', strtotime($dimensions[$kind])));
+					array_push($datas, $result->getVisits());
+					if($max < $result->getVisits()) $max = $result->getVisits();
+				}
+
+			break;
+
+			## 접속 경로, 방문 형태, 접속 국가, 지역 출력 형태
+			case 'pie_chart':
+
+				$ga->requestReportData($env['google_profile_id'], array($kind), array('visits'), '-visits', null, $sdate, $edate);
+				foreach($ga->getResults() as $result) {
+					$dimensions = $result->getDimesions();
+					array_push($titles, $dimensions[$kind]);
+					array_push($datas, $result->getVisits());
+					if($max < $result->getVisits()) $max = $result->getVisits();
+				}
+
+			break;
+
+			## 사용언어 출력/랜딩 형태
+			case 'bar_chart':
+			case 'landing_chart':
+
+				$ga->requestReportData($env['google_profile_id'], array($kind), array('visits'), '-visits', null, $sdate, $edate);
+				foreach($ga->getResults() as $result) {
+					$dimensions = $result->getDimesions();
+					array_push($titles, $dimensions[$kind]);
+					array_push($datas, $result->getVisits());
+					if($max < $result->getVisits()) $max = $result->getVisits();
+				}
+
+			break;
+
+		}	// switch end.
+
+		if(!$google_infos) {
+
+			if(count($titles)) {
+				$vals['kind'] = $kind;
+				$vals['sdate'] = $sdate;
+				$vals['edate'] = $edate;
+				$vals['titles'] = serialize($titles);
+				$vals['datas'] = serialize($datas);
+				$max = ($max) ? $max : 5;
+				$vals['max'] = $max;
+
+				$result = $statistics_control->google_updates($vals);
+			}
+
+			if($result) {
+
+				if($kind=='subContinent' || $kind=='country' || $kind=='networkLocation' || $kind=='networkDomain'){
+					$height = 250;
+				} else {
+					$height = 450;
+				}
+
+				$infos = $statistics_control->google_infos( $kind, $sdate, $edate);
+
+				$result = $statistics_control->google_analytics_chart($infos, $kind,$mode,'100%',$height);
+
+				echo $result;
+
+			} else {
+				echo '0000';
+				exit;
+			}
+
+		} else {
+
+			if(count($titles)){
+				$vals['kind'] = $kind;
+				$vals['sdate'] = $sdate;
+				$vals['edate'] = $edate;
+				$vals['titles'] = serialize($titles);
+				$vals['datas'] = serialize($datas);
+				$max = ($max) ? $max : 5;
+				$vals['max'] = $max;
+				$result = $statistics_control->google_updates($vals);
+			}
+
+			if($result) {
+
+				if($kind=='subContinent' || $kind=='country' || $kind=='networkLocation' || $kind=='networkDomain'){
+					$height = 250;
+				} else {
+					$height = 450;
+				}
+
+				$result = $statistics_control->google_analytics_chart($google_infos, $kind,$mode,'100%',$height);
+
+				echo $result;
+
+			} else {
+				echo '0000';
+				exit;
+			}
+
+		}	// google infos if end.
+
+?>

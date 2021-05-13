@@ -1,0 +1,452 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var pop_memo = function(no){	// 메모 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'memo', no:no }, function(result){
+		$('#pop_memo').show();
+		$('#pop_memo').draggable({ handle: "#memoFrmHandle" });
+		$('#pop_memo').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var memo_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberMemoFrm').ajaxForm(memo_options);	// memo ajax form submit
+	});
+}
+var pop_email = function( no ){	// 이메일 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'email', no:no }, function(result){
+		$('#pop_mail').show();
+		$('#pop_mail').draggable({ handle: "#emailFrmHandle" });
+		$('#pop_mail').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var sel_left_member = function(){	// 선택탈퇴승인
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('탈퇴승인할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 회원 데이터 "+chk_length+"건을 탈퇴승인 하시겠습니까?<br/><br/>탈퇴처리 하시면 회원 정보가 삭제되지 않고, 탈퇴회원 리스트에 저장됩니다.");
+		var left_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			left_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_left\',\''+left_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '회원정보 탈퇴처리',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var update_member = function(mode, no, mb_type){	 // 수정
+	$('#pop_info').load('./views/_load/member.php', { mode:mode, no:no, mb_type:mb_type }, function(result){
+		if(!mb_type) mb_type = $("#mb_type").val(); //$("#MemberFrm input[name='mb_type']:checked").val();
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#memberFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		//$('.service_date').datepicker({ dateFormat: 'yy-mm-dd' });
+
+		if(mb_type=='company'){	// 기업회원일때만
+			$('#MemberFrm').submit(function(){
+			<?php echo $utility->input_cheditor('mb_biz_vision');?>	// 기업개요 및 비전 에디터 내용 전달
+			<?php echo $utility->input_cheditor('mb_biz_result');?>	// 기업연혁 및 실적 에디터 내용 전달
+			});
+		}
+		var member_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberFrm').ajaxForm(member_options);	// memo ajax form submit
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var left_member = function(no){
+	$('#quest_info').hide();
+	$('#confirm_msg').html("탈퇴요청을 승인 하시겠습니까?<br/><br/>탈퇴처리 하시면 회원 정보가 삭제되지 않고, 탈퇴회원 리스트에 저장됩니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'left\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '탈퇴요청 회원정보 탈퇴승인',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var return_member = function(no){	// 회원 복귀
+	$('#quest_info').hide();
+	$('#confirm_msg').html("회원을 복귀하시겠습니까?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'return\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '회원정보 복귀',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_return = function(){	// 선택회원 복귀
+	$('#quest_info').hide();
+	$('#confirm_msg').html("선택회원을 복귀하시겠습니까?");
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('복귀할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		var return_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			return_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_return\',\''+return_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '선택 회원정보 복귀',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_delete_member = function(){		// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("채용공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>채용공고 및 기업회원 정보가 삭제되면 개인회원이 취업활동 증명서를 발급할 수 없게 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능하니 되도록 데이터를 유지하시기 바랍니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>선택하신 회원 정보"+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '회원 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 선택회원 탈퇴처리
+			case 'sel_left':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0010');?>");
+						return false;
+					}
+				});
+			break;
+			// 선택 회원 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0007');?>");
+						return false;
+					}
+				});
+			break;
+			// 회원 탈퇴 승인
+			case 'left':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0012');?>");
+						return false;
+					}
+				});				
+			break;
+			// 회원 복귀 (단수)
+			case 'return':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0011');?>");
+						return false;
+					}
+				});				
+			break;
+			// 선택 회원 복귀 (복수)
+			case 'sel_return':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0011');?>");
+						return false;
+					}
+				});
+			break;
+
+		}	// switch end.
+	} else {
+		/*
+		switch(mode){
+			case 'email':
+				$('#pop_mail').html("");
+			break;
+		}
+		*/
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+<div id="email_status" style="display:none; cursor: default">
+	<div id='status_info'></div>	
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1">
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+			<dl class="notbox">
+				<dl>
+				    회원탈퇴를 승인, 수정, 복귀 등을 관리 하실 수 있습니다.<br/> 
+					회원탈퇴와 동시에 해당회원이 등록한 정보는 비공개로 설정됩니다.<br/>
+					회원이 회원탈퇴를 하면 관리자에서 탈퇴이유와 함께 탈퇴회원을 확인 할 수 있습니다.<br/>
+
+
+
+				</dl>
+			</dl>
+			<?php include_once "./views/_include/search.php"; ?>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원관리
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
+				<dt>
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+					<select name="page_rows" onchange="page_rows(this);">
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+					</select>
+				</dt>
+			</dl>  
+
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+				<dt>
+					<!-- <a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a> -->
+					<?php if($type!='left') { ?><a onClick="sel_left_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택탈퇴승인</h1></a><?php } ?>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<dd>
+					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>선택복귀</h1></a>
+				</dd>
+			</dl>
+
+			<table width="100%" class="ttlt">				 
+			<col ><col ><col ><col ><col ><col ><col><col ><col ><col >
+			<tr class="bg">
+				<td><input name="check_all" type="checkbox"></td>
+				<td><a href="#">회원구분<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="#">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름/대표자(성별/나이)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="#">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="#">회사명<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_service_open&flag=<?php echo ($sort=='mb_service_open'&&$flag=='asc')?'desc':'asc';?>">이력서열람서비스<span><?php echo ($sort=='mb_service_open'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_resume_count&flag=<?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'desc':'asc';?>">정규직 이력서<span><?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">정규직 지원<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="#">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<!--<td><a href="#">방문수<span><?php echo ($sort=='mb_login_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>-->
+				<td><a href="#">탈퇴요청일<span><?php echo ($sort=='mb_login_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td>메모</td>
+				<td>E-mail</td>
+				<td>수정</td>
+				<?php if($type!='left'){ ?>
+				<td>승인</td>
+				<?php } ?>
+				<td class="e">복귀</td>
+			</tr>
+
+			<tbody id="member_list">
+			<?php if(!$member_list['total_count']){ ?>
+			<tr><td colspan="18" class="stlt"></td></tr>
+			<?php } else { 
+				foreach($member_list['result'] as $val){
+				if($val['mb_type']=='individual'){
+					$individual_msg = "<span style='color:#dfdfdf;' title='개인회원 전용 정보입니다.'>개인</span>";
+					$mb_type = "개인회원";
+					$mb_company_name = $individual_msg;
+					$mb_service_open = $individual_msg;
+					$mb_alba_resume = number_format($val['mb_alba_resume_count']);
+				} else if($val['mb_type']=='company'){
+					$company_msg = "<span style='color:#dfdfdf;' title='기업회원 전용 정보입니다.'>기업</span>";
+					$mb_type = "기업회원";
+					$mb_company_name = stripslashes($val['mb_company_name']);
+					$mb_service_open = $val['mb_service_open'];
+					$mb_alba_resume = $company_msg;
+				}
+				//$mb_type .= ($val['mb_badness']) ? " <b>(불량)</b>" : "";
+				$mb_type .= ($val['mb_denied']) ? " <b>(차단)</b>" : "";
+				
+				$mb_name  = $val['mb_name'];
+				$mb_name .= ($val['mb_company_name']) ? "/" . $val['mb_company_name'] : "";
+				$get_gender = $member_control->mb_gender[$val['mb_gender']];	// 성별
+				$get_age = $member_control->get_age($val['mb_birth']);	// 나이
+				$mb_name .= ($val['mb_type']=='individual') ? " (".$get_gender."/".$get_age."세)" : "";
+
+				$mb_alba_count = number_format($val['mb_alba_count']);	// 기업 :: 정규직 공고수 / 개인 :: 정규직 지원수
+				$mb_wdate = substr($val['mb_wdate'],0,11);
+				if($val['mb_left_request']){
+					$mb_left_request_date = $val['mb_left_request_date'];
+					$mb_left = $val['mb_left'];
+				} else {
+					$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>탈퇴미요청</span>";
+					$mb_left = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>미탈퇴</span>";
+				}
+				$mb_level = $member_control->get_level($val['mb_level']);
+			?>
+			<tr>
+				<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+				<td><?php echo $mb_type;?></td>
+				<td><?php echo $val['mb_id'];?></td>
+				<td><?php echo $mb_name;?></td>
+				<td><?php echo number_format($val['mb_point']);?></td>
+				<td><?php echo $mb_company_name;?></td>
+				<td><?php echo $mb_service_open;?></td>
+				<td><?php echo $mb_alba_resume;?></td>
+				<td><?php echo ($val['mb_type']=='individual')?$mb_alba_count:$company_msg;?></td>
+				<td title="<?php echo $val['mb_wdate'];?>"><?php echo $mb_wdate;?></td>
+				<!--<td><?php echo number_format($val['mb_login_count']);?></td>-->
+				<td><?php echo $mb_left_request_date;?></td>
+				<td>
+					<a onClick="pop_memo('<?php echo $val['no'];?>');" class="btn"><h1 class="btn19<?php echo ($val['mb_memo'])?" org":"";?>" id="memo_<?php echo $val['no'];?>">
+					<span class="ic" style="background-image:url(../../images/ic/memo.gif)"></span>메모</h1>
+					</a>
+				</td>
+				<td><a onClick="pop_email('<?php echo $val['no'];?>');"><img src="../../images/btn/19_08.gif"></a></td>
+				<td><a onClick="update_member('update','<?php echo $val['no'];?>');"><img src="../../images/btn/19_05.gif"></a></td>
+				<?php if($type!='left'){ ?>
+				<td><a onClick="left_member('<?php echo $val['no'];?>');"><img src="../../images/btn/19_ad.gif"></a></td>
+				<?php } ?>
+				<td class="e"><a onClick="return_member('<?php echo $val['no'];?>');"><img src="../../images/btn/19_re.gif"></a></td>
+			</tr>
+			<?php 
+				}	// foreach end.
+			} // if end.
+			?>
+			</tbody>
+
+			</table>
+
+			<dl class="page">
+				<?php include_once "../include/paging.php"; ?>
+				<dt>
+					<!-- <a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a> -->
+					<?php if($type!='left') { ?><a onClick="sel_left_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택탈퇴승인</h1></a><?php } ?>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<dd>
+					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>선택복귀</h1></a>
+				</dd>
+
+			</dl>
+
+			<div id='pop_info'></div>
+		</td>
+		<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+// ajax form 전송 전 데이터
+var showRequest = function(formData, jqForm, options){
+	var queryString = $.param(formData); 
+	var sendFrm = jqForm.attr('name');
+	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
+		$('#pop_mail').hide();
+		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
+		$.blockUI({ 
+			theme: true,
+			title: '회원 이메일 전송중',
+			showOverlay: false,
+			message: $('#email_status')
+		});
+	} else if(sendFrm=='MemberFrm'){	// 회원 등록/수정시
+		var memberFrm = document.getElementById('MemberFrm');
+		return validate(memberFrm);
+	}
+}
+// ajax form 전송 후 결과
+var showResponse = function(responseText, statusText, xhr, $form){
+	var results = responseText.split('/');
+	if(!results[1]){
+		alert(responseText);
+		return false;
+	}
+	if( results[0] == 'memo' ) {		// 메모 작성
+		if( results[1] ){
+			alert("<?php echo $member_control->_success('0002');?>");
+			$('#pop_memo').hide();
+			if( results[3] != "" ){	// 메모값이 있다면
+				$('#memo_'+results[2]).addClass('org');
+			} else {	 // 없다면
+				$('#memo_'+results[2]).removeClass('org');
+			}
+		} else {
+			alert("<?php echo $member_control->_errors('0002');?>");
+			return false;
+		}
+	} else if( results[0] == 'email' ) {	// 이메일 전송
+		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+	} else if( results[0] == 'member' ){	 // 회원 등록/수정 결과
+		var mode = results[1], msg = results[2];
+		if(mode=='insert'){
+			if(msg=='0000'){
+				alert("<?php echo $member_control->_success('0004');?>");
+				location.reload();
+			}
+		} else if(mode=='update'){
+			if(msg=='0000'){
+				alert("<?php echo $member_control->_success('0003');?>");
+				location.reload();
+			}
+		}
+	} else if(results[0] == 'badness'){	// 불량회원 등록
+		if(results[1]){
+			alert("<?php echo $member_control->_success('0003');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $member_control->_errors('0009');?>");
+		}
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

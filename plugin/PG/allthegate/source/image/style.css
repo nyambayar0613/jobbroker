@@ -1,0 +1,38 @@
+body {
+	font-family:"µ¸¿ò";
+	font-size:9pt;
+	color:#333333;
+	font-weight:normal;
+	letter-spacing:0pt;
+	line-height:180%;
+}
+td {
+	font-family:"µ¸¿ò";
+	font-size:9pt;
+	color:#333333;
+	font-weight:normal;
+	letter-spacing:0pt;
+	line-height:180%;
+}
+.title {
+	font-family:"µ¸¿ò";
+	font-size:9pt;
+	color:#174586;
+	font-weight:bold;
+	padding-top:20px;
+}
+.title2 {
+	font-family:"µ¸¿ò";
+	font-size:9pt;
+	color:#FF3300;
+	padding-left:10px;
+	text-align:left;
+}
+.clsright {
+	padding-right:10px;
+	text-align:right;
+}
+.clsleft {
+	padding-left:10px;
+	text-align:left;
+}

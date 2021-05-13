@@ -1,0 +1,702 @@
+[2018-04-24 15:40:15.840] # OKNAME v3.70 start!<br>
+[2018-04-24 15:40:15.840] # mode=IPIN_CKEY<br>
+[2018-04-24 15:40:15.840] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 15:40:15.840] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 15:40:15.840] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 15:40:15.840] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 15:40:15.840] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 15:40:15.840] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 15:40:15.840] # argv[ 7](Option     )=CL<br>
+[2018-04-24 15:40:15.841] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 15:40:15.841] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 15:40:15.841] 20180424154015841400
+[2018-04-24 15:40:15.841] # final ret code=0<br>
+[2018-04-24 15:40:47.237] # OKNAME v3.70 start!<br>
+[2018-04-24 15:40:47.237] # mode=IPIN_CKEY<br>
+[2018-04-24 15:40:47.237] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 15:40:47.237] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 15:40:47.237] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 15:40:47.237] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 15:40:47.237] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 15:40:47.237] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 15:40:47.237] # argv[ 7](Option     )=CL<br>
+[2018-04-24 15:40:47.238] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 15:40:47.238] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 15:40:47.238] 20180424154047238852
+[2018-04-24 15:40:47.238] # final ret code=0<br>
+[2018-04-24 15:41:29.305] # OKNAME v3.70 start!<br>
+[2018-04-24 15:41:29.305] # mode=IPIN_CKEY<br>
+[2018-04-24 15:41:29.305] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 15:41:29.305] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 15:41:29.305] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 15:41:29.305] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 15:41:29.305] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 15:41:29.305] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 15:41:29.305] # argv[ 7](Option     )=CL<br>
+[2018-04-24 15:41:29.306] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 15:41:29.306] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 15:41:29.306] 20180424154129306718
+[2018-04-24 15:41:29.306] # final ret code=0<br>
+[2018-04-24 15:41:40.868] # OKNAME v3.70 start!<br>
+[2018-04-24 15:41:40.868] # mode=IPIN_CKEY<br>
+[2018-04-24 15:41:40.868] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 15:41:40.868] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 15:41:40.868] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 15:41:40.868] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 15:41:40.868] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 15:41:40.868] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 15:41:40.868] # argv[ 7](Option     )=CL<br>
+[2018-04-24 15:41:40.869] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 15:41:40.869] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 15:41:40.869] 20180424154140869914
+[2018-04-24 15:41:40.869] # final ret code=0<br>
+[2018-04-24 16:45:33.619] # OKNAME v3.70 start!<br>
+[2018-04-24 16:45:33.619] # mode=IPIN_CKEY<br>
+[2018-04-24 16:45:33.619] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:45:33.619] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:45:33.619] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:45:33.619] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:45:33.619] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 16:45:33.619] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:45:33.619] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:45:33.619] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:45:33.620] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:45:33.620] 20180424164533619954
+[2018-04-24 16:45:33.620] # final ret code=0<br>
+[2018-04-24 16:45:42.506] # OKNAME v3.70 start!<br>
+[2018-04-24 16:45:42.506] # mode=IPIN_CKEY<br>
+[2018-04-24 16:45:42.507] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:45:42.507] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:45:42.507] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:45:42.507] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:45:42.507] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 16:45:42.507] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:45:42.507] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:45:42.507] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:45:42.507] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:45:42.507] 20180424164542507594
+[2018-04-24 16:45:42.507] # final ret code=0<br>
+[2018-04-24 16:46:08.199] # OKNAME v3.70 start!<br>
+[2018-04-24 16:46:08.200] # mode=IPIN_CKEY<br>
+[2018-04-24 16:46:08.200] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:46:08.200] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:46:08.200] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:46:08.200] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:46:08.200] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 16:46:08.200] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:46:08.200] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:46:08.200] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:46:08.200] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:46:08.200] 20180424164608200434
+[2018-04-24 16:46:08.200] # final ret code=0<br>
+[2018-04-24 16:47:11.449] # OKNAME v3.70 start!<br>
+[2018-04-24 16:47:11.450] # mode=IPIN_CKEY<br>
+[2018-04-24 16:47:11.450] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:47:11.450] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:47:11.450] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:47:11.450] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:47:11.450] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 16:47:11.450] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:47:11.450] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:47:11.450] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:47:11.450] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:47:11.450] 20180424164711450328
+[2018-04-24 16:47:11.450] # final ret code=0<br>
+[2018-04-24 16:47:29.141] # OKNAME v3.70 start!<br>
+[2018-04-24 16:47:29.141] # mode=IPIN_CKEY<br>
+[2018-04-24 16:47:29.141] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:47:29.141] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:47:29.141] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:47:29.141] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:47:29.141] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 16:47:29.141] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:47:29.142] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:47:29.142] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:47:29.142] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:47:29.142] 20180424164729142728
+[2018-04-24 16:47:29.142] # final ret code=0<br>
+[2018-04-24 16:47:52.779] # OKNAME v3.70 start!<br>
+[2018-04-24 16:47:52.779] # mode=IPIN_CKEY<br>
+[2018-04-24 16:47:52.779] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 16:47:52.779] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-24 16:47:52.779] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 16:47:52.779] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 16:47:52.779] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 16:47:52.779] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:47:52.779] # argv[ 7](Option     )=CL<br>
+[2018-04-24 16:47:52.779] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 16:47:52.779] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 16:47:52.779] 20180424164752779183
+[2018-04-24 16:47:52.779] # final ret code=0<br>
+[2018-04-24 16:55:01.015] # OKNAME v3.70 start!<br>
+[2018-04-24 16:55:01.016] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 16:55:01.016] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 16:55:01.016] # argv[ 1](hs_cert_svc_tx_seqno)=20180424165501188875<br>
+[2018-04-24 16:55:01.016] # argv[ 2](nm)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 3](brdt)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 4](sex)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 6](var1)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 7](var2)=x<br>
+[2018-04-24 16:55:01.016] # argv[ 8](var3)=0<br>
+[2018-04-24 16:55:01.016] # argv[ 9](var4)=0<br>
+[2018-04-24 16:55:01.016] # argv[10](var5)=0<br>
+[2018-04-24 16:55:01.016] # argv[11](return_msg)=x<br>
+[2018-04-24 16:55:01.016] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 16:55:01.016] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 16:55:01.016] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 16:55:01.016] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 16:55:01.016] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2018-04-24 16:55:01.016] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 16:55:01.016] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 16:55:01.016] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 16:55:01.016] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:55:01.016] # argv[21](option)=QL<br>
+[2018-04-24 16:55:01.017] # soap_timeout: 30000 ms<br>
+[2018-04-24 16:55:01.065] # key   : Agb3aqvRrEgxlpZeRaA1I3TxZA/GKA==:2mrVvg+N1Q6fWkDqEBv+xA==<br>
+[2018-04-24 16:55:01.065] # spkey : Agb3aqvRrEgxlpZeRaA1I3TxZA/GKA==<br>
+[2018-04-24 16:55:01.065] # ssig  : 2mrVvg+N1Q6fWkDqEBv+xA==<br>
+[2018-04-24 16:55:01.067] # nm               : x    <br>
+[2018-04-24 16:55:01.067] # brdt             : x    <br>
+[2018-04-24 16:55:01.067] # e_nm             : 5RRHBtg=<br>
+[2018-04-24 16:55:01.067] # e_brdt           : 5RRHBtg=<br>
+[2018-04-24 16:55:01.067] # cpkey : AgIMN9Os+IqYcXoc0wXs11VhLKZvvQ==<br>
+[2018-04-24 16:55:01.067] # csig  : VZbUP7Q40Tvq/TGOCq6Y1A==<br>
+[2018-04-24 16:55:01.084] retmsg: 3wVXEsJHomCgvsEBeR6x4nOix/Xj8HlmsOpB15+Dgx6nR8Tkv9X8eB/odwhQBXXcpHvQ4QpRRlricDKnaoQEWtCa/O4TzIxaWFbtZHf4zts7sUi02NvcU7b2LALv5pczffC6u7JbkIIQ35YHLmcWRDhAzCAz6b3/TTP94DUa3xXjLtfmUuN1+5JV8adLRNg84gvNTFNCOdcUaJwNj5QpEnEADizS3cGCNpK1wwK7Ov5dZhV0qOJCuxb1iK/6Jm+eIys8JjYJiW1RGSWUhUA2jB1pVvkBrM7L4pl8wwcRhMH0cpMnULw7VoFCA9rDL3FjrcL44lG1cDg1eCs=
+[2018-04-24 16:55:01.085] retmsg: B104:서비스 사용  중지 상태입니다.:kYFvkgmfTi0CDDkL3FAZ/AEpzMMuQiSXFb3aFySegacMJD22ZzNZq2He6txMpAgxbI2YawH6gl1sG06Od7ceclBR/NPpYU0U7uGCtDLsvIBsuZGeECheZjtxeuse5zLKHXTY22bh9AUUP7bx6y9bFCS2m7q0PrF4au8DPnKYzapvwWPnbl7glT+OeLe7hH05ET8wAV0sr1xbns2M9T4lSQ==
+[2018-04-24 16:55:01.085] B104
+[2018-04-24 16:55:01.085] 서비스 사용  중지 상태입니다.
+[2018-04-24 16:55:01.085] kYFvkgmfTi0CDDkL3FAZ/AEpzMMuQiSXFb3aFySegacMJD22ZzNZq2He6txMpAgxbI2YawH6gl1sG06Od7ceclBR/NPpYU0U7uGCtDLsvIBsuZGeECheZjtxeuse5zLKHXTY22bh9AUUP7bx6y9bFCS2m7q0PrF4au8DPnKYzapvwWPnbl7glT+OeLe7hH05ET8wAV0sr1xbns2M9T4lSQ==
+[2018-04-24 16:55:01.085] # final ret code=104<br>
+[2018-04-24 16:55:28.841] # OKNAME v3.70 start!<br>
+[2018-04-24 16:55:28.841] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 16:55:28.841] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 16:55:28.841] # argv[ 1](hs_cert_svc_tx_seqno)=20180424165528679544<br>
+[2018-04-24 16:55:28.841] # argv[ 2](nm)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 3](brdt)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 4](sex)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 6](var1)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 7](var2)=x<br>
+[2018-04-24 16:55:28.841] # argv[ 8](var3)=0<br>
+[2018-04-24 16:55:28.841] # argv[ 9](var4)=0<br>
+[2018-04-24 16:55:28.842] # argv[10](var5)=0<br>
+[2018-04-24 16:55:28.842] # argv[11](return_msg)=x<br>
+[2018-04-24 16:55:28.842] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 16:55:28.842] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 16:55:28.842] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 16:55:28.842] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 16:55:28.842] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2018-04-24 16:55:28.842] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 16:55:28.842] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 16:55:28.842] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 16:55:28.842] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:55:28.842] # argv[21](option)=QL<br>
+[2018-04-24 16:55:28.842] # soap_timeout: 30000 ms<br>
+[2018-04-24 16:55:28.890] # key   : AgaoQBAOfWCQqT9SubDQOSSvJExObQ==:WwFpYh0+v2VL79EBwKaICA==<br>
+[2018-04-24 16:55:28.890] # spkey : AgaoQBAOfWCQqT9SubDQOSSvJExObQ==<br>
+[2018-04-24 16:55:28.890] # ssig  : WwFpYh0+v2VL79EBwKaICA==<br>
+[2018-04-24 16:55:28.892] # nm               : x    <br>
+[2018-04-24 16:55:28.892] # brdt             : x    <br>
+[2018-04-24 16:55:28.892] # e_nm             : sSh6y/w=<br>
+[2018-04-24 16:55:28.892] # e_brdt           : sSh6y/w=<br>
+[2018-04-24 16:55:28.892] # cpkey : AgO+rO/Tx5d0t18QxOrD7UNDVaVS5Q==<br>
+[2018-04-24 16:55:28.892] # csig  : CdIu3Dat3TiG6nyng3oNyA==<br>
+[2018-04-24 16:55:28.910] retmsg: izlq3+aGX8lmUFaONGDVpiGG3RosbdYcJsmHn35YEgQV/E5mjpK2XQQgbNYjOa21G8mpFk1EHOPFWvq7/1/n8gR4v295ZXgQ51j4zeDK0qy+93RozDEEWdQcgMSu3H+xpssMCD2ZOdtlufiELvRqhn//0kZ/a26Cd3Iu0apWsoLn1QFmVEf3mz/2yr+b99L0S7wpsJwnIPRX23uZQBdXMPQFWcb7MAaqGUUL3ZRlLkJtPgHlaBt6uJIchQKCHeWa1CMAIg01beZA/+gklQYobDcYgjDRK1Dxh7zdzDGOyPx8ebBBAXyXWLaQXgNes7kmLfqOEVtAhG1GA8E=
+[2018-04-24 16:55:28.910] retmsg: B104:서비스 사용  중지 상태입니다.:kYFvkgmfTi0CDDkL3FAZ/Nn7h9lNydd+fjvdgxcOz8pVGTOGLHdG9/V2xkUgosA9qzZkm3U0Hu7cdVnjNLcZm5Oq+woRjp3ZAIDO0LC3TPYtBSK0DTsINVeR9wr4dR3n9B5UrsvzwzI3dgHTbGQw/45a1TBkVERxUvhWnSu6wCDCJrTR9EqIIGEex46UmeVrHm44V5u81JrTxY8X6ZNgqg==
+[2018-04-24 16:55:28.910] B104
+[2018-04-24 16:55:28.910] 서비스 사용  중지 상태입니다.
+[2018-04-24 16:55:28.910] kYFvkgmfTi0CDDkL3FAZ/Nn7h9lNydd+fjvdgxcOz8pVGTOGLHdG9/V2xkUgosA9qzZkm3U0Hu7cdVnjNLcZm5Oq+woRjp3ZAIDO0LC3TPYtBSK0DTsINVeR9wr4dR3n9B5UrsvzwzI3dgHTbGQw/45a1TBkVERxUvhWnSu6wCDCJrTR9EqIIGEex46UmeVrHm44V5u81JrTxY8X6ZNgqg==
+[2018-04-24 16:55:28.910] # final ret code=104<br>
+[2018-04-24 16:55:41.462] # OKNAME v3.70 start!<br>
+[2018-04-24 16:55:41.462] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 16:55:41.462] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 16:55:41.462] # argv[ 1](hs_cert_svc_tx_seqno)=2018042416554194406<br>
+[2018-04-24 16:55:41.462] # argv[ 2](nm)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 3](brdt)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 4](sex)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 6](var1)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 7](var2)=x<br>
+[2018-04-24 16:55:41.462] # argv[ 8](var3)=0<br>
+[2018-04-24 16:55:41.462] # argv[ 9](var4)=0<br>
+[2018-04-24 16:55:41.462] # argv[10](var5)=0<br>
+[2018-04-24 16:55:41.462] # argv[11](return_msg)=x<br>
+[2018-04-24 16:55:41.462] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 16:55:41.462] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 16:55:41.463] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 16:55:41.463] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 16:55:41.463] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2018-04-24 16:55:41.463] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 16:55:41.463] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 16:55:41.463] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2018-04-24 16:55:41.463] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:55:41.463] # argv[21](option)=QL<br>
+[2018-04-24 16:55:41.463] # soap_timeout: 30000 ms<br>
+[2018-04-24 16:55:41.493] # ERROR_1 [ret=307][err_num=0][errno=115]<br>
+[2018-04-24 16:55:41.493] # ERROR S202: (Recv key from server error.)<br>
+[2018-04-24 16:55:41.493] # final ret code=202<br>
+[2018-04-24 16:56:06.745] # OKNAME v3.70 start!<br>
+[2018-04-24 16:56:06.745] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 16:56:06.746] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 16:56:06.746] # argv[ 1](hs_cert_svc_tx_seqno)=2018042416560672195<br>
+[2018-04-24 16:56:06.746] # argv[ 2](nm)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 3](brdt)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 4](sex)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 6](var1)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 7](var2)=x<br>
+[2018-04-24 16:56:06.746] # argv[ 8](var3)=0<br>
+[2018-04-24 16:56:06.746] # argv[ 9](var4)=0<br>
+[2018-04-24 16:56:06.746] # argv[10](var5)=0<br>
+[2018-04-24 16:56:06.746] # argv[11](return_msg)=x<br>
+[2018-04-24 16:56:06.746] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 16:56:06.746] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 16:56:06.746] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 16:56:06.746] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 16:56:06.746] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2018-04-24 16:56:06.746] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 16:56:06.746] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 16:56:06.746] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 16:56:06.746] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 16:56:06.746] # argv[21](option)=QL<br>
+[2018-04-24 16:56:06.746] # soap_timeout: 30000 ms<br>
+[2018-04-24 16:56:06.794] # key   : AgYI8vgh1HOomO5pWyUZWv7gTWjyLQ==:jnDTSO0OehEaASnCxLnFSQ==<br>
+[2018-04-24 16:56:06.794] # spkey : AgYI8vgh1HOomO5pWyUZWv7gTWjyLQ==<br>
+[2018-04-24 16:56:06.794] # ssig  : jnDTSO0OehEaASnCxLnFSQ==<br>
+[2018-04-24 16:56:06.796] # nm               : x    <br>
+[2018-04-24 16:56:06.796] # brdt             : x    <br>
+[2018-04-24 16:56:06.796] # e_nm             : rGyxylY=<br>
+[2018-04-24 16:56:06.796] # e_brdt           : rGyxylY=<br>
+[2018-04-24 16:56:06.796] # cpkey : AwDhX7udLwEM7WcrhNp1v8yaFO8bvw==<br>
+[2018-04-24 16:56:06.796] # csig  : 4Yr3gz6FFeeuqwJvO2DEow==<br>
+[2018-04-24 16:56:06.812] retmsg: ln2h3kwTjroKxb3BZ2Fgr1haf3bEsGcsQ0Usj/K7/9rklx2gEj6EY3iPqoismobn1N3tujpyfFJnv8syNGLhQnRAYif/DzRp4A7vgkR8CJpbrfIMc09Bu/Vw3LDoizyO3Usa+7LkEUPkURgJ7SO51GV5lTaJWn2tB+hp9w38mdBpNSCCGVaG30sPzLZbvm2gXBpmE1d8ARU7/bUnDMp4CDeowJnXu9O3pM2qcipnCoZWEMXZfnRDPRvyZxtNpsv9fbjPa73PklwEUR8nWjGOg+/O0bUz6VthXRVMeQrvsAL5uY1C/rVGjKZpCg1P16tOo6iGoFjkMbTKNPw=
+[2018-04-24 16:56:06.812] retmsg: B104:서비스 사용  중지 상태입니다.:kYFvkgmfTi0CDDkL3FAZ/Daw/9eSRQyeWkkh5XeYBEHWqqwSI2BM7RaURiaTzx7O9Be8rNqqM/FKqdYUShp3iPqSM/cs98N4Ntsa0wEZMUdutJxa9/y33rYwq1O4z5R2WMvtOCHVD/T1gHpNZtridtX0kM6q2SU39QibGmDx/H3QX9Dm0GLkjOiMCLlAJB0zrMb9aaMd8nE9CHjJPfJIfA==
+[2018-04-24 16:56:06.812] B104
+[2018-04-24 16:56:06.812] 서비스 사용  중지 상태입니다.
+[2018-04-24 16:56:06.813] kYFvkgmfTi0CDDkL3FAZ/Daw/9eSRQyeWkkh5XeYBEHWqqwSI2BM7RaURiaTzx7O9Be8rNqqM/FKqdYUShp3iPqSM/cs98N4Ntsa0wEZMUdutJxa9/y33rYwq1O4z5R2WMvtOCHVD/T1gHpNZtridtX0kM6q2SU39QibGmDx/H3QX9Dm0GLkjOiMCLlAJB0zrMb9aaMd8nE9CHjJPfJIfA==
+[2018-04-24 16:56:06.813] # final ret code=104<br>
+[2018-04-24 17:07:28.988] # OKNAME v3.70 start!<br>
+[2018-04-24 17:07:28.988] # mode=IPIN_CKEY<br>
+[2018-04-24 17:07:28.989] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:07:28.989] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:07:28.989] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:07:28.989] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:07:28.989] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 17:07:28.990] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:07:28.990] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:07:28.990] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:07:28.990] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:07:28.990] 20180424170728990928
+[2018-04-24 17:07:28.990] # final ret code=0<br>
+[2018-04-24 17:07:30.789] # OKNAME v3.70 start!<br>
+[2018-04-24 17:07:30.789] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 17:07:30.789] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 17:07:30.789] # argv[ 1](hs_cert_svc_tx_seqno)=20180424170730733362<br>
+[2018-04-24 17:07:30.789] # argv[ 2](nm)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 3](brdt)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 4](sex)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 6](var1)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 7](var2)=x<br>
+[2018-04-24 17:07:30.789] # argv[ 8](var3)=0<br>
+[2018-04-24 17:07:30.789] # argv[ 9](var4)=0<br>
+[2018-04-24 17:07:30.789] # argv[10](var5)=0<br>
+[2018-04-24 17:07:30.789] # argv[11](return_msg)=x<br>
+[2018-04-24 17:07:30.789] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 17:07:30.789] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 17:07:30.789] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 17:07:30.789] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 17:07:30.789] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 17:07:30.790] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 17:07:30.790] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 17:07:30.790] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 17:07:30.790] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:07:30.790] # argv[21](option)=QL<br>
+[2018-04-24 17:07:30.790] # soap_timeout: 30000 ms<br>
+[2018-04-24 17:07:30.850] # key   : AwSfg/cEE5RLs8FQ3c+/CGdeMVW8mg==:TL2IBWnXRUH8rifiVtov8Q==<br>
+[2018-04-24 17:07:30.850] # spkey : AwSfg/cEE5RLs8FQ3c+/CGdeMVW8mg==<br>
+[2018-04-24 17:07:30.850] # ssig  : TL2IBWnXRUH8rifiVtov8Q==<br>
+[2018-04-24 17:07:30.852] # nm               : x    <br>
+[2018-04-24 17:07:30.852] # brdt             : x    <br>
+[2018-04-24 17:07:30.852] # e_nm             : PQYMNjw=<br>
+[2018-04-24 17:07:30.852] # e_brdt           : PQYMNjw=<br>
+[2018-04-24 17:07:30.852] # cpkey : AwRVjAmpjsjFXWpFCQ8bVzqG7ZJ6Xw==<br>
+[2018-04-24 17:07:30.852] # csig  : PNMfmz+cag17uHZfRWczng==<br>
+[2018-04-24 17:07:30.869] retmsg: BxccJSZ86ER1Mi8R8zQhRrOKtTpelKKIkd7bLsMJJ4fsTUAXpBlL+e0TN9btz77VLnLQf4rRj7ibjUIronh8uff3R62D1Iy8OPJljFqwW3NfL3q19d/o4CEor+dRT1wP5Oz5c9Uqec2RO9QXOS6+Y8fE5I0VRmEq+bPVMNrsb9kPut+D8/BH6N2UvVBDCTqaVU7DbzBmKrpGzy8wt0icfhy+cdDGoLnGJWzu5Gm+Rj5eraJPiarLtb+2QS1CD0N69ALZLNnx7WTY2DVMRW1/F/RnEqemedowD4ypFFhYG3LR9hpxd0K4QtgFjaPiZ1ymVaLO6LEbG6gGiAwL
+[2018-04-24 17:07:30.869] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zR8D9TgZbQq+jJvO7W0bbG24RXCz4/du2eDu08wAChQ1ud6eRnt4iijcwTyr/8WrH+69vfFOXen4Ms0ZiPMp9VbYWtqH3CZ2pkSntmXcgrWhNmXTqqm946vkqefAYf7avTalPOhgb2U/m1AaGnCC8gyCJAz5pVSf5+FGz/CfVo4MUw2PQTit6twMx6uv3biLLzw==
+[2018-04-24 17:07:30.869] B103
+[2018-04-24 17:07:30.870] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 17:07:30.870] l4i7ItKfVYAXSio1JN1zR8D9TgZbQq+jJvO7W0bbG24RXCz4/du2eDu08wAChQ1ud6eRnt4iijcwTyr/8WrH+69vfFOXen4Ms0ZiPMp9VbYWtqH3CZ2pkSntmXcgrWhNmXTqqm946vkqefAYf7avTalPOhgb2U/m1AaGnCC8gyCJAz5pVSf5+FGz/CfVo4MUw2PQTit6twMx6uv3biLLzw==
+[2018-04-24 17:07:30.870] # final ret code=103<br>
+[2018-04-24 17:08:05.572] # OKNAME v3.70 start!<br>
+[2018-04-24 17:08:05.572] # mode=IPIN_CKEY<br>
+[2018-04-24 17:08:05.572] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:08:05.572] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:08:05.572] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:08:05.572] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:08:05.572] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:08:05.572] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:08:05.572] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:08:05.572] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:08:05.573] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:08:05.573] 20180424170805572595
+[2018-04-24 17:08:05.573] # final ret code=0<br>
+[2018-04-24 17:08:39.377] # OKNAME v3.70 start!<br>
+[2018-04-24 17:08:39.377] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 17:08:39.377] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 17:08:39.377] # argv[ 1](hs_cert_svc_tx_seqno)=20180424170839504239<br>
+[2018-04-24 17:08:39.377] # argv[ 2](nm)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 3](brdt)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 4](sex)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 6](var1)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 7](var2)=x<br>
+[2018-04-24 17:08:39.377] # argv[ 8](var3)=0<br>
+[2018-04-24 17:08:39.377] # argv[ 9](var4)=0<br>
+[2018-04-24 17:08:39.377] # argv[10](var5)=0<br>
+[2018-04-24 17:08:39.378] # argv[11](return_msg)=x<br>
+[2018-04-24 17:08:39.378] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 17:08:39.378] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 17:08:39.378] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 17:08:39.378] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 17:08:39.378] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 17:08:39.378] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 17:08:39.378] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 17:08:39.378] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2018-04-24 17:08:39.378] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:08:39.378] # argv[21](option)=QL<br>
+[2018-04-24 17:08:39.378] # soap_timeout: 30000 ms<br>
+[2018-04-24 17:08:39.454] # ERROR_1 [ret=307][err_num=0][errno=115]<br>
+[2018-04-24 17:08:39.454] # ERROR S202: (Recv key from server error.)<br>
+[2018-04-24 17:08:39.454] # final ret code=202<br>
+[2018-04-24 17:24:05.569] # OKNAME v3.70 start!<br>
+[2018-04-24 17:24:05.569] # mode=IPIN_CKEY<br>
+[2018-04-24 17:24:05.569] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:24:05.570] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:24:05.570] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:24:05.570] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:24:05.570] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:24:05.570] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:24:05.570] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:24:05.570] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:24:05.570] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:24:05.570] 20180424172405570302
+[2018-04-24 17:24:05.570] # final ret code=0<br>
+[2018-04-24 17:25:35.878] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:35.878] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:35.878] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:35.878] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:35.878] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:35.878] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:35.878] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:35.878] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:35.878] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:35.878] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:35.878] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:35.878] 20180424172535878626
+[2018-04-24 17:25:35.878] # final ret code=0<br>
+[2018-04-24 17:25:48.845] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:48.845] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:48.845] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:48.845] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:48.845] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:48.845] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:48.845] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:48.845] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:48.845] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:48.845] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:48.845] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:48.845] 20180424172548845325
+[2018-04-24 17:25:48.845] # final ret code=0<br>
+[2018-04-24 17:25:48.903] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:48.904] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:48.904] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:48.904] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:48.904] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:48.904] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:48.904] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:48.904] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:48.904] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:48.904] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:48.904] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:48.904] 20180424172548904325
+[2018-04-24 17:25:48.904] # final ret code=0<br>
+[2018-04-24 17:25:49.032] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:49.032] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:49.032] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:49.032] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:49.032] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:49.032] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:49.032] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:49.032] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:49.032] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:49.032] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:49.032] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:49.032] 20180424172549032443
+[2018-04-24 17:25:49.032] # final ret code=0<br>
+[2018-04-24 17:25:49.579] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:49.580] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:49.580] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:49.580] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:49.580] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:49.580] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:49.580] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:49.580] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:49.580] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:49.580] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:49.580] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:49.580] 20180424172549580443
+[2018-04-24 17:25:49.580] # final ret code=0<br>
+[2018-04-24 17:25:57.992] # OKNAME v3.70 start!<br>
+[2018-04-24 17:25:57.992] # mode=IPIN_CKEY<br>
+[2018-04-24 17:25:57.992] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:25:57.992] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:25:57.992] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:25:57.992] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:25:57.993] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-24 17:25:57.993] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:25:57.993] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:25:57.993] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:25:57.993] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:25:57.993] 20180424172557993147
+[2018-04-24 17:25:57.993] # final ret code=0<br>
+[2018-04-24 17:50:33.003] # OKNAME v3.70 start!<br>
+[2018-04-24 17:50:33.003] # mode=IPIN_CKEY<br>
+[2018-04-24 17:50:33.003] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 17:50:33.003] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 17:50:33.003] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 17:50:33.003] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 17:50:33.003] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 17:50:33.003] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:50:33.003] # argv[ 7](Option     )=CL<br>
+[2018-04-24 17:50:33.003] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 17:50:33.003] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 17:50:33.003] 20180424175033003926
+[2018-04-24 17:50:33.003] # final ret code=0<br>
+[2018-04-24 17:50:35.143] # OKNAME v3.70 start!<br>
+[2018-04-24 17:50:35.143] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 17:50:35.143] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 17:50:35.143] # argv[ 1](hs_cert_svc_tx_seqno)=20180424175035710618<br>
+[2018-04-24 17:50:35.143] # argv[ 2](nm)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 3](brdt)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 4](sex)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 6](var1)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 7](var2)=x<br>
+[2018-04-24 17:50:35.143] # argv[ 8](var3)=0<br>
+[2018-04-24 17:50:35.143] # argv[ 9](var4)=0<br>
+[2018-04-24 17:50:35.143] # argv[10](var5)=0<br>
+[2018-04-24 17:50:35.143] # argv[11](return_msg)=x<br>
+[2018-04-24 17:50:35.143] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 17:50:35.143] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 17:50:35.143] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 17:50:35.144] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 17:50:35.144] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 17:50:35.144] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 17:50:35.144] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 17:50:35.144] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 17:50:35.144] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 17:50:35.144] # argv[21](option)=QL<br>
+[2018-04-24 17:50:35.144] # soap_timeout: 30000 ms<br>
+[2018-04-24 17:50:35.191] # key   : AwdK1k2zcZdZAoNz49pOReBn79E4jQ==:z7NnzxP9HBWp1oPiaJaaUg==<br>
+[2018-04-24 17:50:35.192] # spkey : AwdK1k2zcZdZAoNz49pOReBn79E4jQ==<br>
+[2018-04-24 17:50:35.192] # ssig  : z7NnzxP9HBWp1oPiaJaaUg==<br>
+[2018-04-24 17:50:35.193] # nm               : x    <br>
+[2018-04-24 17:50:35.194] # brdt             : x    <br>
+[2018-04-24 17:50:35.194] # e_nm             : JiO2fpQ=<br>
+[2018-04-24 17:50:35.194] # e_brdt           : JiO2fpQ=<br>
+[2018-04-24 17:50:35.194] # cpkey : AgXy3Ze4RccXRzDaBEdrzduuW4JntQ==<br>
+[2018-04-24 17:50:35.194] # csig  : 1EgmvGHvgntQaQCxlHVaag==<br>
+[2018-04-24 17:50:35.211] retmsg: HDKmbY4HsSHMueLSkn8dQT1AB1JOm6kGf/LYiei+K/oyz0AkHPgZA35EQ/RmtzGQO9f7K2D90dhp+lVtk4Sj+YEXMwjbK0DxE8nnYT5i1EtJT04shNKcJnSBgIq325ThZpmhdB7oamHDad3prjo0F+mnViyY+pvlfB0SPGp3K0glnJzmyQaY0tHhY33eX0CwUxf1iWhLDQNG2DtvGT9p6q7cZwldWgwO5amZJtsVRs1mACw+nUU8V384WftvdPisvNe0ZQjJLkdPtZrz6xzdjFDHEwVLqMs7s6qNd4BXBwmtpeuKVz9byKMcryD/yDFOEqUyweF6XnlaoH2d
+[2018-04-24 17:50:35.211] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zR5Q8ECWDh7iZSOn6mHj3gvqsgAB2bpSVATgDbugXGV8CTS3UEqtZ12ez+KRIwxrzotyGIl9wJArN9GKXG1YV3Un08KNsWr7iH2sgtxts+SAA+aseFE1SXQeNRbjCv1r3L1VgSQa3Cts9Kn75EO+S2Pa4mgbspjdfuB6duIXgjg/Cw5i4wB9adON+uflBr+gu1A==
+[2018-04-24 17:50:35.211] B103
+[2018-04-24 17:50:35.211] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 17:50:35.211] l4i7ItKfVYAXSio1JN1zR5Q8ECWDh7iZSOn6mHj3gvqsgAB2bpSVATgDbugXGV8CTS3UEqtZ12ez+KRIwxrzotyGIl9wJArN9GKXG1YV3Un08KNsWr7iH2sgtxts+SAA+aseFE1SXQeNRbjCv1r3L1VgSQa3Cts9Kn75EO+S2Pa4mgbspjdfuB6duIXgjg/Cw5i4wB9adON+uflBr+gu1A==
+[2018-04-24 17:50:35.211] # final ret code=103<br>
+[2018-04-24 18:02:57.347] # OKNAME v3.70 start!<br>
+[2018-04-24 18:02:57.347] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 18:02:57.348] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 18:02:57.348] # argv[ 1](hs_cert_svc_tx_seqno)=2018042418025791304<br>
+[2018-04-24 18:02:57.348] # argv[ 2](nm)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 3](brdt)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 4](sex)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 6](var1)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 7](var2)=x<br>
+[2018-04-24 18:02:57.348] # argv[ 8](var3)=0<br>
+[2018-04-24 18:02:57.348] # argv[ 9](var4)=0<br>
+[2018-04-24 18:02:57.348] # argv[10](var5)=0<br>
+[2018-04-24 18:02:57.348] # argv[11](return_msg)=x<br>
+[2018-04-24 18:02:57.348] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 18:02:57.348] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 18:02:57.348] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 18:02:57.348] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 18:02:57.348] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 18:02:57.348] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 18:02:57.348] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 18:02:57.348] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 18:02:57.348] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 18:02:57.348] # argv[21](option)=QL<br>
+[2018-04-24 18:02:57.348] # soap_timeout: 30000 ms<br>
+[2018-04-24 18:02:57.397] # key   : AgdBg0cdmtnOkn2BFN6Jpi5mfdGNSg==:3KXFuF54yWmZq1/KVNNOWg==<br>
+[2018-04-24 18:02:57.397] # spkey : AgdBg0cdmtnOkn2BFN6Jpi5mfdGNSg==<br>
+[2018-04-24 18:02:57.397] # ssig  : 3KXFuF54yWmZq1/KVNNOWg==<br>
+[2018-04-24 18:02:57.399] # nm               : x    <br>
+[2018-04-24 18:02:57.399] # brdt             : x    <br>
+[2018-04-24 18:02:57.399] # e_nm             : +3MlYdY=<br>
+[2018-04-24 18:02:57.399] # e_brdt           : +3MlYdY=<br>
+[2018-04-24 18:02:57.399] # cpkey : AgL39LpYfW6uXpUFacBRLTWbgUvQOA==<br>
+[2018-04-24 18:02:57.399] # csig  : pb1kxJ9PDVF/6wO4ny8UJg==<br>
+[2018-04-24 18:02:57.417] retmsg: wWI1csxFaKsOiPei8qq7DRdrsWkB0EnbImDQZ+8rw1F3blXDGvIWn/CAndbOQGMzOHW9DuScvqbpnT7Es9wKqsMz5N7VJGDIsX/GGpmO+by05CzopNax018h4nPWn3rPu9OlHFD2AOE+MSb48bRqRyEFhF/SuJN7NxodTjXDGF/xlUomIQCROOeVPHkJXN/nx83JjhXuZqw0ep11QJNpw09Qpm5jqrrxmc6e2TXMwnk2V7W3JdaGPAKAciLqKRRL63zTQYrPfC4qkiI/o1svv7t1Ptk3Ws8DymtpNKXlObUgHWOy8NKQt07I2xdFCJ2tiGdAGhYON06JF+6G
+[2018-04-24 18:02:57.417] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zR12gHtkREfVDIQ1SIPX5pj26y+Z0QTbCBI/o43GE9aROxGv15dmNh4MsWwm5as/g7OouYb5+fGVMIsq0DdnQctZMk/oBzMU7DqdDuuV2vCoycoKGVDra5yUx/By+uIMP5R47sPReCwgNlh5Fonjao4qzrSrRMphq1OKaImq8vXy8GrPqHGuroizbe+qYf47NgA==
+[2018-04-24 18:02:57.417] B103
+[2018-04-24 18:02:57.417] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 18:02:57.417] l4i7ItKfVYAXSio1JN1zR12gHtkREfVDIQ1SIPX5pj26y+Z0QTbCBI/o43GE9aROxGv15dmNh4MsWwm5as/g7OouYb5+fGVMIsq0DdnQctZMk/oBzMU7DqdDuuV2vCoycoKGVDra5yUx/By+uIMP5R47sPReCwgNlh5Fonjao4qzrSrRMphq1OKaImq8vXy8GrPqHGuroizbe+qYf47NgA==
+[2018-04-24 18:02:57.417] # final ret code=103<br>
+[2018-04-24 18:03:15.529] # OKNAME v3.70 start!<br>
+[2018-04-24 18:03:15.530] # mode=IPIN_CKEY<br>
+[2018-04-24 18:03:15.530] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 18:03:15.530] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 18:03:15.530] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 18:03:15.530] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 18:03:15.530] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 18:03:15.530] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 18:03:15.530] # argv[ 7](Option     )=CL<br>
+[2018-04-24 18:03:15.530] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 18:03:15.530] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 18:03:15.530] 20180424180315530283
+[2018-04-24 18:03:15.530] # final ret code=0<br>
+[2018-04-24 18:03:18.233] # OKNAME v3.70 start!<br>
+[2018-04-24 18:03:18.234] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 18:03:18.234] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 18:03:18.234] # argv[ 1](hs_cert_svc_tx_seqno)=201804241803183380<br>
+[2018-04-24 18:03:18.234] # argv[ 2](nm)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 3](brdt)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 4](sex)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 6](var1)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 7](var2)=x<br>
+[2018-04-24 18:03:18.234] # argv[ 8](var3)=0<br>
+[2018-04-24 18:03:18.234] # argv[ 9](var4)=0<br>
+[2018-04-24 18:03:18.234] # argv[10](var5)=0<br>
+[2018-04-24 18:03:18.234] # argv[11](return_msg)=x<br>
+[2018-04-24 18:03:18.234] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 18:03:18.234] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 18:03:18.234] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 18:03:18.234] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 18:03:18.234] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 18:03:18.234] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 18:03:18.234] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 18:03:18.234] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 18:03:18.234] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 18:03:18.234] # argv[21](option)=QL<br>
+[2018-04-24 18:03:18.234] # soap_timeout: 30000 ms<br>
+[2018-04-24 18:03:18.282] # key   : AgE5MDsmtn3llt1CjC+vjibwVmRvKg==:Yt2bH460DbzNHl+7OuiKKw==<br>
+[2018-04-24 18:03:18.282] # spkey : AgE5MDsmtn3llt1CjC+vjibwVmRvKg==<br>
+[2018-04-24 18:03:18.282] # ssig  : Yt2bH460DbzNHl+7OuiKKw==<br>
+[2018-04-24 18:03:18.284] # nm               : x    <br>
+[2018-04-24 18:03:18.284] # brdt             : x    <br>
+[2018-04-24 18:03:18.284] # e_nm             : zcmOYcg=<br>
+[2018-04-24 18:03:18.284] # e_brdt           : zcmOYcg=<br>
+[2018-04-24 18:03:18.284] # cpkey : AgTRVHmhechZYTPEe9ma9H4Mne8Jew==<br>
+[2018-04-24 18:03:18.284] # csig  : iPvG/C5x4DyqW/9uTZ2Ilg==<br>
+[2018-04-24 18:03:18.302] retmsg: 99iectLMOPET4qBLD6es4mhqxhlctG1W6ZqWwIEP/0/je/TDNEiY9A1pHYF7fRJ0lThrZklouIgVNW04fDCfRwnNJ+36sxCSf9uX902O04AAmItzDDmhFgulj0/OYIXyhU5ebN7eZlUNeIISPFZGBDdX2bc8E8otOljEHjuRH4KU9omIxt0ghmNs2qfW0WImZVhpqvyIz6HxxJd/7egUeYrDcwDoDW8Ub5BYbCidK+0rYtd9MOVhF/LTJzQdC4imcoxLhpq03BNFRdxjBxMnIVMCMJE90UwsOelZjO52m39a2R9SJ7xTT02EtmMr8s15s8+Ueazg5ZKbIFES
+[2018-04-24 18:03:18.302] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zR/93GtluUU0tgqT9wDgoYhviWJlAPZ6oIrTsROMV4z0e9do9EUA8o0cpZ+CPKP6gpnpwgyOgHmEPnfTDGVx1q4tHpidlsOvOs+gvpDEvdc7J+IyE5QXXOw9Ovaw8dg/6hGQV9XyLtVop8KeypElW/RuOjlwJST1XsmKyrVeoLfZnwEiyVtOymmm4RfCK6tClVA==
+[2018-04-24 18:03:18.302] B103
+[2018-04-24 18:03:18.302] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 18:03:18.302] l4i7ItKfVYAXSio1JN1zR/93GtluUU0tgqT9wDgoYhviWJlAPZ6oIrTsROMV4z0e9do9EUA8o0cpZ+CPKP6gpnpwgyOgHmEPnfTDGVx1q4tHpidlsOvOs+gvpDEvdc7J+IyE5QXXOw9Ovaw8dg/6hGQV9XyLtVop8KeypElW/RuOjlwJST1XsmKyrVeoLfZnwEiyVtOymmm4RfCK6tClVA==
+[2018-04-24 18:03:18.302] # final ret code=103<br>
+[2018-04-24 18:20:20.579] # OKNAME v3.70 start!<br>
+[2018-04-24 18:20:20.579] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 18:20:20.579] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 18:20:20.579] # argv[ 1](hs_cert_svc_tx_seqno)=2018042418202099239<br>
+[2018-04-24 18:20:20.579] # argv[ 2](nm)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 3](brdt)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 4](sex)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 6](var1)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 7](var2)=x<br>
+[2018-04-24 18:20:20.579] # argv[ 8](var3)=0<br>
+[2018-04-24 18:20:20.580] # argv[ 9](var4)=0<br>
+[2018-04-24 18:20:20.580] # argv[10](var5)=0<br>
+[2018-04-24 18:20:20.580] # argv[11](return_msg)=x<br>
+[2018-04-24 18:20:20.580] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 18:20:20.580] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 18:20:20.580] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 18:20:20.580] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 18:20:20.580] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 18:20:20.580] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 18:20:20.580] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 18:20:20.580] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 18:20:20.580] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 18:20:20.580] # argv[21](option)=QL<br>
+[2018-04-24 18:20:20.580] # soap_timeout: 30000 ms<br>
+[2018-04-24 18:20:20.629] # key   : AwI4gKNoQBp8GLgdR8fBVrHYPeNVUQ==:ZgfNSAiqx3AxgRmi0SKA4w==<br>
+[2018-04-24 18:20:20.629] # spkey : AwI4gKNoQBp8GLgdR8fBVrHYPeNVUQ==<br>
+[2018-04-24 18:20:20.629] # ssig  : ZgfNSAiqx3AxgRmi0SKA4w==<br>
+[2018-04-24 18:20:20.630] # nm               : x    <br>
+[2018-04-24 18:20:20.630] # brdt             : x    <br>
+[2018-04-24 18:20:20.630] # e_nm             : ATHGQkk=<br>
+[2018-04-24 18:20:20.630] # e_brdt           : ATHGQkk=<br>
+[2018-04-24 18:20:20.630] # cpkey : AwcwysekxbuK8MGOu34P4fPYnfk5GA==<br>
+[2018-04-24 18:20:20.630] # csig  : LGVg2PlEJmhsXLQo4lU3bw==<br>
+[2018-04-24 18:20:20.647] retmsg: OyDWUVPcwq6ZR5J3XyVgrMCzb9I4pF9jOYT/rZvoQMWYEBBYtjv/OF02DMYEd0WNsJPZpeX9R9Fa/dgPMk5PpCgm0nWOWFG2j5FWjREUNoYyyeO3bxqZdx8W8nA/rd7rOdC/dYPGPObf5LcV+IGomEukjsK4CuUIN97OKlf2U+uvhbTGJmee2UqmCeDAA1XDcoWayiXzMI8HcGW6FaulBxk7n9/1z//scQsYDIQG9i9r/03v+O9d9eWVEfSau6uQ0+LN3YAgYxBHVP81dFInEfGCaswzW/LzkF8JkEOQb3bdrbvRNAbyPnGokRUgpE1Hove1L6ucnsXgYnVo
+[2018-04-24 18:20:20.647] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zRwAbpyyUKJN+A/qj5S4HZjcT1jHMwqPeFTEWUwQS33dmZU1IE32lrsnp2Kj8kYw7rg7iq6IpBtmom35uxSSahcxo/eX/7LG9X2DbDLirI97zHeZF2N1LWhdCsuJIIom+P6Lpn0sMptV3UEFmrj1BQ4/5Sj3AHnJkt4UXVMDMnnU6rVQCSiV9NevjNzvqDlZi2w==
+[2018-04-24 18:20:20.647] B103
+[2018-04-24 18:20:20.647] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 18:20:20.648] l4i7ItKfVYAXSio1JN1zRwAbpyyUKJN+A/qj5S4HZjcT1jHMwqPeFTEWUwQS33dmZU1IE32lrsnp2Kj8kYw7rg7iq6IpBtmom35uxSSahcxo/eX/7LG9X2DbDLirI97zHeZF2N1LWhdCsuJIIom+P6Lpn0sMptV3UEFmrj1BQ4/5Sj3AHnJkt4UXVMDMnnU6rVQCSiV9NevjNzvqDlZi2w==
+[2018-04-24 18:20:20.648] # final ret code=103<br>
+[2018-04-24 21:11:31.660] # OKNAME v3.70 start!<br>
+[2018-04-24 21:11:31.660] # mode=HS_CNFRM_POPUP<br>
+[2018-04-24 21:11:31.660] # Parameter IP: 	114.108.128.129<br>
+[2018-04-24 21:11:31.660] # argv[ 1](hs_cert_svc_tx_seqno)=20180424211131376685<br>
+[2018-04-24 21:11:31.660] # argv[ 2](nm)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 3](brdt)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 4](sex)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 6](var1)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 7](var2)=x<br>
+[2018-04-24 21:11:31.660] # argv[ 8](var3)=0<br>
+[2018-04-24 21:11:31.660] # argv[ 9](var4)=0<br>
+[2018-04-24 21:11:31.660] # argv[10](var5)=0<br>
+[2018-04-24 21:11:31.660] # argv[11](return_msg)=x<br>
+[2018-04-24 21:11:31.661] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-04-24 21:11:31.661] # argv[13](in_tp_bit)=0<br>
+[2018-04-24 21:11:31.661] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-04-24 21:11:31.661] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-04-24 21:11:31.661] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-04-24 21:11:31.661] # argv[17](server_ip)=114.108.128.129<br>
+[2018-04-24 21:11:31.661] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-04-24 21:11:31.661] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 21:11:31.661] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 21:11:31.661] # argv[21](option)=QL<br>
+[2018-04-24 21:11:31.661] # soap_timeout: 30000 ms<br>
+[2018-04-24 21:11:31.707] # key   : AgQg3PGPKd1U59nuC3ja5/i6hQu7pQ==:jUZJEZFiwM8OfXuZDsiJlA==<br>
+[2018-04-24 21:11:31.707] # spkey : AgQg3PGPKd1U59nuC3ja5/i6hQu7pQ==<br>
+[2018-04-24 21:11:31.707] # ssig  : jUZJEZFiwM8OfXuZDsiJlA==<br>
+[2018-04-24 21:11:31.709] # nm               : x    <br>
+[2018-04-24 21:11:31.709] # brdt             : x    <br>
+[2018-04-24 21:11:31.709] # e_nm             : kTHqcl0=<br>
+[2018-04-24 21:11:31.709] # e_brdt           : kTHqcl0=<br>
+[2018-04-24 21:11:31.709] # cpkey : AgeOoe1UCTuzYnf8Q/9NyDp7TEMdNw==<br>
+[2018-04-24 21:11:31.709] # csig  : f405T6kh4D8Ar1JHFATkAg==<br>
+[2018-04-24 21:11:31.739] retmsg: qyD6YUfiggAk9xMP33t4YCaAOM4k5jRaYmGwhormRwXl6jK8hzG7kAFEqLYLoK1bs7wDV9O/m3tM8/zTgMGTaYgNVV0F22FPVnUa7buOLfuFX/bnXJfBFQ0pTvo2wTOndOJBjBUQla1XYBaQCvojU+/qGcujmMpqQaq90MsgKECLgdeJLPObfBS7KO89E9i3l23dzdimnsZlupxRcEEhfM5nCw8nBGq4X22S1qSxuN3NfY56EMWpn7xWB3E0eegUH+O1bd7+uhfK4dEAGUqcYps7EO7BSXvTSdmb+UndsNIn/68FDkCUxG/s+p+h+BxPn6b02w/SqT1aM/rG
+[2018-04-24 21:11:31.739] retmsg: B103:서비스 사용 가능일이 아닙니다.:l4i7ItKfVYAXSio1JN1zRwYkaNsc1L8/p9UNq7cYs+IUTvkRui4xPpDUQvVxQloVlYSQwtOoiM4X74okE7fe6wS54NHjvZSsiM6AxCfzuYoTwUwpK89JuBjazZmT1pVBz+pFBasGhScVNKbx5EmwOp0iy/wki3OXNOKjlSxXRLY1jkNAav510fS75vsJ4DaLNSeltvSTUhy2JDQ++45Odg==
+[2018-04-24 21:11:31.739] B103
+[2018-04-24 21:11:31.739] 서비스 사용 가능일이 아닙니다.
+[2018-04-24 21:11:31.739] l4i7ItKfVYAXSio1JN1zRwYkaNsc1L8/p9UNq7cYs+IUTvkRui4xPpDUQvVxQloVlYSQwtOoiM4X74okE7fe6wS54NHjvZSsiM6AxCfzuYoTwUwpK89JuBjazZmT1pVBz+pFBasGhScVNKbx5EmwOp0iy/wki3OXNOKjlSxXRLY1jkNAav510fS75vsJ4DaLNSeltvSTUhy2JDQ++45Odg==
+[2018-04-24 21:11:31.739] # final ret code=103<br>
+[2018-04-24 21:11:33.376] # OKNAME v3.70 start!<br>
+[2018-04-24 21:11:33.376] # mode=IPIN_CKEY<br>
+[2018-04-24 21:11:33.376] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-24 21:11:33.376] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-24 21:11:33.376] # argv[ 3](reserved1  )=0<br>
+[2018-04-24 21:11:33.376] # argv[ 4](reserved2  )=0<br>
+[2018-04-24 21:11:33.376] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-24 21:11:33.376] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-24 21:11:33.376] # argv[ 7](Option     )=CL<br>
+[2018-04-24 21:11:33.376] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-24 21:11:33.376] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-24 21:11:33.376] 20180424211133376941
+[2018-04-24 21:11:33.376] # final ret code=0<br>

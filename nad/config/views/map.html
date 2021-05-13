@@ -1,0 +1,178 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+	$('#mapConfigFrm').ajaxForm(form_options);
+	$("input[name='use_map']").click(function(){
+		var sel = $(this).val();
+		switch(sel){
+			case 'daum':
+				$('.map_daum').show();
+				$('#map_naver').hide();
+				$('#map_google').hide();
+			break;
+			case 'google':
+				$('.map_daum').hide();
+				$('#map_naver').hide();
+				$('#map_google').show();
+			break;
+		}
+	});
+});
+var map_help = function( help ){
+	$('.layerPop').hide();
+	$('#'+help+'_help').show();
+	$('#'+help+'_help').draggable({ handle: ".mapLayer_handle" });
+}
+var close_mapLayer = function(){
+	$('.layerPop').hide();
+}
+</script>
+<style>
+.map_daum { display:<?php echo ($use_map=='daum')?'':'none';?>; }
+</style>
+<div id="daum_help" class="lnb_col layerPop positionA  ui-draggable" style="display:none; width: 600px; z-index: 999; top:7%; left:30%; text-align: left; background: none repeat scroll 0% 0% #fff; border: 2px solid rgb(221, 221, 221);">
+	<dl style="">
+		<dt style="padding:20px 15px; cursor:pointer;" class="bg_gray1 font14 mapLayer_handle">
+			<strong>다음 지도맵</strong>
+			<em onclick="close_mapLayer();" class="closeBtn"><img width="11" height="11" class="pb5" src="../../images/icon/icon_close2.gif" alt="arrow"></em>
+		</dt>
+		<dd class="clearfix" style="padding:10px 15px;">
+			<img style="float:left; margin-right:10px; border:1px solid #ddd; " src="../../images/nad/map_daum.gif">
+			<div style="" class="fon11 h16">
+			지도API는 웹사이트에 지도를 표시할 수 있도록 <b class="bk u">다음에서 제공하는 무료서비스</b>입니다.<br>
+			채용정보 상에 회사위치(기업회원 정보에서 설정한)가 표시될 수 있도록 프로그램 되어 있으며, 이를 활성화하기 위해서는 다음에서 지도키값을 발급받아 솔루션에 등록해 주셔야 합니다. <br>
+			다음의 안내를 참고하시면서 설정하시기 바랍니다.<br><br> <b>안내1)</b> <font class="dgr">+ 실제서비스 페이지와 안내사항이 다를 수도 있습니다.</font><br>    
+			1. 아래 '다음API키값 발급받기' 버튼 클릭하여 열리는 사이트에서 지도키발급 탭을 클릭하여 <b class="org">지도키발급</b> 페이지로 전환합니다.<br>
+			2. 발급받은 키값을 복사하여 지도키를 추가합니다.<br><br> <b>안내2)</b><br>
+			다음에서 지도API의 서비스환경을 변경할 경우 이용에 불편이 생길 수 있습니다.<br>
+			다음지도 이용에 문제가 발생했을 경우 넷퓨 고객센터에 문의해주세요.
+			</div>
+		</dd>
+	</dl>
+</div>
+<div id="google_help" class="lnb_col layerPop positionA  ui-draggable" style="display:none; width: 600px; z-index: 999; top:7%; left:30%; text-align: left; background: none repeat scroll 0% 0% #fff; border: 2px solid rgb(221, 221, 221);">
+	<dl style="">
+		<dt style="padding:20px 15px; cursor:pointer;" class="bg_gray1 font14 mapLayer_handle">
+			<strong>구글 지도맵</strong>
+			<em onclick="close_mapLayer();" class="closeBtn"><img width="11" height="11" class="pb5" src="../../images/icon/icon_close2.gif" alt="arrow"></em>
+		</dt>
+		<dd class="clearfix" style="padding:10px 15px;">
+			<img style="float:left; margin-right:10px; border:1px solid #ddd; " src="../../images/nad/map_google.gif">
+			<div style="" class="fon11 h16">
+			지도API는 웹사이트에 지도를 표시할 수 있도록 <b class="bk u">구글에서 제공하는 무료서비스</b>입니다.<br>
+			채용정보 상에 회사위치(기업회원 정보에서 설정한)가 표시될 수 있도록 프로그램 되어 있으며, 이를 활성화하기 위해서는 구글에서 지도키값을 발급받아 솔루션에 등록해 주셔야 합니다. <br>
+			다음의 안내를 참고하시면서 설정하시기 바랍니다.<br><br> <b>안내1)</b> <font class="dgr">+ 실제서비스 페이지와 안내사항이 다를 수도 있습니다.</font><br>    
+			1. 아래 '구글API키값 발급받기' 버튼 클릭하여 열리는 사이트에서 지도키발급 탭을 클릭하여 <b class="org">지도키발급</b> 페이지로 전환합니다.<br>
+			2. 발급받은 키값을 복사하여 지도키를 추가합니다.<br><br> <b>안내2)</b><br>
+			구글에서 지도API의 서비스환경을 변경할 경우 이용에 불편이 생길 수 있습니다.<br>
+			구글지도 이용에 문제가 발생했을 경우 넷퓨 고객센터에 문의해주세요.
+			</div>
+		</dd>
+	</dl>
+</div>
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+채용공고 상세페이지 및 사이트 메뉴의 지도검색에서 회사 위치를 나타낼때 사용되는 페이지입니다. <br>
+사용하고자 하시는 지도 엔진을 선택하여 키값을 입력하세요.<br>
+지도 엔진은 2가지중 1가지만 선택하여 사용 가능합니다.
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">지도 엔진 설정</dl>
+
+<form name="mapConfigFrm" method="post" id="mapConfigFrm" action="./process/config.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="map_update"/><!-- 지도 설정정보 수정 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+<input type="hidden" name="no" value="<?=$env['no']?>"/>
+
+	<table width="100%" class="bg_col">
+		<col width=200><col> 
+		<tr>
+			<td class="ctlt">지도검색 사용 유무</td>
+			<td class="pdlnb2">
+				<label><input name="map_use" type="radio" value="1" class="radio" checked />사용</label>
+				<label><input name="map_use" type="radio" value="0" class="radio" <?php echo (!$design['map_use'])?'checked':'';?>/>미사용</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="ctlt">지도 엔진 선택</td>
+			<td class="pdlnb2">
+				<label><input name="use_map" type="radio" value="daum" class="radio" checked>다음 지도맵 Ver.3</label> &nbsp;
+				<label><input name="use_map" type="radio" value="google" class="radio" <?php echo ($use_map=='google')?'checked':'';?>>구글 지도맵 V3</label>
+			</td>
+		</tr>
+		<tr class="map_daum">
+			<td class="ctlt">다음 API키<img style="padding-left:7px;" class="vm hand" src="../../images/btn/btn_help.gif" onclick="map_help('daum');"></td>
+			<td class="pdlnb2">
+				<input type='text' name="daum_map_key" class="txt" style="width:300px;" id="daum_map_key" value="<?php echo $env['daum_map_key'];?>" hname='다음 지도맵 지도키'>
+				<span class="subtlt"><a class="btn wbl" style="padding:0 5px;" href="http://developers.daum.net/console/" target="_blank">다음 지도형 API 신청</a> 페이지에서 지도형 API 를 신규등록 하세요.</span>
+			</td>
+		</tr>
+		<tr id="map_google" style="display:<?php echo ($use_map=='google')?'':'none';?>;">
+			<td class="ctlt">구글 지도맵 지도키<img style="padding-left:7px;" class="vm hand" src="../../images/btn/btn_help.gif" onclick="map_help('google');"></td>
+			<td class="pdlnb2">
+				<input type='text' name="google_map_key" class="txt" style="width:300px;" id="google_map_key" value="<?php echo $env['google_map_key'];?>" hname='구글 지도맵 지도키'>
+				<span class="subtlt"><a class="btn wbl" style="padding:0 5px;" href="https://code.google.com/apis/console/" target="_blank">구글 지도 API키 발급</a> 페이지에서 지도키를 발급 받으세요. 자세한 설명은 <a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=ko#api_key" target="_blank">API 키 얻기</a> 를 참조하시면 됩니다.
+			</td>
+		</tr>
+	</table>
+
+	<dl class="pbtn">
+		<input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;
+	</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+
+	var SiteConfigFrm = document.getElementById('mapConfigFrm');
+
+	var queryString = $.param(formData);
+
+	//return validate(mapConfigFrm);
+	return true;
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+	
+	if(responseText) {	 // 성공
+		alert("<?php echo $config->_success('0021');?>");
+		location.reload();
+	} else{	// 실패
+		alert("<?php echo $config->_errors('0055');?>");
+		return false;
+	}
+
+}
+</script>
+<?php include_once "../include/tail.php";?>

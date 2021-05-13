@@ -1,0 +1,172 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+	$('#MemoConfigFrm').ajaxForm(form_options);
+});
+var memo_delete = function( no ){
+	if(confirm('쪽지를 완전히 삭제하시겠습니까?')){
+		$.post('./process/regist.php', { mode:'memo_delete', no:no }, function(result){
+			if(result=='0003'){
+				location.reload();
+			} else {
+				alert("<?php echo $memo_control->_errors('0005');?>");
+			}
+		});
+	}
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('./views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+// 검색폼 초기화
+var searchFrmInit = function(){
+	$('#start_day, #end_day').val('');
+	$("input[name='wr_type']").removeAttr('checked');
+	$('#search_field :eq(0)').attr('selected',true);
+}
+</script>
+
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><? include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left"><? include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+	<table class="ltbl">
+	<tr>
+	<td width="1"></td><td class="nb" style="min-height:750px;">
+
+		<dl class="loc">
+			<?php echo $sub_menu_name;?>
+			<?php include_once "../include/navi.php"; ?>
+		</dl>
+		<dl class="notbox"><dl>
+		회원간 SMS(LMS) 내역을 확인하실수 있습니다.<br/>
+		</dl></dl>
+
+		<dl class="srchb lnb4_col bg2_col">
+			<form name="SMSSearchFrm" method="GET" id="SMSSearchFrm" action="<?php echo $_SERVER['PHP_SELF'];?>">
+			<input type="hidden" name="mode" value="search" id="mode"/>
+			<input type="hidden" name="page_rows" value="<?php echo $page_rows;?>" id="page_rows"/>
+
+			<table class="bg_col" id="dsrch">
+			<col width=90><col><col width=90><col>
+			<tr>
+				<td class="ctlt">보낸시간</td>
+				<td class="pdlnb2" colspan="3">
+					<input name="start_day" type="text" class="tday" id='start_day' value="<?php echo $_GET['start_day'];?>"> ~
+					<input name="end_day" type="text" class="tday" id='end_day' value="<?php echo $_GET['end_day'];?>">&nbsp;
+					<a class="bbtn set_day" date='today'><h1 class="btn19">오늘</h1></a>
+					<a class="bbtn set_day" date='week'><h1 class="btn19">이번주</h1></a>
+					<a class="bbtn set_day" date='month'><h1 class="btn19">이번달</h1></a>
+					<a class="bbtn set_day" date='7day'><h1 class="btn19">1주일</h1></a>
+					<a class="bbtn set_day" date='15day'><h1 class="btn19">15일</h1></a>
+					<a class="bbtn set_day" date='30day'><h1 class="btn19">1개월</h1></a>
+					<a class="bbtn set_day" date='60day'><h1 class="btn19">3개월</h1></a>
+					<a class="bbtn set_day" date='120day'><h1 class="btn19">6개월</h1></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="ctlt">전송방식</td>
+				<td class="pdlnb2" colspan="3">
+					<label><input type="radio" name="wr_type" class="radio" value="sms" <?php echo ($wr_type=='sms')?'checked':'';?>/>SMS</label>&nbsp;
+					<label><input type="radio" name="wr_type" class="radio" value="lms" <?php echo ($wr_type=='lms')?'checked':'';?>/>LMS</label>&nbsp;
+				</td>
+			</tr>
+			</table>
+			<dl class="tc pd7 wbg">
+				<select name="search_field" class="s23" id="search_field">
+					<option value="">통합검색</option>
+					<option value="wr_content" <?php echo ($_GET['search_field']=='wr_content')?'selected':'';?>>발송내용</option>
+					<option value="wr_id" <?php echo ($_GET['search_field']=='wr_id')?'selected':'';?>>발송회원ID</option>
+					<option value="wr_name" <?php echo ($_GET['search_field']=='wr_name')?'selected':'';?>>발송자명</option>
+					<option value="wr_sphone" <?php echo ($_GET['search_field']=='wr_sphone')?'selected':'';?>>발송번호</option>
+					<option value="wr_receive" <?php echo ($_GET['search_field']=='wr_receive')?'selected':'';?>>수신회원ID</option>
+					<option value="wr_receive_name" <?php echo ($_GET['search_field']=='wr_receive_name')?'selected':'';?>>수신자명</option>
+					<option value="wr_rphone" <?php echo ($_GET['search_field']=='wr_rphone')?'selected':'';?>>수신번호</option>
+				</select>
+				<input type="text" name="search_keyword" value="<?php echo stripslashes($_GET['search_keyword']);?>" class="txt i23 w50" id="search_keyword">
+				<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
+				<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" value='초기화' onclick="searchFrmInit();"></span>
+			</dl>
+			</form>
+		</dl>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS(LMS) 발송 내역
+			<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 SMS(LMS)가 검색되었습니다.</span>
+		</dl>  
+
+		<table width="100%" class="ttlt">
+		<col width="12%"><col width="6%"><col width="12%"><col width="6%"><col width="4%"><col><col width="10%">
+		<tr class="bg">
+			<td>발신회원</td>
+			<td>발신번호</td>
+			<td>수신회원</td>
+			<td>수신번호</td>
+			<td>전송방식</td>
+			<td>내용</td>
+			<td>보낸시간</td>
+		</tr>
+		<?php
+		if($list['total_count']){
+			foreach($list['result'] as $val){
+		?>
+		<tr>
+			<td class="pl5"><a onclick="pop_member('<?php echo $val['wr_id'];?>');" class="b"><?php echo $val['wr_id'];?> (<?php echo $val['wr_name'];?>)</a></td>
+			<td class="pl5"><?php echo $val['wr_sphone'];?></td>
+			<td class="pl5"><a onclick="pop_member('<?php echo $val['wr_receive'];?>');" class="b"><?php echo $val['wr_receive'];?> (<?php echo $val['wr_receive_name'];?>)</a></td>
+			<td class="pl5"><?php echo $val['wr_rphone'];?></td>
+			<td><?php echo strtoupper($val['wr_type']);?></td>
+			<td class="tl"><?php echo stripslashes($val['wr_content']);?></td>
+			<td class="e"><?php echo $val['wr_wdate']?></td>
+		</tr>
+		<?php
+			}
+		} else {
+		?>
+		<tr><td colspan="6" class="stlt"></td></tr>
+		<?php } ?>
+		</table>
+
+		<dl class="page">
+			<?php include_once "../include/paging.php"; ?>
+		</dl>
+
+		<div id='pop_info'></div>
+
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+	var MemoConfigFrm = document.getElementById('MemoConfigFrm');
+	var queryString = $.param(formData);
+	return validate(MemoConfigFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+	
+	if(responseText=='0000') {	 // 성공
+		alert("<?php echo $memo_control->_success('0000');?>");
+		location.reload();
+	} else if(responseText=='0001') {	// 실패
+		alert("<?php echo $memo_control->_errors('0001');?>");
+		return false;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

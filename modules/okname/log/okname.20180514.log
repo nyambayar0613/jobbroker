@@ -1,0 +1,627 @@
+[2018-05-14 20:51:49.191] # OKNAME v3.70 start!<br>
+[2018-05-14 20:51:49.194] # mode=IPIN_CKEY<br>
+[2018-05-14 20:51:49.194] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:51:49.194] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:51:49.194] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 20:51:49.194] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 20:51:49.194] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:51:49.194] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:51:49.194] # argv[ 7](Option     )=CL<br>
+[2018-05-14 20:51:49.194] # Generating monthly key..
+[2018-05-14 20:51:49.195] pub1: AgGmlh/do8IQy33f0JjU/K2dmSV67w==
+[2018-05-14 20:51:49.195] pri1: ADpsCw5fP37w39ldMjXQaDcLw7Li
+[2018-05-14 20:51:49.195] sig1: hu/eSwdgwXSnC3ENnIslhg==
+[2018-05-14 20:51:49.195] # soap_timeout: 30000 ms<br>
+[2018-05-14 20:51:49.254] retmsg: AwZal4yiOQJ1m8atm1+RWQvjNJl9/Q==:8krUyrxvt1AymPy/2V3u2w==:Ids6i5WxyDpRunA75rU6FAWXqBwA2jc3gLYt+FEhaRtmbq4MjYmgRZzk0M3tvXufLGwiUtda4bEb6Est8pxXseoSqw3gwH1t8hIIQunI3VKq0PTaxLY=
+[2018-05-14 20:51:49.254] pub3: AwZal4yiOQJ1m8atm1+RWQvjNJl9/Q==
+[2018-05-14 20:51:49.254] sig3: 8krUyrxvt1AymPy/2V3u2w==
+[2018-05-14 20:51:49.254] pub2pri2sig2: Ids6i5WxyDpRunA75rU6FAWXqBwA2jc3gLYt+FEhaRtmbq4MjYmgRZzk0M3tvXufLGwiUtda4bEb6Est8pxXseoSqw3gwH1t8hIIQunI3VKq0PTaxLY=
+[2018-05-14 20:51:49.255] srvSecurekey: AjK+5ltVM+4KnkiY0RdsOm9KXj70
+[2018-05-14 20:51:49.255] decData: AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==:A0wW1CXQuRkvErtwWhUxJjBFbYQK:o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 20:51:49.279] # Current month<br>
+[2018-05-14 20:51:49.279] # public_key   : AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==<br>
+[2018-05-14 20:51:49.279] # private_key  : A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 20:51:49.279] # signature    : o+W6P2wQdpL2hu35v9QeHw==<br>
+[2018-05-14 20:51:49.279] # Last month<br>
+[2018-05-14 20:51:49.279] # public_key1  : AgM9K9j0Pw1SPofL6zV9W8weBiUTBw==<br>
+[2018-05-14 20:51:49.279] # private_key1 : Au8NmgyRwVeaPMfOHAqwsCZTEvUW<br>
+[2018-05-14 20:51:49.279] # signature1   : xCG4VDybg/k1gkXUeo/e+Q==<br>
+[2018-05-14 20:51:49.279] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 20:51:49.279] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 20:51:49.279] 20180514205149279213
+[2018-05-14 20:51:49.279] # final ret code=0<br>
+[2018-05-14 20:52:34.004] # OKNAME v3.70 start!<br>
+[2018-05-14 20:52:34.004] # mode=IPIN_CKEY<br>
+[2018-05-14 20:52:34.004] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:52:34.004] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:52:34.004] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 20:52:34.004] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 20:52:34.004] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:52:34.004] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:52:34.004] # argv[ 7](Option     )=CL<br>
+[2018-05-14 20:52:34.004] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 20:52:34.004] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 20:52:34.004] 20180514205234004488
+[2018-05-14 20:52:34.005] # final ret code=0<br>
+[2018-05-14 20:52:52.747] # OKNAME v3.70 start!<br>
+[2018-05-14 20:52:52.747] # mode=IPIN_CKDEC<br>
+[2018-05-14 20:52:52.747] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:52:52.748] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:52:52.748] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:52:52.748] # argv[ 4](cPubKey     )=AwLo1WEbuzHaE1wWLj+4viuf1Q3xdw==<br>
+[2018-05-14 20:52:52.748] # argv[ 5](cSig )=M5MKCcBVU5avKcJV65DLag==<br>
+[2018-05-14 20:52:52.748] # argv[ 6](EncData  )=ijJncuHp8HrMvnM/CopOmJ29jmBpqrBbf5f5xaNW2hThsEm8W7th1/son4BiIZ1SqZOI3WAkKe7zrADz5RWpX0LwSvyId/BkywfGotvV8teb9H3Ax9zRQkZz1+mX256+N3SVoecDgybJaS/9Q+IKhkA+t/wv23xjA3HM8dCvu2+3T4DuelbWu93U+qLRf5hozRjyjMwrYTe8tLYE8pR0+lrBshCGd1o7LoqpwyDLMnVuqkb1QwCC5cDDIFag5DvB2RL89/PnOgc5N57KmqqtkiCuJVx0P0YdTPWCObc6y/+cfarKTO9rIQ==<br>
+[2018-05-14 20:52:52.748] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:52:52.748] # argv[ 8](Option     )=SL<br>
+[2018-05-14 20:52:52.749] # clnPublicKey : AwLo1WEbuzHaE1wWLj+4viuf1Q3xdw==<br>
+[2018-05-14 20:52:52.749] # clnSignature : M5MKCcBVU5avKcJV65DLag==<br>
+[2018-05-14 20:52:52.749] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 20:52:52.749] # srvSecurekey : ALp/K6Gpw8qYeBp1sImEVMrgv+8m<br>
+[2018-05-14 20:52:52.749] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514205234004488|7|1|0|19790315|2<br>
+[2018-05-14 20:52:52.749] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 20:52:52.749] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 20:52:52.749] NULL
+[2018-05-14 20:52:52.749] 1
+[2018-05-14 20:52:52.749] 4416413464846
+[2018-05-14 20:52:52.749] V05280T00000
+[2018-05-14 20:52:52.749] ∞≠∫¥º∫
+[2018-05-14 20:52:52.749] 20180514205234004488
+[2018-05-14 20:52:52.749] 7
+[2018-05-14 20:52:52.749] 1
+[2018-05-14 20:52:52.749] 0
+[2018-05-14 20:52:52.749] 19790315
+[2018-05-14 20:52:52.750] 2
+[2018-05-14 20:52:52.750] # final ret code=0<br>
+[2018-05-14 20:57:28.602] # OKNAME v3.70 start!<br>
+[2018-05-14 20:57:28.602] # mode=IPIN_CKEY<br>
+[2018-05-14 20:57:28.602] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:57:28.602] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:57:28.602] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 20:57:28.602] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 20:57:28.602] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:57:28.602] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:57:28.602] # argv[ 7](Option     )=CL<br>
+[2018-05-14 20:57:28.602] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 20:57:28.602] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 20:57:28.602] 20180514205728602375
+[2018-05-14 20:57:28.603] # final ret code=0<br>
+[2018-05-14 20:58:44.582] # OKNAME v3.70 start!<br>
+[2018-05-14 20:58:44.582] # mode=IPIN_CKEY<br>
+[2018-05-14 20:58:44.582] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:58:44.582] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:58:44.582] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 20:58:44.582] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 20:58:44.582] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:58:44.582] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:58:44.582] # argv[ 7](Option     )=CL<br>
+[2018-05-14 20:58:44.583] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 20:58:44.583] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 20:58:44.583] 20180514205844583162
+[2018-05-14 20:58:44.583] # final ret code=0<br>
+[2018-05-14 20:59:01.480] # OKNAME v3.70 start!<br>
+[2018-05-14 20:59:01.480] # mode=IPIN_CKDEC<br>
+[2018-05-14 20:59:01.480] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:59:01.480] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:59:01.480] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:59:01.480] # argv[ 4](cPubKey     )=AwKcy7e02/aOb+Pjm7H9HPbSRAg0IQ==<br>
+[2018-05-14 20:59:01.480] # argv[ 5](cSig )=nAYMOC8nS9Cg31ENDWG+jg==<br>
+[2018-05-14 20:59:01.480] # argv[ 6](EncData  )=7HZRIpeIBPKVkR6f4ElOxQWxMOw9p6gTi7xEXKi/sQorocPNWJIGb2dzdq1HaXDOKs4maiCsMHzMKVbjkCw/mD/WjSKrmxbRm+U9ZArKVHCEAVnKllH1BpaRFGmIhJK/a18fRYOcyS+LhM+KoVu/MaCarL6WRuBYtM4wt52ICT72gSEk/T84tr9jbxHB4v16erpxS/+c+caB0ckiLWIBTyV4H/BCmH7lQ4OwcO0A6VRKZ3m+Tlxm2/CebXGz3T0ZGmNlVzN+rPRYh1RuqBTpCi147z67Aqd04NnBL6Sq/RDBbo+1wOgDXw==<br>
+[2018-05-14 20:59:01.480] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:59:01.480] # argv[ 8](Option     )=SL<br>
+[2018-05-14 20:59:01.482] # clnPublicKey : AwKcy7e02/aOb+Pjm7H9HPbSRAg0IQ==<br>
+[2018-05-14 20:59:01.482] # clnSignature : nAYMOC8nS9Cg31ENDWG+jg==<br>
+[2018-05-14 20:59:01.482] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 20:59:01.482] # srvSecurekey : AR+5rfJyQ1vHeZ/RTBMz9WEZ9gJg<br>
+[2018-05-14 20:59:01.482] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514205844583162|7|1|0|19790315|2<br>
+[2018-05-14 20:59:01.482] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 20:59:01.482] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 20:59:01.482] NULL
+[2018-05-14 20:59:01.482] 1
+[2018-05-14 20:59:01.482] 4416413464846
+[2018-05-14 20:59:01.482] V05280T00000
+[2018-05-14 20:59:01.482] ∞≠∫¥º∫
+[2018-05-14 20:59:01.482] 20180514205844583162
+[2018-05-14 20:59:01.482] 7
+[2018-05-14 20:59:01.482] 1
+[2018-05-14 20:59:01.482] 0
+[2018-05-14 20:59:01.482] 19790315
+[2018-05-14 20:59:01.482] 2
+[2018-05-14 20:59:01.482] # final ret code=0<br>
+[2018-05-14 20:59:11.571] # OKNAME v3.70 start!<br>
+[2018-05-14 20:59:11.571] # mode=IPIN_CKDEC<br>
+[2018-05-14 20:59:11.571] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 20:59:11.571] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 20:59:11.571] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 20:59:11.571] # argv[ 4](cPubKey     )=AwKcy7e02/aOb+Pjm7H9HPbSRAg0IQ==<br>
+[2018-05-14 20:59:11.571] # argv[ 5](cSig )=nAYMOC8nS9Cg31ENDWG+jg==<br>
+[2018-05-14 20:59:11.571] # argv[ 6](EncData  )=7HZRIpeIBPKVkR6f4ElOxQWxMOw9p6gTi7xEXKi/sQorocPNWJIGb2dzdq1HaXDOKs4maiCsMHzMKVbjkCw/mD/WjSKrmxbRm+U9ZArKVHCEAVnKllH1BpaRFGmIhJK/a18fRYOcyS+LhM+KoVu/MaCarL6WRuBYtM4wt52ICT72gSEk/T84tr9jbxHB4v16erpxS/+c+caB0ckiLWIBTyV4H/BCmH7lQ4OwcO0A6VRKZ3m+Tlxm2/CebXGz3T0ZGmNlVzN+rPRYh1RuqBTpCi147z67Aqd04NnBL6Sq/RDBbo+1wOgDXw==<br>
+[2018-05-14 20:59:11.571] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 20:59:11.571] # argv[ 8](Option     )=SL<br>
+[2018-05-14 20:59:11.572] # clnPublicKey : AwKcy7e02/aOb+Pjm7H9HPbSRAg0IQ==<br>
+[2018-05-14 20:59:11.572] # clnSignature : nAYMOC8nS9Cg31ENDWG+jg==<br>
+[2018-05-14 20:59:11.572] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 20:59:11.572] # srvSecurekey : AR+5rfJyQ1vHeZ/RTBMz9WEZ9gJg<br>
+[2018-05-14 20:59:11.572] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514205844583162|7|1|0|19790315|2<br>
+[2018-05-14 20:59:11.572] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 20:59:11.572] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 20:59:11.573] NULL
+[2018-05-14 20:59:11.573] 1
+[2018-05-14 20:59:11.573] 4416413464846
+[2018-05-14 20:59:11.573] V05280T00000
+[2018-05-14 20:59:11.573] ∞≠∫¥º∫
+[2018-05-14 20:59:11.573] 20180514205844583162
+[2018-05-14 20:59:11.573] 7
+[2018-05-14 20:59:11.573] 1
+[2018-05-14 20:59:11.573] 0
+[2018-05-14 20:59:11.573] 19790315
+[2018-05-14 20:59:11.573] 2
+[2018-05-14 20:59:11.573] # final ret code=0<br>
+[2018-05-14 21:01:20.934] # OKNAME v3.70 start!<br>
+[2018-05-14 21:01:20.934] # mode=IPIN_CKEY<br>
+[2018-05-14 21:01:20.934] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:01:20.934] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:01:20.934] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:01:20.934] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:01:20.934] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:01:20.934] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:01:20.934] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:01:20.935] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:01:20.935] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:01:20.935] 20180514210120935484
+[2018-05-14 21:01:20.935] # final ret code=0<br>
+[2018-05-14 21:01:35.924] # OKNAME v3.70 start!<br>
+[2018-05-14 21:01:35.924] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:01:35.924] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:01:35.924] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:01:35.924] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:01:35.924] # argv[ 4](cPubKey     )=AwHCzfeavcvnPJ7rzUBGsweeSfJbWQ==<br>
+[2018-05-14 21:01:35.924] # argv[ 5](cSig )=mshHnNBCM8JlOEJmE75u5g==<br>
+[2018-05-14 21:01:35.924] # argv[ 6](EncData  )=TRkhHCP/8jOHKmKoVIn4PGWfviYbKNSCgsd+gTh0Rr0oENYCpAA4TCb1qMqap8E0JEBN545zg3oo9Dt5Tc1xYUfFFlK5V9TxQXn0eU/IbRZNSK+DggsXRYFmskUc1d/mYgfIpm3mtqfea3YrNzmE3xiga1B5aSIFATwZS4lubrEdg2XrkTvtHLem+Bysq5vzdb0gyUNFNikGJKWHIa4eauUGsoT7FkjXryENTNKC6il/yPS6efFfRneJtye+mCRcma+E3pYptO7QBWcJgfncwct1zoIRx3x9jGcJTzuMTiBAwL7+2NQm+g==<br>
+[2018-05-14 21:01:35.924] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:01:35.924] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:01:35.926] # clnPublicKey : AwHCzfeavcvnPJ7rzUBGsweeSfJbWQ==<br>
+[2018-05-14 21:01:35.926] # clnSignature : mshHnNBCM8JlOEJmE75u5g==<br>
+[2018-05-14 21:01:35.926] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:01:35.926] # srvSecurekey : BsP2O+rChdsTna6z5q8jG5ARBRVW<br>
+[2018-05-14 21:01:35.926] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514210120935484|7|1|0|19790315|2<br>
+[2018-05-14 21:01:35.926] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 21:01:35.926] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 21:01:35.926] NULL
+[2018-05-14 21:01:35.926] 1
+[2018-05-14 21:01:35.926] 4416413464846
+[2018-05-14 21:01:35.926] V05280T00000
+[2018-05-14 21:01:35.926] ∞≠∫¥º∫
+[2018-05-14 21:01:35.926] 20180514210120935484
+[2018-05-14 21:01:35.926] 7
+[2018-05-14 21:01:35.926] 1
+[2018-05-14 21:01:35.926] 0
+[2018-05-14 21:01:35.926] 19790315
+[2018-05-14 21:01:35.926] 2
+[2018-05-14 21:01:35.926] # final ret code=0<br>
+[2018-05-14 21:05:12.584] # OKNAME v3.70 start!<br>
+[2018-05-14 21:05:12.584] # mode=IPIN_CKEY<br>
+[2018-05-14 21:05:12.584] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:05:12.584] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:05:12.584] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:05:12.584] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:05:12.584] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:05:12.584] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:05:12.585] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:05:12.585] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:05:12.585] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:05:12.585] 20180514210512585348
+[2018-05-14 21:05:12.585] # final ret code=0<br>
+[2018-05-14 21:05:29.192] # OKNAME v3.70 start!<br>
+[2018-05-14 21:05:29.193] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:05:29.193] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:05:29.193] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:05:29.193] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:05:29.193] # argv[ 4](cPubKey     )=AwMnAsuiLMrtBXKeenXKm3tksC7jmA==<br>
+[2018-05-14 21:05:29.193] # argv[ 5](cSig )=T+FOwmRCY1tXz0jm96CxtQ==<br>
+[2018-05-14 21:05:29.193] # argv[ 6](EncData  )=tGtw+JcBzewhpcZ1Qkc8e62f6Dan/zF+f+KSTAZn2AkkwISJbVjUqcMRSzcnCGHMlA3RsWEJwh+tVx6OTLDeVNXpHrse49YO44+KAGhaJ8bQGJyiase1zmq6EnSHXcnKya01QGiHyjDZDqMpJ9pHGAfLnMIvLlbmb7u7+c5NZdCFEm6DZlXyob3qSiP1HlvGIABpH8jVPQ2yGmgZlKBh15NjBwLKN0U7Sb7JBpmX48O1/g0kfT6ZDILSm2Gtmyk58Tfk5vjgkyPqDEcIIjHigFTOarEJhfcQt0g9V2MKGR5u0JVvhIjW3A==<br>
+[2018-05-14 21:05:29.193] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:05:29.193] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:05:29.194] # clnPublicKey : AwMnAsuiLMrtBXKeenXKm3tksC7jmA==<br>
+[2018-05-14 21:05:29.194] # clnSignature : T+FOwmRCY1tXz0jm96CxtQ==<br>
+[2018-05-14 21:05:29.194] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:05:29.194] # srvSecurekey : BkOzyCNGghbbR5ZTA8QootN7SgKS<br>
+[2018-05-14 21:05:29.194] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514210512585348|7|1|0|19790315|2<br>
+[2018-05-14 21:05:29.194] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 21:05:29.194] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 21:05:29.194] NULL
+[2018-05-14 21:05:29.194] 1
+[2018-05-14 21:05:29.194] 4416413464846
+[2018-05-14 21:05:29.194] V05280T00000
+[2018-05-14 21:05:29.194] ∞≠∫¥º∫
+[2018-05-14 21:05:29.195] 20180514210512585348
+[2018-05-14 21:05:29.195] 7
+[2018-05-14 21:05:29.195] 1
+[2018-05-14 21:05:29.195] 0
+[2018-05-14 21:05:29.195] 19790315
+[2018-05-14 21:05:29.195] 2
+[2018-05-14 21:05:29.195] # final ret code=0<br>
+[2018-05-14 21:12:17.434] # OKNAME v3.70 start!<br>
+[2018-05-14 21:12:17.435] # mode=IPIN_CKEY<br>
+[2018-05-14 21:12:17.435] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:12:17.435] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:12:17.435] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:12:17.435] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:12:17.435] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:12:17.435] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:12:17.435] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:12:17.435] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:12:17.435] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:12:17.435] 20180514211217435212
+[2018-05-14 21:12:17.435] # final ret code=0<br>
+[2018-05-14 21:20:16.104] # OKNAME v3.70 start!<br>
+[2018-05-14 21:20:16.105] # mode=IPIN_CKEY<br>
+[2018-05-14 21:20:16.105] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:20:16.105] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:20:16.105] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:20:16.105] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:20:16.105] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:20:16.105] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:20:16.105] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:20:16.105] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:20:16.105] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:20:16.105] 20180514212016105092
+[2018-05-14 21:20:16.105] # final ret code=0<br>
+[2018-05-14 21:20:31.074] # OKNAME v3.70 start!<br>
+[2018-05-14 21:20:31.074] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:20:31.074] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:20:31.075] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:20:31.075] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:20:31.075] # argv[ 4](cPubKey     )=AwGQRNVtJnYvufmfhPRn4LAasmK7RQ==<br>
+[2018-05-14 21:20:31.075] # argv[ 5](cSig )=2rl1brukVwkQMnQ9IOY3kQ==<br>
+[2018-05-14 21:20:31.075] # argv[ 6](EncData  )=owN9ECDYe5KSUbyo0CtWUqCwT338x2qdUmKEXOVUZ/wKZUUBChF5asp9xqlbYIPRMdlgSROOYuqKgL1NObU8csDFw55fv98vEsAeoEcVL6A79dHGMdn7k/ALt9FcII9CXkqsyKOIWQp3SXMLnvtHRkhU1aYF31P4s8WF5l5svMQsZV5mGfUNYRji9KHLdSukWBSOpNGD67vglA9bFmeZqARy2j44Cp50AEkH5pYQI3TtUYjONiwfCp1AOwCmhKaRsgVNVYNINjlIzVNpiZdlYPUAgZQV5HlwPCtFt8cdp30tUwTOCREODQ==<br>
+[2018-05-14 21:20:31.075] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:20:31.075] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:20:31.076] # clnPublicKey : AwGQRNVtJnYvufmfhPRn4LAasmK7RQ==<br>
+[2018-05-14 21:20:31.076] # clnSignature : 2rl1brukVwkQMnQ9IOY3kQ==<br>
+[2018-05-14 21:20:31.076] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:20:31.076] # srvSecurekey : B4E/Mfi8U8sDL0TzCVMfGcehVK2c<br>
+[2018-05-14 21:20:31.076] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514212016105092|7|1|0|19790315|2<br>
+[2018-05-14 21:20:31.076] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 21:20:31.076] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 21:20:31.076] NULL
+[2018-05-14 21:20:31.076] 1
+[2018-05-14 21:20:31.076] 4416413464846
+[2018-05-14 21:20:31.076] V05280T00000
+[2018-05-14 21:20:31.076] ∞≠∫¥º∫
+[2018-05-14 21:20:31.076] 20180514212016105092
+[2018-05-14 21:20:31.076] 7
+[2018-05-14 21:20:31.076] 1
+[2018-05-14 21:20:31.076] 0
+[2018-05-14 21:20:31.076] 19790315
+[2018-05-14 21:20:31.076] 2
+[2018-05-14 21:20:31.076] # final ret code=0<br>
+[2018-05-14 21:23:13.635] # OKNAME v3.70 start!<br>
+[2018-05-14 21:23:13.635] # mode=IPIN_CKEY<br>
+[2018-05-14 21:23:13.635] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:23:13.635] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:23:13.635] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:23:13.635] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:23:13.635] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:23:13.635] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:23:13.635] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:23:13.635] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:23:13.635] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:23:13.636] 20180514212313635782
+[2018-05-14 21:23:13.636] # final ret code=0<br>
+[2018-05-14 21:23:28.883] # OKNAME v3.70 start!<br>
+[2018-05-14 21:23:28.883] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:23:28.883] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:23:28.883] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:23:28.883] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:23:28.883] # argv[ 4](cPubKey     )=AgBrK6MVSYyxLtJ65qYxLaCm9iIp/g==<br>
+[2018-05-14 21:23:28.883] # argv[ 5](cSig )=ykBZBNziWj0gtsPc3gaiVQ==<br>
+[2018-05-14 21:23:28.883] # argv[ 6](EncData  )=XUZOTaaB7ztLyZ1wkmtN0AcIYBLJ+VtGr3/Fo4kjXRFRC/LuwSUlcQzAUbjhk29ebvJJ+kjvO4iPJHCpzsW00EsePT/uTje7Qr+GNk/gJQHZQY1m6ONOWUlzvJGRnRLg/ayry5yIYbjX4EjtDGzuTpQVHesXXvsac+WLFbVNzj/LjZxsp65wiQbQVI3/PQSKerwXmifuiXdUJ+GO8ui/kzy9rRswQtG/yvO18Qg5+5yxnPJ+cZdpCOCeEeozMW2g70mrtJLf0hZaHmSwx9q08Dpe24jdyKHTloPznmXNZ6gR1p1BDEYfcw==<br>
+[2018-05-14 21:23:28.883] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:23:28.883] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:23:28.884] # clnPublicKey : AgBrK6MVSYyxLtJ65qYxLaCm9iIp/g==<br>
+[2018-05-14 21:23:28.884] # clnSignature : ykBZBNziWj0gtsPc3gaiVQ==<br>
+[2018-05-14 21:23:28.884] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:23:28.884] # srvSecurekey : Bs7ji7ggNhPuDZIqvLpz7xM2ZTax<br>
+[2018-05-14 21:23:28.884] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514212313635782|7|1|0|19790315|2<br>
+[2018-05-14 21:23:28.885] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 21:23:28.885] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 21:23:28.885] NULL
+[2018-05-14 21:23:28.885] 1
+[2018-05-14 21:23:28.885] 4416413464846
+[2018-05-14 21:23:28.885] V05280T00000
+[2018-05-14 21:23:28.885] ∞≠∫¥º∫
+[2018-05-14 21:23:28.885] 20180514212313635782
+[2018-05-14 21:23:28.885] 7
+[2018-05-14 21:23:28.885] 1
+[2018-05-14 21:23:28.885] 0
+[2018-05-14 21:23:28.885] 19790315
+[2018-05-14 21:23:28.885] 2
+[2018-05-14 21:23:28.885] # final ret code=0<br>
+[2018-05-14 21:47:49.928] # OKNAME v3.70 start!<br>
+[2018-05-14 21:47:49.928] # mode=IPIN_CKEY<br>
+[2018-05-14 21:47:49.928] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:47:49.928] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:47:49.928] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:47:49.928] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:47:49.928] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:47:49.928] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:47:49.928] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:47:49.928] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:47:49.928] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:47:49.928] 20180514214749928122
+[2018-05-14 21:47:49.928] # final ret code=0<br>
+[2018-05-14 21:48:00.079] # OKNAME v3.70 start!<br>
+[2018-05-14 21:48:00.079] # mode=HS_CNFRM_POPUP<br>
+[2018-05-14 21:48:00.079] # Parameter IP: 	114.108.128.129<br>
+[2018-05-14 21:48:00.080] # argv[ 1](hs_cert_svc_tx_seqno)=20180514214800549811<br>
+[2018-05-14 21:48:00.080] # argv[ 2](nm)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 3](brdt)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 4](sex)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 6](var1)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 7](var2)=x<br>
+[2018-05-14 21:48:00.080] # argv[ 8](var3)=0<br>
+[2018-05-14 21:48:00.080] # argv[ 9](var4)=0<br>
+[2018-05-14 21:48:00.080] # argv[10](var5)=0<br>
+[2018-05-14 21:48:00.080] # argv[11](return_msg)=x<br>
+[2018-05-14 21:48:00.080] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-05-14 21:48:00.080] # argv[13](in_tp_bit)=0<br>
+[2018-05-14 21:48:00.080] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-05-14 21:48:00.080] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-05-14 21:48:00.080] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-05-14 21:48:00.080] # argv[17](server_ip)=114.108.128.129<br>
+[2018-05-14 21:48:00.080] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-05-14 21:48:00.080] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:48:00.080] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:48:00.080] # argv[21](option)=QL<br>
+[2018-05-14 21:48:00.080] # soap_timeout: 30000 ms<br>
+[2018-05-14 21:48:00.129] # key   : AwJhHwuHbAeqOC98ulPXdaDwuN4CkA==:q2jogoRbJD0iL0y9s2pGGQ==<br>
+[2018-05-14 21:48:00.129] # spkey : AwJhHwuHbAeqOC98ulPXdaDwuN4CkA==<br>
+[2018-05-14 21:48:00.129] # ssig  : q2jogoRbJD0iL0y9s2pGGQ==<br>
+[2018-05-14 21:48:00.131] # nm               : x    <br>
+[2018-05-14 21:48:00.131] # brdt             : x    <br>
+[2018-05-14 21:48:00.131] # e_nm             : d15E1O0=<br>
+[2018-05-14 21:48:00.131] # e_brdt           : d15E1O0=<br>
+[2018-05-14 21:48:00.131] # cpkey : AwJkH9Zy9oy1GKd2OzXlBf+tX70o1A==<br>
+[2018-05-14 21:48:00.131] # csig  : 7GUWNEpIL3xAnPQTSIi4WA==<br>
+[2018-05-14 21:48:00.154] retmsg: TU5UxPf9O7rxgKsVx/+6hDzyunSyvHDELVeJ3AxOE0gukE/SkkpAwczXKJ5FoD4PpOk4IzLCnngTbKAfjb92i9swp0FNKNiWtdHE1BQQntY8EtvDlEtYMeytpXtgfICqx31qbbTnogvNAR5bm/Ngq9wFdf9EFljuwN7DqOdjqw6wejNeIm/boI4s6DsKXCHiCq0J2FT3PoTXJjpLYuCc/04DUlHOzrMrddWyUXSU2B+S9oZ+fZZk3aXVlNLdq7eU2qlbjiQMmj5oc86Am80WVLXal8BScTT5K72tqxMXF3cunA==
+[2018-05-14 21:48:00.154] retmsg: B000:¡§ªÛ:l4i7ItKfVYAXSio1JN1zR8SKAxuyKqILm4BB2UJI9rWIds/EYUzHVMb/m249YmWfk4+4fHZy2SsPmdfGLbpEnVqOfZynMiiNgPgoMhCcGGMzs681T0YtVCtl3ec8ba63WfL1eek+GxmsjY2tDtTnCh5cHNFZu/t5fSp/2CThxg4Lyt/wMSobXFcUED6RaoT0IGDLTCcs8xUP4B7rBI0Gug==
+[2018-05-14 21:48:00.154] B000
+[2018-05-14 21:48:00.154] ¡§ªÛ
+[2018-05-14 21:48:00.154] l4i7ItKfVYAXSio1JN1zR8SKAxuyKqILm4BB2UJI9rWIds/EYUzHVMb/m249YmWfk4+4fHZy2SsPmdfGLbpEnVqOfZynMiiNgPgoMhCcGGMzs681T0YtVCtl3ec8ba63WfL1eek+GxmsjY2tDtTnCh5cHNFZu/t5fSp/2CThxg4Lyt/wMSobXFcUED6RaoT0IGDLTCcs8xUP4B7rBI0Gug==
+[2018-05-14 21:48:00.154] # final ret code=0<br>
+[2018-05-14 21:48:26.688] # OKNAME v3.70 start!<br>
+[2018-05-14 21:48:26.688] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:48:26.688] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:48:26.688] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:48:26.688] # argv[ 3](EndPointURL)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:48:26.688] # argv[ 4](cPubKey     )=AgDVVetE6L6l0D4c4CC6naVNwhdIwQ==<br>
+[2018-05-14 21:48:26.688] # argv[ 5](cSig )=RYwgD+Dhbs9+MyFe6PubeQ==<br>
+[2018-05-14 21:48:26.688] # argv[ 6](EncData  )=foU2PQpt7XDzXdYzsUcRdrRQUwdk5e9RluKCPgbNGMymUPBkE5m8hg3njc84XsL9w+f85yKmzhYWq2uK76p+2cj1I1xZvGMmn9bcuy9TVmjIzPRVNqZt0dSgcEq4wm9dHLL7yHccYrdhzQ2NU386zeCbxAulMLhqZN2iZ66EJhPexx+x5b9jjOsq2e9DxbaKDPLui+1L37jvOa4bVv/6/d7E8SnSh9NSHESu/ZCwVth0eC2OELpsExOE8Zy5M76cMISg+5W9c89CkvFnA6R8Smmz4xJL/zaMUsRZ7FWuP9uRJQu03PKsGOa8PODplhZwL5AgMPewUGmOzmDTMQ==<br>
+[2018-05-14 21:48:26.688] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:48:26.688] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:48:26.690] # clnPublicKey : AgDVVetE6L6l0D4c4CC6naVNwhdIwQ==<br>
+[2018-05-14 21:48:26.690] # clnSignature : RYwgD+Dhbs9+MyFe6PubeQ==<br>
+[2018-05-14 21:48:26.690] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:48:26.690] # srvSecurekey : APAX3PDe9T+/CZlzSfjycIIV9PWP<br>
+[2018-05-14 21:48:26.690] # decData      : ¨ZP?∫+‚ΩT’0—Å}
+•X/Ÿ!ÙÉD®Zzl‡-Ú^ú”¨Î0∫Sé.é^Êˆ·›íÆÙxs·]oÿ ÛCŒë77np?1Lw“Iuiì·â£˙&à»ÍàÑf™PàÍFÍLI§—÷Ô¯“YX8‹∞ÄOf¢™eß1Ü°Œ''üü∞üchËˇÃN?ÃTS'ˇÜËê_ LF∂ùŸvTS|)–ì,gΩÍuû¢!Âí?ÖˇñúLãkz“πÑK7yP«k££S+1ú<ÿèÎﬂè1aË-0ˆ¶d2èVÓÒÙñX=⁄ëƒ·$˙#ñ–<br>
+[2018-05-14 21:48:26.690] ¨ZP?∫+‚ΩT’0—Å}
+•X/Ÿ!ÙÉD®Zzl‡-Ú^ú”¨Î0∫Sé.é^Êˆ·›íÆÙxs·]oÿ ÛCŒë77np?1Lw“Iuiì·â£˙&à»ÍàÑf™PàÍFÍLI§—÷Ô¯“YX8‹∞ÄOf¢™eß1Ü°Œ''üü∞üchËˇÃN?ÃTS'ˇÜËê_ LF∂ùŸvTS
+[2018-05-14 21:48:26.690] )–ì,gΩÍuû¢!Âí?ÖˇñúLãkz“πÑK7yP«k££S+1ú<ÿèÎﬂè1aË-0ˆ¶d2èVÓÒÙñX=⁄ëƒ·$˙#ñ–
+[2018-05-14 21:48:26.690] # final ret code=0<br>
+[2018-05-14 21:48:56.285] # OKNAME v3.70 start!<br>
+[2018-05-14 21:48:56.286] # mode=HS_CNFRM_POPUP<br>
+[2018-05-14 21:48:56.286] # Parameter IP: 	114.108.128.129<br>
+[2018-05-14 21:48:56.286] # argv[ 1](hs_cert_svc_tx_seqno)=20180514214856928497<br>
+[2018-05-14 21:48:56.286] # argv[ 2](nm)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 3](brdt)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 4](sex)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 6](var1)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 7](var2)=x<br>
+[2018-05-14 21:48:56.286] # argv[ 8](var3)=0<br>
+[2018-05-14 21:48:56.286] # argv[ 9](var4)=0<br>
+[2018-05-14 21:48:56.286] # argv[10](var5)=0<br>
+[2018-05-14 21:48:56.286] # argv[11](return_msg)=x<br>
+[2018-05-14 21:48:56.286] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-05-14 21:48:56.286] # argv[13](in_tp_bit)=0<br>
+[2018-05-14 21:48:56.286] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-05-14 21:48:56.286] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-05-14 21:48:56.286] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-05-14 21:48:56.286] # argv[17](server_ip)=114.108.128.129<br>
+[2018-05-14 21:48:56.286] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-05-14 21:48:56.286] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:48:56.286] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:48:56.286] # argv[21](option)=QL<br>
+[2018-05-14 21:48:56.286] # soap_timeout: 30000 ms<br>
+[2018-05-14 21:48:56.337] # key   : AgIaH+hoRCLjXu408QlOjUls78dzLQ==:O57KAJhmTHo1MBNSGnnx7g==<br>
+[2018-05-14 21:48:56.337] # spkey : AgIaH+hoRCLjXu408QlOjUls78dzLQ==<br>
+[2018-05-14 21:48:56.337] # ssig  : O57KAJhmTHo1MBNSGnnx7g==<br>
+[2018-05-14 21:48:56.339] # nm               : x    <br>
+[2018-05-14 21:48:56.339] # brdt             : x    <br>
+[2018-05-14 21:48:56.339] # e_nm             : NOeh5M0=<br>
+[2018-05-14 21:48:56.339] # e_brdt           : NOeh5M0=<br>
+[2018-05-14 21:48:56.339] # cpkey : AgCl+ozWCgPzmrGxKrW8cvwyZdCsGw==<br>
+[2018-05-14 21:48:56.339] # csig  : AJ20IdrJzWGl+xINXcvqaA==<br>
+[2018-05-14 21:48:56.364] retmsg: Dvex9Nfxch7BSREJ/IprOydLMU95sdWbdmECicKyZ85z7842DIjkbFgJixgceLImWHp7jNa2n4ENKGXcST7oXTVxPA1I66x4JRgLJ05FxrIHzPURWbIC7Agf0H3QQiCKbSAUhTMcL7c7KHZezAL6OhsxYAn68pugruHCCVqR28HMWk/EpNClI3ysHibcuV9ST2X8mmCyTbeBJ4GgPHVcwKiF+nMVnh8Do9aKBRlZv8bHrKBmAhx3mfsgq4cHtg06Le496zrOkBAC5+XnUZPah/T2UfmsJeBRl49/4DjRHtTOEg==
+[2018-05-14 21:48:56.364] retmsg: B000:¡§ªÛ:l4i7ItKfVYAXSio1JN1zR7OEJDETG34o3ZA91SK23sz2znhPsyrddP9FS4k9iJJWDKeA3zFj4imH6ZHCCpzjRsFMQUnDf1t4zNqz3N9iGwWex42QJXAFTssSGdpyQYPOFfJVVgpHhPRu3624wuaLP6I0TEBQU7ySbw5H5KpqApbGoFRLKbHzbmH0QMGMFgei2fABNQ0avTINbZqlamMjwQ==
+[2018-05-14 21:48:56.364] B000
+[2018-05-14 21:48:56.364] ¡§ªÛ
+[2018-05-14 21:48:56.364] l4i7ItKfVYAXSio1JN1zR7OEJDETG34o3ZA91SK23sz2znhPsyrddP9FS4k9iJJWDKeA3zFj4imH6ZHCCpzjRsFMQUnDf1t4zNqz3N9iGwWex42QJXAFTssSGdpyQYPOFfJVVgpHhPRu3624wuaLP6I0TEBQU7ySbw5H5KpqApbGoFRLKbHzbmH0QMGMFgei2fABNQ0avTINbZqlamMjwQ==
+[2018-05-14 21:48:56.365] # final ret code=0<br>
+[2018-05-14 21:49:20.052] # OKNAME v3.70 start!<br>
+[2018-05-14 21:49:20.052] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:49:20.052] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:49:20.052] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:49:20.052] # argv[ 3](EndPointURL)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:49:20.052] # argv[ 4](cPubKey     )=AwdtnsgpeM7dVN0JZKQPQHTtQbR1Jw==<br>
+[2018-05-14 21:49:20.052] # argv[ 5](cSig )=6H5Wr9Lqv/8vRaCHNwY/3g==<br>
+[2018-05-14 21:49:20.052] # argv[ 6](EncData  )=TaiByEg8oaZ6xOASOBkxEAI2znzGOZA23daDGjNRI+mKBKMbNjLNQDFhyFNqbFWnljciuhv+Qot/vB0t1vRCg5QQng/BnKzE09zsNuUlnBGfJyWp85vp9XxEC8jPIhZrkPCtM2MKLS63gQQ/7j50kSAy4hENREmnXIQtBV5j2yS8VCw0R4AYc5agbL96iR1RFUW11gNQ8Jet2Qm7CjUtNxRCd6hKtZ3javpiM0KUsIDc/JiSFdssGcbPdNy8P58884pe3p9XkhnJZIbPGR8QsWy14C+qNOmZUzywGa9tRyPxu6zVeDA6pZnyQQK0kOhlIozdvTh1g1nPa4OalA==<br>
+[2018-05-14 21:49:20.052] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:49:20.052] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:49:20.054] # clnPublicKey : AwdtnsgpeM7dVN0JZKQPQHTtQbR1Jw==<br>
+[2018-05-14 21:49:20.054] # clnSignature : 6H5Wr9Lqv/8vRaCHNwY/3g==<br>
+[2018-05-14 21:49:20.054] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:49:20.054] # srvSecurekey : AC7zxIvjbR7UnHRI47JSkvDJIjzi<br>
+[2018-05-14 21:49:20.054] # decData      : 	Ï¯ ±õ!2H`É¢Ü¨6‰ YÌj4^]◊ Œ©…‹Ô˜D]=úÁ«¿¸¸Êu§Ò‰ı‚Dπë§÷õ˝E¢Áz…»3◊ƒTZÎé∂t]<,»´F*ππ˛µvh∫ª©EKLÁ\ymÃ∫p<ç|?S©U≈ö—·.`ﬂFÜéFOü3,Ÿ⁄_ tŸ<br>
+[2018-05-14 21:49:20.054] 	Ï¯ ±õ!2H`É¢Ü¨6‰ YÌj4^]◊ Œ©…‹Ô˜D]=úÁ«¿¸¸Êu§Ò‰ı‚Dπë§÷õ˝E¢Áz…»3◊ƒTZÎé∂t]<,»´F*ππ˛µvh∫ª©EKLÁ\ymÃ∫p<ç
+[2018-05-14 21:49:20.054] ?S©U≈ö—·.`ﬂFÜéFOü3,Ÿ⁄_ tŸ
+[2018-05-14 21:49:20.054] # final ret code=0<br>
+[2018-05-14 21:49:45.505] # OKNAME v3.70 start!<br>
+[2018-05-14 21:49:45.506] # mode=HS_CNFRM_POPUP<br>
+[2018-05-14 21:49:45.506] # Parameter IP: 	114.108.128.129<br>
+[2018-05-14 21:49:45.506] # argv[ 1](hs_cert_svc_tx_seqno)=20180514214945916231<br>
+[2018-05-14 21:49:45.506] # argv[ 2](nm)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 3](brdt)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 4](sex)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 6](var1)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 7](var2)=x<br>
+[2018-05-14 21:49:45.506] # argv[ 8](var3)=0<br>
+[2018-05-14 21:49:45.506] # argv[ 9](var4)=0<br>
+[2018-05-14 21:49:45.506] # argv[10](var5)=0<br>
+[2018-05-14 21:49:45.506] # argv[11](return_msg)=x<br>
+[2018-05-14 21:49:45.506] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-05-14 21:49:45.506] # argv[13](in_tp_bit)=0<br>
+[2018-05-14 21:49:45.506] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-05-14 21:49:45.506] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-05-14 21:49:45.506] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-05-14 21:49:45.506] # argv[17](server_ip)=114.108.128.129<br>
+[2018-05-14 21:49:45.506] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-05-14 21:49:45.506] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:49:45.506] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:49:45.506] # argv[21](option)=QL<br>
+[2018-05-14 21:49:45.506] # soap_timeout: 30000 ms<br>
+[2018-05-14 21:49:45.554] # key   : AwMfj1iHfiifp0fSgvlFgTjSsXNxgQ==:lR/tqAT5qhOo0VyuSYCSIA==<br>
+[2018-05-14 21:49:45.554] # spkey : AwMfj1iHfiifp0fSgvlFgTjSsXNxgQ==<br>
+[2018-05-14 21:49:45.554] # ssig  : lR/tqAT5qhOo0VyuSYCSIA==<br>
+[2018-05-14 21:49:45.556] # nm               : x    <br>
+[2018-05-14 21:49:45.556] # brdt             : x    <br>
+[2018-05-14 21:49:45.556] # e_nm             : fp9XgQc=<br>
+[2018-05-14 21:49:45.556] # e_brdt           : fp9XgQc=<br>
+[2018-05-14 21:49:45.556] # cpkey : AgZ+6jsyXyvpSwIUxm/Tn9EZN8a6tw==<br>
+[2018-05-14 21:49:45.556] # csig  : kis1mq4byMRZgAbCvYnU2A==<br>
+[2018-05-14 21:49:45.578] retmsg: RI9HkR2x9EV7gs93xky0n6VUzZhjfY/KDOsdO4S4XTZyQ3X4W+cH2/PPi/4CiIlbtA+5H0wLCfnGGQ8duEb+GWmctllBb1u0CJBHpNy+5sLl6/2XALaC2R+PvFN6UWW2RECOiAtxadXgUeetsKg13o0RGB2g+WVO376PGqL4RpQdtWv4rZ++sJxRofjr67p65/+galSMDgEC0FKwbXGvaW31t3TtawVNTdoe3YLpd41RT+7wMgZXI0kM6/y8RoM9IMek1VShN0+XPCBeSy2vuGNlslhCBsrE8AWrSIdGJqXQhA==
+[2018-05-14 21:49:45.578] retmsg: B000:¡§ªÛ:l4i7ItKfVYAXSio1JN1zR/BQBnT8ZMhaygS7ijNG0WHl0SBzuEoDFDHzR0BT4lvPGKm1j9/Snri4QXV2JoEAotrGaSxpI5kTPTlztCjSVcu6/RibemZOxfszvui6gV4hhU0ZzU40xE40NSvPD6euVaspGKm6tEkdHWfRDQEMjZzNnnfsjb/Y6vyPLMTuJmBCSw2oMZzYzLUQe1whSJGPJg==
+[2018-05-14 21:49:45.578] B000
+[2018-05-14 21:49:45.578] ¡§ªÛ
+[2018-05-14 21:49:45.578] l4i7ItKfVYAXSio1JN1zR/BQBnT8ZMhaygS7ijNG0WHl0SBzuEoDFDHzR0BT4lvPGKm1j9/Snri4QXV2JoEAotrGaSxpI5kTPTlztCjSVcu6/RibemZOxfszvui6gV4hhU0ZzU40xE40NSvPD6euVaspGKm6tEkdHWfRDQEMjZzNnnfsjb/Y6vyPLMTuJmBCSw2oMZzYzLUQe1whSJGPJg==
+[2018-05-14 21:49:45.578] # final ret code=0<br>
+[2018-05-14 21:50:11.253] # OKNAME v3.70 start!<br>
+[2018-05-14 21:50:11.254] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:50:11.254] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:50:11.254] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:50:11.254] # argv[ 3](EndPointURL)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:50:11.254] # argv[ 4](cPubKey     )=AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:11.254] # argv[ 5](cSig )=p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:11.254] # argv[ 6](EncData  )=deEnLv3UmMb0bIVXNVKE56tNV5vZbNL7jydsgcKaeMSqMITHerib6tHeK7kXchB9tGDe6OhZdYzyw8WnSFHu39HntMLhJ6wwnz0/2SOgirvGAN4JxWSw7kQpnlDZPKeCDqW9Dst79sFhmRJIp7+oAkcHXkSpWihO7Z0rGquACgK5k4w6pUJRcbozNXYz7NpraSh09u7nNo7lV6HKdrt9n4mTnR4GjBNbhMajW4Kgeap6jxu7+gpEONxPk2EhZErphHtHVn6+pwz631BDv1UVAoveZ0R/Apo8Xa3JidqatOS5vT7MC7F2fa7YLtXQ0UvMUvnoO5YxFoBNVc7XOA==<br>
+[2018-05-14 21:50:11.254] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:50:11.254] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:50:11.255] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:11.255] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:11.255] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:50:11.255] # srvSecurekey : Aobzga6m1hQiXE9PaS8GTZdJ+DUW<br>
+[2018-05-14 21:50:11.255] # decData      : ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+<br>
+[2018-05-14 21:50:11.255] ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+
+[2018-05-14 21:50:11.255] # ERROR S204: (Data decription error.)<br>
+[2018-05-14 21:50:11.257] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:11.257] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:11.257] # srvPrivateKey: Au8NmgyRwVeaPMfOHAqwsCZTEvUW<br>
+[2018-05-14 21:50:11.257] # srvSecurekey : Au3IqWtKYEsmi/IfWo24kqUqV5xZ<br>
+[2018-05-14 21:50:11.257] # decData      : /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO|R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º<br>
+[2018-05-14 21:50:11.257] /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO
+[2018-05-14 21:50:11.257] R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º
+[2018-05-14 21:50:11.257] # final ret code=0<br>
+[2018-05-14 21:50:38.676] # OKNAME v3.70 start!<br>
+[2018-05-14 21:50:38.676] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:50:38.676] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:50:38.676] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:50:38.676] # argv[ 3](EndPointURL)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:50:38.676] # argv[ 4](cPubKey     )=AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:38.676] # argv[ 5](cSig )=p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:38.676] # argv[ 6](EncData  )=deEnLv3UmMb0bIVXNVKE56tNV5vZbNL7jydsgcKaeMSqMITHerib6tHeK7kXchB9tGDe6OhZdYzyw8WnSFHu39HntMLhJ6wwnz0/2SOgirvGAN4JxWSw7kQpnlDZPKeCDqW9Dst79sFhmRJIp7+oAkcHXkSpWihO7Z0rGquACgK5k4w6pUJRcbozNXYz7NpraSh09u7nNo7lV6HKdrt9n4mTnR4GjBNbhMajW4Kgeap6jxu7+gpEONxPk2EhZErphHtHVn6+pwz631BDv1UVAoveZ0R/Apo8Xa3JidqatOS5vT7MC7F2fa7YLtXQ0UvMUvnoO5YxFoBNVc7XOA==<br>
+[2018-05-14 21:50:38.676] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:50:38.676] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:50:38.677] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:38.677] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:38.677] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:50:38.677] # srvSecurekey : Aobzga6m1hQiXE9PaS8GTZdJ+DUW<br>
+[2018-05-14 21:50:38.677] # decData      : ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+<br>
+[2018-05-14 21:50:38.677] ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+
+[2018-05-14 21:50:38.677] # ERROR S204: (Data decription error.)<br>
+[2018-05-14 21:50:38.678] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:38.678] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:38.678] # srvPrivateKey: Au8NmgyRwVeaPMfOHAqwsCZTEvUW<br>
+[2018-05-14 21:50:38.678] # srvSecurekey : Au3IqWtKYEsmi/IfWo24kqUqV5xZ<br>
+[2018-05-14 21:50:38.678] # decData      : /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO|R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º<br>
+[2018-05-14 21:50:38.678] /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO
+[2018-05-14 21:50:38.678] R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º
+[2018-05-14 21:50:38.678] # final ret code=0<br>
+[2018-05-14 21:50:49.541] # OKNAME v3.70 start!<br>
+[2018-05-14 21:50:49.541] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:50:49.541] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:50:49.541] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:50:49.541] # argv[ 3](EndPointURL)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:50:49.541] # argv[ 4](cPubKey     )=AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:49.541] # argv[ 5](cSig )=p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:49.541] # argv[ 6](EncData  )=deEnLv3UmMb0bIVXNVKE56tNV5vZbNL7jydsgcKaeMSqMITHerib6tHeK7kXchB9tGDe6OhZdYzyw8WnSFHu39HntMLhJ6wwnz0/2SOgirvGAN4JxWSw7kQpnlDZPKeCDqW9Dst79sFhmRJIp7+oAkcHXkSpWihO7Z0rGquACgK5k4w6pUJRcbozNXYz7NpraSh09u7nNo7lV6HKdrt9n4mTnR4GjBNbhMajW4Kgeap6jxu7+gpEONxPk2EhZErphHtHVn6+pwz631BDv1UVAoveZ0R/Apo8Xa3JidqatOS5vT7MC7F2fa7YLtXQ0UvMUvnoO5YxFoBNVc7XOA==<br>
+[2018-05-14 21:50:49.541] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:50:49.541] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:50:49.542] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:49.543] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:49.543] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:50:49.543] # srvSecurekey : Aobzga6m1hQiXE9PaS8GTZdJ+DUW<br>
+[2018-05-14 21:50:49.543] # decData      : ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+<br>
+[2018-05-14 21:50:49.543] ˜°à=ZZô∏,VM≥∫Ω‡ÿ≈·”\a⁄oÑÇıÈGY[3ÀièHú¬âoq€=.ﬁí'©z}RÇaèØ/ÏHê‚ªoâ“ç¿t¬Ó∞≠M4¢≈P#WŒp†«â˙JE0°≤pE»Á\Îfzü∂kL¬!a%Zƒ≤rñvò˙	AoQÍ∂y~ÂU»Ê™uw#ut<∑ó∂„ì“iKà∑)r◊#∫Õ∑Q<+
+[2018-05-14 21:50:49.543] # ERROR S204: (Data decription error.)<br>
+[2018-05-14 21:50:49.543] # clnPublicKey : AgEQrCVhPVYkhnl7eBuWS9qIngitGw==<br>
+[2018-05-14 21:50:49.543] # clnSignature : p16IqOca81i0BU41tk7Zbw==<br>
+[2018-05-14 21:50:49.543] # srvPrivateKey: Au8NmgyRwVeaPMfOHAqwsCZTEvUW<br>
+[2018-05-14 21:50:49.543] # srvSecurekey : Au3IqWtKYEsmi/IfWo24kqUqV5xZ<br>
+[2018-05-14 21:50:49.543] # decData      : /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO|R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º<br>
+[2018-05-14 21:50:49.543] /œF‡[ÉØ∑Dx∑w˛KíÿŒW)´	WPMá¡¢Îã°hB[‹∫:i[”e¯Ω]`^û›¡∆R<õ˝ìŸ{óõ„äK¡OVŒ2ÙEñÿ‰G”Éû‚ûV)XI\F.ö(„ÄgÙ›∑Ìç Á~ºUﬂ£&cV˚qjŒñ™«KÆÔπ˚Sè`\ü£5†PâÎÀŸë∂Üqˇ*t‚'Ø„˚B≤W÷Îc>¨øêè@ÁÈ⁄·‚G.™vî9ùo0ë~eã)"≠vÌtjÏÂ˚M±1¸ÃâÂ`€($¯rO
+[2018-05-14 21:50:49.543] R⁄¸OâVD—2¿ÓÒ∞`uÌ=@º
+[2018-05-14 21:50:49.543] # final ret code=0<br>
+[2018-05-14 21:50:52.429] # OKNAME v3.70 start!<br>
+[2018-05-14 21:50:52.429] # mode=IPIN_CKEY<br>
+[2018-05-14 21:50:52.429] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:50:52.429] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:50:52.429] # argv[ 3](reserved1  )=0<br>
+[2018-05-14 21:50:52.429] # argv[ 4](reserved2  )=0<br>
+[2018-05-14 21:50:52.429] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:50:52.429] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:50:52.429] # argv[ 7](Option     )=CL<br>
+[2018-05-14 21:50:52.430] AwGXQXeWCzVJBGCmyRBWAPdByoMcLQ==
+[2018-05-14 21:50:52.430] o+W6P2wQdpL2hu35v9QeHw==
+[2018-05-14 21:50:52.430] 20180514215052430372
+[2018-05-14 21:50:52.430] # final ret code=0<br>
+[2018-05-14 21:51:08.008] # OKNAME v3.70 start!<br>
+[2018-05-14 21:51:08.008] # mode=IPIN_CKDEC<br>
+[2018-05-14 21:51:08.008] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-05-14 21:51:08.008] # argv[ 2](memid      )=V05280T00000<br>
+[2018-05-14 21:51:08.008] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-14 21:51:08.008] # argv[ 4](cPubKey     )=AwNYOOlyymVuH/VJGyAOGSV4O1dF9Q==<br>
+[2018-05-14 21:51:08.008] # argv[ 5](cSig )=fG1YwWavM74+7FWPKXxy0A==<br>
+[2018-05-14 21:51:08.008] # argv[ 6](EncData  )=Y+vDmagdlkls/oYl4d1N/u99EJMMuwd+ebiM899wJEjCfN4qbxF1cs1I+/Ga4Aq6ca1HmTT2CEZGPABPwyilKlopECPbYqe7GnEzBVvHS9+YynQhpa9Abwb9Pktr2llpcgIzwF3IqXltkvF6pvLmp8IpgikX0qN147OmT/5GhVYR3BsSjdCghCg0Ex6fRYzMuAhbhF+FqNC3rEsTfntXVCe0ROfrvtWV2b7U5hKAkzkE2ZLmWk1FBoW4N9pvo/4BJlGsYXORCRqAMRY2VQyGLmWUs/zYyUzAmGRURhv9EnNzFwfAPXzUhA==<br>
+[2018-05-14 21:51:08.008] # argv[ 7](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-14 21:51:08.008] # argv[ 8](Option     )=SL<br>
+[2018-05-14 21:51:08.009] # clnPublicKey : AwNYOOlyymVuH/VJGyAOGSV4O1dF9Q==<br>
+[2018-05-14 21:51:08.009] # clnSignature : fG1YwWavM74+7FWPKXxy0A==<br>
+[2018-05-14 21:51:08.010] # srvPrivateKey: A0wW1CXQuRkvErtwWhUxJjBFbYQK<br>
+[2018-05-14 21:51:08.010] # srvSecurekey : ANscMHFJZVBn2V9Tnex5is4C1G8e<br>
+[2018-05-14 21:51:08.010] # decData      : MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=|7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==|NULL|1|4416413464846|V05280T00000|∞≠∫¥º∫|20180514215052430372|7|1|0|19790315|2<br>
+[2018-05-14 21:51:08.010] MC0GCCqGSIb3DQIJAyEAyUmQJatBwFrXlwv0cofo+483kJo3/L73vXoOkVXOrmI=
+[2018-05-14 21:51:08.010] 7DvgjlKEvqN1ok0X/agRQPxi0e/Qfrrt6fXaeaVkGXnatNzsBKOf9KecuOnyQlyc/5vUUSBMuqAncLSxv2nqOg==
+[2018-05-14 21:51:08.010] NULL
+[2018-05-14 21:51:08.010] 1
+[2018-05-14 21:51:08.010] 4416413464846
+[2018-05-14 21:51:08.010] V05280T00000
+[2018-05-14 21:51:08.010] ∞≠∫¥º∫
+[2018-05-14 21:51:08.010] 20180514215052430372
+[2018-05-14 21:51:08.010] 7
+[2018-05-14 21:51:08.010] 1
+[2018-05-14 21:51:08.010] 0
+[2018-05-14 21:51:08.010] 19790315
+[2018-05-14 21:51:08.010] 2
+[2018-05-14 21:51:08.010] # final ret code=0<br>

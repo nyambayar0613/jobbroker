@@ -1,0 +1,362 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#AdminPgFrm').ajaxForm(form_options);
+
+	if($('input[name=pg_company]:checked').val()=='inicis'){
+		$('#method_settings').load('./views/_load/pg.php', { mode:'inicis' }, function(result){
+		});
+		$('#pg_store').html("<a href='https://iniweb.inicis.com/home/intro.jsp?LOG_TYPE=2' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+	} else if($('input[name=pg_company]:checked').val()=='allthegate'){
+		$('#method_settings').load('./views/_load/pg.php', { mode:'allthegate' }, function(result){
+		});
+		$('#pg_store').html("<a href='https://www.allthegate.com/login/r_login.jsp' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+	} else if($('input[name=pg_company]:checked').val()=='kcp'){
+		$('#method_settings').load('./views/_load/pg.php', { mode:'kcp' }, function(result){
+		});
+		$('#pg_store').html("<a href='https://admin8.kcp.co.kr/assist/login.LoginAction.do' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+	} else if($('input[name=pg_company]:checked').val()=='nicepay'){
+		$('#method_settings').load('./views/_load/pg.php', { mode:'nicepay' }, function(result){
+		});
+		$('#pg_store').html("<a href='https://www.nicepay.co.kr/home/main.do' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+	}
+});
+var pg_companies = function( vals ){
+	var sel = vals.value;
+
+	$('.settings').hide();
+	$('#'+sel+'_settings').show();
+
+	switch(sel){
+		// 이니시스
+		case 'inicis':
+			$('#inicis_logo').html("<img src='<?php echo $inicis_logo;?>' style='margin:10px;width:90px;height:34px;'>");
+			$('#method_settings').load('./views/_load/pg.php', { mode:'inicis' }, function(result){
+			});
+			$('#pg_store').html("<a href='https://iniweb.inicis.com/home/intro.jsp?LOG_TYPE=2' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+		break;
+		// 올더게잇
+		case 'allthegate':
+			$('#ags_logo').html("<img src='<?php echo $all_logo;?>' style='margin:10px;width:85px;height:38px;'>");
+			$('#method_settings').load('./views/_load/pg.php', { mode:'allthegate' }, function(result){
+			});
+			$('#pg_store').html("<a href='https://www.allthegate.com/login/r_login.jsp' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+		break;
+		// KCP
+		case 'kcp':
+			$('#kcp_logo').html("<img src='<?php echo $kcp_logo;?>' style='margin:10px;width:150px;height:50px;'>");
+			$('#method_settings').load('./views/_load/pg.php', { mode:'kcp' }, function(result){
+			});
+			$('#pg_store').html("<a href='https://admin8.kcp.co.kr/assist/login.LoginAction.do' target='_blank'>승인내역조회 / 승인취소 / 상점관리</a>");
+		break;
+	}
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+	<div class="fon11 ">전자지불서비스를 등록하는 페이지입니다. </div>
+	<div class="fon11 ">아래 3개 전자지불회사에서 한곳을 선택하여 계약을 맺으시면 사용이 가능합니다. </div>
+	<div class="fon11 ">전자지불회사와 계약 하신후 발급받으신 정보를 아래 공란에 입력해주시면 됩니다.</div>
+	<div class="fon11 ">전자지불 서비스에 관련하여 자세한 사항은 저희 넷퓨(1544-9638)측으로 문의주시기 바랍니다. </div>
+	</dl>
+</dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">결제모듈 연동 설정
+<dt><a href="http://netfu.co.kr/add_service/solution_payment.html?s_code=aservice" target="_blank"><img src="../../images/btn/19_paygo.gif"></a></dt></dl>
+
+<form name="AdminPgFrm" method="post" id="AdminPgFrm" action="./process/pg.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="pg_update"/><!-- PG사별 정보 수정 -->
+<input type="hidden" name="ajax" value="1"/>
+
+<table width="100%" cellspacing="0" border="0" cellpadding=0 class="bg_col">
+<col width=110><col>
+<tr>
+	<td class="ctlt">PG사 선택</td>
+	<td class="pdlnb2">
+		<?php 
+			foreach($pg_lists as $key => $val){
+			$pg_info = $payment_control->get_pgInfoCompany($key);
+		?>
+		<input type="radio" name="pg_company" value="<?php echo $key;?>" class='radio' id='<?php echo $val['id'];?>' <?php echo ($pg_info['pg_result'])?'checked':'';?> onclick="pg_companies(this);"><label for='<?php echo $val['id'];?>'><?php echo $val['name']?></label> &nbsp;
+		<?php } ?>
+	</td>
+</tr>
+
+<tbody id='inicis_settings' class='settings' style='display:<?php echo ($inicisSet_info['pg_result'])?'':'none';?>;'>
+<tr>
+	<td class="ctlt">상점 아이디</td>
+	<td class="pdlnb2"><input type="text" name="inicis_pg_id" class='txt' style="width:30%" value="<?php echo $inicisSet_info['pg_id'];?>"></td>
+</tr>  
+<tr>
+	<td class="ctlt">상점 비밀번호</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="inicis_pg_passwd" class='txt' style="width:30%" value="<?php echo $inicisSet_info['pg_passwd'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">키값</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="text" name="inicis_pg_key" class='txt' style="width:30%" value="<?php echo $inicisSet_info['pg_key'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">플러그인 상점로고</td>
+	<td class="pdlnb2">
+		<dl class="psr"><input type="file" name="inicis_logo" class="txt" style="width:30%">
+			<span class="subtlt">최적크기 : 가로 90 × 세로 34 이하</span>
+			<dt class="psa blnb tc wbg nimg01" style="bottom:-7px;right:-5px;" id='inicis_logo'>
+				<img src="<?php echo $inicis_logo;?>" style="margin:10px;width:90px;height:34px;">
+			</dt>
+		</dl>
+	</td>
+</tr>  
+<tr>
+	<td class="ctlt">이니시스 키파일</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="file" name="inicis_key" class="txt" style="width:30%"> &nbsp;<span id='key_file'><b>[</b> 현재등록된파일 : <?php echo $inicisSet_info['pg_keyfile'];?> <b>]</b></span>
+		</div>
+	</td>
+</tr>  
+</tbody>
+
+<tbody id='allthegate_settings' class='settings' style='display:<?php echo ($allSet_info['pg_result'])?'':'none';?>;'>
+<tr>
+	<td class="ctlt">상점 아이디</td>
+	<td class="pdlnb2"><input type="text" name="ags_pg_id" class='txt' style="width:30%" value="<?php echo $allSet_info['pg_id'];?>"></td>
+</tr>  
+<tr>
+	<td class="ctlt">상점 비밀번호</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="ags_pg_passwd" class='txt' style="width:30%" value="<?php echo $allSet_info['pg_passwd'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">플러그인 상점로고</td>
+	<td class="pdlnb2">
+		<dl class="psr"><input type="file" name="ags_logo" class="txt" style="width:30%">
+			<span class="subtlt">최적크기 : 가로 85 × 세로 38 이하</span>
+			<dt class="psa blnb tc wbg nimg01" style="bottom:-7px;right:-5px;" id='ags_logo'>
+				<img src="<?php echo $all_logo;?>" style="margin:10px;width:85px;height:38px;">
+			</dt>
+		</dl>
+	</td>
+</tr>  
+<tr>
+	<td class="ctlt">휴대폰 CP아이디</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="text" name="ags_cpid" class='txt' style="width:30%" value="<?=$allSet_info['pg_cpid']?>"> &nbsp;
+		</div>
+	</td>
+</tr>  
+
+<!-- <tr>
+	<td class="ctlt">휴대폰 CP비밀번호</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="text" name="ags_cppasswd" class='txt' style="width:30%" value="<?=$allSet_info['pg_cppasswd']?>"> &nbsp;<b></b>
+		</div>
+	</td>
+</tr>   -->
+
+<tr>
+	<td class="ctlt">휴대폰 SUB-CP아이디</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="text" name="ags_subcp" class='txt' style="width:30%" value="<?=$allSet_info['pg_subcp']?>"> &nbsp;<b></b>
+		</div>
+	</td>
+</tr>  
+
+<tr>
+	<td class="ctlt">휴대폰 상품코드</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="text" name="ags_code" class='txt' style="width:30%" value="<?=$allSet_info['pg_code']?>"> &nbsp;<b></b>
+		</div>
+	</td>
+</tr>  
+
+<tr>
+	<td class="ctlt">ARS(폰빌) 상품코드</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr">
+			<input type="text" name="ags_ars" class='txt' style="width:30%" value="<?=$allSet_info['pg_ars']?>"> &nbsp;<b></b>
+		</div>
+	</td>
+</tr>  
+</tbody>
+
+<tbody id='kcp_settings' class='settings' style='display:<?php echo ($kcpSet_info['pg_result'])?'':'none';?>;'>
+<tr>
+	<td class="ctlt">사이트 코드</td>
+	<td class="pdlnb2"><input type="text" name="kcp_pg_id" class='txt' style="width:30%" value="<?php echo $kcpSet_info['pg_id'];?>"></td>
+</tr>  
+<tr>
+	<td class="ctlt">사이트 Key</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="kcp_pg_passwd" class='txt' style="width:30%" value="<?php echo $kcpSet_info['pg_passwd'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">플러그인 상점로고</td>
+	<td class="pdlnb2">
+		<dl class="psr"><input type="file" name="kcp_logo" class="txt" style="width:30%">
+			<span class="subtlt">최적크기 : 가로 150 × 세로 50 이하</span>
+			<dt class="psa blnb tc wbg nimg01" style="bottom:-7px;right:-5px;" id='kcp_logo'>
+				<img src="<?php echo $kcp_logo;?>" style="margin:10px;width:150px;height:50px;">
+			</dt>
+		</dl>
+	</td>
+</tr>  
+</tbody>
+
+<tbody id='xpay_settings' class='settings' style='display:none;'>
+<tr>
+	<td class="ctlt">상점 아이디 (CST_MID)</td>
+	<td class="pdlnb2"><input type="text" name="xpay_pg_id" class='txt' style="width:30%"></td>
+</tr>  
+<tr>
+	<td class="ctlt">상점 아이디 (LGD_MID)</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="xpay_pg_passwd" class='txt' style="width:30%"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+</tbody>
+
+
+
+
+<tbody id='nicepay_settings' class='settings' style='display:<?php echo ($niceSet_info['pg_result'])?'':'none';?>;'>
+<tr>
+	<td class="ctlt">상점 아이디</td>
+	<td class="pdlnb2"><input type="text" name="nice_pg_id" class='txt' style="width:30%" value="<?php echo $niceSet_info['pg_id'];?>"></td>
+</tr>  
+<tr>
+	<td class="ctlt">상점 비밀번호</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="nice_pg_passwd" class='txt' style="width:30%" value="<?php echo $niceSet_info['pg_passwd'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">키값</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="text" name="nice_pg_key" class='txt' style="width:30%" value="<?php echo $niceSet_info['pg_key'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+
+</tbody>
+
+<tbody id='kcp_settings' class='settings' style='display:<?php echo ($kcpSet_info['pg_result'])?'':'none';?>;'>
+<tr>
+	<td class="ctlt">사이트 코드</td>
+	<td class="pdlnb2"><input type="text" name="kcp_pg_id" class='txt' style="width:30%" value="<?php echo $kcpSet_info['pg_id'];?>"></td>
+</tr>  
+<tr>
+	<td class="ctlt">사이트 Key</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="kcp_pg_passwd" class='txt' style="width:30%" value="<?php echo $kcpSet_info['pg_passwd'];?>"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+<tr>
+	<td class="ctlt">플러그인 상점로고</td>
+	<td class="pdlnb2">
+		<dl class="psr"><input type="file" name="kcp_logo" class="txt" style="width:30%">
+			<span class="subtlt">최적크기 : 가로 150 × 세로 50 이하</span>
+			<dt class="psa blnb tc wbg nimg01" style="bottom:-7px;right:-5px;" id='kcp_logo'>
+				<img src="<?php echo $kcp_logo;?>" style="margin:10px;width:150px;height:50px;">
+			</dt>
+		</dl>
+	</td>
+</tr>  
+</tbody>
+
+<tbody id='xpay_settings' class='settings' style='display:none;'>
+<tr>
+	<td class="ctlt">상점 아이디 (CST_MID)</td>
+	<td class="pdlnb2"><input type="text" name="xpay_pg_id" class='txt' style="width:30%"></td>
+</tr>  
+<tr>
+	<td class="ctlt">상점 아이디 (LGD_MID)</td>
+	<td class="pdlnb2">
+		<div class="fon11 gr"><input type="password" name="xpay_pg_passwd" class='txt' style="width:30%"> &nbsp;<b></b></div>
+	</td>
+</tr> 
+</tbody>
+
+
+
+<tbody id='method_settings' style='display:;'></tbody>
+
+<tr>
+	<td class="ctlt">상점관리</td>
+	<td class="pdlnb2">
+		<span id='pg_store'>
+			승인내역조회 / 승인취소 / 상점관리
+		</span>
+	</td>
+</tr>
+</table>
+
+
+<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+	var AdminPgFrm = document.getElementById('AdminPgFrm');
+	var queryString = $.param(formData);
+	return validate(AdminPgFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+
+	switch(responseText){
+		case '0001':
+			alert("<?php echo $payment_control->_errors('0001');?>");
+		break;
+		case '0002':
+			alert("<?php echo $payment_control->_errors('0002');?>");
+		break;
+		case '0003':
+			alert("<?php echo $payment_control->_errors('0003');?>");
+		break;
+		case '0004':
+			alert("<?php echo $payment_control->_errors('0004');?>");
+		break;
+		case '0005':
+			alert("<?php echo $payment_control->_errors('0005');?>");
+		break;
+		default:
+			location.reload();
+		break;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

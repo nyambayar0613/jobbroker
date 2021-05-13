@@ -1,0 +1,425 @@
+[2015-04-06 13:44:24.486] # OKNAME v3.70 start!<br>
+[2015-04-06 13:44:24.486] # mode=IPIN_CKEY<br>
+[2015-04-06 13:44:24.486] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 13:44:24.486] # argv[ 2](memid      )=V00000000000<br>
+[2015-04-06 13:44:24.486] # argv[ 3](reserved1  )=0<br>
+[2015-04-06 13:44:24.486] # argv[ 4](reserved2  )=0<br>
+[2015-04-06 13:44:24.486] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-04-06 13:44:24.486] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:44:24.486] # argv[ 7](Option     )=CL<br>
+[2015-04-06 13:44:24.486] # Generating monthly key..
+[2015-04-06 13:44:24.487] pub1: AgUUMi6jp9EyAoOHUA95OKXvzd3EgQ==
+[2015-04-06 13:44:24.487] pri1: AXe9pMN7ZjviBrn6RUdudBcuQ77d
+[2015-04-06 13:44:24.487] sig1: yNbTgCAMIPsEZ0jz0c8ECQ==
+[2015-04-06 13:44:24.487] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:44:24.532] retmsg: AgAyQomjIJfW4fKdFAmVzTWi777Q1w==:8s4BeYtiuFG9umxDlXpMPw==:9/Ocs961nRfYIKQEWEp3lElnpMzeb9Vb5Q5vl2keNJnDWrdjrOSWrB32gtlE9K1VTc2Ixf8ouJ6WN7YIMs/lPyvU0sgHdglUj+e0iiAwNhUeyBao208=
+[2015-04-06 13:44:24.532] pub3: AgAyQomjIJfW4fKdFAmVzTWi777Q1w==
+[2015-04-06 13:44:24.532] sig3: 8s4BeYtiuFG9umxDlXpMPw==
+[2015-04-06 13:44:24.532] pub2pri2sig2: 9/Ocs961nRfYIKQEWEp3lElnpMzeb9Vb5Q5vl2keNJnDWrdjrOSWrB32gtlE9K1VTc2Ixf8ouJ6WN7YIMs/lPyvU0sgHdglUj+e0iiAwNhUeyBao208=
+[2015-04-06 13:44:24.533] srvSecurekey: BKBO0/Yp3L7bLRLD+7TgoVfJxL9f
+[2015-04-06 13:44:24.533] decData: AwXz4/j5A29yQsn6qKBGIVV18zVvyw==:AD/FxrTzXoUS8v7879nuam2nBNbI:AKFJgkPgxClfE0cAt4iQZg==
+[2015-04-06 13:44:24.534] # ERROR S203: (Client key generation error.)<br>
+[2015-04-06 13:44:24.534] # final ret code=203<br>
+[2015-04-06 13:46:31.603] # OKNAME v3.70 start!<br>
+[2015-04-06 13:46:31.603] # mode=IPIN_CKEY<br>
+[2015-04-06 13:46:31.603] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 13:46:31.604] # argv[ 2](memid      )=V00000000000<br>
+[2015-04-06 13:46:31.604] # argv[ 3](reserved1  )=0<br>
+[2015-04-06 13:46:31.604] # argv[ 4](reserved2  )=0<br>
+[2015-04-06 13:46:31.604] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-04-06 13:46:31.604] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:46:31.604] # argv[ 7](Option     )=CL<br>
+[2015-04-06 13:46:31.604] # Generating monthly key..
+[2015-04-06 13:46:31.605] pub1: AwQnN1ZYjXY+RtIUENIVGbbHRWbl3Q==
+[2015-04-06 13:46:31.605] pri1: Alxv7AT5EjzwSNrkWOXjE9+5jjg+
+[2015-04-06 13:46:31.605] sig1: R5WjBI1rzHVT2JuZ2SsGXw==
+[2015-04-06 13:46:31.605] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:46:31.644] retmsg: AwQasdCbczRk+4+bW7UwlHF7n1ImTg==:BPr7RL9LBlnvzrD132UiQQ==:glHcepYmz0hmxgloQf57gvS0CsEt0dgBjrUZ5gfJSkWCS30A42tyl0GLaMTUsnDyf10DkwP77WFoxj6gdaye529rAdKl5kStFOcTa0SZXg7LXVIW/Vo=
+[2015-04-06 13:46:31.644] pub3: AwQasdCbczRk+4+bW7UwlHF7n1ImTg==
+[2015-04-06 13:46:31.644] sig3: BPr7RL9LBlnvzrD132UiQQ==
+[2015-04-06 13:46:31.644] pub2pri2sig2: glHcepYmz0hmxgloQf57gvS0CsEt0dgBjrUZ5gfJSkWCS30A42tyl0GLaMTUsnDyf10DkwP77WFoxj6gdaye529rAdKl5kStFOcTa0SZXg7LXVIW/Vo=
+[2015-04-06 13:46:31.645] srvSecurekey: AsA17+R4T2VYmH5fh5ajoS0n284O
+[2015-04-06 13:46:31.646] decData: AwXz4/j5A29yQsn6qKBGIVV18zVvyw==:AD/FxrTzXoUS8v7879nuam2nBNbI:AKFJgkPgxClfE0cAt4iQZg==
+[2015-04-06 13:46:31.646] # ERROR S203: (Client key generation error.)<br>
+[2015-04-06 13:46:31.646] # final ret code=203<br>
+[2015-04-06 13:49:33.763] # OKNAME v3.70 start!<br>
+[2015-04-06 13:49:33.764] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 13:49:33.764] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 13:49:33.764] # argv[ 1](hs_cert_svc_tx_seqno)=20150406134933643008<br>
+[2015-04-06 13:49:33.764] # argv[ 2](nm)=강진우<br>
+[2015-04-06 13:49:33.764] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 13:49:33.764] # argv[ 4](sex)=1<br>
+[2015-04-06 13:49:33.764] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 13:49:33.764] # argv[ 6](var1)=01<br>
+[2015-04-06 13:49:33.764] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 13:49:33.764] # argv[ 8](var3)=0<br>
+[2015-04-06 13:49:33.764] # argv[ 9](var4)=0<br>
+[2015-04-06 13:49:33.764] # argv[10](var5)=0<br>
+[2015-04-06 13:49:33.764] # argv[11](return_msg)=x<br>
+[2015-04-06 13:49:33.764] # argv[12](return_url)=http://njob.netfu.co.kr/modules/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-04-06 13:49:33.764] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 13:49:33.764] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 13:49:33.764] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 13:49:33.764] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2015-04-06 13:49:33.764] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 13:49:33.764] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 13:49:33.764] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:49:33.764] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:49:33.764] # argv[21](option)=QL<br>
+[2015-04-06 13:49:33.764] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:49:33.803] # key   : AwCLVnJwPXJSKHeCvtqQzX0catWqUA==:hwXBbzEsHIJUKXnMSDJPlw==<br>
+[2015-04-06 13:49:33.803] # spkey : AwCLVnJwPXJSKHeCvtqQzX0catWqUA==<br>
+[2015-04-06 13:49:33.803] # ssig  : hwXBbzEsHIJUKXnMSDJPlw==<br>
+[2015-04-06 13:49:33.805] # nm               : 강진우<br>
+[2015-04-06 13:49:33.805] # brdt             : 19821203<br>
+[2015-04-06 13:49:33.805] # e_nm             : HcD9qf7U<br>
+[2015-04-06 13:49:33.805] # e_brdt           : nFQEY3AKlqU=<br>
+[2015-04-06 13:49:33.805] # cpkey : AgKwzaviIJxBAr+DtrL5MbYYVjfxQA==<br>
+[2015-04-06 13:49:33.805] # csig  : 2ndxnZdcknDGqjPy6g34aQ==<br>
+[2015-04-06 13:49:33.838] retmsg: 710MaXvwHinG0A48IiNoA8aQzcm66atrHo//b+j57oQJonJ7LX7BNKY300z6RNsSHof4U1g/jw5hogIxCkaiQtWMvcnvxE4ZqQUstOrayNHgirKRFFe2WeeICaiHZg5Am3mHzf7r2W4qJRwsgbdoVAcN0bclFf1csbUwjc5MvyjDf9GlkUnc5gNFTvp8b0pMX1if2b7+Lon8ebUGhI0j2oizkA6yj55PlQU4M6UOZNBPDXJjfCeDJyDCy1K70zoIsXiU5VuvN7tu3q3xen2zGXnfG2TCD3knga6vTtclsxYgQynDvKsvo/Qo3qPPaVAbEx0ewrDW//8qskKig0Kq8JPWY7fhuv65xgs7q44HeCu84w==
+[2015-04-06 13:49:33.838] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNjT4iDB6ugnHxgR7b9A3kQX37LVOUwpkslfXuq0oPcyl3PPW4lA41v6Ke9ULyIG9sVl37DUpbe2rpOs3VlkHODAuHHnaiN3SvLNwIrcPFwKXL5vU6xvBL9ZvvBTg5sew+NW/DKXHJjGdc+Al2y66GHWpC6T5dzikVB/Io+IU+BGl79luCXQW9ltjH/Rqvce7ziUxqqziTHRaPcjYM5n1jCQ=
+[2015-04-06 13:49:33.839] B008
+[2015-04-06 13:49:33.839] 회원사 정보가 존재하지 않습니다.
+[2015-04-06 13:49:33.839] RuOtuDWMKBYx9YFHHtKsNjT4iDB6ugnHxgR7b9A3kQX37LVOUwpkslfXuq0oPcyl3PPW4lA41v6Ke9ULyIG9sVl37DUpbe2rpOs3VlkHODAuHHnaiN3SvLNwIrcPFwKXL5vU6xvBL9ZvvBTg5sew+NW/DKXHJjGdc+Al2y66GHWpC6T5dzikVB/Io+IU+BGl79luCXQW9ltjH/Rqvce7ziUxqqziTHRaPcjYM5n1jCQ=
+[2015-04-06 13:49:33.839] # final ret code=8<br>
+[2015-04-06 13:55:15.589] # OKNAME v3.70 start!<br>
+[2015-04-06 13:55:15.589] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 13:55:15.589] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 13:55:15.589] # argv[ 1](hs_cert_svc_tx_seqno)=20150406135515458765<br>
+[2015-04-06 13:55:15.589] # argv[ 2](nm)=강진우<br>
+[2015-04-06 13:55:15.589] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 13:55:15.589] # argv[ 4](sex)=1<br>
+[2015-04-06 13:55:15.589] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 13:55:15.590] # argv[ 6](var1)=01<br>
+[2015-04-06 13:55:15.590] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 13:55:15.590] # argv[ 8](var3)=0<br>
+[2015-04-06 13:55:15.590] # argv[ 9](var4)=0<br>
+[2015-04-06 13:55:15.590] # argv[10](var5)=0<br>
+[2015-04-06 13:55:15.590] # argv[11](return_msg)=x<br>
+[2015-04-06 13:55:15.590] # argv[12](return_url)=http://njob.netfu.co.kr/modules/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-04-06 13:55:15.590] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 13:55:15.590] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 13:55:15.590] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 13:55:15.590] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-04-06 13:55:15.590] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 13:55:15.590] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 13:55:15.590] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:55:15.590] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:55:15.590] # argv[21](option)=QL<br>
+[2015-04-06 13:55:15.590] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:55:16.437] # key   : AwURqJjGsIdCT3fJsu0+0Zt7vUMiOQ==:raJuWVoDlWHPvwA4Rak9+w==<br>
+[2015-04-06 13:55:16.437] # spkey : AwURqJjGsIdCT3fJsu0+0Zt7vUMiOQ==<br>
+[2015-04-06 13:55:16.437] # ssig  : raJuWVoDlWHPvwA4Rak9+w==<br>
+[2015-04-06 13:55:16.439] # nm               : 강진우<br>
+[2015-04-06 13:55:16.439] # brdt             : 19821203<br>
+[2015-04-06 13:55:16.439] # e_nm             : dqYTi2FC<br>
+[2015-04-06 13:55:16.439] # e_brdt           : 9zLqQe+cAe8=<br>
+[2015-04-06 13:55:16.439] # cpkey : AwIHr1xxH9HQkkmgzv1BXhY6FnXHRg==<br>
+[2015-04-06 13:55:16.439] # csig  : mIzCDpShwphj/0WehAmdXg==<br>
+[2015-04-06 13:55:16.511] retmsg: hDviQ+RvlWdAiakLjzYRXYKVYPsaM4ZZTEYdSMPZE+Q/5rzm7RdyhyXZEJAJrbwt0p4Ga9UyZirHLTtaAL8EkOOOs09Frnp/XyDEShUzm4sVPOa1eAwgSh0ZrUlC+IzkoXane/hVqQzyhoItXW9OyPTpKm6IyIRYXzrNTCIcZ5Iwr9jn9ke62yQe5zpBujT70Iu1X62s+JIa7HUR+OsIwW8r8pXeBVpVWswK1FBjL5bETjLlIACTBrMwFe3zL6T1lD4C2sCweRNuaprKrrt3GaDXyjaio2JgfEi1/C6Qp/i3RUTxMrfVRTdXd29dhhlWej0uVPYF
+[2015-04-06 13:55:16.511] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/LVl3WVmcMo7r4PW1pMRIaMJQKeneOYu36PokLvK6F2rYqxk+NdVZnIDBn9ypbz4is90cXK4mKpcH661pjrznXOGUecdtJ16Eq+2flCKl58hLgsNVdk/nVO53LyJt9j9MdqRZMy4UtLCTcjPyqbZd3w6ZxgAYB2+9QmXgvM+knLlCyVhLyus461CqBgMtCZu4yLIFPL4vvirdBxfi9hBwuQ=
+[2015-04-06 13:55:16.511] B000
+[2015-04-06 13:55:16.511] 정상
+[2015-04-06 13:55:16.511] kYFvkgmfTi0CDDkL3FAZ/LVl3WVmcMo7r4PW1pMRIaMJQKeneOYu36PokLvK6F2rYqxk+NdVZnIDBn9ypbz4is90cXK4mKpcH661pjrznXOGUecdtJ16Eq+2flCKl58hLgsNVdk/nVO53LyJt9j9MdqRZMy4UtLCTcjPyqbZd3w6ZxgAYB2+9QmXgvM+knLlCyVhLyus461CqBgMtCZu4yLIFPL4vvirdBxfi9hBwuQ=
+[2015-04-06 13:55:16.511] # final ret code=0<br>
+[2015-04-06 13:56:15.129] # OKNAME v3.70 start!<br>
+[2015-04-06 13:56:15.129] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 13:56:15.129] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 13:56:15.129] # argv[ 1](hs_cert_svc_tx_seqno)=20150406135615454235<br>
+[2015-04-06 13:56:15.129] # argv[ 2](nm)=강진우<br>
+[2015-04-06 13:56:15.129] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 13:56:15.130] # argv[ 4](sex)=1<br>
+[2015-04-06 13:56:15.130] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 13:56:15.130] # argv[ 6](var1)=01<br>
+[2015-04-06 13:56:15.130] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 13:56:15.130] # argv[ 8](var3)=0<br>
+[2015-04-06 13:56:15.130] # argv[ 9](var4)=0<br>
+[2015-04-06 13:56:15.130] # argv[10](var5)=0<br>
+[2015-04-06 13:56:15.130] # argv[11](return_msg)=x<br>
+[2015-04-06 13:56:15.130] # argv[12](return_url)=http://njob.netfu.co.kr/modules/modules/okname/hs_cnfrm/madultfrm_popup2.php<br>
+[2015-04-06 13:56:15.130] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 13:56:15.130] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 13:56:15.130] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 13:56:15.130] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-04-06 13:56:15.130] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 13:56:15.130] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 13:56:15.130] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:56:15.130] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:56:15.130] # argv[21](option)=QL<br>
+[2015-04-06 13:56:15.130] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:56:15.167] # key   : AgMftZbASdmuRv9Ix5BApPDhNORRiQ==:/LCqv84ih3WW33zLzTVGHg==<br>
+[2015-04-06 13:56:15.167] # spkey : AgMftZbASdmuRv9Ix5BApPDhNORRiQ==<br>
+[2015-04-06 13:56:15.167] # ssig  : /LCqv84ih3WW33zLzTVGHg==<br>
+[2015-04-06 13:56:15.169] # nm               : 강진우<br>
+[2015-04-06 13:56:15.169] # brdt             : 19821203<br>
+[2015-04-06 13:56:15.169] # e_nm             : pHlj0Qlo<br>
+[2015-04-06 13:56:15.169] # e_brdt           : Je2aG4e2IGU=<br>
+[2015-04-06 13:56:15.169] # cpkey : AgJVJo5D/bCYw5aknhty0tPpAWNOfg==<br>
+[2015-04-06 13:56:15.169] # csig  : 6ZmFxs/lrIDH/iwGmXe5YA==<br>
+[2015-04-06 13:56:15.221] retmsg: VuSSGYxFtO2WffBo/LI9cY6jeOWFizRjLQ7knYWRzjcmOe/4ZlhWkRn0VFGuv/pgCi/v9g9DUFdna2BbzKWC/bOI9SEtCAqUyvgGDSplg4gRbGBBX91lejvEgKMKKhGDfZ5jQIv/MP5512Hq84xxo7DUxOnftgdv0pIGetL3vpzXjHJBcCT1dUbk2SvzXglVnvyP0aBcK2LR6kAWeSjS3m57nv7C7LEsWRMGiE/TEcNdY3McNWUoypzIUW+vSdBdYRKsIchZTIoKzYj+m0vN6tly3kIXTThqa1UsdfIxXkE8/GKHazJtpMf1IX9qrX2cF/IMGUuq
+[2015-04-06 13:56:15.222] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/I1NBoNPDMEDJxZZz8K36cMyCN9CA+R+rQIJ9/rdvV5Wa1ISXaT/guf485YGwb35VedYEh+oxXa/VOLneHv2dmEIjgv1oAF44uGRP3MNJgBz8WpY3aownrSOVw2mQ+4FVUX2sx6jW2ffxIjrjhktIR9SQeybp7WO+wbnZjDVZm4R8qjGyuegvFk0LfN2z7YyE7Z6tjwDzc3JCWe8VPSpt0A=
+[2015-04-06 13:56:15.222] B000
+[2015-04-06 13:56:15.222] 정상
+[2015-04-06 13:56:15.222] kYFvkgmfTi0CDDkL3FAZ/I1NBoNPDMEDJxZZz8K36cMyCN9CA+R+rQIJ9/rdvV5Wa1ISXaT/guf485YGwb35VedYEh+oxXa/VOLneHv2dmEIjgv1oAF44uGRP3MNJgBz8WpY3aownrSOVw2mQ+4FVUX2sx6jW2ffxIjrjhktIR9SQeybp7WO+wbnZjDVZm4R8qjGyuegvFk0LfN2z7YyE7Z6tjwDzc3JCWe8VPSpt0A=
+[2015-04-06 13:56:15.222] # final ret code=0<br>
+[2015-04-06 13:57:21.525] # OKNAME v3.70 start!<br>
+[2015-04-06 13:57:21.525] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 13:57:21.525] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 13:57:21.525] # argv[ 1](hs_cert_svc_tx_seqno)=20150406135721937145<br>
+[2015-04-06 13:57:21.525] # argv[ 2](nm)=강진우<br>
+[2015-04-06 13:57:21.525] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 13:57:21.525] # argv[ 4](sex)=1<br>
+[2015-04-06 13:57:21.525] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 13:57:21.525] # argv[ 6](var1)=02<br>
+[2015-04-06 13:57:21.525] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 13:57:21.525] # argv[ 8](var3)=0<br>
+[2015-04-06 13:57:21.525] # argv[ 9](var4)=0<br>
+[2015-04-06 13:57:21.525] # argv[10](var5)=0<br>
+[2015-04-06 13:57:21.525] # argv[11](return_msg)=x<br>
+[2015-04-06 13:57:21.526] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/madultfrm_popup2.php<br>
+[2015-04-06 13:57:21.526] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 13:57:21.526] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 13:57:21.526] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 13:57:21.526] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-04-06 13:57:21.526] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 13:57:21.526] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 13:57:21.526] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:57:21.526] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:57:21.526] # argv[21](option)=QL<br>
+[2015-04-06 13:57:21.526] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:57:21.562] # key   : AgCRUaoNCnIKNyWt8whYOwsLyrqGWQ==:BV866lIcYXqOQ39AhJcD7A==<br>
+[2015-04-06 13:57:21.562] # spkey : AgCRUaoNCnIKNyWt8whYOwsLyrqGWQ==<br>
+[2015-04-06 13:57:21.562] # ssig  : BV866lIcYXqOQ39AhJcD7A==<br>
+[2015-04-06 13:57:21.564] # nm               : 강진우<br>
+[2015-04-06 13:57:21.564] # brdt             : 19821203<br>
+[2015-04-06 13:57:21.564] # e_nm             : NPtocrB2<br>
+[2015-04-06 13:57:21.564] # e_brdt           : tW+RuD6oYWc=<br>
+[2015-04-06 13:57:21.564] # cpkey : AgXPkgfk0tzFGK6pyY1pppDJIhZYQg==<br>
+[2015-04-06 13:57:21.564] # csig  : Xvk4qKudqWZ02D2v5mS7nQ==<br>
+[2015-04-06 13:57:21.618] retmsg: xmaZujVb9e+pAjc2hQXLmVfoyaOvRbSQ3ibIVhwfWy6YjJ7kckTysX19oeMjt+TGuEhRSpTPoozSnqZ7acyD+FJTusPuMhec5xqxJukQrAllRdMcxJLDGpVXa/p/hjSqp7nZCyZ8oYt3btYUI+/5HU2ayzRUInkRPRBY8xfj3kc4UiduI3Gt9d5YQTwwjFXLBN6yJv0Lnh89pJgjCJIZsFasKwdyMCQ/ygoNRToRBkqwBXbnq6Fd+f20cN2zNB+gz3jYUbUEhCo2NDfVHg/uVyU2aq4O8u5XnlKuRgWs+i+FCQ==
+[2015-04-06 13:57:21.618] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/J49o1B73DP9WmgyNjkzaF1vKHmUpryob6FnwBiXpQDtnXIs2P4Y+SF1qv4jbtOlh2rF73q2oyWTR4piquEJQ3BFI/deNgKQVaJJ+XLEjMVZFSINe6NSS+Tawxw+ks+Ecopb6Wwi6PGRT4dMGH7SiBfV/Hl/8FQMXJz9wlS43TaARhPHANF/Ll9J9VtU7VoNXg==
+[2015-04-06 13:57:21.618] B000
+[2015-04-06 13:57:21.618] 정상
+[2015-04-06 13:57:21.618] kYFvkgmfTi0CDDkL3FAZ/J49o1B73DP9WmgyNjkzaF1vKHmUpryob6FnwBiXpQDtnXIs2P4Y+SF1qv4jbtOlh2rF73q2oyWTR4piquEJQ3BFI/deNgKQVaJJ+XLEjMVZFSINe6NSS+Tawxw+ks+Ecopb6Wwi6PGRT4dMGH7SiBfV/Hl/8FQMXJz9wlS43TaARhPHANF/Ll9J9VtU7VoNXg==
+[2015-04-06 13:57:21.618] # final ret code=0<br>
+[2015-04-06 13:57:39.630] # OKNAME v3.70 start!<br>
+[2015-04-06 13:57:39.630] # mode=IPIN_CKDEC<br>
+[2015-04-06 13:57:39.630] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 13:57:39.630] # argv[ 2](memid      )=V05280000000<br>
+[2015-04-06 13:57:39.630] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:57:39.631] # argv[ 4](cPubKey     )=AwJ92sC0YVXRtmruqFekXtxYou7NPQ==<br>
+[2015-04-06 13:57:39.631] # argv[ 5](cSig )=WGAuitZbtpRm8IIgY7Ga1Q==<br>
+[2015-04-06 13:57:39.631] # argv[ 6](EncData  )=EF56SbPrLQzsdLIn4vSiKdyCs0H9QfeZoYVLpRtgRuSuXoJLu0TuEy3Jaklp3Zi7HaH8oYY3pOo4Ab9BDopPJg1VX4P6XOzokaPNCLOZOdpnT4PrQJcijQj+1ma7bvu9bGwhE7xy5VKBM/X9aMsNKYm/Z8x20ATrb5pnA6yIHybtIg==<br>
+[2015-04-06 13:57:39.631] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:57:39.631] # argv[ 8](Option     )=SL<br>
+[2015-04-06 13:57:39.631] # Generating monthly key..
+[2015-04-06 13:57:39.632] pub1: AgZ8+Z2FOzRrVIOFQLxWTg4qYeA+PQ==
+[2015-04-06 13:57:39.632] pri1: A142yO8n6n522lZ4PvgA2x7t2fgO
+[2015-04-06 13:57:39.632] sig1: dRAoWZNQjYDjhnnn08L3DQ==
+[2015-04-06 13:57:39.632] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:57:39.690] retmsg: AgF/z8PfJHYl3J1obSTv4V4PyOo/Ig==:lfbcbKPTcolSbVJkSFkUog==:Y6BCrhQlRzHV28iTRg+vur/YQu6X0oP5lHmrDxV87nR/oPoe1SD60YkV5IjdkV2Fw8zDCggDJATQVXNN82aRLDlwodFVoLiForxRdczJDBMunx0bda0=
+[2015-04-06 13:57:39.690] pub3: AgF/z8PfJHYl3J1obSTv4V4PyOo/Ig==
+[2015-04-06 13:57:39.690] sig3: lfbcbKPTcolSbVJkSFkUog==
+[2015-04-06 13:57:39.690] pub2pri2sig2: Y6BCrhQlRzHV28iTRg+vur/YQu6X0oP5lHmrDxV87nR/oPoe1SD60YkV5IjdkV2Fw8zDCggDJATQVXNN82aRLDlwodFVoLiForxRdczJDBMunx0bda0=
+[2015-04-06 13:57:39.692] srvSecurekey: B2uijhc98N3Wc3Lncu7FMSJTLNnJ
+[2015-04-06 13:57:39.692] decData: AgGxorE/4qMsmx5WGYNUxz/mD3h3GQ==:AO1pIepIr0D7n23sLILQmAQdyqz6:6pARdD/gKiv3KQHpN3vCFw==
+[2015-04-06 13:57:39.692] # ERROR S203: (Client key generation error.)<br>
+[2015-04-06 13:57:39.692] # final ret code=203<br>
+[2015-04-06 13:58:31.486] # OKNAME v3.70 start!<br>
+[2015-04-06 13:58:31.486] # mode=IPIN_CKDEC<br>
+[2015-04-06 13:58:31.486] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 13:58:31.486] # argv[ 2](memid      )=V05280000000<br>
+[2015-04-06 13:58:31.486] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:58:31.486] # argv[ 4](cPubKey     )=AwJ92sC0YVXRtmruqFekXtxYou7NPQ==<br>
+[2015-04-06 13:58:31.486] # argv[ 5](cSig )=WGAuitZbtpRm8IIgY7Ga1Q==<br>
+[2015-04-06 13:58:31.486] # argv[ 6](EncData  )=EF56SbPrLQzsdLIn4vSiKdyCs0H9QfeZoYVLpRtgRuSuXoJLu0TuEy3Jaklp3Zi7HaH8oYY3pOo4Ab9BDopPJg1VX4P6XOzokaPNCLOZOdpnT4PrQJcijQj+1ma7bvu9bGwhE7xy5VKBM/X9aMsNKYm/Z8x20ATrb5pnA6yIHybtIg==<br>
+[2015-04-06 13:58:31.486] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:58:31.486] # argv[ 8](Option     )=SL<br>
+[2015-04-06 13:58:31.486] # Generating monthly key..
+[2015-04-06 13:58:31.487] pub1: AwMEgHZyjU3ekqNXH35Odur1WW3wpA==
+[2015-04-06 13:58:31.487] pri1: A/5UcMkIMLjQUMOv9EBrWZ2l9e6U
+[2015-04-06 13:58:31.487] sig1: pQ4mmFIdELyOsQQY/XlWiA==
+[2015-04-06 13:58:31.487] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:58:31.531] retmsg: AgVECYHNdIP5gseOMdwoPzLu5pp1OQ==:bd9EaoEaE8FML+FdA84JRQ==:/PfT0NobdXye7s4dtYmfuQP6yR89jMFAIbb6pey5CWgaGPSgPNJR01jpbm69b7Q1KsGgRXGg6HZOwq7DDp2wz2K8Z0HBPcKiOtgy51DMYDPgOV/SGNY=
+[2015-04-06 13:58:31.531] pub3: AgVECYHNdIP5gseOMdwoPzLu5pp1OQ==
+[2015-04-06 13:58:31.531] sig3: bd9EaoEaE8FML+FdA84JRQ==
+[2015-04-06 13:58:31.531] pub2pri2sig2: /PfT0NobdXye7s4dtYmfuQP6yR89jMFAIbb6pey5CWgaGPSgPNJR01jpbm69b7Q1KsGgRXGg6HZOwq7DDp2wz2K8Z0HBPcKiOtgy51DMYDPgOV/SGNY=
+[2015-04-06 13:58:31.533] srvSecurekey: Bqf1uopByVN+2gz898j5VjdZo+Xm
+[2015-04-06 13:58:31.533] decData: AgGxorE/4qMsmx5WGYNUxz/mD3h3GQ==:AO1pIepIr0D7n23sLILQmAQdyqz6:6pARdD/gKiv3KQHpN3vCFw==
+[2015-04-06 13:58:31.533] # Current month<br>
+[2015-04-06 13:58:31.533] # public_key   : AgGxorE/4qMsmx5WGYNUxz/mD3h3GQ==<br>
+[2015-04-06 13:58:31.533] # private_key  : AO1pIepIr0D7n23sLILQmAQdyqz6<br>
+[2015-04-06 13:58:31.533] # signature    : 6pARdD/gKiv3KQHpN3vCFw==<br>
+[2015-04-06 13:58:31.533] # Last month<br>
+[2015-04-06 13:58:31.533] # public_key1  : <br>
+[2015-04-06 13:58:31.533] # private_key1 : <br>
+[2015-04-06 13:58:31.533] # signature1   : <br>
+[2015-04-06 13:58:31.534] # clnPublicKey : AwJ92sC0YVXRtmruqFekXtxYou7NPQ==<br>
+[2015-04-06 13:58:31.534] # clnSignature : WGAuitZbtpRm8IIgY7Ga1Q==<br>
+[2015-04-06 13:58:31.534] # srvPrivateKey: AO1pIepIr0D7n23sLILQmAQdyqz6<br>
+[2015-04-06 13:58:31.534] # srvSecurekey : AIWP9XjRtO0ywGUWAcMcTjQuMCQv<br>
+[2015-04-06 13:58:31.534] # decData      : B085|이통사CP코드없음 - KT제휴사아이디 미설정|20150406135721937145|20150406135740| | | |강진우|19821203|1|1|02|01048752962| | | |x<br>
+[2015-04-06 13:58:31.534] B085
+[2015-04-06 13:58:31.534] 이통사CP코드없음 - KT제휴사아이디 미설정
+[2015-04-06 13:58:31.534] 20150406135721937145
+[2015-04-06 13:58:31.534] 20150406135740
+[2015-04-06 13:58:31.534]  
+[2015-04-06 13:58:31.535]  
+[2015-04-06 13:58:31.535]  
+[2015-04-06 13:58:31.535] 강진우
+[2015-04-06 13:58:31.535] 19821203
+[2015-04-06 13:58:31.535] 1
+[2015-04-06 13:58:31.535] 1
+[2015-04-06 13:58:31.535] 02
+[2015-04-06 13:58:31.535] 01048752962
+[2015-04-06 13:58:31.535]  
+[2015-04-06 13:58:31.535]  
+[2015-04-06 13:58:31.535]  
+[2015-04-06 13:58:31.535] x
+[2015-04-06 13:58:31.535] # final ret code=0<br>
+[2015-04-06 13:58:37.400] # OKNAME v3.70 start!<br>
+[2015-04-06 13:58:37.400] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 13:58:37.400] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 13:58:37.400] # argv[ 1](hs_cert_svc_tx_seqno)=2015040613583789498<br>
+[2015-04-06 13:58:37.400] # argv[ 2](nm)=강진우<br>
+[2015-04-06 13:58:37.400] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 13:58:37.400] # argv[ 4](sex)=1<br>
+[2015-04-06 13:58:37.400] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 13:58:37.400] # argv[ 6](var1)=02<br>
+[2015-04-06 13:58:37.400] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 13:58:37.400] # argv[ 8](var3)=0<br>
+[2015-04-06 13:58:37.400] # argv[ 9](var4)=0<br>
+[2015-04-06 13:58:37.400] # argv[10](var5)=0<br>
+[2015-04-06 13:58:37.400] # argv[11](return_msg)=x<br>
+[2015-04-06 13:58:37.400] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/madultfrm_popup2.php<br>
+[2015-04-06 13:58:37.400] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 13:58:37.400] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 13:58:37.400] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 13:58:37.400] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-04-06 13:58:37.400] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 13:58:37.400] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 13:58:37.400] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:58:37.400] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:58:37.400] # argv[21](option)=QL<br>
+[2015-04-06 13:58:37.400] # soap_timeout: 30000 ms<br>
+[2015-04-06 13:58:37.438] # key   : AgX9cATwRdx4P5joNkJ9rxO3i4kb+A==:hayW2JD2FuxKBnoXhyi1pw==<br>
+[2015-04-06 13:58:37.438] # spkey : AgX9cATwRdx4P5joNkJ9rxO3i4kb+A==<br>
+[2015-04-06 13:58:37.438] # ssig  : hayW2JD2FuxKBnoXhyi1pw==<br>
+[2015-04-06 13:58:37.440] # nm               : 강진우<br>
+[2015-04-06 13:58:37.440] # brdt             : 19821203<br>
+[2015-04-06 13:58:37.440] # e_nm             : 9XRQPPTi<br>
+[2015-04-06 13:58:37.440] # e_brdt           : dOCp9no8hI0=<br>
+[2015-04-06 13:58:37.440] # cpkey : AwdmYqc99oaRx/ZVt/+vOxlFfELFjA==<br>
+[2015-04-06 13:58:37.440] # csig  : Cng72zzgHGp1D5Rt3+n/XA==<br>
+[2015-04-06 13:58:37.483] retmsg: B+mh9HHPEAXlpcASRuu6rYd7gO0a6NYE3YrG27XKgtkH7s9sHWWk6Q4R10QgCVyzxJhwdIpbwtuh+ZozPtZFBx8DJdwl0qxfaeJ8S0BVyiNEmEyUog4fWjVuEQny3o94GfukW8hTB0+5ZSBW1CxLOdB9SDIINsOAaD7wvgXLhURkpmfFrLdlbO5L4Vlc8YIufqcipwdSH71On5Og2RxeIbIiovYAqrWc5zMnqvZsAEGjVJtHv5EV0Meh2bcl3Splaht4ljNYeNDaHnYWqZskoQyhuC5QoUhwNsuaEUk/apas4Q==
+[2015-04-06 13:58:37.483] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/Kc7jdYrBCbhPChZIKPHiV57AukMjVV3u0Tn3dngRyK1woSWETZ96WYDrjxLL63RDE6gWu9hKOrn/cRap7UOjcFBbtRzz9Jhz63MRkwMBGqzhWtDrnpPZuFYMblmtRP9FURXXyTdjZYuutCSani7Fg80AzdzjSF/jZPGvWeXSIArp1Hv2OiCbn1OTG8iOfF8xw==
+[2015-04-06 13:58:37.483] B000
+[2015-04-06 13:58:37.483] 정상
+[2015-04-06 13:58:37.483] kYFvkgmfTi0CDDkL3FAZ/Kc7jdYrBCbhPChZIKPHiV57AukMjVV3u0Tn3dngRyK1woSWETZ96WYDrjxLL63RDE6gWu9hKOrn/cRap7UOjcFBbtRzz9Jhz63MRkwMBGqzhWtDrnpPZuFYMblmtRP9FURXXyTdjZYuutCSani7Fg80AzdzjSF/jZPGvWeXSIArp1Hv2OiCbn1OTG8iOfF8xw==
+[2015-04-06 13:58:37.484] # final ret code=0<br>
+[2015-04-06 13:58:51.521] # OKNAME v3.70 start!<br>
+[2015-04-06 13:58:51.521] # mode=IPIN_CKDEC<br>
+[2015-04-06 13:58:51.521] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 13:58:51.521] # argv[ 2](memid      )=V05280000000<br>
+[2015-04-06 13:58:51.521] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 13:58:51.521] # argv[ 4](cPubKey     )=AgDbYVHiPYFAfSAXAd10VG1lhkR0Jg==<br>
+[2015-04-06 13:58:51.521] # argv[ 5](cSig )=+eUbJUzhw0bkj74pe1nqqQ==<br>
+[2015-04-06 13:58:51.521] # argv[ 6](EncData  )=m/f4hB5CsPhk4kDSto8ac7CexQARFL0Gsh6KpW/SmviMWd1cAUE6FWm9WwhsPYeU57RwtAIJ181YlEcd62ITWXBlNhi9laVp8ZSB7zwyfucDzVsTg75TWwwZu8CjUZM3fA22w/WweYzqMl3Kk/XY8U98Pyde/Pk7i2IgcFpmmbXw<br>
+[2015-04-06 13:58:51.521] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 13:58:51.521] # argv[ 8](Option     )=SL<br>
+[2015-04-06 13:58:51.523] # clnPublicKey : AgDbYVHiPYFAfSAXAd10VG1lhkR0Jg==<br>
+[2015-04-06 13:58:51.523] # clnSignature : +eUbJUzhw0bkj74pe1nqqQ==<br>
+[2015-04-06 13:58:51.523] # srvPrivateKey: AO1pIepIr0D7n23sLILQmAQdyqz6<br>
+[2015-04-06 13:58:51.523] # srvSecurekey : ABDo1ZjAALeKUkQtfNe4ULeeX0bt<br>
+[2015-04-06 13:58:51.523] # decData      : B085|이통사CP코드없음 - KT제휴사아이디 미설정|2015040613583789498|20150406135852| | | |강진우|19821203|1|1|02|01048752962| | | |x<br>
+[2015-04-06 13:58:51.523] B085
+[2015-04-06 13:58:51.523] 이통사CP코드없음 - KT제휴사아이디 미설정
+[2015-04-06 13:58:51.523] 2015040613583789498
+[2015-04-06 13:58:51.523] 20150406135852
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523] 강진우
+[2015-04-06 13:58:51.523] 19821203
+[2015-04-06 13:58:51.523] 1
+[2015-04-06 13:58:51.523] 1
+[2015-04-06 13:58:51.523] 02
+[2015-04-06 13:58:51.523] 01048752962
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523]  
+[2015-04-06 13:58:51.523] x
+[2015-04-06 13:58:51.523] # final ret code=0<br>
+[2015-04-06 14:06:23.325] # OKNAME v3.70 start!<br>
+[2015-04-06 14:06:23.325] # mode=HS_CNFRM_POPUP<br>
+[2015-04-06 14:06:23.325] # Parameter IP: 	114.108.128.129<br>
+[2015-04-06 14:06:23.325] # argv[ 1](hs_cert_svc_tx_seqno)=2015040614062389775<br>
+[2015-04-06 14:06:23.326] # argv[ 2](nm)=강진우<br>
+[2015-04-06 14:06:23.326] # argv[ 3](brdt)=19821203<br>
+[2015-04-06 14:06:23.326] # argv[ 4](sex)=1<br>
+[2015-04-06 14:06:23.326] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-04-06 14:06:23.326] # argv[ 6](var1)=02<br>
+[2015-04-06 14:06:23.326] # argv[ 7](var2)=01048752962<br>
+[2015-04-06 14:06:23.326] # argv[ 8](var3)=0<br>
+[2015-04-06 14:06:23.326] # argv[ 9](var4)=0<br>
+[2015-04-06 14:06:23.326] # argv[10](var5)=0<br>
+[2015-04-06 14:06:23.326] # argv[11](return_msg)=x<br>
+[2015-04-06 14:06:23.326] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/madultfrm_popup2.php<br>
+[2015-04-06 14:06:23.326] # argv[13](in_tp_bit)=15<br>
+[2015-04-06 14:06:23.326] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-04-06 14:06:23.326] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-04-06 14:06:23.326] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-04-06 14:06:23.326] # argv[17](server_ip)=114.108.128.129<br>
+[2015-04-06 14:06:23.326] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-04-06 14:06:23.326] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 14:06:23.326] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 14:06:23.326] # argv[21](option)=QL<br>
+[2015-04-06 14:06:23.326] # soap_timeout: 30000 ms<br>
+[2015-04-06 14:06:23.363] # key   : AwVdnzHHIwefGzhU1FTGt0iD9wEBzA==:ubSiE7R1RmQUWw050icO/A==<br>
+[2015-04-06 14:06:23.363] # spkey : AwVdnzHHIwefGzhU1FTGt0iD9wEBzA==<br>
+[2015-04-06 14:06:23.363] # ssig  : ubSiE7R1RmQUWw050icO/A==<br>
+[2015-04-06 14:06:23.365] # nm               : 강진우<br>
+[2015-04-06 14:06:23.365] # brdt             : 19821203<br>
+[2015-04-06 14:06:23.365] # e_nm             : fS2D9pe0<br>
+[2015-04-06 14:06:23.365] # e_brdt           : /Ll6PBlqh3I=<br>
+[2015-04-06 14:06:23.365] # cpkey : AwaGuEgKCjj/4lgDKodfqco5Xgn6yg==<br>
+[2015-04-06 14:06:23.365] # csig  : nmVuRBsXA2i/4ba+t+Yq4Q==<br>
+[2015-04-06 14:06:23.417] retmsg: j7ByPhKZE/qn5SGT3/jWU4rJvGF1J3vQNymqle5h65uo6KRxKjaGBgo7QlDKevOI/1OsvuvaxKDfiaie7tkpew/hTS45mHv6ieXO0Vx3SggMFEbDOmuM1JhSjCdtEU+5LqWCmJwfTpZREbbwl8J8XM2iJDshWZ2yETNP5VWblcMPeiSKyveOpGxtq5pwmuUxxEKYnRjOF5IDyjFumixP3uSkcoxzClLBM2ohXSHs5STDTZbA8MDuZfBFrTRgM20e/iquFbueSIl3K96Qa/09vIaunYVyfSyT7Dgc9NGYka+T6Q==
+[2015-04-06 14:06:23.417] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/Df3dxIjkzkB9BFJjxN9V7EnrDawjU7PbWlxq2T4EG+HhRS4uN9QGRXcMMSe2ChwWVZQdZlxoQJFfh2BlNMyde2S1fO5GWGzE1qnC5iVCXZOe8N7rRDCeRlp62jUTPLImvjXYcDwfEu5+x0T8UsFnl44eJgBQLsQghrBl8tk/Tt1s+1i07YvvgZQh76ptYOcEw==
+[2015-04-06 14:06:23.417] B000
+[2015-04-06 14:06:23.417] 정상
+[2015-04-06 14:06:23.417] kYFvkgmfTi0CDDkL3FAZ/Df3dxIjkzkB9BFJjxN9V7EnrDawjU7PbWlxq2T4EG+HhRS4uN9QGRXcMMSe2ChwWVZQdZlxoQJFfh2BlNMyde2S1fO5GWGzE1qnC5iVCXZOe8N7rRDCeRlp62jUTPLImvjXYcDwfEu5+x0T8UsFnl44eJgBQLsQghrBl8tk/Tt1s+1i07YvvgZQh76ptYOcEw==
+[2015-04-06 14:06:23.417] # final ret code=0<br>
+[2015-04-06 14:06:59.913] # OKNAME v3.70 start!<br>
+[2015-04-06 14:06:59.913] # mode=IPIN_CKDEC<br>
+[2015-04-06 14:06:59.913] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-04-06 14:06:59.913] # argv[ 2](memid      )=V05280000000<br>
+[2015-04-06 14:06:59.913] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-04-06 14:06:59.913] # argv[ 4](cPubKey     )=AgE0QjyrwYB8T056o9x2Soyz4uVWZQ==<br>
+[2015-04-06 14:06:59.913] # argv[ 5](cSig )=ExAtUVHREbfxrXw/2hK3ZQ==<br>
+[2015-04-06 14:06:59.913] # argv[ 6](EncData  )=xdxorzE57gxDyqF+ITTFJ7vDd/I1sOD64vumlj0GVELBps7adrEvADEjorm2IaEtev/R/DUDbrybcS8PBljH1k7aMx0VRa1VRsszUjDYkmc8QjjBkCyTrbvrh+6H5sOwSkua62C9Z/gWWWHm+kc5RQmR2P0cwMJ1KjW8Q5+Hm2maIvUz7lhyk1XHsvk2qh2KL6Ofc2Zzibd2kF3k3Uccx9Gw2HNDHcmhCpu/F2D69XVXeJOyxbLpjozfqdF9Yx4/FD5wVArgGtpbO3RYTFL+e/NarTYCiDNr6mnohpqutEptUXhCoauGbnr5wkIEtLrHG5E2nBh21t7JuJPP<br>
+[2015-04-06 14:06:59.913] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-04-06 14:06:59.913] # argv[ 8](Option     )=SL<br>
+[2015-04-06 14:06:59.914] # clnPublicKey : AgE0QjyrwYB8T056o9x2Soyz4uVWZQ==<br>
+[2015-04-06 14:06:59.915] # clnSignature : ExAtUVHREbfxrXw/2hK3ZQ==<br>
+[2015-04-06 14:06:59.915] # srvPrivateKey: AO1pIepIr0D7n23sLILQmAQdyqz6<br>
+[2015-04-06 14:06:59.915] # srvSecurekey : ATORF0H9fDjvd+wqachcAyriLIXj<br>
+[2015-04-06 14:06:59.915] # decData      : B000|본인인증 완료|2015040614062389775|20150406140648|MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==| |강진우|19821203|1|1|02|01048752962| | | |x<br>
+[2015-04-06 14:06:59.915] B000
+[2015-04-06 14:06:59.915] 본인인증 완료
+[2015-04-06 14:06:59.915] 2015040614062389775
+[2015-04-06 14:06:59.915] 20150406140648
+[2015-04-06 14:06:59.915] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2015-04-06 14:06:59.915] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2015-04-06 14:06:59.915]  
+[2015-04-06 14:06:59.915] 강진우
+[2015-04-06 14:06:59.915] 19821203
+[2015-04-06 14:06:59.915] 1
+[2015-04-06 14:06:59.915] 1
+[2015-04-06 14:06:59.915] 02
+[2015-04-06 14:06:59.915] 01048752962
+[2015-04-06 14:06:59.915]  
+[2015-04-06 14:06:59.915]  
+[2015-04-06 14:06:59.915]  
+[2015-04-06 14:06:59.915] x
+[2015-04-06 14:06:59.915] # final ret code=0<br>

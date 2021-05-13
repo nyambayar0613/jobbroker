@@ -1,0 +1,104 @@
+2017-09-17 10:04:59==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=d550aad6e70d55b10e5834b405541258e8ca297921703381f151674fc53dc685&type=approve&
+2017-09-17 10:04:59==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 응답","status":"ok","data":{"AdmTime":"20170917100459","EscrowSendNo":"","DealWon":"000000001000","DealNo":"508466","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1505610229","CardName":"현대","SendNo":"508466","CardName2":"현대","CardType":"0800","AdmNo":"10171436","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1505610229","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20170917100403723277","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:04:59==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=d550aad6e70d55b10e5834b405541258e8ca297921703381f151674fc53dc685&admNo=&sendNo=&admDt=&NetCancelId=AEGIS_VISAaegis_20170917100403723277&type=cancel&
+2017-09-17 10:04:59==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 취소 응답","status":"ok","data":{"PartialMM":"00","DealTime":"20170917100459","CardName":"현대","OrderNo":"netkorea_1505610229","StoreId":"aegis","DealWon":"1000","CardType":"0800","Success":"y","Code":"S000","AgentNo":"151189489","AdmNo":"10171436","PayType":"card","NetCancelId":"AEGIS_VISAaegis_20170917100403723277","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:08:04==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=d550aad6e70d55b10e5834b405541258e8ca297921703381f151674fc53dc685&type=approve&
+2017-09-17 10:08:04==>
+
+
+
+
+
+
+
+
+
+{"message":"이미 승인된 결제입니다","status":"error","code":"400"}
+
+2017-09-17 10:08:04==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=d550aad6e70d55b10e5834b405541258e8ca297921703381f151674fc53dc685&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-17 10:08:04==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 취소 응답","status":"ok","data":{"FailReason":"입력 데이타 오류 또는 소켓 오류","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:10:26==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=3843ba58f44292593b6e5eccee04a7a9f78ba26cfe65c9b18d40a7b83958286f&type=approve&
+2017-09-17 10:10:26==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 응답","status":"ok","data":{"AdmTime":"20170917101027","EscrowSendNo":"","DealWon":"000000001000","DealNo":"508562","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1505610560","CardName":"현대","SendNo":"508562","CardName2":"현대","CardType":"0800","AdmNo":"10171437","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1505610560","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20170917100938482786","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:10:26==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=3843ba58f44292593b6e5eccee04a7a9f78ba26cfe65c9b18d40a7b83958286f&admNo=&sendNo=&admDt=&NetCancelId=AEGIS_VISAaegis_20170917100938482786&type=cancel&
+2017-09-17 10:10:26==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 취소 응답","status":"ok","data":{"PartialMM":"00","DealTime":"20170917101027","CardName":"현대","OrderNo":"netkorea_1505610560","StoreId":"aegis","DealWon":"1000","CardType":"0800","Success":"y","Code":"S000","AgentNo":"151189489","AdmNo":"10171437","PayType":"card","NetCancelId":"AEGIS_VISAaegis_20170917100938482786","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:28:57==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=b8a777dd61c8b76402f97c31b62a25a30009907f12364cfd37fc67f4f241b9c8&type=approve&
+2017-09-17 10:28:57==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 응답","status":"ok","data":{"AdmTime":"20170917102858","EscrowSendNo":"","DealWon":"000000001000","DealNo":"508886","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1505611497","CardName":"현대","SendNo":"508886","CardName2":"현대","CardType":"0800","AdmNo":"10171439","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1505611497","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20170917102751844177","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-17 10:28:57==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=b8a777dd61c8b76402f97c31b62a25a30009907f12364cfd37fc67f4f241b9c8&admNo=&sendNo=&admDt=&NetCancelId=AEGIS_VISAaegis_20170917102751844177&type=cancel&
+2017-09-17 10:28:57==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 취소 응답","status":"ok","data":{"PartialMM":"00","DealTime":"20170917102858","CardName":"현대","OrderNo":"netkorea_1505611497","StoreId":"aegis","DealWon":"1000","CardType":"0800","Success":"y","Code":"S000","AgentNo":"151189489","AdmNo":"10171439","PayType":"card","NetCancelId":"AEGIS_VISAaegis_20170917102751844177","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+

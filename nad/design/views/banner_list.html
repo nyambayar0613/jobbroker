@@ -1,0 +1,183 @@
+		
+		<tr>
+			<td rowspan="3"><input type="checkbox" name='no[]' class='check_all' value=""></td>
+			<td class="none num3" rowspan="3">
+				<a class="none iconcol" onclick="change_rank('up',this);">▲</a>
+				<a class="none iconcol" onclick="change_rank('down',this);">▼</a>
+			</td>
+			<td class="none num3">
+				<a class="none" onclick="change_rank('up',this);">▲</a>
+				<a class="none" onclick="change_rank('down',this);">▼</a>
+			</td>
+			<td class="tl ">
+				<dl class="fon11 psr mb3">
+					<span  class="banner mr5">등록사이즈 : 630px x 140px</span><span class="banner"> URL : http://news.netfu.co.kr/n_news/etc/ad.html </span><br>	
+					<img src="http://curation.netfu.co.kr/n_curat/data/banner/31508438_p4YTIC8h_31508438_V5we0H4p_ban.jpg">
+					<dt class="prt">
+						<span id="views_"><a onclick="banner_views('','');" class="btn"><h1 class="btn18"><strong>X</strong>미사용</h1></a></span>
+						<span id="targets_"><a onclick="banner_targets('','');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a></span>
+					</dt>
+				</dl>
+			</td>
+			<td rowspan="3">
+				<div class="pb2">
+					<select onchange="" name="">
+					<option value="">롤링배너</option>
+					<option value="">고정배너</option>
+					</select>
+				</div>
+				<div  class="pb2">
+					<select onchange="" name="">
+					<option value="">우측방향</option>
+					<option value="">좌측방향</option>
+					<option value="">위 방향</option>
+					<option value="">아래방향</option>
+					</select>
+				</div>
+				<div style=""><input type="text" style="width:30px; "  class="txt" name=""> 초</div>
+			</td>
+			<td class="num3 ">2012-11-02</td>
+			<td><a onclick="update_banner('update','');"><img src="../../images/btn/19_05.gif"></a></td>
+			<td  class="e"><a onclick="delete_banner('');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<tr>
+			<td class="none num3">
+				<a class="none" onclick="change_rank('up',this);">▲</a>
+				<a class="none" onclick="change_rank('down',this);">▼</a>
+			</td>
+			<td class="tl ">111
+				<dl class="fon11 psr mb3">
+					<span  class="banner mr5">등록사이즈 : 630px x 140px</span><span class="banner"> URL : http://news.netfu.co.kr/n_news/etc/ad.html </span><br>	
+					<img src="http://curation.netfu.co.kr/n_curat/data/banner/31508438_p4YTIC8h_31508438_V5we0H4p_ban.jpg">
+					<dt class="prt">
+						<span id="views_"><a onclick="banner_views('','');" class="btn"><h1 class="btn18"><strong>X</strong>미사용</h1></a></span>
+						<span id="targets_"><a onclick="banner_targets('','');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a></span>
+					</dt>
+				</dl>
+			</td>
+			<td class="num3 ">2012-11-02</td>
+			<td><a onclick="update_banner('update','');"><img src="../../images/btn/19_05.gif"></a></td>
+			<td  class="e"><a onclick="delete_banner('');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<tr>
+			<td class="none num3">
+				<a class="none" onclick="change_rank('up',this);">▲</a>
+				<a class="none" onclick="change_rank('down',this);">▼</a>
+			</td>
+			<td class="tl ">111
+				<dl class="fon11 psr mb3">
+					<span  class="banner mr5">등록사이즈 : 630px x 140px</span><span class="banner"> URL : http://news.netfu.co.kr/n_news/etc/ad.html </span><br>	
+					<img src="http://curation.netfu.co.kr/n_curat/data/banner/31508438_p4YTIC8h_31508438_V5we0H4p_ban.jpg">
+					<dt class="prt">
+						<span id="views_"><a onclick="banner_views('','');" class="btn"><h1 class="btn18"><strong>X</strong>미사용</h1></a></span>
+						<span id="targets_"><a onclick="banner_targets('','');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a></span>
+					</dt>
+				</dl>
+			</td>
+			<td class="num3 ">2012-11-02</td>
+			<td><a onclick="update_banner('update','');"><img src="../../images/btn/19_05.gif"></a></td>
+			<td  class="e"><a onclick="delete_banner('');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+
+<table width="100%" class="ttlt">
+<colgroup><col width="30"><col width="60"><col width="90"><col width="60"><col><col width="76"><col width="56"><col width="56"></colgroup>
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+    <td>그룹순서</td>
+	<td>배너설정</td>
+    <td>순서</td>
+    <td>배너정보</td>
+    <td>등록일</td>
+    <td>수정</td>
+	<td class="e">삭제</td>
+</tr> 
+
+	<tbody>
+	<?php 
+	foreach($banner_group_list as $group){ 
+		$p_no = $group['p_no'];
+		$banner_list = $banner_control->banner_list(" where `p_no` = '".$p_no."' ");
+		$banner_list_cnt = $banner_list['total_count'];
+		$rowspan = ($banner_list_cnt > 1) ? "rowspan='".$banner_list_cnt."'" : "";
+		for($i=0;$i<$banner_list_cnt;$i++){
+			$vals = $banner_list['result'][$i];
+			if($i==0){
+	?>
+			<tr>
+				<td <?php echo $rowspan;?>><input type="checkbox" name='no[]' class='check_all' value=""></td>
+				<td class="none num3" <?php echo $rowspan;?>>
+					<a class="none iconcol" onclick="change_rank('up',this);">▲</a>
+					<a class="none iconcol" onclick="change_rank('down',this);">▼</a>
+				</td>
+				<td <?php echo $rowspan;?>>
+					<div class="pb2">
+						<select onchange="" name="">
+						<option value="">롤링배너</option>
+						<option value="">고정배너</option>
+						</select>
+					</div>
+					<div  class="pb2">
+						<select onchange="" name="">
+						<option value="">우측방향</option>
+						<option value="">좌측방향</option>
+						<option value="">위 방향</option>
+						<option value="">아래방향</option>
+						</select>
+					</div>
+					<div style=""><input type="text" style="width:30px; "  class="txt" name=""> 초</div>
+					<!-- 
+					<div class="pb10">
+						<select onchange="" name="">
+						<option value="">순차변경</option>
+						<option value="">랜덤변경</option>
+						</select>
+					</div>
+					<div class="fon11 col" style="line-height:1.2;">고정배너는</br> 새로고침 시</br> 변경 됩니다.</div> 
+					-->
+				</td>
+				<td class="none num3">
+					<a class="none" onclick="change_rank('up',this);">▲</a>
+					<a class="none" onclick="change_rank('down',this);">▼</a>
+				</td>
+				<td class="tl">
+					<dl class="fon11 psr mb3">
+						<span  class="banner mr5">등록사이즈 : 630px x 140px</span><span class="banner"> URL : http://news.netfu.co.kr/n_news/etc/ad.html </span><br>	
+						<img src="http://curation.netfu.co.kr/n_curat/data/banner/31508438_p4YTIC8h_31508438_V5we0H4p_ban.jpg">
+						<dt class="prt">
+							<span id="views_"><a onclick="banner_views('','');" class="btn"><h1 class="btn18"><strong>X</strong>미사용</h1></a></span>
+							<span id="targets_"><a onclick="banner_targets('','');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a></span>
+						</dt>
+					</dl>
+				</td>
+				<td class="num3 ">2012-11-02</td>
+				<td><a onclick="update_banner('update','');"><img src="../../images/btn/19_05.gif"></a></td>
+				<td class="e"><a onclick="delete_banner('');"><img src="../../images/btn/19_06.gif"></a></td>
+			</tr>
+			<?php } else { ?>
+			<tr>
+				<td class="none num3">
+					<a class="none" onclick="change_rank('up',this);">▲</a>
+					<a class="none" onclick="change_rank('down',this);">▼</a>
+				</td>
+				<td class="tl ">111
+					<dl class="fon11 psr mb3">
+						<span  class="banner mr5">등록사이즈 : 630px x 140px</span><span class="banner"> URL : http://news.netfu.co.kr/n_news/etc/ad.html </span><br>	
+						<img src="http://curation.netfu.co.kr/n_curat/data/banner/31508438_p4YTIC8h_31508438_V5we0H4p_ban.jpg">
+						<dt class="prt">
+							<span id="views_"><a onclick="banner_views('','');" class="btn"><h1 class="btn18"><strong>X</strong>미사용</h1></a></span>
+							<span id="targets_"><a onclick="banner_targets('','');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a></span>
+						</dt>
+					</dl>
+				</td>
+				<td class="num3 ">2012-11-02</td>
+				<td><a onclick="update_banner('update','');"><img src="../../images/btn/19_05.gif"></a></td>
+				<td  class="e"><a onclick="delete_banner('');"><img src="../../images/btn/19_06.gif"></a></td>
+			</tr>
+	<?php 
+			}	// count if end.
+		} // banner list foreach end. 
+	} // group foreach end. 
+	?>
+	</tbody>
+
+</table>

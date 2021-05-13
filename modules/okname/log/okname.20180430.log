@@ -1,0 +1,13 @@
+[2018-04-30 08:59:08.571] # OKNAME v3.70 start!<br>
+[2018-04-30 08:59:08.571] # mode=IPIN_CKEY<br>
+[2018-04-30 08:59:08.571] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-30 08:59:08.571] # argv[ 2](memid      )=V05280T00000<br>
+[2018-04-30 08:59:08.571] # argv[ 3](reserved1  )=0<br>
+[2018-04-30 08:59:08.571] # argv[ 4](reserved2  )=0<br>
+[2018-04-30 08:59:08.572] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-04-30 08:59:08.572] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-30 08:59:08.572] # argv[ 7](Option     )=CL<br>
+[2018-04-30 08:59:08.572] AgM9K9j0Pw1SPofL6zV9W8weBiUTBw==
+[2018-04-30 08:59:08.572] xCG4VDybg/k1gkXUeo/e+Q==
+[2018-04-30 08:59:08.572] 20180430085908572720
+[2018-04-30 08:59:08.572] # final ret code=0<br>

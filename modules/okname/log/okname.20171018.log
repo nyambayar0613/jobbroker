@@ -1,0 +1,105 @@
+[2017-10-18 17:07:03.484] # OKNAME v3.70 start!<br>
+[2017-10-18 17:07:03.486] # mode=IPIN_CKEY<br>
+[2017-10-18 17:07:03.486] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2017-10-18 17:07:03.486] # argv[ 2](memid      )=V05280000000<br>
+[2017-10-18 17:07:03.486] # argv[ 3](reserved1  )=0<br>
+[2017-10-18 17:07:03.486] # argv[ 4](reserved2  )=0<br>
+[2017-10-18 17:07:03.486] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2017-10-18 17:07:03.486] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2017-10-18 17:07:03.486] # argv[ 7](Option     )=CL<br>
+[2017-10-18 17:07:03.486] # Generating monthly key..
+[2017-10-18 17:07:03.487] pub1: AwQ7O+am+oYxcrH30oaN0eD7040ECA==
+[2017-10-18 17:07:03.487] pri1: AXu0UugtNiFXjeoPmLp4IJzObmXR
+[2017-10-18 17:07:03.487] sig1: UusdloRkirD+meIIiTp08Q==
+[2017-10-18 17:07:03.487] # soap_timeout: 30000 ms<br>
+[2017-10-18 17:07:03.730] retmsg: AgSKhcHaIP63HMCclBY9Yf8QzmwqqA==:TvwKodPjfJI7UdImBeDyxg==:fYOia3ByOYpGWKM0b01UB0NjQDCaEFh4NJw+D/TMduVkysdIgKnCqMOE4HXSOXcqG+tmws6aPv2UGCdxdzRPJc4PoCvgRMISACE08s9XHMuhwn5Snc4=
+[2017-10-18 17:07:03.730] pub3: AgSKhcHaIP63HMCclBY9Yf8QzmwqqA==
+[2017-10-18 17:07:03.730] sig3: TvwKodPjfJI7UdImBeDyxg==
+[2017-10-18 17:07:03.730] pub2pri2sig2: fYOia3ByOYpGWKM0b01UB0NjQDCaEFh4NJw+D/TMduVkysdIgKnCqMOE4HXSOXcqG+tmws6aPv2UGCdxdzRPJc4PoCvgRMISACE08s9XHMuhwn5Snc4=
+[2017-10-18 17:07:03.731] srvSecurekey: BVcUdiKNJlP3CYinNNZH2Hm5mxvR
+[2017-10-18 17:07:03.732] decData: AgTcX7WynGlP04CSTSZp+aTcg3OLjg==:AlBvlU+A1s+oZ7LIrocEyQVIEbKQ:E7Z0a+jokZLjzb6CC+3whA==
+[2017-10-18 17:07:03.754] # Current month<br>
+[2017-10-18 17:07:03.754] # public_key   : AgTcX7WynGlP04CSTSZp+aTcg3OLjg==<br>
+[2017-10-18 17:07:03.754] # private_key  : AlBvlU+A1s+oZ7LIrocEyQVIEbKQ<br>
+[2017-10-18 17:07:03.754] # signature    : E7Z0a+jokZLjzb6CC+3whA==<br>
+[2017-10-18 17:07:03.754] # Last month<br>
+[2017-10-18 17:07:03.754] # public_key1  : AgDrp4o4qh5rPEpWqjGVTW2IyiEfSg==<br>
+[2017-10-18 17:07:03.754] # private_key1 : Ayf2jAVGPfXnlRKkqdpDrJ+8qSwd<br>
+[2017-10-18 17:07:03.754] # signature1   : rsNJWLdj+AZkppNxkpO5RA==<br>
+[2017-10-18 17:07:03.754] AgTcX7WynGlP04CSTSZp+aTcg3OLjg==
+[2017-10-18 17:07:03.754] E7Z0a+jokZLjzb6CC+3whA==
+[2017-10-18 17:07:03.754] 20171018170703754909
+[2017-10-18 17:07:03.754] # final ret code=0<br>
+[2017-10-18 17:08:26.677] # OKNAME v3.70 start!<br>
+[2017-10-18 17:08:26.677] # mode=HS_CNFRM_POPUP<br>
+[2017-10-18 17:08:26.677] # Parameter IP: 	114.108.128.129<br>
+[2017-10-18 17:08:26.678] # argv[ 1](hs_cert_svc_tx_seqno)=2017101817082614528<br>
+[2017-10-18 17:08:26.678] # argv[ 2](nm)=유대성<br>
+[2017-10-18 17:08:26.678] # argv[ 3](brdt)=19780107<br>
+[2017-10-18 17:08:26.678] # argv[ 4](sex)=1<br>
+[2017-10-18 17:08:26.678] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2017-10-18 17:08:26.678] # argv[ 6](var1)=03<br>
+[2017-10-18 17:08:26.678] # argv[ 7](var2)=01030367085<br>
+[2017-10-18 17:08:26.678] # argv[ 8](var3)=0<br>
+[2017-10-18 17:08:26.678] # argv[ 9](var4)=0<br>
+[2017-10-18 17:08:26.678] # argv[10](var5)=0<br>
+[2017-10-18 17:08:26.678] # argv[11](return_msg)=x<br>
+[2017-10-18 17:08:26.678] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/madultfrm_popup2.php<br>
+[2017-10-18 17:08:26.678] # argv[13](in_tp_bit)=15<br>
+[2017-10-18 17:08:26.678] # argv[14](hs_cert_msr_cd)=10<br>
+[2017-10-18 17:08:26.678] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2017-10-18 17:08:26.678] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2017-10-18 17:08:26.678] # argv[17](server_ip)=114.108.128.129<br>
+[2017-10-18 17:08:26.678] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2017-10-18 17:08:26.678] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2017-10-18 17:08:26.678] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2017-10-18 17:08:26.678] # argv[21](option)=QL<br>
+[2017-10-18 17:08:26.678] # soap_timeout: 30000 ms<br>
+[2017-10-18 17:08:26.712] # key   : AgPVNbaMoNq4X7O2s/cdsKiq1xfrFg==:s1gUnIpXB13HcmSC/mMSSg==<br>
+[2017-10-18 17:08:26.712] # spkey : AgPVNbaMoNq4X7O2s/cdsKiq1xfrFg==<br>
+[2017-10-18 17:08:26.712] # ssig  : s1gUnIpXB13HcmSC/mMSSg==<br>
+[2017-10-18 17:08:26.714] # nm               : 유대성<br>
+[2017-10-18 17:08:26.714] # brdt             : 19780107<br>
+[2017-10-18 17:08:26.714] # e_nm             : 5JJtxt0z<br>
+[2017-10-18 17:08:26.714] # e_brdt           : FQTuFVG44vg=<br>
+[2017-10-18 17:08:26.714] # cpkey : AgcRRyOEZGmbfBUCh0WgqkHBn5F4ag==<br>
+[2017-10-18 17:08:26.714] # csig  : IKvyh16VhvOvlEEkDq2MOA==<br>
+[2017-10-18 17:08:26.765] retmsg: Zg3pHVtIdnRdgwtUlD4P0OwdnvQhQyhyTm+UOFhdxNNZIhco4DU28A+nlKzhc6nkQwgjbVQjmcxch/tGGDxKkZlZ0plzDq15jvBxDqtUFUSwPTupHL+oGCCkS4sbE3hb7gNuVLxL/bzq33jG5sRmOzhMSK8VfbPvAsCT/RLxADhQ8NwJ6RCdEeeadJmerHm5PQ8Vfe/Vg1rWYty12QsS3B1/ipYoKtWZ1U6xP9+1SYlZDAih1tX9dESLAfx3+2nyMydaUb2l0GjzLvjF+cg351EHZKc4vybKnmd/9PdB6fZNzW1lXAW/boPH4Z2aHI/d/yjW+J1vpCI/ItBw8TVzEaa1hZWyBJkCQlw=
+[2017-10-18 17:08:26.765] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/CrUep8HF+KwHQVPF6fGhq1RyzwryHoHFh5oFTp0lKkHNYqUp63QnxIcMH35pv9dljy/julERqcul7UpZ6/ECdSeJByoenLFl1UojOGzOHK0VtGDY8qeaUrbJRCfAp5jPJi7E8djyNPpiG0SBn0luvSYuOYIED91+881jeE3mp+N/p6nJ0nF80528oF1RhEqR5Xi4B3YttDYwE0DHNVfBLQnluUXzMAEMktd5mqIr4t2
+[2017-10-18 17:08:26.765] B000
+[2017-10-18 17:08:26.765] 정상
+[2017-10-18 17:08:26.765] kYFvkgmfTi0CDDkL3FAZ/CrUep8HF+KwHQVPF6fGhq1RyzwryHoHFh5oFTp0lKkHNYqUp63QnxIcMH35pv9dljy/julERqcul7UpZ6/ECdSeJByoenLFl1UojOGzOHK0VtGDY8qeaUrbJRCfAp5jPJi7E8djyNPpiG0SBn0luvSYuOYIED91+881jeE3mp+N/p6nJ0nF80528oF1RhEqR5Xi4B3YttDYwE0DHNVfBLQnluUXzMAEMktd5mqIr4t2
+[2017-10-18 17:08:26.765] # final ret code=0<br>
+[2017-10-18 17:09:17.939] # OKNAME v3.70 start!<br>
+[2017-10-18 17:09:17.940] # mode=IPIN_CKDEC<br>
+[2017-10-18 17:09:17.940] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2017-10-18 17:09:17.940] # argv[ 2](memid      )=V05280000000<br>
+[2017-10-18 17:09:17.940] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2017-10-18 17:09:17.940] # argv[ 4](cPubKey     )=AwU8L+iRdxZnGSshtsrzMr1V9Q6k5A==<br>
+[2017-10-18 17:09:17.940] # argv[ 5](cSig )=cRYmShswSEHs1fEG7120jg==<br>
+[2017-10-18 17:09:17.940] # argv[ 6](EncData  )=7kZUIBjuM0lPspvQvtMHDmhEvwJTzCZAVVVpEobUyfCcrXFRHQQKrOYwdUn/66aml5xrJQRwzdzti4sxjoU1vs6CtQ/GyKZxs4HDheHvrJdN86YpO/5ev3qZkQL1KTJw/IPXzBYhz6E32E/7kxmsuPqKSSYg3h1NuaIW2Y+1WElyRoC7Vu89ZSIdwgMrGq9+uSnNN8wjwnIQhUcRgKZqGoKsnvKk8SrAkx2Sf1lp+EnzasddBVJgqs+d5ft4brpQDYdsZD6JdfNGm+aNqNH79/Ee3+8A3ScQO5L00+luvb+D9RH43js3sG+9HChOFLKVEPHxPQOLNPFSrLbI<br>
+[2017-10-18 17:09:17.940] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2017-10-18 17:09:17.940] # argv[ 8](Option     )=SL<br>
+[2017-10-18 17:09:17.941] # clnPublicKey : AwU8L+iRdxZnGSshtsrzMr1V9Q6k5A==<br>
+[2017-10-18 17:09:17.941] # clnSignature : cRYmShswSEHs1fEG7120jg==<br>
+[2017-10-18 17:09:17.941] # srvPrivateKey: AlBvlU+A1s+oZ7LIrocEyQVIEbKQ<br>
+[2017-10-18 17:09:17.941] # srvSecurekey : B6Pcgt5wpH6DKttN8VkJcj4HAcdC<br>
+[2017-10-18 17:09:17.941] # decData      : B000|본인인증 완료|2017101817082614528|20171018170850|MC0GCCqGSIb3DQIJAyEAPflgjSJDJc1jLK1ITPiScQtR8y64QFniWTtbRqyrMbs=|ISvrO/CjTAwlXqbD+PDpL38kdwc5Io2D8hUJ64QPyvp2X8vAUl0XuPR/Iz5wHkK1iAA4D0gHjfkWSwC2GMfoWw==| |유대성|19780107|1|1|03|01030367085| | | |x<br>
+[2017-10-18 17:09:17.941] B000
+[2017-10-18 17:09:17.941] 본인인증 완료
+[2017-10-18 17:09:17.941] 2017101817082614528
+[2017-10-18 17:09:17.941] 20171018170850
+[2017-10-18 17:09:17.941] MC0GCCqGSIb3DQIJAyEAPflgjSJDJc1jLK1ITPiScQtR8y64QFniWTtbRqyrMbs=
+[2017-10-18 17:09:17.941] ISvrO/CjTAwlXqbD+PDpL38kdwc5Io2D8hUJ64QPyvp2X8vAUl0XuPR/Iz5wHkK1iAA4D0gHjfkWSwC2GMfoWw==
+[2017-10-18 17:09:17.941]  
+[2017-10-18 17:09:17.941] 유대성
+[2017-10-18 17:09:17.942] 19780107
+[2017-10-18 17:09:17.942] 1
+[2017-10-18 17:09:17.942] 1
+[2017-10-18 17:09:17.942] 03
+[2017-10-18 17:09:17.942] 01030367085
+[2017-10-18 17:09:17.942]  
+[2017-10-18 17:09:17.942]  
+[2017-10-18 17:09:17.942]  
+[2017-10-18 17:09:17.942] x
+[2017-10-18 17:09:17.942] # final ret code=0<br>

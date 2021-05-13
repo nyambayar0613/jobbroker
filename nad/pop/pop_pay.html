@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body style="margin:0;padding:0">
+    <div class="admin_pop03">
+      <div class="admin_pop0101"><img src="/images/admin/pop_pay.png"></div>  
+      <div class="admin_pop0102">
+        <span>■</span> <b>기업회원 - 마이페이지 - 구인정보등록 - 급여</b>에서 확인 가능합니다.<br><br>    
+      </div>
+      <div class="admin_pop0103"><a href="javascript:self.close();">닫기</div>
+    </div>
+  </body>
+</html>

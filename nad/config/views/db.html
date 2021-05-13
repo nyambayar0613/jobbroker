@@ -1,0 +1,210 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<style>
+	div#viewLoading {
+		margin:0 auto;
+		text-align: center;
+		/* width:32px; height:32px; */
+		width:100%; height:100%;
+		padding-top:20%;
+		background: #FFFFF0;
+		filter: alpha(opacity=60);
+		opacity: alpha*0.6;
+	}
+</style>
+<script>
+var uid = "<?php echo $admin_info[uid];?>";
+$(function(){
+
+});
+var db_backup = function(){
+	$.post('./process/db.php',{ mode:'make', uid:uid }, function(result){
+		if(result=='0005' || result=='0001'){
+			location.reload();
+		} else {
+			if(result=='0023'){
+				alert("<?php echo $config->_errors('0023');?>");
+			} else {
+				alert(result);
+			}
+		}
+	});
+}
+
+var db_download = function(no){
+
+	location.href = "./process/db_download.php?no=" + no;
+
+}
+var db_delete = function(no, wdate, file_name){	// 삭제(단수)
+
+	$('#quest_file_name').html(file_name);
+	$('#quest_wdate').html(wdate);
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: 'DB백업 파일 삭제',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+
+}
+var db_deletes = function(){	// 선택 삭제
+
+	var chk_length = $("input[name='no[]']:checked").length;
+
+	if(chk_length==0){
+
+		alert('삭제할 백업 파일을 선택해 주세요.');
+		return false;
+
+	} else {
+
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 DB백업 파일 "+chk_length+"건을 삭제 하시겠습니까?");
+		
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'deletes\',\''+del_no+'\');" value="예" />');
+
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: 'DB백업 파일 선택삭제',
+			showOverlay: false,
+			message: $('#question'),
+			css: { 
+				width: '275px' 
+			}
+		});
+
+
+	}
+
+}
+var questionAnswer = function(answer, mode, no ){	 // 질의 응답에 따른 처리
+
+	if(answer=='yes'){
+		switch(mode){
+			case 'delete':	// 백업 파일 삭제
+				$.post('./process/db.php',{ mode:mode, no:no }, function(result){
+					if(result=='0001'){
+						location.reload();
+					} else {
+						if(result=='0023'){
+							alert("<?php echo $config->_errors('0023');?>");
+						} else {
+							alert(result);
+						}
+					}
+				});
+			break;
+			case 'deletes':	// 선택 백업 파일 삭제
+				nos = no.split(',');
+				nos_cnt = nos.length;
+				$.post('./process/db.php', { mode:mode, no:no }, function(result){
+					if(result=='0001'){
+						location.reload();
+					} else {
+						if(result=='0023'){
+							alert("<?php echo $config->_errors('0023');?>");
+						} else {
+							alert(result);
+						}
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>DB백업 파일명 : <span id='quest_file_name'></span></p>
+		<p>백업날짜 : <span id='quest_wdate'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+DB백업은 파일,이미지 백업이 아닌 등록된 자료 백업입니다.<br>
+파일명을 클릭하시면 내 컴퓨터로 다운받을 수 있습니다.<br>
+<b class="dho u">서버에 DB자료가 남아있는 경우 정보유출이 될 수 있으니 백업된 파일을 다운받은 후 반드시 삭제를 해주세요</b>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">DB백업</dl>  
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+<dt><a onClick="db_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+<? include_once "../include/paging.php"; ?>
+<dd><a onClick="db_backup();" class="cbtn lnb_col grf_col"><h1 class="btn23">DB백업하기</h1></a></dd>
+</dl>
+
+<table width="100%" class="ttlt">
+  <col width=30><col><col width=125><col width=55>
+  <tr class="bg">
+    <td><input type="checkbox" name='check_all'></td>
+    <td>DB백업 파일명</td>
+    <td>백업날짜</td>
+    <td class="e">삭제</td>
+  </tr>
+	<?php if(!$backup_list['result']){ ?>
+	<tr><td colspan="4" class="stlt"></td></tr>
+	<?php } else {
+		foreach($backup_list['result'] as $val){
+	?>
+	<tr>
+		<td class="num3"><input type="checkbox" class="check_all" name="no[]" value="<?php echo $val['no'];?>"></td>
+		<td class="pdlnb1 num3"><a onclick="db_download(<?php echo $val['no'];?>);" class="b"><?php echo $val['file_name'];?></a></td>
+		<td class="num3"><?php echo $val['wdate'];?></td>
+		<td class="e"><a onClick="db_delete('<?php echo $val['no'];?>','<?=$val['wdate']?>','<?php echo $val['file_name'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+	</tr>
+	<?php
+		}	// foreach end.
+	}	// if end.
+	?>
+</table> 
+
+<dl class="page">
+<dt><a onClick="db_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+<? include_once "../include/paging.php"; ?>
+<dd><a onClick="db_backup();" class="cbtn lnb_col grf_col"><h1 class="btn23">DB백업하기</h1></a></dd>
+</dl>
+
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<?php include_once "../include/tail.php";?>

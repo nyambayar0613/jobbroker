@@ -1,0 +1,13 @@
+2017-11-11 20:29:16==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=7ce12e37c85ab75ad420ca5a46e7d893ab9254648d60af64c3090bb37b17d3cc&type=approve&
+2017-11-11 20:29:17==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM 응답","status":"ok","data":{"AdmTime":"20171111202916","EscrowSendNo":"","DealWon":"000000001000","DealNo":"518354","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1510399471","CardName":"현대","SendNo":"518354","CardName2":"현대","CardType":"0800","AdmNo":"10172495","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1510399471","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20171111202501067693","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+

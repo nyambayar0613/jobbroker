@@ -1,0 +1,1136 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+
+});
+var mode = "<?php echo $mode;?>";
+var modes = "";
+var use_map = "<?php echo $use_map;?>";
+var daum_local_APIKEY = "<?php echo $daum_local_key;?>";
+var naver_map_KEY = "<?php echo $naver_map_key;?>";
+<?php if($mode=='insert' && !$result){	 // 입력 메뉴를 통해 mode 를 get 으로 가져온 경우?>
+$(window).load(function(){
+	update_alba('insert',"","<?php echo $mb_id;?>");
+});
+<?php } ?>
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id, page_name:"<?php echo $page_name;?>" }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_info = function( no, mb_id ){
+	$('#pop_info').load('./views/_load/alba.php', { mode:'get_alba', mb_id:mb_id, page_name:"<?php echo $page_name;?>" }, function(){
+		$('#pop_alba').draggable({ handle: "#albaHandle" });
+		$('#pop_alba').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var update_alba = function( mode, no, mb_id ){	 // 입력/수정
+
+	var mode = mode;
+	modes = mode;
+
+	//alert(mode+" @ "+no+" @ "+mb_id);
+	var wr_input_type = $("input[name='wr_input_type']:checked").val();
+	
+	$('#pop_info').load('./views/_load/alba.php', { mode:mode, no:no, mb_id:mb_id, input_type:wr_input_type }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#memberFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		$('#add_form #wr_volume_dates').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#add_form #volume_date_sels').click(function(){
+			$('#add_form #wr_volume_dates').datepicker('show');
+		});
+
+		// 회원검색
+		$('#mb_search').keydown(function(event){
+			if(event.keyCode == 13){	// 회원검색 필드 에서 엔터키
+				search_member();
+				return false;
+			}
+		});
+
+		$('#wr_volume_dates').focus(function(){
+			$("input[name='volume_check']:first").attr('checked',true);
+		});
+
+		/*
+		alert(wr_input_type);
+
+		if(wr_input_type=='load'){	// 불러오기
+			$('.input_type_load').show();
+			$('.input_type_self').hide();
+		} else if(wr_input_type=='self'){	// 직접등록
+			$('.input_type_load').hide();
+			$('.input_type_self').show();
+		}
+		*/
+
+		/*
+		var albaFrm_options = { beforeSubmit : albaRequest, success : albaResponse }
+		$('#AlbaFrm').ajaxForm(albaFrm_options);
+		$('#AlbaFrm').submit(function(){
+
+			alert(document.getElementById('tx_wr_content').value);
+
+			document.getElementById('tx_wr_content').value = ed_wr_content.outputBodyHTML();
+			
+			alert( document.getElementById('tx_wr_content').value+"\n\n"+$('#tx_wr_content').val() );
+
+			<?//php echo $utility->input_cheditor('wr_content');?>
+			//ocument.getElementById('tx_wr_content').value = ed_wr_content.outputBodyHTML();
+			//alert( ed_wr_content.outputBodyHTML() );
+			//$("#tx_wr_content").val( ed_wr_content.outputBodyHTML() );
+		});
+		*/
+
+	});
+
+}
+var AlbaFrm_submit = function(){
+	<?php echo $utility->input_cheditor('wr_content');?>
+	var albaFrm_options = { beforeSubmit : albaRequest, success : albaResponse }
+	$('#AlbaFrm').ajaxSubmit(albaFrm_options);
+	//$('#AlbaFrm').submit();
+}
+
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $member_list['send_url'];?>";
+	location.href = "./index.php?"+send_url+"&page_rows=" + sel;
+}
+var email_sel = function( vals ){	// 이메일 서비스 선택
+	var sel = vals.value;
+	$('#wr_email_tail').val(sel);
+}
+var insert_job_type_sel_first = function( vals, target ){	// 첫번째 직종값 선택
+	var sel = vals.value;	
+	$('#'+target+'_display').load('./views/_load/alba.php', { mode:'insert_second_job_type', type:'job_type', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var insert_area_blocks = 0;
+var insert_area_sel_first = function( vals, target ){	// 첫번째 지역값 선택
+	var sel = vals.value;
+	$('#'+target+'_display').load('./views/_load/alba.php', { mode:'insert_second_area', type:'area', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+
+/* 지도 검색 ========================================================================================== */
+var target = "";
+var area_point = function( area_id, point, mode ){	// 위치 정보에 따른 지도 위치 확인
+
+	var wr_area = new Array();
+	var wr_area_0 = ($('#wr_area_'+area_id+'0 option:selected').val()) ? $('#wr_area_'+area_id+'0 option:selected').text() : "";
+	var wr_area_1 = ($('#wr_area_'+area_id+'1 option:selected').val()) ? $('#wr_area_'+area_id+'1 option:selected').text() : "";
+	var wr_area_2 = ($('#wr_area_'+area_id+'2 option:selected').val()) ? $('#wr_area_'+area_id+'2 option:selected').text() : "";
+	var wr_area_3 = ($('#wr_area_'+area_id+'3').val()=='번지수입력' || $('#wr_area_'+area_id+'3').val()=='') ? "" : $('#wr_area_'+area_id+'3').val();
+
+	if(!wr_area_0 || wr_area_0 == ""){
+		alert("지도의 위치를 확인할 시·도 를 선택해 주세요.");
+		$('#wr_area_'+area_id+'0').focus();
+		return false;
+	}
+	if(!wr_area_1 || wr_area_1 == ""){
+		alert("지도의 위치를 확인할 시군구 를 선택해 주세요.");
+		$('#wr_area_'+area_id+'1').focus();
+		return false;
+	}
+
+	wr_area = [wr_area_0,wr_area_1,wr_area_2,wr_area_3];
+
+	$('#mapLayerPop').show();
+
+	target = 'wr_area_' + area_id;
+
+	if(mode=='insert' || mode=='load'){
+		map_api.map_use("mapContainer", "", true);	// 지도 띄우기
+		addArea_position( wr_area_0, wr_area_1, wr_area_2, wr_area_3 );
+	} else {
+		
+		points = point.split(',');
+		
+		if(use_map=='daum'){
+			map_api.map_use("mapContainer", "", true);	// 지도 띄우기
+			//map_api.register_map_location_move(points[0],points[1],'',target+'_point');	// 좌표값 할당
+			addArea_position( wr_area_0, wr_area_1, wr_area_2, wr_area_3 );
+		} else if(use_map=='naver'){
+			var point_x = points[1];
+			var point_y = points[0];			
+			map_api.map_use("mapContainer", "", true);	// 지도 띄우기
+			map_api.map_location_move(point_x,point_y);
+			map_api.marker_false();
+			map_api.addMark();
+			map_api.click_event('','',point_x,point_y,target+'_point');
+			$('#'+target+'_point').val(point_y+","+point_x);	// 좌표값 할당
+		} else if(use_map=='google'){
+			var point_x = points[0];
+			var point_y = points[1];
+			map_api.map_point = [point_x,point_y,'18'];
+			map_api.map_use("mapContainer", "", true);
+			map_api.click_event('','',point_x,point_y,target+'_point');
+			map_api.addMark();
+			$('#'+target+'_point').val(point_x+","+point_y);	// 좌표값 할당
+		}
+	}
+
+	addr_text = "";
+	addr_text += $('#wr_area_'+area_id+'0 :selected').text() + " ";
+	addr_text += $('#wr_area_'+area_id+'1 :selected').text() + " ";
+	addr_text += $('#wr_area_'+area_id+'2 :selected').text() + " ";
+	addr_text += $('#wr_area_'+area_id+'3').val() + " ";
+
+	$('#addrResult').html(addr_text);
+
+	$('#mapLayerPop').draggable({
+		handle: '#mapLayer_handle'
+	});
+
+}
+var addArea_position = function( sido, gugun, dong, bunji, bldg ){	// 지도 이동
+
+	//alert(sido+"@"+gugun+"@"+dong+"@"+bunji);
+
+	if(use_map=='daum'){	// 다음
+
+		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+			daum_addrSearch(sido);
+			$('#addrResult').html(sido + " 전체");
+		} else {
+			if(dong && bunji) {
+				daum_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
+				$('#addrResult').html(sido+' '+gugun+' '+dong+' '+bunji);
+			} else {
+				daum_addrSearch(sido+' '+gugun+' '+dong);
+				$('#addrResult').html(sido+' '+gugun+' '+dong);
+			}
+		}
+
+	} else if(use_map=='naver'){		// 네이버
+
+		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+			naver_addrSearch(sido);
+			$('#addrResult').html(sido + " 전체");
+		} else {
+			if(dong && bunji) {
+				naver_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
+				$('#addrResult').html(sido+' '+gugun+' '+dong+' '+bunji);
+			} else {
+				naver_addrSearch(sido+' '+gugun+' '+dong);
+				$('#addrResult').html(sido+' '+gugun+' '+dong);
+			}
+		}
+
+	} else if(use_map=='google'){	// 구글
+
+		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+			google_addrSearch(sido);
+			$('#addrResult').html(sido + " 전체");
+		} else {
+			if(dong && bunji) {
+				google_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
+				$('#addrResult').html(sido+' '+gugun+' '+dong+' '+bunji);
+			} else {
+				google_addrSearch(sido+' '+gugun+' '+dong);
+				$('#addrResult').html(sido+' '+gugun+' '+dong);
+			}
+		}
+
+	}
+
+}
+var daum_addrSearch = function( search_addr ){	// 다음 지도 api 주소 검색
+	var s = document.createElement('script');
+	s.type ='text/javascript';
+	s.charset ='utf-8';
+	s.src = 'http://apis.daum.net/local/geo/addr2coord?apikey=' + daum_local_APIKEY + '&callback=daumSearchResult&q=' + encodeURI(search_addr) + '&output=json';
+	document.getElementsByTagName('head')[0].appendChild(s);
+}
+var daumSearchResult = function( result ){	// 다음 지도 api 주소 검색 결과
+	var point_y = "";
+	var point_x = "";
+	$.each(result.channel.item, function(key, lists){
+		point_y = lists.lat;
+		point_x = lists.lng;
+	});
+	
+	//alert(point_y+"@"+point_x+"@"+target+'_point');
+
+	map_api.register_map_location_move(point_y,point_x,'',target+'_point');	// 좌표값 할당
+	$('#'+target+'_point').val(point_y+","+point_x);	// point 값 할당
+}
+var naver_addrSearch = function( search_addr ){	 // 네이버 지도 api 주소 검색 결과
+	
+	$.post('./views/_ajax/area_search.php', { mode:'naver_map_search', search_addr:search_addr }, function(result){
+		var data = eval("(" + result + ")");
+		var point_y = data.mapy;
+		var point_x = data.mapx;
+		map_api.map_location_move(point_x,point_y);
+		map_api.marker_false();
+		map_api.addMark();
+		map_api.click_event('','',point_x,point_y,target+'_point');
+		$('#'+target+'_point').val(point_y+","+point_x);	// 좌표값 할당
+	});
+
+}
+var google_addrSearch = function( search_addr ){	// 구글 지도 api 주소 검색 결과
+
+	$.post('./views/_ajax/area_search.php', { mode:'google_map_search', search_addr:search_addr }, function(result){
+		point = result.split('/');
+		var point_x = point[0];
+		var point_y = point[1];
+		map_api.map_point = [point_x,point_y,'18'];
+		map_api.map_use("mapContainer", "", true);
+		map_api.click_event('','',point_x,point_y,target+'_point');
+		map_api.addMark();
+		$('#'+target+'_point').val(point_x+","+point_y);	// 좌표값 할당
+	});
+
+}
+var map_submit = function(){	// 지도 좌표 적용
+	//alert( $('#'+target+'_point').val() );	// 저장될 좌표값 확인
+	close_mapLayer();
+}
+var close_mapLayer = function(){	// 지도창 닫기
+	$('#mapLayerPop').hide();
+}
+/* //지도 검색 ========================================================================================== */
+
+var subway_sel_area = function( vals, target ){	// 지하철 지역값 선택
+	var sel = vals.value;
+	$.post('./views/_load/alba.php', { mode:'subway_line', type:'subway', p_code:sel}, function(result){
+		$('#'+target).html(result);
+	});
+}
+var subway_sel_line = function( vals, target ){	// 지하철 호선 선택
+	var sel = vals.value;
+	$.post('./views/_load/alba.php', { mode:'subway_station', type:'subway', p_code:sel}, function(result){
+		$('#'+target).html(result);
+	});
+}
+var college_area = function( vals, target ){	 // 인근대학 지역 선택
+	var sel = vals.value;
+	$.post('./views/_load/alba.php', { mode:'college_vicinity', type:'job_college', p_code:sel}, function(result){
+		$('#'+target).html(result);
+	});
+}
+var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/삭제
+	if(mode=='update'){	// 등록
+		$('#albaPhotoPop').show();
+		$('#alba_photos').val(no);
+		$('#albaPhotoPop').draggable({
+			handle: '#albaPhotoPop_handle'
+		});
+	} else if(mode=='delete') {
+		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+			$.post('./process/regist.php', { mode:'alba_photo_delete', mb_id:mb_id, photo_no:no }, function(result){
+				$('#alba_photo_'+no).attr('src',result);
+				close_alba_photos();
+			});
+		}
+	}
+}
+var alba_photo_submit = function(){	// 근무회사  이미지 등록하기 버튼 클릭시
+	var alba_photo_files = $('#alba_photo_files').val();
+	if(!alba_photo_files || alba_photo_files==''){
+		alert("등록할 사진을 첨부해 주세요.");
+		return;
+	}
+	var alba_photo_options = { beforeSubmit : alba_photoRequest, success : alba_photoResponse }
+	$('#AlbaFrm #mode').val('alba_photo_upload');
+	$('#AlbaFrm').ajaxSubmit(alba_photo_options);
+}
+var close_alba_photos = function(){	// 근무회사 이미지 등록폼 닫기
+	$('#albaPhotoPop').hide();
+	$('#mode').val(mode);	// 이미지 업로드 모드로 변경
+}
+var alba_photoRequest = function(formData, jqForm, photo_options){	 // 근무회사 이미지 전송 전
+	var queryString = $.param(formData); 
+	return true;
+}
+var alba_photoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
+	if(responseText=='extension_error'){
+		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		return false;
+	} else {
+		var alba_photos = $('#alba_photos').val();
+		$('#wr_photo_'+alba_photos).val(responseText);
+		$('#alba_photo_'+alba_photos).attr('src',"../../data/alba/"+responseText);
+		close_alba_photos();
+	}
+	$('#AlbaFrm #mode').val(modes);
+}
+var time_conference = function( vals ){	// 근무시간 협의
+	var sel = vals.value;
+	var checked = vals.checked;
+
+	if(checked==true){
+		$("#wr_stime :eq(0)").attr('selected',true);
+		$("#wr_smin :eq(0)").attr('selected',true);
+		$("#wr_etime :eq(0)").attr('selected',true);
+		$("#wr_emin :eq(0)").attr('selected',true);
+		$('.wr_time').attr('disabled',true);
+		$('.wr_time').attr('required',false);
+	} else {
+		$('.wr_time').attr('disabled',false);
+		$('.wr_time').attr('required',true);
+	}
+
+}
+var welfare_open = function(){	// 복리후생 열기
+	$('#welfareLayer').show();
+}
+var welfare_sel = function( vals ){	// 복리후생 선택
+	var sel = vals.value;
+	var welfare_txt = [];
+
+	$('.welfare_check').each(function(){
+		var welfare_check = $(this).is(':checked');
+		var welfare_val = $(this).val();
+		if(welfare_check==true){
+			var label_txt = $('#label_welfare_'+welfare_val).text();
+			welfare_txt.push(label_txt);
+		}
+	});
+
+	$('#welfare_read').val(welfare_txt);
+
+}
+var welfare_close = function(){	// 복리후생 닫기
+	$('#welfareLayer').hide();
+}
+var age_sel = function( vals ){	// 연령 제한 선택
+	var sel = vals.value;
+	if(sel=='1'){
+		$('.wr_age').attr('required',true);
+		$('#wr_age_display').show();
+	} else {
+		$('.wr_age').val('');
+		$('.wr_age').attr('required',false);
+		$('#wr_age_display').hide();
+	}
+}
+var career_sels = function( vals ){	// 경력사항 선택
+	var sel = vals.value;
+	if(sel=='2'){
+		$('#wr_career').attr('required',true);
+		$('#wr_careers_display').show();
+	} else {
+		$('#wr_career').attr('required',false);
+		$('#wr_career :eq(0)').attr('selected',true);
+		$('#wr_careers_display').hide();
+	}
+}
+var volume_sel = function( vals ){	// 모집인원 체크
+	var sel = vals.value;
+	var wr_volumes = $("input[name='wr_volumes[]']");
+	var check_length = $("input[name='wr_volumes[]']:checked").length;
+
+	if(check_length>=1){
+		$('#wr_volume').attr('required',false);
+		$('#wr_volume').attr('disabled',true);
+	} else {
+		$('#wr_volume').attr('required',true);
+		$('#wr_volume').attr('disabled',false);
+	}
+
+}
+var requisition_sel = function( vals ){	// 접수방법 체크
+	var sel = vals.value;
+	var check_length = $('.requisition_chk:checked').length;
+
+	if(sel=='email'){	// 온라인/이메일 지원 sel=='online' || 
+		if(check_length>=1){
+			$('#form_input').show();
+		} else {
+			$('#form_input').hide();
+		}
+	} else if(sel=='homepage'){	// 홈페이지 지원
+		var homepage_check = $('#wr_requisition_homepage').is(':checked');
+		if(homepage_check==true)
+			$('#homepage_input').show();
+		else
+			$('#homepage_input').hide();
+	}
+
+}
+var attach_view = function( vals ){	// 자사양식지원 체크시
+	var checked = vals.checked;
+
+	if(checked == true){
+		$('#wr_form_attach').show();
+	} else {
+		$('#wr_form_attach').val("");
+		$('#wr_form_attach').hide();
+	}
+
+}
+var volume_date = function( vals ){	 // 상시/구인시 까지 체크
+	var sel = vals.value;
+	var checked = vals.checked;
+	var check_length = $('.volume_check:checked').length;
+
+	if(check_length>=1){
+		$('#wr_volume_date').attr('required',false);
+		$('#wr_volume_date').val('');
+		$('#wr_volume_date').attr('disabled',true);
+	} else {
+		$('#wr_volume_date').attr('required',true);
+		$('#wr_volume_date').attr('disabled',false);
+		$('#wr_volume_date').removeAttr('disabled');
+	}
+
+}
+
+var albaRequest = function(formData, jqForm, albaFrm_options){	 // 로고 전송 전
+	//alert( $('#AlbaFrm #mode').val() );
+	<?//php echo $utility->input_cheditor('wr_content');?>
+	/*
+	document.getElementById('tx_wr_content').value = ed_wr_content.outputBodyHTML();
+	
+	alert(document.getElementById('tx_wr_content').value);
+	alert( $('#tx_wr_content').html() +"\n\n" + $('#tx_wr_content').val() );
+	*/
+
+	return true;
+
+}
+var albaResponse = function(responseText, statusText, xhr, $form){	// 로고 전송 후
+	
+	if(responseText=='success'){
+		alert("<?php echo $alba_control->_success('0000');?>");
+		location.reload();
+		//location.href = "./";
+	} else {
+		alert("<?php echo $alba_control->_errors('0000');?>");
+	}
+	
+}
+var delete_alba = function( no ){	 // 삭제 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>정규직 공고를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '정규직 공고 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_alba = function(){	 // 선택 삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 공고를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 정규직 공고 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '정규직 공고 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_service = function( no ){	// 서비스승인
+	
+	$('#pop_info').load('./views/_load/alba.php', { mode:'service', no:no }, function(){
+		$('#pop_service').show();
+		$('#pop_service').draggable({ handle: "#serviceHandle" });
+		$('#pop_service').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		fade_images('fade_image');	// 페이드 형태
+		setInterval(function(){
+			fade_images('fade_image');
+		}, 3000);
+
+		blink('blink_image',900000,1500);	// 깜빡임
+
+		$('.slide_image').cycle({ 
+			fx:     'scrollLeft', 
+			easing: 'easeInOutBack',
+			delay:  -2000 
+		});
+
+		$('#wr_service_platinums, #wr_service_platinum_main_gold, #wr_service_platinum_main_logo, #wr_service_specials, #wr_service_special_main_gold, #wr_service_special_main_logo, #wr_service_grands, #wr_service_grand_main_gold, #wr_service_grand_main_logo, #wr_service_banners, #wr_service_banner_main_gold, #wr_service_lists, #wr_service_list_main_gold, #wr_service_platinum_sub, #wr_service_platinum_sub_gold, #wr_service_platinum_sub_logo, #wr_service_banner_sub, #wr_service_banner_sub_gold, #wr_service_list_sub, #wr_service_list_sub_gold, #wr_service_neons, #wr_service_bolds, #wr_service_icons, #wr_service_colors, #wr_service_blinks, #wr_service_busys, #wr_service_jumps, #wr_service_basics, #wr_service_basic_sub').datepicker({dateFormat: 'yy-mm-dd'});
+
+		var albaServiceFrm_options = { beforeSubmit : albaServiceRequest, success : albaServiceResponse }
+		$('#AlbaServiceFrm').ajaxForm(albaServiceFrm_options);
+
+	});
+
+}
+var albaServiceRequest = function(formData, jqForm, albaFrm_options){
+	//alert( $('#AlbaFrm #mode').val() );
+	return true;
+}
+var albaServiceResponse = function(responseText, statusText, xhr, $form){
+	var responses = responseText.split('@');
+
+	if(responses[0]){
+		//location.reload();
+		location.href = responses[1];
+	} else {
+		alert("<?php echo $alba_control->_errors('0003');?>");
+	}
+	
+}
+
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 공고 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						//location.reload();
+						location.href = "./";
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+			// 공고 선택 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						//location.reload();
+						location.href = "./";
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+
+var search_member = function(){	// 회원 검색
+	var sel = $('#mb_search').val();
+
+	if(!sel || sel==''){
+		alert("<?php echo $config->_errors('0032')?>");	 // 검색어를 입력해 주세요.
+		$('#mb_search').focus();
+		return false;
+	} else {
+
+		$.post('../member/process/search.php', { mode:'search', ajax:'true', mb_type:'company', search_keyword:sel }, function(result){
+			
+			$('#memlist').html(result);
+			$('#memlist').show();
+
+		});
+
+	}
+}
+var get_member = function(mb_id){	// 회원의 no, mb_id 값을 가져와 input field 에 할당
+	$.post('../member/process/search.php', { mode:'alba_list', mb_id:mb_id }, function(result){
+		$("#mb_id option[value="+mb_id+"]").attr('selected',true);
+		$('#alba_load').html(result);
+	});
+	$.post('../member/process/search.php', { mode:'managers', mb_id:mb_id }, function(result){
+
+		var results = result.split("//");
+		var is_manager = results[0];	// 담당자 존재 유무
+		var manager_list = results[1];	 // 담당자 리스트
+
+		if(is_manager){
+			$('#manager_print').html(manager_list);
+			$('#manager_info').show();
+		} else {
+			$('#manager_print').html("");
+			$('#manager_info').hide();
+		}
+
+	});
+}
+var sel_service_alba = function(){	// 선택 서비스승인
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('서비스승인할 공고를 선택해 주세요.');
+		return false;
+	} else {
+		var service_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			service_no[i] = $(this).val();
+		i++;
+		});
+
+		sel_service(service_no);
+	}
+}
+var manager_sels = function( vals ){
+	var sel = vals.value;
+	
+	$.post('../member/process/search.php', { mode:'manager_info', no:sel }, function(result){
+		var results = result.split("/");
+		var is_manager = results[0];
+		var data = eval("(" + results[1] + ")");
+		//var data = $.parseJSON(result);
+
+		if(is_manager){
+
+			$('#wr_person').val(data.wr_name);
+			var wr_phone = data.wr_phone.split('-');
+			$('#wr_phone0 > option[value='+wr_phone[0]+']').attr('selected',true);
+			$('#wr_phone1').val(wr_phone[1]);
+			$('#wr_phone2').val(wr_phone[2]);
+			var wr_hphone = data.wr_hphone.split('-');
+			$('#wr_hphone0 > option[value='+wr_hphone[0]+']').attr('selected',true);
+			$('#wr_hphone1').val(wr_hphone[1]);
+			$('#wr_hphone2').val(wr_hphone[2]);
+			var wr_fax = data.wr_fax.split('-');
+			$('#wr_fax0 > option[value='+wr_fax[0]+']').attr('selected',true);
+			$('#wr_fax1').val(wr_fax[1]);
+			$('#wr_fax2').val(wr_fax[2]);
+			var wr_email = data.wr_email.split('@');
+			$('#wr_email').val(wr_email[0]);
+			$('#wr_email_tail').val(wr_email[1]);
+
+		} else {
+
+			$('#wr_person').val("");
+			$('#wr_phone0 :eq(0)').attr('selected',true);
+			$('#wr_phone1').val("");
+			$('#wr_phone2').val("");
+			$('#wr_hphone0 :eq(0)').attr('selected',true);
+			$('#wr_hphone1').val("");
+			$('#wr_hphone2').val("");
+			$('#wr_fax0 :eq(0)').attr('selected',true);
+			$('#wr_fax1').val("");
+			$('#wr_fax2').val("");
+			$('#wr_email').val("");
+			$('#wr_email_tail').val("");
+
+		}
+
+	});
+
+}
+var service_toggle = function( no ){
+	$('#service_view_'+no).toggle();
+	if( $('#service_view_'+no).css('display') == 'none' ){
+		$('#service_toggle_'+no).html("+ 서비스 보기");
+	} else {
+		$('#service_toggle_'+no).html("+ 서비스 닫기");
+	}
+}
+
+var input_types = function( vals ){	// 입력방식 선택
+	var sel = vals.value;
+	
+	if(confirm('등록방법을 변경하시면 기존에 입력하셨던 내용들이 모두 초기화 됩니다.\n\n등록방법을 변경하시겠습니까?')){
+		//$('#alba_photo_0').attr('src','../../images/comn/no_profileimg.gif');
+		//$('#alba_photo_1').attr('src','../../images/comn/no_profileimg.gif');
+		//$('#alba_photo_2').attr('src','../../images/comn/no_profileimg.gif');
+		//$('#alba_photo_3').attr('src','../../images/comn/no_profileimg.gif');
+		//$('#AlbaFrm').resetForm();
+
+		if(sel=='load'){	// 불러오기
+			$('.input_type_load').show();
+			$('.input_type_self').hide();
+			$('#wr_input_type_load').attr('checked',true);
+		} else if(sel=='self'){	// 직접등록
+			$('.input_type_load').hide();
+			$('.input_type_self').show();
+			update_alba('insert');
+			//$('#wr_input_type_self').attr('checked',true);
+		}
+	} else {
+		if(sel=='load'){
+			$('#wr_input_type_self').attr('checked',true);
+		} else if(sel=='self'){
+			$('#wr_input_type_load').attr('checked',true);
+		}
+	}
+}
+var update_mb_logos = function( mode ){	// 근무회사 이미지 등록/삭제
+	if(mode=='update'){	// 등록
+		$('#mbPhotoPop').show();
+		$('#mbPhotoPop').draggable({
+			handle: '#mbPhotoPop_handle'
+		});
+	} else if(mode=='delete') {
+		
+		alert(mode);
+
+		/*
+		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+			$.post('./process/regist.php', { mode:'mb_logo_delete', mb_id:mb_id }, function(result){
+				$('#alba_photo_'+no).attr('src',result);
+				close_alba_photos();
+			});
+		}
+		*/
+	}
+}
+var mb_logo_submit = function( ){	// 근무회사  이미지 등록하기 버튼 클릭시
+	var mb_logo_files = $('#mb_logo_files').val();
+	if(!mb_logo_files || mb_logo_files==''){
+		alert("등록할 사진을 첨부해 주세요.");
+		return;
+	}
+	var mb_logo_options = { beforeSubmit : mb_logoRequest, success : mb_logoResponse }
+	$('#AlbaFrm #mode').val('mb_logo_upload');
+	$('#AlbaFrm').ajaxSubmit(mb_logo_options);
+	//$('#AlbaFrm').submit();
+}
+var close_mb_photos = function(){	// 근무회사 이미지 등록폼 닫기
+	$('#mbPhotoPop').hide();
+	$('#mode').val(mode);	// 이미지 업로드 모드로 변경
+}
+var mb_logoRequest = function(formData, jqForm, photo_options){	 // 근무회사 이미지 전송 전
+	var queryString = $.param(formData); 
+	return true;
+}
+var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
+	if(responseText=='extension_error'){
+		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		return false;
+	} else {
+		var responses = responseText.split('@');
+		var mb_logo = $('#mb_logo').val(responses[0]);
+		$('#mb_photo').attr('src',"");
+		$('#mb_photo').attr('src',"../../data/alba/"+responses[0]);
+		//$('#mb_photo').html("");
+		//$('#mb_photo').html("<img src=\"../../data/alba/"+responses[0]+"\" style=\"width:100%;height:80px;\" alt=\"photo\">");
+		$('#mb_logo').val(responses[0]);
+		$('#wr_id').val(responses[1]);
+		close_mb_photos();
+	}
+	$('#AlbaFrm #mode').val(modes);
+}
+
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr>-->
+<tr><td width="1"></td>
+<td class=nb>
+<dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+해당 페이지는 구인공고중 모집 마감일이 남아 있지만 유료옵션 서비스 기간이 만료된 구인공고 리스트입니다. <br>
+해당 공고의 서비스/기간등을 수정하시고 싶으실때는 편집에 서비스승인 버튼을 클릭해주시면 됩니다.<br>
+등록하기 버튼은 관리자가 직접 해당회원의 새로운 구인공고를 등록하는 기능입니다.<br>
+불러오기 버튼은 해당 구인공고를 복사하여 수정후 새로운 구인공고로 등록하는 기능입니다.<br>
+유료로 현재 노출되고 있는 공고는 서비스/기간 부분에 서비스보기 버튼이 생성이 됩니다. 서비스보기를 누르시면 현재 진행중인 유료상품기간이 노출됩니다. 
+</dl></dl>
+
+<?php include_once "./views/_include/search.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정규직 정보 관리
+	<span>총 <b class="num3 col"><?php echo number_format($alba_list['total_count']);?></b>건이 검색되었습니다.</span>
+	<dt>
+		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+
+</dl>
+
+	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>공고등록</h1></a>
+	</dd>
+</dl>
+<table width="100%" class="ttlt " >
+<col width="2%"><col width="5%"><col width="5%"><col width="18%"><col ><col width="20%"><col width="8%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>등록구분</td>
+	<td>회원등급</td>
+	<td>회사명/아이디/담당자명</td>
+	<td>구인정보</td>
+	<td>서비스/기간</td>
+	<td>편집</td>
+</tr>
+
+<tbody id="alba_list">
+<?php if(!$alba_list['total_count']){ ?>
+<tr><td colspan="18" class="stlt"></td></tr>
+<?php } else { 
+	$is_service = false;
+	foreach($alba_list['result'] as $val){
+	$wr_id = $val['wr_id'];
+	$mb_info = $member_control->get_member($wr_id);	// 기본 회원정보
+	//$company_info = $member_control->get_company_member($wr_id);	// 기업 회원정보
+	if($val['wr_is_admin']){
+		$is_admin = $mb_level = "<span style='color:#dfdfdf;'>관리자</span>";
+	} else {
+		$is_admin = "사용자";
+		$mb_level = $member_control->get_level($mb_info['mb_level']);
+	}
+	//$company_name = stripslashes($company_info['mb_company_name']);
+	$company_name = stripslashes($val['wr_company_name']);
+
+	$wr_subject = stripslashes($val['wr_subject']);
+	$wr_wdate = strtr(substr($val['wr_wdate'],0,11),'-','/');
+	$wr_udate = strtr(substr($val['wr_udate'],0,11),'-','/');
+
+	// 모집일
+	$volume_arr = array( "volume_date" => $val['wr_volume_date'], "volume_always" => $val['wr_volume_always'], "volume_end" => $val['wr_volume_end'] );
+	$volume_date = $alba_user_control->volume_date($volume_arr);
+    $volume_end_date = $volume_date['text'];
+
+	## 메인 ##############################################################################
+	// 메인 플래티넘 서비스
+	$wr_platinum = "";
+	if($utility->valid_day($val['wr_service_platinum'])){
+		$wr_platinum ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">플래티넘</span>: ~ <span class='b'>".strtr(substr($val['wr_service_platinum'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	// 플래티넘 Gold
+	$wr_platinum_main_gold = "";
+	if($utility->valid_day($val['wr_service_platinum_main_gold'])){
+		$wr_platinum_main_gold ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">플래티넘 Gold</span>: ~ <span class='b'>".strtr(substr($val['wr_service_platinum_main_gold'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	// 플래티넘 로고강조
+	$wr_platinum_main_logo = "";
+	if($utility->valid_day($val['wr_service_platinum_main_logo'])){
+		$wr_platinum_main_logo ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">플래티넘 로고강조</span>: ~ <span class='b'>".strtr(substr($val['wr_service_platinum_main_logo'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+
+	// 그랜드 서비스
+	$wr_grand = "";
+	if($utility->valid_day($val['wr_service_grand'])){
+		$wr_grand ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">그랜드</span>: ~ <span class='b'>".strtr(substr($val['wr_service_grand'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	// 그랜드 Gold
+	$wr_grand_gold = "";
+	if($utility->valid_day($val['wr_service_grand_main_gold'])){
+		$wr_grand_gold ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">그랜드 Gold</span>: ~ <span class='b'>".strtr(substr($val['wr_service_grand_main_gold'],0,11),'-','/')."</span></div>";
+	}
+	// 그랜드 로고강조
+	$wr_grand_logo = "";
+	if($utility->valid_day($val['wr_service_grand_main_logo'])){
+		$wr_grand_logo ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">그랜드 로고강조</span>: ~ <span class='b'>".strtr(substr($val['wr_service_grand_main_logo'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+
+	// 스페셜 서비스
+	$wr_special = "";
+	if($utility->valid_day($val['wr_service_special'])){
+		$wr_special ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">스페셜</span>: ~ <span class='b'>".strtr(substr($val['wr_service_special'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	// 스페셜 Gold
+	$wr_special_gold = "";
+	if($utility->valid_day($val['wr_service_special_main_gold'])){
+		$wr_special_gold ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">스페셜 Gold</span>: ~ <span class='b'>".strtr(substr($val['wr_service_special_main_gold'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	// 스페셜 로고강조
+	$wr_special_logo = "";
+	if($utility->valid_day($val['wr_service_special_main_logo'])){
+		$wr_special_logo ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">스페셜 로고강조</span>: ~ <span class='b'>".strtr(substr($val['wr_service_special_main_logo'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 일반형
+	$wr_basic = "";
+	if($utility->valid_day($val['wr_service_basic'])){
+		$wr_basic ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">일반리스트</span>: ~ <span class='b'>".strtr(substr($val['wr_service_basic'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	## //메인 ##############################################################################
+
+	## 옵션 ################################################################################
+	// 급구 아이콘
+	$wr_busy = "";
+	if($utility->valid_day($val['wr_service_busy'])){
+		$wr_busy ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">급구 아이콘</span>: ~ <span class='b'>".strtr(substr($val['wr_service_busy'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 형광펜
+	$wr_neon = "";
+	if($utility->valid_day($val['wr_service_neon'])){
+		$wr_neon ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">형광펜</span>: ~ <span class='b'>".strtr(substr($val['wr_service_neon'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 굵은글자
+	$wr_bold = "";
+	if($utility->valid_day($val['wr_service_bold'])){
+		$wr_bold ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">굵은글자</span>: ~ <span class='b'>".strtr(substr($val['wr_service_bold'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 글자색
+	$wr_color = "";
+	if($utility->valid_day($val['wr_service_color'])){
+		$wr_color ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">글자색</span>: ~ <span class='b'>".strtr(substr($val['wr_service_color'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 아이콘
+	$wr_icon = "";
+	if($utility->valid_day($val['wr_service_icon'])){
+		$wr_icon ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">아이콘</span>: ~ <span class='b'>".strtr(substr($val['wr_service_icon'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+
+	// 반짝칼라
+	$wr_blink = "";
+	if($utility->valid_day($val['wr_service_blink'])){
+		$wr_blink ="<div class=\"mt5\" style=\"margin-left:1%;margin-right:1%;text-align:center;\"><b>ㆍ</b><span style=\"display:inline-block;width:115px;letter-spacing:-1px;text-align:left;\">반짝칼라</span>: ~ <span class='b'>".strtr(substr($val['wr_service_blink'],0,11),'-','/')."</span></div>";
+		$is_service = true;
+	}
+	## //옵션 ###############################################################################
+
+	$is_self = false;
+	if($val['input_type']=='self'){	// 관리자 직접입력 공고
+		$is_self = true;
+	}
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><?php echo $is_admin;?></td>
+	<td><?php echo $mb_level;?></td>
+	<?php if($is_self){ ?>
+	<td class="tl">
+	    <span class="b" >
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">회사명</span>:<?php echo $company_name;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">아이디</span>:(관리자직접등록)</p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">담당자명</span>:<?php echo $val['wr_person'];?></p>
+		</span>
+	</td>
+	<?php } else { ?>
+	<td class="tl">
+	    <a onclick="pop_member('<?php echo $wr_id;?>');" class="b" >
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">회사명</span>:<?php echo $company_name;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">아이디</span>:<?php echo $wr_id;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">담당자명</span>:<?php echo $val['wr_person'];?></p>
+		</a>
+	</td>
+	<?php } ?>
+	<td>
+		<!-- <a onclick="pop_info('<?php echo $val['no']?>','<?php echo $wr_id;?>');" class="b"><?php echo $wr_subject;?></a> -->
+		<a href="<?php echo $alice['alba_path'];?>/detail.php?no=<?php echo $val['no'];?>" class="b" target="_blank"><?php echo $wr_subject;?></a>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
+			<li>수정일 : <?php echo $wr_udate;?> </li>
+			<li>마감일 : <?php echo $volume_end_date;?></li>
+			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
+		</div>
+	</td>
+	<td>
+		<?php
+		if($is_service){ // 서비스가 1가지라도 있는 경우 ?>
+			<span><a class="btn wbl" style="padding:0 5px;" onclick="service_toggle('<?php echo $val['no'];?>');" id="service_toggle_<?php echo $val['no'];?>">+ 서비스 보기</a></span>
+			<span id="service_view_<?php echo $val['no'];?>" style="display:none;">
+				<?php echo $wr_platinum;?><?php echo $wr_platinum_main_gold;?><?php echo $wr_platinum_main_logo;?>
+				<?php echo $wr_special;?><?php echo $wr_special_gold;?><?php echo $wr_special_logo;?>
+				<?php echo $wr_grand;?><?php echo $wr_grand_gold;?><?php echo $wr_grand_logo;?>
+				<?php echo $wr_banner;?><?php echo $wr_banner_main_gold;?>
+				<?php echo $wr_list;?><?php echo $wr_list_main_gold;?>
+				<?php echo $wr_basic;?>
+
+				<!-- 서브 -->
+				<?php echo $wr_platinum_sub;?><?php echo $wr_platinum_sub_gold;?><?php echo $wr_platinum_sub_logo;?>
+				<?php echo $wr_banner_sub;?><?php echo $wr_banner_sub_gold;?>
+				<?php echo $wr_list_sub;?><?php echo $wr_list_sub_gold;?>
+				<?php echo $wr_sub_basic;?>
+
+				<!-- 옵션 -->
+				<?php echo $wr_busy;?>
+				<?php echo $wr_neon;?>
+				<?php echo $wr_bold;?>
+				<?php echo $wr_color;?>
+				<?php echo $wr_icon;?>
+				<?php echo $wr_blink;?>
+				<?php echo $wr_jump;?>
+			</span>
+		<?php } else { // 서비스가 아예 없는 경우 ?>
+			<span style="color:#dfdfdf;">서비스 없음</span>
+		<?php } // is_service if end. ?>
+	</td>
+	<td>
+		<dt><a onClick="update_alba('update','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_26.gif"></a></dt>
+		<dt class='mt2'><a onClick="delete_alba('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_27.gif"></a></dt>
+		<dt class='mt2'><a onClick="update_alba('insert','','<?php echo $wr_id;?>');"><img src="../../images/btn/btn19_25.gif"></a></dt>
+		<dt class='mt2'><a onClick="update_alba('load','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_24.gif"></a></dt>
+		<dt class='mt2'><a onClick="sel_service('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_20.gif"></a></dt>
+	</td>
+</tr>
+<?php 
+	}	// foreach end.
+}	// if end.
+?>
+</tbody>
+</table>
+
+<dl class="page">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>공고등록</h1></a>
+	</dd>
+</dl>
+
+<div id='pop_info'></div>
+
+</td>
+<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>
+
+<?php include_once "../include/tail.php";?>

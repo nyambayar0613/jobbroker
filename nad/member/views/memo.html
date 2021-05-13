@@ -1,0 +1,221 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+	$('#MemoConfigFrm').ajaxForm(form_options);
+});
+var memo_delete = function( no ){
+	$('#quest_info').show();
+	$('#confirm_msg').html("완전히 삭제된 쪽지는 복구가 불가능 합니다.<br/><br/>쪽지를 완전히 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '쪽지 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('./views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var sel_delete_memo = function(){	// 포인트 내역 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 쪽지를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 쪽지 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '쪽지 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+
+			// 쪽지 완전 삭제
+			case 'delete':
+				$.post('./process/regist.php', { mode:'memo_delete', no:no }, function(result){
+					if(result=='0003'){
+						location.reload();
+					} else {
+						alert("<?php echo $memo_control->_errors('0005');?>");
+					}
+				});
+			break;
+
+			// 선택 쪽지 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:'memo_sel_delete', no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $point_control->_errors('0001');?>");
+						return false;
+					}
+				});
+			break;
+		}
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1"></td>
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+		<tr>
+		<td width="1"></td>
+		<td class="nb">
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+			<dl class="notbox"><dl>
+			회원간 쪽지 내역을 확인하실수 있습니다.<br/>
+			'삭제시간' 은 수신한 쪽지를 회원 스스로 삭제한 시간입니다.<br/>
+			관리자는 확인하여 우측의 '삭제' 버튼으로 데이터를 완전히 삭제할수 있습니다.
+			</dl></dl>
+
+		<form name="MemoConfigFrm" method="post" id="MemoConfigFrm" action="./process/regist.php" enctype="multipart/form-data">
+		<input type="hidden" name="mode" value="memo_config" id="mode"/><!-- 메일 스킨 등록 -->
+		<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+		<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+		<input type="hidden" name="no" value="<?php echo $env['no'];?>"/>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원간 쪽지 발송</dl>  
+
+		<table width="100%" class="bg_col">
+		<col width=150><col>
+		<tr>
+			<td class="ctlt">쪽지 기능 사용유무</td>
+			<td class="pdlnb2">
+				<label><input type="radio" class="radio" name="memo_use" value="1" checked/>사용</label> &nbsp;
+				<label><input type="radio" class="radio" name="memo_use" value="0" <?php echo (!$env['memo_use'])?'checked':'';?>/>미사용</label>
+			</td>
+		</tr>
+		</table>
+
+		<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+		</form>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">쪽지 관리
+			<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 쪽지가 검색되었습니다.</span>
+		</dl>  
+
+		<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+			<dt>
+				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+				<a onClick="sel_delete_memo();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+			</dt>
+		</dl>
+
+		<table width="100%" class="ttlt">
+		<col width="30"><col width="16%"><col><col width="27%"><col width="10%" span="3"><col width="5%">
+		<tr class="bg">
+			<td><input name="check_all" type="checkbox"></td>
+			<td>발신 => 수신</td>
+			<td>채용공고 / 이력서</td>
+			<td>내용</td>
+			<td>보낸시간</td>
+			<td>읽은시간</td>
+			<td>삭제시간</td>
+			<td>최종삭제</td>
+		</tr>
+		<?php
+		if($list['total_count']){
+			foreach($list['result'] as $val){
+			if($val['wr_employ_no']){
+				$data = $alba_user_control->get_alba_no($val['wr_employ_no']);	// 채용공고
+				$wr_link = $alice['alba_path'] . "/alba_detail.php?no=" . $val['wr_employ_no'];
+			} else if($val['wr_resume_no']){
+				$data = $alba_individual_control->get_resume_no($val['wr_resume_no']);	// 이력서
+				$wr_link = $alice['resume_path'] . "/alba_resume_detail.php?no=" . $val['wr_resume_no'];
+			}
+		?>
+		<tr class="<?php echo ($val['wr_is_delete'])?'dgr bg_gray1':'';?>">
+			<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+			<td class="tl pl5"><a onclick="pop_member('<?php echo $val['wr_send_mb_id'];?>');" class="b"><?php echo $val['wr_send_mb_id'];?></a> => <a onclick="pop_member('<?php echo $val['wr_recv_mb_id'];?>');" class="b"><?php echo $val['wr_recv_mb_id'];?></a></td>
+			<td class="tl b"><a href="<?php echo $wr_link;?>" target="_blank"><?php echo stripslashes($data['wr_subject']);?></a></td>
+			<td class="tl"><?php echo stripslashes($val['wr_memo']);?></td>
+			<td><?php echo $val['wr_send_datetime']?></td>
+			<td><?php echo $val['wr_read_datetime']?></td>
+			<td><?php echo ($val['wr_is_delete'])?$val['wr_wdate']:"0000-00-00 00:00:00";?></td>
+			<td class="e"><a onclick="memo_delete('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php
+			}
+		} else {
+		?>
+		<tr><td colspan="8" class="stlt"></td></tr>
+		<?php } ?>
+		</table>
+
+		<dl class="page paging2">
+			<?php include_once "../include/paging.php"; ?>
+		</dl>
+
+
+
+		<div id='pop_info'></div>
+		</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+	var MemoConfigFrm = document.getElementById('MemoConfigFrm');
+	var queryString = $.param(formData);
+	return validate(MemoConfigFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+	
+	if(responseText=='0000') {	 // 성공
+		alert("<?php echo $memo_control->_success('0000');?>");
+		location.reload();
+	} else if(responseText=='0001') {	// 실패
+		alert("<?php echo $memo_control->_errors('0001');?>");
+		return false;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

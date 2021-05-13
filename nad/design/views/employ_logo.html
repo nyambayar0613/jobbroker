@@ -1,0 +1,113 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit : showRequest, success : showResponse }
+	$('#EmployLogoFrm').ajaxForm(form_options);
+});
+var logo_delete = function( no ){
+	if(confirm('삭제하시겠습니까?')){
+		$.post('./process/logo.php', { mode:'employ_logo_delete', no:no }, function(result){
+			if(result=='0002'){
+				location.reload();
+			} else {
+				alert("<?php echo $logo_control->_errors('0003');?>");
+			}
+		});
+	}
+}
+var logo_sel = function( vals ){
+	var sel = vals.value;
+	$.post('./process/logo.php', { mode:'employ_logo_sel', no:sel }, function(result){
+		if(result=='0003'){
+			alert("<?php echo $logo_control->_success('0003');?>");
+		} else {
+			alert("<?php echo $logo_control->_errors('0004');?>");
+		}
+	});
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<tr>
+<td width="1"></td><td class="nb">
+
+	<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+	<dl class="notbox"><dl>
+	해당 페이지에서 여러 로고를 올려놓으면 기업회원들이 구인공고 등록시 자신의 제호(로고)가 없을경우 선택해서 등록할수있습니다.<br/>
+	</dl></dl>
+
+	<form name="EmployLogoFrm" method="post" id="EmployLogoFrm" action="./process/logo.php" enctype="multipart/form-data">
+	<input type="hidden" name="mode" value="employ_logo_insert" id="mode"/><!-- 사이트 기본 설정정보 수정 -->
+	<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+	<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+	<input type="hidden" name="no" id="employ_logo_no"/>
+
+		<dl class="ntlt lnb_col"><img class="t" src="../../images/comn/bul_10.png">구인공고 기본 로고 설정</dl>
+		<table width="100%" class="bg_col">
+		<colgroup><col width="110"><col> 
+		<tbody>
+			<tr>
+				<td class="ctlt">기본 로고 등록</td>
+				<td class="pdlnb2">
+					<input type="file" class="txt ml8" name="wr_content" id="wr_content" style="width:350px;"/>&nbsp; <input type='image' src="../../images/btn/19_01.gif" class="ln_col"> [ 권장사이즈 : 넓이 130px 이하, 높이 65px 이하 ]
+				</td>
+			</tr>
+			<tr>
+				<td class="ctlt">등록 기본 로고</td>
+				<td class="pdlnb2 st_mn bnner">
+					<ul>
+					<?php 
+					if($list['result']){
+						foreach($list['result'] as $val){ 
+					?>
+						<li style="width:249px;padding-right:10px;float:left;">
+							<div class="mt5 mb5">
+								<a onclick="logo_delete('<?php echo $val['no'];?>');"><img src="<?php echo $alice['images_path'];?>/btn/19_06.gif" style="vertical-align:top;"/></a>
+							</div>
+							<div><img src="<?php echo $alice['data_logo_path']."/".$val['wr_content'];?>"></div>
+						</li>
+					<?php 
+						}	// foreach end.
+					}	// if end.
+					?>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+
+	</form>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options) {	// 폼 전송전 데이터
+	var queryString = $.param(formData); 
+	return true;
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송 후 결과
+	
+	if(responseText=='0001'){
+		location.reload();
+	} else {
+		alert("<?php echo $logo_control->_errors('0002');?>");
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

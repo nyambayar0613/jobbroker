@@ -1,0 +1,450 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+});
+var code = "<?php echo $code;?>", bo_table = "<?php echo $bo_table;?>", sca = "<?php echo $sca;?>";
+var use_upload = "<?php echo $use_upload;?>";
+var board_view = function(no){	// 게시글 보기 (카운트 증가)
+	var wr_hit = Number($('#wr_hit'+no).html());
+	if($('#view_'+no).css('display')=='none'){
+		$.post('./process/regist.php', { mode:'view', bo_table:bo_table, wr_no:no }, function(result){
+			$('#view_'+no).toggle();
+			//$('#wr_hit'+no).html(wr_hit+1);
+		});
+	} else {
+		$('#view_'+no).hide();
+	}
+}
+var board_update = function(mode, no){	// 게시글 등록/수정
+	$('#board_info').load('./views/_load/board.php', { mode:mode, code:code, bo_table:bo_table, wr_category:sca, no:no }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#boardFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		$("input[name='wr_subject']").focus();
+		//if(use_upload) add_file();	// 파일 첨부를 사용한다면
+
+		var form_options = { beforeSubmit: showRequest, success : showResponse };
+		$('#boardFrm').submit(function(){
+			<?php echo $utility->input_cheditor('wr_content');?>	// 에디터 내용 전달
+			$(this).ajaxSubmit(form_options);
+			return false;
+		});
+
+	});
+}
+var board_reply = function(wr_no){	 // 게시글 답변
+	$('#board_info').load('./views/_load/board.php', { mode:'admin_reply', code:code, bo_table:bo_table, wr_no:wr_no }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#boardFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		//if(use_upload) add_file();	// 파일 첨부를 사용한다면
+		var form_options = { beforeSubmit: showRequest, success : showResponse };
+		$('#boardFrm').submit(function(){
+			<?php echo $utility->input_cheditor('wr_content');?>	// 에디터 내용 전달
+			$(this).ajaxSubmit(form_options);
+			return false;
+		});
+
+	});
+}
+var board_delete = function(no){	 // 게시글 삭제 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능 합니다.<br/><br/>삭제하시겠습니까?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\',\''+bo_table+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '게시판 데이터 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete = function(){		// 선택삭제
+	var chk_length = $("input[name='wr_no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 데이터를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').show();
+		$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능 합니다.<br/><br/>선택하신 데이터 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='wr_no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\',\''+bo_table+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '게시판 데이터 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+
+	if(answer=='yes'){
+		
+		switch(mode){
+			// 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:mode, wr_no:no, bo_table:sels } , function(result){
+					var results = result.split('/');
+					var pin_result = results[1];
+					switch(result){
+						case '0014': 
+							alert("<?php echo $board_control->_errors('0014');?>"); 
+							$.unblockUI(); 
+							return false; 
+						break;
+						case '0015': 
+							alert("<?php echo $board_control->_errors('0015');?>"); 
+							$.unblockUI(); 
+							return false; 
+						break;
+						case '0016': 
+							alert("<?php echo $board_control->_errors('0016');?>"); 
+							$.unblockUI(); 
+							return false; 
+						break;
+					}
+					location.reload();
+				});
+			break;
+			// 선택 삭제 (복수)
+			case 'sel_delete':
+				wr_nos = no.split(',');
+				wr_nos_cnt = wr_nos.length;
+				$.post('./process/regist.php', { mode:mode, wr_no:wr_nos, bo_table:sels }, function(result){
+					var results = result.split('/');
+					var pin_result = results[1];
+					location.reload();
+				});
+			break;
+
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list_row['send_url'];?>";
+	var code = "<?php echo $code;?>", bo_table = "<?php echo $bo_table;?>", sca = "<?php echo $sca;?>";
+	var mode = "<?php echo $mode;?>", search_field = "<?php echo $search_field;?>", search_keyword = "<?php echo $search_keyword;?>";
+	var sort = "<?php echo $sort;?>";
+	location.href = "./list.php?mode="+mode+"&search_field="+search_field+"&search_keyword="+search_keyword+"&code="+code+"&bo_table="+bo_table+"&sca="+sca+"&"+send_url+"&sort="+sort+"&page_rows=" + sel;
+}
+var file_download = function(link, file) {	// 파일 다운로드
+    document.location.href = link;
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="srchb lnb4_col bg2_col">
+<table class="bg_col">
+  <col width='10%'><col>	 
+
+	<?php 
+		foreach($board_menu as $menus){
+			$get_boardCode = $board_config_control->boCode_list($menus['code']);
+	?>
+	<tr>
+		<td class="ctlt"><img src="../../images/comn/bul_08.png" class="t"><?php echo stripslashes($menus['name']);?></td>
+		<td class="pdlnb2">
+			<ul class="List">
+			<?php 
+				if($get_boardCode){		// 하위 메뉴 없는 게시판의 경우 
+					$j = 0;
+					foreach($get_boardCode as $boards){
+			?>
+			<li <?php echo ($j==0)?"class='f'":"";?>><a href='./list.php?code=<?php echo $boards['code'];?>&bo_table=<?php echo $boards['bo_table'];?>' <?php echo ($boards['bo_table']==$bo_table)?"class='b col'":"";?>><?php echo stripslashes($boards['bo_subject']);?></a> (<?php echo number_format($boards['bo_write_count']);?>)</li>
+			<?php 
+					$j++;
+					}	// foreach end.
+				} else {	// 하위 있는 게시판의 경우
+					$pcode_List = $category_control->pcode_List($menus['code']);
+					$k = 0;
+					foreach($pcode_List as $boards){
+						$board_info = $board_config_control->boCode_list($boards['code']);
+						foreach($board_info as $val){
+			?>
+			<li <?php echo ($k==0)?"class='f'":"";?>><a href='./list.php?code=<?php echo $val['code'];?>&bo_table=<?php echo $val['bo_table'];?>' <?php echo ($val['bo_table']==$bo_table)?"class='b col'":"";?>><?php echo stripslashes($val['bo_subject']);?></a> (<?php echo number_format($val['bo_write_count']);?>)</li>
+			<?php
+						$k++;
+						}	// board info foreach end.
+					}	// p_code board foreach end.
+				}	// board code if end.
+			?>
+			</ul>
+		</td>
+	</tr>
+	<?php }	 // board_menu foreach end. ?>
+
+</table>
+
+	<?php if($code && $bo_table){ ?>
+	<dl class="tc pd7 wbg">
+
+	<form name="SearchFrm" method="GET" id="SearchFrm" action="<?php echo $_SERVER['PHP_SELF'];?>">
+	<input type="hidden" name="mode" value="search"/>
+	<input type="hidden" name="code" value="<?php echo $code;?>"/>
+	<input type="hidden" name="bo_table" value="<?php echo $bo_table;?>"/>
+	<input type="hidden" name="sca" value="<?php echo $sca;?>"/>
+	<input type="hidden" name="sort" value="<?php echo $sort;?>"/>
+	<input type="hidden" name="page_rows" value="<?php echo $page_rows;?>" id="page_rows"/>
+
+		<select name="search_field" class="s23" id="search_field">
+			<option value="">통합검색</option>
+			<option value="wr_subject" <?php echo ($_GET['search_field']=='wr_subject')?'selected':'';?>>제목</option>
+			<option value="wr_content" <?php echo ($_GET['search_field']=='wr_content')?'selected':'';?>>내용</option>
+			<option value="wr_subject||wr_content" <?php echo ($_GET['search_field']=='wr_subject||wr_content')?'selected':'';?>>제목+내용</option>
+			<option value="wr_name" <?php echo ($_GET['search_field']=='wr_name')?'selected':'';?>>작성자</option>
+		</select>
+		<input type="text" name="search_keyword" value="<?php echo stripslashes($_GET['search_keyword']);?>" class="txt i23 w50" id="search_keyword">
+		<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
+		<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" value='초기화' onclick="search_reset();"></span>
+
+	</form>
+	</dl>
+	<?php } ?>
+
+</dl>
+
+<?php if($bo_table){ ?>
+	<dl class="ntlt lnb_col p0">
+		<?php if(!$bo_category){?>
+		<dd class="mb5"><img src="../../images/comn/bul_10.png" class="t"><?php echo stripslashes($board['bo_subject']);?></dd> 
+		<?php } else { ?>
+		<ul class="tab">
+			<li <?php echo (!$sca)?"class='lnb5_col grf_col on'":"";?>><a href="./list.php?mode=<?php echo $mode;?>&search_field=<?php echo $search_field;?>&search_keyword=<?php echo $search_keyword;?>&code=<?php echo $code;?>&bo_table=<?php echo $bo_table;?>&page_rows=<?php echo $page_rows;?>&sort=<?php echo $sort;?>"><h1>전체</h1></a></li><!-- 전체 -->
+			<?php foreach($bo_category as $cate){ ?>
+			<li <?php echo ($sca==$cate['code'])?"class='lnb5_col grf_col on'":"";?>><a href="./list.php?mode=<?php echo $mode;?>&search_field=<?php echo $search_field;?>&search_keyword=<?php echo $search_keyword;?>&code=<?php echo $code;?>&bo_table=<?php echo $bo_table;?>&sca=<?php echo $cate['code'];?>&page_rows=<?php echo $page_rows;?>&sort=<?php echo $sort;?>"><h1><?php echo stripslashes($cate['name']);?></h1></a></li>
+			<?php }	 // bo_category foreach end. ?>
+		</ul>
+		<?php }	 // bo_category if end. ?>
+		<dt>
+			<select name="page_rows" onchange="page_rows(this);">
+				<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+				<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+				<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+				<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+				<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+			</select>
+		</dt>
+	</dl>
+<dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;"> 
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		</dt>
+		<dd>
+			<!-- <a onClick="MM_showHideLayers('pop_move','','show')" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>게시물이동</h1></a> -->
+			<a onClick="board_update('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>게시물등록</h1></a>
+		</dd>
+		<dl id="pop_move" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
+			선택한 게시물을
+			<select name=""><option>게시판명</option></select>
+			으로 이동 <a onClick="MM_showHideLayers('pop_move','','hide')"><img src="../../images/btn/19_ok.gif"></a>
+		</dl>
+	</dl>
+	<table class="ttlt w100">
+	<col width=30><col width="600"><col width="56"><col width="120"><col span="2" width="76"><col span="2" width="56"> 
+	<tr class="bg">
+		<td><input name="check_all" type="checkbox"></td>
+		<td colspan="2">제목</td>
+		<td><a href="./list.php?code=<?php echo $code;?>&bo_table=<?php echo $bo_table;?>&sca=<?php echo $cate['code'];?>&<?php echo $list_row['send_url'];?>&sort=wr_name&flag=<?php echo ($sort=='wr_name'&&$flag=='asc')?'desc':'asc';?>">작성자<?php echo ($sort=='wr_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td><a href="./list.php?code=<?php echo $code;?>&bo_table=<?php echo $bo_table;?>&sca=<?php echo $cate['code'];?>&<?php echo $list_row['send_url'];?>&sort=wr_hit&flag=<?php echo ($sort=='wr_hit'&&$flag=='asc')?'desc':'asc';?>">조회<?php echo ($sort=='wr_hit'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td><a href="./list.php?code=<?php echo $code;?>&bo_table=<?php echo $bo_table;?>&sca=<?php echo $cate['code'];?>&<?php echo $list_row['send_url'];?>&sort=wr_datetime&flag=<?php echo ($sort=='wr_datetime'&&$flag=='asc')?'desc':'asc';?>">등록일<?php echo ($sort=='wr_datetime'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td>수정</td>
+		<td class="e">삭제</td>
+	</tr>
+
+	<?php if(!$list){?>
+	<tr><td colspan="8" class="stlt"></td></tr>
+	<?php } else { ?>
+	
+		<?php 
+			$_no = 0;
+			foreach($list as $val){
+			$_no++;
+				$wr_category = $category_control->get_categoryCode($val['wr_category']);
+				if($val['is_notice']){	
+		?>
+		<tr class="bg_col">
+			<td><img src=../../images/ic/notice.gif></td>
+			<td class="tl" colspan="2">
+				<a onClick="board_view('<?php echo $_no;?>');"><?php echo "<b class=\"fon11\">".stripslashes($val['subject'])."</b>";?></a>
+				<?php if($val['icon_new']){ ?><img src="../../images/ic/new.gif"><?php } ?>
+			</td>
+			<td><?php echo $val['name'];?></td>
+			<td class="num3"><?php echo $val['hit'];?></td>
+			<td class="num3"><?php echo $val['datetime'];?></td>
+			<td><a onClick="board_update('update','<?php echo $val['wr_no']?>');"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="board_delete('<?php echo $val['wr_no']?>');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php } else { ?>
+		<tr>
+			<td><input type="checkbox" name='wr_no[]' class='check_all' value="<?php echo $val['wr_no'];?>"></td>
+			<td class="tl" style="border-right:0">
+			<?php if($val['wr_category']){?><b class="fon11">[<?php echo stripslashes($wr_category['name']);?>]</b><?php } ?>
+			<?php
+				echo $nobr_begin;
+				echo $val['reply']; // 간격은 스페이스바 2칸 정도?
+				echo $val['icon_reply'];
+			?>
+				<a onClick="board_view('<?php echo $_no;?>');"><?php echo stripslashes($val['subject']);?></a> 
+				<?php if($val['comment_cnt']){ ?>(<?php echo $val['comment_cnt'];?>)&nbsp;<?php } ?>
+				<?php if($val['icon_secret']){ ?><img src="../../images/ic/lock.gif"><?php } ?>
+				<?php if($val['icon_file']){ ?><img src="../../images/ic/file.gif"><?php } ?>
+				<?php if($val['icon_img']){ ?><img src="../../images/ic/pic.gif"><?php } ?>
+				<?php if($val['icon_new']){ ?><img src="../../images/ic/new.gif"><?php } ?>
+			</td>
+			<?php if(!$val['is_notice']){ ?>
+			<td><a onClick="board_reply('<?php echo $val['wr_no']?>');" class="btn"><h1 class="btn19"><strong>re</strong>답변</h1></a></td>
+			<?php } ?>
+			<td><?php echo $val['name'];?></td>
+			<td class="num3"><span id='wr_hit<?php echo $val['wr_no'];?>'><?php echo $val['hit'];?></span></td>
+			<td class="num3"><?php echo $val['datetime'];?></td>
+			<td><a onClick="board_update('update','<?php echo $val['wr_no']?>');"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="board_delete('<?php echo $val['wr_no']?>');"><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php
+			}	// notice if end.
+		?>
+		<tr id="view_<?php echo $_no;?>" style="display:none;">
+			<td colspan="8" class="e tl h20" style="padding-left:40px;">
+			<?php if($val['file']['count'] && !$val['wr_del']){
+				// 가변 파일
+				$cnt = 0;
+				for ($i=0; $i<$val['file']['count']; $i++) {
+					if ($val['file'][$i]['source'] && !$val['file'][$i]['val']) {
+						$cnt++;
+						//echo "<tr><td>";
+						echo "<dl>";
+						echo "<img src='../../images/ic/file.gif' align=absmiddle border='0'>";
+						echo "<a href=\"javascript:file_download('{$val[file][$i][href]}', '{$val[file][$i][source]}');\" title='{$val[file][$i][content]}'>";
+						echo "&nbsp;<span style=\"color:#888;\">{$val[file][$i][source]} ({$val[file][$i][size]})</span>";
+						echo "&nbsp;<span style=\"color:#ff6600; font-size:11px;\">[{$val[file][$i][download]}]</span>";
+						echo "&nbsp;<span style=\"color:#d3d3d3; font-size:11px;\">DATE : {$val[file][$i][datetime]}</span>";
+						echo "</a>";
+						//echo "</td></tr>";
+						echo "</dl>";
+					}
+				}
+			}
+			?>
+			<dl class="bdot bg_col pd15 mt5">
+				<?php echo nl2br(strip_tags(stripslashes($val['content'])));?>
+			</dl>
+			</td>
+		</tr>
+		<?php
+			}	 // foreach end. 
+		?>
+
+	<?php }	 // if end. ?>
+
+	</table>
+
+	<dl class="page">
+		<?php include_once "../include/paging.php"; ?>
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		</dt>
+		<dd>
+			<!-- <a onClick="MM_showHideLayers('pop_move','','show')" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>게시물이동</h1></a> -->
+			<a onClick="board_update('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>게시물등록</h1></a>
+		</dd>
+		<dl id="pop_move" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
+			선택한 게시물을
+			<select name=""><option>게시판명</option></select>
+			으로 이동 <a onClick="MM_showHideLayers('pop_move','','hide')"><img src="../../images/btn/19_ok.gif"></a>
+		</dl>
+	</dl>
+<?php } ?>
+
+<div id='board_info'></div>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options){	// 폼 전송전
+
+	var boardFrm = document.getElementById('boardFrm');
+
+	var queryString = $.param(formData);
+
+	if (document.getElementById('tx_wr_content')) {
+		if (!ed_wr_content.outputBodyText()) { 
+			alert('내용을 입력하십시오.'); 
+			ed_wr_content.returnFalse();
+			return false;
+		}
+    }
+
+	return validate(boardFrm);
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송후
+	
+	switch(responseText){
+		case '0003': alert("<?php echo $board_control->_errors('0003');?>"); return false; break;
+		case '0004': alert("<?php echo $board_control->_errors('0004');?>"); return false; break;
+		case '0005': alert("<?php echo $board_control->_errors('0005');?>"); return false; break;
+		case '0006': alert("<?php echo $board_control->_errors('0006');?>"); return false; break;
+		case '0008': alert("<?php echo $board_control->_errors('0008');?>"); return false; break;
+		case '0009': alert("<?php echo $board_control->_errors('0009');?>"); return false; break;
+		case '0011': alert("<?php echo $board_control->_errors('0011');?>"); return false; break;
+		case '0012': alert("<?php echo $board_control->_errors('0012');?>"); return false; break;
+		case '0013': alert("<?php echo $board_control->_errors('0013');?>"); return false; break;
+		case '0014': alert("<?php echo $board_control->_errors('0014');?>"); return false; break;
+		default:
+
+			var results = responseText.split('/');
+			var mode = results[0], result = results[1], wr_category = results[2];
+			if(result) {
+				location.href = "./list.php?code="+code+"&bo_table="+bo_table+"&sca="+wr_category;
+			} else {
+				switch(mode){
+					case 'insert': alert("<?php echo $board_control->_errors('0000');?>"); break;		// 입력시
+					case 'update': alert("<?php echo $board_control->_errors('0001');?>"); break;	// 수정시
+					case 'reply': alert("<?php echo $board_control->_errors('0010');?>"); break;		// 답변시
+				}
+				return false;
+			}
+
+		break;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

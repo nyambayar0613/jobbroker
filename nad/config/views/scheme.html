@@ -1,0 +1,120 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<style type="text/css">
+a:link, a:visited { text-decoration: none; color:#6B6F5B; }
+a:hover, a:active { text-decoration: none; color:#3366CC; }
+td { color:#2E2E2E;font-family:doutm;font-size:9pt; }
+.d8 { font-family:dotum;font-size:8pt;}
+.gd8 { color:gray;font-family:dotum;font-size:8pt;}
+.fw { color:#243964;border:solid 0 #243964;padding:4px;font-size:9pt;font-family:dotum;width:100%;height:100%;line-height:140%; }
+</style>
+
+<script>
+var getList = function( mode, table ) {
+	$('#get_LIST').load("./views/_load/scheme.php", { mode:mode, table:table }, function(result){
+	});
+}
+var getInfo = function( table ) {
+
+	var $position = $('#table_'+table).position();
+	$('#pop_info').load('./views/_load/scheme.php', { mode:'TABLE', table:table }, function(){
+		$('#pop_db').css({
+			"left" : $position.left + 270,
+			"top" : $position.top
+		});
+		$('#pop_db').draggable({ handle: "#dbHandle" });
+	});
+
+}
+
+var viewDescFrmDiv = function( table, obj ) {
+
+	$('#comment_info').load('./views/_load/scheme.php', { mode:'comment_update', table:table }, function(){
+		
+		var positions = (obj) ? table + obj : table;
+		var $position = $('#'+positions).position();
+		$('#pop_comment').css({
+			"left" : $position.left+530,
+			"top" : $position.top+230
+		});
+
+		$('#pop_comment').draggable({ handle: "#commentHandle" });
+
+		$('#ftable').val(table);
+		$('#fobject').val(obj);
+
+		var tables = (obj) ? table + obj : table;
+
+		$('#description').val( $('#'+tables).html() );
+		$('#description').focus();
+		
+		var description_options = { beforeSubmit: showRequest, success: showResponse };	// ajax options
+		$('#descFrm').ajaxForm(description_options);	// ajax form submit
+
+	});
+
+}
+
+$(document).ready(function(){
+	getList('DB');
+});
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+1. 설명(주석)을 편집하려면 연필 아이콘을 클릭하거나 입력된 설명을 클릭<br/>
+2. 입력된 설명을 지우려면 편집창에 입력된 내용을 모두 지운 후 [입력하기] 버튼을 클릭<br/>
+3. 테이블 내용을 보려면 테이블명을 클릭 (테이블 내용을 닫으려면 테이블 내용창의 [내용닫기] 버튼을 클릭)<br/>
+존재하지 않는 테이블 또는 필드에 대한 DB 정보는 자동으로 삭제 됩니다.<br/>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Database 스키마 구조 Module v3.5 ( Alice )</dl>  
+
+
+<div id="get_LIST">Loading...</div>
+
+<div id="pop_info"></div>
+<div id="comment_info"></div>
+
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, options){
+	var queryString = $.param(formData); 
+	//alert(queryString);
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	var obj = $.parseJSON(responseText);
+	var result = obj.result;
+	var ftable = obj.ftable;
+	var fobject = obj.fobject;
+	var description = obj.description;
+
+	var tables = (fobject) ? ftable + fobject : ftable;
+
+	if(result){
+
+		$('#'+tables).html( stripslashes(description) );
+		$('#pop_comment').hide();
+
+	} else {
+		alert("<?php echo $description_control->_errors('0000');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

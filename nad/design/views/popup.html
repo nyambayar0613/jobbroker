@@ -1,0 +1,479 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<script type='text/javascript' src='<?php echo $alice['js_plugin'];?>/jquery.colourPicker.js'></script>
+<script type='text/javascript' src='<?php echo $alice['js_plugin'];?>/jquery.fileupload.js'></script>
+<script type='text/javascript' src='<?php echo $alice['js_ui'];?>/jquery-ui.timepicker.js'></script>
+<style>
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+/* //css for timepicker */
+</style>
+<script>
+<?php if($mode=='insert' && !$result){ // 팝업등록 메뉴를 통해 mode 를 get 으로 가져온 경우?>
+$(window).load(function(){
+	update_popup('insert');	// 팝업 등록
+});
+<?php } ?>
+var change_rank = function(direction, src){	// 순위 조절
+	var parent = $('#popup_list');
+	var no = $(src).parents('tr.popup_list').attr('no');
+	if(direction =='up'){
+		var next_no = $('tr.popup_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.popup_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.popup_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.popup_list').next().attr('no');
+		}
+	}
+	// 순위 조절 ajax
+	$.post('./process/popup.php', { mode:'rank', type:direction, no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.popup_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+
+	});
+}
+var update_popup = function(mode, no){	 // 팝업 등록/수정
+	$('#add_form').load('./views/_load/popup.php', { mode:mode, no:no }, function(result){
+		$('#add_form').show();
+		// Add Form Draggable
+		$('#add_form').draggable({ handle: "#addFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var popup_form_options = { beforeSubmit: Popup_Request, success : Popup_Response };
+		$('#PopupRegistFrm').submit(function(){
+			<?php echo $utility->input_cheditor('popup_content');?>	// 에디터 내용 전달
+			$(this).ajaxSubmit(popup_form_options);
+			return false;
+		});
+		// 출력기간
+		$('#popup_begin, #popup_end').datetimepicker({
+			currentText: '지금',
+			closeText: '적용',
+			timeText: '시간',
+			hourText: '시',
+			minuteText: '분',
+			secondText: '초',
+			showSecond: true,
+			timeFormat: 'hh:mm:ss'
+		});
+
+	});
+}
+var delete_popup = function(no, popup_title){	 // 삭제
+	$('#quest_info').show();
+	$('#confirm_msg').html("["+popup_title+"] 팝업을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '팝업창 정보 삭제',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+}
+var sel_delete_popup = function(){		// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제할 팝업 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 팝업 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '팝업 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question'),
+			css: { 
+				width: '275px' 
+			}
+		});
+	}
+}
+var popup_views = function(no, sels){	// 출력/미출력
+	var sel = sels.checked;
+	$.post('./process/popup.php', { mode:'views', no:no, views:sel }, function(result){
+		if(result){
+			if(sel==true)
+				msg = "출력";
+			else
+				msg = "미출력";
+			alert("팝업을 ["+msg+"] 으로 변경했습니다.");
+		} else {
+			alert("<?php echo $config->_errors('0008');?>");
+		}
+	});
+}
+var popup_sub_views = function(no, sels){	// 서브페이지 출력/미출력
+	var sel = sels.checked;
+	$.post('./process/popup.php', { mode:'sub_views', no:no, views:sel }, function(result){
+		if(result){
+			if(sel==true)
+				msg = "출력";
+			else
+				msg = "미출력";
+			alert("팝업을 서브페이지에 ["+msg+"] 합니다.");
+		} else {
+			alert("<?php echo $config->_errors('0008');?>");
+		}
+	});
+}
+var sel_popupViews = function(views){	// 선택 팝업 출력/미출력
+	var chk_length = $("input[name='no[]']:checked").length;
+	var msg = (views=='yes') ? "출력" : "미출력";
+	if(chk_length==0){
+		alert('변경할 팝업 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 팝업 정보 "+chk_length+"건을 ["+msg+"] 으로 변경 하시겠습니까?");
+		var view_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			view_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '팝업 정보 출력/미출력 설정',
+			showOverlay: false,
+			message: $('#question'),
+			css: { 
+				width: '275px' 
+			}
+		});
+	}
+}
+var page_rows = function(sels){	// 페이지 갯수
+	
+	var page_rows = sels.value;
+
+	document.location.href = "./popup.php?page_rows="+page_rows;
+	
+}
+var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'delete':	// 삭제
+				$.post('./process/popup.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $popup_control->_errors('0007');?>");
+						$.unblockUI();
+					}
+				});
+			break;
+			case 'sel_delete':	// 선택삭제
+				nos = no.split(',');
+				nos_cnt = nos.length;
+				$.post('./process/popup.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $popup_control->_errors('0014');?>");
+					}
+				});
+			break;
+			case 'sel_view':	// 선택팝업 출력/미출력
+				msg = (views=='yes') ? "출력" : "미출력";
+				nos = no.split(',');
+				nos_cnt = nos.length;
+				$.post('./process/popup.php', { mode:mode, no:no, views:views }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $popup_control->_errors('0008');?>");
+					}
+				});
+			break;
+		}
+
+	} else {
+		$.unblockUI();
+	}
+
+}
+</script>
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+사이트접속시 열리는 첫화면 즉, 메인페이지에서 설정하신 팝업이 뜨게 됩니다.<br>
+팝업기능을 사용하지 않으려면 전체선택후 '미출력'버튼을 클릭하시면 됩니다. <br>
+출력할 팝업이 여러개라면 팝업순서에 따라 팝업의 출력 순서가 바뀝니다. <br>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">팝업관리
+<span class="bar">총 <b class="num3 col"><?php echo number_format($popup_list['total_count']);?></b>개의 팝업이 등록되었습니다.</span>
+<dt>
+<select name="page_rows" onchange="page_rows(this);">
+	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+</select>
+</dt></dl>
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>출력</h1></a>
+		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미출력</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>팝업등록</h1></a>
+	</dd>
+</dl> 
+<table width="100%" class="ttlt">
+<col width=30><col width=40><col><col width=210><col width=100><col span="3" width=50><col width=100><col span="1" width=75><col span="2" width=55> 
+  <tr class="bg">
+    <td><input name="check_all" type="checkbox"></td>
+    <td>순서</td>
+    <td>팝업제목</td>
+    <td>출력기간</td>
+    <td>팝업크기</td>
+    <td>Top</td>
+    <td>Left</td>
+    <td>출력</td>
+    <td>서브페이지출력</td>    
+    <td>등록일</td>
+    <td>수정</td>
+    <td class="e">삭제</td>
+  </tr> 
+  <?php if(!$popup_list['result']){ ?>
+  <tr><td colspan="12" class="stlt"></td></tr>
+
+  <?php } else { ?>
+  <tbody id="popup_list">
+
+  <?php 
+	  foreach($popup_list['result'] as $val){ 
+	  $popup_time = ($val['popup_unlimit']) ? "무제한" : substr($val['popup_begin'],0,13) . "시 ~ " . substr($val['popup_end'],0,13) . "시";
+	?>
+  <tr class="popup_list" no="<?php echo $val['no'];?>">
+    <td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+    <td class="none num3">
+		<a onclick="change_rank('up',this);">▲</a>
+		<a onclick="change_rank('down',this);">▼</a>&nbsp;
+    </td>
+    <td class="tl"><?php echo $val['popup_title'];?></td>
+    <td class="num3">
+		<?php echo $popup_time;?></td>
+    <td class="num3"><?php echo $val['popup_width'];?> x <?php echo $val['popup_height'];?></td>
+    <td class="num3"><?php echo $val['popup_top'];?></td>
+    <td class="num3"><?php echo $val['popup_left'];?></td>
+    <td><input name="popup_view[]" type="checkbox" value="1" id="popup_view_<?php echo $val['no'];?>" <?php echo ($val['popup_view'])?'checked':'';?> onClick="popup_views('<?php echo $val['no'];?>',this);"></td>
+    <td><input name="popup_sub_view[]" type="checkbox" value="1" id="popup_sub_view_<?php echo $val['no'];?>" <?php echo ($val['popup_sub_view'])?'checked':'';?> onClick="popup_sub_views('<?php echo $val['no'];?>',this);"></td>
+    <td class="num3"><?php echo substr($val['wdate'],0,11);?></td>
+    <td><a onClick="update_popup('update','<?php echo $val['no'];?>');"><img src="../../images/btn/19_05.gif"></a></td>
+    <td class="e"><a onClick="delete_popup('<?php echo $val['no'];?>','<?php echo $val['popup_title']?>');"><img src="../../images/btn/19_06.gif"></a></td>
+  </tr>
+  <?php } ?>
+  </tbody>
+
+  <?php } ?>
+
+</table>  
+
+<dl class="page mb50">
+<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>출력</h1></a>
+		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미출력</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>팝업등록</h1></a>
+	</dd>
+</dl>
+
+<div id="add_form" class="bocol lnb_col" style="top:10%;left:25%;display:<?php echo ($mode=='insert')?'':'none';?>;">
+
+<form name="PopupRegistFrm" method="post" id="PopupRegistFrm" action="./process/popup.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="insert" id="mode"/><!-- 팝업 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+
+	<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
+	<img src="../../images/comn/bul_10.png" class="t">팝업등록
+	<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
+	</dl>
+	
+	<table width="750" class="bg_col">
+	<col width=80><col>
+	  <tr>
+		<td class="ctlt">팝업스킨</td>
+		<td class="pdlnb2">
+			<select name="popup_skin">
+				<?php 
+					if($popup_skin['result']){
+					foreach($popup_skin['result'] as $skins){
+				?>
+				<option value='<?php echo $skins['no'];?>'><?php echo $skins['skin_name'];?></option>
+				<?php 
+					} // foreach end. 
+					} else {
+				?>
+				<option value=''>팝업스킨이 존재하지 않습니다.</option>
+				<?php } ?>
+			</select>
+			<?php if(!$popup_skin['result']){?><span class="subtlt"><a href='./pop_skin.php'>팝업스킨을 먼저 설정해 주세요.</a></span><?php } ?>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">팝업제목</td> 
+		<td class="pdlnb2">
+			<input name="popup_title" type="text" class="txt w50" required hname='팝업제목' maxbyte='40'> &nbsp;
+			<label><input name="popup_title_view" type="checkbox" value="1" class="check" checked>출력</label>
+			<span class="subtlt">출력시 팝업창 상단에 팝업제목 노출 (20자 이내)</span>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">출력타입</td>
+		<td class="pdlnb2">
+			<label><input name="popup_type" type="radio" value="1" class="radio" checked>레이어</label> &nbsp; &nbsp; &nbsp;&nbsp;
+			<label><input name="popup_type" type="radio" value="0" class="radio">팝업(새창)</label>  &nbsp;
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">출력여부</td>
+		<td class="pdlnb2">
+			<label><input name="popup_view" type="radio" value="1" class="radio" checked>출력</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<label><input name="popup_view" type="radio" value="0" class="radio">미출력</label>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">팝업크기</td>
+		<td class="pdlnb2">
+			가로 <input name="popup_width" type="text" class="tnum" size="3" value="0"> px , 
+			세로 <input name="popup_height" type="text" class="tnum" size="3" value="0"> px
+			<span class="subtlt">운영체제에 따라 실제 출력크기와 다를 수 있음</span>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">팝업위치</td>
+		<td class="pdlnb2">
+			상단 <input name="popup_top" type="text" class="tnum" size="3" value="0"> px , 
+			왼쪽 <input name="popup_left" type="text" class="tnum" size="3" value="0"> px
+			<span class="subtlt">새창 사용시 브라우저의 좌측상단 끝이 0,0 이며, 레이어 사용시 웹페이지 내용부터 계산</span>
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">출력기간</td>
+		<td class="pdlnb2">
+			시작일 <input name="popup_begin" type="text" class="tday" id="popup_begin" readonly style="width:125px;" value="">
+			종료일 <input name="popup_end" type="text" class="tday" id="popup_end" readonly style="width:125px;" value="">
+			<input name="popup_unlimit" type="checkbox" value="1" class="check">제한없음
+		</td>
+	  </tr>
+	  <tr>
+		<td class="ctlt">내용</td>
+		<td class="pdlnb2">
+			<?php echo $utility->make_cheditor('popup_content', "");	// 에디터 생성?>
+		</td>
+	  </tr>
+	</table>
+
+	<dl class="pbtn">  
+		<input type='image' src="../../images/btn/b23_01.png" class="ln_col">&nbsp;
+		<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/btn/23_10.gif"></a>
+	</dl>
+
+</form>
+
+</div>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 전송전
+function Popup_Request(formData, jqForm, form_options){
+
+	var PopupRegistFrm = document.getElementById('PopupRegistFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(PopupRegistFrm);
+}
+function Popup_Response(responseText, statusText, xhr, $form){
+
+	var responseTexts = responseText.split('/');
+	var modes = responseTexts[0];
+	var result = responseTexts[1];
+
+	if(responseText=='0052'){
+		alert("<?php echo $config->_success('0034');?>");
+	} else {
+		if(result){
+			msg = (modes=='update') ? "<?php echo $config->_success('0007');?>" : "<?php echo $config->_success('0009');?>";
+			<?php if($mode && $result){?>
+			location.href = "./popup.php?mode=insert&result=true";
+			<?php } else {?>
+			location.reload();
+			<?php } ?>
+		} else {
+			msg = (modes=='update') ? "<?php echo $config->_errors('0011');?>" : "<?php echo $config->_errors('0027');?>";
+			alert(msg);
+		}
+	}
+
+}
+
+</script>
+<?php include_once "../include/tail.php";?>

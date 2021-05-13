@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body style="margin:0;padding:0">
+    <div class="wrapper_help">  
+      <div class="admin_pop01">       
+        <div class="admin_pop0302">
+          <div class="admin_help_title01">■ 카카오 API 키 발급 방법</div>
+          <div class="admin_pop_title01">
+          </div>        
+          <div class="admin_pop_title01"><span>1.</span> <b>카카오 개발자 사이트</b> <a href="https://developers.kakao.com/">(https://developers.kakao.com)</a>로 이동하여 카카오 계정으로 로그인 합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao01.png"></div>
+          <div class="admin_pop_title01"><span>2.</span> 앱만들기 페이지에서 이름 입력란에 <b>앱명</b>을 입력하고 <b>Create</b>버튼을 클릭합니다.</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao02.png"></div>            
+          <div class="admin_pop_title01"><span>3.</span> 등록이 완료되면 화면 하단에 <b>[설정]</b>을 클릭합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao03.png"></div>              
+          <div class="admin_pop_title01"><span>4.</span> 내애플리케이션 기본정보 하단에 있는 <b>플랫폼 추가</b> 버튼을 클릭합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao04.png"></div>             
+          <div class="admin_pop_title01"><span>5.</span> 팝업창이 뜨면 플랫폼 추가 방식을 <b>웹</b>으로 체크하신 후 등록하실 사이트의 <b>도메인 주소</b>를 입력하고 <b>추가하기</b> 버튼을 클릭합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao05.png"></div>               
+          <div class="admin_pop_title01"><span>6.</span> 플랫폼이 추가되면 상단의 키값 중 <b style="color:#ff0000">JavaScript 키</b>를 복사합니다.</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao06.png"></div> 
+          <div class="admin_pop_title01"><span>7.</span> 홈페이지 관리자의 <b>환경설정 - 사이트관리 - 기본정보설정</b>에서 카카오 API 키를 입력한 후 <b>저장</b>버튼을 눌러 앱 연동을 완료합니다.</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/kakao07.png"></div> 					
+        </div>
+        <div class="admin_pop0103"><a onclick="self.close();" class="cursor">닫기</div>
+      </div>
+    </div>  
+  </body>
+</html>

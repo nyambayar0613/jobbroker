@@ -1,0 +1,270 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+
+	$('#boardIndexFrm').submit(function(){
+		var form_options = { beforeSubmit: mainRequest, success : mainResponse };
+		$(this).ajaxSubmit(form_options);
+		return false;
+	});
+
+	$("input[name='name[]']").keydown(function(event){
+		if(event.keyCode==13){	 // 엔터키 이벤트
+			var menu = $(this).attr('menu'), no = $(this).attr('no');
+			menu_update(no);
+			return false;
+		}
+	});
+
+});
+var menu_sels = function( no, code ){	// 메뉴 선택
+	$('#board_list').load("./views/_load/menu.php", { mode:'next_board', no:no, code:code }, function(result){
+		//alert(result);
+	});
+}
+var menu_view = function( no, obj ){	 // 메뉴 사용/미사용
+	var view = obj.checked;
+	$.post('./process/menu.php', { mode:'view', no:no, view:view }, function(result){
+		if(result)
+			alert("<?php echo $config->_success('0020');?>");
+		else
+			alert("<?php echo $config->_errors('0020');?>");
+	});
+}
+var menu_update = function( no ){	// 메뉴 수정 (다중)
+	var sel = $('#name_'+no).val(), view = $('#view_'+no).is(':checked');
+	if(!sel || sel == ''){
+		alert("<?php echo $board_config_control->_errors('0006');?>");
+		$('#name_'+no).focus();
+		return false;
+	}	
+	$.post('./process/menu.php', { mode:'update', no:no, name:sel, view:view }, function(result){
+		if(result)
+			alert("<?php echo $board_config_control->_success('0003');?>");
+		else
+			alert("<?php echo $board_config_control->_errors('0007');?>");
+	});
+}
+var menu_delete = function( no ){	 // 메뉴 삭제 (다중)
+	
+	$.post('./process/menu.php', { mode:'is_board', no:no }, function(result){
+		if(result=='0026'){
+			if(confirm("<?php echo $board_config_control->_errors('0026');?>")){
+				var name = $('#name_'+no).val();
+				$('#quest_info').html("<p>분류명 : <span id='quest_name'></span></p><br/>");
+				$('#quest_name').html(name);
+				$('#quest_info').show();
+				$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+				$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'menu_delete\', \''+no+'\', \''+menu+'\');" value="예" />');
+				// 질의(Confirm) 창 띄우기
+				$.blockUI({ 
+					theme: true,
+					title: '['+name+'] 메뉴 삭제',
+					showOverlay: false,
+					message: $('#question')
+				});
+			}
+		} else {
+			var name = $('#name_'+no).val();
+			$('#quest_info').html("<p>분류명 : <span id='quest_name'></span></p><br/>");
+			$('#quest_name').html(name);
+			$('#quest_info').show();
+			$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'menu_delete\', \''+no+'\');" value="예" />');
+			// 질의(Confirm) 창 띄우기
+			$.blockUI({ 
+				theme: true,
+				title: '['+name+'] 메뉴 삭제',
+				showOverlay: false,
+				message: $('#question')
+			});
+		}
+	});
+}
+var change_rank = function(direction, src){	// 리스트상 게시판 순위 조절
+
+	var parent = $('#board_list');
+	var no = $(src).parents('tr.board_list').attr('no');
+
+	if(direction =='up'){
+		var next_no = $('tr.board_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.board_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.board_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.board_list').next().attr('no');
+		}
+	}
+
+	// 순위 조절 ajax
+	$.post('./process/board.php', { mode:'board_m_rank', no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.board_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $board_config_control->_errors('0017');?>");
+		}
+	});
+
+}
+var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따른 처리
+	var type = "<?php echo $category_type;?>";
+	if(answer=='yes'){
+		switch(mode){
+			case 'menu_delete':	// 삭제
+				$.post('./process/menu.php', { mode:'delete', no:no, type:type } , function(result){
+					if(result=='0004'){
+						alert("<?php echo $board_config_control->_errors('0004');?>");
+						$.unblockUI();
+						return false;
+					} else {
+						if(result){
+							location.reload();
+						} else {
+							alert("<?php echo $board_config_control->_errors('0008');?>");
+							$.unblockUI();
+							return false;
+						}
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>분류명 : <span id='quest_name'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+메인 INDEX 페이지 최하단에 출력되는 게시판의 순서와 출력유무, 출력갯수 등을 설정하실수 있습니다.
+</dl></dl>
+
+<form name="boardIndexFrm" method="post" id="boardIndexFrm" action="./process/board.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="board_index_print"/>
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="no" value="<?php echo $get_main['no'];?>"/><!-- 기본값 1 -->
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">게시판 설정/출력수</dl>
+	<table class="ttlt w100">
+	<col width="60"><col><col width="55"><col span="2" width=70><col span="2" width="130">
+	<tr class="bg">
+		<td>출력순서</td>
+		<td>게시판명</td>
+		<td>출력유무</td>
+		<td>제목길이</td>
+		<td>출력갯수</td>
+		<td>이미지사이즈</td>
+		<td class="e">
+			<dl class="psr">
+				<a onClick="$('.svspop').toggle();">출력형태 <img src="../../images/ic/q.gif" class="m"></a>
+				<dl class="svspop" style="margin:-63px 38px 0 0" onClick="$(this).hide();"><img src="../../images/comn/bul_08.gif" class="sar">
+					<dt><img src="../../images/nad/sform.jpg"></dt>
+				</dl>
+			</dl>
+		</td>
+	</tr>
+
+	<tbody id="board_list">
+	<?php 
+	if($board_list['result']) {
+		foreach($board_list['result'] as $board) { 
+			$bo_table = $board['bo_table'];
+			$bo_no = $board['no'];
+			$bo_print = $print_main[$bo_table];
+	?>
+	<!-- <input type="hidden" name="board[<?php echo $bo_table;?>]" value="<?php echo $bo_table;?>"/>
+	<input type="hidden" name="board[<?php echo $bo_table;?>][no]" value="<?php echo $bo_no;?>"/> -->
+	<tr class='board_list' no="<?php echo $board['no'];?>">
+		<td class="none num3">
+			<a class="none" onclick="change_rank('up',this);">▲</a>
+			<a class="none" onclick="change_rank('down',this);">▼</a>
+		</td>
+		<td class="tl"><?php echo stripslashes($board['bo_subject']);?></td>
+		<td><input type="checkbox" name="board[<?php echo $bo_table;?>][view]" class="chk" value="1" <?php echo ($bo_print['view'])?'checked':'';?>/></td>
+		<td><input name="board[<?php echo $bo_table;?>][subject_len]" type="text" class="tnum tc b" size="3" value="<?php echo ($bo_print['subject_len'])?$bo_print['subject_len']:"0";?>"></td>
+		<td><input name="board[<?php echo $bo_table;?>][print_cnt]" type="text" class="tnum tc b" size="3" value="<?php echo ($bo_print['print_cnt'])?$bo_print['print_cnt']:"0";?>"></td>
+		<td>
+			<input name="board[<?php echo $bo_table;?>][img_width]" type="text" class="tnum tc b" size="3" value="<?php echo ($bo_print['img_width'])?$bo_print['img_width']:"0";?>"> x
+			<input name="board[<?php echo $bo_table;?>][img_height]" type="text" class="tnum tc b" size="3" value="<?php echo ($bo_print['img_height'])?$bo_print['img_height']:"0";?>">
+		</td>
+		<td class="e">
+			<select name="board[<?php echo $bo_table;?>][print_type]">
+				<option value="default" <?php echo ($bo_print['print_type']=='default')?'selected':'';?>>텍스트형</option>
+				<option value="image" <?php echo ($bo_print['print_type']=='image')?'selected':'';?>>이미지형</option>
+				<option value="webzine" <?php echo ($bo_print['print_type']=='webzine')?'selected':'';?>>웹진형</option>
+			</select>
+		</td>
+	</tr>
+	<?php 
+		} // foreach end. 
+	}	// if end.
+	?>
+	</tbody>
+	</table>
+
+<dl class="pbtn">  
+	<input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;
+	<!-- <a onClick="history.go(-1);"><img src="../../images/btn/35_can.gif"></a> -->
+</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+function mainRequest(formData, jqForm, board_category_options){	// 폼 전송전
+
+	var queryString = $.param(formData);
+
+	return true;
+
+}
+function mainResponse(responseText, statusText, xhr, $form){	 // 폼 전송후
+
+	if(responseText){
+		alert("<?php echo $board_config_control->_success('0009');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $board_config_control->_errors('0029');?>");
+	}
+
+}
+</script>
+<?php include_once "../include/tail.php";?>

@@ -1,0 +1,40 @@
+[2015-09-02 17:42:15.939] # OKNAME v3.70 start!<br>
+[2015-09-02 17:42:15.940] # mode=HS_CNFRM_POPUP<br>
+[2015-09-02 17:42:15.940] # Parameter IP: 	114.108.128.129<br>
+[2015-09-02 17:42:15.940] # argv[ 1](hs_cert_svc_tx_seqno)=2015090217421594103<br>
+[2015-09-02 17:42:15.940] # argv[ 2](nm)=전수환<br>
+[2015-09-02 17:42:15.940] # argv[ 3](brdt)=19870404<br>
+[2015-09-02 17:42:15.940] # argv[ 4](sex)=1<br>
+[2015-09-02 17:42:15.940] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-09-02 17:42:15.940] # argv[ 6](var1)=03<br>
+[2015-09-02 17:42:15.940] # argv[ 7](var2)=01096997689<br>
+[2015-09-02 17:42:15.940] # argv[ 8](var3)=0<br>
+[2015-09-02 17:42:15.940] # argv[ 9](var4)=0<br>
+[2015-09-02 17:42:15.940] # argv[10](var5)=0<br>
+[2015-09-02 17:42:15.940] # argv[11](return_msg)=x<br>
+[2015-09-02 17:42:15.940] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-09-02 17:42:15.940] # argv[13](in_tp_bit)=15<br>
+[2015-09-02 17:42:15.940] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-09-02 17:42:15.940] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-09-02 17:42:15.940] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-09-02 17:42:15.940] # argv[17](server_ip)=114.108.128.129<br>
+[2015-09-02 17:42:15.940] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-09-02 17:42:15.940] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-09-02 17:42:15.940] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-09-02 17:42:15.940] # argv[21](option)=QL<br>
+[2015-09-02 17:42:15.940] # soap_timeout: 30000 ms<br>
+[2015-09-02 17:42:15.994] # key   : AgbULsVqA3t8+HVf+vDLPmjbjjaBmg==:n3Y4tV4nvbZ93JVFfrBB8g==<br>
+[2015-09-02 17:42:15.994] # spkey : AgbULsVqA3t8+HVf+vDLPmjbjjaBmg==<br>
+[2015-09-02 17:42:15.994] # ssig  : n3Y4tV4nvbZ93JVFfrBB8g==<br>
+[2015-09-02 17:42:15.997] # nm               : 전수환<br>
+[2015-09-02 17:42:15.997] # brdt             : 19870404<br>
+[2015-09-02 17:42:15.997] # e_nm             : GAUKiWxU<br>
+[2015-09-02 17:42:15.997] # e_brdt           : 6cCOSJTPxfg=<br>
+[2015-09-02 17:42:15.997] # cpkey : AwHdxcje9/ONeKXBjrecF/x5ajodgA==<br>
+[2015-09-02 17:42:15.997] # csig  : AnYiLBShGAnhuwlw/DL7Gw==<br>
+[2015-09-02 17:42:16.032] retmsg: msmGT546UXcTIpp4Mv6WeVIJQkm/BtBBaraU7rBDqwfFvKgW6C8ztNtnYY5OdiX8EJStSB4JsoN2G1hFDuWzRH2wCUaSSWpQ3MsqNLTuCpepMMfgmJERx5wl2M+CkcvKLQ2wB/HgxuTmK5exPwWfPcJ/gMPd+8vkxRWZaLG32n1O1uqAg7Q6oMyq4gvVG1v2RWngW4rdR5uaj3AqSRoUELClvBgAtvJdezy6LHNmbKtS7w3PSVahV36Nw0cL4Mv7XQKsfFFvhAxamlEcErj9dteV/5yB+EkX+ZuJ/AbhKtmk8w==
+[2015-09-02 17:42:16.032] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/KdVLDPhYFOO9im74MSNYvsWGY6qqhBOhEIUBlsJ/CUcRV4zrnXr2RZJV6IeIhkuLJx6dPtbe8IMFoNZQPCuKQjCqI79hEyI6KFsg5kYrnatTpw6t9ij/HqO2q+j4Uoru6gqZCZRbk7UzJarXUzaVxzgBmWh79HYjZnIgW/n0hObzyARcw3nmZdcAEYQEk3oSQ==
+[2015-09-02 17:42:16.032] B000
+[2015-09-02 17:42:16.032] 정상
+[2015-09-02 17:42:16.032] kYFvkgmfTi0CDDkL3FAZ/KdVLDPhYFOO9im74MSNYvsWGY6qqhBOhEIUBlsJ/CUcRV4zrnXr2RZJV6IeIhkuLJx6dPtbe8IMFoNZQPCuKQjCqI79hEyI6KFsg5kYrnatTpw6t9ij/HqO2q+j4Uoru6gqZCZRbk7UzJarXUzaVxzgBmWh79HYjZnIgW/n0hObzyARcw3nmZdcAEYQEk3oSQ==
+[2015-09-02 17:42:16.032] # final ret code=0<br>

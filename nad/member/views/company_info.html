@@ -1,0 +1,348 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<?php echo $map_script;?>
+
+<script>
+var insert_mode = "<?php echo $mode;?>";
+var mb_type = "company";
+var use_map = "<?php echo $use_map;?>";
+var daum_local_APIKEY = "<?php echo $daum_local_key;?>";
+var naver_map_KEY = "<?php echo $naver_map_key;?>";
+$(function(){
+	<?/*php if($_GET['mode']=='insert'){ ?>
+	update_company('insert','');
+	<?php } */?>
+	
+	/*
+	$('#CompanyFrm').submit(function(){
+		<?php echo $utility->input_cheditor('mb_biz_vision');	// 기업개요 및 비전 에디터 내용 전달 ?>
+		<?php echo $utility->input_cheditor('mb_biz_result');	// 기업연혁 및 실적 에디터 내용 전달 ?>
+	});
+	var company_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+	$('#CompanyFrm').ajaxForm(company_options);	// memo ajax form submit
+	*/
+});
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./company_info.php?"+send_url+"&page_rows=" + sel;
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+
+var update_company = function( mode, no ){
+	$('#pop_info').load('./views/_load/company.php', { mode:mode, no:no }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#companyFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		
+		insert_mode = mode;
+
+		// 회원검색
+		$('#mb_search').keydown(function(event){
+			if(event.keyCode == 13){	// 회원검색 필드 에서 엔터키
+				search_member();
+				return false;
+			}
+		});
+
+		$('#CompanyFrm').submit(function(){
+			<?php echo $utility->input_cheditor('mb_biz_vision');	// 기업개요 및 비전 에디터 내용 전달 ?>
+			<?php echo $utility->input_cheditor('mb_biz_result');	// 기업연혁 및 실적 에디터 내용 전달 ?>
+		});
+		var company_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#CompanyFrm').ajaxForm(company_options);	// memo ajax form submit
+
+	});
+}
+var deletes = function( no ){	// 삭제 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 안됩니다.<br/><br/>기업정보를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '기업 정보 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_deletes = function(){	// 선택삭제 (복수)
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 기업정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터는 복구가 안됩니다.<br/><br/>선택하신 기업 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '기업 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 기업정보 삭제 (단수)
+			case 'delete':
+				$.post('./process/company.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0015');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			// 선택 기업정보 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/company.php', { mode:mode, no:no }, function(result){
+					if(result){
+						//alert('선택하신 회원정보 '+nos_cnt+'건이 삭제되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+						return false;
+					}
+				});
+			break;
+		}	// switch end.
+	} else {
+		/*
+		switch(mode){
+			case 'email':
+				$('#pop_mail').html("");
+			break;
+		}
+		*/
+		$.unblockUI();
+	}
+}
+var search_member = function(){	// 회원 검색
+	var sel = $('#mb_search').val();
+	if(!sel || sel==''){
+		alert("<?php echo $config->_errors('0032')?>");	 // 검색어를 입력해 주세요.
+		$('#mb_search').focus();
+		return false;
+	} else {
+		$.post('./process/search.php', { mode:'search', ajax:'true', mb_type:'company', search_keyword:sel }, function(result){
+			$('#memlist').html(result);
+			$('#memlist').show();
+		});
+	}
+}
+var get_member = function(mb_id){	// 회원의 no, mb_id 값을 가져와 input field 에 할당
+	$.post('./process/search.php', { mode:'alba_list', mb_id:mb_id }, function(result){
+		$("#mb_id option[value="+mb_id+"]").attr('selected',true);
+		$('#memlist').hide();
+	});
+}
+var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/삭제
+	if(mode=='update'){	// 등록
+		$('#albaPhotoPop').show();
+		$('#alba_photos').val(no);
+		$('#albaPhotoPop').draggable({
+			handle: '#albaPhotoPop_handle'
+		});
+	} else if(mode=='delete') {
+		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+			$.post('../alba/process/regist.php', { mode:'alba_photo_delete', mb_id:mb_id, photo_no:no }, function(result){
+				$('#alba_photo_'+no).attr('src',result);
+				close_alba_photos();
+			});
+		}
+	}
+}
+var alba_photo_submit = function(){	// 근무회사  이미지 등록하기 버튼 클릭시
+	var photo_files = $('#photo_files').val();
+	if(!photo_files || photo_files==''){
+		alert("등록할 사진을 첨부해 주세요.");
+		return;
+	}
+	var alba_photo_options = { beforeSubmit : alba_photoRequest, success : alba_photoResponse }
+	$('#CompanyFrm #mode').val('photo_upload');
+	$('#CompanyFrm').ajaxSubmit(alba_photo_options);
+}
+var close_alba_photos = function(){	// 근무회사 이미지 등록폼 닫기
+	$('#albaPhotoPop').hide();
+	$('#mode').val(insert_mode);
+}
+var alba_photoRequest = function(formData, jqForm, photo_options){	 // 근무회사 이미지 전송 전
+	var queryString = $.param(formData); 
+	return true;
+}
+var alba_photoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
+	if(responseText=='extension_error'){
+		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		return false;
+	} else {
+		var alba_photos = $('#alba_photos').val();
+		$('#alba_photo_'+alba_photos).attr('src',"../../data/member/"+responseText);
+		$('#photos_'+alba_photos).val("../../data/member/"+responseText);
+		$('#albaPhotoPop').hide();
+		$('#CompanyFrm #mode').val(insert_mode);
+	}
+}
+var showRequest = function(formData, jqForm, company_options){
+	var queryString = $.param(formData); 
+	var memberFrm = document.getElementById('CompanyFrm');
+	return validate(memberFrm);
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		location.reload();
+	} else {
+		var msg = (insert_mode=='insert') ? "등록" : "수정";
+		alert("기업정보 "+msg+" 중 오류가 발생했습니다.");
+	}
+}
+var postClose = function(){
+	$('#postSearchPop').hide();
+	$('#mb_address1').focus();
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox">
+	<dl>
+		기업회원의 기업정보를 관리 하는 페이지입니다.<br/>
+		회원ID 하나로 여러 기업정보를 등록 관리 할수 있습니다. <br/> 
+		엑셀저장 버튼을 클릭하시면 체크한 해당 회원정보를 엑셀파일로 다운받아보실 수 있습니다.<br/> 
+	</dl>
+</dl>
+
+<?php include_once "./views/_include/company_search.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기업정보 관리
+	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 기업정보가 검색되었습니다.</span>
+	<dt>
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25건 출력</option>
+			<option value='35' <?php echo ($page_rows==35)?'selected':'';?>>35건 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50건 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70건 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100건 출력</option>
+		</select>
+	</dt>
+</dl>  
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>기업정보등록</h1></a>
+	</dd>
+</dl>
+
+<table width="100%" class="ttlt">
+<col width="2%"><col span="12"><col width="6%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>회원ID</td>
+	<td>대표기업</td>
+	<td>대표자명</td>
+	<td>회사명</td>
+	<td>회사분류</td>
+	<td>사업자등록번호</td>
+	<td>전화번호</td>
+	<td>휴대폰번호</td>
+	<td>팩스번호</td>
+	<td>이메일</td>
+	<td>기업형태</td>
+	<td>상장여부</td>
+	<td>편집</td>
+</tr>
+<tbody id="member_list">
+<?php if(!$list['total_count']){ ?>
+<tr><td colspan="18" class="stlt"></td></tr>
+<?php } else { 
+	foreach($list['result'] as $val){
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class='b'><?php echo $val['mb_id'];?></a></td>
+	<td><?php echo ($val['is_public'])?"<span class=\"wbl b\">O</span>":"<span class=\"red b\">X</span>";?></td>
+	<td><?php echo stripslashes($val['mb_ceo_name']);?></td>
+	<td><?php echo $val['mb_company_name']?></td>
+	<td><?php echo $category_control->get_categoryCodeName($val['mb_biz_type']);?></td>
+	<td><?php echo $val['mb_biz_no'];?></td>
+	<td><?php echo $val['mb_biz_phone'];?></td>
+	<td><?php echo $val['mb_biz_hphone'];?></td>
+	<td><?php echo $val['mb_biz_fax'];?></td>
+	<td><?php echo $val['mb_biz_email'];?></td>
+	<td><?php echo $category_control->get_categoryCodeName($val['mb_biz_form']);?></td>
+	<td><?php echo $category_control->get_categoryCodeName($val['mb_biz_success']);?></td>
+	<td class="edit e">
+		<p class="" style="display:inline-block; width:85px;">
+			<span style="display:inline-block;width:40px;cursor:pointer;margin-right:1px;" onClick="update_company('update','<?php echo $val['no'];?>');"><img src="../../images/btn/19_05.gif"></span> <span style="display:inline-block;width:40px;cursor:pointer;" onClick="deletes('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></span>
+		</p>
+	</td>
+</tr>
+<?php 
+	} // foreach end.
+} // if end.
+?>
+</tbody>
+</table>
+
+<dl class="page mb50">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>기업정보등록</h1></a>
+	</dd>
+</dl>
+
+<div id='pop_info'></div>
+<div id='zipcode_info'></div>
+
+</table></td>
+</tr>
+</table>
+
+<script>
+
+</script>
+<?php include_once "../include/tail.php";?>

@@ -1,0 +1,343 @@
+[2015-11-26 15:56:16.806] # OKNAME v3.70 start!<br>
+[2015-11-26 15:56:16.806] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:56:16.806] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:56:16.806] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155616360647<br>
+[2015-11-26 15:56:16.806] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:56:16.806] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:56:16.806] # argv[ 4](sex)=1<br>
+[2015-11-26 15:56:16.807] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:56:16.807] # argv[ 6](var1)=03<br>
+[2015-11-26 15:56:16.807] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:56:16.807] # argv[ 8](var3)=0<br>
+[2015-11-26 15:56:16.807] # argv[ 9](var4)=0<br>
+[2015-11-26 15:56:16.807] # argv[10](var5)=0<br>
+[2015-11-26 15:56:16.807] # argv[11](return_msg)=x<br>
+[2015-11-26 15:56:16.807] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:56:16.807] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:56:16.807] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:56:16.807] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:56:16.807] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:56:16.807] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:56:16.807] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:56:16.807] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:56:16.807] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:56:16.807] # argv[21](option)=QL<br>
+[2015-11-26 15:56:16.807] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:56:16.847] # key   : AgM2oG85p2rvFzzEYamnz8/XyuedUg==:5PH0UjPibUNa10CbHreTGQ==<br>
+[2015-11-26 15:56:16.847] # spkey : AgM2oG85p2rvFzzEYamnz8/XyuedUg==<br>
+[2015-11-26 15:56:16.847] # ssig  : 5PH0UjPibUNa10CbHreTGQ==<br>
+[2015-11-26 15:56:16.849] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:56:16.849] # brdt             : 19701105<br>
+[2015-11-26 15:56:16.849] # e_nm             : 7DQNSNMZ<br>
+[2015-11-26 15:56:16.849] # e_brdt           : bOX6nSruTEw=<br>
+[2015-11-26 15:56:16.849] # cpkey : AgCdTnmo9VpbHcIPDSi308Nbl06KMA==<br>
+[2015-11-26 15:56:16.849] # csig  : F0xlpc7ve4DFUoazL3W7ew==<br>
+[2015-11-26 15:56:16.892] retmsg: H+z9nSEe2MKbCRLyKt/shv5Au8rAT+BQ3tvX4s7XFuznMRUteZNps933LIPfS7EoK3ml5sJMurCcHvVuruF3NHKROPys4aXGjp1lHFxk54AQi6lJDXV+5k6Jjtat7VAJK+daI5Md066MvKAPXSjPWHNKIsOaQBk3meMGCezrPO3faw1yRibGZkwm/9Hi/GHxbumCYqZWwx/p2mfczV2jMrzFORHkUrZ609QIGia2uW1z/pVxYE7OsmDKRGkb4uSmeKZP+JmCWKXonPMIUCJmr8YL+Jqf/mNLZG3+IDIYIKDvOg==
+[2015-11-26 15:56:16.892] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/ICVYOeWTw3ESlD+vOx9xLNms8Zk+i/mBM2hH4VpJ22GkFkMGaj81hPFRIEZ76Vu919SpDGo5s4oeJwjwjlywLMAvVmMIYcMtguKKX6GdX+WqcZAabsghEYVFJCZzkq9cBTAT1jhW1pXd1LtD02NT6oqXDA1ck0r3PxwK0eRGjmL+ENQLt8CvL/spfMAOMdSZQ==
+[2015-11-26 15:56:16.893] B000
+[2015-11-26 15:56:16.893] Á¤»ó
+[2015-11-26 15:56:16.893] kYFvkgmfTi0CDDkL3FAZ/ICVYOeWTw3ESlD+vOx9xLNms8Zk+i/mBM2hH4VpJ22GkFkMGaj81hPFRIEZ76Vu919SpDGo5s4oeJwjwjlywLMAvVmMIYcMtguKKX6GdX+WqcZAabsghEYVFJCZzkq9cBTAT1jhW1pXd1LtD02NT6oqXDA1ck0r3PxwK0eRGjmL+ENQLt8CvL/spfMAOMdSZQ==
+[2015-11-26 15:56:16.893] # final ret code=0<br>
+[2015-11-26 15:57:29.969] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:29.970] # mode=IPIN_CKDEC<br>
+[2015-11-26 15:57:29.970] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-11-26 15:57:29.970] # argv[ 2](memid      )=V05280000000<br>
+[2015-11-26 15:57:29.970] # argv[ 3](EndPointURL)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:29.970] # argv[ 4](cPubKey     )=AwTUCUqAPWfVKBA2jIqgetB/wjG81w==<br>
+[2015-11-26 15:57:29.970] # argv[ 5](cSig )=Nnk8MIuR+5YIbufbRycCOg==<br>
+[2015-11-26 15:57:29.970] # argv[ 6](EncData  )=wQzrsXnfKS73jEJ9cZm6MBdyhspVA7+seFprKD4hJqWJ4Z2cS9ks7tEPpxHxJJgg0Q2OHSbfhqOFkhrSMKWQDI44vlz7X5EqcSBflwPM1ePwxyb1tlJIKTySybBL6B2L3uP8cnjdIBeJaESJdEe1iEcxyec6Pmx78KwV8bE0XT9iMSkHI7zDnBEG0X5io1txJpaktBTJB7Y7u/unEbWW853AP1+aQGejpHL1thNXUo8Kxk1SY+4iNyFjH89i5eUfVnAI+O+mzU2uneTWkh3RsIj41ayOHpyW7FoFcHis4h8iaWouzab0qMmysSFmYhqDbbsBab4kfTdSbNEoJA==<br>
+[2015-11-26 15:57:29.970] # argv[ 7](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:29.970] # argv[ 8](Option     )=SL<br>
+[2015-11-26 15:57:29.970] # Generating monthly key..
+[2015-11-26 15:57:29.971] pub1: AgKyKk5q3sc4QIAkKYiXwjUG9rePlA==
+[2015-11-26 15:57:29.971] pri1: AZ3GblL8+dRIFCUcWXNjPVqKH576
+[2015-11-26 15:57:29.971] sig1: 7p70TmMe1B5c7SiKuWqMAw==
+[2015-11-26 15:57:29.971] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:30.018] retmsg: AwQu4gjh9Jdm8VhrSjD1Q2uxi3j7zA==:JAMm3vPR0px4a1g5lrIhAw==:lww+fONRl6vpWj+FieINIOHe2jYJxvJgEZP5SwJvm7r2rG+gflDEq9fhLkknf2MSOoKd+kKO7jPrCw5bA/ISKTGhTAi4kTezmfMis9usTLbqNy6JBWM=
+[2015-11-26 15:57:30.018] pub3: AwQu4gjh9Jdm8VhrSjD1Q2uxi3j7zA==
+[2015-11-26 15:57:30.018] sig3: JAMm3vPR0px4a1g5lrIhAw==
+[2015-11-26 15:57:30.018] pub2pri2sig2: lww+fONRl6vpWj+FieINIOHe2jYJxvJgEZP5SwJvm7r2rG+gflDEq9fhLkknf2MSOoKd+kKO7jPrCw5bA/ISKTGhTAi4kTezmfMis9usTLbqNy6JBWM=
+[2015-11-26 15:57:30.019] srvSecurekey: A/DCzfLZW4fcnBt8Sds/6RkkYyEa
+[2015-11-26 15:57:30.019] decData: AwWFhF/8EzGZuqjFe55kL2FcyoHd9Q==:AS93qRKGq46HZ1BNRizsfhp7OOIO:YCIL8HAfaBuRlrkv+un9XQ==
+[2015-11-26 15:57:30.019] # ERROR S203: (Client key generation error.)<br>
+[2015-11-26 15:57:30.019] # final ret code=203<br>
+[2015-11-26 15:57:49.740] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:49.740] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:57:49.740] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:57:49.740] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155749433365<br>
+[2015-11-26 15:57:49.740] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:57:49.740] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:57:49.740] # argv[ 4](sex)=1<br>
+[2015-11-26 15:57:49.740] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:57:49.740] # argv[ 6](var1)=03<br>
+[2015-11-26 15:57:49.740] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:57:49.740] # argv[ 8](var3)=0<br>
+[2015-11-26 15:57:49.740] # argv[ 9](var4)=0<br>
+[2015-11-26 15:57:49.740] # argv[10](var5)=0<br>
+[2015-11-26 15:57:49.740] # argv[11](return_msg)=x<br>
+[2015-11-26 15:57:49.740] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:57:49.740] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:57:49.740] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:57:49.740] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:57:49.740] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:57:49.740] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:57:49.740] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:57:49.740] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:49.741] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:49.741] # argv[21](option)=QL<br>
+[2015-11-26 15:57:49.741] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:49.779] # key   : AwE3I8ZwxzktdDMrdP06E6jmVr8nzQ==:oJDU/RGeVbDkj+hfF9cuvg==<br>
+[2015-11-26 15:57:49.779] # spkey : AwE3I8ZwxzktdDMrdP06E6jmVr8nzQ==<br>
+[2015-11-26 15:57:49.779] # ssig  : oJDU/RGeVbDkj+hfF9cuvg==<br>
+[2015-11-26 15:57:49.781] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:57:49.781] # brdt             : 19701105<br>
+[2015-11-26 15:57:49.781] # e_nm             : Y9seCG51<br>
+[2015-11-26 15:57:49.781] # e_brdt           : 4wrp3ZeCR6I=<br>
+[2015-11-26 15:57:49.781] # cpkey : AwZArcVgOy/A9OUXpjoy5Wrx3kN3WA==<br>
+[2015-11-26 15:57:49.781] # csig  : Pf6aNe6lji6KP/Dm0pPT2Q==<br>
+[2015-11-26 15:57:49.818] retmsg: kAPu3Zxy0yzAi0eVVZF99dbXyaGRnUl5UaDfWJ1OzpWWV8WXRt7+2mp77c6PTahGq0f7eU0JK4LrniOy7gvjmQYyVIMAM/FqlpzAyQAD6/Ra3zc3nVjb+oqmEiqOM2xwN2qCVcwdJTmuPl9Id14vz7F+g5UnNVuhOgLulsvI/GBPNc7rxGMxhAXVrq2/YJmgLuTxgXk0rdWcrdqZEiqTdxwBqoV7bFbMOBbg4odoFWrYp6s3qSv3UeoY+CMVQjOwX+vTfEHoV1B2hKQJRxkskXiJYw+f7PAr1ymJDRCGVl3a7A==
+[2015-11-26 15:57:49.818] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/PXh+tfPbNy6A0HSb592mEjD7dy9HjX6s/Jyyr4ot9dqy70G7GJgO2bG1EzrX6MfwUeeUBeFtQ7jwBI70Gva5K5c9pwV3Ut1escZCwzZ3f+eXfNrJ/ujk11oHh5/lcHrAh8xchecI5vLWroZTrF1mX3SkEyBFg98XbgHWSHCzzlNw+KuJZ8ghd4rEFqK29chbw==
+[2015-11-26 15:57:49.818] B000
+[2015-11-26 15:57:49.818] Á¤»ó
+[2015-11-26 15:57:49.818] kYFvkgmfTi0CDDkL3FAZ/PXh+tfPbNy6A0HSb592mEjD7dy9HjX6s/Jyyr4ot9dqy70G7GJgO2bG1EzrX6MfwUeeUBeFtQ7jwBI70Gva5K5c9pwV3Ut1escZCwzZ3f+eXfNrJ/ujk11oHh5/lcHrAh8xchecI5vLWroZTrF1mX3SkEyBFg98XbgHWSHCzzlNw+KuJZ8ghd4rEFqK29chbw==
+[2015-11-26 15:57:49.818] # final ret code=0<br>
+[2015-11-26 15:57:51.406] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:51.407] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:57:51.407] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:57:51.407] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155751597928<br>
+[2015-11-26 15:57:51.407] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:57:51.407] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:57:51.407] # argv[ 4](sex)=1<br>
+[2015-11-26 15:57:51.407] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:57:51.407] # argv[ 6](var1)=03<br>
+[2015-11-26 15:57:51.407] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:57:51.407] # argv[ 8](var3)=0<br>
+[2015-11-26 15:57:51.407] # argv[ 9](var4)=0<br>
+[2015-11-26 15:57:51.407] # argv[10](var5)=0<br>
+[2015-11-26 15:57:51.407] # argv[11](return_msg)=x<br>
+[2015-11-26 15:57:51.407] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:57:51.407] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:57:51.407] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:57:51.407] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:57:51.407] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:57:51.407] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:57:51.407] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:57:51.407] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:51.407] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:51.407] # argv[21](option)=QL<br>
+[2015-11-26 15:57:51.407] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:51.447] # key   : AgM6840cw85f+UEO1udrER+3TQ1f6w==:ukgGgGUeL5kDvg2/rANn/g==<br>
+[2015-11-26 15:57:51.447] # spkey : AgM6840cw85f+UEO1udrER+3TQ1f6w==<br>
+[2015-11-26 15:57:51.447] # ssig  : ukgGgGUeL5kDvg2/rANn/g==<br>
+[2015-11-26 15:57:51.449] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:57:51.449] # brdt             : 19701105<br>
+[2015-11-26 15:57:51.449] # e_nm             : K+zRZMWp<br>
+[2015-11-26 15:57:51.449] # e_brdt           : qz0msTxeqQg=<br>
+[2015-11-26 15:57:51.449] # cpkey : AwBMRpkUlsM1dnYpToD5M6VBWaG4ug==<br>
+[2015-11-26 15:57:51.449] # csig  : 7VSucw7COSt5rGY8wXNjQw==<br>
+[2015-11-26 15:57:51.493] retmsg: 2DQhsTeuPYatBLvsg9xYduZyTmpXfBekJG7Ww/gOqJy1I1NrYA+u9fb/oAOxb/Ek3JNr1A6SLpytJKmHE2ODODuunoCvIPs4BQ6Gh8Kw+jxpheoRy1yJRK6LdQuyyylVki0LRwadlbQbQ+kZQiPIDP8+28dQipd/9z1LrsVkdjLWW9QSh50LsKR88LQY8Wtx+gTsJsfa3PGnmTKhalxlWPV11Ud6tgsSn/Qe2DMjuRI/MLTwgO8teYpf5yf0mar7Phya0LzJqBGVElzhJXbo5RFu662sB4lNJljLvMOrU4BX2A==
+[2015-11-26 15:57:51.493] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/AJxo9yODMdCsqhWRxFRuPaho7vGM37ev/N5AnskKmv5AH9P23r3kjfGsWhLaHxF+oohjJ/oxOp3dMtQzd7gUkpJmSUOPZ1pU8DiJk2Mv1ZnHaJecr9XE/9T6Xj+f0a5CKVTsSKHfkyjyv9CfH5Ekb28q74bPvSIBPL/aCbUiGUpp2qrriKnyEtZXG9Gs8MvyA==
+[2015-11-26 15:57:51.493] B000
+[2015-11-26 15:57:51.493] Á¤»ó
+[2015-11-26 15:57:51.493] kYFvkgmfTi0CDDkL3FAZ/AJxo9yODMdCsqhWRxFRuPaho7vGM37ev/N5AnskKmv5AH9P23r3kjfGsWhLaHxF+oohjJ/oxOp3dMtQzd7gUkpJmSUOPZ1pU8DiJk2Mv1ZnHaJecr9XE/9T6Xj+f0a5CKVTsSKHfkyjyv9CfH5Ekb28q74bPvSIBPL/aCbUiGUpp2qrriKnyEtZXG9Gs8MvyA==
+[2015-11-26 15:57:51.493] # final ret code=0<br>
+[2015-11-26 15:57:53.664] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:53.664] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:57:53.664] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:57:53.664] # argv[ 1](hs_cert_svc_tx_seqno)=201511261557539253<br>
+[2015-11-26 15:57:53.664] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:57:53.664] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:57:53.664] # argv[ 4](sex)=1<br>
+[2015-11-26 15:57:53.664] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:57:53.665] # argv[ 6](var1)=03<br>
+[2015-11-26 15:57:53.665] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:57:53.665] # argv[ 8](var3)=0<br>
+[2015-11-26 15:57:53.665] # argv[ 9](var4)=0<br>
+[2015-11-26 15:57:53.665] # argv[10](var5)=0<br>
+[2015-11-26 15:57:53.665] # argv[11](return_msg)=x<br>
+[2015-11-26 15:57:53.665] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:57:53.665] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:57:53.665] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:57:53.665] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:57:53.665] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:57:53.665] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:57:53.665] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:57:53.665] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:53.665] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:53.665] # argv[21](option)=QL<br>
+[2015-11-26 15:57:53.665] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:53.701] # key   : AwCYzEg9UYalGoBpyyv7KiP3XjBNhg==:5VdCn2YmErhQmUWtNu/pEA==<br>
+[2015-11-26 15:57:53.701] # spkey : AwCYzEg9UYalGoBpyyv7KiP3XjBNhg==<br>
+[2015-11-26 15:57:53.701] # ssig  : 5VdCn2YmErhQmUWtNu/pEA==<br>
+[2015-11-26 15:57:53.703] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:57:53.703] # brdt             : 19701105<br>
+[2015-11-26 15:57:53.703] # e_nm             : AhPmZfh4<br>
+[2015-11-26 15:57:53.703] # e_brdt           : gsIRsAGPNEs=<br>
+[2015-11-26 15:57:53.703] # cpkey : AwW583btlh9a3pMLDhbmguqnxGJ3gg==<br>
+[2015-11-26 15:57:53.703] # csig  : Hy56IOA9AP8GelnfA5MZfw==<br>
+[2015-11-26 15:57:53.741] retmsg: 8csWsAp/oMVScAlrJ7iwU2MYK9qFKdjFSZEEf+e5eLLHITKs2VHEy7n1LWxGciwBb6aAyxcCqpN9tYU9dkCrgYsMGbT43BeblKtaKCGg211OHtW/Fnuav5KT3kq0diD95UDwnmdYNCDDJxUCp67luLtRgkWsrusSr+q0+zunH2gIOcvhERRucrLEJ71w5gMWUFL15WRtTSs0wZ3asVFBxtoxcyAsvYyjYJdDVFJH75qH+V4//Ob7RWx4X5bEJfVf+LoyBeYUAr4b0DqwdGVXFPHw8Y1U0cetcQYJ7XngXRAVqQ==
+[2015-11-26 15:57:53.741] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/BySfxvZvgNZzC9nPSTDasKRm0FwsbKO4JFWJf+Cfxs09c888IjG2eEzwEy0xZ/D/6OuBo1ngjYil/Nh4i10wcT1VLmi8UBVkbz4e8qAVGiRUyd0yldYZKpa3ZPLDV9BPSE7vXrTkWgKwYHg+1bdQ+8koqhH1oq9WSUhGMkEGj/JFpfb5307/xeH+ic0qopfNw==
+[2015-11-26 15:57:53.741] B000
+[2015-11-26 15:57:53.741] Á¤»ó
+[2015-11-26 15:57:53.741] kYFvkgmfTi0CDDkL3FAZ/BySfxvZvgNZzC9nPSTDasKRm0FwsbKO4JFWJf+Cfxs09c888IjG2eEzwEy0xZ/D/6OuBo1ngjYil/Nh4i10wcT1VLmi8UBVkbz4e8qAVGiRUyd0yldYZKpa3ZPLDV9BPSE7vXrTkWgKwYHg+1bdQ+8koqhH1oq9WSUhGMkEGj/JFpfb5307/xeH+ic0qopfNw==
+[2015-11-26 15:57:53.741] # final ret code=0<br>
+[2015-11-26 15:57:55.285] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:55.286] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:57:55.286] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:57:55.286] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155755452325<br>
+[2015-11-26 15:57:55.286] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:57:55.286] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:57:55.286] # argv[ 4](sex)=1<br>
+[2015-11-26 15:57:55.286] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:57:55.286] # argv[ 6](var1)=03<br>
+[2015-11-26 15:57:55.286] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:57:55.286] # argv[ 8](var3)=0<br>
+[2015-11-26 15:57:55.286] # argv[ 9](var4)=0<br>
+[2015-11-26 15:57:55.286] # argv[10](var5)=0<br>
+[2015-11-26 15:57:55.286] # argv[11](return_msg)=x<br>
+[2015-11-26 15:57:55.286] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:57:55.286] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:57:55.286] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:57:55.286] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:57:55.286] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:57:55.286] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:57:55.286] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:57:55.286] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:55.286] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:55.286] # argv[21](option)=QL<br>
+[2015-11-26 15:57:55.286] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:55.323] # key   : AwV02H538QfyFgOyYqDTj8UDvvPoRQ==:B9b/nS86cUoDA2Y4vh8F2Q==<br>
+[2015-11-26 15:57:55.323] # spkey : AwV02H538QfyFgOyYqDTj8UDvvPoRQ==<br>
+[2015-11-26 15:57:55.323] # ssig  : B9b/nS86cUoDA2Y4vh8F2Q==<br>
+[2015-11-26 15:57:55.325] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:57:55.325] # brdt             : 19701105<br>
+[2015-11-26 15:57:55.325] # e_nm             : ygrhYrQ6<br>
+[2015-11-26 15:57:55.325] # e_brdt           : StsWt03NJss=<br>
+[2015-11-26 15:57:55.325] # cpkey : AwVb51eykvcJbERCNW2JVYJvxeHPBA==<br>
+[2015-11-26 15:57:55.325] # csig  : HNm2sbraN0CrKr4iIKqqcg==<br>
+[2015-11-26 15:57:55.359] retmsg: OdIRt0Y9skW6mXHT2hmuLNcGebJehBGVdUg/zHafHkIpNQ5+jsarLvnKo6hEnhPRMRS+E6Q6jRBxQUZO4iGV1MhA15ggYHpsDQ+jXtTi7qqfxvPEy5vH/aybqQ2KCFIvBm5jQkrkFp4ptuFTfEtEPt6bGXW4h0YJWRjnffMw17tfNXxoGM7HQCeFQX8U+As5T8NUP1kCpajwaq9IS8To5VU7RuXA5aCDCn44WupU8dveLbDdfVrWxAKaLVdxkHG66HipBcDxtCMsR/3K03HlijREPop2Jw/gq+MWiFf4PZt4Eg==
+[2015-11-26 15:57:55.359] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/AMdRPteJHyFkMXJmYeZpy4iZ7QqhiWX3h6p5lXPOi3yJx+04IR0swp38hFwa+gxhlISRCI+ttIURBsizZ/C4m1KBi8MdKo20L2IeAT2n1OZ4ZOcQQyYrB6RX/IkYULalBkMASklqO9mVuXvazGwt4W90H+3ho5mT29mr9Kg1/oIP8SLtGi67PI6C16j31dFHQ==
+[2015-11-26 15:57:55.359] B000
+[2015-11-26 15:57:55.359] Á¤»ó
+[2015-11-26 15:57:55.359] kYFvkgmfTi0CDDkL3FAZ/AMdRPteJHyFkMXJmYeZpy4iZ7QqhiWX3h6p5lXPOi3yJx+04IR0swp38hFwa+gxhlISRCI+ttIURBsizZ/C4m1KBi8MdKo20L2IeAT2n1OZ4ZOcQQyYrB6RX/IkYULalBkMASklqO9mVuXvazGwt4W90H+3ho5mT29mr9Kg1/oIP8SLtGi67PI6C16j31dFHQ==
+[2015-11-26 15:57:55.359] # final ret code=0<br>
+[2015-11-26 15:57:57.851] # OKNAME v3.70 start!<br>
+[2015-11-26 15:57:57.851] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:57:57.851] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:57:57.851] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155757158771<br>
+[2015-11-26 15:57:57.851] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:57:57.851] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:57:57.851] # argv[ 4](sex)=1<br>
+[2015-11-26 15:57:57.851] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:57:57.851] # argv[ 6](var1)=03<br>
+[2015-11-26 15:57:57.852] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:57:57.852] # argv[ 8](var3)=0<br>
+[2015-11-26 15:57:57.852] # argv[ 9](var4)=0<br>
+[2015-11-26 15:57:57.852] # argv[10](var5)=0<br>
+[2015-11-26 15:57:57.852] # argv[11](return_msg)=x<br>
+[2015-11-26 15:57:57.852] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:57:57.852] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:57:57.852] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:57:57.852] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:57:57.852] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:57:57.852] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:57:57.852] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:57:57.852] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:57:57.852] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:57:57.852] # argv[21](option)=QL<br>
+[2015-11-26 15:57:57.852] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:57:57.893] # key   : AgehuN4QjYB3S9QWz5BIr3RbcI86Jg==:Qi7crr4X52c9k2F8KS2JEw==<br>
+[2015-11-26 15:57:57.893] # spkey : AgehuN4QjYB3S9QWz5BIr3RbcI86Jg==<br>
+[2015-11-26 15:57:57.893] # ssig  : Qi7crr4X52c9k2F8KS2JEw==<br>
+[2015-11-26 15:57:57.895] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:57:57.895] # brdt             : 19701105<br>
+[2015-11-26 15:57:57.895] # e_nm             : Uj3l7Kql<br>
+[2015-11-26 15:57:57.895] # e_brdt           : 0uwSOVNSeFM=<br>
+[2015-11-26 15:57:57.895] # cpkey : AwTVTuOGAKjVF3pXJZl9utcNiYkGnw==<br>
+[2015-11-26 15:57:57.895] # csig  : KsPq2o/Kegh+YGzaK9vVFg==<br>
+[2015-11-26 15:57:57.929] retmsg: oeUVOVii7N2ZSt1vtryHPi2UYm541Dgsx0S26ZzfsehAgUOmp2mbex9yS3dMY2iKMFvB9AUPsguMKc7JU5N10QQ6LGT+TS2swZ56E4I1KQt56n1r2J/IcQ5ouHEL0vKYUS9PWsPd3rDvQa4H0mVp7KB4TS2iYBme/xjrSSfixcq11SZE/Q4F5vBNWInm7tFfUo8lrfg0bTUnogLFlhtMbheCtB4+cg2doyJmd9LcB9lZBBnr4pEGGlDg7GNgqIRDJsptCy8RHwn+JOSzh/pFoSHtYnmeN+qtSEZJZOKhq66Y1g==
+[2015-11-26 15:57:57.929] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/JBV7scabDstUS92Hkeh1jPFd2NwAZWGkh/inl0MYlCtV4pM+XFZ0iReYCo13caGVL1cITUIwfBwxl7keQ54tl97iRkvJ96agR1Y4AoA20nLnEJ2htzTdRHRaUA5SjnqOkxm0A3qmachPSBxt7FXh0ZE1EjmkjWEGN01y8cBq1yxtXuP7dkSsRh9H2CzN9Mv0w==
+[2015-11-26 15:57:57.929] B000
+[2015-11-26 15:57:57.929] Á¤»ó
+[2015-11-26 15:57:57.929] kYFvkgmfTi0CDDkL3FAZ/JBV7scabDstUS92Hkeh1jPFd2NwAZWGkh/inl0MYlCtV4pM+XFZ0iReYCo13caGVL1cITUIwfBwxl7keQ54tl97iRkvJ96agR1Y4AoA20nLnEJ2htzTdRHRaUA5SjnqOkxm0A3qmachPSBxt7FXh0ZE1EjmkjWEGN01y8cBq1yxtXuP7dkSsRh9H2CzN9Mv0w==
+[2015-11-26 15:57:57.929] # final ret code=0<br>
+[2015-11-26 15:58:00.120] # OKNAME v3.70 start!<br>
+[2015-11-26 15:58:00.120] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:58:00.120] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:58:00.120] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155800494670<br>
+[2015-11-26 15:58:00.120] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:58:00.120] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:58:00.120] # argv[ 4](sex)=1<br>
+[2015-11-26 15:58:00.120] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:58:00.120] # argv[ 6](var1)=03<br>
+[2015-11-26 15:58:00.120] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:58:00.121] # argv[ 8](var3)=0<br>
+[2015-11-26 15:58:00.121] # argv[ 9](var4)=0<br>
+[2015-11-26 15:58:00.121] # argv[10](var5)=0<br>
+[2015-11-26 15:58:00.121] # argv[11](return_msg)=x<br>
+[2015-11-26 15:58:00.121] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:58:00.121] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:58:00.121] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:58:00.121] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:58:00.121] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:58:00.121] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:58:00.121] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:58:00.121] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:58:00.121] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:58:00.121] # argv[21](option)=QL<br>
+[2015-11-26 15:58:00.121] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:58:00.160] # key   : AgTy+AzTwvwgI5ThcBZz12KBpLGypQ==:ZJtYI5C0YIQ7rI0rvo0c8w==<br>
+[2015-11-26 15:58:00.160] # spkey : AgTy+AzTwvwgI5ThcBZz12KBpLGypQ==<br>
+[2015-11-26 15:58:00.160] # ssig  : ZJtYI5C0YIQ7rI0rvo0c8w==<br>
+[2015-11-26 15:58:00.162] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:58:00.162] # brdt             : 19701105<br>
+[2015-11-26 15:58:00.162] # e_nm             : B8l2Li8h<br>
+[2015-11-26 15:58:00.162] # e_brdt           : hxiB+9bWif8=<br>
+[2015-11-26 15:58:00.162] # cpkey : AgRwnIcuz6H21zwnY5TFhRROhzSuSw==<br>
+[2015-11-26 15:58:00.162] # csig  : OTxLR+NmxaD6xMTM38rPUw==<br>
+[2015-11-26 15:58:00.197] retmsg: 9BGG+90mHXFYuSkeZaJWqM0Mm1l/gILvWIuX4cySLt5uekjGDb1ImGNS2wnyo7J1yef/buSZiXH5fa4ntZo6WNkVZotX50kNC5tO/KecnqnGcNaOrNsTqghQFQpo4f+OMlMRYflRq7qWm6jXeBlGtw2gEp57uQHsT0F2PaosLVi8S/l9YneNML6YDwki/lv+WqJoV+iFMlMHzIJb2Okv2CLu1R4a+eGeGWAWhINzSp0E0hAEsADHlbGgCU0HduxS8aEXamM1+1EbPW5FTgnO70amfOvGtHvu4PlyySckAkz3Ag==
+[2015-11-26 15:58:00.197] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/H+7/Nb4t6XMtHofSifYnSrSm5Kof6io/Mqjl5DpY06TYoV6hr+H05Tvi6GM1R2I6Sn20na6I6B+oia3pp7gAjqFj863uYC0mxCfl7Bu0lvuJH48Cp0BYRqxELzD/roJQ1f3/wo3G9ZjKgnHGRvBauH5Os1eeKwGz1Z3zwdR6i25b6DCW0I+eWFWQV+BLOCYtA==
+[2015-11-26 15:58:00.197] B000
+[2015-11-26 15:58:00.197] Á¤»ó
+[2015-11-26 15:58:00.197] kYFvkgmfTi0CDDkL3FAZ/H+7/Nb4t6XMtHofSifYnSrSm5Kof6io/Mqjl5DpY06TYoV6hr+H05Tvi6GM1R2I6Sn20na6I6B+oia3pp7gAjqFj863uYC0mxCfl7Bu0lvuJH48Cp0BYRqxELzD/roJQ1f3/wo3G9ZjKgnHGRvBauH5Os1eeKwGz1Z3zwdR6i25b6DCW0I+eWFWQV+BLOCYtA==
+[2015-11-26 15:58:00.197] # final ret code=0<br>
+[2015-11-26 15:58:01.750] # OKNAME v3.70 start!<br>
+[2015-11-26 15:58:01.750] # mode=HS_CNFRM_POPUP<br>
+[2015-11-26 15:58:01.750] # Parameter IP: 	114.108.128.129<br>
+[2015-11-26 15:58:01.750] # argv[ 1](hs_cert_svc_tx_seqno)=20151126155801674493<br>
+[2015-11-26 15:58:01.750] # argv[ 2](nm)=±èÀåÈÆ<br>
+[2015-11-26 15:58:01.750] # argv[ 3](brdt)=19701105<br>
+[2015-11-26 15:58:01.750] # argv[ 4](sex)=1<br>
+[2015-11-26 15:58:01.750] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-11-26 15:58:01.750] # argv[ 6](var1)=03<br>
+[2015-11-26 15:58:01.750] # argv[ 7](var2)=01023320883<br>
+[2015-11-26 15:58:01.750] # argv[ 8](var3)=0<br>
+[2015-11-26 15:58:01.750] # argv[ 9](var4)=0<br>
+[2015-11-26 15:58:01.750] # argv[10](var5)=0<br>
+[2015-11-26 15:58:01.750] # argv[11](return_msg)=x<br>
+[2015-11-26 15:58:01.750] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2015-11-26 15:58:01.750] # argv[13](in_tp_bit)=15<br>
+[2015-11-26 15:58:01.750] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-11-26 15:58:01.750] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-11-26 15:58:01.750] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2015-11-26 15:58:01.750] # argv[17](server_ip)=114.108.128.129<br>
+[2015-11-26 15:58:01.750] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2015-11-26 15:58:01.750] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-11-26 15:58:01.751] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-11-26 15:58:01.751] # argv[21](option)=QL<br>
+[2015-11-26 15:58:01.751] # soap_timeout: 30000 ms<br>
+[2015-11-26 15:58:01.788] # key   : AwIsqqh4iXqtiT+Iyh0MnyPVW20lNw==:rR0x7ydhfwLbf3RMDMqi0Q==<br>
+[2015-11-26 15:58:01.788] # spkey : AwIsqqh4iXqtiT+Iyh0MnyPVW20lNw==<br>
+[2015-11-26 15:58:01.788] # ssig  : rR0x7ydhfwLbf3RMDMqi0Q==<br>
+[2015-11-26 15:58:01.789] # nm               : ±èÀåÈÆ<br>
+[2015-11-26 15:58:01.789] # brdt             : 19701105<br>
+[2015-11-26 15:58:01.789] # e_nm             : W5HPg+3K<br>
+[2015-11-26 15:58:01.789] # e_brdt           : 20A4VhQ9oB8=<br>
+[2015-11-26 15:58:01.789] # cpkey : Ageryw7dLtRFKz6cUNlj215gLtgdSw==<br>
+[2015-11-26 15:58:01.789] # csig  : PWP9rhk26qNfvUlthYBN+g==<br>
+[2015-11-26 15:58:01.827] retmsg: qEk/Vh/NNJG6RVtBNZ4FG9NLdxZc9ewYIXAOM10HHB9iXHczMce2QgfbAFF0F8Mz7+4hJjhPLSWRkK6SEv8as0o4L+iRLhN27Peb/QlHT6PRmA3wt9YusFpZL/hdkDajd1s7ymUGAKO32hyRGbxmPgnRkqIo+xeNsLz4pJJny4c1V/VOz5uGuus/N1/N9/avc6BG5JealQryicctTK0bYV4y1lApUNmL62EWYILcdjHsNyP2I97cn3oZDQ39kvse4mW1ofugSzUtxHVY3n49rkbyTSKwSB+Sd1cXGJ37gvHZVg==
+[2015-11-26 15:58:01.827] retmsg: B000:Á¤»ó:kYFvkgmfTi0CDDkL3FAZ/JYRTsId8lzCIzmewrhrBHbq3X6n2Bznm5qe2FxAVnwNQtzccIC1Jww6lHeQ1vm3ATrmop2xAcB2g6O0J7IgUTevhMy5fC5FKjzJP66rzU3kU3fnLymAVkJwJfVVCCGDGNPAuKBeddfBcsg6ZMA5SwGjyZvDru74ZWvtx7vNNQ8PW1sRpBOm0fC4RibyVmhAHQ==
+[2015-11-26 15:58:01.827] B000
+[2015-11-26 15:58:01.827] Á¤»ó
+[2015-11-26 15:58:01.827] kYFvkgmfTi0CDDkL3FAZ/JYRTsId8lzCIzmewrhrBHbq3X6n2Bznm5qe2FxAVnwNQtzccIC1Jww6lHeQ1vm3ATrmop2xAcB2g6O0J7IgUTevhMy5fC5FKjzJP66rzU3kU3fnLymAVkJwJfVVCCGDGNPAuKBeddfBcsg6ZMA5SwGjyZvDru74ZWvtx7vNNQ8PW1sRpBOm0fC4RibyVmhAHQ==
+[2015-11-26 15:58:01.827] # final ret code=0<br>

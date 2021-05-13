@@ -1,0 +1,383 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<script>
+$(function(){
+	// Add Form Draggable
+	$('#add_form').draggable({ handle: "#addFrmHandle" });
+	$('#add_form').center();
+
+	// 검색폼 초기화
+	$('#searchReset').click(function(){
+		$("select[name='search_field'] :eq(0)").attr('selected',true);
+		$("input[name='search_keyword']").val('');
+	});
+});
+
+var top_menu = function(vals){	// 대 메뉴 클릭시 하위 메뉴 자동 체크
+	var sels = vals.value;
+	var checked = vals.checked;
+
+	if(checked == false){
+		$('.'+sels).attr('checked', false);
+	} else {
+		$('.'+sels).attr('checked', true);
+	}
+
+}
+var middle_menu = function(vals){	// 중간 메뉴 클릭시 하위 메뉴 자동 체크
+	var sels = vals.value;
+	var checked = vals.checked;
+	if(checked == false){
+		$('.'+sels).attr('checked', false);
+	} else {
+		$('.'+sels).attr('checked', true);
+	}
+}
+var get_sadmin = function(mode, uid){	// 부관리자 정보 ajax 추출
+
+	$('#add_form').load('./views/_load/sadmin.php', { mode:mode, uid:uid }, function(){
+		$('#add_form').show();
+		var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+		$('#AdminRegistFrm').ajaxForm(form_options);
+	});
+
+}
+var delete_sadmin = function(no, uid, name, nick){	// 부관리자 정보 삭제
+
+	$('#quest_uid').html(uid);
+	$('#quest_name').html(name);
+	$('#quest_nick').html(nick);
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sadmin_delete\',\''+no+'\',\''+uid+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '부관리자 정보 삭제',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+
+}
+var deletes_sadmin = function(){	 // 부관리자 선택 삭제
+
+	var chk_length = $("input[name='uid[]']:checked").length;
+
+	if(chk_length==0){
+
+		alert('삭제할 부관리자를 선택해 주세요.');
+		return false;
+
+	} else {
+
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 부관리자 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		
+		var del_uid = new Array();
+		var i = 0;
+		$("input[name='uid[]']:checked").each(function(){
+			del_uid[i] = $(this).val();
+		i++;
+		});
+
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sadmin_deletes\',0,\''+del_uid+'\');" value="예" />');
+
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '부관리자 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question'),
+			css: { 
+				width: '275px' 
+			}
+		});
+
+	}
+
+}
+var questionAnswer = function(answer, mode, no, uid ){	 // 질의 응답에 따른 처리
+
+	if(answer=='yes'){
+
+		switch(mode){
+			case 'sadmin_delete':	// 부관리자 삭제
+				$.post('./process/admin.php', { mode:mode, ajax:1, no:no, uid:uid }, function(result){
+					if(result=='0005'){
+						alert("<?php echo $admin_control->_success('0005');?>");
+						location.reload();
+					} else {
+						alert(result);
+					}
+				});
+			break;
+			case 'sadmin_deletes':	// 부관리자 선택 삭제
+				uids = uid.split(',');
+				uids_cnt = uids.length;
+				$.post('./process/admin.php', { mode:mode, ajax:1, uid:uid }, function(result){
+					if(result=='0005'){
+						alert("선택하신 부관리자 정보 "+uids_cnt+"건이 삭제 되었습니다.");
+						location.reload();
+					} else {
+						alert(result);
+					}
+				});
+			break;
+		}
+
+	} else {
+		$.unblockUI();
+	}
+
+}
+</script>
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>부관리자ID : <span id='quest_uid'></span></p>
+		<p>부관리자명 : <span id='quest_name'></span></p>
+		<p>부관리자닉네임 : <span id='quest_nick'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+관리자페이지를 접근할수 있는 부관리자를 설정하는 페이지 입니다. <br>
+부관리자 추가 버튼을 클릭하면 새로운 부관리자를 등록할 수 있습니다. <br>
+<span class="pl3 ds3">
+- 관리자 사이트에 로그인 할 수 있는 부관리자의 ID, 비밀번호 등을 입력합니다.<br>
+- 권한 설정 : 부관리자에게 부여할 권한을 선택하여 체크한후 하단의 저장하기 버튼을 클릭해주세요.
+</span>
+</dl></dl>
+
+<form name="AdminSearchFrm" method="get" id="AdminSearchFrm" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<input type="hidden" name="search" value="1"/>
+<dl class="srchb lnb4_col bg2_col">
+	<dl class="tc pd7 wbg">
+		<select name="search_field" class="s23">
+			<option value="">통합검색</option>
+			<option value="name" <?php echo ($search_field=='name')?'selected':'';?>>이름</option>
+			<option value="uid" <?php echo ($search_field=='uid')?'selected':'';?>>아이디</option>
+			<option value="nick" <?php echo ($search_field=='nick')?'selected':'';?>>닉네임</option>
+		</select>
+		<input type="text" name="search_keyword" value="<?php echo $search_keyword?>" class="txt i23 w50">
+		<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
+		<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" value='초기화' id='searchReset'></span>
+	</dl>
+</dl>
+</form>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name;?>
+<span>총 <b class="col num3"><?php echo number_format($admin_list['total_count']);?></b>명의 부관리자가 등록되어있습니다.</span></dl>  
+
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+<dt><a onClick="deletes_sadmin();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+<dd><a onClick="get_sadmin('sadmin_insert');" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>부관리자추가</h1></a></dd>
+</dl>
+
+<table width="100%" class="ttlt">
+  <col width=30><col width=150><col width=120><col width=120><col width=70><col width=130><col><col width=100>
+  <tr class="bg">
+    <td><input type="checkbox" name='check_all'></td>
+    <td>부관리자ID</td>
+    <td>부관리자명</td>
+    <td>부관리자닉네임</td>
+    <td>로그인 횟수</td>
+    <td>로그인시각</td>
+    <td>권한메뉴</td>
+    <td class="e">편집</td>
+  </tr>
+	<?php
+		if(!$admin_list['result']){
+	?>
+		<tr><td colspan="8" class="stlt"></td></tr>
+	<?php 
+		} else { 
+		foreach($admin_list['result'] as $val){
+			$admin_auth = $admin_control->get_admin_auth($val['uid']);	// 부관리자 권한 정보
+			
+			$top_menu = explode(',',$admin_auth['top_menu']);
+			$top_menu_cnt = count($top_menu);
+			$top_menu_val = array();
+			$middle_menu_cnts = 0;
+			for($t=0;$t<$top_menu_cnt;$t++){		// 대 메뉴
+				$top_menu_val[$t] = $top_menus[$top_menu[$t]];
+				$_tmp_topmenu = substr($top_menu[$t], 0, 3);
+
+				$middle_menu = explode(',',$admin_auth['middle_menu']);
+				$middle_menu_cnt = count($middle_menu);
+				for($m=0;$m<$middle_menu_cnt;$m++){	// 중 메뉴
+					$_tmp_middlemenu = substr($middle_menu[$m], 0, 3);
+					if($_tmp_topmenu==$_tmp_middlemenu){
+						$middle_menu_cnts++;
+					}
+				}
+				//$top_menu_val[$t] .= "(".$middle_menu_cnts.")";
+			}
+
+	?>
+	<tr>
+		<td><input type="checkbox" class="check_all" name="uid[]" value="<?php echo $val['uid'];?>"></td>
+		<td class="num3"><a onClick="get_sadmin('get_sadmin','<?php echo $val['uid'];?>');"><?php echo $val['uid'];?></a></td>
+		<td class="lnb1"><?php echo $val['name'];?></td>
+		<td class="lnb1"><?php echo $val['nick'];?></td>
+		<td class="num3"><?php echo number_format($val['login']);?></td>
+		<td class="num3"><?php echo $val['last_login'];?></td>
+		<td class="lnb1">
+		<?php
+			echo implode(',',$top_menu_val);
+		?>
+			<!-- 대메뉴이름1(5), 대메뉴이름2(5) -->
+		</td>
+		<td class="e"><a onClick="get_sadmin('sadmin_update','<?php echo $val['uid'];?>')"><img src="../../images/btn/19_05.gif"></a>
+		<a onClick="delete_sadmin(<?php echo $val['no'];?>,'<?php echo $val['uid'];?>','<?php echo $val['name'];?>','<?php echo $val['nick'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
+	</tr>
+	<?php 
+			}
+		}
+	?>
+</table> 
+
+<dl class="page">
+<dt><a onClick="deletes_sadmin();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+	<?php include_once "../include/paging.php"; ?>
+<dd><a onClick="get_sadmin('sadmin_insert');" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>부관리자추가</h1></a></dd>
+</dl>
+
+<!-- add form -->
+<div id="add_form" class="bocol lnb_col" style="top:5%;left:33%;display:<?php echo ($mode=='insert' && !$result)?'':'none';?>;">
+
+	<form name="AdminRegistFrm" method="post" id="AdminRegistFrm" action="./process/admin.php">
+	<input type="hidden" name="mode" value="sadmin_insert" id="mode"/><!-- 부관리자 등록 -->
+	<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+	<input type="hidden" name="level" value="9"/><!-- 부관리자의 경우 level 을 9 로 설정 -->
+
+		<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
+			<img src="../../images/comn/bul_10.png" class="t">부관리자 설정
+			<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
+		</dl>
+
+		<table width="100%" class="bg_col">
+		<col width=80><col><col width=80><col><col width=80><col>
+		<tr>
+			<td class="ctlt">관리자아이디</td>
+			<td class="pdlnb2"><input name="uid" style="width:150px;" type="text" class="txt " id="uid" style="ime-mode:inactive;" maxbyte=20 required hname='관리자아이디'></td>
+			<td class="ctlt">관리자명</td>
+			<td class="pdlnb2"><input name="name" style="width:150px;" type="text" class="txt " id="name" style="ime-mode:active;" required hname='관리자명'></td>
+			<td class="ctlt">관리자닉네임</td>
+			<td class="pdlnb2" colspan='3'><input name="nick" style="width:150px;" type="text" class="tnum" id="nick" style="ime-mode:active;" required hname='관리자닉네임'></td>
+		</tr>
+	
+		<tr>
+			<td class="ctlt">비밀번호</td>
+			<td class="pdlnb2"><input name="password" style="width:150px;" type="password" class="txt " id="password" minbyte=6 maxbyte=20 hname="비밀번호" required matching="password_re"></td>
+			<td class="ctlt">비밀번호확인</td>
+			<td class="pdlnb2" colspan="3"><input name="password_re" style="width:150px;" type="password" class="txt " id="password_re" hname="비밀번호확인"></td>
+		</tr>
+		</table>
+
+		<dl class="mt10 lnb lnt ctlt bg tc" style="line-height:29px">부관리자가 사용가능한 메뉴 선택</dl>
+		<dl class="xflow mt5 lnb" style="width:770px;margin-right:-5px">
+			<?php
+				$t = 0;
+				foreach($top_menus as $key => $val){
+					$_key = substr($key, 0, 3);
+			?>
+			<dl class="clearfix" style="margin:15px 0; width:99%;border:1px solid #ddd; border-top:none; background:url(../../images/main/bg_line_1.gif) repeat-y 50% 0">
+				<dt class="bg_col lnb2_col pd3 pl5 ba b col">
+					<input name="top_menu[]" type="checkbox" value="<?php echo $key;?>" class="check" id="top_menu_<?php echo $t;?>" onclick="top_menu(this);" checked /><label for="top_menu_<?php echo $t;?>"><?php echo $val;?></label>
+				</dt>
+				<?php
+					$m = 0;
+					foreach($menu[$_key]['menus'] as $mkey => $mval){
+				?>
+				<ul class="s11lst  w50 fl" style=" padding-top:5px; margin-left:-1px; margin-right:-1px; ">
+					<label style="cursor:normal; margin-left:10px;">
+						<h1 class="bk f11">
+							<input name="middle_menu[]" type="checkbox" value="<?php echo $mval['code'];?>" class="check <?php echo $key;?>" id="middle_menu_<?php echo $m;?>" onclick="middle_menu(this);" checked /><?php echo $mval['name'];?>
+						</h1>
+					</label>
+					<?php
+						foreach($mval['sub_menu'] as $skey => $sval){
+					?>
+					<li class="" style="margin-left:20px;letter-spacing:-0.05em">
+						<input name="sub_menu[]" type="checkbox" value="<?php echo $sval['code'];?>" class="check <?php echo $key;?> <?php echo $mval['code'];?>" checked /><?php echo $sval['name'];?>
+						<span class="subtlt">[<?php echo strtr($sval['url'],'..',' ');?> ]</span>
+					</li>
+					<?php
+						}	// sub menu foreach end.
+					?>
+				</ul>
+				<?php
+					$m++;
+					}	// middle menu foreach end.
+				?>
+			</dl>
+			<?php
+				$t++;
+				}	// top menus foreach end.
+			?>
+		</dl>
+		<dl class="pbtn">  
+			<input type='image' src="../../images/btn/b23_02.png" class="ln_col">&nbsp;
+			<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/btn/23_10.gif"></a>
+		</dl>
+
+	</form>
+
+</div>
+<!-- //add form -->
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options){	// 폼 전송전
+
+	var AdminRegistFrm = document.getElementById('AdminRegistFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(AdminRegistFrm);
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송후
+
+	if(responseText=='0004'){
+		alert("<?php echo $admin_control->_success('0004');?>");
+		location.reload();
+	} else if(responseText=='0005'){
+		alert("<?php echo $admin_control->_success('0005');?>");
+		location.reload();
+	} else {
+		alert(responseText);
+	}
+
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

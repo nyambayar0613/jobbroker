@@ -1,0 +1,120 @@
+[2014-02-27 16:50:23.827] # OKNAME v3.70 start!<br>
+[2014-02-27 16:50:23.827] # mode=HS_CNFRM_POPUP<br>
+[2014-02-27 16:50:23.827] # Parameter IP: 	114.108.128.129<br>
+[2014-02-27 16:50:23.827] # argv[ 1](hs_cert_svc_tx_seqno)=20140227165023448980<br>
+[2014-02-27 16:50:23.827] # argv[ 2](nm)=강진우<br>
+[2014-02-27 16:50:23.827] # argv[ 3](brdt)=19821203<br>
+[2014-02-27 16:50:23.827] # argv[ 4](sex)=1<br>
+[2014-02-27 16:50:23.827] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-02-27 16:50:23.827] # argv[ 6](var1)=01<br>
+[2014-02-27 16:50:23.827] # argv[ 7](var2)=010<br>
+[2014-02-27 16:50:23.827] # argv[ 8](var3)=0<br>
+[2014-02-27 16:50:23.827] # argv[ 9](var4)=0<br>
+[2014-02-27 16:50:23.827] # argv[10](var5)=0<br>
+[2014-02-27 16:50:23.827] # argv[11](return_msg)=x<br>
+[2014-02-27 16:50:23.827] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-02-27 16:50:23.828] # argv[13](in_tp_bit)=15<br>
+[2014-02-27 16:50:23.828] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-02-27 16:50:23.828] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-02-27 16:50:23.828] # argv[16](idcf_mbr_com_cd)=P00000000000<br>
+[2014-02-27 16:50:23.828] # argv[17](server_ip)=114.108.128.129<br>
+[2014-02-27 16:50:23.828] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-02-27 16:50:23.828] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-02-27 16:50:23.828] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-02-27 16:50:23.828] # argv[21](option)=QL<br>
+[2014-02-27 16:50:23.828] # soap_timeout: 30000 ms<br>
+[2014-02-27 16:50:23.866] # key   : AwSCWNNKV/ONqztShupct7OGSCOIAw==:hb+VHTWtd0WHsn5UiNPLlg==<br>
+[2014-02-27 16:50:23.866] # spkey : AwSCWNNKV/ONqztShupct7OGSCOIAw==<br>
+[2014-02-27 16:50:23.866] # ssig  : hb+VHTWtd0WHsn5UiNPLlg==<br>
+[2014-02-27 16:50:23.868] # nm               : 강진우<br>
+[2014-02-27 16:50:23.868] # brdt             : 19821203<br>
+[2014-02-27 16:50:23.868] # e_nm             : Et5A4NiH<br>
+[2014-02-27 16:50:23.868] # e_brdt           : k0q5KlZZipQ=<br>
+[2014-02-27 16:50:23.868] # cpkey : AwFSp1Z6JWIZyKrIb/fTMKNV2Ya4ww==<br>
+[2014-02-27 16:50:23.868] # csig  : Pbj5xniknq6G/TthXibvJg==<br>
+[2014-02-27 16:50:23.894] retmsg: 4EKwLV2jZBPRzSvieWpA1hiO2vFhP2HAW9rQU7YemRS6hPYXehiNtRH9QXlhIBsG+JUcgtS2haUDOdU14gJrdQmPmEvDYfoT4OP+u++32LzhAoR+RN4KzGTC7mhPChg1wKQZH4HA3MQ+ijQoe88v0zDuEMyC5NQbR/sSJtS4hP5tiZFZ1mnpiZPlmqwvy2Z/d6TY0IVesW6uuE7LJy+Y1H0i9S4KHlJ7VRMEk4prtrUEoBuf3++8DnKSIFosD+Y4y7wNBexqwTPw4yzEw2t0aAdobRtbJYWTds9pcT/K7SydCiyI2lvjJqJ82u7sTfL4kt41cZX+QlPD1ID/UTktUSxT/V89
+[2014-02-27 16:50:23.894] retmsg: B115:휴대폰번호는 10자리 또는 11자리 입니다.:va66cP3oml0n8zx/T3uEgoo7QCvXA3/39rJwZPanSkHVunQoXRZQjBzkXquhh+2zmwUWfO3SEqiH/nmVE5Kr6on7E7D/favbBs7GWCaLeKSW8fMeOX/xciZXBGTOmYjIQzlklSF9SCnnv6K7x7sw3MRaEiQDAtpM3FJ2VqWR9EmkMlhq4/MMwoTvU5rNs+b48f2u2FArciiKmE4Ofnwq/g==
+[2014-02-27 16:50:23.894] B115
+[2014-02-27 16:50:23.894] 휴대폰번호는 10자리 또는 11자리 입니다.
+[2014-02-27 16:50:23.894] va66cP3oml0n8zx/T3uEgoo7QCvXA3/39rJwZPanSkHVunQoXRZQjBzkXquhh+2zmwUWfO3SEqiH/nmVE5Kr6on7E7D/favbBs7GWCaLeKSW8fMeOX/xciZXBGTOmYjIQzlklSF9SCnnv6K7x7sw3MRaEiQDAtpM3FJ2VqWR9EmkMlhq4/MMwoTvU5rNs+b48f2u2FArciiKmE4Ofnwq/g==
+[2014-02-27 16:50:23.894] # final ret code=115<br>
+[2014-02-27 16:52:21.496] # OKNAME v3.70 start!<br>
+[2014-02-27 16:52:21.496] # mode=HS_CNFRM_POPUP<br>
+[2014-02-27 16:52:21.496] # Parameter IP: 	114.108.128.129<br>
+[2014-02-27 16:52:21.497] # argv[ 1](hs_cert_svc_tx_seqno)=201402271652214240<br>
+[2014-02-27 16:52:21.497] # argv[ 2](nm)=강진우<br>
+[2014-02-27 16:52:21.497] # argv[ 3](brdt)=19821203<br>
+[2014-02-27 16:52:21.497] # argv[ 4](sex)=1<br>
+[2014-02-27 16:52:21.497] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-02-27 16:52:21.497] # argv[ 6](var1)=01<br>
+[2014-02-27 16:52:21.497] # argv[ 7](var2)=010<br>
+[2014-02-27 16:52:21.497] # argv[ 8](var3)=0<br>
+[2014-02-27 16:52:21.497] # argv[ 9](var4)=0<br>
+[2014-02-27 16:52:21.497] # argv[10](var5)=0<br>
+[2014-02-27 16:52:21.497] # argv[11](return_msg)=x<br>
+[2014-02-27 16:52:21.497] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-02-27 16:52:21.497] # argv[13](in_tp_bit)=15<br>
+[2014-02-27 16:52:21.497] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-02-27 16:52:21.497] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-02-27 16:52:21.497] # argv[16](idcf_mbr_com_cd)=P00000000000<br>
+[2014-02-27 16:52:21.497] # argv[17](server_ip)=114.108.128.129<br>
+[2014-02-27 16:52:21.497] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-02-27 16:52:21.497] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-02-27 16:52:21.497] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-02-27 16:52:21.497] # argv[21](option)=QL<br>
+[2014-02-27 16:52:21.497] # soap_timeout: 30000 ms<br>
+[2014-02-27 16:52:21.537] # key   : Awcn+oQ9pnzChXv8JgzAPni8X0XgEA==:x1Wl/xewwqz4lzRh1zF5Jg==<br>
+[2014-02-27 16:52:21.537] # spkey : Awcn+oQ9pnzChXv8JgzAPni8X0XgEA==<br>
+[2014-02-27 16:52:21.537] # ssig  : x1Wl/xewwqz4lzRh1zF5Jg==<br>
+[2014-02-27 16:52:21.539] # nm               : 강진우<br>
+[2014-02-27 16:52:21.539] # brdt             : 19821203<br>
+[2014-02-27 16:52:21.539] # e_nm             : QIgCwZoZ<br>
+[2014-02-27 16:52:21.539] # e_brdt           : wRz7CxTHLlA=<br>
+[2014-02-27 16:52:21.539] # cpkey : AgYO76gQ+MN0iTaRHQFUq/WcMA8pxQ==<br>
+[2014-02-27 16:52:21.539] # csig  : pd6jSFox1OBlSd3l3lkUOQ==<br>
+[2014-02-27 16:52:21.561] retmsg: shTyDB89wNdwKE4CQ5nzZV+DZ5aV+LrEDwZlVHHSOGFSD+mnwQQGm2v+uYnhzTxlcxEYGSHgXejSg5pC6CGioM3Gjt8STE863GqwjdelGqcSVqzSEYvcsi/nqLwrXY9VspJw9vKyLUuNLrpsPbWcxKQkf5wLNSpTOE/XcYhiTYDIuG90S9dwKixh0xVq8K9Z3CWFFPRGXn9IrzmcsBW5wrCBwK/F2BDZL6sFnNCTNl1fQmDOS2Le0AnnluM3i5zHN3JVqTGgDSSUsmy2GUpgIkOwIOnDtx/QGOqXQWtj/5FLjq9jUm0BI5VK2lDHeNSqth1fT54oL9zkNK+IAP0JM1UjyDzA
+[2014-02-27 16:52:21.561] retmsg: B115:휴대폰번호는 10자리 또는 11자리 입니다.:va66cP3oml0n8zx/T3uEgsbE3cVuWHWXWkQZJcjbmQ1B8v2xZ0H6egvBpIPMGxH2xxJJMyyOLHwiI10Ld59/83ypM2fGRBtwdbm626Cq6EtdvgjzFIU95arDwfBSUOOuxihfENKfAgIViPHp2G5uHCsWXu5e302CWlExletxXOfJTL8Jqef/sIKzm+fJS+J/x/Y7P2VfYI9Zd5whxdGK5Q==
+[2014-02-27 16:52:21.561] B115
+[2014-02-27 16:52:21.561] 휴대폰번호는 10자리 또는 11자리 입니다.
+[2014-02-27 16:52:21.561] va66cP3oml0n8zx/T3uEgsbE3cVuWHWXWkQZJcjbmQ1B8v2xZ0H6egvBpIPMGxH2xxJJMyyOLHwiI10Ld59/83ypM2fGRBtwdbm626Cq6EtdvgjzFIU95arDwfBSUOOuxihfENKfAgIViPHp2G5uHCsWXu5e302CWlExletxXOfJTL8Jqef/sIKzm+fJS+J/x/Y7P2VfYI9Zd5whxdGK5Q==
+[2014-02-27 16:52:21.561] # final ret code=115<br>
+[2014-02-27 16:53:05.889] # OKNAME v3.70 start!<br>
+[2014-02-27 16:53:05.889] # mode=HS_CNFRM_POPUP<br>
+[2014-02-27 16:53:05.889] # Parameter IP: 	114.108.128.129<br>
+[2014-02-27 16:53:05.889] # argv[ 1](hs_cert_svc_tx_seqno)=2014022716530559437<br>
+[2014-02-27 16:53:05.889] # argv[ 2](nm)=강진우<br>
+[2014-02-27 16:53:05.889] # argv[ 3](brdt)=19821203<br>
+[2014-02-27 16:53:05.889] # argv[ 4](sex)=1<br>
+[2014-02-27 16:53:05.889] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-02-27 16:53:05.889] # argv[ 6](var1)=01<br>
+[2014-02-27 16:53:05.889] # argv[ 7](var2)=01048752962<br>
+[2014-02-27 16:53:05.889] # argv[ 8](var3)=0<br>
+[2014-02-27 16:53:05.890] # argv[ 9](var4)=0<br>
+[2014-02-27 16:53:05.890] # argv[10](var5)=0<br>
+[2014-02-27 16:53:05.890] # argv[11](return_msg)=x<br>
+[2014-02-27 16:53:05.890] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-02-27 16:53:05.890] # argv[13](in_tp_bit)=15<br>
+[2014-02-27 16:53:05.890] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-02-27 16:53:05.890] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-02-27 16:53:05.890] # argv[16](idcf_mbr_com_cd)=P00000000000<br>
+[2014-02-27 16:53:05.890] # argv[17](server_ip)=114.108.128.129<br>
+[2014-02-27 16:53:05.890] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-02-27 16:53:05.890] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-02-27 16:53:05.890] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-02-27 16:53:05.890] # argv[21](option)=QL<br>
+[2014-02-27 16:53:05.890] # soap_timeout: 30000 ms<br>
+[2014-02-27 16:53:05.928] # key   : AwEiZ1suoLmAAYNNygPO7zJllNhdTw==:DRCOk3c+0nhdC3hRSenvTg==<br>
+[2014-02-27 16:53:05.928] # spkey : AwEiZ1suoLmAAYNNygPO7zJllNhdTw==<br>
+[2014-02-27 16:53:05.928] # ssig  : DRCOk3c+0nhdC3hRSenvTg==<br>
+[2014-02-27 16:53:05.930] # nm               : 강진우<br>
+[2014-02-27 16:53:05.930] # brdt             : 19821203<br>
+[2014-02-27 16:53:05.930] # e_nm             : AA7fMnL2<br>
+[2014-02-27 16:53:05.930] # e_brdt           : gZom+PwoMu8=<br>
+[2014-02-27 16:53:05.930] # cpkey : Awd9OvpqwlLwV4attlS4feFV1O/KEQ==<br>
+[2014-02-27 16:53:05.930] # csig  : NO/6O4ZR7yfi/gooEdxdwg==<br>
+[2014-02-27 16:53:05.963] retmsg: 8pMv+vejzmy33gi75GRr1lxsqUEJfbkKZnL0Ua9BrKKI07KmgRjk7nIByZcr8lbchmHovsYfgdMo+peVRWuSiRNUI8Flf3/z7FO2sQulyvvXBJnQKl3Lq+q0zyJVYO5ImzW0be+DhpkFKa0Vqu3yUtQpYVl8r8LFhyhXmDg5/cu0g9ntyDRt8Nvn2UZHB3air0/d9vF1ypjzS4Ctve1IdGwTjw4YunpZi+BDSdXmYVkTRvbBTFyUeiKj2N0JWXVNNSrTV24DwyP6+faMhNtl370/4F0KZdnaxVkLKe1nG3/cwplnW22Ovua6lyjgyjcS
+[2014-02-27 16:53:05.963] retmsg: B010:미계약 서비스 요청:va66cP3oml0n8zx/T3uEgik+jtTMXHqFRLcupmGRTyOvn0E0FzSOqV6Avy3hcZ7xAZ/U4hyTK35eNXVS4PCwv4W/6RQmzqQ/utARJB/laTQHQ8Pm5gp2s1x4vPha3dFDLpLhM8xHYQniTkiVUIRc6hWyuJGNWwrE2uBGiKZ4rLAkjWXyRP3uMFeSoELEMnS2WqABQjO2SHu/2g1S09pJBA==
+[2014-02-27 16:53:05.963] B010
+[2014-02-27 16:53:05.963] 미계약 서비스 요청
+[2014-02-27 16:53:05.963] va66cP3oml0n8zx/T3uEgik+jtTMXHqFRLcupmGRTyOvn0E0FzSOqV6Avy3hcZ7xAZ/U4hyTK35eNXVS4PCwv4W/6RQmzqQ/utARJB/laTQHQ8Pm5gp2s1x4vPha3dFDLpLhM8xHYQniTkiVUIRc6hWyuJGNWwrE2uBGiKZ4rLAkjWXyRP3uMFeSoELEMnS2WqABQjO2SHu/2g1S09pJBA==
+[2014-02-27 16:53:05.963] # final ret code=10<br>

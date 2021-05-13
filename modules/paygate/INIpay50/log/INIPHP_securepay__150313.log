@@ -1,0 +1,252 @@
+INFO	[2015-03-13 17:05:01:103] <25838> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:05:01:103] <25838> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:05:01:103] <25838> type:securepay
+DEBUG	[2015-03-13 17:05:01:103] <25838> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:05:01:103] <25838> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:05:01:103] <25838> admin:
+DEBUG	[2015-03-13 17:05:01:103] <25838> debug:true
+DEBUG	[2015-03-13 17:05:01:103] <25838> uid:
+DEBUG	[2015-03-13 17:05:01:103] <25838> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:05:01:103] <25838> currency:WON
+DEBUG	[2015-03-13 17:05:01:103] <25838> mid:
+DEBUG	[2015-03-13 17:05:01:103] <25838> rn:
+DEBUG	[2015-03-13 17:05:01:103] <25838> price:1000
+DEBUG	[2015-03-13 17:05:01:103] <25838> enctype:asym
+DEBUG	[2015-03-13 17:05:01:103] <25838> buyername:테스트
+DEBUG	[2015-03-13 17:05:01:103] <25838> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:05:01:103] <25838> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:05:01:103] <25838> paymethod:VCard
+DEBUG	[2015-03-13 17:05:01:103] <25838> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=SBD64D60B7658&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290fDZGFmKNwohKX60oAeLWCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=mow4ldLt0GkDiv4612FWXXShkJW5FCSpT7DJOAxj3Rv18dvT00wb2JQ5GMEO21%2bQ%0d%0az5HzfdibRSMRrl8IB2iK23puhhAWVSNwFu%2b8hlJSVQGad%2fYzj5VcUbS3p3yJmQiA%0d%0ayFu23N2PnDyqTsDezPgk61OtlwzzX5sXQDPaRYhtH1Y%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dXHEsLphbrYCPFSe56gYUV7%2fjf1Wd9ZeIQH%2f0otuaksoe6RiYbwfc2PupFxqF2bmm%250as3Je8RpeqicMv3xTaIVN4PccSKQlje2KxZD2TNqdqSvOJ1eQkXonya7O4jbh%2fCDc%250acOTM8spbdzOg8Xr1v0KvFki0ED83Gpp7D7%2f8UY5bEolsjoEPe1aUgmSPSQMRt3we%250avJwg%252boZkOhQLvBrAJNNorZG%2f9GujrU4TqykijOi4VGvwn%2fcVF1R2EPLwCxznyAGD%250aojLr0tU9HS4uAJwaywTUumXUlnX6LHpCacjBvDR0v9w4iy%252bgOgtguArkGVKC13tz%250aI7mo2PlHmPPQCAgrTD%252b7CKhoKyOOjB7HjIJBd4KTEiOiRn8USZ2s0zqfrdV%252bVNds%250aSF%2fK5wNxVkhuri8cAR48eVGU89ixLd0apB8N%2fWVklqVsKuWuDG2%2fWCg8FxC3l3lB%250auHJ0UjTOM9Mx3Kb%2fkicQesRlZ7L%2fbbXVXTNhPut6sV9eWpilgDjzTuJ9P5CYqczk%250aRGiLYOZDCwDP5zWc6s%252brk68kUxLsEiIKsU482iRwCmFVf%2fXPDPHTjLHpn%252bY%252b3fPH%250aZviFmo9JKKW8JtidSM2YYw%253d%253d%250a%26PubCert%3d&ts=150313170459qtJAmPdoYMf3sSvJHOTDuA003006&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:05:01:103] <25838> sessionkey:VCard
+DEBUG	[2015-03-13 17:05:01:103] <25838> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:05:01:103] <25838> cardcode:11
+DEBUG	[2015-03-13 17:05:01:103] <25838> parentemail:
+DEBUG	[2015-03-13 17:05:01:103] <25838> recvname:
+DEBUG	[2015-03-13 17:05:01:103] <25838> recvtel:
+DEBUG	[2015-03-13 17:05:01:103] <25838> recvaddr:
+DEBUG	[2015-03-13 17:05:01:103] <25838> recvpostnum:
+DEBUG	[2015-03-13 17:05:01:103] <25838> recvmsg:
+DEBUG	[2015-03-13 17:05:01:103] <25838> joincard:
+DEBUG	[2015-03-13 17:05:01:103] <25838> joinexpire:
+DEBUG	[2015-03-13 17:05:01:103] <25838> id_customer:
+ERROR	[2015-03-13 17:05:01:122] <25838> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:05:01:122] <25838> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:05:01:122] <25838> ===============================================================
+INFO	[2015-03-13 17:07:00:388] <25851> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:07:00:388] <25851> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:07:00:388] <25851> type:securepay
+DEBUG	[2015-03-13 17:07:00:388] <25851> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:07:00:388] <25851> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:07:00:388] <25851> admin:
+DEBUG	[2015-03-13 17:07:00:388] <25851> debug:true
+DEBUG	[2015-03-13 17:07:00:388] <25851> uid:
+DEBUG	[2015-03-13 17:07:00:388] <25851> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:07:00:388] <25851> currency:WON
+DEBUG	[2015-03-13 17:07:00:388] <25851> mid:
+DEBUG	[2015-03-13 17:07:00:388] <25851> rn:
+DEBUG	[2015-03-13 17:07:00:388] <25851> price:1000
+DEBUG	[2015-03-13 17:07:00:388] <25851> enctype:asym
+DEBUG	[2015-03-13 17:07:00:388] <25851> buyername:테스트
+DEBUG	[2015-03-13 17:07:00:388] <25851> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:07:00:388] <25851> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:07:00:388] <25851> paymethod:VCard
+DEBUG	[2015-03-13 17:07:00:388] <25851> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=SA86535960567&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290fRZGroqJzoh7c6Eo6d7aCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=QZZuCkMluQifpAaFhuB44vl3P5XnlFW0gW6Zbwcc7hawh50XF6B6l2hcDqQ4Gzle%0d%0aw%2bNUMqOQLHXbfGEItcauof6h5o3LHPdLVI%2fjZNuyeFHDZLbCjyfxQ2GX7vxYN9Iy%0d%0aH%2fSBO%2bLYkhwqjawM%2bRvdbrGeW4IsdjVGG1bEyd3uQ1A%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dtOE93bGs64u2Y2TAoUX1n05otQJzlIQQ%2fxQZK72tHwZ5NJEHe2Q9r%252bi3OXOEai2b%250aE3pT%252bCPbaSiMinoqmOhqbEbXRz8RAwfodWt6i5k4ND8tLu2b4YKKYe%252bY%252bsa05tLE%250ap%2fFmY0mr2%252bdzpKshu%2fDEi0tkY3ugelnvk1LN2sOc1OA92udJw5Z2zxZwPM1doLlT%250aHHlDYjx52k9h4ql%252bQ%2fZ3TBNoriaTynSPMFKB3yueAxJcrQH2A%2fjsdfNS2ipsEIQx%250aTBqh1u0AZJcCC%252bE5TsvrEuyALql%252b6rbWMUyhkJuX21%252bILOSoACj228NbhaUaFr26%250azw%2fXw3ZakdNSxgbFafNSFjT2ojeR89W9huhkIj1CPpLr89E71XfRoBIZnml3vrw8%250aN5gNRUGrR7c3D1wUfpwK2655j009l2ZRxg9vwsnGvmAZehvOG3dK7lH9zAnmGCbj%250aBrd0UjnWq8pWJejiiAk5o2Q7xLsAlOMZRr75jLqsSVW9B9PDSR6fMwL3x9IU6msI%250aA16ckMhf1auhzyqHTa%2f1ufiYKF4oyNMkD9iGOgeJpnj6es5uVkOoQ0Ek4I3bUHhu%250aWA3KO%2fAdrP5nXu4JW4TwIZjcmG4FLcOw53vQ%252bX99r0E%253d%250a%26PubCert%3d&ts=150313170658a6rjsZIflkqVUPHs39Hk3g003000&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:07:00:388] <25851> sessionkey:VCard
+DEBUG	[2015-03-13 17:07:00:388] <25851> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:07:00:388] <25851> cardcode:11
+DEBUG	[2015-03-13 17:07:00:388] <25851> parentemail:
+DEBUG	[2015-03-13 17:07:00:388] <25851> recvname:
+DEBUG	[2015-03-13 17:07:00:388] <25851> recvtel:
+DEBUG	[2015-03-13 17:07:00:388] <25851> recvaddr:
+DEBUG	[2015-03-13 17:07:00:388] <25851> recvpostnum:
+DEBUG	[2015-03-13 17:07:00:388] <25851> recvmsg:
+DEBUG	[2015-03-13 17:07:00:388] <25851> joincard:
+DEBUG	[2015-03-13 17:07:00:388] <25851> joinexpire:
+DEBUG	[2015-03-13 17:07:00:388] <25851> id_customer:
+ERROR	[2015-03-13 17:07:00:405] <25851> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:07:00:406] <25851> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:07:00:406] <25851> ===============================================================
+INFO	[2015-03-13 17:14:50:660] <26194> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:14:50:660] <26194> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:14:50:660] <26194> type:securepay
+DEBUG	[2015-03-13 17:14:50:660] <26194> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:14:50:660] <26194> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:14:50:660] <26194> admin:
+DEBUG	[2015-03-13 17:14:50:660] <26194> debug:true
+DEBUG	[2015-03-13 17:14:50:660] <26194> uid:
+DEBUG	[2015-03-13 17:14:50:660] <26194> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:14:50:660] <26194> currency:WON
+DEBUG	[2015-03-13 17:14:50:660] <26194> mid:
+DEBUG	[2015-03-13 17:14:50:660] <26194> rn:
+DEBUG	[2015-03-13 17:14:50:660] <26194> price:1000
+DEBUG	[2015-03-13 17:14:50:660] <26194> enctype:asym
+DEBUG	[2015-03-13 17:14:50:660] <26194> buyername:테스트
+DEBUG	[2015-03-13 17:14:50:660] <26194> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:14:50:660] <26194> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:14:50:660] <26194> paymethod:VCard
+DEBUG	[2015-03-13 17:14:50:660] <26194> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=S3971AC1CD803&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290bR5GrruhzjBLb6UouebSCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=lSlZu8naK%2b4I7kVdEXIASmCg4FHpI4Utme%2fFFCr4olcVk83rf8E7uiAXYdYuUfFy%0d%0aG4yPm7EigQj%2fqXyKSjmlmmREhMH03oei02qBwElJErNO3cVy96QynGDMnm63V9V7%0d%0aZLid7G7RR%2frLPyrrN2%2bwB3H2sy1qixNglIyfQam0xhQ%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dZoPB%252bS9Vtb8jVJ77mF8K8dw6um7N4lE8zJ%252blzfHTbYfz%252brl2g2g9Nr%2fOw%252b%252bzyFC6%250auye05KnDx1Zg3lFV35V0TmPetDGZEo6Kme5ciUSOGJZL70QxahO9kV3SZchCZBwj%250aFbEBKPvc1X%252bwz8V%2f155Srb3H7A1a8ShwbxFmggcW%2fEwmXexNNRF3dYpA9dAKawWp%250ahWyXCoCb66BdJLG%2fXgEyWzi%252bxw69dC3NxMDHSxBB3z9Rwoup24XCObj48r9VNdY9%250aj2dE%252bwvDrPoBARgcqA2KeYOodMPwOwwRz%2fJ0cwcfKNnZQcY3llCpbfeLdMVYBAn2%250aQA89%252bQ9r6uLB65GL9zzIxlBnDGZ%2fURP4Gcy06tx0ZTdT5wb8weKhFCENLmGct7Gf%250aEUG0xYYkZjqAPNhP9qlDA2pXIP6Sgk8j%252bKUmRWTND%252bFUCbzqALK2rOYPPjMLOj6Z%250a5RxrJ6S4emV%252beT3sv%252bgR34oER6Q28siu%252bqfKQJ3ClgGMXg2ti6HdaOMzMASIYYaz%250acHCwmYM3a6p1tx5Oq7ksbHCUNDptBSAyzD8jRyfM6fH5Z1jipbyXK1tJ5CVAG5az%250arN1FLaZbWK6wIKnKYZtrGbVeAv%2fFvRkB1ZlOLzpqsE4%253d%250a%26PubCert%3d&ts=150313171449kedo5EM9uGvmVphxxbTVvw003004&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:14:50:660] <26194> sessionkey:VCard
+DEBUG	[2015-03-13 17:14:50:660] <26194> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:14:50:660] <26194> cardcode:11
+DEBUG	[2015-03-13 17:14:50:660] <26194> parentemail:
+DEBUG	[2015-03-13 17:14:50:660] <26194> recvname:
+DEBUG	[2015-03-13 17:14:50:660] <26194> recvtel:
+DEBUG	[2015-03-13 17:14:50:660] <26194> recvaddr:
+DEBUG	[2015-03-13 17:14:50:660] <26194> recvpostnum:
+DEBUG	[2015-03-13 17:14:50:660] <26194> recvmsg:
+DEBUG	[2015-03-13 17:14:50:660] <26194> joincard:
+DEBUG	[2015-03-13 17:14:50:660] <26194> joinexpire:
+DEBUG	[2015-03-13 17:14:50:660] <26194> id_customer:
+ERROR	[2015-03-13 17:14:50:677] <26194> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:14:50:677] <26194> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:14:50:677] <26194> ===============================================================
+INFO	[2015-03-13 17:16:36:110] <26252> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:16:36:110] <26252> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:16:36:110] <26252> type:securepay
+DEBUG	[2015-03-13 17:16:36:110] <26252> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:16:36:110] <26252> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:16:36:110] <26252> admin:
+DEBUG	[2015-03-13 17:16:36:110] <26252> debug:true
+DEBUG	[2015-03-13 17:16:36:110] <26252> uid:
+DEBUG	[2015-03-13 17:16:36:110] <26252> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:16:36:110] <26252> currency:WON
+DEBUG	[2015-03-13 17:16:36:110] <26252> mid:
+DEBUG	[2015-03-13 17:16:36:110] <26252> rn:
+DEBUG	[2015-03-13 17:16:36:110] <26252> price:1000
+DEBUG	[2015-03-13 17:16:36:110] <26252> enctype:asym
+DEBUG	[2015-03-13 17:16:36:110] <26252> buyername:테스트
+DEBUG	[2015-03-13 17:16:36:110] <26252> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:16:36:110] <26252> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:16:36:110] <26252> paymethod:VCard
+DEBUG	[2015-03-13 17:16:36:110] <26252> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=S3971AC1CD803&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290bR5GrruhzjBLb6UouebSCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=lSlZu8naK%2b4I7kVdEXIASmCg4FHpI4Utme%2fFFCr4olcVk83rf8E7uiAXYdYuUfFy%0d%0aG4yPm7EigQj%2fqXyKSjmlmmREhMH03oei02qBwElJErNO3cVy96QynGDMnm63V9V7%0d%0aZLid7G7RR%2frLPyrrN2%2bwB3H2sy1qixNglIyfQam0xhQ%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dZoPB%252bS9Vtb8jVJ77mF8K8dw6um7N4lE8zJ%252blzfHTbYfz%252brl2g2g9Nr%2fOw%252b%252bzyFC6%250auye05KnDx1Zg3lFV35V0TmPetDGZEo6Kme5ciUSOGJZL70QxahO9kV3SZchCZBwj%250aFbEBKPvc1X%252bwz8V%2f155Srb3H7A1a8ShwbxFmggcW%2fEwmXexNNRF3dYpA9dAKawWp%250ahWyXCoCb66BdJLG%2fXgEyWzi%252bxw69dC3NxMDHSxBB3z9Rwoup24XCObj48r9VNdY9%250aj2dE%252bwvDrPoBARgcqA2KeYOodMPwOwwRz%2fJ0cwcfKNnZQcY3llCpbfeLdMVYBAn2%250aQA89%252bQ9r6uLB65GL9zzIxlBnDGZ%2fURP4Gcy06tx0ZTdT5wb8weKhFCENLmGct7Gf%250aEUG0xYYkZjqAPNhP9qlDA2pXIP6Sgk8j%252bKUmRWTND%252bFUCbzqALK2rOYPPjMLOj6Z%250a5RxrJ6S4emV%252beT3sv%252bgR34oER6Q28siu%252bqfKQJ3ClgGMXg2ti6HdaOMzMASIYYaz%250acHCwmYM3a6p1tx5Oq7ksbHCUNDptBSAyzD8jRyfM6fH5Z1jipbyXK1tJ5CVAG5az%250arN1FLaZbWK6wIKnKYZtrGbVeAv%2fFvRkB1ZlOLzpqsE4%253d%250a%26PubCert%3d&ts=150313171449kedo5EM9uGvmVphxxbTVvw003004&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:16:36:110] <26252> sessionkey:VCard
+DEBUG	[2015-03-13 17:16:36:110] <26252> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:16:36:110] <26252> cardcode:11
+DEBUG	[2015-03-13 17:16:36:110] <26252> parentemail:
+DEBUG	[2015-03-13 17:16:36:110] <26252> recvname:
+DEBUG	[2015-03-13 17:16:36:110] <26252> recvtel:
+DEBUG	[2015-03-13 17:16:36:110] <26252> recvaddr:
+DEBUG	[2015-03-13 17:16:36:110] <26252> recvpostnum:
+DEBUG	[2015-03-13 17:16:36:110] <26252> recvmsg:
+DEBUG	[2015-03-13 17:16:36:110] <26252> joincard:
+DEBUG	[2015-03-13 17:16:36:110] <26252> joinexpire:
+DEBUG	[2015-03-13 17:16:36:110] <26252> id_customer:
+ERROR	[2015-03-13 17:16:36:141] <26252> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:16:36:141] <26252> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.03sec]
+INFO	[2015-03-13 17:16:36:141] <26252> ===============================================================
+INFO	[2015-03-13 17:16:41:779] <26248> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:16:41:779] <26248> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:16:41:779] <26248> type:securepay
+DEBUG	[2015-03-13 17:16:41:779] <26248> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:16:41:779] <26248> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:16:41:779] <26248> admin:
+DEBUG	[2015-03-13 17:16:41:779] <26248> debug:true
+DEBUG	[2015-03-13 17:16:41:779] <26248> uid:
+DEBUG	[2015-03-13 17:16:41:779] <26248> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:16:41:779] <26248> currency:WON
+DEBUG	[2015-03-13 17:16:41:779] <26248> mid:
+DEBUG	[2015-03-13 17:16:41:779] <26248> rn:
+DEBUG	[2015-03-13 17:16:41:779] <26248> price:1000
+DEBUG	[2015-03-13 17:16:41:779] <26248> enctype:asym
+DEBUG	[2015-03-13 17:16:41:779] <26248> buyername:테스트
+DEBUG	[2015-03-13 17:16:41:779] <26248> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:16:41:779] <26248> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:16:41:779] <26248> paymethod:VCard
+DEBUG	[2015-03-13 17:16:41:779] <26248> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=S3971AC1CD803&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290bR5GrruhzjBLb6UouebSCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=lSlZu8naK%2b4I7kVdEXIASmCg4FHpI4Utme%2fFFCr4olcVk83rf8E7uiAXYdYuUfFy%0d%0aG4yPm7EigQj%2fqXyKSjmlmmREhMH03oei02qBwElJErNO3cVy96QynGDMnm63V9V7%0d%0aZLid7G7RR%2frLPyrrN2%2bwB3H2sy1qixNglIyfQam0xhQ%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dZoPB%252bS9Vtb8jVJ77mF8K8dw6um7N4lE8zJ%252blzfHTbYfz%252brl2g2g9Nr%2fOw%252b%252bzyFC6%250auye05KnDx1Zg3lFV35V0TmPetDGZEo6Kme5ciUSOGJZL70QxahO9kV3SZchCZBwj%250aFbEBKPvc1X%252bwz8V%2f155Srb3H7A1a8ShwbxFmggcW%2fEwmXexNNRF3dYpA9dAKawWp%250ahWyXCoCb66BdJLG%2fXgEyWzi%252bxw69dC3NxMDHSxBB3z9Rwoup24XCObj48r9VNdY9%250aj2dE%252bwvDrPoBARgcqA2KeYOodMPwOwwRz%2fJ0cwcfKNnZQcY3llCpbfeLdMVYBAn2%250aQA89%252bQ9r6uLB65GL9zzIxlBnDGZ%2fURP4Gcy06tx0ZTdT5wb8weKhFCENLmGct7Gf%250aEUG0xYYkZjqAPNhP9qlDA2pXIP6Sgk8j%252bKUmRWTND%252bFUCbzqALK2rOYPPjMLOj6Z%250a5RxrJ6S4emV%252beT3sv%252bgR34oER6Q28siu%252bqfKQJ3ClgGMXg2ti6HdaOMzMASIYYaz%250acHCwmYM3a6p1tx5Oq7ksbHCUNDptBSAyzD8jRyfM6fH5Z1jipbyXK1tJ5CVAG5az%250arN1FLaZbWK6wIKnKYZtrGbVeAv%2fFvRkB1ZlOLzpqsE4%253d%250a%26PubCert%3d&ts=150313171449kedo5EM9uGvmVphxxbTVvw003004&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:16:41:779] <26248> sessionkey:VCard
+DEBUG	[2015-03-13 17:16:41:779] <26248> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:16:41:779] <26248> cardcode:11
+DEBUG	[2015-03-13 17:16:41:779] <26248> parentemail:
+DEBUG	[2015-03-13 17:16:41:779] <26248> recvname:
+DEBUG	[2015-03-13 17:16:41:779] <26248> recvtel:
+DEBUG	[2015-03-13 17:16:41:779] <26248> recvaddr:
+DEBUG	[2015-03-13 17:16:41:779] <26248> recvpostnum:
+DEBUG	[2015-03-13 17:16:41:779] <26248> recvmsg:
+DEBUG	[2015-03-13 17:16:41:779] <26248> joincard:
+DEBUG	[2015-03-13 17:16:41:779] <26248> joinexpire:
+DEBUG	[2015-03-13 17:16:41:779] <26248> id_customer:
+ERROR	[2015-03-13 17:16:41:797] <26248> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:16:41:797] <26248> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:16:41:797] <26248> ===============================================================
+INFO	[2015-03-13 17:16:46:939] <26164> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:16:46:940] <26164> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:16:46:940] <26164> type:securepay
+DEBUG	[2015-03-13 17:16:46:940] <26164> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:16:46:940] <26164> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:16:46:940] <26164> admin:
+DEBUG	[2015-03-13 17:16:46:940] <26164> debug:true
+DEBUG	[2015-03-13 17:16:46:940] <26164> uid:
+DEBUG	[2015-03-13 17:16:46:940] <26164> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:16:46:940] <26164> currency:WON
+DEBUG	[2015-03-13 17:16:46:940] <26164> mid:
+DEBUG	[2015-03-13 17:16:46:940] <26164> rn:
+DEBUG	[2015-03-13 17:16:46:940] <26164> price:1000
+DEBUG	[2015-03-13 17:16:46:940] <26164> enctype:asym
+DEBUG	[2015-03-13 17:16:46:940] <26164> buyername:테스트
+DEBUG	[2015-03-13 17:16:46:940] <26164> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:16:46:940] <26164> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:16:46:940] <26164> paymethod:VCard
+DEBUG	[2015-03-13 17:16:46:940] <26164> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=S3971AC1CD803&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290bR5GrruhzjBLb6UouebSCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=lSlZu8naK%2b4I7kVdEXIASmCg4FHpI4Utme%2fFFCr4olcVk83rf8E7uiAXYdYuUfFy%0d%0aG4yPm7EigQj%2fqXyKSjmlmmREhMH03oei02qBwElJErNO3cVy96QynGDMnm63V9V7%0d%0aZLid7G7RR%2frLPyrrN2%2bwB3H2sy1qixNglIyfQam0xhQ%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dZoPB%252bS9Vtb8jVJ77mF8K8dw6um7N4lE8zJ%252blzfHTbYfz%252brl2g2g9Nr%2fOw%252b%252bzyFC6%250auye05KnDx1Zg3lFV35V0TmPetDGZEo6Kme5ciUSOGJZL70QxahO9kV3SZchCZBwj%250aFbEBKPvc1X%252bwz8V%2f155Srb3H7A1a8ShwbxFmggcW%2fEwmXexNNRF3dYpA9dAKawWp%250ahWyXCoCb66BdJLG%2fXgEyWzi%252bxw69dC3NxMDHSxBB3z9Rwoup24XCObj48r9VNdY9%250aj2dE%252bwvDrPoBARgcqA2KeYOodMPwOwwRz%2fJ0cwcfKNnZQcY3llCpbfeLdMVYBAn2%250aQA89%252bQ9r6uLB65GL9zzIxlBnDGZ%2fURP4Gcy06tx0ZTdT5wb8weKhFCENLmGct7Gf%250aEUG0xYYkZjqAPNhP9qlDA2pXIP6Sgk8j%252bKUmRWTND%252bFUCbzqALK2rOYPPjMLOj6Z%250a5RxrJ6S4emV%252beT3sv%252bgR34oER6Q28siu%252bqfKQJ3ClgGMXg2ti6HdaOMzMASIYYaz%250acHCwmYM3a6p1tx5Oq7ksbHCUNDptBSAyzD8jRyfM6fH5Z1jipbyXK1tJ5CVAG5az%250arN1FLaZbWK6wIKnKYZtrGbVeAv%2fFvRkB1ZlOLzpqsE4%253d%250a%26PubCert%3d&ts=150313171449kedo5EM9uGvmVphxxbTVvw003004&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:16:46:940] <26164> sessionkey:VCard
+DEBUG	[2015-03-13 17:16:46:940] <26164> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:16:46:940] <26164> cardcode:11
+DEBUG	[2015-03-13 17:16:46:940] <26164> parentemail:
+DEBUG	[2015-03-13 17:16:46:940] <26164> recvname:
+DEBUG	[2015-03-13 17:16:46:940] <26164> recvtel:
+DEBUG	[2015-03-13 17:16:46:940] <26164> recvaddr:
+DEBUG	[2015-03-13 17:16:46:940] <26164> recvpostnum:
+DEBUG	[2015-03-13 17:16:46:940] <26164> recvmsg:
+DEBUG	[2015-03-13 17:16:46:940] <26164> joincard:
+DEBUG	[2015-03-13 17:16:46:940] <26164> joinexpire:
+DEBUG	[2015-03-13 17:16:46:940] <26164> id_customer:
+ERROR	[2015-03-13 17:16:46:956] <26164> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:16:46:956] <26164> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:16:46:956] <26164> ===============================================================
+INFO	[2015-03-13 17:17:24:429] <26157> START INIPHP securepay (V5034-120709)(OS:Linux2.6.32-504.3.3.el6.x86_64,PHP:5.2.17)
+DEBUG	[2015-03-13 17:17:24:429] <26157> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2015-03-13 17:17:24:429] <26157> type:securepay
+DEBUG	[2015-03-13 17:17:24:429] <26157> pgid:INIphpISP_
+DEBUG	[2015-03-13 17:17:24:429] <26157> subpgip:203.238.3.10
+DEBUG	[2015-03-13 17:17:24:429] <26157> admin:
+DEBUG	[2015-03-13 17:17:24:429] <26157> debug:true
+DEBUG	[2015-03-13 17:17:24:429] <26157> uid:
+DEBUG	[2015-03-13 17:17:24:429] <26157> goodname:다이렉트결제
+DEBUG	[2015-03-13 17:17:24:429] <26157> currency:WON
+DEBUG	[2015-03-13 17:17:24:429] <26157> mid:
+DEBUG	[2015-03-13 17:17:24:429] <26157> rn:
+DEBUG	[2015-03-13 17:17:24:429] <26157> price:1000
+DEBUG	[2015-03-13 17:17:24:429] <26157> enctype:asym
+DEBUG	[2015-03-13 17:17:24:429] <26157> buyername:테스트
+DEBUG	[2015-03-13 17:17:24:429] <26157> buyertel:010-4875-2962
+DEBUG	[2015-03-13 17:17:24:429] <26157> buyeremail:ak_2010@naver.com
+DEBUG	[2015-03-13 17:17:24:429] <26157> paymethod:VCard
+DEBUG	[2015-03-13 17:17:24:429] <26157> encrypted:Version=4.1&PayMethod=VCard&RsaKeyNum=1&EncryptionAlgorithm=NONE&SignAlgorithm=SHA1WithRSAEncryption&CertVer=39&moid=S3971AC1CD803&ver_trace=main(6095,6057)vcard(6087)card(6130,6116)n(6008)Cs(6024)Dt(6002)Pa(6002)Cf(6024)Fv(0000)La(6147)Re(6098)Vr(6006)P(6033)en(6050)&pg1=203.238.37.3&pg2=211.219.96.180&pg1ip=203.238.37.3&pg2ip=211.219.96.180&agreeflag=1111&rn=3/jEtW4vAARd6hCA290bR5GrruhzjBLb6UouebSCizo=
+&VCode=040100202027981&VQuota=00&VNoint=0&ip=192.168.203.1&mac=005056C00008&cardpoint=9&custemail=ak_2010@naver.com&price=4uDsrkVGcE4gjnub+tIuGLKwnbZZ5Wc=
+&below1000=0&encisp=0&pgnoint=0&VKBPoint=&VSessionKey=lSlZu8naK%2b4I7kVdEXIASmCg4FHpI4Utme%2fFFCr4olcVk83rf8E7uiAXYdYuUfFy%0d%0aG4yPm7EigQj%2fqXyKSjmlmmREhMH03oei02qBwElJErNO3cVy96QynGDMnm63V9V7%0d%0aZLid7G7RR%2frLPyrrN2%2bwB3H2sy1qixNglIyfQam0xhQ%3d%0d%0a&Data=Version%3d1.0%26KeyFlag%3d1%26KeyNum%3d1%26EncryptAlgorithm%3dSEED%2dCBC%26SignAlgorithm%3d%26Data%3dZoPB%252bS9Vtb8jVJ77mF8K8dw6um7N4lE8zJ%252blzfHTbYfz%252brl2g2g9Nr%2fOw%252b%252bzyFC6%250auye05KnDx1Zg3lFV35V0TmPetDGZEo6Kme5ciUSOGJZL70QxahO9kV3SZchCZBwj%250aFbEBKPvc1X%252bwz8V%2f155Srb3H7A1a8ShwbxFmggcW%2fEwmXexNNRF3dYpA9dAKawWp%250ahWyXCoCb66BdJLG%2fXgEyWzi%252bxw69dC3NxMDHSxBB3z9Rwoup24XCObj48r9VNdY9%250aj2dE%252bwvDrPoBARgcqA2KeYOodMPwOwwRz%2fJ0cwcfKNnZQcY3llCpbfeLdMVYBAn2%250aQA89%252bQ9r6uLB65GL9zzIxlBnDGZ%2fURP4Gcy06tx0ZTdT5wb8weKhFCENLmGct7Gf%250aEUG0xYYkZjqAPNhP9qlDA2pXIP6Sgk8j%252bKUmRWTND%252bFUCbzqALK2rOYPPjMLOj6Z%250a5RxrJ6S4emV%252beT3sv%252bgR34oER6Q28siu%252bqfKQJ3ClgGMXg2ti6HdaOMzMASIYYaz%250acHCwmYM3a6p1tx5Oq7ksbHCUNDptBSAyzD8jRyfM6fH5Z1jipbyXK1tJ5CVAG5az%250arN1FLaZbWK6wIKnKYZtrGbVeAv%2fFvRkB1ZlOLzpqsE4%253d%250a%26PubCert%3d&ts=150313171449kedo5EM9uGvmVphxxbTVvw003004&src_flg=0&OSv=IE10_Win7 6.01.7601 SP1 Professional (CDN) (notray:J) [INIpayTest] (61_secuni_npapi)&ip2=1.224.199.214
+DEBUG	[2015-03-13 17:17:24:429] <26157> sessionkey:VCard
+DEBUG	[2015-03-13 17:17:24:429] <26157> url:http://njob.netfu.co.kr
+DEBUG	[2015-03-13 17:17:24:429] <26157> cardcode:11
+DEBUG	[2015-03-13 17:17:24:429] <26157> parentemail:
+DEBUG	[2015-03-13 17:17:24:429] <26157> recvname:
+DEBUG	[2015-03-13 17:17:24:429] <26157> recvtel:
+DEBUG	[2015-03-13 17:17:24:429] <26157> recvaddr:
+DEBUG	[2015-03-13 17:17:24:429] <26157> recvpostnum:
+DEBUG	[2015-03-13 17:17:24:429] <26157> recvmsg:
+DEBUG	[2015-03-13 17:17:24:429] <26157> joincard:
+DEBUG	[2015-03-13 17:17:24:429] <26157> joinexpire:
+DEBUG	[2015-03-13 17:17:24:429] <26157> id_customer:
+ERROR	[2015-03-13 17:17:24:448] <26157> 필수항목(mid)이 누락되었습니다.
+INFO	[2015-03-13 17:17:24:448] <26157> END securepay [TX9202|필수항목(mid)이 누락되었습니다.] Laptime:[0.02sec]
+INFO	[2015-03-13 17:17:24:448] <26157> ===============================================================

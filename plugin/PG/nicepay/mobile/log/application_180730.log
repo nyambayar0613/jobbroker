@@ -1,0 +1,10 @@
+ [2018-07-30 15:11:46] <26173> START NICEPAY TX (OS:Linux2.6.32-642.13.1.el6.x86_64,PHP:5.2.17))
+ [2018-07-30 15:11:46] <26173> TX VERSION INFO (1.1.1-20180219-naun_cjlee)
+ [2018-07-30 15:11:46] <26173> service mode : PY0
+ [2018-07-30 15:11:46] <26173> common message validation success
+ [2018-07-30 15:11:46] <26173> 상품명 미설정 오류입니다.
+ [2018-07-30 15:23:08] <27537> START NICEPAY TX (OS:Linux2.6.32-642.13.1.el6.x86_64,PHP:5.2.17))
+ [2018-07-30 15:23:08] <27537> TX VERSION INFO (1.1.1-20180219-naun_cjlee)
+ [2018-07-30 15:23:08] <27537> service mode : PY0
+ [2018-07-30 15:23:08] <27537> common message validation success
+ [2018-07-30 15:23:08] <27537> 상품명 미설정 오류입니다.

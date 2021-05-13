@@ -1,0 +1,68 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+	$('#SiteConfigFrm').submit(function(){
+		<?php echo $utility->input_cheditor($type);?>	// 에디터 내용 전달
+		$(this).ajaxSubmit(form_options);
+		return false;
+	});
+});
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+<dl class="loc"><?php echo $sub_menu_name1; include_once "../include/navi.php"; ?></dl>
+
+<?php include_once "./views/_include/menu.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $netfu_util->site_content[$type];?></dl>
+
+<form name="SiteConfigFrm" method="post" id="SiteConfigFrm" action="./process/config.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="<?php echo $type;?>"/><!-- 사이트 기본 설정정보 외 수정 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+
+	<?php echo $utility->make_cheditor($type, $env[$type]);	// 에디터 생성?>
+
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_01.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options){	// 폼 전송전
+
+	var SiteConfigFrm = document.getElementById('SiteConfigFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(SiteConfigFrm);
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송후
+	//alert(responseText);
+	if(responseText=='0002') {	// 성공
+		alert("<?php echo $config->_success('0002');?>");
+		location.reload();
+	} else if(responseText=='0005') {	// 실패
+		alert("<?php echo $config->_errors('0005');?>");
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

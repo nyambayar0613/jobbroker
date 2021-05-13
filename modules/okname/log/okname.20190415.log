@@ -1,0 +1,40 @@
+[2019-04-15 09:26:33.413] # OKNAME v3.70 start!<br>
+[2019-04-15 09:26:33.416] # mode=HS_CNFRM_POPUP<br>
+[2019-04-15 09:26:33.416] # Parameter IP: 	114.108.128.129<br>
+[2019-04-15 09:26:33.416] # argv[ 1](hs_cert_svc_tx_seqno)=2019041509263341059<br>
+[2019-04-15 09:26:33.416] # argv[ 2](nm)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 3](brdt)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 4](sex)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 6](var1)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 7](var2)=x<br>
+[2019-04-15 09:26:33.416] # argv[ 8](var3)=0<br>
+[2019-04-15 09:26:33.416] # argv[ 9](var4)=0<br>
+[2019-04-15 09:26:33.416] # argv[10](var5)=0<br>
+[2019-04-15 09:26:33.416] # argv[11](return_msg)=x<br>
+[2019-04-15 09:26:33.416] # argv[12](return_url)=http://mjob.netfu.co.kr:444/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2019-04-15 09:26:33.416] # argv[13](in_tp_bit)=0<br>
+[2019-04-15 09:26:33.416] # argv[14](hs_cert_msr_cd)=10<br>
+[2019-04-15 09:26:33.416] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2019-04-15 09:26:33.416] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2019-04-15 09:26:33.416] # argv[17](server_ip)=114.108.128.129<br>
+[2019-04-15 09:26:33.416] # argv[18](client_site_nm)=mjob.netfu.co.kr:444<br>
+[2019-04-15 09:26:33.416] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2019-04-15 09:26:33.416] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2019-04-15 09:26:33.416] # argv[21](option)=QL<br>
+[2019-04-15 09:26:33.416] # soap_timeout: 30000 ms<br>
+[2019-04-15 09:26:33.470] # key   : AgByS6l5gmq8+aPveJyBZvZ0LNsSFw==:wtyoWD3e6Q2+Cc/gKenoKA==<br>
+[2019-04-15 09:26:33.470] # spkey : AgByS6l5gmq8+aPveJyBZvZ0LNsSFw==<br>
+[2019-04-15 09:26:33.471] # ssig  : wtyoWD3e6Q2+Cc/gKenoKA==<br>
+[2019-04-15 09:26:33.473] # nm               : x    <br>
+[2019-04-15 09:26:33.473] # brdt             : x    <br>
+[2019-04-15 09:26:33.473] # e_nm             : RjS7vQA=<br>
+[2019-04-15 09:26:33.473] # e_brdt           : RjS7vQA=<br>
+[2019-04-15 09:26:33.473] # cpkey : AgaL85kshuBpft8HYfKrQ5IahBXORQ==<br>
+[2019-04-15 09:26:33.473] # csig  : LhbZldKCzOCHFkiJtP9nZA==<br>
+[2019-04-15 09:26:33.490] retmsg: fCWrqBqX/k3xnS7eBASb7e4Or33Xgic0GdROGAaiUPaGfDs2E93g3z71u5Zviy7F9Q+g84w41mjFMH4wxTaxVmyDt4UIDy5cPdQ+cuC2JChEOt7K5HUgS0BQZuLY7oEqKRDUuPWjjqPOPBZd0U5RcgtpNlTbLvnC1b6Xhd5NWwbq9nc4nuc3lZkBBIrK1bXCNgkRD4fghrnAV7agLVlWVsWBY6sgyGswKbFaKtgKS363KBLU1r6S/ucdlEGTarjed1R5gQK8gPL88lWBL+gRZ/uYHkDmSS7RpK5S4U7zUp9aycXoeBrGtOHaAAtgxDdpiQAZS7spDtQ7cPc=
+[2019-04-15 09:26:33.490] retmsg: B105:서비스 기간이 만료되었습니다.:l4i7ItKfVYAXSio1JN1zRzxK3Q/Ii7Eg5GA5tiyoUKyHRZCN0yzWE4Ev/gNzu/tmSEPTA9f3WmK4TXgm6NoPrzv78R5fqFngU6uJFUHcDUOuqvs8CRvw1yDXNTkWdfE+QeDQs9+SMKnNjKVDO0TBQpincEJ6TrTmGJre07ovfdlZF5LGvO/Cx1PcoI12pWc8GWY0jyV3wbx5efSXQ335vw==
+[2019-04-15 09:26:33.490] B105
+[2019-04-15 09:26:33.490] 서비스 기간이 만료되었습니다.
+[2019-04-15 09:26:33.490] l4i7ItKfVYAXSio1JN1zRzxK3Q/Ii7Eg5GA5tiyoUKyHRZCN0yzWE4Ev/gNzu/tmSEPTA9f3WmK4TXgm6NoPrzv78R5fqFngU6uJFUHcDUOuqvs8CRvw1yDXNTkWdfE+QeDQs9+SMKnNjKVDO0TBQpincEJ6TrTmGJre07ovfdlZF5LGvO/Cx1PcoI12pWc8GWY0jyV3wbx5efSXQ335vw==
+[2019-04-15 09:26:33.490] # final ret code=105<br>

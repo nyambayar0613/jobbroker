@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body style="margin:0;padding:0">
+    <div class="admin_pop03">
+      <div class="admin_pop0101"><img src="/images/admin/favicon02.png"></div>  
+      <div class="admin_pop0102">
+        <span>■</span> 파비콘을 등록하시면 브라우저 상단의 주소와 제목에 표시됩니다.<br><br>
+        <span>■</span> 파비콘 규격 : <b>16 x 16</b> 또는 <b>32 x 32</b> 픽셀, <b>16/256/트루컬러</b>의 확장자가 <b>ico</b>인 파일만 등록 가능합니다.<br><br> 
+        <span>■</span> 파비콘 만들기 : 원하는 이미지를 규격에 맞게 제작하신 후 <b>Favicon Generator</b>&nbsp;<a href="http://www.favicon-generator.org/">(http://www.favicon-generator.org/)</a><br>
+        를 이용하여 ico 파일을 생성합니다.<br>          
+      </div>
+      <div class="admin_pop0103"><a href="javascript:self.close();">닫기</div>
+    </div>
+  </body>
+</html>

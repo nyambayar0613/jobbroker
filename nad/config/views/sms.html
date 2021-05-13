@@ -1,0 +1,304 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var config_options = { beforeSubmit: config_showRequest, success : config_showResponse };
+	$('#SMSConfigFrm').ajaxForm(config_options);
+	var msg_options = { beforeSubmit: msg_showRequest, success : msg_showResponse };
+	$('#SMSMsgFrm').ajaxForm(msg_options);
+	$('.sms_msg').each(function(){
+		$(this).focus();
+	});
+	$('.sms_msg_admin').each(function(){
+		$(this).focus();
+	});
+});
+var sms_uses = function( vals ){
+	var sel = vals.value;
+	if(sel=='1')
+		$('#sms_use_block').show();
+	else
+		$('#sms_use_block').hide();
+}
+function length_count(num,filed, max_count) { 
+    var str; 
+    var str_count = 0; 
+    var cut_count = 0; 
+    var max_length = max_count; 
+    var str_length = filed.value.length; 
+
+    for (k=0;k<str_length;k++) { 
+        str = filed.value.charAt(k); 
+        if (escape(str).length > 4) { 
+            str_count += 2; 
+            max_length -= 2; 
+        } else { 
+            // (\r\n은 1byte 처리) 
+            if (escape(str) == '%0A') { 
+            } else { 
+                str_count++; 
+                max_length--; 
+            } 
+        } 
+
+        if (max_count < str_count) { 
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능 합니다"); 
+            if (escape(str).length > 4) { 
+                str_count -= 2; 
+                max_length += 2; 
+            } else { 
+                str_count--; 
+                max_length++; 
+            } 
+            filed.value = filed.value.substring(0,k); 
+            break; 
+        } 
+    } 
+	max_length=max_count-max_length;
+	 eval("this.span_byte"+num+".innerText = max_length;"); 
+} 
+function length_counts(num,filed, max_count) { 
+    var str; 
+    var str_count = 0; 
+    var cut_count = 0; 
+    var max_length = max_count; 
+    var str_length = filed.value.length; 
+
+    for (k=0;k<str_length;k++) { 
+        str = filed.value.charAt(k); 
+        if (escape(str).length > 4) { 
+            str_count += 2; 
+            max_length -= 2; 
+        } else { 
+            // (\r\n은 1byte 처리) 
+            if (escape(str) == '%0A') { 
+            } else { 
+                str_count++; 
+                max_length--; 
+            } 
+        } 
+
+        if (max_count < str_count) { 
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능합니다"); 
+            if (escape(str).length > 4) { 
+                str_count -= 2; 
+                max_length += 2; 
+            } else { 
+                str_count--; 
+                max_length++; 
+            } 
+            filed.value = filed.value.substring(0,k); 
+            break; 
+        } 
+    } 
+	max_length=max_count-max_length;
+	 eval("this.span_bytes"+num+".innerText = max_length;"); 
+} 
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+SMS 문자 발송은 넷퓨의 SMS 모듈이 연동이 되어 있습니다.<br/>
+넷퓨 홈페이지에서 SMS 콜수를 충전하시기 바랍니다.<br/>
+SMS 콜수는 <a href="http://netfu.co.kr/service/sms.php" target="_blank">[넷퓨 홈페이지] - 부가서비스 - SMS서비스신청</a> 메뉴를 통하여 충전 가능합니다.<br>
+한번에 발송할 수 있는 문자 수는 1000건으로 제한됩니다.<br>
+<strong>SMS : </strong>최대 90Bytes 이내 (한글기준) 단문 메시지<br/>
+<strong>LMS : </strong>90Bytes 초과, 최대 2,000Bytes 이내 (한글기준) 장문 메시지
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS 설정</dl>
+
+<form name="SMSConfigFrm" method="post" id="SMSConfigFrm" action="./process/sms.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="config_update"/><!-- SMS 환경설정 -->
+<input type="hidden" name="no" value="1"/>
+<input type="hidden" name="sms_module" value="netfu"/>
+
+	<table width="100%" class="bg_col">
+	<col width=150><col><col width=150><col> 
+	<tr>
+		<td class="ctlt">SMS 사용유무</td>
+		<td class="pdlnb2" colspan="3">
+			<label><input name="sms_use" type="radio" value="1" class="radio" checked onclick="sms_uses(this);">사용</label> &nbsp;
+			<label><input name="sms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['sms_use'])?'checked':'';?> onclick="sms_uses(this);">미사용</label> &nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">LMS 사용유무</td>
+		<td class="pdlnb2" colspan="3">
+			<label><input name="lms_use" type="radio" value="1" class="radio" checked>사용</label> &nbsp;
+			<label><input name="lms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['lms_use'])?'checked':'';?>>미사용</label> &nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">잔여건수</td>
+		<td class="pdlnb2" colspan="3">
+			<?php echo number_format($sms_ord);?> 건 남음<span class="Cashimg"><a href="http://netfu.co.kr/service/sms.php" target="_blank"><img src="/images/icon/sms_cash.gif"></a></span> &nbsp;
+		</td>
+	</tr>
+	<tbody id="sms_use_block" style="display:<?php echo ($sms_config['sms_use'])?'':'none';?>;">
+	<tr>
+		<td class="ctlt">SMS ID</td>
+		<td class="pdlnb2" colspan="3">
+			<input class="SmsBoxform" name="sms_api_id" type="text" id="sms_api_id" style="width:200px;" value="<?php echo $sms_config['sms_api_id'];?>"><span class="subtlt"> <strong>넷퓨 홈페이지 회원 아이디</strong>를 입력해주십시오</span> &nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">SMS 서비스키</td>
+		<td class="pdlnb2" colspan="3">
+			<input class="SmsBoxform" name="sms_api_key" type="text" id="sms_api_key" style="width:200px;" value="<?php echo $sms_config['sms_api_key'];?>"><span class="subtlt"> <strong>넷퓨 SMS 서비스키</strong>를 입력해주십시오</span> &nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">관리자 자동발송 수신번호</td>
+		<td class="pdlnb2" colspan="3">
+			<input type='text' name="sms_admin_num" class="txt phone" style="width:200px;ime-mode:disabled;" id="sms_admin_num" value="<?php echo $sms_admin_num;?>">
+			<span class="subtlt">관리자에게 자동발송 사용시 사용자/관리자 두번 sms 전송됩니다. (총 2건 발송/차감)</span>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+
+<dl class="pbtn mb15"><input type='image' src="../../images/btn/b35_14.png" class="ln_col"></dl>
+
+</form>
+
+<?php include_once "../include/sms_text.php";?>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS메세지 설정
+	<span>SMS 발송기능 사용할 항목만 체크</span>
+	<!-- <dt><a href="#" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>SMS예제추가</h1></a></dt> -->
+</dl>
+
+<form name="SMSMsgFrm" method="post" id="SMSMsgFrm" action="./process/sms.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="msg_update"/><!-- SMS 메시지 -->
+
+	<ul class="smsb">
+		<?php 
+		$i = 0;
+			foreach($sms_msg as $val){ 
+			$no = $val['no'];
+			$use_checked = ($val['msg_use']) ? 'checked' : '';
+			$disabled = ($val['msg_send_admin']) ? '' : 'disabled';
+			$user_checked = ($val['msg_is_user']) ? 'checked' : '';
+			$admin_checked = ($val['msg_is_admin']) ? 'checked' : '';
+		?>
+		<input type="hidden" name="sms_msg[<?php echo $no;?>][no]" value="<?php echo $no;?>"/>
+		<li>
+			<h1>
+				<input name="sms_msg[<?php echo $no;?>][msg_use]" type="checkbox" class="check" value="1" id="sms_msg_<?php echo $no;?>" <?php echo $use_checked;?>>
+				<label for="sms_msg_<?php echo $no;?>"><?php echo $val['msg_title'];?></label>
+			</h1>
+			<ul>
+				<li>
+					<dl class="gr2_col bgb2_col">
+						<h2>회원SMS <? echo $val['msg_type']; ?></h2>
+						<p><textarea name="sms_msg[<?php echo $no;?>][msg_content]" onkeyup="length_count(<?=$i?>,this, 2000)" onchange="length_count(<?=$i?>,this, 2000)" onfocus="length_count(<?=$i?>,this, 2000)" style="height:158px;" class="sms_msg"><?php echo $val['msg_content'];?></textarea></p>
+						<span id="span_byte<?=$i?>" class="b lsm num11 dho">0</span> Byte
+					</dl>
+					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_user]" type="checkbox" class="check" value="1" <?php echo $user_checked;?>>회원에게 자동발송</label></dt>
+				</li>
+				<li>
+					<dl class="gr2_col bgb2_col">
+						<h2>관리자SMS</h2>
+						<p class='<?php echo $disabled;?>'><textarea name="sms_msg[<?php echo $no;?>][msg_admin_content]" style="height:158px;" <?php echo $disabled;?> onkeyup="length_counts(<?=$i?>,this, 2000)" onchange="length_counts(<?=$i?>,this, 2000)" onfocus="length_counts(<?=$i?>,this, 2000)" class="sms_msg_admin"><?php echo ($val['msg_send_admin'])?$val['msg_admin_content']:"";?></textarea></p>
+						<span id="span_bytes<?=$i?>" class="b lsm num11 dho">0</span> Byte
+					</dl>
+					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_admin]" type="checkbox" class="check" value="1" <?php echo $disabled;?> <?php echo $admin_checked;?>>관리자에게 자동발송</label></dt>
+				</li>
+			</ul>
+		</li>
+		<?php 
+		$i++;
+			} // foreach end.
+		?>
+
+
+		<!-- 예제추가시 -->
+		<li id="sms_add" style="display:none;">
+			<h1 style="padding:4px 0 3px; margin-top:0px">
+				<input name="" type="checkbox" class="check" value="">
+				<input name="" type="text" class="txt w50" value="날씨">
+			</h1>
+			<ul>
+				<li>
+					<dl class="gr2_col bgb2_col">
+						<h2>회원SMS</h2>
+						<p><textarea name=''></textarea></p>
+					</dl>
+					<dt><input name="" type="checkbox" class="check" value="">회원에게 자동발송</dt>
+				</li>
+				<li>
+					<dl class="gr2_col bgb2_col">
+						<h2>관리자SMS</h2>
+						<p class="disabled"><textarea name='' disabled></textarea></p>
+					</dl>
+					<dt><input name="" type="checkbox" class="check" disabled>관리자에게 자동발송</dt>
+				</li>
+			</ul>
+		</li>
+		<!-- //예제추가시 -->
+
+	</ul>
+
+
+<dl class="pbtn lnt mt5"><input type='image' src="../../images/btn/b35_14.png" class="ln_col"></dl>
+
+</form>
+
+
+
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+var config_showRequest = function(formData, jqForm, config_options){
+	return true;
+}
+var config_showResponse = function(responseText, statusText, xhr, $form){
+
+	if(responseText){
+		alert("<?php echo $sms_control->_success('0000');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $sms_control->_errors('0000');?>");
+	}
+	
+}
+var msg_showRequest = function(formData, jqForm, msg_options){
+	return true;
+}
+var msg_showResponse = function(responseText, statusText, xhr, $form){
+
+	if(responseText){
+		alert("<?php echo $sms_control->_success('0001');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $sms_control->_errors('0001');?>");
+	}
+	
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

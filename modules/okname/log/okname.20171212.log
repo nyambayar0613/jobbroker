@@ -1,0 +1,32 @@
+[2017-12-12 15:45:10.378] # OKNAME v3.70 start!<br>
+[2017-12-12 15:45:10.381] # mode=IPIN_CKEY<br>
+[2017-12-12 15:45:10.381] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2017-12-12 15:45:10.381] # argv[ 2](memid      )=V05280000000<br>
+[2017-12-12 15:45:10.381] # argv[ 3](reserved1  )=0<br>
+[2017-12-12 15:45:10.381] # argv[ 4](reserved2  )=0<br>
+[2017-12-12 15:45:10.381] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2017-12-12 15:45:10.381] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2017-12-12 15:45:10.381] # argv[ 7](Option     )=CL<br>
+[2017-12-12 15:45:10.381] # Generating monthly key..
+[2017-12-12 15:45:10.381] pub1: AgdPz8aGw37kH9gg5ot33QR+3hfISw==
+[2017-12-12 15:45:10.381] pri1: ACwDuskgRYFAOcLfdTtZAdk0/3mM
+[2017-12-12 15:45:10.381] sig1: J3pyp5mTgYlhHvYHof3Jpw==
+[2017-12-12 15:45:10.381] # soap_timeout: 30000 ms<br>
+[2017-12-12 15:45:10.587] retmsg: AwJIGnHq+G9R4dzxQUzWEJv26jkBJw==:M+fYPX07md6vQ+8VUAnqXg==:D+Tvoty25CMfrL/y97Z1ctw4+BYOZ4KmSA3Thlj/AmTsPVp50bAH/rOvKN/A0l1uj8mVqGdIqzEalgunhWW4SX+Jvv/4yLXqFX9n30huRKZTsQy71H8=
+[2017-12-12 15:45:10.587] pub3: AwJIGnHq+G9R4dzxQUzWEJv26jkBJw==
+[2017-12-12 15:45:10.587] sig3: M+fYPX07md6vQ+8VUAnqXg==
+[2017-12-12 15:45:10.587] pub2pri2sig2: D+Tvoty25CMfrL/y97Z1ctw4+BYOZ4KmSA3Thlj/AmTsPVp50bAH/rOvKN/A0l1uj8mVqGdIqzEalgunhWW4SX+Jvv/4yLXqFX9n30huRKZTsQy71H8=
+[2017-12-12 15:45:10.588] srvSecurekey: Bc0ve14wuSsSSUKLekbsKHieAm0M
+[2017-12-12 15:45:10.588] decData: AwCP/IEJVbYuWpz3c0+7ioZxr4XgOg==:Akhw58wKuRPiownVydQmZEKt+2/1:Wx4IloPOw4fjCPBF7q1zaw==
+[2017-12-12 15:45:10.613] # Current month<br>
+[2017-12-12 15:45:10.613] # public_key   : AwCP/IEJVbYuWpz3c0+7ioZxr4XgOg==<br>
+[2017-12-12 15:45:10.613] # private_key  : Akhw58wKuRPiownVydQmZEKt+2/1<br>
+[2017-12-12 15:45:10.613] # signature    : Wx4IloPOw4fjCPBF7q1zaw==<br>
+[2017-12-12 15:45:10.613] # Last month<br>
+[2017-12-12 15:45:10.613] # public_key1  : AgTcX7WynGlP04CSTSZp+aTcg3OLjg==<br>
+[2017-12-12 15:45:10.613] # private_key1 : AlBvlU+A1s+oZ7LIrocEyQVIEbKQ<br>
+[2017-12-12 15:45:10.613] # signature1   : E7Z0a+jokZLjzb6CC+3whA==<br>
+[2017-12-12 15:45:10.613] AwCP/IEJVbYuWpz3c0+7ioZxr4XgOg==
+[2017-12-12 15:45:10.613] Wx4IloPOw4fjCPBF7q1zaw==
+[2017-12-12 15:45:10.613] 20171212154510613301
+[2017-12-12 15:45:10.613] # final ret code=0<br>

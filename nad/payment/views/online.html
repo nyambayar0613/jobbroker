@@ -1,0 +1,343 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<script>
+$(function(){
+
+	var form_options = {
+		target: '',
+		beforeSubmit: showRequest,
+		success : showResponse
+	};
+
+	$('#AdminBankFrm').submit(function(){
+
+		$(this).ajaxSubmit(form_options);
+
+		return false;
+
+	});
+
+});
+
+var bank_add = function(){	 // 항목추가 폼 출력
+	$("input[name='bank_name']").val("무통장입금은행명");
+	$("input[name='bank_num']").val("무통장입금은행계좌번호");
+	$("input[name='name']").val("무통장입금은행예금주");
+	$('#mode').val('insert');
+	$('#insertField').toggle();
+	$('#name').bind('keypress', function(e){
+		if(e.which==13){	// 엔터키 입력시 전송
+			BankFrm_submit();
+		}
+	});
+}
+var BankFrm_submit = function(){	// 항목추가 폼 전송
+	$('#AdminBankFrm').submit();
+}
+var change_rank = function(direction, src){	// 순위 조절
+
+	var parent = $('#bank_list');
+	var no = $(src).parents('tr.bank_list').attr('no');
+
+	if(direction =='up'){
+		
+		var next_no = $('tr.bank_list', $(parent)).first().attr('no');
+
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.bank_list').prev().attr('no');
+		}
+
+	} else if(direction =='down'){
+
+		var next_no = $('tr.bank_list', $(parent)).last().attr('no');
+		
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.bank_list').next().attr('no');
+		}
+
+	}
+
+	// 순위 조절 ajax
+	$.post('./process/online.php', { mode:'rank', type:direction, no:no, next_no:next_no }, function(result){
+
+		if(result){
+
+			var src_obj = $(src).parents('tr.bank_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+
+		} else {
+			
+			alert("<?php echo $config->_errors('0023');?>");
+
+		}
+
+	});
+
+}
+var update_bank = function(no){	 // 수정
+
+	var bank_name = $('#bank_name'+no).val(), bank_num = $('#bank_num'+no).val(), name = $('#name'+no).val();
+
+	$('#quest_bank').html(bank_name);
+	$('#quest_num').html(bank_num);
+	$('#quest_name').html(name);
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보로 수정하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'update\',\''+no+'\',\''+bank_name+'\',\''+bank_num+'\',\''+name+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '무통장입금 계좌 정보 수정',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+
+}
+var delete_bank = function(no){	 // 삭제
+
+	var bank_name = $('#bank_name'+no).val(), bank_num = $('#bank_num'+no).val(), name = $('#name'+no).val();
+
+	$('#quest_bank').html(bank_name);
+	$('#quest_num').html(bank_num);
+	$('#quest_name').html(name);
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '무통장입금 계좌 정보 삭제',
+		showOverlay: false,
+		message: $('#question'),
+		css: { 
+			width: '275px' 
+		}
+	});
+
+}
+var sel_delete_bank = function(){	// 선택삭제
+
+	var chk_length = $("input[name='no[]']:checked").length;
+
+	if(chk_length==0){
+
+		alert('삭제할 무통장입금 은행 정보를 선택해 주세요.');
+		return false;
+
+	} else {
+
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 무통장입금 은행 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '무통장입금 계좌 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question'),
+			css: { 
+				width: '275px' 
+			}
+		});
+
+	}
+
+}
+var questionAnswer = function(answer, mode, no, bank_name, bank_num, name){	 // 질의 응답에 따른 처리
+
+	//alert(answer+'@'+mode+'@'+no+'@'+bank_name+'@'+bank_num+'@'+name);
+
+	if(answer=='yes'){
+
+		switch(mode){
+			case 'update':	// 수정
+				$.post('./process/online.php', { mode:mode, no:no, bank_name:bank_name, bank_num:bank_num, name:name } , function(result){
+					if(result){
+						alert("<?php echo $config->_success('0007');?>");
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0011');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			case 'delete':	// 삭제
+				$.post('./process/online.php', { mode:mode, no:no } , function(result){
+					if(result){
+						alert("<?php echo $config->_success('0003');?>");
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0014');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			case 'sel_delete':	// 선택삭제
+				nos = no.split(',');
+				nos_cnt = nos.length;
+				$.post('./process/online.php', { mode:mode, no:no }, function(result){
+					if(result){
+						alert('선택하신 무통장입금 은행정보 '+nos_cnt+'건이 삭제되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0014');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+
+}
+</script>
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>은행명 : <span id='quest_bank'></span></p>
+		<p>계좌번호 : <span id='quest_num'></span></p>
+		<p>예금주 : <span id='quest_name'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+  
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">무통장입금 계좌관리</dl>
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt class="plt"><a onclick="sel_delete_bank();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+	<dd><a onClick="bank_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+</dd>
+</dl>
+
+<table width="100%" class="ttlt">
+  <col width=30><col width=50><col width=180><col><col width=180><col width=95>
+  <tr class="bg">
+    <td><input type="checkbox" name='check_all'></td>
+    <td>순서</td>
+    <td>은행명</td>
+    <td>계좌번호</td>
+    <td>예금주</td>
+    <td class="e">관리</td>
+  </tr> 
+  
+	<?php if(!$bank_list){?>
+	<tr><td colspan="6" class="stlt"></td></tr>
+	<?php } else { ?>
+
+	<tbody id="bank_list">
+	<?php foreach($bank_list as $val){ ?>
+	<tr class="bank_list" no="<?php echo $val['no'];?>">
+		<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+		<td>
+			<a onClick="change_rank('up',this);"><img src="../../images/ic/aup.gif" alt="위로"></a>
+			<a onClick="change_rank('down',this);"><img src="../../images/ic/adn.gif" alt="아래로"></a>
+		</td>
+		<td class="pdlnb2"><input type="text" class='txt w100' value="<?php echo $val['bank_name'];?>" name="bank_name[]" id="bank_name<?php echo $val['no'];?>"></td>
+		<td class="pdlnb2"><input type="text" class='txt w100 phone' style="width:200px;ime-mode:disabled;" value="<?php echo $val['bank_num'];?>" name="bank_num[]" id="bank_num<?php echo $val['no'];?>"></td>
+		<td class="pdlnb2"><input type="text" class='txt w100' value="<?php echo $val['name'];?>" name="name[]" id="name<?php echo $val['no'];?>"></td>
+		<td class="e">
+			<a onClick="update_bank(<?php echo $val['no'];?>);"><img src='../../images/btn/19_05.gif'></a>
+			<a onClick="delete_bank(<?php echo $val['no'];?>);"><img src='../../images/btn/19_06.gif'></a>
+		</td>
+	</tr>
+	<?php } ?>
+	</tbody>
+
+	<?php } ?>
+
+<form name="AdminBankFrm" method="post" id="AdminBankFrm" action="./process/online.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="insert" id="mode"/>
+<input type="hidden" name="ajax" value="1"/>
+
+	<tr class="bg_col" id='insertField' style='display:none;'>
+		<td colspan='2'></td>
+		<td class="pdlnb2"><input type="text" class='txt w100' value="무통장입금은행명" name="bank_name" id="bank_name" onfocus="this.value=''"></td>
+		<td class="pdlnb2"><input type="text" class='txt w100 phone' style="width:200px;ime-mode:disabled;" value="무통장입금은행계좌번호" name="bank_num" id="bank_num" onfocus="this.value=''"></td>
+		<td class="pdlnb2"><input type="text" class='txt w100' value="무통장입금은행예금주" name="name" id="name" onfocus="this.value=''"></td>
+		<td class="e">
+			<a onClick="BankFrm_submit();"><img src="../../images/btn/19_01.gif"></a>
+		</td>
+	</tr>
+
+</form>
+</table>
+<dl class="page mb50">
+	<dt class="plt"><a onclick="sel_delete_bank();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a></dt>
+	<dd><a onClick="bank_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+</dd>
+</dl>
+
+
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+
+	var AdminBankFrm = document.getElementById('AdminBankFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(AdminBankFrm);
+
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+
+	if(responseText=='입력이 완료 되었습니다.' || responseText=='수정이 완료 되었습니다.'){
+		alert(responseText);
+		location.reload();
+	} else {
+		alert(responseText);
+	}
+
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

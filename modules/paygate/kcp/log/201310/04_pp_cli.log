@@ -1,0 +1,39 @@
+1004-171231 -  6230 - T0000A4HAi0g3mcd - MSG : TX_START - site_cd=[]+tx_cd=[00100000]+ordr_idxx=[S70EB8D8FF443]+log_level=[3]
+1004-171231 -  6230 - T0000A4HAi0g3mcd - MSG : PG_서버_접속__정상
+1004-171231 -  6230 - T0000A4HAi0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171231 -  6230 - T0000A4HAi0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171231 -  6230 - T0000A4HAi0g3mcd - ERR : 응답_전문_복호화__오류 - 복호화_오류_코드=[0957]
+1004-171231 -  6230 - T0000A4HAi0g3mcd - MSG : TX_ENDED - res=[res_cd=6003res_msg=요청 전문 복호화 오류]
+1004-171359 -  6232 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171359 -  6232 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171359 -  6232 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171359 -  6232 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171359 -  6232 - T0000A4HDY0g3mcd - ERR : 응답_전문_복호화__오류 - 복호화_오류_코드=[0957]
+1004-171359 -  6232 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=6003res_msg=요청 전문 복호화 오류]
+1004-171508 -  6336 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171508 -  6336 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171508 -  6336 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171508 -  6336 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171508 -  6336 - T0000A4HDY0g3mcd - ERR : 응답_전문_복호화__오류 - 복호화_오류_코드=[0957]
+1004-171508 -  6336 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=6003res_msg=요청 전문 복호화 오류]
+1004-171544 -  6344 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171544 -  6344 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171544 -  6344 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171544 -  6344 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171544 -  6344 - T0000A4HDY0g3mcd - ERR : 응답_전문_복호화__오류 - 복호화_오류_코드=[0957]
+1004-171544 -  6344 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=6003res_msg=요청 전문 복호화 오류]
+1004-171618 -  6351 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[T0000]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171618 -  6351 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171618 -  6351 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171618 -  6351 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171618 -  6351 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=0000res_msg=정상처리res_en_msg=processing completedtrace_no=T0000A4HDY0g3mcdpay_method=PACAorder_no=S3A1E0E0B6261card_cd=CCBCcard_name=BC카드acqu_cd=CCBCacqu_name=BC카드card_no=4902208100003696mcht_taxno=1138521083mall_taxno=1138521083ca_order_id=S3A1E0E0B6261tno=20131004960050amount=1000card_mny=1000coupon_mny=0escw_yn=Nvan_cd=VNKCapp_time=20131004171620van_apptime=20131004171620app_no=37227419bizx_numb=725479023quota=00noinf=Npg_txid=1004171620MP01ACPC15QZ0000000010000037227419partcanc_yn=Ycard_bin_type_01=0card_bin_type_02=0isp_issuer_cd=BC20isp_issuer_nm=우리비씨isp_partner_cd=040100202027981join_cd=0000]
+1004-171630 -  6352 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[T0000]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171630 -  6352 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171630 -  6352 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171630 -  6352 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171630 -  6352 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=0000res_msg=정상처리res_en_msg=processing completedtrace_no=T0000A4HDY0g3mcdpay_method=PACAorder_no=S3A1E0E0B6261card_cd=CCBCcard_name=BC카드acqu_cd=CCBCacqu_name=BC카드card_no=4902208100003696mcht_taxno=1138521083mall_taxno=1138521083ca_order_id=S3A1E0E0B6261tno=20131004960051amount=1000card_mny=1000coupon_mny=0escw_yn=Nvan_cd=VNKCapp_time=20131004171632van_apptime=20131004171632app_no=09740477bizx_numb=725479023quota=00noinf=Npg_txid=1004171632MP01ADPC1F1G0000000010000009740477partcanc_yn=Ycard_bin_type_01=0card_bin_type_02=0isp_issuer_cd=BC20isp_issuer_nm=우리비씨isp_partner_cd=040100202027981join_cd=0000]
+1004-171648 -  6353 - T0000A4HDY0g3mcd - MSG : TX_START - site_cd=[T0000]+tx_cd=[00100000]+ordr_idxx=[S3A1E0E0B6261]+log_level=[3]
+1004-171648 -  6353 - T0000A4HDY0g3mcd - MSG : PG_서버_접속__정상
+1004-171648 -  6353 - T0000A4HDY0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1004-171648 -  6353 - T0000A4HDY0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1004-171648 -  6353 - T0000A4HDY0g3mcd - MSG : TX_ENDED - res=[res_cd=0000res_msg=정상처리res_en_msg=processing completedtrace_no=T0000A4HDY0g3mcdpay_method=PACAorder_no=S3A1E0E0B6261card_cd=CCBCcard_name=BC카드acqu_cd=CCBCacqu_name=BC카드card_no=4902208100003696mcht_taxno=1138521083mall_taxno=1138521083ca_order_id=S3A1E0E0B6261tno=20131004960052amount=1000card_mny=1000coupon_mny=0escw_yn=Nvan_cd=VNKCapp_time=20131004171650van_apptime=20131004171650app_no=49886864bizx_numb=725479023quota=00noinf=Npg_txid=1004171650MP01AEPC1SY10000000010000049886864partcanc_yn=Ycard_bin_type_01=0card_bin_type_02=0isp_issuer_cd=BC20isp_issuer_nm=우리비씨isp_partner_cd=040100202027981join_cd=0000]

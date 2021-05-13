@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/**************************** BLUE2 ****************************/
+
+/*** HEADER ***/
+.head_top{background:#4572a5}
+.gradient_img{background:url('../images/top_bar.png') repeat-x}
+.search_bar{background:#4572a5}
+
+/*** MAIN ***/
+/* images/title_icon01.png */
+section{border-top:2px solid #4572a5;}
+
+/* 박스 - 공통 */
+.cont_box .tit_ico{background:#4572a5}
+
+/* 하단버튼 */
+.bottom_btn01{background:#4572a5;border:1px solid #4572a5;}
+.bottom_btn07{background:#4572a5;border:1px solid #4572a5;}
+
+/*** 상세페이지 ***/
+/* 공통 */
+.detail_con .tab1-con{border-bottom:1px solid #4572a5}
+.detail_con .tab1-con ul .active{background:#4572a5;}
+.detail_con .tab2-con{border-bottom:1px solid #4572a5}
+.detail_con .tab2-con ul .active{background:#4572a5;}
+
+/*** 마이페이지 ***/
+/* 개인 */
+.mypage_btn ul .active a{background:#4572a5;}
+
+/* 서비스 신청 */
+.item_con h2 span{border-left:7px solid #4572a5;}
+.item_con .item_box .box-info1 p{color:#4572a5}
+
+/* 서비스 결제 */
+.pay_con{border-top: 2px solid #4572a5 !important;}
+
+/*** 광고안내 ***/
+.guide_tab ul li a.active{background:#4572a5}

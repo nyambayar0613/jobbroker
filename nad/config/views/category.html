@@ -1,0 +1,591 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var type = "<?php echo $type;?>";
+var mode = "<?php echo $mode;?>";
+var cate0_sel_no = '';	// input 에 커서를 올려놓았을때 선택한걸로 간주 (순위 조절시 사용)
+var cate1_sel_no = '';
+var cate2_sel_no = '';
+$(function(){
+	var cate_0_options = { target:'#cate_0_list', beforeSubmit: cate_0_Request, success : cateResponse };
+	$('#cate_0_Frm').ajaxForm(cate_0_options);
+	var cate_1_options = { target:'#cate_1_list', beforeSubmit: cate_1_Request, success : cateResponse };
+	$('#cate_1_Frm').ajaxForm(cate_1_options);
+	var cate_2_options = { target:'#cate_2_list', beforeSubmit: cate_2_Request, success : cateResponse };
+	$('#cate_2_Frm').ajaxForm(cate_2_options);
+	var form_options = { target: '', beforeSubmit: showRequest, success : cateResponse };
+	$('#AdminCategoryFrm').ajaxForm(form_options);
+
+	$('.cate_name').keydown(function(event){
+		if(event.keyCode==13){	 // 엔터키 이벤트
+			var cates = $(this).attr('cate');
+			//var vals = $(this).val();
+			cate_insert(cates);
+			return false;
+		}
+	});
+	$("input[name='name[]']").keydown(function(event){
+		if(event.keyCode==13){	 // 엔터키 이벤트
+			var cate = $(this).attr('cate'), no = $(this).attr('no');
+			cate_update(cate,no);
+		}
+	});
+	if(mode=='insert') $('#name').focus();
+});
+var cate_input = function( cate ){	// 카테고리 입력폼 (다중)
+	$("#"+cate+"_Frm input[name='view']").attr('checked',true);
+	$("#"+cate+"_Frm input[name='name']").val('');
+	$('#'+cate+'_input').toggle();
+	$('#'+cate+'_name').focus();
+}
+var category_add = function(){	// 카테고리 입력폼 (단일)
+	$('#insertField').toggle();
+	$('#name').focus();
+}
+var cate_view = function( no, obj ){	 	// 카테고리 사용/미사용
+	var view = obj.checked;
+	$.post('./process/category.php', { mode:'view', no:no, view:view }, function(result){
+		/*
+		if(result)
+			alert("<?php echo $config->_success('0020');?>");
+		else
+			alert("<?php echo $config->_errors('0020');?>");
+		*/
+	});
+}
+var adult_view = function( no, obj ){	// 성인 분류
+	var view = obj.checked;
+	$.post('./process/category.php', { mode:'adult_view', no:no, view:view }, function(result){
+		if(result)
+			alert("<?php echo $category_control->_success('0004');?>");
+		else
+			alert("<?php echo $category_control->_errors('0019');?>");
+	});
+}
+var cate_sels = function( cate, no, code ){	 // 카테고리 선택
+
+	if(cate=='cate_0'){
+		cate0_sel_no = no;
+		var next_depth = 1;
+	} else if(cate=='cate_1'){
+		cate1_sel_no = no;
+		var next_depth = 2;
+	} else if(cate=='cate_2'){
+		cate2_sel_no = no;
+	}
+
+	$('#'+cate+'_list .lists').removeClass('dnbg').addClass('wbg');
+	$('#'+cate+'_list #cate_'+no).addClass('dnbg');
+
+	// 메뉴 리스트 출력
+	$('#cate_'+next_depth+'_list').load('./views/_load/category.php', { mode:'next_cate', type:type, code:code, next_depth:next_depth }, function(result){	
+		var is_adult = $('#adult_'+no).is(':checked');
+		if(is_adult) $('#cate_'+next_depth+'_adult').attr('checked',true);
+		else $('#cate_'+next_depth+'_adult').attr('checked',false);
+		$('#cate_'+next_depth+'_pcode').val(code);
+		if(result=='0001') {	// 2차 메뉴가 존재 하지 않는 경우
+			$('#cate_'+next_depth+'_list').html("<tr class='wbg tc' style='height:150px;'><td colspan='<?php echo ($is_job||$is_pay)?4:3;?>'>"+(next_depth+1)+"차 <?php echo $type_arr[$type]['sub_name'];?>이(가) 존재하지 않습니다.</td></tr>");
+		}
+		$('.cate_'+next_depth).show();
+		/*
+		$("input[name='name[]']").keydown(function(event){
+			if(event.keyCode==13){	 // 엔터키 이벤트
+				var cate = $(this).attr('cate'), no = $(this).attr('no');
+				cate_update(cate,no);
+			}
+		return false;
+		});
+		*/
+	});
+}
+var cate_insert = function( cate ){	// 카테고리 입력
+	$('#'+cate+'_Frm').submit();
+	$('#'+cate+'_name').val("");
+}
+var cate_cancel = function( cate ){	// 카테고리 입력 취소
+	$("#"+cate+"_Frm input[name='view']").attr('checked',true);
+	$("#"+cate+"_Frm input[name='name']").val('');
+	$("select[name='etc_0'] > option[value='']").attr("selected", true);
+	$("#"+cate+"_input").hide();
+}
+var cate_update = function( cate, no ){	// 카테고리 수정 (다중)
+	var sel = $('#name_'+no).val(), view = $('#view_'+no).is(':checked');
+	<?php if($is_pay){?>
+	var etc_0 = $('#etc_0_'+no+' :selected').val();
+	<?php } else { ?>
+	var etc_0 = $('#adult_'+no).is(':checked');
+	<?php } ?>
+	
+	if(!cate){
+		alert("<?php echo $category_control->_errors('0002');?>");
+		return false;
+	}
+	if(!sel || sel == ''){
+		alert("<?php echo $category_control->_errors('0003');?>");
+		$('#name_'+no).focus();
+		return false;
+	}
+	$.post('./process/category.php', { mode:'update', type:type, no:no, name:sel, view:view, etc_0:etc_0 }, function(result){
+		if(result)
+			alert("<?php echo $category_control->_success('0001');?>");
+		else
+			alert("<?php echo $category_control->_errors('0005');?>");
+	});
+}
+var update_category = function(no){	 // 카테고리 수정 (단일)
+	var name = $('#name_'+no).val();
+	$.post('./process/category.php', { mode:'update', type:type, no:no, name:name } , function(result){
+		if(result){
+			location.reload();
+		} else {
+			alert("<?php echo $category_control->_errors('0005');?>");
+			return false;
+		}
+	});
+}
+var cate_delete = function( cate, no ){	// 카테고리 삭제 (다중)
+	var name = $('#name_'+no).val();
+	$('#quest_name').html(name);
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\', \''+cate+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var delete_category = function(no){	 // 카테고리 삭제 (단일)
+	var name = $('#name_'+no).val();
+	$('#quest_name').html(name);
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var change_rank = function(direction, src){	// 카테고리 순위조절 (단일)
+	var parent = $('#category_list');
+	var no = $(src).parents('tr.category_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.category_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.category_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').next().attr('no');
+		}
+	}
+	// 순위 조절 ajax
+	$.post('./process/category.php', { mode:'rank', type:direction, no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.category_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var change_ranks = function( cate, direction ){	 // 카테고리 순위조절 (다중)
+	var sel_no = '';
+
+	if(cate=='cate_0'){
+		var sel_no = cate0_sel_no;
+		var p_code = "";
+	} else if(cate=='cate_1'){
+		var sel_no = cate1_sel_no;
+		var p_code = $('#cate_1_pcode').val();
+	} else if(cate=='cate_2'){
+		var sel_no = cate2_sel_no;
+		var p_code = $('#cate_2_pcode').val();
+	}
+	
+	if(!sel_no || sel_no==''){
+		alert("<?php echo $category_control->_errors('0009');?>");
+		return false;
+	} else {
+		var parent = $('#'+cate+'_list');
+		var no = sel_no;
+
+		if(direction == 'up' ){
+			var next_no = $('tr.'+cate+'_lists', $(parent)).first().attr('data_no');
+			if(!no || !next_no){
+				alert("<?php echo $category_control->_errors('0008');?>");
+				return false;
+			}
+			if(no == next_no){
+				alert('최상위 순위 입니다.');
+				return false;
+			} else {
+				next_no = $('#cate_'+sel_no).prev().attr('data_no');
+			}
+		} else if(direction == 'down') {		
+			var next_no = $('tr.'+cate+'_lists', $(parent)).last().attr('data_no');
+			if(!no || !next_no){
+				alert("<?php echo $category_control->_errors('0008');?>");
+				return false;
+			}
+			if(no == next_no){
+				alert('최하위 순위 입니다.');
+				return false;
+			} else {
+				next_no = $('#cate_'+sel_no).next().attr('data_no');
+			}
+		}
+
+		//alert(" sel_no :: "+sel_no+"\n\n type :: "+type+"\n\n direction :: "+direction+"\n\n cate :: "+cate+"\n\n no :: "+no+"\n\n next_no :: "+next_no);
+		//return false;
+
+		// 순위 조절 ajax
+		$('#'+cate+'_list').load('./views/_load/category.php', { mode:'rank', type:type, direction:direction, cate:cate, no:no, next_no:next_no, p_code:p_code }, function(result){
+			
+			//alert(result);
+
+			//$('#'+cate+'_list .lists').removeClass('dnbg').addClass('wbg');
+			$('#'+cate+'_list #cate_'+no).addClass('dnbg');
+
+		});
+	}
+}
+var sel_delete_category = function(){	// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert("<?php echo $category_control->_errors('0009');?>");
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 <?php echo $type_arr[$type][sub_name];?> 분류 "+chk_length+"건을 삭제 하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '<?php echo $type_arr[$type][sub_name];?> 분류 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_category = function(){	 // 일괄적용
+	var sel_nos = new Array();
+	var sel_names = new Array();
+	var i = 0;
+	$('.names').each(function(){
+		var no = $(this).attr('no'), sel = $(this).val();
+		sel_nos[i] = no;
+		sel_names[i] = addslashes(sel);
+	i++;
+	});
+	if(!sel_nos || sel_nos==''){
+		alert("<?php echo $category_control->_errors('0010');?>");
+		return false;
+	}
+	$('#quest_info').hide();
+	$('#confirm_msg').html("<?php echo $type_arr[$type][sub_name];?> 분류명(들)을 현재 입력하신대로 일괄적용 하시겠습니까?");
+	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'sel_category','"+sel_nos+"','"+sel_names+"');\" value='예' />");
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 일괄적용',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'cate_delete':	// 삭제
+				$.post('./process/category.php', { mode:'delete', no:no, cate:name, type:type } , function(result){
+					if(result=='0007'){
+						alert("<?php echo $category_control->_errors('0007');?>");
+						$.unblockUI();
+						return false;
+					} else {
+						if(result){
+							<?php if(in_array($type,$multiple_type)) {?>
+								$('#cate_'+no).remove();
+								$.unblockUI();
+							<?php } else { ?>
+								location.reload();
+							<?php } ?>
+						} else {
+							alert("<?php echo $config->_errors('0010');?>");
+							$.unblockUI();
+							return false;
+						}
+					}
+				});
+			break;
+			case 'sel_delete':	// 선택삭제
+				$.post('./process/category.php', { mode:mode, type:type, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			case 'sel_category':	// 일괄적용
+				$.post('./process/category.php', { mode:mode, type:type, no:no, name:name }, function(result){
+					if(result){
+						//alert('분류명(들)이 일괄적용 되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0025');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'>
+		<p>분류명 : <span id='quest_name'></span></p><br/>
+	</div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1">
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+		<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+
+		<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+		<!-- Guide -->
+		<dl class="notbox">
+			<dl>
+			각 항목별 설정을 통해 항목을 추가/수정/삭제 하실 수 있습니다. <br/>
+			분류항목을 수정하고 추가할 수 있으며 사용자화면에서 보이는 순서도 바꿀 수 있습니다.<br/>
+			</dl>
+		</dl>
+		<!-- //Guide -->
+
+		<?php 
+			if(!in_array($type,$reason_types)) {
+				include_once "./views/_include/category_menu.php"; 
+		?>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $type_arr[$type]['name'];?> :: <?php echo $type_arr[$type]['sub_name'];?></dl>  
+		<?php } else { ?>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name;?></dl>
+		<?php } ?>
+
+
+		<?php if(in_array($type,$multiple_type)){	// 다중 카테고리 ?>
+			<table width="100%" class="mt10 tf">
+			 <col><col width=20><col><col width=20><col>
+			  <tr align="center" valign="top">
+				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_0.php"; ?></td>
+				<td class="fon10 vm col">▶</td>
+				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_1.php"; ?></td>
+				<?php if($type!='job_college'){	 // 인근대학은 2차 까지만 ?>
+				<td class="fon10 vm col">▶</td>
+				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_2.php"; ?></td>
+				<?php } ?>
+			  </tr>
+			</table>
+		<?php } else if(in_array($type,$double_type)){	// 2차 카테고리 ?>
+			<table width="100%" class="mt10 tf">
+			 <col><col width=20><col><col width=20><col>
+			  <tr align="center" valign="top">
+				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_0.php"; ?></td>
+				<td class="fon10 vm col">▶</td>
+				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_1.php"; ?></td>
+			  </tr>
+			</table>
+		<?php } else {	// 1차 카테고리 ?>
+		<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<dd>
+					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+				</dd>
+			</dl>
+			<table width="100%" class="ttlt">
+			<col width=30><col width=50><?php if($type=='alba_date'){?><col width=40><col width=40><?php } ?><col><col span="2" width=56> 
+				<tr class="bg">
+					<td><input type='checkbox' name='check_all'></td>
+					<td>순서</td>
+					<?php if($type=='alba_date'){?>
+					<td>단기</td>
+					<td>장기</td>
+					<?php } ?>
+					<td>분류명</td>    
+					<td>수정</td>
+					<td class="e">삭제</td>
+				</tr>
+
+				<?php if(!$category_list){ ?>
+				<tr><td colspan="5" class="stlt"></td></tr>
+				<?php } else { ?>
+			
+				<tbody id="category_list">
+				<?php foreach($category_list as $val){ 
+					$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
+				?>
+				<tr class="category_list" no="<?php echo $val['no'];?>">
+					<td><input type='checkbox' name="no[]" class='check_all' value="<?php echo $val['no'];?>"></td>
+					<td class="none num3">
+						<a onClick="change_rank('up',this);">▲</a>
+						<a onClick="change_rank('down',this);">▼</a>&nbsp;
+					</td>
+					<?php if($type=='alba_date'){?>
+					<td class="pdlnb1"><input type="checkbox" name="etc_0[]" value="<?php echo $val['code'];?>" onclick="date_check(this,'etc_0','<?php echo $val['no'];?>');" <?php echo ($val['etc_0'])?'checked':'';?>/></td><!-- 단기 -->
+					<td class="pdlnb1"><input type="checkbox" name="etc_1[]" value="<?php echo $val['code'];?>" onclick="date_check(this,'etc_1','<?php echo $val['no'];?>');" <?php echo ($val['etc_1'])?'checked':'';?>/></td><!-- 장기 -->
+					<?php } ?>
+					<td class="pdlnb1">
+						<input name="name[]" type="text" value="<?php echo $name;?>" class="txt w100 names" id="name_<?php echo $val['no'];?>" no='<?php echo $val['no'];?>' cate="cate_0"/>
+					</td>      
+					<td><a onClick="update_category(<?php echo $val['no'];?>);"><img src="../../images/btn/19_05.gif"></a></td>
+					<td class="e"><a onClick="delete_category(<?php echo $val['no'];?>);""><img src="../../images/btn/19_06.gif"></a></td>
+				</tr> 
+				<?php } ?>
+				</tbody>
+
+				<?php } ?>
+
+			<form name="AdminCategoryFrm" method="post" id="AdminCategoryFrm" action="./process/category.php">
+			<input type="hidden" name="mode" value="insert" id="mode"/>
+			<input type="hidden" name="type" value="<?php echo $type;?>" id="type"/>
+			<input type="hidden" name="ajax" value="1"/>
+				<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
+					<td colspan='2'>분류명 입력</td>
+					<td class="pdlnb1"><input name="name" type="text" class="txt w100" id="name"></td>
+					<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
+				</tr> 
+			</form>
+			</table>
+
+			<dl class="page mb50"> 
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				</dt>
+				<dd>
+					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+				</dd>
+			</dl>
+		<?php } ?>
+		<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+		</table>
+	</td>
+</tr>
+</table>
+
+<script>
+var cate_0_Request = function(formData, jqForm, form_options){	// 1차 폼 전송전
+	var cate_0_Frm = document.getElementById('cate_0_Frm');
+	var queryString = $.param(formData);
+	return validate(cate_0_Frm);
+}
+var cate_1_Request = function(formData, jqForm, form_options){	// 2차 폼 전송전
+	var cate_1_Frm = document.getElementById('cate_1_Frm');
+	var queryString = $.param(formData);
+	return validate(cate_1_Frm);
+}
+var cate_2_Request = function(formData, jqForm, form_options){	// 3차 폼 전송전
+	var cate_2_Frm = document.getElementById('cate_2_Frm');
+	var queryString = $.param(formData);
+	return validate(cate_2_Frm);
+}
+// 폼 전송전
+var showRequest = function(formData, jqForm, form_options){
+	var AdminCategoryFrm = document.getElementById('AdminCategoryFrm');
+	var queryString = $.param(formData);
+	return validate(AdminCategoryFrm);
+}
+var cateResponse = function(responseText, statusText, xhr, $form){	// 폼 전송후
+	
+	switch(responseText){
+		case '0000':
+			<?php if($is_debug){ /*?>alert("<?php echo $category_control->_success('0000');?>"); // 성공 메시지가 필요한 경우 사용하세요. <?php*/ } ?>
+			location.href = "./category.php?type=" + type + "&mode=insert";
+		break;
+		case '0004':
+			alert("<?php echo $category_control->_errors('0004');?>");
+			return false;
+		break;
+		default :
+			$("#cate_0_Frm input[name='view']").attr('checked',true);
+			$("#cate_0_Frm input[name='name']").val('');
+			$("#cate_1_Frm input[name='view']").attr('checked',true);
+			$("#cate_1_Frm input[name='name']").val('');
+			$("#cate_2_Frm input[name='view']").attr('checked',true);
+			$("#cate_2_Frm input[name='name']").val('');
+			$("#cate_1_Frm select[name='etc_0'] > option[value='']").attr("selected", true);
+		break;
+	}
+
+	$("input[name='name[]']").keydown(function(event){
+		if(event.keyCode==13){	 // 엔터키 이벤트
+			var cate = $(this).attr('cate'), no = $(this).attr('no');
+			cate_update(cate,no);
+		}
+	});
+
+}
+var date_check = function( vals, field, no ){
+	var sel = vals.value;
+	var checked = vals.checked;
+	$.post('./process/category.php', { mode:'alba_date', no:no, code:sel, checked:checked, field:field}, function(result){
+		
+		if(result){
+			if(field=='etc_0'){
+				alert("단기 정규직정보 근무기간이 선택되었습니다.");
+			} else {
+				alert("장기 정규직정보 근무기간이 선택되었습니다.");
+			}
+		} else {
+			alert("<?php echo $category_control->_errors('0005');?>");
+		}
+	});
+}
+</script>
+
+
+<?php include_once "../include/tail.php";?>

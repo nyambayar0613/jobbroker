@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+
+/* Webfont - Nanum Gothic */
+@font-face {
+  font-family:'NG';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/NanumGothic-Regular.eot');
+  src: url('../fonts/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/NanumGothic-Regular.woff2') format('woff2'),
+	   url('../fonts/NanumGothic-Regular.woff') format('woff'),
+	   url('../fonts/NanumGothic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family:'NG_B';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/NanumGothic-Bold.eot');
+  src: url('../fonts/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/NanumGothic-Bold.woff2') format('woff2'),
+	   url('../fonts/NanumGothic-Bold.woff') format('woff'),
+	   url('../fonts/NanumGothic-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family:'NG_EB';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/NanumGothic-ExtraBold.eot');
+  src: url('../fonts/NanumGothic-ExtraBold.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/NanumGothic-ExtraBold.woff2') format('woff2'),
+	   url('../fonts/NanumGothic-ExtraBold.woff') format('woff'),
+	   url('../fonts/NanumGothic-ExtraBold.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family:'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Open_Snas/OpenSans-Regular.eot');
+  src: url('../fonts/Open_Snas/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/Open_Snas/OpenSans-Regular.woff2') format('woff2'),
+	   url('../fonts/Open_Snas/OpenSans-Regular.woff') format('woff'),
+	   url('../fonts/Open_Snas/OpenSans-Regular.ttf') format('truetype');
+}
+
+
+/* Reset */
+/*html {overflow-y:scroll}*/
+
+*{outline:0;margin:0;padding:0;border:0;vertical-align:top;outline:none;box-sizing:border-box;} /*수정전*/
+
+
+body{font-family:'Nanum Gothic','나눔고딕','NG','Dotum','돋움','돋움체','AppleGothic','Arial','Open Sans','HelveticaNeue','Helvetica','sans-serif';
+font-size:small;line-height:1;word-break:break-all;color:#222;background:#F2F4F7}
+body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,a,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'Nanum Gothic','나눔고딕','NG','Dotum','돋움','돋움체','AppleGothic','Arial','Open Sans',
+'HelveticaNeue','Helvetica','sans-serif';}
+h1, h2, h3, h4{font-family:'NG_B'}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, 
+ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video{margin:0;padding:0;border:0;vertical-align:baseline;}
+.blind{display:block;overflow:hidden;position:absolute;top:0;left:-1000em}
+.clear{clear:both}
+ul, li, ol{list-style:none}
+a{text-decoration:none !important;color:#222;margin:0;padding:0;text-decoration:none;vertical-align:baseline;background:transparent;}
+a:hover{text-decoration:none !important;}
+label{cursor:pointer;}
+img{border:0 none;vertical-align:top;}
+img, video{max-width:100%}
+table{border-collapse:collapse;border-spacing:0;}
+a:active, a:hover, a:visited, a:link{display:block;outline:0 none;text-decoration:none;}
+a, img{border:0;outline:none;}
+textarea{overflow:auto; vertical-align:top;}
+button{position:relative;background:none}
+figure{margin:0;}
+legend{border:0; padding:0}
+fieldset{border: 0;}
+em,address{font-style:normal}
+input,select,button{cursor:pointer}
+hr{display:none}
+i{font-size:1.5em;position:relative;top:4px;margin-right:5px;color:#888}
+header a{outline:none !important}
+.cf:after{content:"";display:block;clear:both}
+.ts{transition:all .3s ease}
+
+
+
+/* 아이폰 모바일 수정 */
+/*input{background:#fff;} 수정전*/
+input[input="text"],
+input[input="password"]{background:#fff;} /*수정후*/
+
+input:focus{border:1px solid #a6c8ff !important;}
+textarea:focus{border:2px solid #a6c8ff !important}
+
+/*input[type="radio"]{border:none !important;outline:0 !important;box-shadow:none;vertical-align:middle} 수정할것*/
+input[type="radio"],
+input[type="checkbox"]{vertical-align:middle; border:1px #333 solid;;} /*수정후 */
+
+
+input[type="file"]:focus{border:0 !important}
+
+/*select, input{background:#fff;border-radius:2px}수정할것*/
+
+select,
+input[input="text"],
+input[input="password"]{background:#fff;} /*수정후*/
+
+input, select, button{font:inherit}
+pre{overflow-x:scroll}
+
+
+
+
+
+

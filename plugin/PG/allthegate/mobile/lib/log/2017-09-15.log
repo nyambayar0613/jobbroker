@@ -1,0 +1,195 @@
+2017-09-15 21:21:25==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:22:09==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:22:23==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:22:45==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:22:51==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:23:23==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:23:43==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:24:47==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:25:11==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:25:19==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:26:39==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:26:48==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 21:27:50==>°áÁ¦ Å¸ÀÔÀÌ Àß ¸ø µÇ¾ú½À´Ï´Ù.
+2017-09-15 22:10:56==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:10:56==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì‘ë‹µ","status":"ok","data":{"AdmTime":"20170915221056","EscrowSendNo":"","DealWon":"000000001000","DealNo":"667288","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1505480423","CardName":"í˜„ëŒ€","SendNo":"667288","CardName2":"í˜„ëŒ€","CardType":"0800","AdmNo":"10171406","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1505480423","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20170915220050962068","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:11:35==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:11:35==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:25:10==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:25:11==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:25:11==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-15 22:25:11==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"FailReason":"ì…ë ¥ ë°ì´íƒ€ ì˜¤ë¥˜ ë˜ëŠ” ì†Œì¼“ ì˜¤ë¥˜","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:26:34==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:26:35==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:26:35==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-15 22:26:35==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"FailReason":"ì…ë ¥ ë°ì´íƒ€ ì˜¤ë¥˜ ë˜ëŠ” ì†Œì¼“ ì˜¤ë¥˜","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:27:13==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:27:13==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:27:13==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-15 22:27:13==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"FailReason":"ì…ë ¥ ë°ì´íƒ€ ì˜¤ë¥˜ ë˜ëŠ” ì†Œì¼“ ì˜¤ë¥˜","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:27:45==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&type=approve&
+2017-09-15 22:27:45==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:27:45==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=df301cb0746960452665728bc767324757597e72d130c8ae81662aea6ce2ae09&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-15 22:27:45==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"FailReason":"ì…ë ¥ ë°ì´íƒ€ ì˜¤ë¥˜ ë˜ëŠ” ì†Œì¼“ ì˜¤ë¥˜","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:29:32==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=563ee21609bfa1c9a7f612d568dcfed3f33e172a2b234c5ec81c12426d90937c&type=approve&
+2017-09-15 22:29:32==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì‘ë‹µ","status":"ok","data":{"AdmTime":"20170915222933","EscrowSendNo":"","DealWon":"000000001000","DealNo":"668217","Success":"y","Code":"0610","CardType2":"0800","StoreId":"aegis","OrderNo":"netkorea_1505482091","CardName":"í˜„ëŒ€","SendNo":"668217","CardName2":"í˜„ëŒ€","CardType":"0800","AdmNo":"10171408","AgentNo":"151189489","PayType":"card","CardPartialMm":"0","DeviId":"9000400001","OrdNo":"netkorea_1505482091","Amt":"1000","EscrowYn":"","NetCancelId":"AEGIS_VISAaegis_20170915222827382094","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:29:32==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=563ee21609bfa1c9a7f612d568dcfed3f33e172a2b234c5ec81c12426d90937c&admNo=&sendNo=&admDt=&NetCancelId=AEGIS_VISAaegis_20170915222827382094&type=cancel&
+2017-09-15 22:29:33==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"PartialMM":"00","DealTime":"20170915222933","CardName":"í˜„ëŒ€","OrderNo":"netkorea_1505482091","StoreId":"aegis","DealWon":"1000","CardType":"0800","Success":"y","Code":"S000","AgentNo":"151189489","AdmNo":"10171408","PayType":"card","NetCancelId":"AEGIS_VISAaegis_20170915222827382094","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+
+2017-09-15 22:29:39==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=563ee21609bfa1c9a7f612d568dcfed3f33e172a2b234c5ec81c12426d90937c&type=approve&
+2017-09-15 22:29:39==>
+
+
+
+
+
+
+
+
+
+{"message":"ì´ë¯¸ ìŠ¹ì¸ëœ ê²°ì œì…ë‹ˆë‹¤","status":"error","code":"400"}
+
+2017-09-15 22:29:39==>https://www.allthegate.com/payment/mobilev2/transaction/ansim.jsp?storeID=&trackingID=563ee21609bfa1c9a7f612d568dcfed3f33e172a2b234c5ec81c12426d90937c&admNo=&sendNo=&admDt=&NetCancelId=&type=cancel&
+2017-09-15 22:29:39==>
+
+
+
+
+
+
+
+
+
+{"message":"ANSIM ì·¨ì†Œ ì‘ë‹µ","status":"ok","data":{"FailReason":"ì…ë ¥ ë°ì´íƒ€ ì˜¤ë¥˜ ë˜ëŠ” ì†Œì¼“ ì˜¤ë¥˜","Success":"n","PayType":"card","NetCancelId":"","AuthTy":"card","SubTy":"visa3d"},"code":"200"}
+

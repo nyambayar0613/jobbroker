@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body>
+    <div class="admin_pop04">
+      <div class="admin_pop0201"><img src="/images/admin/favorite01.png"></div>
+      <div class="admin_pop0201"><img src="/images/admin/favorite02.png"></div>      
+      <div class="admin_pop0102">
+        <span>■</span> <b>즐겨찾기 타이틀</b>을 입력하시면 브라우저의 <b>즐겨찾기</b>에 등록됩니다.
+      </div>
+      <div class="admin_pop0203"><a href="javascript:self.close();">닫기</div>
+    </div>
+  </body>
+</html>

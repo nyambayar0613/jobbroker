@@ -1,0 +1,33 @@
+.date{height:25;width:86;background:url('/images/v2/main/date_bg.gif') no-repeat top left;float:left;*display:inline;text-align:center}
+.date img{tmp:expression(setPng24(this));*display:inline-block;vertical-align:middle;margin-top:8}
+.ftab{margin-top:7;vertical-align:top;height:25;}
+.ftab dd{float:left;*display:inline;border:1px solid #ccc;border-left:0 !important;width:203;*width:204;text-align:center;font-size:11px;line-height:23px;background:#f2f2f2;cursor:pointer}
+.ftab dd strong{font-family:tahoma}
+.ftab dd.selected{border:1px solid #ccc;border-bottom:0;background:#fff}
+.fsrch{height:127;vertical-align:top;background:url('/images/v2/main/srch_bg.gif') no-repeat top left;}
+.fsrch table{margin:3 0 0 7;display:inline-block}
+.cs02 {height:32;*height:43;padding-top:11;background:url('/images/v2/main/cs_02.png') no-repeat top center;text-align:center;}
+.cs03 {height:88;background:url('/images/v2/main/cs_03.png') no-repeat top center;padding-left:71;line-height:16px;overflow:hidden;letter-spacing:-0.04em;white-space:nowrap;text-align:center}
+/*프리미엄*/
+.wbm01{float:left;*display:inline;width:234;max-width:234;height:94;margin:4 3 0 1;border:0;z-index:11;overflow:hidden}
+.wbm01 .bm{width:100%;height:94;border:0;z-index:10;background:url('/images/v2/main/bm_01.png') no-repeat top center;}
+.wbm01 .dbm{width:100%;height:100%;border:0;background:url('/images/v2/main/dm_01.gif') no-repeat top  center;}
+.wbm01 table{ z-index:13}
+/*프라임*/ 
+.wbm02{float:left;*display:inline;width:187;max-width:187;height:94;margin:4 4 0 0;border:0;z-index:11;overflow:hidden}
+.wbm02 .bm{width:100%;height:94;border:0;z-index:20;background:url('/images/v2/main/bm_02.png') no-repeat top center;}
+.wbm02 .dbm{width:100%;height:100%;border:0;background:url('/images/v2/main/dm_02.gif') no-repeat top center;}
+/*배너형*/
+.wbm03{float:left;*display:inline;width:155;max-width:155;height:88;margin:4 4 0 0;border:0;overflow:hidden} 
+.wbm03 .bm{width:100%;height:88;border:0;z-index:20;background:url('/images/v2/main/bm_03.png') no-repeat top center;} 
+.wbm03 .dbm{width:100%;height:100%;border:0;clear:right;background:url('/images/v2/main/dm_03.gif') no-repeat top center;}
+/*핫2*/
+.wbm07 {float:left;*display:inline;width:473;max-width:473;height:43;border:0;margin:2 1 0;z-index:19;background:url('/images/v2/main/bm_07.png') no-repeat top left;}
+.wbm07 .dbm {width:100%;height:100%;border:0;background:url('/images/v2/main/dm_07.gif') no-repeat top center;}
+/*로고형*/
+.wbm05{width:198;max-width:198;height:77;margin:4 6 0;border:0;overflow:hidden}
+.wbm05 .bm{width:198;border:0;z-index:20;background:url('/images/v2/main/bm_05.png') no-repeat top center;}
+.wbm05 .dbm{width:198;height:77;border:0;background:url('/images/v2/main/dm_05.gif') no-repeat top center;}
+/*프리미엄인재*/ 
+.wbm06{float:left;*display:inline;width:231;max-width:231;height:102;margin:4 2 0;border:0;overflow:hidden}
+.wbm06 .bm{width:231;height:102;border:0;z-index:20;background:url('/images/v2/main/bm_06.png') no-repeat top center;}

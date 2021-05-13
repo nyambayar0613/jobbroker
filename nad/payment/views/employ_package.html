@@ -1,0 +1,254 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var update_package = function( mode, no ){
+	$('#pop_info').load('./views/_load/package.php', { mode:mode, no:no, wr_type:'employ' }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#packageFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		$('#wr_price').autoNumeric('init');
+	});
+}
+var delete_package = function( no ){
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>구인공고 패키지 설정을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '구인공고 패키지 설정 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_package = function(){
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 구인공고 패키지 설정 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 구인공고 패키지 설정 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '구인공고 패키지 설정 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var packageFrm_submit = function(){	// 패키지 유료설정 정보 폼전송
+	<?php echo $utility->input_cheditor('wr_brief');?>	// 기업개요 및 비전 에디터 내용 전달
+	var form_options = { beforeSubmit : formRequest, success : formResponse }
+	$('#packageFrm').ajaxSubmit(form_options);
+	//$('#packageFrm').submit();
+}
+var change_rank = function(direction, src){	// 카테고리 순위조절 (단일)
+	var parent = $('#package_list');
+	var no = $(src).parents('tr.package_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.package_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.package_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.package_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.package_list').next().attr('no');
+		}
+	}
+	// 순위 조절 ajax
+	$.post('./process/regist.php', { mode:'package_rank', type:direction, wr_type:'employ', no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.package_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 패키지 정보 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:'package_delete', no:no, wr_type:'employ' }, function(result){
+					if(result){
+						location.reload();
+						//location.href = "./";
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+			// 패키지 정보 선택 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:'package_sel_delete', no:no, wr_type:'employ' }, function(result){
+					if(result){
+						location.reload();
+						//location.href = "./";
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<tr>
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+	기업회원 구인공고 상품별 패키지 설정을 하는 페이지입니다.<br/>
+	</dl>
+</dl>
+  
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">구인공고 패키지 유료설정</dl>
+
+	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete_package();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		</dt>
+		<dd>
+			<a onClick="update_package('package_insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>패키지 등록</h1></a>
+		</dd>
+	</dl>
+
+	<table width="100%" class="ttlt " >
+	<col width="30"><col width="50"><col><col><col><col><col><col width="100">
+	<tr class="bg">
+		<td><input type='checkbox' name='check_all'></td>
+		<td>순서</td>
+		<td>패키지제목</td>
+		<td>결제금액</td>
+		<td>패키지내용</td>
+		<td>상태</td>
+		<td>등록일</td>
+		<td>편집</td>
+	</tr>
+
+	<tbody id="package_list">
+	<?php 
+	if($list['total_count']){ 
+		foreach($list['result'] as $val){
+		$wr_content = unserialize($val['wr_content']);
+	?>
+		<tr class="package_list" no="<?php echo $val['no'];?>">
+			<td><input type='checkbox' name="no[]" class='check_all' value="<?php echo $val['no'];?>"></td>
+			<td class="none num3">
+				<a onClick="change_rank('up',this);">▲</a>
+				<a onClick="change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<td class="pdlnb1"><?php echo stripslashes($val['wr_subject']);?></td>
+			<td><?php echo number_format($val['wr_price']);?> 원</td>
+			<td class="pdlnb1">
+			<?php 
+				foreach($wr_content as $key => $content){
+					if($content['use']) {
+						$service_name = ($val['wr_type']=='employ') ? $service_control->package_service['employ'][$key] : $service_control->package_service['individual'][$key];
+						if($service_name){
+
+                           $service_count = ( ($key=='alba_option_jump' || $key=='resume_option_jump') && $content['jump_count'] ) ? number_format($content['jump_count'])." 건" : number_format($content['service_count'])." ".$service_control->_unit($content['service_unit']);
+
+							echo "<p>".$service_name." <strong>".$service_count." </strong></p>";
+
+						}
+					}
+				}
+			?>
+			</td>
+			<td><?php echo ($val['wr_use'])?'사용중':'미사용중';?></td>
+			<td><?php echo substr($val['wr_wdate'],0,10);?></td>
+			<td class="e">
+				<dt><a onClick="update_package('package_update','<?php echo $val['no'];?>','<?php echo $wr_id;?>');"><img src="../../images/btn/btn19_26.gif"></a></dt>
+				<dt class='mt2'><a onClick="delete_package('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_27.gif"></a></dt>
+			</td>
+		</tr>
+	<?php 
+		}	// foreach end.
+	} else { ?>
+	<tr><td colspan="8" class="stlt"></td></tr>
+	<?php } // if end. ?>
+	</tbody>
+	</table>
+
+	<dl class="page">
+		<?php include_once "../include/paging.php"; ?>
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete_package();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		</dt>
+		<dd>
+			<a onClick="update_package('package_insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>패키지 등록</h1></a>
+		</dd>
+	</dl>
+
+	<div id='pop_info'></div>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var formRequest = function(formData, jqForm, form_options){	 // 로고 전송 전
+	var queryString = $.param(formData); 
+	return true;
+}
+var formResponse = function(responseText, statusText, xhr, $form){
+	var results = responseText.split('/');
+	var mode = results[0], result = results[1], no = results[2];
+
+	if(result){
+		//alert("<?php echo $package_control->_success('0002');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $package_control->_errors('0003');?>");
+	}
+	
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

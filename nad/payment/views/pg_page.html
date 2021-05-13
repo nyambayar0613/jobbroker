@@ -1,0 +1,304 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+	
+	$('#PGPageConfigFrm').ajaxForm(form_options);
+
+});
+var alba_paies = function( vals ){	// 페이지 사용여부
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#alba_service').hide();
+	} else {
+		$('#alba_service').show();
+	}
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+		구인공고, 이력서 등록후 유료상품 안내 페이지로 이동 여부를 설정하는 페이지입니다.<br> 
+		사용으로 체크시 구인공고, 이력서 등록후 바로 결제 페이지로 이동되어 결제를 유도합니다.<br/>
+		결제페이지를 사용하지 않는 경우에는 구인공고, 이력서 등록후 바로 이곳에서 설정한 무료기간 만큼 자동으로 등록됩니다.
+	</dl>
+</dl>
+
+
+<?php include_once "./views/_include/page_menu.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name;?> 설정</dl>  
+
+<form name="PGPageConfigFrm" method="post" id="PGPageConfigFrm" action="./process/pg_page.php">
+<input type="hidden" name="mode" value="<?php echo ($type)?$type_arr[$type]:"alba_page";?>"/>
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+<input type="hidden" name="no" value="<?php echo $get_pg_page['no'];?>"/>
+
+	<table width="100%" class="bg_col">
+	<col width='170'><col> 
+	<?php if($type=='alba_resume'){ // 구인공고 이력서 결제 페이지 ?>
+	<thead>
+	<tr>
+		<td class="ctlt">페이지 사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="alba_resume_pay" type="radio" value="1" class="radio" checked onclick="alba_paies(this);">사용</label> &nbsp;
+			<label><input name="alba_resume_pay" type="radio" value="0" class="radio" <?php echo (!$get_pg_page['alba_resume_pay'])?'checked':'';?> onclick="alba_paies(this);">미사용</label> &nbsp;
+			
+		</td>
+	</tr>
+	</thead>
+
+	<tbody id="alba_service" style="display:<?php echo ($get_pg_page['alba_resume_pay'])?'none':'';?>;">
+	<tr>
+		<td class="ctlt">포커스 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_resume_focus[]" class="txt" id="main_resume_focus_field" style="width:50px;" value="<?php echo $main_resume_focus[0];?>" required hname="포커스 서비스기간"> 
+			<select name="main_resume_focus[]">
+			<option value="day" <?php echo ($main_resume_focus[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_resume_focus[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">급구인재 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_resume_busy[]" class="txt" id="main_resume_busy_field" style="width:50px;" value="<?php echo $main_resume_busy[0];?>" required hname="급구인재 서비스기간"> 
+			<select name="main_resume_busy[]">
+			<option value="day" <?php echo ($main_resume_busy[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_resume_busy[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">일반리스트 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_resume_basic[]" class="txt" id="main_resume_basic_field" style="width:50px;" value="<?php echo $main_resume_basic[0];?>" required hname="일반인재 서비스기간"> 
+			<select name="main_resume_basic[]">
+			<option value="day" <?php echo ($main_resume_basic[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_resume_basic[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<!-- <tr>
+		<td class="ctlt">메인 리스트형 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_resume_list[]" class="txt" id="main_resume_list_field" style="width:50px;" value="<?php echo $main_resume_list[0];?>" required hname="일반 서비스기간"> 
+			<select name="main_resume_list[]">
+			<option value="day" <?php echo ($main_resume_list[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_resume_list[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr> 
+
+	<tr>
+		<td class="ctlt">인재정보 포커스 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_resume_focus[]" class="txt" id="alba_resume_focus_field" style="width:50px;" value="<?php echo $alba_resume_focus[0];?>" required hname="포커스 서비스기간"> 
+			<select name="alba_resume_focus[]">
+			<option value="day" <?php echo ($alba_resume_focus[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_resume_focus[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">인재정보 일반 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_resume_basic[]" class="txt" id="alba_resume_basic_field" style="width:50px;" value="<?php echo $alba_resume_basic[0];?>" required hname="일반 서비스기간"> 
+			<select name="alba_resume_basic[]">
+			<option value="day" <?php echo ($alba_resume_basic[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_resume_basic[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="ctlt">급구인재 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_resume_busy[]" class="txt" id="alba_resume_busy_field" style="width:50px;" value="<?php echo $alba_resume_busy[0];?>" required hname="급구인재 서비스기간"> 
+			<select name="alba_resume_busy[]">
+			<option value="day" <?php echo ($alba_resume_busy[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_resume_busy[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+ <tr>
+		<td class="ctlt">인재정보 리스트형 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_resume_list[]" class="txt" id="alba_resume_list_field" style="width:50px;" value="<?php echo $alba_resume_list[0];?>" required hname="일반 서비스기간"> 
+			<select name="alba_resume_list[]">
+			<option value="day" <?php echo ($alba_resume_list[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_resume_list[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr> -->
+	</tbody>
+
+	<?php } else { // 구인공고 공고 결제 페이지 ?>
+
+	<thead>
+	<tr>
+		<td class="ctlt">페이지 사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="alba_pay" type="radio" value="1" class="radio" checked onclick="alba_paies(this);">사용</label> &nbsp;
+			<label><input name="alba_pay" type="radio" value="0" class="radio" <?php echo (!$get_pg_page['alba_pay'])?'checked':'';?> onclick="alba_paies(this);">미사용</label> &nbsp;
+			<span class="subtlt">'0' 입력시엔 서비스 기간을 부여하지 않습니다.</span>
+		</td>
+	</tr>
+	</thead>
+
+	<tbody id="alba_service" style="display:<?php echo ($get_pg_page['alba_pay'])?'none':'';?>;">
+	<tr>
+		<td class="ctlt">플래티넘 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_platinum[]" class="txt" id="main_platinum_field" style="width:50px;" value="<?php echo $main_platinum[0];?>"> 
+			<select name="main_platinum[]">
+			<option value="day" <?php echo ($main_platinum[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_platinum[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<td class="ctlt">프라임 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_prime[]" class="txt" id="main_prime_field" style="width:50px;" value="<?php echo $main_prime[0];?>"> 
+			<select name="main_prime[]">
+			<option value="day" <?php echo ($main_prime[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_prime[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	-->
+	<tr>
+		<td class="ctlt">그랜드 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_grand[]" class="txt" id="main_grand_field" style="width:50px;" value="<?php echo $main_grand[0];?>"> 
+			<select name="main_grand[]">
+			<option value="day" <?php echo ($main_grand[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_grand[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">스페셜 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_special[]" class="txt" id="main_special_field" style="width:50px;" value="<?php echo $main_special[0];?>"> 
+			<select name="main_special[]">
+			<option value="day" <?php echo ($main_special[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_special[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<td class="ctlt">메인 리스트형 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_list[]" class="txt" id="main_list_field" style="width:50px;" value="<?php echo $main_list[0];?>"> 
+			<select name="main_list[]">
+			<option value="day" <?php echo ($main_list[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_list[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	-->
+	<tr>
+		<td class="ctlt">일반리스트 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="main_basic[]" class="txt" id="main_basic_field" style="width:50px;" value="<?php echo $main_basic[0];?>"> 
+			<select name="main_basic[]">
+			<option value="day" <?php echo ($main_basic[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($main_basic[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+<!--
+	<tr>
+		<td class="ctlt">구인공고 플래티넘 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_platinum[]" class="txt" id="alba_platinum_field" style="width:50px;" value="<?php echo $alba_platinum[0];?>"> 
+			<select name="alba_platinum[]">
+			<option value="day" <?php echo ($alba_platinum[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_platinum[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">구인공고 배너형 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_banner[]" class="txt" id="alba_banner_field" style="width:50px;" value="<?php echo $alba_banner[0];?>"> 
+			<select name="alba_banner[]">
+			<option value="day" <?php echo ($alba_banner[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_banner[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">구인공고 리스트형 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_list[]" class="txt" id="alba_list_field" style="width:50px;" value="<?php echo $alba_list[0];?>"> 
+			<select name="alba_list[]">
+			<option value="day" <?php echo ($alba_list[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_list[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">구인공고 일반 서비스 기간 </td>
+		<td class="pdlnb2">
+			<input type='text' name="alba_basic[]" class="txt" id="alba_basic_field" style="width:50px;" value="<?php echo $alba_basic[0];?>"> 
+			<select name="alba_basic[]">
+			<option value="day" <?php echo ($alba_basic[1]=='day')?'selected':'';?>>일</option>
+			<option value="month" <?php echo ($alba_basic[1]=='month')?'selected':'';?>>개월</option>
+			</select>
+		</td>
+	</tr>
+	-->
+	</tbody>
+
+	<?php } ?>
+
+	</table>
+
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+	var PGPageConfigFrm = document.getElementById('PGPageConfigFrm');
+	var queryString = $.param(formData);
+	return validate(PGPageConfigFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+	if(responseText=='1'){
+		alert("<?php echo $payment_control->_success('0000');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $payment_control->_errors('0000');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

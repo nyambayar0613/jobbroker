@@ -1,0 +1,150 @@
+[2016-06-14 13:10:07.622] # OKNAME v3.70 start!<br>
+[2016-06-14 13:10:07.623] # mode=IPIN_CKEY<br>
+[2016-06-14 13:10:07.623] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2016-06-14 13:10:07.623] # argv[ 2](memid      )=V05280000000<br>
+[2016-06-14 13:10:07.623] # argv[ 3](reserved1  )=0<br>
+[2016-06-14 13:10:07.623] # argv[ 4](reserved2  )=0<br>
+[2016-06-14 13:10:07.623] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2016-06-14 13:10:07.623] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:10:07.623] # argv[ 7](Option     )=CL<br>
+[2016-06-14 13:10:07.623] # Generating monthly key..
+[2016-06-14 13:10:07.624] pub1: AwfaEudnDGF5P1hJcSYakVTI8jiz2w==
+[2016-06-14 13:10:07.624] pri1: AlZQDStdMY66E4i+JSSjXJDyPRUO
+[2016-06-14 13:10:07.624] sig1: YGfgvmEFqrLmKwCW8i1NGQ==
+[2016-06-14 13:10:07.624] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:10:07.669] retmsg: AwRuWV3Yu6hB2KgVkcRX4d6hvr0NkA==:10Bp4TlIXbVF4CRAeuJR4A==:Kajr4SY/irFmhWuk4aJb95uZSyOe9sJ/r5jGuimKWU2S3cTRsYoRU7B8oo4ebtnWLMB4TxuugktUE+dKpnIxtyZYaXOkV14HcqHk3AbUkS1Vr0IcFec=
+[2016-06-14 13:10:07.669] pub3: AwRuWV3Yu6hB2KgVkcRX4d6hvr0NkA==
+[2016-06-14 13:10:07.669] sig3: 10Bp4TlIXbVF4CRAeuJR4A==
+[2016-06-14 13:10:07.669] pub2pri2sig2: Kajr4SY/irFmhWuk4aJb95uZSyOe9sJ/r5jGuimKWU2S3cTRsYoRU7B8oo4ebtnWLMB4TxuugktUE+dKpnIxtyZYaXOkV14HcqHk3AbUkS1Vr0IcFec=
+[2016-06-14 13:10:07.671] srvSecurekey: BgXl/LfnloFuszgYqYQML6FuNzFe
+[2016-06-14 13:10:07.671] decData: AwFKpHQR6gH2wdl/6/RjWqEoogT2gA==:AJSDqlEBNAh0d28RziSqzCCYXD2G:29b2GXFaWmbB4IVR/Fxdjw==
+[2016-06-14 13:10:07.671] # ERROR S203: (Client key generation error.)<br>
+[2016-06-14 13:10:07.671] # final ret code=203<br>
+[2016-06-14 13:10:54.869] # OKNAME v3.70 start!<br>
+[2016-06-14 13:10:54.870] # mode=IPIN_CKEY<br>
+[2016-06-14 13:10:54.870] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2016-06-14 13:10:54.870] # argv[ 2](memid      )=V05280000000<br>
+[2016-06-14 13:10:54.870] # argv[ 3](reserved1  )=0<br>
+[2016-06-14 13:10:54.870] # argv[ 4](reserved2  )=0<br>
+[2016-06-14 13:10:54.870] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2016-06-14 13:10:54.870] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:10:54.870] # argv[ 7](Option     )=CL<br>
+[2016-06-14 13:10:54.870] # Generating monthly key..
+[2016-06-14 13:10:54.871] pub1: AwHMJh7e3ChKwugqi3A5KbPMhj3Y7A==
+[2016-06-14 13:10:54.871] pri1: Awuz2BXrAWBgIfcnRZoWyH4jQMQ/
+[2016-06-14 13:10:54.871] sig1: Tz833W9WqTkhWgiumx54uA==
+[2016-06-14 13:10:54.871] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:10:54.909] retmsg: AgRUgi/z0jbFNz5NjiH/j3zrQWmW4Q==:Wv0XIneHB2QFBHS6/8qaWA==:0Ke/HNcP5bK2nDP3XpFuWUOTooVcxECC+ROPuwKIPt95BT3M81guAxEhODqI9IgzWsS7znYQv1lUPfz5OqPMKf132w84Cc3tZJCRKY1v7jjtaTU/Bpc=
+[2016-06-14 13:10:54.909] pub3: AgRUgi/z0jbFNz5NjiH/j3zrQWmW4Q==
+[2016-06-14 13:10:54.909] sig3: Wv0XIneHB2QFBHS6/8qaWA==
+[2016-06-14 13:10:54.909] pub2pri2sig2: 0Ke/HNcP5bK2nDP3XpFuWUOTooVcxECC+ROPuwKIPt95BT3M81guAxEhODqI9IgzWsS7znYQv1lUPfz5OqPMKf132w84Cc3tZJCRKY1v7jjtaTU/Bpc=
+[2016-06-14 13:10:54.910] srvSecurekey: Bb2NJfq/VvDbaKwZw4baoV0H4q+g
+[2016-06-14 13:10:54.910] decData: AwFKpHQR6gH2wdl/6/RjWqEoogT2gA==:AJSDqlEBNAh0d28RziSqzCCYXD2G:29b2GXFaWmbB4IVR/Fxdjw==
+[2016-06-14 13:10:54.911] # ERROR S203: (Client key generation error.)<br>
+[2016-06-14 13:10:54.911] # final ret code=203<br>
+[2016-06-14 13:16:36.101] # OKNAME v3.70 start!<br>
+[2016-06-14 13:16:36.101] # mode=IPIN_CKEY<br>
+[2016-06-14 13:16:36.101] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2016-06-14 13:16:36.101] # argv[ 2](memid      )=V05280000000<br>
+[2016-06-14 13:16:36.101] # argv[ 3](reserved1  )=0<br>
+[2016-06-14 13:16:36.101] # argv[ 4](reserved2  )=0<br>
+[2016-06-14 13:16:36.101] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2016-06-14 13:16:36.101] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:16:36.101] # argv[ 7](Option     )=CL<br>
+[2016-06-14 13:16:36.101] # Generating monthly key..
+[2016-06-14 13:16:36.102] pub1: AgDEd6hXS4vaZZSnUxcz7SaTQCT7sw==
+[2016-06-14 13:16:36.102] pri1: Ak1+QmN0nhUlU4MvSJRuYky34r8z
+[2016-06-14 13:16:36.102] sig1: eGQGpQSPzEcBisAhOlrFqA==
+[2016-06-14 13:16:36.102] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:16:36.140] retmsg: AwAwDdWve1SE7Hr/ifqzI025N+5jWQ==:cdzaU023e3AEcFXBsoME3g==:wM8N/97clz+xl6Abq2f5n+MpX6i6Jz6sSpvaX1InE/77c7AZbIb2zUN/GEXBOgifdqlDh2hUIC9k0/pjmZCwy6LgBkHqWYUxB3UWkOX4In/altEO5Sw=
+[2016-06-14 13:16:36.140] pub3: AwAwDdWve1SE7Hr/ifqzI025N+5jWQ==
+[2016-06-14 13:16:36.140] sig3: cdzaU023e3AEcFXBsoME3g==
+[2016-06-14 13:16:36.140] pub2pri2sig2: wM8N/97clz+xl6Abq2f5n+MpX6i6Jz6sSpvaX1InE/77c7AZbIb2zUN/GEXBOgifdqlDh2hUIC9k0/pjmZCwy6LgBkHqWYUxB3UWkOX4In/altEO5Sw=
+[2016-06-14 13:16:36.141] srvSecurekey: B9VBUuBvFnGIWtRMhVb5j5IWjhjO
+[2016-06-14 13:16:36.142] decData: AwFKpHQR6gH2wdl/6/RjWqEoogT2gA==:AJSDqlEBNAh0d28RziSqzCCYXD2G:29b2GXFaWmbB4IVR/Fxdjw==
+[2016-06-14 13:16:36.142] # ERROR S203: (Client key generation error.)<br>
+[2016-06-14 13:16:36.142] # final ret code=203<br>
+[2016-06-14 13:19:37.064] # OKNAME v3.70 start!<br>
+[2016-06-14 13:19:37.064] # mode=IPIN_CKEY<br>
+[2016-06-14 13:19:37.064] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2016-06-14 13:19:37.064] # argv[ 2](memid      )=V05280000000<br>
+[2016-06-14 13:19:37.064] # argv[ 3](reserved1  )=0<br>
+[2016-06-14 13:19:37.064] # argv[ 4](reserved2  )=0<br>
+[2016-06-14 13:19:37.064] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2016-06-14 13:19:37.064] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:19:37.064] # argv[ 7](Option     )=CL<br>
+[2016-06-14 13:19:37.064] # Generating monthly key..
+[2016-06-14 13:19:37.065] pub1: AwX9zjnqimKFFO6BdE/AzAqE9xWS3A==
+[2016-06-14 13:19:37.065] pri1: AW3qeaBh5P7IlaEV36gbdxxWFdBf
+[2016-06-14 13:19:37.065] sig1: 4K4O6mOmxU4AEnoQ90ceIQ==
+[2016-06-14 13:19:37.065] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:19:37.105] retmsg: AgW/vNWeKE2zcsqNTn8HDB7g1mIBMA==:LxOKPQt0AyAFS7qZ8rUOow==:N/alPIIul0xj43y63mzPImMGYW1+G07+34Doe39eLcL5XlWfZ8UP03UxBsmS9MqNNuVrQwil2ZwLE2SN8X2LYVLj57SkOj6h7sEVuKFiAiUekCyJMa4=
+[2016-06-14 13:19:37.106] pub3: AgW/vNWeKE2zcsqNTn8HDB7g1mIBMA==
+[2016-06-14 13:19:37.106] sig3: LxOKPQt0AyAFS7qZ8rUOow==
+[2016-06-14 13:19:37.106] pub2pri2sig2: N/alPIIul0xj43y63mzPImMGYW1+G07+34Doe39eLcL5XlWfZ8UP03UxBsmS9MqNNuVrQwil2ZwLE2SN8X2LYVLj57SkOj6h7sEVuKFiAiUekCyJMa4=
+[2016-06-14 13:19:37.107] srvSecurekey: Asrc8fhGd4d+nCBbjuI7D6b07Ghv
+[2016-06-14 13:19:37.107] decData: AwFKpHQR6gH2wdl/6/RjWqEoogT2gA==:AJSDqlEBNAh0d28RziSqzCCYXD2G:29b2GXFaWmbB4IVR/Fxdjw==
+[2016-06-14 13:19:37.107] # ERROR S203: (Client key generation error.)<br>
+[2016-06-14 13:19:37.107] # final ret code=203<br>
+[2016-06-14 13:21:06.411] # OKNAME v3.70 start!<br>
+[2016-06-14 13:21:06.411] # mode=HS_CNFRM_POPUP<br>
+[2016-06-14 13:21:06.411] # Parameter IP: 	114.108.128.129<br>
+[2016-06-14 13:21:06.411] # argv[ 1](hs_cert_svc_tx_seqno)=20160614132106207284<br>
+[2016-06-14 13:21:06.411] # argv[ 2](nm)=이종우<br>
+[2016-06-14 13:21:06.411] # argv[ 3](brdt)=19800211<br>
+[2016-06-14 13:21:06.411] # argv[ 4](sex)=1<br>
+[2016-06-14 13:21:06.411] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2016-06-14 13:21:06.411] # argv[ 6](var1)=01<br>
+[2016-06-14 13:21:06.411] # argv[ 7](var2)=01067980880<br>
+[2016-06-14 13:21:06.411] # argv[ 8](var3)=0<br>
+[2016-06-14 13:21:06.411] # argv[ 9](var4)=0<br>
+[2016-06-14 13:21:06.411] # argv[10](var5)=0<br>
+[2016-06-14 13:21:06.411] # argv[11](return_msg)=x<br>
+[2016-06-14 13:21:06.411] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2016-06-14 13:21:06.411] # argv[13](in_tp_bit)=15<br>
+[2016-06-14 13:21:06.411] # argv[14](hs_cert_msr_cd)=10<br>
+[2016-06-14 13:21:06.411] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2016-06-14 13:21:06.411] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2016-06-14 13:21:06.411] # argv[17](server_ip)=114.108.128.129<br>
+[2016-06-14 13:21:06.411] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2016-06-14 13:21:06.411] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2016-06-14 13:21:06.411] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:21:06.411] # argv[21](option)=QL<br>
+[2016-06-14 13:21:06.412] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:21:06.450] # key   : AwetzrrTjsy3cwelvipwndJugPm/2w==:nCuCERdURoL3IL1fm5eKbg==<br>
+[2016-06-14 13:21:06.450] # spkey : AwetzrrTjsy3cwelvipwndJugPm/2w==<br>
+[2016-06-14 13:21:06.450] # ssig  : nCuCERdURoL3IL1fm5eKbg==<br>
+[2016-06-14 13:21:06.452] # nm               : 이종우<br>
+[2016-06-14 13:21:06.452] # brdt             : 19800211<br>
+[2016-06-14 13:21:06.452] # e_nm             : 4XpTBn0J<br>
+[2016-06-14 13:21:06.452] # e_brdt           : EI+qiPLX9Zg=<br>
+[2016-06-14 13:21:06.452] # cpkey : Awa/9VKVy454dZC1yh0OR9EMjLAjvw==<br>
+[2016-06-14 13:21:06.452] # csig  : CkoHbwk1QotUl7uxl9BfPA==<br>
+[2016-06-14 13:21:06.492] retmsg: Y4aiiPgkYBKAbJ5jSUfv2ygDtu4GkyVNAk5jE7Uk0Q7cvY35c/IeEJxWSu6nWNJ0ThLQwFwE26jmPqRmbnFcTnrFUOYKizsJcpSECINxtmHCR+AMTy+hH5hHUvgsZxmfO11r42+okUfNYSNykoJDgw2pZVobJGzNKYZdP+1oJE1lhzRVA2oCCUgfjflGlXbXHVsj6RIyQUz3TkPPrqym33W4CbVkmzfECz2y45Nrg+LiNecKyPB0w45Xip5W9GBWmSRWIX2wf6FFChdY4zQKXNYKUI79U7XmPS9vY/KW+Q5BQA==
+[2016-06-14 13:21:06.492] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/PCUwjS3d1Cn2CTac8a7DpguMtsMp+DgfMfswNGGg2SIFBM6gAknn6OVDIq9uCXL09OQ3kRncV7COAj/YzzwJUkTMMxqhtmPVa/2yolVGd3pnCIUd6MU/wcis7cY8ECO6dHHurDm/OMoIEBR+kIv7zf9Hn99pI7jX16kXRegvYcpUNCZTsxo8lJqOXJlzzgf+w==
+[2016-06-14 13:21:06.492] B000
+[2016-06-14 13:21:06.492] 정상
+[2016-06-14 13:21:06.492] kYFvkgmfTi0CDDkL3FAZ/PCUwjS3d1Cn2CTac8a7DpguMtsMp+DgfMfswNGGg2SIFBM6gAknn6OVDIq9uCXL09OQ3kRncV7COAj/YzzwJUkTMMxqhtmPVa/2yolVGd3pnCIUd6MU/wcis7cY8ECO6dHHurDm/OMoIEBR+kIv7zf9Hn99pI7jX16kXRegvYcpUNCZTsxo8lJqOXJlzzgf+w==
+[2016-06-14 13:21:06.493] # final ret code=0<br>
+[2016-06-14 13:21:20.996] # OKNAME v3.70 start!<br>
+[2016-06-14 13:21:20.996] # mode=IPIN_CKEY<br>
+[2016-06-14 13:21:20.996] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2016-06-14 13:21:20.996] # argv[ 2](memid      )=V05280000000<br>
+[2016-06-14 13:21:20.996] # argv[ 3](reserved1  )=0<br>
+[2016-06-14 13:21:20.996] # argv[ 4](reserved2  )=0<br>
+[2016-06-14 13:21:20.996] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2016-06-14 13:21:20.996] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-06-14 13:21:20.996] # argv[ 7](Option     )=CL<br>
+[2016-06-14 13:21:20.996] # Generating monthly key..
+[2016-06-14 13:21:20.997] pub1: AwJNXkY9+/K2tBSpKdRlZNOtInOAbQ==
+[2016-06-14 13:21:20.997] pri1: AVI8tNU7uUHQ2P2AXFaOMOG2HjqR
+[2016-06-14 13:21:20.997] sig1: 18m7/+fq/Hy824flz1GuBA==
+[2016-06-14 13:21:20.997] # soap_timeout: 30000 ms<br>
+[2016-06-14 13:21:21.036] retmsg: AwaY500zmaXHhpkMBKaziay02awzEQ==:M9jwyFTFNhVJ/lpYL08olA==:IZD1+anrBoaTrSqMjkuF1fodKTL0NzXE+fzheED4E1nWSNxELU4AQ9rIbrZ44Nm0lJ7Zd7aHUGBklfH1Lv+IbzthRga2NJfxQOjmsH7afeYRXtuhI00=
+[2016-06-14 13:21:21.036] pub3: AwaY500zmaXHhpkMBKaziay02awzEQ==
+[2016-06-14 13:21:21.036] sig3: M9jwyFTFNhVJ/lpYL08olA==
+[2016-06-14 13:21:21.036] pub2pri2sig2: IZD1+anrBoaTrSqMjkuF1fodKTL0NzXE+fzheED4E1nWSNxELU4AQ9rIbrZ44Nm0lJ7Zd7aHUGBklfH1Lv+IbzthRga2NJfxQOjmsH7afeYRXtuhI00=
+[2016-06-14 13:21:21.037] srvSecurekey: BBwG4bLrq3Q7L0ZIhCthPz6PHLEy
+[2016-06-14 13:21:21.037] decData: AwFKpHQR6gH2wdl/6/RjWqEoogT2gA==:AJSDqlEBNAh0d28RziSqzCCYXD2G:29b2GXFaWmbB4IVR/Fxdjw==
+[2016-06-14 13:21:21.037] # ERROR S203: (Client key generation error.)<br>
+[2016-06-14 13:21:21.037] # final ret code=203<br>

@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<message-list>
+	<!-- Header 전문 -->
+	<!--
+		Header는 'ID','version','length'는 필수 필드이며 이름이 정확히 일치(대소문자 포함) 해야합니다.
+	-->
+	<!-- Header+body 전문이 완성되었을시, 모든 Column name 는 유일해야 합니다. -->
+	<!-- 모든 Column name 은 대소문자를 구분합니다. -->
+	<header>
+		<!-- 전문공통  -->
+		<column name="Version"           mode="AN"   size="5"    required="Y" encrypt="N"     description="버전" />
+		<column name="ID"                mode="AN"   size="5"    required="Y" encrypt="N"     description="전문ID" />
+		<column name="EdiDate"           mode="N"    size="14"   required="Y" encrypt="Y"     description="전문생성일시" />
+		<column name="Length"            mode="N"    size="6"    required="Y" encrypt="Y"     description="전문길이" />
+		<column name="TID"               mode="AN"   size="30"   required="Y" encrypt="N"     description="거래아이디" />
+		<column name="EncFlag"           mode="AN"   size="2"    required="Y" encrypt="N"     description="암호화여부" />
+		<column name="ErrorSys"          mode="AN"   size="5"    required="Y" encrypt="N"     description="에러시스템명" />
+		<column name="ErrorCD"           mode="AN"   size="5"    required="Y" encrypt="N"     description="에러코드" />
+		<column name="ErrorMsg"          mode="AH"   size="100"  required="Y" encrypt="N"     description="에러메세지" />
+
+		<!-- 지불수단  -->
+		<column name="PayMethod"         mode="AN"   size="10"   required="Y" encrypt="N"     description="지불수단" />
+		<!-- 상품정보  -->
+		<column name="GoodsCnt"          mode="N"    size="2"    required="Y" encrypt="N"     description="상품갯수" />
+		<column name="GoodsName"         mode="AH"   size="40"   required="Y" encrypt="N"     description="상품명" />
+		<column name="Amt"               mode="N"    size="12"   required="Y" encrypt="N"     description="금액" />
+		<column name="Moid"              mode="AH"   size="64"   required="N" encrypt="N"     description="상품주문번호" />
+		<column name="Currency"          mode="AN"   size="3"    required="Y" encrypt="N"     description="통화구분" />
+		<column name="GoodsURL"          mode="AN"   size="200"  required="N" encrypt="N"     description="상품이미지URL" />
+		<!-- 상점정보 -->
+		<column name="LogoURL"           mode="AN"   size="200"  required="N" encrypt="N"     description="상점로고URL" />
+		<column name="MID"               mode="AN"   size="10"   required="Y" encrypt="N"     description="상점아이디" />
+		<column name="LicenseKey"        mode="AN"   size="90"   required="Y" encrypt="N"     description="상점서명인증키" />
+		<column name="MallIP"            mode="AN"   size="20"   required="Y" encrypt="N"     description="상점서버IP" />
+		<column name="UserIP"            mode="AN"   size="20"   required="Y" encrypt="N"     description="회원사고객 IP" />
+		<column name="Language"          mode="AN"   size="10"   required="Y" encrypt="N"     description="사용언어" />
+		<column name="MallReserved"      mode="AN"   size="500"  required="N" encrypt="N"     description="상점예비정보" />
+		<column name="ReturnURL"         mode="AN"   size="200"  required="Y" encrypt="N"     description="상점 결제결과 전송 URL" />
+		<column name="RetryURL"          mode="AN"   size="200"  required="N" encrypt="N"     description="상점 결제결과 Retry URL" />
+		<!-- 구매자정보 -->
+		<column name="MallUserID"        mode="AN"   size="20"   required="N" encrypt="N"     description="회원사고객ID" />
+		<column name="BuyerName"         mode="AH"   size="30"   required="Y" encrypt="N"     description="구매자명" />
+		<column name="BuyerAuthNum"      mode="AN"   size="15"   required="Y" encrypt="N"     description="구매자인증번호" />
+		<column name="BuyerTel"          mode="AN"   size="40"   required="Y" encrypt="N"     description="구매자연락처" />
+		<column name="BuyerEmail"        mode="AN"   size="60"   required="Y" encrypt="N"     description="구매자메일주소" />
+		<column name="ParentEmail"       mode="AN"   size="60"   required="N" encrypt="N"     description="보호자메일주소" />
+		<column name="BuyerAddr"         mode="AH"   size="100"  required="N" encrypt="N"     description="배송지주소" />
+		<column name="BuyerPostNo"       mode="AH"   size="6"    required="N" encrypt="N"     description="우편번호" />
+		<column name="SUB_ID"	         mode="AN" 	 size="20"	 required="N" encrypt="N"	  description="SUB ID"/>		
+	</header>
+
+
+	<message id="FCD01" version="NPG01" description="SOCKET버전 카드결제요청">
+		<!-- 신용카드 -->
+		<column name="CardType"          mode="AN"   size="2"    required="N" encrypt="N"     description="카드형태" />
+		<column name="CardCode"          mode="AN"   size="2"    required="N" encrypt="N"     description="카드코드" />
+		<column name="CardNum"           mode="AN"   size="16"   required="N" encrypt="N"     description="카드번호" />
+		<column name="CardExpire"        mode="N"    size="4"    required="N" encrypt="N"     description="유효기간" />
+		<column name="CardQuota"         mode="N"    size="2"    required="N" encrypt="N"     description="할부개월" />
+		<column name="CardInterest"      mode="N"    size="1"    required="N" encrypt="N"     description="무이자여부" />
+		<column name="AuthFlag"          mode="AN"   size="2"    required="N" encrypt="N"     description="인증구분" />
+		<column name="KeyInCl"           mode="AN"   size="2"    required="N" encrypt="N"     description="비인증구분" />
+		<column name="AuthType"          mode="AN"   size="2"    required="N" encrypt="N"     description="인증형태" />
+		<column name="CardPwd"           mode="AN"   size="2"    required="N" encrypt="N"     description="카드비밀번호" />
+		<column name="CardPoint"         mode="AN"   size="1"    required="N" encrypt="N"     description="카드사포인트" />
+		<column name="CardXID"           mode="AN"   size="30"   required="N" encrypt="N"     description="CardXID" />
+		<column name="CardECI"           mode="AN"   size="2"    required="N" encrypt="N"     description="CardECI" />
+		<column name="CardCAVV"          mode="AN"   size="30"   required="N" encrypt="N"     description="CardCAVV" />
+		<column name="JoinCode"          mode="AN"   size="4"    required="N" encrypt="N"     description="JoinCode" />
+		<column name="ISP_NOINT_INF"     mode="AN"   size="255"  required="N" encrypt="N"     description="KVP_NOINT_INF" />
+		<column name="ISP_QUOTA_INF"     mode="AN"   size="255"  required="N" encrypt="N"     description="KVP_QUOTA_INF" />
+		<column name="ISP_NOINT"         mode="AN"   size="2"    required="N" encrypt="N"     description="KVP_NOINT" />
+		<column name="ISP_QUOTA"         mode="AN"   size="2"    required="N" encrypt="N"     description="KVP_QUOTA" />
+		<column name="ISP_CARDCODE"      mode="AN"   size="20"   required="N" encrypt="N"     description="KVP_CARDCODE" />
+		<column name="ISP_CONAME"        mode="AN"   size="40"   required="N" encrypt="N"     description="KVP_CONAME" />
+		<column name="ISPPGID"           mode="AN"   size="6"    required="N" encrypt="N"     description="ISPPGID" />
+		<column name="ISPCode"           mode="AN"   size="25"   required="N" encrypt="N"     description="ISPCode" />
+		
+		<!-- 암호화 -->
+		<dynamic name="ISPKeyLength"     mode="N"    size="5"    encrypt="N" required="Y"     description="ISPSessionKey 길이">
+			<column name="ISPSessionKey" mode="AH"   size="0"    encrypt="N" required="N"     description="ISPSessionKey" />
+		</dynamic>
+
+		<!-- 암호화 -->
+		<dynamic name="ISPEncDataLength" mode="N"    size="5"    encrypt="N" required="Y"     description="ISPEncData 길이">
+			<column name="ISPEncData"    mode="AH"   size="0"    encrypt="N" required="N"     description="ISPEncData" />
+		</dynamic>
+
+		<!-- 암호화 -->
+		<dynamic name="Datalen"          mode="N"    size="5"    encrypt="N" required="Y"     description="암호화데이터 길이">
+			<column name="EncryptData"   mode="AH"   size="0"    encrypt="N" required="N"     description="암호화데이터" />
+		</dynamic>
+		
+		<column name="TransType"         mode="AN"   size="2"    required="N" encrypt="N"     description="거래형태" />
+		<column name="TrKey"             mode="AN"   size="30"   required="N" encrypt="N"     description="TrKey" />
+		<column name="ISPSavePoint"      mode="AN"   size="1"    required="N" encrypt="N"     description="국민_비씨 세이브포인트" />
+		<column name="AcquReqDate"       mode="AN"   size="8"    required="N" encrypt="N"     description="매입요청일자" />
+		<column name="ServiceAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="SupplyAmt"         mode="N"    size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"          mode="N"    size="12"   required="N" encrypt="N"     description="부가가치세"/>
+		<column name="CartCnt"           mode="N"    size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+    	<dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+    	<column name="EdiNo"             mode="AN"   size="30"   required="N" encrypt="N"     description="EDI번호" />
+    	<column name="ExtCardNum"        mode="AN"   size="20"   required="N" encrypt="N"     description="확장카드번호" />
+    	<column name="CardSubNum"        mode="AN"   size="10"   required="Y" encrypt="N"     description="신용카드 서브몰 사업자번호"/>
+        <column name="CardSubCoNm"       mode="AN"   size="40"   required="N" encrypt="N"     description="신용카드 서브몰 상호"/>
+        <column name="CardSubBossNm"     mode="AN"   size="20"   required="N" encrypt="N"     description="신용카드 서브몰 대표자명"/>
+        <column name="CardSubTel"        mode="AN"   size="16"   required="N" encrypt="N"     description="신용카드 서브몰 전화번호"/>
+        <column name="TaxFreeAmt" 		mode="N" 	 size="12" 	 required="N" encrypt="N" 	  description="면세금액" /> 
+        <column name="ClickpayCl" 		mode="AN" 	 size="2" 	 required="N" encrypt="N" 	  description="간편결제 종류" /> 
+        <column name="CouponId" 		mode="AN" 	 size="20" 	 required="N" encrypt="N" 	  description="쿠폰ID" /> 
+        <column name="CouponAmt" 		mode="N" 	 size="12" 	 required="N" encrypt="N" 	  description="쿠폰금액" /> 
+        <column name="CVC" 				mode="AN" 	 size="3" 	 required="N" encrypt="N" 	  description="카드CVC" /> 
+        <column name="EscrowCustFee"     mode="N"    size="5"    required="N" encrypt="N"     description="에스크로고객부담금"/>
+        <column name="TransCl"           mode="AH"   size="2"    required="N" encrypt="N"     description="거래구분"/>
+	</message>
+
+	<message id="FCD02" version="NPG01" description="소켓버전 카드결제응답">
+		<!-- 결과코드 -->
+		<column name="AuthDate"          mode="AN"   size="12"   required="Y" encrypt="N"     description="승인일자" />
+		<column name="AuthCode"          mode="AN"   size="30"   required="Y" encrypt="N"     description="승인번호" />
+		<column name="ResultCode"        mode="AN"   size="4"    required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"         mode="AH"   size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column name="CardCode"          mode="AN"   size="3"    required="Y" encrypt="N"     description="카드사코드" />
+		<column name="CardName"          mode="AH"   size="100"  required="Y" encrypt="N"     description="카드사명" />
+		<column name="AcquCardCode"      mode="AN"   size="3"    required="Y" encrypt="N"     description="매입카드사코드" />
+		<column name="AcquCardName"      mode="AH"   size="100"  required="Y" encrypt="N"     description="매입카드사명" />
+        <column name="CardNo"            mode="AN"   size="20"   required="Y" encrypt="N"     description="카드번호" />
+        <column name="CardQuota"         mode="AN"   size="2"    required="Y" encrypt="N"     description="할부개월" />
+        <column name="CardInterest"      mode="AN"   size="1"    required="N" encrypt="N"     description="무이자여부" />
+        <column name="CardCl"            mode="AN"   size="1"    required="N" encrypt="N"     description="체크카드여부" />
+        <column name="CcPartCl"          mode="AN"   size="1"    required="N" encrypt="N"     description="부분취소 가능여부" />
+        <dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+    	<column name="PointAppAmt"       mode="N"    size="12"   required="N" encrypt="N"     description="포인트승인금액"/>
+    	<column name="CouponAmt"         mode="N"    size="12"   required="N" encrypt="N"     description="쿠폰금액"/>
+    	<column name="CouponMinAmt"      mode="N"    size="12"   required="N" encrypt="N"     description="쿠폰최소금액"/>
+	</message>
+
+	<message id="FBK01" version="NPG01" description="SOCKET버전 계좌이체요청">
+		<!-- 계좌이체 -->
+		<column name="BankCode"          mode="AN"   size="4"    required="N" encrypt="N"     description="은행코드" />
+		<column name="BankAccount"       mode="AN"   size="20"   required="N" encrypt="N"     description="계좌번호" />
+		<column name="BankAccountName"   mode="AH"   size="30"   required="N" encrypt="N"     description="계좌예금주" />
+		<column name="BankParameter"     mode="AN"   size="12"   required="N" encrypt="N"     description="통장인자" />
+		<column name="BankSessionKey"    mode="AH"   size="32"   required="N" encrypt="N"     description="BankSessionKey" />
+		<!-- 암호화 -->
+		<dynamic name="BankEncDataLength" mode="N"   size="5"    encrypt="N" required="Y"     description="BankEncData 길이">
+			<column name="BankEncData"   mode="AH"   size="0"    encrypt="N" required="N"     description="BankEncData" />
+		</dynamic>
+		<!-- 현금영수증 -->
+		<column name="ReceiptAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="총금액" />
+		<column name="ReceiptSupplyAmt"  mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 공급가액" />
+		<column name="ReceiptVAT"        mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 부가세" />
+		<column name="ReceiptServiceAmt" mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 봉사료" />
+		<column name="ReceiptType"       mode="AN"   size="1"    required="N" encrypt="N"     description="현금영수증 용도구분" />
+		<column name="ReceiptTypeNo"     mode="AN"   size="20"   required="N" encrypt="N"     description="현금영수증 ID번호" />
+		<column name="ReceiptSubNum"     mode="AN"   size="10"   required="N" encrypt="N"     description="현금영수증 서브몰 사업자번호" />
+		<!-- 암호화 -->
+		<dynamic name="DataLen"          mode="N"    size="5"    encrypt="N" required="Y"     description="암호화데이터 길이">
+			<column name="EncryptData"   mode="AH"   size="0"    encrypt="N" required="N"     description="암호화데이터" />
+		</dynamic>
+		
+		<column name="TransType"         mode="AN"   size="2"    required="N" encrypt="N"     description="거래형태" />
+		<column name="TrKey"             mode="AN"   size="30"   required="N" encrypt="N"     description="TrKey" />
+		<column name="SupplyAmt"         mode="N"    size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"          mode="N"    size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+		<column name="ServiceAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="CartCnt"           mode="N"    size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+    	<dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+    	<column name="PinNo" 			 mode="AN" 	size="16" 	 required="N" encrypt="N" 	  description="PIN번호" /> 
+  		<column name="ReceiptTaxFreeAmt" mode="N" 	size="12" 	 required="N" encrypt="N" 	  description="현금영수증 면세금액" /> 
+  		<column name="TaxFreeAmt" 		 mode="N" 	size="12" 	 required="N" encrypt="N" 	  description="면세금액" /> 
+	</message>
+
+	<message id="FBK02" version="NPG01" description="소켓버전 계좌이체응답">
+		<column name="AuthDate"          mode="AN"   size="12"   required="Y" encrypt="N"     description="승인일자" />
+		<column name="AuthCode"          mode="AN"   size="30"   required="Y" encrypt="N"     description="승인번호" />
+		<column name="ResultCode"        mode="AN"   size="4"    required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"         mode="AH"   size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column name="BankCode"          mode="AH"   size="3"    required="Y" encrypt="N"     description="결제은행코드" />
+		<column name="BankName"          mode="AH"   size="20"   required="Y" encrypt="N"     description="결제은행명" />
+		<dynamic name="wiLen"            mode="N"    size="5"    required="Y" encrypt="N"     description="WI길이">
+			<column name="WI"            mode="AH"   size="0"    required="Y" encrypt="N"     description="WI" />
+		</dynamic>
+		<column name="RcptType"          mode="N"    size="1"    required="Y" encrypt="N"     description="현금영수증 구분" />
+		<column name="RcptTID"           mode="AN"   size="30"   required="Y" encrypt="N"     description="현금영수증 TID" />
+		<column name="RcptAuthCode"      mode="AN"   size="30"   required="Y" encrypt="N"     description="현금영수증 승인번호" />
+		<dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+	</message>
+
+	<message id="FVK01" version="NPG01" description="SOCKET버전 가상계좌 채번요청">
+		<!-- 가상계좌 -->
+		<column name="VbankCnt"           mode="N"   size="2"    required="Y" encrypt="N"     description="가상계좌요청개수" />
+		<column name="VbankBankCode"      mode="AN"  size="3"    required="Y" encrypt="N"     description="가상계좌은행코드" />
+		<column name="VbankExpDate"       mode="AN"  size="8"    required="Y" encrypt="N"     description="입금예정일" />
+		<column name="VBankAccountName"   mode="AH"  size="20"   required="Y" encrypt="N"     description="입금예금주명" />
+		<column name="VbankRefundAccount" mode="AN"  size="20"   required="Y" encrypt="N"     description="환불계좌번호" />
+		<column name="VbankRefundBankCode" mode="AN" size="3"    required="Y" encrypt="N"     description="환불계좌은행코드" />
+		<column name="VbankRefundName"    mode="AH"  size="20"   required="Y" encrypt="N"     description="환불계좌주명" />
+		<column name="ReceiptAmt"         mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 총금액" />
+		<column name="ReceiptSupplyAmt"   mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 공급가액" />
+		<column name="ReceiptVAT"         mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 부가세" />
+		<column name="ReceiptServiceAmt"  mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 봉사료" />
+		<column name="ReceiptType"        mode="AN"  size="1"    required="Y" encrypt="N"     description="현금영수증 용도구분" />
+		<column name="ReceiptTypeNo"      mode="AN"  size="20"   required="N" encrypt="N"     description="현금영수증 발급번호" />
+		<!-- 암호화 -->
+		<dynamic name="DataLen"           mode="N"   size="5"    encrypt="N"  required="Y"    description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    encrypt="N"  required="N"    description="암호화데이터" />
+		</dynamic>
+		<column name="TransType"          mode="AN"  size="2"    required="N" encrypt="N"     description="거래형태" />
+		<column name="VbankExpTime"       mode="AN"  size="6"    required="Y" encrypt="N"     description="입금예정시간" />
+		<column name="TrKey"              mode="AN"  size="30"   required="N" encrypt="N"     description="TrKey" />
+		<column name="SupplyAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"           mode="N"   size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+		<column name="ServiceAmt"         mode="N"   size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="CartCnt"            mode="N"   size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+    	<dynamic name="CartLen"           mode="N"   size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"  size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+    	<column name="ReceiptTaxFreeAmt" mode="N" size="12" required="N" encrypt="N" description="현금영수증 면세금액" /> 
+  		<column name="TaxFreeAmt" mode="N" size="12" required="N" encrypt="N" description="면세금액" /> 	
+	</message>
+
+	<message id="FVK02" version="NPG01" description="소켓버전 가상계좌 채번응답">
+		<column name="AuthDate"           mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일시" />
+		<column name="AuthCode"           mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호" />
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column name="VbankBankCode"      mode="AN"  size="3"    required="Y" encrypt="N"     description="은행코드" />
+		<column name="VbankBankName"      mode="AH"  size="20"   required="Y" encrypt="N"     description="은행명" />
+		<column name="VbankNum"           mode="AN"  size="20"   required="Y" encrypt="N"     description="가상계좌번호" />
+		<column name="VbankExpDate"       mode="AN"  size="8"    required="Y" encrypt="N"     description="입금예정일" />
+		<dynamic name="CartLen"           mode="N"   size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"  size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+	</message>
+
+	<message id="FVB01" version="NPG01" description="SOCKET버전 가상계좌 과오납체크등록 요청">
+		<!-- 가상계좌 -->
+		<column name="VbankBankCode"      mode="AN"  size="3"    required="Y" encrypt="N"     description="가상계좌은행코드"/>
+		<column name="VbankNum"           mode="AN"  size="20"   required="Y" encrypt="N"     description="입금계좌번호"/>
+		<column name="VBankAccountName"   mode="AH"  size="20"   required="Y" encrypt="N"     description="입금예금주명"/>
+        <column name="VbankExpDate"       mode="AN"  size="8"    required="Y" encrypt="N"     description="입금마감일자"/>
+        <column name="VbankExpTime"       mode="AN"  size="6"    required="Y" encrypt="N"     description="입금마감시간"/>
+		<!-- 암호화 -->
+		<dynamic name="DataLen"           mode="N"   size="5"    encrypt="N"  required="Y"    description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    encrypt="N"  required="N"    description="암호화데이터" />
+		</dynamic>
+		<column name="TrKey"              mode="AN"  size="30"   required="N" encrypt="N"     description="TrKey" />
+		<column name="SupplyAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"           mode="N"   size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+		<column name="ServiceAmt"         mode="N"   size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="CartCnt"            mode="N"   size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+    	<dynamic name="CartLen"           mode="N"   size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"  size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+	</message>
+
+	<message id="FVB02" version="NPG01" description="소켓버전 가상계좌 과오납체크등록 응답">
+        <column name="AuthDate"           mode="AN"  size="12"   required="N" encrypt="N"     description="승인일시"/>
+        <column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+        <column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+        <dynamic name="CartLen"           mode="N"   size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"  size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+    	</dynamic>
+	</message>
+	
+	<message id="FCP01" version="NPG01" description="소켓버전 휴대폰결제요청">
+		<!-- 휴대폰결제 -->
+		<dynamic name="ServerInfoLength"  mode="N"   size="5"    required="Y" encrypt="N"     description="다날거래UNIQKEY 길이">
+			<column name="ServerInfo"     mode="AN"  size="0"    required="Y" encrypt="N"     description="다날거래UNIQKEY" />
+		</dynamic>
+		<column name="Iden"               mode="AN"  size="13"   required="Y" encrypt="N"     description="고객고유번호" />
+		<column name="Carrier"            mode="AN"  size="6"    required="Y" encrypt="N"     description="이통사구분" />
+		<column name="SmsOTP"             mode="AN"  size="10"   required="Y" encrypt="N"     description="SMS승인번호" />
+		<column name="DstAddr"            mode="AN"  size="16"   required="Y" encrypt="N"     description="휴대폰번호" />
+		<dynamic name="EncodedTIDLength"  mode="N"   size="3"    required="Y" encrypt="N"     description="">
+			<column name="EncodedTID"     mode="N"   size="0"    required="Y" encrypt="N"     description="" />
+		</dynamic>
+	
+		<!-- 암호화 -->
+		<dynamic name="Datalen"           mode="N"   size="5"    encrypt="N" required="Y"     description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    encrypt="N" required="N"     description="암호화데이터" />
+		</dynamic>
+		<dynamic name="RecKeyLength"      mode="N"   size="3"    required="Y" encrypt="N"     description="모빌리언스 레코드KEY길이">
+        	<column name="RecKey"         mode="AN"  size="0"    required="Y" encrypt="N"     description="모빌리언스 레코드KEY"/>
+        </dynamic>
+        <column name="PhoneID"            mode="AN"  size="10"   required="Y" encrypt="N"     description="모빌리언스 Phoneid"/>
+        <column name="FnCd"               mode="AN"  size="5" 	 required="Y" encrypt="N"     description="다날/모딜리언스구분코드"/>
+        <column name="GoodsCl"            mode="AN"  size="1"    required="Y" encrypt="N"     description="컨텐츠구분"/>
+        <column name="TrKey"              mode="AN"  size="30"   required="N" encrypt="N"     description="TrKey" />
+        <column name="SupplyAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"           mode="N"   size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+		<column name="ServiceAmt"         mode="N"   size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="TermsAgreeYn"       mode="AN"  size="1"    required="Y" encrypt="N"     description="이용약관 동의여부"/>
+		<column name="TaxFreeAmt" mode="N" size="12" required="N" encrypt="N" description="면세금액" /> 
+	</message>
+
+	<message id="FCP02" version="NPG01" description="소켓버전 휴대폰결제응답">
+		<column name="AuthDate"           mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자" />
+		<column name="AuthCode"           mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호" />
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column name="Carrier"            mode="AN"  size="6"    required="Y" encrypt="N"     description="이통사구분" />
+		<column name="DstAddr"            mode="AN"  size="16"   required="Y" encrypt="N"     description="휴대폰번호" />
+	</message>
+
+
+	<message id="FCB01" version="NPG01" description="소켓버전 휴대폰결제요청">
+		<column name="Iden"               mode="AN"  size="13"   required="Y" encrypt="N"     description="고객고유번호" />
+		<column name="Carrier"            mode="AN"  size="6"    required="Y" encrypt="N"     description="이통사구분" />
+		<column name="DstAddr"            mode="AN"  size="16"   required="Y" encrypt="N"     description="휴대폰번호" />
+
+		<!-- 암호화 -->
+		<dynamic name="Datalen"           mode="N"   size="5"    encrypt="N" required="Y"     description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    encrypt="N" required="N"     description="암호화데이터" />
+		</dynamic>
+	</message>
+
+	<message id="FCB02" version="NPG01" description="소켓버전 휴대폰결제응답">
+		<column name="AuthDate"           mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자" />
+		<column name="AuthCode"           mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호" />
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column name="Carrier"            mode="AN"  size="6"    required="Y" encrypt="N"     description="이통사구분" />
+		<column name="DstAddr"            mode="AN"  size="16"   required="Y" encrypt="N"     description="휴대폰번호" />
+	</message>
+
+
+	<message id="IPGC1" version="NPG01" description="Mall-&gt;PG 취소요청">
+		<column name="CancelAmt"          mode="N"   size="12"   required="Y" encrypt="N"     description="취소 금액" />
+		<column name="CancelMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="취소 사유" />
+		<column name="CancelPwd"          mode="AN"  size="20"   required="Y" encrypt="N"     description="취소패스워드" />
+		<!-- 취소 History -->
+		<column name="CancelIP"           mode="AN"  size="15"   required="N" encrypt="N"     description="취소IP" />
+		<column name="CancelID"           mode="AN"  size="10"   required="N" encrypt="N"     description="취소요청자ID" />
+		<column name="CancelReqName"      mode="AH"  size="30"   required="N" encrypt="N"     description="취소요청자명" />
+		<column name="CancelServerName"   mode="AN"  size="10"   required="N" encrypt="N"     description="작업 서버명" />
+		<column name="NetCancelCode"      mode="AN"  size="1"    required="N" encrypt="N"     description="망상취소구분" />
+		<column name="PartialCancelCode"  mode="AN"  size="1"	 required="N" encrypt="N"	  description="부분취소여부"/>
+		<column name="SupplyAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"           mode="N"   size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+		<column name="ServiceAmt"         mode="N"   size="12"   required="N" encrypt="N"     description="봉사료"/>
+		<column name="CartType"           mode="N"   size="1"    required="N" encrypt="N"     description="장바구니 결제유형"/>
+		<column name="GiftCancelCode"     mode="AN"  size="1"    required="N" encrypt="N"     description="상품권취소구분" />
+		<column name="RefundAcctNo"		  mode="AN"	 size="16"	 required="N" encrypt="N"     description="환불계좌번호"/>
+		<column name="RefundBankCd"		  mode="AN"  size="3"	 required="N" encrypt="N"     description="환불은행코드"/>
+		<column name="RefundAcctNm"		  mode="AH"  size="10"   required="N" encrypt="N"     description="환불계좌주명"/> 
+		<column name="TaxFreeAmt" 		  mode="N" 	 size="12" 	 required="N" encrypt="N"	  description="면세금액" />
+		<column name="BondChkSkipCode"    mode="AN"  size="1"    required="N" encrypt="N"     description="채권방지 취소제한 SKIP여부"/>
+		<column name="CcPartRemainAmt"    mode="AN"   size="12"    required="N" encrypt="N"     description="부분취소 잔액"/> 
+		<column name="TransCl"            mode="AH"  size="2"    required="N" encrypt="N"     description="거래구분"/>
+		<column name="TrKey"              mode="AN"  size="30"   required="N" encrypt="N"     description="TrKey"/>
+	</message>
+
+	<message id="IPGC2" version="NPG01" description="취소결과">
+		<column name="CancelAmt"          mode="N"   size="12"   required="Y" encrypt="N"     description="취소 금액" />
+		<column name="CancelDate"         mode="N"   size="8"    required="Y" encrypt="N"     description="취소 일자" />
+		<column name="CancelTime"         mode="N"   size="6"    required="Y" encrypt="N"     description="취소 시간" />
+		<column name="CancelNum"          mode="N"   size="8"    required="Y" encrypt="N"     description="취소 번호" />
+		<column name="ResultCode"         mode="AN"  size="10"   required="Y" encrypt="N"     description="결과코드" />
+		<column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+		<column	name="RemainAmt"          mode="N"   size="12"   required="Y" encrypt="N"     description="취소후 잔액" />
+		<column name="CancelAuthCode"     mode="AN"  size="30"   required="N" encrypt="N"     description="취소승인번호" />
+		<column name="CouponAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="쿠폰금액"/>
+	</message>
+
+	<message id="CPR01" version="NPG01" description="휴대폰결제 상품등록 요청" />
+
+
+
+	<message id="CPR02" version="NPG01" description="휴대폰결제 상품등록 응답">
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="" />
+		<column name="ResultMsg"          mode="AN"  size="200"  required="Y" encrypt="N"     description="" />
+		<dynamic name="ServerInfoLength"  mode="N"   size="5"    required="Y" encrypt="N"     description="다날거래UNIQKEY 길이">
+			<column name="ServerInfo"     mode="AN"  size="0"    required="Y" encrypt="N"     description="다날거래UNIQKEY" />
+		</dynamic>
+	</message>
+
+
+	<message id="CPD01" version="NPG01" description="휴대폰결제 1차인증 요청">
+		<dynamic name="ServerInfoLength"  mode="N"   size="5"    required="Y" encrypt="N"     description="다날거래UNIQKEY 길이">
+			<column name="ServerInfo"     mode="AN"  size="0"    required="Y" encrypt="N"     description="다날거래UNIQKEY" />
+		</dynamic>
+		<column name="DstAddr"            mode="AN"  size="14"   required="Y" encrypt="N"     description="" />
+		<column name="Iden"               mode="AN"  size="13"   required="Y" encrypt="N"     description="" />
+		<column name="Carrier"            mode="AN"  size="10"   required="Y" encrypt="N"     description="" />
+		<column name="Email"              mode="AN"  size="50"   required="Y" encrypt="N"     description="" />
+		<dynamic name="EncodedTIDLength"  mode="N"   size="3"    required="Y" encrypt="N"     description="">
+			<column name="EncodedTID"     mode="N"   size="0"    required="Y" encrypt="N"     description="" />
+		</dynamic>
+
+	</message>
+
+	<message id="CPD02" version="NPG01" description="휴대폰결제 1차인증 응답">
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="" />
+		<column name="ResultMsg"          mode="AN"  size="200"  required="Y" encrypt="N"     description="" />
+		<column name="Cap"                mode="N"   size="13"   required="Y" encrypt="N"     description="" />
+	</message>
+
+	<message id="CPE01" version="NPG01" description="휴대폰결제 2차인증 요청">
+		<dynamic name="ServerInfoLength"  mode="N"   size="5"    required="Y" encrypt="N"     description="다날거래UNIQKEY 길이">
+			<column name="ServerInfo"     mode="AN"  size="0"    required="Y" encrypt="N"     description="다날거래UNIQKEY" />
+		</dynamic>
+		<column name="SmsOTP"             mode="AN"  size="6"    required="Y" encrypt="N"     description="" />
+	</message>
+
+	<message id="CPE02" version="NPG01" description="휴대폰결제 2차인증 응답">
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="" />
+		<column name="ResultMsg"          mode="AN"  size="200"  required="Y" encrypt="N"     description="" />
+		<dynamic name="EncodedTIDLength"  mode="N"   size="3"    required="Y" encrypt="N"     description="">
+			<column name="EncodedTID"     mode="N"   size="0"    required="Y" encrypt="N"     description="" />
+		</dynamic>
+	</message>
+
+	<message id="CPF01" version="NPG01" description="휴대폰결제 내역확인 요청">
+		<dynamic name="ServerInfoLength"  mode="N"   size="5"    required="Y" encrypt="N"     description="다날거래UNIQKEY 길이">
+			<column name="ServerInfo"     mode="AN"  size="0"    required="Y" encrypt="N"     description="다날거래UNIQKEY" />
+		</dynamic>
+		<dynamic name="EncodedTIDLength"  mode="N"   size="3"    required="Y" encrypt="N"     description="">
+			<column name="EncodedTID"     mode="N"   size="0"    required="Y" encrypt="N"     description="" />
+		</dynamic>
+	</message>
+
+	<message id="CPF02" version="NPG01" description="휴대폰결제 내역확인 응답">
+		<column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="" />
+		<column name="ResultMsg"          mode="AN"  size="200"  required="Y" encrypt="N"     description="" />
+		<column name="Cap"                mode="N"   size="13"   required="Y" encrypt="N"     description="" />
+		<column name="TotalAmount"        mode="N"   size="13"   required="Y" encrypt="N"     description="" />
+		<column name="CPTID"              mode="AN"  size="40"   required="Y" encrypt="N"     description="" />
+	</message>
+	
+	
+	<message id="FER01" version="NPG01" description="에스크로 배송정보등록요청">
+		<column name="DeliveryCoNm" 	  mode="AH"	 size="30"	 required="Y" encrypt="N"	  description="택배사이름"/>
+		<column name="InvoiceNum" 		  mode="AN"	 size="30"	 required="Y" encrypt="N"	  description="운송장번호"/>
+		<column name="RegisterName"		  mode="AN"	 size="10"   required="Y" encrypt="N"	  description="등록요청자명"/>
+	</message>
+	
+	<message id="FER02" version="NPG01" description="에스크로 배송정보등록응답">
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+      <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+      <column name="RegisterDate"		  mode="AN"	 size="8"	 required="Y" encrypt="N"     description="배송등록처리일자"/>
+      <column name="RegisterTime"		  mode="AN"	 size="6"	 required="Y" encrypt="N"     description="배송등록처리시간"/>
+	</message>
+	
+	
+	<message id="FED01" version="NPG01" description="에스크로 구매결정요청">
+	</message>
+	
+	<message id="FED02" version="NPG01" description="에스크로 구매결정응답">
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+      <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+      <column name="BuyApprovalDate"	  mode="AN"	 size="8"	 required="Y" encrypt="N"     description="구매결정처리일자"/>
+      <column name="BuyApprovalTime"	  mode="AN"	 size="6"	 required="Y" encrypt="N"     description="구매결정처리시간"/>	
+	</message>
+	
+	
+	<message id="FEF01" version="NPG01" description="에스크로 구매거절요청">
+	  <column name="RejectDesc"           mode="AH"  size="100"  required="Y" encrypt="N"     description="거절사유"/>
+      <column name="RefundAccount"        mode="AN"  size="20"   required="Y" encrypt="N"     description="환불계좌번호" />
+      <column name="RefundBankCode"       mode="AN"  size="3"    required="Y" encrypt="N"     description="환불계좌은행코드" />
+      <column name="RefundName"           mode="AH"  size="20"   required="Y" encrypt="N"     description="환불계좌주명" />
+	</message>
+	
+	<message id="FEF02" version="NPG01" description="에스크로 구매거절응답">
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+      <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+      <column name="BuyRejectDate"		  mode="AN"	 size="8"	 required="Y" encrypt="N"     description="구매거절처리일자"/>
+      <column name="BuyRejectTime"		  mode="AN"	 size="6"	 required="Y" encrypt="N"     description="구매거절처리시간"/>	
+	</message>
+	
+	
+	<message id="FCH01" version="NPG01" description="현금영수증 발급요청">
+		<column name="ReceiptAmt"         mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 총금액" />
+		<column name="ReceiptSupplyAmt"   mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 공급가액" />
+		<column name="ReceiptVAT"         mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 부가세" />
+		<column name="ReceiptServiceAmt"  mode="N"   size="12"   required="Y" encrypt="N"     description="현금영수증 봉사료" />
+		<column name="ReceiptType"        mode="AN"  size="1"    required="Y" encrypt="N"     description="현금영수증 용도구분" />
+		<column name="ReceiptTypeNo"      mode="AN"  size="20"   required="N" encrypt="N"     description="현금영수증 발급번호" />
+		<dynamic name="DataLen"           mode="N"   size="5"    encrypt="N"  required="Y"    description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    encrypt="N"  required="N"    description="암호화데이터" />
+		</dynamic>
+		<column name="ReceiptSubNum"      mode="AN"  size="10"   required="N" encrypt="N"     description="현금영수증 서브몰 사업자번호" />
+		<column name="ReceiptSubCoNm"     mode="AN"  size="40"   required="N" encrypt="N"     description="현금영수증 서브몰 상호"/>
+        <column name="ReceiptSubBossNm"   mode="AN"  size="20"   required="N" encrypt="N"     description="현금영수증 서브몰 대표자명"/>
+        <column name="ReceiptSubTel"      mode="AN"  size="16"   required="N" encrypt="N"     description="현금영수증 서브몰 전화번호"/>
+        <column name="ReceiptTaxFreeAmt"  mode="N"   size="12"   required="N" encrypt="N" 	  description="현금영수증 면세금액" /> 
+	</message>
+	
+	<message id="FCH02" version="NPG01" description="현금영수증 발급결과">
+	   <column name="AuthDate"            mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+       <column name="AuthCode"            mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호"/>
+       <column name="ResultCode"          mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+       <column name="ResultMsg"           mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>       
+	</message>
+	
+	
+	<message id="FBG01" version="NPG01" description="신용카드 빌키 발급 요청">
+	    <column name="CardNo"             mode="AN"  size="16"   required="Y" encrypt="N"     description="카드번호"/>
+        <column name="ExpYear"            mode="AN"  size="4"    required="Y" encrypt="N"     description="카드유효년"/>
+        <column name="ExpMonth"           mode="AN"  size="4"    required="Y" encrypt="N"     description="카드유효월"/>
+        <column name="IDNo"               mode="AN"  size="13"   required="Y" encrypt="N"     description="주민번호"/>
+        <column name="CardPw"             mode="AN"  size="4"    required="Y" encrypt="N"     description="카드비밀번호"/>
+        <!-- 암호화 -->
+		<dynamic name="DataLen"           mode="N"   size="5"    required="Y" encrypt="N"     description="암호화데이터 길이">
+			<column name="EncryptData"    mode="AH"  size="0"    required="Y" encrypt="N"     description="암호화데이터" />
+		</dynamic>
+		<column name="CancelFlg"          mode="AN"   size="1"    required="N" encrypt="N"	description="취소여부"/>
+		<column name="BID"                mode="AN"   size="30"   required="N" encrypt="N"	description="빌키"/>
+    </message>
+
+    <message id="FBG02" version="NPG01" description="신용카드 빌키 발급 요청 결과">
+        <column name="BID"                mode="AN"  size="30"   required="N" encrypt="N"     description="빌키"/>
+        <column name="AuthDate"           mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+        <column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+        <column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+        <column name="CardCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="카드사코드"/>
+        <column name="CardName"           mode="AN"  size="20"   required="Y" encrypt="N"     description="카드사명"/>
+        <column name="CardNo"             mode="AN"  size="16"   required="Y" encrypt="N"     description="카드번호"/>
+        <column name="ExpYear"            mode="AN"  size="4"    required="Y" encrypt="N"     description="카드유효년"/>
+        <column name="ExpMonth"           mode="AN"  size="4"    required="Y" encrypt="N"     description="카드유효월"/>
+        <column name="CardPw"             mode="AN"  size="4"    required="Y" encrypt="N"     description="카드비밀번호"/>
+        <column name="CardCl"             mode="AN"  size="1"    required="Y" encrypt="N"     description="체크카드 여부"/>
+    </message>
+    
+    <message id="FBR01" version="NPG01" description="신용카드 실시간 빌링 요청">
+        <column name="BillKey"            mode="AN"  size="30"   required="Y" encrypt="N"     description="빌키"/>
+        <column name="CardInterest"       mode="AN"  size="1"    required="Y" encrypt="N"     description="무이자여부"/>
+        <column name="CardQuota"          mode="AN"  size="2"    required="Y" encrypt="N"     description="할부개월"/>
+        <column name="SupplyAmt"          mode="N"   size="12"   required="N" encrypt="N"     description="공급가액"/>
+        <column name="GoodsVat"           mode="N"   size="12"   required="N" encrypt="N"     description="부가가치세"/>	
+        <column name="ServiceAmt"         mode="N"   size="12"   required="N" encrypt="N"     description="봉사료"/>
+        <column name="CartCnt"            mode="N"    size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+        <dynamic name="CartLen"           mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+        </dynamic>
+        <column name="IDNo"               mode="AN"  size="13"   required="N" encrypt="N"     description="주민번호"/>
+        <column name="CardPw"             mode="AN"  size="4"    required="N" encrypt="N"     description="카드비밀번호"/>
+    </message>
+
+    <message id="FBR02" version="NPG01" description="신용카드 실시간 빌링 요청 결과">
+ 		<column name="MID"                mode="AN"  size="10"   required="N" encrypt="N"     description="상점ID"/>
+        <column name="Amt"                mode="N"   size="12"   required="Y" encrypt="N"     description="금액"/>
+        <column name="BuyerName"          mode="AH"  size="10"   required="Y" encrypt="N"     description="결제자명"/>
+        <column name="GoodsName"          mode="AH"  size="40"   required="Y" encrypt="N"     description="상품명"/>
+        <column name="OID"                mode="AN"  size="100"  required="N" encrypt="N"     description="주문번호"/>
+        <column name="PayMethod"          mode="AN"  size="10"   required="Y" encrypt="N"     description="지불수단"/>
+        <column name="AuthDate"           mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+        <column name="AuthCode"           mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호"/>
+        <column name="ResultCode"         mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드"/>
+        <column name="ResultMsg"          mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+        <column name="CardCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="카드사코드"/>
+        <column name="CardName"           mode="AN"  size="20"   required="Y" encrypt="N"     description="카드사명"/>
+        <column name="AcquCardCode"       mode="AN"  size="4"    required="Y" encrypt="N"     description="매입카드사코드"/>
+        <column name="AcquCardName"       mode="AN"  size="20"   required="Y" encrypt="N"     description="매입카드사명"/>
+        <column name="CardInterest"       mode="AN"  size="1"    required="Y" encrypt="N"     description="무이자여부"/>
+        <column name="CardQuota"          mode="AN"  size="2"    required="Y" encrypt="N"     description="할부개월"/>
+        <column name="CardCl"             mode="AN"  size="1"    required="Y" encrypt="N"     description="체크카드여부"/>
+        <dynamic name="CartLen"           mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"       mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터" />
+        </dynamic>
+        <column name="CardNo"             mode="AN"   size="20"   required="N" encrypt="N"    description="카드번호"/>
+    </message>
+	
+	<message id="FGP01" version="NPG01" description="상품권 회수,잔액조회,충전 승인 요청">
+	  <column name="TransCl"              mode="AH"  size="2"    required="Y" encrypt="N"     description="거래구분" />
+	  <column name="GiftStampNo"          mode="AH"  size="30"   required="Y" encrypt="N"     description="전자상품권 번호" />
+	  <column name="ScratchNo"            mode="AH"  size="15"   required="Y" encrypt="N"     description="스크래치 번호" /> 
+	  <column name="OrgTid"               mode="AN"  size="30"   required="N" encrypt="N"     description="결제거래 TID" />
+	  <column name="OrgSvcCd"             mode="AN"  size="2"    required="N" encrypt="N"     description="결제거래 지불수단" />
+	  <column name="OrgSvcPrdtCd"         mode="AN"  size="2"    required="N" encrypt="N"     description="결제거래 Sub지불수단" />
+	  <column name="FnCd"                 mode="AN"  size="5"    required="N" encrypt="N"     description="제휴사코드" />
+	  <column name="TrKey"                mode="AN"  size="30"   required="N" encrypt="N"     description="TrKey" />
+  	</message>
+	<message id="FGP02" version="NPG01" description="상품권 회수,잔액조회,충전 승인 응답">
+	  <column name="AuthDate"             mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+      <column name="AuthCode"             mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호"/> 
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" /> 
+	  <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+	  <column name="RemainAmt"            mode="N"   size="12"   required="Y" encrypt="N"     description="상품권 잔액" /> 
+	</message>
+	
+	<!-- 
+	<message id="FGQ01" version="NPG01" description="상품권 잔액조회 요청">
+	  <column name="GiftStampNo"          mode="AH"  size="30"   required="Y" encrypt="N"     description="전자상품권 번호" /> 
+	  <column name="ScratchNo"            mode="AN"  size="15"   required="Y" encrypt="N"     description="스크래치번호" /> 
+	</message>
+	<message id="FGQ02" version="NPG01" description="상품권 잔액조회 응답">
+	  <column name="AuthDate"             mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+      <column name="AuthCode"             mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호"/> 
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" /> 
+	  <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" /> 
+	  <column name="RemainAmt"            mode="N"   size="12"   required="Y" encrypt="N"     description="상품권 잔액" /> 
+	</message>
+	
+	<message id="FGC01" version="NPG01" description="상품권 충전 요청">
+	  <column name="GiftStampNo"          mode="AH"  size="30"   required="Y" encrypt="N"     description="전자상품권 번호" /> 
+	  <column name="ScratchNo"            mode="AN"  size="15"   required="Y" encrypt="N"     description="스크래치번호" /> 
+	  <column name="GiftCurrencyCode"     mode="AN"  size="2"    required="Y" encrypt="N"     description="상품권 권종코드" />
+	  <column name="OrgTid"               mode="AN"  size="30"   required="Y" encrypt="N"     description="결제거래 TID" />
+	  <column name="OrgSvcCd"             mode="AN"  size="2"    required="Y" encrypt="N"     description="결제거래 지불수단" />
+	  <column name="OrgSvcPrdtCd"         mode="AN"  size="2"    required="Y" encrypt="N"     description="결제거래 Sub지불수단" />
+	</message>
+	<message id="FGC02" version="NPG01" description="상품권 충전 응답">
+	  <column name="AuthDate"             mode="AN"  size="12"   required="Y" encrypt="N"     description="승인일자"/>
+      <column name="AuthCode"             mode="AN"  size="30"   required="Y" encrypt="N"     description="승인번호"/> 
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" /> 
+	  <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" /> 
+	  <column name="RemainAmt"            mode="N"   size="12"   required="Y" encrypt="N"     description="상품권 잔액" /> 
+	</message>
+	-->
+	
+	
+	<message id="FEC01" version="NPG01" description="Front부가서비스 요청">
+	  <column name="ServiceCl"            mode="AH"  size="2"    required="Y" encrypt="N"     description="서비스구분" />
+	  <column name="ReqCode1"             mode="AH"  size="30"   required="N" encrypt="N"     description="요청코드1" />
+	  <column name="ReqCode2"             mode="AH"  size="30"   required="N" encrypt="N"     description="요청코드2" />
+  	</message>
+	<message id="FEC02" version="NPG01" description="Front부가서비스 응답">
+	  <column name="ServiceCl"            mode="AH"  size="2"    required="Y" encrypt="N"     description="서비스구분" />
+	  <column name="ServiceNm"            mode="AH"  size="30"   required="Y" encrypt="N"     description="서비스명" />
+	  <column name="ResultCode"           mode="AN"  size="4"    required="Y" encrypt="N"     description="결과코드" /> 
+	  <column name="ResultMsg"            mode="AH"  size="100"  required="Y" encrypt="N"     description="결과메시지" />
+	  <column name="RepValue1"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값1" />
+	  <column name="RepValue2"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값2" />
+	  <column name="RepValue3"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값3" />
+	  <column name="RepValue4"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값4" />
+	  <column name="RepValue5"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값5" />
+	  <column name="RepValue6"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값6" />
+	  <column name="RepValue7"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값7" />
+	  <column name="RepValue8"            mode="AH"  size="30"   required="N" encrypt="N"     description="응답값8" />
+	</message>
+	
+	<message id="FCC01" version="NPG01" description="수동매입 요청">	
+	  <column name="amt"            	 mode="AH"  size="14"   required="Y" encrypt="Y"     description="거래금액"/>
+	  <column name="acuq_dt"             mode="AH"  size="8"    required="Y" encrypt="Y"     description="매입요청일자"/>
+	  <column name="moid"            	 mode="AH"  size="40"   required="N" encrypt="Y"     description="거래구분"/>
+	  <column name="state_cd"            mode="AH"  size="2"    required="N" encrypt="Y"     description="자동부분취소 TID"/>
+	  <column name="auto_cc_part_flg"    mode="AH"  size="1"    required="N" encrypt="Y"     description="자동부분취소여부"/>
+	  <column name="cc_part_tid"         mode="AH"  size="30"   required="N" encrypt="Y"     description="부분취소 TID"/>
+	  <column name="cc_part_amt"         mode="AH"  size="14"   required="N" encrypt="Y"     description="부분취소 금액"/>
+	  <column name="result_cd"           mode="AH"  size="4"    required="N" encrypt="Y"     description="응답코드"/>
+	  <column name="result_msg"          mode="AH"  size="200"  required="N" encrypt="Y"     description="응답메시지"/>
+	  <column name="reserved"            mode="AH"  size="42"   required="N" encrypt="Y"     description="예약필드"/>	  
+  	</message>
+  	
+	<message id="FCC02" version="NPG01" description="수동매입 결과">	
+	  <column name="amt"            	 mode="AH"  size="14"   required="Y" encrypt="Y"     description="거래금액"/>
+	  <column name="acuq_dt"             mode="AH"  size="8"    required="Y" encrypt="Y"     description="매입요청일자"/>
+	  <column name="moid"            	 mode="AH"  size="40"   required="N" encrypt="Y"     description="거래구분"/>
+	  <column name="state_cd"            mode="AH"  size="2"    required="N" encrypt="Y"     description="자동부분취소 TID"/>
+	  <column name="auto_cc_part_flg"    mode="AH"  size="1"    required="N" encrypt="Y"     description="자동부분취소여부"/>
+	  <column name="cc_part_tid"         mode="AH"  size="30"   required="N" encrypt="Y"     description="부분취소 TID"/>
+	  <column name="cc_part_amt"         mode="AH"  size="14"   required="N" encrypt="Y"     description="부분취소 금액"/>
+	  <column name="result_cd"           mode="AH"  size="4"    required="N" encrypt="Y"     description="응답코드"/>
+	  <column name="result_msg"          mode="AH"  size="200"  required="N" encrypt="Y"     description="응답메시지"/>
+	  <column name="reserved"            mode="AH"  size="42"   required="N" encrypt="Y"     description="예약필드"/>	  
+  	</message>
+	
+	<!-- SSG직불 통신전문 : 요청전문 -->
+    <message id="FSB01" version="NPG01" description="은행직불 계좌이체요청">
+		<!-- 계좌이체 -->
+		<column name="BankCode"          mode="AN"   size="4"    required="N" encrypt="N"     description="은행코드"/>
+		<column name="BankName"          mode="AN"   size="30"   required="N" encrypt="N"     description="은행사명"/>
+		<column name="BankAccount"       mode="AN"   size="20"   required="N" encrypt="N"     description="계좌번호"/>
+		<column name="BankAccountName"   mode="AH"   size="30"   required="N" encrypt="N"     description="계좌예금주"/>
+		<column name="BankParameter"     mode="AN"   size="12"   required="N" encrypt="N"     description="통장인자"/>
+		<!-- 현금영수증 -->
+		<column name="ReceiptAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 총금액"/>
+		<column name="ReceiptSupplyAmt"  mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 공급가액"/>
+		<column name="ReceiptVAT"        mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 부가세"/>
+		<column name="ReceiptServiceAmt" mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 봉사료"/>
+    	<column name="ReceiptTaxFreeAmt" mode="N"    size="12"   required="N" encrypt="N"     description="현금영수증 면세금액"/>
+		<column name="ReceiptType"       mode="AN"   size="1"    required="N" encrypt="N"     description="현금영수증 용도구분"/>
+		<column name="ReceiptTypeNo"     mode="AN"   size="20"   required="N" encrypt="N"     description="현금영수증 ID번호"/>
+		<column name="ReceiptSubNum"     mode="AN"   size="10"   required="N" encrypt="N"     description="현금영수증 서브몰 사업자번호"/>
+		<!-- 암호화 -->
+		<dynamic name="DataLen"          mode="N"    size="5"    encrypt="N" required="Y"     description="암호화데이터 길이">
+			<column name="EncryptData"   mode="AH"   size="0"    encrypt="N" required="N"     description="암호화데이터"/>
+		</dynamic>
+		<column name="TransType"         mode="AN"   size="2"    required="N" encrypt="N"     description="거래형태"/>
+		<column name="TrKey"             mode="AN"   size="30"   required="N" encrypt="N"     description="TrKey"/>
+		<column name="SupplyAmt"         mode="N"    size="12"   required="N" encrypt="N"     description="공급가액"/>
+		<column name="GoodsVat"          mode="N"    size="12"   required="N" encrypt="N"     description="부가가치세"/>
+		<column name="ServiceAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="봉사료"/>
+    	<column name="TaxFreeAmt"        mode="N"    size="12"   required="N" encrypt="N"     description="면세금액"/>
+		<column name="CartCnt"           mode="N"    size="2"    required="N" encrypt="N"     description="장바구니 갯수"/>
+    	<dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터"/>
+    	</dynamic>
+    	<column name="FnCd"              mode="AN"   size="5"    required="N" encrypt="N"     description="제휴사코드"/>
+    	<column name="BarCd"             mode="AN"   size="40"   required="N" encrypt="N"     description="바코드"/>
+	</message>
+
+	<!-- SSG직불 통신전문 : 응답전문 -->
+	<message id="FSB02" version="NPG01" description="은행직불 계좌이체응답">
+		<column name="AuthDate"          mode="AN"   size="12"   required="Y" encrypt="N"     description="승인일자"/>
+		<column name="AuthCode"          mode="AN"   size="30"   required="Y" encrypt="N"     description="승인번호"/>
+		<column name="ResultCode"        mode="AN"   size="4"    required="Y" encrypt="N"     description="결과코드"/>
+		<column name="ResultMsg"         mode="AH"   size="100"  required="Y" encrypt="N"     description="결과메시지"/>
+		<column name="BankCode"          mode="AH"   size="3"    required="Y" encrypt="N"     description="결제은행코드"/>
+		<column name="BankName"          mode="AH"   size="20"   required="Y" encrypt="N"     description="결제은행명"/>
+		<column name="RcptType"          mode="N"    size="1"    required="Y" encrypt="N"     description="현금영수증 구분"/>
+		<column name="RcptTID"           mode="AN"   size="30"   required="Y" encrypt="N"     description="현금영수증 TID"/>
+		<column name="RcptAuthCode"      mode="AN"   size="30"   required="Y" encrypt="N"     description="현금영수증 승인번호"/>
+		<dynamic name="CartLen"          mode="N"    size="5"    required="N" encrypt="N"     description="장바구니 길이">
+            <column name="CartData"      mode="AH"   size="0"    required="N" encrypt="N"     description="장바구니 데이터"/>
+    	</dynamic>    	
+    	<column name="FnCd"              mode="AN"   size="5"    required="N" encrypt="N"     description="제휴사코드"/>
+	</message>
+</message-list>

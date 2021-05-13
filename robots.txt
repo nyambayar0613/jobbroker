@@ -1,0 +1,11 @@
+User-agent: * 
+Disallow: /_helpers/
+Disallow: /404/
+Disallow: /css/
+Disallow: /data/
+Disallow: /engine/
+Disallow: /images/
+Disallow: /include/
+Disallow: /member/
+Disallow: /modules/
+Disallow: /nad/

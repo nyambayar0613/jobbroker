@@ -1,0 +1,201 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var sdate = "<?php echo $sdate;?>", edate = "<?php echo $edate;?>";
+var chart_path = "<?php echo $alice['modules_path'];?>/chart/chart";
+$(function(){
+	/*
+	$('.google_analytics').each(function(){
+		var load_id = $(this).attr('id');
+		var mode = $(this).attr('mode'), kind = $(this).attr('kind');
+		//$.post('./process/google_ajax.php', { mode:mode, kind:kind, sdate:sdate, edate:edate }, function(result){
+		//$('#'+load_id).load('./process/google_ajax.php', { mode:mode, kind:kind, sdate:sdate, edate:edate }, function(result){
+			//alert(result);
+		//});
+	});
+	*/
+});
+</script>
+<script type="text/javascript" src="<?php echo $alice['modules_path'];?>/chart/chart/js/swfobject.js"></script>
+<script type="text/javascript" src="./views/google_analytics.js"></script>
+<?php
+//echo $statistics_control->google_draw('landing_chart', $sdate, $edate, 'landingPagePath', "100%", 450);
+?>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+구글(Google) API 연동을 통하여 Google analytics 에서 데이터를 추출하여 보여줍니다.<br> 
+구글 API 는 <a href="http://www.google.com/analytics/" target="_blank">http://www.google.com/analytics/</a> 에서 발급 받으시면 됩니다.<br> 
+발급 받으신 정보를 <a href="../config/#google_analytics">기본정보</a> 하단에 입력해 주시면 연동 설정이 완료 됩니다.<br/>
+아래에 출력되는 통계 자료들은 <a href="http://www.google.com/analytics/" target="_blank">Google analytics</a> 에서도 확인 가능합니다.
+</dl></dl>
+
+<?php 
+	include_once "./views/_include/google.php";
+	include_once "./views/_include/search_date.php"; 
+	
+	if($type=='page'){	// 페이지 통계
+?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">랜딩(도착) 페이지 현황
+		<span>사이트 첫 방문 페이지 URL Page 통계 입니다.</span>
+	</dl>
+	<dl class="mt10 tc">
+		<?php echo $statistics_control->draw_chart('landingPagePath', 'bar', 1200, 600, $loading); ?>
+		<!-- <div id="landing_chart" class="chart" mode="landing_chart" kind="landingPagePath" style="width:100%;height:500px;"><?//php echo $loading;?></div> -->
+	</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">많이 열린 페이지 현황</dl>
+	<dl class="mt10 tc">
+		<dl class="mt10 tc">
+			<?php echo $statistics_control->draw_chart('pagePath', 'bar', 1200, 600, $loading); ?>
+			<!-- <div id="pagepath_chart" class="google_analytics" mode="landing_chart" kind="pagePath" style="width:100%;height:500px;"><?php echo $loading;?></div> -->
+		</dl>
+	</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">많이 이탈한 페이지 현황</dl>
+	<dl class="mt10 tc">
+		<dl class="mt10 tc">
+			<?php echo $statistics_control->draw_chart('exitPagePath', 'bar', 1200, 600, $loading); ?>
+			<!-- <div id="exitPagePath_chart" class="google_analytics" mode="landing_chart" kind="exitPagePath" style="width:100%;height:500px;"><?php echo $loading;?></div> -->
+		</dl>
+	</dl>
+<?php } else if($type=='system'){	 // 시스템 통계 ?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">브라우저 / 버전</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>브라우저</td>
+		<td>브라우저 버전</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('browser', 'pie', 750, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="browser" id="browser"><?php echo $loading;?></div> -->
+		</td>
+		<td class="e">
+			<?php echo $statistics_control->draw_chart('browserVersion', 'pie', 750, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="browserVersion" id="browser_version"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+	<br/>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">운영체제 / 버전</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>운영체제</td>
+		<td>운영체제 버전</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('operatingSystem', 'pie', 750, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="operatingSystem" id="operating"><?php echo $loading;?></div> -->
+		</td>
+		<td class="e">
+			<?php echo $statistics_control->draw_chart('operatingSystemVersion', 'pie', 750, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="operatingSystemVersion" id="operating_version"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+	<br/>
+	<dl class="ntlt lnb_col"></dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>ISP 제공업체 정보</td>
+		<td>접속자 모니터 해상도</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('networkLocation', 'pie', 750, 500, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="networkLocation" id="network_location"><?php echo $loading;?></div> -->
+		</td>
+		<td class="e" rowspan="2">
+			<?php echo $statistics_control->draw_chart('screenResolution', 'pie', 750, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="screenResolution" id="screen_resolution"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('networkDomain', 'pie', 750, 500, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="networkDomain" id="network_domain"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+<?php } else {	 // 접속 통계 ?>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">구글 API 통계</dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>접속자 수</td>
+		<td>접속 경로</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('date', 'area', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="area_chart" kind="date" id="visitors"><?//php echo $loading;?> -->
+		</div>
+		</td>
+		<td class="e">
+			<?php echo $statistics_control->draw_chart('source', 'pie', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="source" id="domain"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+	<br/>
+	<dl class="ntlt lnb_col"></dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>방문 형태(신규/재방문)</td>
+		<td>사용언어</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('visitorType', 'pie', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="visitorType" id="visitor_type"><?php echo $loading;?></div> -->
+		</td>
+		<td class="e">
+			<?php echo $statistics_control->draw_chart('language', 'bar', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="bar_chart" kind="language" id="language"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+	<br/>
+	<dl class="ntlt lnb_col"></dl>
+	<table width="100%" class="ttlt tf">
+	<tr class="bg">
+		<td>접속국가</td>
+		<td>지역</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('subContinent', 'pie', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="subContinent" id="connect_subcontain"><?php echo $loading;?></div> -->
+		</td>
+		<td class="e" rowspan="2">
+			<?php echo $statistics_control->draw_chart('city', 'pie', 730, 600, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="city" id="connect_city"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	<tr class="num3">
+		<td>
+			<?php echo $statistics_control->draw_chart('country', 'pie', 730, 300, $loading); ?>
+			<!-- <div class="google_analytics" mode="pie_chart" kind="country" id="connect_country"><?php echo $loading;?></div> -->
+		</td>
+	</tr>
+	</table>
+<?php
+	}
+?>
+</table>
+</td>
+</tr>
+</table>
+
+<script type="text/javascript"> google_analytics.load(); </script>
+
+<?php include_once "../include/tail.php";?>

@@ -1,0 +1,294 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var update_resume = function( mode, no ){	 // 입력/수정
+	
+	$('#pop_info').load('./views/_load/resume.php', { mode:mode, no:no }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#memberFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		$('#add_form #wr_volume_dates').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#add_form #volume_date_sels').click(function(){
+			$('#add_form #wr_volume_dates').datepicker('show');
+		});
+
+		var albaFrm_options = { beforeSubmit : albaRequest, success : albaResponse }
+		$('#ResumeFrm').ajaxForm(albaFrm_options);
+
+	});
+
+}
+var albaRequest = function(formData, jqForm, albaFrm_options){
+	<?php echo $utility->input_cheditor('wr_introduce');?>
+	return true;
+}
+var albaResponse = function(responseText, statusText, xhr, $form){
+	if(responseText=='success'){
+		//alert("<?php echo $alba_resume_control->_success('0000');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $alba_resume_control->_errors('0000');?>");
+	}
+	
+}
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./resume_report.php?"+send_url+"&page_rows=" + sel;
+}
+var delete_resume = function( no ){	// 이력서 삭제 (단순)
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>이력서를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '이력서 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_resume = function(){	// 이력서 선택 삭제 (복수)
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 이력서를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 이력서 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '이력서 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var recover_resume = function( no ){	// 복구하기 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("선택하신 신고 인력서를 복구 하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'recover\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '신고 인력서 복구',
+		showOverlay: false,
+		message: $('#question')
+	});	
+}
+var sel_recover_resume = function( ){
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('복구할 인력서를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 인력서 "+chk_length+"건을 복구 하시겠습니까?");
+		var re_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			re_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_recover\',\''+re_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '선택 신고 공고 복구',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 신고 이력서 복구 (단수)
+			case 'recover':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_resume_control->_errors('0004');?>");
+					}
+				});
+			break;
+			// 신고 이력서 선택 복구 (복수)
+			case 'sel_recover':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_resume_control->_errors('0004');?>");
+					}
+				});
+			break;
+			// 이력서 삭제 (단수)
+			case 'delete':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_resume_control->_errors('0002');?>");
+					}
+				});
+			break;
+			// 이력서 선택 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_resume_control->_errors('0002');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+신고된 이력서를 확인가능 하고 수정, 삭제, 복구 등을 관리 하실 수 있습니다.<br/>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">신고 이력서 관리
+	<span>총 <b class="num3 col"><?php echo number_format($resume_list['total_count']);?></b>건이 신고되었습니다.</span>
+	<dt>
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+</dl>
+<dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택복구</h1></a>
+		<!-- <a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a> -->
+	</dt>
+</dl>
+
+<table width="100%" class="ttlt">
+<col width="2%"><col width="5%"><col width="5%"><col width="12%"><col ><col width="10%"><col width="18%"><col width="8%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>등록구분</td>
+	<td>회원등급</td>
+	<td>이름/성별/나이/아이디</td>
+	<td>이력서</td>
+	<td>신고일</td>
+	<td>신고사유</td>
+	<td>편집</td>
+</tr>
+
+<tbody id="resume_list">
+<?php if(!$resume_list['total_count']){ ?>
+<tr><td colspan="18" class="stlt"></td></tr>
+<?php } else { 
+	foreach($resume_list['result'] as $val){
+	$wr_id = $val['wr_id'];
+	$mb_info = $member_control->get_member($wr_id);	// 기본 회원정보
+	if($val['wr_is_admin']){
+		$is_admin = $mb_level = "<span style='color:#dfdfdf;'>관리자</span>";
+	} else {
+		$is_admin = "사용자";
+		$mb_level = $member_control->get_level($mb_info['mb_level']);
+	}
+	$wr_subject = stripslashes($val['wr_subject']);
+	$wr_gender = $alba_resume_control->gender_val[$val['wr_gender']];	// 성별
+	$wr_age = $member_control->get_age($mb_info['mb_birth']);
+	$wr_wdate = strtr(substr($val['wr_wdate'],0,11),'-','/');
+	$wr_udate = strtr(substr($val['wr_udate'],0,11),'-','/');
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><?php echo $is_admin;?></td>
+	<td><?php echo $mb_level;?></td>
+
+	<td class="tl">
+	<a onclick="pop_member('<?php echo $wr_id;?>');" class="b">
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:<?php echo $val['wr_id'];?></p>
+	</a>
+	</td>	
+	<td>
+		<a onclick="pop_info('<?php echo $val['no']?>','<?php echo $wr_id;?>');" class="b"><?php echo $wr_subject;?></a>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
+			<li>수정일 : <?php echo $wr_udate;?> </li>
+			<?php if($wr_volume_date){ ?><li>마감일 : ~<?php echo $volume_date;?></li><?php } ?>
+			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
+		</div>
+	</td>
+	<td><?php echo $val['wr_report_date'];?></td>
+	<td><?php echo $val['wr_report_content'];?></td>
+	<td>
+		<!-- <dt><a onClick="update_resume('update','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_26.gif"></a></dt>
+		<dt class='mt2'><a onClick="delete_resume('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_27.gif"></a></dt> -->
+		<dt class='mt2'><a onClick="recover_resume('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_21.gif"></a></dt>
+	</td>
+</tr>
+<?php 
+	}	// foreach end.
+}	// if end.
+?>
+</tbody>
+</table>
+
+<dl class="page">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택복구</h1></a>
+		<!-- <a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a> -->
+	</dt>
+</dl>
+
+<div id='pop_info'></div>
+
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>
+<?php include_once "../include/tail.php";?>

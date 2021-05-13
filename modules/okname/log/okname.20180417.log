@@ -1,0 +1,32 @@
+[2018-04-17 20:05:02.651] # OKNAME v3.70 start!<br>
+[2018-04-17 20:05:02.651] # mode=IPIN_CKEY<br>
+[2018-04-17 20:05:02.651] # argv[ 1](keypath    )=/home/mjob/public_html/.//modules/okname/okname.key<br>
+[2018-04-17 20:05:02.651] # argv[ 2](memid      )=V05280000000<br>
+[2018-04-17 20:05:02.651] # argv[ 3](reserved1  )=0<br>
+[2018-04-17 20:05:02.651] # argv[ 4](reserved2  )=0<br>
+[2018-04-17 20:05:02.651] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2018-04-17 20:05:02.651] # argv[ 6](logpath	)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-04-17 20:05:02.651] # argv[ 7](Option     )=CL<br>
+[2018-04-17 20:05:02.652] # Generating monthly key..
+[2018-04-17 20:05:02.657] pub1: AgIY2shZQ4nKsULUFZz6uYUTL5u0nw==
+[2018-04-17 20:05:02.657] pri1: AncK7oAi6EIjc9MUz21gTzz7d5Sh
+[2018-04-17 20:05:02.657] sig1: 3NzHk1YerF9Q1l/MuKODDw==
+[2018-04-17 20:05:02.657] # soap_timeout: 30000 ms<br>
+[2018-04-17 20:05:02.778] retmsg: AgVscA77WU2K5s1jhzw2v9zJNAculg==:zWGMB3pONpcN669N0jAEdA==:VC7WrX53t0TwVWLvg4Fd/mUGO/5K8Uk4DqJL9F8dgcB+SDOXy4hpLBNPkdJ8ZSgoyD4N0Gpa3bNEzELrVQ9jZkX3+bDLVUH3Eqm2UlbdSEiWffv9Mt0=
+[2018-04-17 20:05:02.778] pub3: AgVscA77WU2K5s1jhzw2v9zJNAculg==
+[2018-04-17 20:05:02.778] sig3: zWGMB3pONpcN669N0jAEdA==
+[2018-04-17 20:05:02.778] pub2pri2sig2: VC7WrX53t0TwVWLvg4Fd/mUGO/5K8Uk4DqJL9F8dgcB+SDOXy4hpLBNPkdJ8ZSgoyD4N0Gpa3bNEzELrVQ9jZkX3+bDLVUH3Eqm2UlbdSEiWffv9Mt0=
+[2018-04-17 20:05:02.779] srvSecurekey: AK74dlrLrH2aZhN1nTH+PUbSTziK
+[2018-04-17 20:05:02.779] decData: AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==:ArK4ieF0JuUGXBoQs0J0X3oGYdYZ:6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-17 20:05:02.803] # Current month<br>
+[2018-04-17 20:05:02.804] # public_key   : AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==<br>
+[2018-04-17 20:05:02.804] # private_key  : ArK4ieF0JuUGXBoQs0J0X3oGYdYZ<br>
+[2018-04-17 20:05:02.804] # signature    : 6O3GoBImPchE5E+RC9kjnQ==<br>
+[2018-04-17 20:05:02.804] # Last month<br>
+[2018-04-17 20:05:02.804] # public_key1  : AgCx4Yn0xTfLQEribBjfcE0aQDZaEw==<br>
+[2018-04-17 20:05:02.804] # private_key1 : A+4S9NGe5Hiad3jY+dTMoi+tgaJf<br>
+[2018-04-17 20:05:02.804] # signature1   : BrzNELspHfWY1/+XQHjHtQ==<br>
+[2018-04-17 20:05:02.805] AwbAQLZAIDkh6wE4MR+XKdZ4ijwM+A==
+[2018-04-17 20:05:02.805] 6O3GoBImPchE5E+RC9kjnQ==
+[2018-04-17 20:05:02.805] 20180417200502804599
+[2018-04-17 20:05:02.805] # final ret code=0<br>

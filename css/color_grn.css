@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+/*** 초록색 ***/
+
+/*** HEADER ***/
+.head_top{background:#27ae60}
+.gradient_img{background:#27ae60 url('../images/top_bar.png') repeat-x}
+.search_bar{background:#27ae60}
+
+/*** MAIN ***/
+/* images/title_icon01.png */
+section{border-top:2px solid #27ae60;}
+
+/* 박스 - 공통 */
+.cont_box .tit_ico{background:#27ae60}
+.paging a:hover{background:#27ae60;border:1px solid #27ae60}
+.paging a.active{background:#27ae60;border:1px solid #27ae60}
+
+/*검색버튼*/
+.schbtn_con .sch_bt2 button{background:#27ae60;}
+.schbtn_con .sch_button{border:1px solid #27ae60;color:#27ae60}
+
+/* 하단버튼 */
+.bottom_btn01{background:#27ae60;border:1px solid #27ae60;}
+.bottom_btn07{background:#27ae60;border:1px solid #27ae60;}
+
+/*** 상세페이지 ***/
+/* 공통 */
+.detail_con .tab1-con{border-bottom:1px solid #27ae60}
+.detail_con .tab1-con ul .active{background:#27ae60;}
+.detail_con .tab2-con{border-bottom:1px solid #27ae60}
+.detail_con .tab2-con ul .active{background:#27ae60;}
+
+/*** 마이페이지 ***/
+header .right_nav .nav_wrap{background:#27ae60}
+header .left_nav .nav_wrap{background:#27ae60}
+
+/* 개인 */
+.mypage_btn ul .active a{background:#27ae60;}
+
+/* 메뉴상단 */
+.nav_wrap .close_btn{background:#27ae60;}
+.nav_wrap .title_area{background:#27ae60;}
+.nav_wrap .id_area{background:#27ae60;}
+
+/* 서비스 신청 */
+.item_con h2 span{border-left:7px solid #27ae60;}
+
+/* 서비스 결제 */
+.pay_con{border-top: 2px solid #27ae60 !important;}
+
+/*** 광고안내 ***/
+.guide_tab ul li a.active{background:#27ae60}
+.guide_tab ul li{border:1px solid #27ae60}
+
+/*** 실시간 검색어 ***/
+.realtime_con{border:1px solid #27ae60 !important;}
+
+/*** 로그인 ***/
+.login_con .login_bt{background:#27ae60}
+
+/* 이력서 정보 */
+.tab-box h3{border-left:3px solid #27ae60}
+
+/* 검색결과 더보기 버튼 */
+.cont_box .text_box2 #sch_result_more{background:#27ae60;}
+
+/* 페이징 */
+.paging a:hover, .paging a.cycle-pager-active, .paging a.active{background:#27ae60;;border:1px solid #27ae60;}

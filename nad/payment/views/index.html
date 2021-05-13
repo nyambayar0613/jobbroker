@@ -1,0 +1,419 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+
+var page_rowss = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $pay_list['send_url'];?>";
+	location.href = "./index.php?"+send_url+"&page_rows=" + sel;
+}
+var sel_delete = function(){	// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 결제 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 결제정보는 복구가 불가능합니다.<br/><br/>선택하신 회원 정보"+chk_length+"건을 삭제 하시겠습니까?");
+
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '결제 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+
+	}
+
+}
+var sel_update = function(){	// 선택 일괄적용
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('일괄 적용할 결제 리스트를 선택해 주세요.');
+		return false;
+	} else {
+		$('.pop_status').show();
+	}
+}
+var sel_updates = function( position ){	// 일괄 적용값 전송
+	var chk_length = $("input[name='no[]']:checked").length;
+
+	//var status_txt = $("select[name='pay_status'] :selected").text();
+	var status_txt = $('#'+position+'_pay_status :selected').text();
+
+	var upd_no = new Array();
+	var i = 0;
+	$("input[name='no[]']:checked").each(function(){
+		upd_no[i] = $(this).val();
+	i++;
+	});
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("선택하신 "+chk_length+"건의 결제정보의 진행상태를<br/><br/>[<b>"+status_txt+"</b>] 로 변경하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_update\',\''+upd_no+'\',\''+position+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '결제 진행상태 일괄 적용',
+		showOverlay: false,
+		message: $('#question')
+	});
+
+}
+var pay_delete = function(no){	// 삭제 (단일)
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("결제정보 삭제시 이미 서비스 되었던 정보는 삭제 되지 않습니다.<br/><br/>서비스 정보까지 삭제하시려면 진행상태를 '결제취소' 로 변경 하신 후 삭제하세요.<br/><br/>한번 삭제된 데이터는 복구가 불가능 합니다.<br/><br/>삭제하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '결제 데이터 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+
+}
+
+var status_change = function( no, vals ){	// 리스트상 진행상태 변경 (단수)
+	var sel = vals.value;
+	var text = $('#status_'+no+' :selected').text();
+
+	$('#quest_info').show();
+	$('#confirm_msg').html("진행상태를 ["+text+"] 로 변경하시겠습니까?");
+
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'pay_status\',\''+no+'\',\''+sel+'\');" value="예" />');
+
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '결제 진행상태 변경',
+		showOverlay: false,
+		message: $('#question')
+	});
+
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+
+		switch(mode){
+
+			// 결제정보 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $payment_control->_errors('0007');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+
+			// 결제정보 삭제 (복수)
+			case 'sel_delete':
+				nos = no.split(',');
+				nos_cnt = nos.length;
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $payment_control->_errors('0007');?>");
+						return false;
+					}
+				});
+			break;
+
+			// 진행 상태 변경 (단수)
+			case 'pay_status':
+				$.post('./process/regist.php', { mode:mode, no:no, status:sels }, function(result){
+					alert(result);
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $payment_control->_errors('0007');?>");
+						return false;
+					}
+				});
+			break;
+
+			// 선택 일괄적용 (복수)
+			case 'sel_update':
+				var upd_no = new Array();
+				var i = 0;
+				$("input[name='no[]']:checked").each(function(){
+					upd_no[i] = $(this).val();
+				i++;
+				});
+				var pay_status = $("#"+sels+"_pay_status :selected").val();
+				$.post('./process/regist.php', { mode:'sel_status', status:pay_status, no:upd_no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0025');?>");
+						return false;
+					}
+				});
+			break
+		}
+
+	} else {
+
+		$.unblockUI();
+
+	}
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+</script>
+
+<div id="results"></div>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+회원이 결제한 내역을 확인할 수 있습니다. <br>
+결제리스트에서 입금확인 후 '입금대기'를 클릭하여 '입금완료'로 상태를 변경할수 있습니다.<br>
+해당 결제건의 취소는 체결된 PG사를 통해 진행되며, 결제취소 후 '취소요청'을 클릭하여 '취소완료'로 상태로 변경하면됩니다.<br>
+결제리스트에서 삭제한다고 해당 결제내역이 취소되는 것은 아닙니다.<br>
+아이디, 공고(이력서)를 클릭하면 결제회원의 회원정보 및 관련정보를 볼 수 있습니다.<br>
+통합검색 또는 상세검색을 통해 다양하게 결제정보를 확인하실수 있습니다. 
+</dl></dl>
+<?php include_once "./views/_include/search.php"; ?>
+
+<dl class="ntlt lnb_col">
+	<img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name; ?>
+		<span class="none">총 <b class="num3 col"><?php echo number_format($pay_list['total_count']);?></b> 건
+		<a href="./index.php?<?php echo ($_GET['mode'])?'mode='.$_GET['mode']:'mode=search';?>&status=0"><span>결제대기 <b class="num3"><?php echo $status_0;?></b></span></a>
+		<a href="./index.php?<?php echo ($_GET['mode'])?'mode='.$_GET['mode']:'mode=search';?>&status=1"><span>결제완료 <b class="num3 pk"><?php echo $status_1;?></b></span></a>
+		<a href="./index.php?<?php echo ($_GET['mode'])?'mode='.$_GET['mode']:'mode=search';?>&status=2"><span>취소요청 <b class="num3 lgr"><?php echo $status_2;?></b></span></a>
+		<a href="./index.php?<?php echo ($_GET['mode'])?'mode='.$_GET['mode']:'mode=search';?>&status=3"><span>취소완료 <b class="num3 bgr"><?php echo $status_3;?></b></span></a>
+	</span>
+	<dt>
+		<input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색&nbsp;
+		<select name="page_rows" onchange="page_rowss(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+</dl>  
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+			<!-- <a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일발송</h1></a> -->
+		</dt>
+		<dd>
+			<a href="./process/download.php?status=<?php echo $_GET['status'];?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+			<a onClick="sel_update();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+		</dd>
+		
+		<dl class="pop_status" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
+			선택한 결제의 진행상태를
+			<select name="pay_status" id="top_pay_status">
+			<?php foreach($pay_status as $key => $val){ ?>
+				<option value="<?php echo $key;?>"><?php echo $val;?></option>
+			<?php } ?>
+			</select>
+			로 변경 <a onclick="sel_updates('top');"><img src="../../images/btn/19_ok.gif"></a>
+		</dl>
+
+	</dl>
+
+	<table width="100%" class="ttlt">				 
+	<col width=30><col width=80><col width=100><col width=115><col width=300><col width=350><col width=75><col width=100><col width=100><col width=100><col width=10%>
+	<tr class="bg">
+		<td><input name="check_all" type="checkbox"></td>
+		<td>회원구분</td>
+		<td><a href="./index.php?<?php echo $pay_list['send_url'];?>&sort=pay_name&flag=<?php echo ($sort=='pay_name'&&$flag=='asc')?'desc':'asc';?>">이름<span><?php echo ($sort=='pay_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td><a href="./index.php?<?php echo $pay_list['send_url'];?>&sort=pay_uid&flag=<?php echo ($sort=='pay_uid'&&$flag=='asc')?'desc':'asc';?>">아이디<span><?php echo ($sort=='pay_uid'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td>공고(이력서)</td>
+		<td>결제정보</td>
+		<td><a href="./index.php?<?php echo $pay_list['send_url'];?>&sort=pay_method&flag=<?php echo ($sort=='pay_method'&&$flag=='asc')?'desc':'asc';?>">결제수단<span><?php echo ($sort=='pay_method'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td>진행상태</td>
+		<td>할인금액</td>
+		<td>결제금액</td>
+		<td ><a href="./index.php?<?php echo $pay_list['send_url'];?>&sort=pay_wdate&flag=<?php echo ($sort=='pay_wdate'&&$flag=='asc')?'desc':'asc';?>">결제일<span><?php echo ($sort=='pay_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+		<td class="e">삭제</td>
+	</tr>
+
+	<?php if(!$pay_list['result']){?>
+	<tr><td colspan="15" class="stlt"></td></tr>
+	<?php } else {?>
+
+	<tbody id="pay_list">
+	<?php 
+		$sum_price = 0;
+		foreach($pay_list['result'] as $val){ 
+		$get_member = $member_control->get_member($val['pay_uid']);
+		
+		if($val['pay_total']==$val['pay_dc'] && $val['pay_price']==0){
+			if($val['pay_dc']){
+				$get_method['name'] = "전액 포인트";
+				$get_method['color'] = "grf_dbl";
+			} else {
+				$get_method['name'] = "무료";
+				$get_method['color'] = "grf_dbl";
+			}
+		} else {
+			$get_method = $payment_control->pg_payMethod($val['pay_method']);
+		}
+		$pay_bank = explode("/",$val['pay_bank']);
+		$pay_wdate = explode(" ", $val['pay_wdate']);
+		$pay_sdate = explode(" ", $val['pay_sdate']);
+		$sum_price += $val['pay_price'];
+
+		$list = $payment_control->payment_listing($val['no']);	// 결제정보
+
+		if($get_member['mb_type']=='individual'){
+			$mb_type = "개인회원";
+			$get_resume = $alba_resume_control->get_resume($val['pay_no']);
+			$wr_subject = "<a href=\"".$alice['resume_path'] . "/detail.php?no=" . $val['pay_no']."\" target=\"_blank\">".stripslashes($get_resume['wr_subject'])."</a>";
+		} else if($get_member['mb_type']=='company'){
+			$mb_type = "기업회원";
+			$get_alba = $alba_control->get_alba($val['pay_no']);
+			$wr_subject = "<a href=\"".$alice['alba_path'] . "/detail.php?no=" . $val['pay_no']."\" target=\"_blank\">".stripslashes($get_alba['wr_subject'])."</a>";
+		} else {
+			$mb_type = "비회원";
+			$wr_subject = $val['etc_0'];
+		}
+		
+		$package_info = $payment_control->get_payment_for_oid($val['pay_oid']," and `pay_package` != '0' ");
+
+		$_txt = '';
+		if($val['pay_tax_type']==1) $_txt = $netfu_payment->pay_tax_num_type[$val['pay_tax_num_type']];
+	?>
+	<tr>
+		<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>" mb_no="<?php echo $get_member['no'];?>"></td>
+		<td><?php echo ($mb_type)?$mb_type:"<p class='dgr'>비회원</p>";?></td>
+		<td><?php echo stripslashes($val['pay_name']);?><br>
+		<td class="num3"><?php echo ($val['pay_uid'])?"<a onclick=\"pop_member('".$get_member['mb_id']."');\">".$val['pay_uid']."</a>":"<p class='dgr'>비회원</p>";?></td>
+		<td>
+			<?php echo $wr_subject;?>
+			<?php
+			if($val['pay_tax_type']){ ?>
+			<p class="mt3 fon11 pd3 lbg blnb">
+				<b><?php echo ($val['pay_tax_type']=='1')?"현금영수증":"세금계산서";?> 신청 </b><br>
+				<?php echo ($val['pay_tax_type']=='1')?$_txt.':'.$val['pay_tax_num']:strtr($val['pay_tax_num'],"/","-");?>
+			</p>
+			<?php } ?>
+		</td>
+		<td class="tl">
+			<?php 
+			echo ($val['pay_service']=='direct')?"<p class='pl5'>다이렉트 결제</p>":@implode($list['admin'],"<br/>");
+			?>
+		</td>
+		<td>
+			<span class="cbtn <?php echo $get_method['color']?>"><h1 class="btn19"><?php echo $get_method['name']?></h1></span>
+			<?php if($val['pay_method']=='bank'){ ?>
+			<!-- <dt class="mt5 fon11 dgr h14"><?php echo stripslashes($pay_bank[0]);?><br><?php echo $pay_bank[1];?><br><?php echo $pay_bank[2];?><br/><?php echo $val['pay_name'];?></dt> -->
+			<dt class="mt5 fon11 dgr h14"><?php echo $val['pay_bank_name'];?></dt>
+			<?php } ?>
+		</td>
+		<td class="none">
+			<!-- <span><b class="fon11 <?php echo $status_color[$val['pay_status']];?>"><?php echo $pay_status[$val['pay_status']];?></b></span> -->
+			<select name="status[]" id="status_<?php echo $val['no'];?>" onchange="status_change('<?php echo $val['no'];?>',this);">
+			<option value="">진행상태</option>
+			<?php foreach($pay_status as $key => $_status){ ?>
+				<option value="<?php echo $key;?>" <?php echo ($key==$val['pay_status'])?'selected':'';?>><?php echo $_status;?></option>
+			<?php } ?>
+			</select>
+		</td>
+		<td class="num3 tr"><?php echo number_format($val['pay_dc']);?></td>
+		<td class="num3 tr"><?php echo number_format($val['pay_price']);?></td>
+		<td class="num3 h13">
+		<p class="dgr mb2">
+			<?php echo $pay_wdate[0];?><br><?php echo $pay_wdate[1];?><br>↓</p>
+			<?php echo $pay_sdate[0];?><br><?php echo $pay_sdate[1];?>
+		</td>
+		<td class="e">
+			<a onClick="pay_delete('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a>
+		</td>
+	</tr>
+	<?php }	 // foreach end. ?>
+	</tbody>
+	<?php }	 // if end. ?>
+
+	<tr>
+		<td colspan="15" class="tr e bg_col b">
+			전체합계 : <b class="red"><b class="num3 f13"><?php echo number_format($sum_price);?></b>원</b>
+		</td>
+	</tr>
+	</table>
+
+	<dl class="page mb50">
+		<?php include_once "../include/paging.php";?>
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+			<!-- <a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일발송</h1></a> -->
+		</dt>
+		<dd>
+			<a href="./process/download.php?status=<?php echo $_GET['status'];?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+			<a onClick="sel_update();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+		</dd>
+		<dl class="pop_status" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
+			선택한 결제의 진행상태를
+			<select name="pay_status" id="bottom_pay_status">
+			<?php foreach($pay_status as $key => $val){ ?>
+				<option value="<?php echo $key;?>"><?php echo $val;?></option>
+			<?php } ?>
+			</select>
+			로 변경 <a onclick="sel_updates('bottom');"><img src="../../images/btn/19_ok.gif"></a>
+		</dl>
+	</dl>
+	
+	<div id='pop_info'></div>
+	<!--<td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+
+	</table>
+	</td>
+	</tr>
+	</table>
+
+<script>
+
+</script>
+
+<?php include_once "../include/tail.php";?>

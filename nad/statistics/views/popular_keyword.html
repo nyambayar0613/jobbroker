@@ -1,0 +1,301 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#AdminSearchFrm').ajaxForm(form_options);
+});
+var config_search = function( vals ){	// 검색어 출력설정
+	var sel = vals.value;
+	$.post('../config/process/config.php', { mode:'search', no:'1', search:sel }, function(result){
+		var results = result.split('/');
+		var msg = "";
+		//var search = results[0];
+		if(results[0]=='popular'){
+			msg = "인기검색어";
+		} else if(results[0]=='realtime'){
+			msg = "실시간검색어";
+		}
+		if(results[1]){
+			alert("검색어 출력이 ["+msg+"] 로 변경 되었습니다.");
+		} else {
+			alert("검색어 출력 설정중 오류가 발생하였습니다.");
+		}
+	});
+}
+var category_add = function(){	// 카테고리 입력폼 (단일)
+	$('#insertField').toggle();
+	$('#wr_content').focus();
+}
+var change_rank = function(direction, src){	// 카테고리 순위조절 (단일)
+	var parent = $('#category_list');
+	var no = $(src).parents('tr.category_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.category_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.category_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').next().attr('no');
+		}
+	}
+	
+	// 순위 조절 ajax
+	$.post('./process/search.php', { mode:'rank', type:direction, no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.category_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+var update_category = function(no){	 // 카테고리 수정 (단일)
+	var wr_content = $('#wr_content_'+no).val();
+	var wr_url = $('#wr_url_'+no).val();
+	var wr_blank = $('#wr_blank_'+no).is(':checked');
+
+	$.post('./process/search.php', { mode:'update', no:no, wr_content:wr_content, wr_url:wr_url, wr_blank:wr_blank } , function(result){
+		if(result){
+			location.reload();
+		} else {
+			alert("<?php echo $category_control->_errors('0005');?>");
+			return false;
+		}
+	});
+}
+var delete_category = function(no){	 // 카테고리 삭제 (단일)
+	var name = $('#name'+no).val();
+	$('#quest_name').html(name);
+	$('#quest_info').show();
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\', \''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '인기검색어 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_category = function(){	// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert("삭제할 인기검색어를 선택해 주세요.");
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 인기검색어 "+chk_length+"건을 삭제 하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '인기검색어 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'delete':	// 삭제
+				$.post('./process/search.php', { mode:'delete', no:no, type:"popular" } , function(result){
+					if(result=='0006'){
+						alert("<?php echo $category_control->_errors('0006');?>");
+						$.unblockUI();
+						return false;
+					} else {
+						if(result){
+							location.reload();
+						} else {
+							alert("<?php echo $config->_errors('0010');?>");
+							$.unblockUI();
+							return false;
+						}
+					}
+				});
+			break;
+			case 'sel_delete':	// 선택삭제
+				$.post('./process/search.php', { mode:mode, no:no, type:"popular" }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0010');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			case 'sel_category':	// 일괄적용
+				$.post('./process/search.php', { mode:mode, no:no, name:name }, function(result){
+					if(result){
+						//alert('분류명(들)이 일괄적용 되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0025');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+	유저페이지의 좌측 '인기검색어' 위치에 출력 되는 검색어 설정 입니다.
+	</dl>
+</dl>
+
+<!-- <dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">인기검색어 출력 설정</dl>  
+
+	<table width="100%" class="bg_col">
+	<col width="120"><col> 
+	<tr>
+		<td class="ctlt">검색어 출력 설정</td>
+		<td class="pdlnb2">
+			<label><input name="search" type="radio" value="popular" class="radio" checked onclick="config_search(this);">인기검색어출력</label> &nbsp;
+			<label><input name="search" type="radio" value="realtime" class="radio" <?php echo ($env['search']=='realtime')?'checked':'';?> onclick="config_search(this);">실시간검색어출력</label> &nbsp;
+			<span class="subtlt">인기검색어는 관리자가 설정한 검색어 입니다.</span>
+		</td>
+	</tr>
+	</table> -->
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">인기검색어 설정</dl>  
+
+	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+		<dt>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		</dt>
+		<dd>
+			<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
+			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+		</dd>
+	</dl>
+
+	<table width="100%" class="ttlt">
+	<col width=30><col width=50><col width=150><col><col width=40><col span="2" width=56> 
+		<tr class="bg">
+			<td><input type='checkbox' name='check_all'></td>
+			<td>순서</td>
+			<td>검색어</td>
+			<td>링크주소</td>
+			<td>새창</td>
+			<td>수정</td>
+			<td class="e">삭제</td>
+		</tr>
+		<tbody id="category_list">
+		<?php if(!$category_list){ ?>
+		<tr><td colspan="7" class="stlt"></td></tr>
+		<?php } else { 
+			foreach($category_list as $val){
+			$wr_content = $utility->remove_quoted($val['wr_content']);	 // (쌍)따옴표 등록시 필터링
+		?>
+		<tr class="category_list" no="<?php echo $val['no'];?>">
+			<td><input type='checkbox' name="no[]" class='check_all' value="<?php echo $val['no'];?>"></td>
+			<td class="none num3">
+				<a onClick="change_rank('up',this);">▲</a>
+				<a onClick="change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<td><input name="wr_content[]" type="text" class="txt" id="wr_content_<?php echo $val['no'];?>" value="<?php echo $wr_content;?>"></td>
+			<td><input name="wr_url[]" type="text" class="txt" id="wr_url_<?php echo $val['no'];?>" style="width:98%;" value="<?php echo $val['wr_url'];?>"></td>
+			<td><input name="wr_blank[]" type="checkbox" id="wr_blank_<?php echo $val['no'];?>" value="1" <?php echo ($val['wr_blank'])?'checked':'';;?>></td>
+			<td><a onClick="update_category(<?php echo $val['no'];?>);"><img src="../../images/btn/19_05.gif"></a></td>
+			<td class="e"><a onClick="delete_category(<?php echo $val['no'];?>);""><img src="../../images/btn/19_06.gif"></a></td>
+		</tr>
+		<?php
+			}	// foreach end.
+		}	// if end.
+		?>
+		</tbody>
+
+		<form name="AdminSearchFrm" method="post" id="AdminSearchFrm" action="./process/search.php">
+		<input type="hidden" name="mode" value="insert" id="mode"/>
+		<input type="hidden" name="type" value="popular" id="type"/>
+		<input type="hidden" name="ajax" value="1"/>
+			<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
+				<td colspan='2'>검색어 입력</td>
+				<td class="pdlnb1"><input name="wr_content" type="text" class="txt w100" id="wr_content"></td>
+				<td class="pdlnb1"><input name="wr_url" type="text" class="txt w100" id="wr_url"></td>
+				<td class="pdlnb1"><input name="wr_blank" type="checkbox" class="w100" id="wr_blank" value="1"></td>
+				<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
+			</tr> 
+		</form>
+		</table>
+
+		<dl class="page mb50"> 
+			<dt>
+				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+				<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+			</dt>
+			<dd>
+				<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
+				<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+			</dd>
+		</dl>
+
+</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+var showRequest = function(formData, jqForm, form_options){
+	var AdminSearchFrm = document.getElementById('AdminSearchFrm');
+	var queryString = $.param(formData);
+	return validate(AdminSearchFrm);
+}
+var showResponse = function(responseText, statusText, xhr, $form){	// 폼 전송후
+
+	if(responseText){
+		location.reload();
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

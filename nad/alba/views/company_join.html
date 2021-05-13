@@ -1,0 +1,106 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./company_join.php?"+send_url+"&page_rows=" + sel;
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+가이드를 입력해 주세요.<br>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">입사지원 관리
+	<span>총 <b class="num3 col"><?php echo number_format($receive_list['total_count']);?></b>건이 신고되었습니다.</span>
+	<dt>
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+</dl>
+
+<table width="100%" class="ttlt">
+<col width="2%"><col width="8%"><col width="5%"><col ><col width="8%"><col width="8%"><col><col width="8%"><col width="5%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>지원자 / ID</td>
+	<td>지원방식</td>
+	<td>지원이력서</td>
+	<td>지원일</td>
+	<td>지원회사 / ID</td>
+	<td>지원공고</td>
+	<td>열람일</td>
+	<td>삭제</td>
+</tr>
+
+<tbody id="become_list">
+<?php if(!$receive_list['total_count']){ ?>
+<tr><td colspan="9" class="stlt"></td></tr>
+<?php } else { 
+	foreach($receive_list['result'] as $val){
+	$wr_id = $val['wr_id'];	// 지원자
+	$wr_member = $member_control->get_member($wr_id);
+	$become_type = $receive_control->become_arr[$val['type']];
+?>
+<tr>
+	<td><input name="check_all" type="checkbox"></td>
+	<td><?php echo $wr_member['mb_name'];?> / <?php echo $wr_id;?></td>
+	<td><?php echo $become_type;?></td>
+	<td>지원이력서</td>
+	<td>지원일</td>
+	<td>지원회사 / ID</td>
+	<td>지원공고</td>
+	<td>열람일</td>
+	<td>삭제</td>
+</tr>
+<?php  
+	}	// foreach end.
+}	// if end.
+?>
+</tbody>
+
+</table>
+
+<dl class="page">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+	</dt>
+</dl>
+
+<div id='pop_info'></div>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>

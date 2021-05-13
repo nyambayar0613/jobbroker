@@ -1,0 +1,40 @@
+[2016-10-26 18:06:49.734] # OKNAME v3.70 start!<br>
+[2016-10-26 18:06:49.735] # mode=HS_CNFRM_POPUP<br>
+[2016-10-26 18:06:49.735] # Parameter IP: 	114.108.128.129<br>
+[2016-10-26 18:06:49.736] # argv[ 1](hs_cert_svc_tx_seqno)=20161026180649243466<br>
+[2016-10-26 18:06:49.736] # argv[ 2](nm)=이종우<br>
+[2016-10-26 18:06:49.736] # argv[ 3](brdt)=19800211<br>
+[2016-10-26 18:06:49.736] # argv[ 4](sex)=1<br>
+[2016-10-26 18:06:49.736] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2016-10-26 18:06:49.736] # argv[ 6](var1)=01<br>
+[2016-10-26 18:06:49.736] # argv[ 7](var2)=01067980880<br>
+[2016-10-26 18:06:49.736] # argv[ 8](var3)=0<br>
+[2016-10-26 18:06:49.736] # argv[ 9](var4)=0<br>
+[2016-10-26 18:06:49.736] # argv[10](var5)=0<br>
+[2016-10-26 18:06:49.736] # argv[11](return_msg)=x<br>
+[2016-10-26 18:06:49.736] # argv[12](return_url)=http://njob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2016-10-26 18:06:49.736] # argv[13](in_tp_bit)=15<br>
+[2016-10-26 18:06:49.736] # argv[14](hs_cert_msr_cd)=10<br>
+[2016-10-26 18:06:49.736] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2016-10-26 18:06:49.736] # argv[16](idcf_mbr_com_cd)=V05280000000<br>
+[2016-10-26 18:06:49.736] # argv[17](server_ip)=114.108.128.129<br>
+[2016-10-26 18:06:49.736] # argv[18](client_site_nm)=njob.netfu.co.kr<br>
+[2016-10-26 18:06:49.736] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2016-10-26 18:06:49.736] # argv[20](log_path)=/home/njob/public_html/.//modules/okname/log<br>
+[2016-10-26 18:06:49.736] # argv[21](option)=QL<br>
+[2016-10-26 18:06:49.736] # soap_timeout: 30000 ms<br>
+[2016-10-26 18:06:49.899] # key   : AgCj28RuOhpyvHRm0uwB+Si5SweQww==:0QLaFkjhHJS1GdFCqlJUvg==<br>
+[2016-10-26 18:06:49.899] # spkey : AgCj28RuOhpyvHRm0uwB+Si5SweQww==<br>
+[2016-10-26 18:06:49.899] # ssig  : 0QLaFkjhHJS1GdFCqlJUvg==<br>
+[2016-10-26 18:06:49.900] # nm               : 이종우<br>
+[2016-10-26 18:06:49.900] # brdt             : 19800211<br>
+[2016-10-26 18:06:49.900] # e_nm             : ASQU5dw7<br>
+[2016-10-26 18:06:49.900] # e_brdt           : 8NHta1Plfkc=<br>
+[2016-10-26 18:06:49.900] # cpkey : AgCzz2MyeeZtDQVNLeQ7IbRnJT+CWQ==<br>
+[2016-10-26 18:06:49.900] # csig  : 0F3M4DtgqBikbawhPHUeEw==<br>
+[2016-10-26 18:06:49.950] retmsg: g9jla1kW680MVGaVNfTrZnyP/3oEyzlr/rkmeZJXGouJ7a1lAnE1hxu0mGFxt6xwRC1lJvSq/5pk5VhmlRCiySvvOWroy63tv1uEzNyIWwkMc5rzxAXuJiKd9bl63XHJpr/3lccS8Arr2jP2EhXM3CvfCk3Es0IUBAbiNSP8Pcs4iB2GdTxzHICvdFZZ6/Y95mIzPFCBdMJXZaTs5pam2wRPdUsVWsqrYW6MjU2ALBTMpErE47Zam28VS4pHlnH9ZLHGdPvDDZe2Y5Ag2I2kXeg8fDR/ZEaUJjLbaN9zEILPqiMA28h06qUay9f1htd4JNZFj+VcHk5QIqx/y5cEq2JMV2muFHzlak4=
+[2016-10-26 18:06:49.950] retmsg: B000:정상:kYFvkgmfTi0CDDkL3FAZ/GkEkImSmrIXlUNPqqbnJhGCTRMBPgQKpds4xYQuX1UHXqJmTIzdSE3Pz4MFJbqcXICI0+U4ZhaeNhKv7XOLEb9gXQO+i+CG2B6ZOq22NBh+oCQKvBD5Fg0T8K02hIKX8bU5e70tbS6MA9Q/poFVli3JNPN1fVGUsBr7xIKHc6svSRCar1KgzNLLr64c55Af79KBVg6pS8HZvc0Fq0STzrWepp1+1JHldbpn7fXAu8sJ
+[2016-10-26 18:06:49.950] B000
+[2016-10-26 18:06:49.950] 정상
+[2016-10-26 18:06:49.950] kYFvkgmfTi0CDDkL3FAZ/GkEkImSmrIXlUNPqqbnJhGCTRMBPgQKpds4xYQuX1UHXqJmTIzdSE3Pz4MFJbqcXICI0+U4ZhaeNhKv7XOLEb9gXQO+i+CG2B6ZOq22NBh+oCQKvBD5Fg0T8K02hIKX8bU5e70tbS6MA9Q/poFVli3JNPN1fVGUsBr7xIKHc6svSRCar1KgzNLLr64c55Af79KBVg6pS8HZvc0Fq0STzrWepp1+1JHldbpn7fXAu8sJ
+[2016-10-26 18:06:49.950] # final ret code=0<br>

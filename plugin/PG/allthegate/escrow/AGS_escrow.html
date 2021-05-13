@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>올더게이트</title>
+<style type="text/css">
+<!--
+body { font-family:"돋움"; font-size:9pt; color:#000000; font-weight:normal; letter-spacing:0pt; line-height:180%; }
+td { font-family:"돋움"; font-size:9pt; color:#000000; font-weight:normal; letter-spacing:0pt; line-height:180%; }
+.clsright { padding-right:10px; text-align:right; }
+.clsleft { padding-left:10px; text-align:left; }
+-->
+</style>
+<script language=javascript>
+<!--
+
+function Request(form)
+{
+		////////////////////////////////////////////
+		//  입력된 데이타의 유효성을 검사합니다.  //
+		////////////////////////////////////////////
+		if(Check_Common(form) == true)
+		{
+			form.submit();
+		}
+}
+
+
+function Check_Common(form) 
+{
+    if(form.trcode.value == "")
+	{
+		alert("거래코드를 선택하십시오.");
+		return false;
+	}
+    else if(form.pay_kind.value == "")
+	{
+		alert("결제종류를 선택하십시오.");
+		return false;
+	}
+	else if(form.retailer_id.value == "")
+	{
+		alert("상점아이디를 입력하십시오.");
+		return false;
+	}
+	else if(form.deal_time.value == "")
+	{
+		alert("결제시간을 입력하십시오.");
+		return false;
+	}
+	else if(form.send_no.value == "")
+	{
+		alert("거래고유번호를 입력하십시오.");
+		return false;
+	}
+
+	else if(form.trcode.value == "E200" || form.trcode.value == "E300")
+	{
+		if(form.id_no.value == "")
+		{
+			alert("휴대폰번호를 입력하십시오.");
+			return false;
+		}
+	}
+    
+	return true;
+}
+
+function Check_SubTy(form)
+{
+	if(form.trcode.value ==  "E100" || form.trcode.value ==  "E400" )
+	{
+		form.id_no.disabled = true;
+		form.id_no.style.background = "silver";
+	}
+	else if(form.trcode.value == "E200" || form.trcode.value == "E300")
+	{
+		form.id_no.disabled = false;
+		form.id_no.style.background = "white";
+	}
+}
+-->
+</script>
+</head>
+<body topmargin=0 leftmargin=0 rightmargin=0 bottommargin=0>
+<form name=frmAGS_escrow method=post action=AGS_escrow_ing.php>
+<table border=0 width=100% height=100% cellpadding=0 cellspacing=0>
+	<tr>
+		<td align=center>
+		<table width=650 border=0 cellpadding=0 cellspacing=0>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><hr></td>
+			</tr>
+			<tr>
+				<td class=clsleft><b>올더게이트 에스크로 거래 요청 테스트페이지</b></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class=clsleft>
+				1) 본 올더게이트 에스크로 요청 페이지를 업체에 맞게 적절하게 수정하여 사용하십시오.<br>
+				2) 올더게이트 에스크로 발송 및 수령 요청을 위해 필요한 정보를 모두 입력후 '요청'버튼을 클릭하십시오.
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class=clsleft>☞ 표시는 필수 입력사항입니다. </td>
+			</tr>
+			<tr>
+				<td><hr></td>
+			</tr>
+			<tr>
+				<td>
+				<table width=650 border=0 cellpadding=0 cellspacing=0>
+                <!-------------------------------------------공통----------------------------------------------------------------->
+					<tr>
+						<td class=clsleft>☞ 거래코드</td>
+						<td>
+						<select name=trcode style=width:120px onchange="javascript:Check_SubTy(frmAGS_escrow);">
+							<option value="" selected>선택하십시오.
+							<option value="E100">발송완료
+							<option value="E200">구매확인
+							<option value="E300">구매거절
+							<option value="E400">취소요청
+						</select>
+						</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td class=clsleft>☞ 결제종류</td>
+						<td>
+						<select name=pay_kind style=width:120px>
+							<option value="" selected>선택하십시오.
+							<option value="01">신용카드
+							<option value="02">계좌이체 - 인터넷뱅킹
+							<option value="03">가상계좌
+							<option value="04">계좌이체 - 텔레뱅킹
+						</select>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class=clsleft width=170>☞ 상점 ID (20)</td>
+						<!--상점아이디를 실거래 전환후에는 발급받은 아이디로 바꾸시기 바랍니다.-->
+						<td width=300><input type=text style=width:100px name=retailer_id maxlength=20 value="aegis"></td>
+						<td width=180></td>
+					</tr>
+					<tr>
+						<td class=clsleft>☞ 결제일자 (8)</td>
+						<td><input type=text style=width:150px name=deal_time maxlength=8 value=""></td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td class=clsleft>☞ 거래고유번호 (6)</td>
+						<td><input type=text style=width:150px name=send_no maxlength=6 value=""></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class=clsleft>☞ 휴대폰번호 (13)</td>
+						<td><input type=text style=width:150px name=id_no maxlength=13 value=""></td>
+						<td>구매확인/거절요청시 사용</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td><hr></td>
+			</tr>
+			<tr>
+				<td align=center>
+				<input type="button" value="요청" onclick="javascript:Request(frmAGS_escrow);">
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

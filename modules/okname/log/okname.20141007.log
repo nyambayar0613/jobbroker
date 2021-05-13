@@ -1,0 +1,80 @@
+[2014-10-07 15:57:51.922] # OKNAME v3.70 start!<br>
+[2014-10-07 15:57:51.922] # mode=HS_CNFRM_POPUP<br>
+[2014-10-07 15:57:51.922] # Parameter IP: 	114.108.128.129<br>
+[2014-10-07 15:57:51.922] # argv[ 1](hs_cert_svc_tx_seqno)=20141007155751068111<br>
+[2014-10-07 15:57:51.922] # argv[ 2](nm)=서유미<br>
+[2014-10-07 15:57:51.922] # argv[ 3](brdt)=19850103<br>
+[2014-10-07 15:57:51.922] # argv[ 4](sex)=0<br>
+[2014-10-07 15:57:51.922] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-10-07 15:57:51.922] # argv[ 6](var1)=03<br>
+[2014-10-07 15:57:51.922] # argv[ 7](var2)=01064077177<br>
+[2014-10-07 15:57:51.922] # argv[ 8](var3)=0<br>
+[2014-10-07 15:57:51.922] # argv[ 9](var4)=0<br>
+[2014-10-07 15:57:51.922] # argv[10](var5)=0<br>
+[2014-10-07 15:57:51.922] # argv[11](return_msg)=x<br>
+[2014-10-07 15:57:51.922] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-10-07 15:57:51.922] # argv[13](in_tp_bit)=15<br>
+[2014-10-07 15:57:51.922] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-10-07 15:57:51.922] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-10-07 15:57:51.922] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2014-10-07 15:57:51.922] # argv[17](server_ip)=114.108.128.129<br>
+[2014-10-07 15:57:51.922] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-10-07 15:57:51.922] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-10-07 15:57:51.922] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-10-07 15:57:51.922] # argv[21](option)=QL<br>
+[2014-10-07 15:57:51.923] # soap_timeout: 30000 ms<br>
+[2014-10-07 15:57:51.965] # key   : AgcpnLIvbyWlrpLbvy+q1H8TJbrlTw==:DDaE2zjoErwQFxNhwILI+w==<br>
+[2014-10-07 15:57:51.965] # spkey : AgcpnLIvbyWlrpLbvy+q1H8TJbrlTw==<br>
+[2014-10-07 15:57:51.965] # ssig  : DDaE2zjoErwQFxNhwILI+w==<br>
+[2014-10-07 15:57:51.967] # nm               : 서유미<br>
+[2014-10-07 15:57:51.967] # brdt             : 19850103<br>
+[2014-10-07 15:57:51.967] # e_nm             : pruyR4fs<br>
+[2014-10-07 15:57:51.967] # e_brdt           : Ky9K3Q4RLhc=<br>
+[2014-10-07 15:57:51.967] # cpkey : AgWOACeSRa96sptc9Jgz0QVeRIKLWg==<br>
+[2014-10-07 15:57:51.967] # csig  : MA0Q4L0JXsT6sCoPLhQ2Lw==<br>
+[2014-10-07 15:57:52.002] retmsg: WCZC0AToppt+dAwBnOBl3cAMvUig8VNUZX/yxq/0I3iJiSrQmggD0q0dTUIUc4s4iKFZjG/XtCoueSkbnBW1bLUMMOaYsTYoMVzmXAVJs9uubJ0DY5L7cZNP3X3GqU8B90IGvHwWgxcE0t2Z/U5NdomdJLcoN5zRkl1a+RHtap0VuDCquDKbjtXZreRSBd9FQ9faw31suWqo1asLV50h7lPp9Zhv5ayCi83nOOFxBLzS1odIANcc6sKqmnKEZuLlP3pLMk4KCUFGSq74mFlVQjZNocBVxDs7GGpWm77jxi831VEYzWxIdndk5TNaS/JdhbXMofPtvDjyDbbzpLU=
+[2014-10-07 15:57:52.002] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNh2o70XOVt6jsDcgG12XqbMbVcNv8M5m/7YkMrzQ/vTcoK1sSV6ZeDWrWfBfOl8OU6SrlMUFWgBeWwvaah38jRg9bwQMV1BdGfizGLdfKYVPSmR9j0tBj3MYtO8X/PYqdZ4Il5hEiGp4XHAhakvIQXSMwwUx2JiDu2e4D/lFxqypcWhz1pjfJiJTpZg83lkc1A==
+[2014-10-07 15:57:52.002] B008
+[2014-10-07 15:57:52.002] 회원사 정보가 존재하지 않습니다.
+[2014-10-07 15:57:52.002] RuOtuDWMKBYx9YFHHtKsNh2o70XOVt6jsDcgG12XqbMbVcNv8M5m/7YkMrzQ/vTcoK1sSV6ZeDWrWfBfOl8OU6SrlMUFWgBeWwvaah38jRg9bwQMV1BdGfizGLdfKYVPSmR9j0tBj3MYtO8X/PYqdZ4Il5hEiGp4XHAhakvIQXSMwwUx2JiDu2e4D/lFxqypcWhz1pjfJiJTpZg83lkc1A==
+[2014-10-07 15:57:52.002] # final ret code=8<br>
+[2014-10-07 15:57:58.911] # OKNAME v3.70 start!<br>
+[2014-10-07 15:57:58.911] # mode=HS_CNFRM_POPUP<br>
+[2014-10-07 15:57:58.911] # Parameter IP: 	114.108.128.129<br>
+[2014-10-07 15:57:58.911] # argv[ 1](hs_cert_svc_tx_seqno)=20141007155758035185<br>
+[2014-10-07 15:57:58.911] # argv[ 2](nm)=서유미<br>
+[2014-10-07 15:57:58.911] # argv[ 3](brdt)=19850103<br>
+[2014-10-07 15:57:58.911] # argv[ 4](sex)=0<br>
+[2014-10-07 15:57:58.911] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2014-10-07 15:57:58.911] # argv[ 6](var1)=03<br>
+[2014-10-07 15:57:58.911] # argv[ 7](var2)=01064077177<br>
+[2014-10-07 15:57:58.911] # argv[ 8](var3)=0<br>
+[2014-10-07 15:57:58.911] # argv[ 9](var4)=0<br>
+[2014-10-07 15:57:58.911] # argv[10](var5)=0<br>
+[2014-10-07 15:57:58.911] # argv[11](return_msg)=x<br>
+[2014-10-07 15:57:58.911] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/cnfrm_popup2.php<br>
+[2014-10-07 15:57:58.911] # argv[13](in_tp_bit)=15<br>
+[2014-10-07 15:57:58.912] # argv[14](hs_cert_msr_cd)=10<br>
+[2014-10-07 15:57:58.912] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2014-10-07 15:57:58.912] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2014-10-07 15:57:58.912] # argv[17](server_ip)=114.108.128.129<br>
+[2014-10-07 15:57:58.912] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2014-10-07 15:57:58.912] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2014-10-07 15:57:58.912] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-10-07 15:57:58.912] # argv[21](option)=QL<br>
+[2014-10-07 15:57:58.912] # soap_timeout: 30000 ms<br>
+[2014-10-07 15:57:58.950] # key   : AwcpKl0RTLsEwT6XkOOvbt5mn8JaVQ==:p5yOud4+E58ZHNkAEPpKeA==<br>
+[2014-10-07 15:57:58.950] # spkey : AwcpKl0RTLsEwT6XkOOvbt5mn8JaVQ==<br>
+[2014-10-07 15:57:58.950] # ssig  : p5yOud4+E58ZHNkAEPpKeA==<br>
+[2014-10-07 15:57:58.952] # nm               : 서유미<br>
+[2014-10-07 15:57:58.952] # brdt             : 19850103<br>
+[2014-10-07 15:57:58.952] # e_nm             : 4Fgy8coF<br>
+[2014-10-07 15:57:58.952] # e_brdt           : bczKa0P4DrU=<br>
+[2014-10-07 15:57:58.952] # cpkey : Awc7CEEyR9TMuJILiPrSbiS90DGSQw==<br>
+[2014-10-07 15:57:58.952] # csig  : ktGdNI+Kym9vcf1T4bYuJw==<br>
+[2014-10-07 15:57:58.982] retmsg: HsXCZkkBhjmBmlCFt6xpe6y+hMdRF5gHUWyIzUh+jakUxpsHnPkorB50wOLWwvDY/UC+4zq5YZyDxxnM626VvZxcWfSLYmVd3cqwSHlucqXsmSA163TUzdHigI4Fau9zfHh524JufwNxLUN6EO3+HIICZLowlkkXzHSR4Dt+JfI2Y7IN+h+oo6iql1tRpNLsCBSOvWsUYl6Dm/vd7/DjVwTK7PIWBkjoaN2Y1IWrl1fsCnj7/k/9giMS3+pBlbdImt1XJQu2D5bqkitiIS4IHX48WgVPQhWPDEvaagIMuiIhaCNQUO72fi9Roq3jLK4094f+NwVQuy36TDVGKME=
+[2014-10-07 15:57:58.982] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNuGMdSAqmZ/tq9ArLfGnUAkt0WsOPKyUXHAh3NAgSm6cCWe45onkYhlKZgoh5CzvmKSl47EkTB2Iy8B8uNt/ud+s/HcWoFcpglD17mKjTs8H1GGOFQtReuKD2vLTMCFpoVV/Z2px4xBXEbbIW+FBlPiwBsR0GwlHoDp/9s4/xzgAuRU9rv/+90acAeaiePZ71A==
+[2014-10-07 15:57:58.983] B008
+[2014-10-07 15:57:58.983] 회원사 정보가 존재하지 않습니다.
+[2014-10-07 15:57:58.983] RuOtuDWMKBYx9YFHHtKsNuGMdSAqmZ/tq9ArLfGnUAkt0WsOPKyUXHAh3NAgSm6cCWe45onkYhlKZgoh5CzvmKSl47EkTB2Iy8B8uNt/ud+s/HcWoFcpglD17mKjTs8H1GGOFQtReuKD2vLTMCFpoVV/Z2px4xBXEbbIW+FBlPiwBsR0GwlHoDp/9s4/xzgAuRU9rv/+90acAeaiePZ71A==
+[2014-10-07 15:57:58.983] # final ret code=8<br>

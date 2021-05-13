@@ -1,0 +1,106 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<style type="text/css">
+a:link, a:visited { text-decoration: none; color:#6B6F5B; }
+a:hover, a:active { text-decoration: none; color:#3366CC; }
+td { color:#2E2E2E;font-family:doutm;font-size:9pt; }
+.d8 { font-family:dotum;font-size:8pt;}
+.gd8 { color:gray;font-family:dotum;font-size:8pt;}
+.fw { color:#243964;border:solid 0 #243964;padding:4px;font-size:9pt;font-family:dotum;width:100%;height:100%;line-height:140%; }
+</style>
+
+<script>
+var getList = function( dir ) {
+	$('#get_LIST').load("./views/_load/file.php", { mode:'dir', dir:dir }, function(result){
+		if( $('#flocation').length ) {
+			$('#flocation').val(dir);
+		}
+	});
+}
+var viewDescFrmDiv = function( obj, kind ) {
+
+	var $position = $('#'+obj+'_'+kind).position();
+	
+	$('#comment_info').load('./views/_load/file.php', { mode:'comment_update', dir:obj, kind:kind }, function(){
+		$('#pop_comment').css({
+			"left" : $position.left+20,
+			"top" : $position.top
+		});
+
+		$('#pop_comment').draggable({ handle: "#commentHandle" });
+		$('#fobject').val(obj);
+		$('#fkind').val(kind);
+
+		$('#description').val( $('#'+obj).html() );
+		$('#description').focus();
+
+		var description_options = { beforeSubmit: showRequest, success: showResponse };	// ajax options
+		$('#descFrm').ajaxForm(description_options);	// ajax form submit
+
+
+	});
+
+}
+
+$(document).ready(function(){
+	getList();
+});
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb" style="background-color:#fff;">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+1. 설명(주석)을 편집하려면 연필 아이콘을 클릭하거나 입력된 설명을 클릭<br/>
+2. 입력된 설명을 지우려면 편집창에 입력된 내용을 모두 지운 후 [입력하기] 버튼을 클릭<br/>
+3. 테이블 내용을 보려면 테이블명을 클릭 (테이블 내용을 닫으려면 테이블 내용창의 [내용닫기] 버튼을 클릭)<br/>
+존재하지 않는 테이블 또는 필드에 대한 DB 정보는 자동으로 삭제 됩니다.<br/>
+</dl></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">File 디렉토리 구조 Module v3.5 ( Alice )</dl>  
+
+
+<div id="get_LIST">Loading...</div>
+
+<div id="pop_info"></div>
+<div id="comment_info"></div>
+
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, options){
+	var queryString = $.param(formData); 
+	//alert(queryString);
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	var obj = $.parseJSON(responseText);
+	var result = obj.result;
+	var flocation = obj.flocation;
+	var fobject = obj.fobject;
+	var fkind = obj.fkind;
+	var description = obj.description;
+
+	if(result){
+
+		$('#'+fobject).html( stripslashes(description) );
+		$('#pop_comment').hide();
+
+	} else {
+		alert("<?php echo $description_control->_errors('0000');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

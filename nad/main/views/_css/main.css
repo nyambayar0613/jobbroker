@@ -1,0 +1,70 @@
+
+.ltbl{/*width:918px !important;*/}
+#mleft{float:left;width:220px;}
+#mcenter{float:left;width:448px;margin:0 7px}
+#mright{float:left;width:220px;}
+
+.blnb{margin-top:7px}
+.mtlt{padding:0 .4em;border-bottom:1px solid #d9d9d9;position:relative;background:url(../../../../images/comn/tt_bg.gif) repeat-x top #f5f5f5;height:30px}
+.mtlt h4{font-family:'NanumGothic';color:#222;*display:inline;margin-top:.5em}
+
+.tbl{background:#fff}
+.tbl th{text-align:center;font:11px 'dotum';height:27px;background:#f2f2f2;}
+.tbl th.pl5{text-align:left}
+.tbl th.tr{padding-right:5px;}
+.tbl td{font:11px 'dotum' normal normal;}
+.tbl td.tr{padding-right:10px;background:url(../../../../images/comn/bul_16.gif) no-repeat 97% 10px}
+.tbl td.tr em{font:9px normal;color:#aaa}
+.more,.dtxt{position:absolute;top:10px;right:6px;color:#666}
+.more,.Mdtxt{position:absolute;top:10px;right:6px;color:#666}
+
+.aratio{height:175px;background:url(../../../../images/nad/bg_ratio.gif) no-repeat left 2px;position:relative;margin:0 3px;padding-left:10px;}
+.dtxt{position:absolute;top:6px;right:4px;color:#888;font-size:11px;display:inline-block;}
+.dtxt img{width:10px;height:11px;border-right:1px solid #555;margin:0 0 1px 3px;} 
+.aratio dl{float:left;display:inline-block;width:82px;height:147px;bottom:-4px;position:relative;}
+.aratio dl span{position:absolute;bottom:-17px;left:42px;display:inline-block;width:40px;text-align:center;color:#666;font:11px/115% 'dotum';}
+.aratio dl ul{width:40px;margin-left:42px;position:absolute;left:0;bottom:0;overflow-y:hidden;}
+.aratio dl ul{display:block}
+.aratio dl ul li{float:left;position:relative;width:12px;height:125px;margin-right:1px;}
+.aratio dl ul li img{position:absolute;left:0;bottom:0;width:10px;border-right:1px solid #555;vertical-align:top !important;}
+
+.nmain{margin:5px 7px;}
+.nmain li{margin-bottom:7px;white-space:nowrap;}
+
+.tabmn{overflow:hidden}
+.tabmn li{float:left;text-align:center;cursor:pointer;padding:6px 0 0;height:19px;border:1px solid #ccc;background:#ddd;border-bottom:0 !important;margin-left:3px;color:#fff;font:11px 'NanumGothic';color:#666}
+.tabmn li.on{background:#fff;color:#000;font-weight:bold;}
+
+.asban{width:100%;overflow:hidden;margin-top:3px}
+.asban dt{margin-top:4px;text-align:center;border:1px solid #d9d9d9;background:url(../../../../images/nad/bg_mban.gif) #f2f2f2;text-align:center}
+
+
+/*°ü¸®ÀÚ*/
+
+.Maratio{height:175px;background:url(../../../../images/nad/Mbg_ratio.gif) no-repeat left 2px;position:relative;margin:0 3px;padding-left:13px;}
+.Mdtxt{position:absolute;top:6px;right:4px;color:#888;font-size:11px;display:inline-block;}
+/*.Mdtxt img{width:7px;height:7px;border-right:1px solid #555;margin:0 0 1px 3px;} */
+.Maratio dl{float:left;display:inline-block;width:61px;height:147px;bottom:-4px;position:relative;}
+.Maratio dl span{position:absolute;bottom:-17px;display:inline-block;width:50px;text-align:center;color:#666;font:11px/115% 'dotum';}
+.Maratio dl ul{width:50px;position:absolute;left:0;bottom:0;overflow-y:hidden;}
+.Maratio dl ul{display:block}
+.Maratio dl ul li{float:left;position:relative;width:20px;height:125px;margin-right:4px;}
+.Maratio dl ul li img{position:absolute;left:0;bottom:0;width:20px;vertical-align:top !important;}
+.Mdtxtr{top: 6px; right: -1px; color: rgb(136, 136, 136); font-size: 11px; float: left; display: inline-block; position: relative;}
+.Mdtxtr img{width:7px;height:7px;border-right:1px solid #555;margin:0 0 1px 3px;} 
+
+.mbtb{border-bottom:1px solid #959ca4;}
+.mbtb td{color:#fff;}
+.mbtb2{border-bottom:1px solid #f2f2f2;}
+.mbtr{border-right:1px solid #d9d9d9;}
+.mbtl{border-left:1px solid #d9d9d9;}
+.mbtt{border-top:1px solid #d9d9d9;}
+.mbtbg{padding:0.4em; position:relative; height:30px; background-color:#aeb6c1;}
+.font11{font-size:11px;}
+.font12{font-size:12px;}
+.h26{line-height:26px;}
+.borderCL{border-collapse: collapse}
+.h4font{font-family:"NanumGothic";color:#222;margin-top:0.5em;}
+.h4font dt{float:right;display:inline;position:relative;top:5px;right:5px;}
+.jobcr{color:#ff6500; font-weight:bold;}
+.jobcrb{color:#566aff; font-weight:bold;}

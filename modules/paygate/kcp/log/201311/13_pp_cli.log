@@ -1,0 +1,5 @@
+1113-095621 - 20386 - T0000BD9tj0g3mcd - MSG : TX_START - site_cd=[T0000]+tx_cd=[00100000]+ordr_idxx=[S62613F4DF105]+log_level=[3]
+1113-095622 - 20386 - T0000BD9tj0g3mcd - MSG : PG_서버_접속__정상
+1113-095623 - 20386 - T0000BD9tj0g3mcd - MSG : PG_서버_요청_전문_전송__정상
+1113-095628 - 20386 - T0000BD9tj0g3mcd - MSG : PG_서버_응답_전문_수신__정상
+1113-095628 - 20386 - T0000BD9tj0g3mcd - MSG : TX_ENDED - res=[res_cd=CC72res_msg=카드사 TIME-OUTres_en_msg=Card issuer timeout.trace_no=T0000BD9tj0g3mcdpay_method=PACAorder_no=S62613F4DF105trade_seq=20131113976766card_cd=ISKCcard_name=기타카드]

@@ -1,0 +1,147 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#CompanyCategoryFrm').ajaxForm(form_options);
+});
+/*
+var regist_forms = function( vals ){
+	var sel = vals.value;
+	$.post('./process/config.php', { mode:'register_form', no:"<?php echo $env['no'];?>", register:sel }, function(result){
+		if(result)
+			alert("<?php echo $config->_success('0022');?>");
+		else
+			alert("<?php echo $config->_errors('0056');?>");
+	});
+}
+*/
+var change_rank = function(direction, src){	// 카테고리 순위조절 (단일)
+	var parent = $('#category_list');
+	var no = $(src).parents('tr.category_list').attr('no');
+	if(direction =='up'){	
+		var next_no = $('tr.category_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.category_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.category_list').next().attr('no');
+		}
+	}
+	// 순위 조절 ajax
+	$.post('./process/category.php', { mode:'rank', type:"<?php echo $type;?>", direction:direction, no:no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.category_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $config->_errors('0017');?>");
+		}
+	});
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+기업회원 가입폼 설정 페이지는 기업회원 회원가입시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
+채용정보 항목 설정 페이지는 채용공고 등록시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
+이력서 항목 설정 페이지는 이력서 등록시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
+</dl></dl>
+<dl class="pt5 pb5"><?php include_once "./views/_include/form_menu.php"; ?></dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $sub_menu_name;?></dl>
+
+
+	<form name="CompanyCategoryFrm" method="post" id="CompanyCategoryFrm" action="./process/category.php">
+	<input type="hidden" name="mode" value="company_form" id="mode"/>
+	<input type="hidden" name="type" value="<?php echo $type;?>" id="type"/>
+	<input type="hidden" name="ajax" value="1"/>
+
+	<table width="100%" class="ttlt">
+	<?php if($type=='company_form'){ ?>
+	<col span="2" width=60><col width=50><col> 
+	<?php } else { ?>
+	<col width=60><col width=60><col> 
+	<?php } ?>
+		<tr class="bg">
+			<td>사용유무</td>
+			<td>필수유무</td>
+			<?php if($type=='company_form'){ ?>
+			<td>순서</td>
+			<?php } ?>
+			<td class="e">항목명</td>    
+		</tr>
+
+		<tbody id="category_list">
+		<?php foreach($category_list as $val){ 
+			$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
+			$view = ($val['view']=='yes') ? true : false;
+			$etc_0 = $val['etc_0'];	// 필수 체크
+		?>
+		<tr class="category_list" no="<?php echo $val['no'];?>">
+			<td><input type='checkbox' name="view[]" value="<?php echo $val['no'];?>" <?php echo ($view)?'checked':'';?>></td>
+			<td><input type='checkbox' name="etc_0[]" value="<?php echo $val['no'];?>" <?php echo ($etc_0)?'checked':'';?>></td>
+			<?php if($type=='company_form'){ ?>
+			<td class="none num3">
+				<a onClick="change_rank('up',this);">▲</a>
+				<a onClick="change_rank('down',this);">▼</a>&nbsp;
+			</td>
+			<?php } ?>
+			<td class="pdlnb1 e"><?php echo $name;?></td>
+		</tr> 
+		<?php } ?>
+		</tbody>
+	</table>
+
+	<dl class="pbtn">
+		<input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;
+	</dl>
+
+	</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+var showRequest = function (formData, jqForm, form_options){	// 폼 전송전
+
+	var CompanyCategoryFrm = document.getElementById('CompanyCategoryFrm');
+
+	return true;
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송후
+	//document.write(responseText);
+	//if(responseText){
+		alert("<?php echo $config->_success('0003');?>");
+		location.reload();
+	//} else {
+		//alert("<?php echo $config->_errors('0057');?>");
+	//}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

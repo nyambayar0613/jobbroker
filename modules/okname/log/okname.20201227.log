@@ -1,0 +1,80 @@
+[2020-12-27 16:28:14.517] # OKNAME v3.70 start!<br>
+[2020-12-27 16:28:14.520] # mode=HS_CNFRM_POPUP<br>
+[2020-12-27 16:28:14.520] # Parameter IP: 	114.108.128.129<br>
+[2020-12-27 16:28:14.520] # argv[ 1](hs_cert_svc_tx_seqno)=20201227162814144764<br>
+[2020-12-27 16:28:14.520] # argv[ 2](nm)=x<br>
+[2020-12-27 16:28:14.520] # argv[ 3](brdt)=x<br>
+[2020-12-27 16:28:14.520] # argv[ 4](sex)=x<br>
+[2020-12-27 16:28:14.521] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2020-12-27 16:28:14.521] # argv[ 6](var1)=x<br>
+[2020-12-27 16:28:14.521] # argv[ 7](var2)=x<br>
+[2020-12-27 16:28:14.521] # argv[ 8](var3)=0<br>
+[2020-12-27 16:28:14.521] # argv[ 9](var4)=0<br>
+[2020-12-27 16:28:14.521] # argv[10](var5)=0<br>
+[2020-12-27 16:28:14.521] # argv[11](return_msg)=x<br>
+[2020-12-27 16:28:14.521] # argv[12](return_url)=https://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2020-12-27 16:28:14.521] # argv[13](in_tp_bit)=0<br>
+[2020-12-27 16:28:14.521] # argv[14](hs_cert_msr_cd)=10<br>
+[2020-12-27 16:28:14.521] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2020-12-27 16:28:14.521] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2020-12-27 16:28:14.521] # argv[17](server_ip)=114.108.128.129<br>
+[2020-12-27 16:28:14.521] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2020-12-27 16:28:14.521] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2020-12-27 16:28:14.521] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2020-12-27 16:28:14.521] # argv[21](option)=QL<br>
+[2020-12-27 16:28:14.521] # soap_timeout: 30000 ms<br>
+[2020-12-27 16:28:14.572] # key   : AgXr784E7CiCNHSvFX8pTEsoqSzE2g==:99MZl7tPiHNB+GnRO3rYPg==<br>
+[2020-12-27 16:28:14.572] # spkey : AgXr784E7CiCNHSvFX8pTEsoqSzE2g==<br>
+[2020-12-27 16:28:14.573] # ssig  : 99MZl7tPiHNB+GnRO3rYPg==<br>
+[2020-12-27 16:28:14.575] # nm               : x    <br>
+[2020-12-27 16:28:14.575] # brdt             : x    <br>
+[2020-12-27 16:28:14.575] # e_nm             : Y7ZanTM=<br>
+[2020-12-27 16:28:14.575] # e_brdt           : Y7ZanTM=<br>
+[2020-12-27 16:28:14.575] # cpkey : AgEJpuTRzwOhTJTYn944HN4pYIQnHA==<br>
+[2020-12-27 16:28:14.575] # csig  : D+v2ZjUkDd9QA0AFNBDD5w==<br>
+[2020-12-27 16:28:14.593] retmsg: WadKiCkDwbrYdeXNipDn2ZFZU8p2n7/54pF6bqgrV8gta9aB9pZLmShphQ9P0bwmLrDxFXezOB7c5j2XxbMNpixuJBH3E9Vu8POJLu9Bef8oxukzLYFt4DAqKIU0DgXGUK6X0PEyfxQxLlhEOjw7YaWA+xfndyojnsLugzSAIQ1htE1EH+Qg2cNuLMUu9fWbRNwe6QxZLriOcPT3WO0L38aaAxsznUMhGvEEVndqgJIbh197hpVzDkJVlFSoemeT0Ru2FNwNn4TyeGvST6L46ROPZ8Lqw5UYSSf9ojseS/hZFGaJilQuEjGG4DNWoQIyWBbWaON9SbYzXwQ=
+[2020-12-27 16:28:14.593] retmsg: B105:서비스 기간이 만료되었습니다.:l4i7ItKfVYAXSio1JN1zR9RpFd510ce2M9r9l+uFeDKpnergzwfGn0unSSRhDKJ/x87+KQ7s42n8LW/vJuQX8YY8dbriLoDtZeIfe1zkd0C1i8lDBJwHWnc1zxLfjmLizEtdsfUlMDglRCJ3+nsmLT886tKJ79sZx1EjnihGiB9Wq7+nuc07QeEmHrBcBurVYDQ9g5BCoO6+A6O1eXBzZw==
+[2020-12-27 16:28:14.593] B105
+[2020-12-27 16:28:14.593] 서비스 기간이 만료되었습니다.
+[2020-12-27 16:28:14.593] l4i7ItKfVYAXSio1JN1zR9RpFd510ce2M9r9l+uFeDKpnergzwfGn0unSSRhDKJ/x87+KQ7s42n8LW/vJuQX8YY8dbriLoDtZeIfe1zkd0C1i8lDBJwHWnc1zxLfjmLizEtdsfUlMDglRCJ3+nsmLT886tKJ79sZx1EjnihGiB9Wq7+nuc07QeEmHrBcBurVYDQ9g5BCoO6+A6O1eXBzZw==
+[2020-12-27 16:28:14.593] # final ret code=105<br>
+[2020-12-27 16:28:49.903] # OKNAME v3.70 start!<br>
+[2020-12-27 16:28:49.904] # mode=HS_CNFRM_POPUP<br>
+[2020-12-27 16:28:49.904] # Parameter IP: 	114.108.128.129<br>
+[2020-12-27 16:28:49.904] # argv[ 1](hs_cert_svc_tx_seqno)=20201227162849463039<br>
+[2020-12-27 16:28:49.904] # argv[ 2](nm)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 3](brdt)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 4](sex)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 6](var1)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 7](var2)=x<br>
+[2020-12-27 16:28:49.904] # argv[ 8](var3)=0<br>
+[2020-12-27 16:28:49.904] # argv[ 9](var4)=0<br>
+[2020-12-27 16:28:49.904] # argv[10](var5)=0<br>
+[2020-12-27 16:28:49.904] # argv[11](return_msg)=x<br>
+[2020-12-27 16:28:49.904] # argv[12](return_url)=https://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2020-12-27 16:28:49.904] # argv[13](in_tp_bit)=0<br>
+[2020-12-27 16:28:49.904] # argv[14](hs_cert_msr_cd)=10<br>
+[2020-12-27 16:28:49.904] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2020-12-27 16:28:49.904] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2020-12-27 16:28:49.905] # argv[17](server_ip)=114.108.128.129<br>
+[2020-12-27 16:28:49.905] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2020-12-27 16:28:49.905] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2020-12-27 16:28:49.905] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2020-12-27 16:28:49.905] # argv[21](option)=QL<br>
+[2020-12-27 16:28:49.905] # soap_timeout: 30000 ms<br>
+[2020-12-27 16:28:49.952] # key   : AwAC6GhC+8ZsIcyb+fWPRokS+JEgow==:f04pUN2WUN6zVrEYny+5GQ==<br>
+[2020-12-27 16:28:49.952] # spkey : AwAC6GhC+8ZsIcyb+fWPRokS+JEgow==<br>
+[2020-12-27 16:28:49.952] # ssig  : f04pUN2WUN6zVrEYny+5GQ==<br>
+[2020-12-27 16:28:49.954] # nm               : x    <br>
+[2020-12-27 16:28:49.954] # brdt             : x    <br>
+[2020-12-27 16:28:49.954] # e_nm             : ZVZ7Lh8=<br>
+[2020-12-27 16:28:49.954] # e_brdt           : ZVZ7Lh8=<br>
+[2020-12-27 16:28:49.954] # cpkey : AwFBZmJsNjadt3B4hwUNsNepHojPFQ==<br>
+[2020-12-27 16:28:49.954] # csig  : vQpI6JxkIVDa1xpMtuCwzw==<br>
+[2020-12-27 16:28:49.971] retmsg: X0drOwU8vRnJIehMr8EkMQ9cNkfiOzPeC2LJRCl7hrsUM2UW9afHnSZXKD7Jqku1RPLuIJqpq9yHoCRbXqi6VB8tLAPHOP2rWHLEiHxcx+xjrz7kO24rBcsM2Sj4SWGoHmDt92hRbOH6mZG5dK3ryThvUKcoHxC5ap/D8vQYJYzfeBEWyBsrtUstPIH3anmQIbtVxEchkWUAab2Y/CJPYTsvz68ptGwa4x8uWdjQvculP2bqhqGGPjosll7uIUF/ODMhDbJZrMrwfwRxoUw4cdYXQz3JG1xurEtqM6KxBFKgK3fNiby0Jht165rlQVTISTly8EJoVhvUPz8=
+[2020-12-27 16:28:49.971] retmsg: B105:서비스 기간이 만료되었습니다.:l4i7ItKfVYAXSio1JN1zR20CV4cNxOaMZOzEJGuCtTu41c0rY/k6RKqk+7//Owi3zXZUDZi/f44BzCR3ZNF+z/+JcdqdVXd1PJSCFplNYDe5jR6KCaEr16pgbDs3MqxH/dhFjBQRUvD5QgEq/2HfP6CNlp6hslYbxqGRruLbOZ20Ra8e761V6rGWRLkNKqwiW4geor4MIx1AiUwwO9b36Q==
+[2020-12-27 16:28:49.971] B105
+[2020-12-27 16:28:49.971] 서비스 기간이 만료되었습니다.
+[2020-12-27 16:28:49.971] l4i7ItKfVYAXSio1JN1zR20CV4cNxOaMZOzEJGuCtTu41c0rY/k6RKqk+7//Owi3zXZUDZi/f44BzCR3ZNF+z/+JcdqdVXd1PJSCFplNYDe5jR6KCaEr16pgbDs3MqxH/dhFjBQRUvD5QgEq/2HfP6CNlp6hslYbxqGRruLbOZ20Ra8e761V6rGWRLkNKqwiW4geor4MIx1AiUwwO9b36Q==
+[2020-12-27 16:28:49.971] # final ret code=105<br>

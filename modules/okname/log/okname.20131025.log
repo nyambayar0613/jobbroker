@@ -1,0 +1,42 @@
+[2013-10-25 18:43:37.971] # OKNAME v3.70 start!<br>
+[2013-10-25 18:43:38.009] # mode=IPIN_CKEY<br>
+[2013-10-25 18:43:38.009] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-25 18:43:38.009] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-25 18:43:38.009] # argv[ 3](reserved1  )=0<br>
+[2013-10-25 18:43:38.009] # argv[ 4](reserved2  )=0<br>
+[2013-10-25 18:43:38.009] # argv[ 5](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-25 18:43:38.009] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-25 18:43:38.009] # argv[ 7](Option     )=CL<br>
+[2013-10-25 18:43:38.017] AgH/BXaV1XxqSHO6Y11m7Ld5h/cCDA==
+[2013-10-25 18:43:38.017] nqm7DwLUrKOth+Y9x87lTQ==
+[2013-10-25 18:43:38.017] 20131025184338017979
+[2013-10-25 18:43:38.017] # final ret code=0<br>
+[2013-10-25 18:43:56.051] # OKNAME v3.70 start!<br>
+[2013-10-25 18:43:56.051] # mode=IPIN_CKDEC<br>
+[2013-10-25 18:43:56.051] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2013-10-25 18:43:56.051] # argv[ 2](memid      )=V05280000000<br>
+[2013-10-25 18:43:56.051] # argv[ 3](EndPointURL)=http://www.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2013-10-25 18:43:56.051] # argv[ 4](cPubKey     )=AwR88uJHeCdWNvp1Y+439nz8vIewAg==<br>
+[2013-10-25 18:43:56.051] # argv[ 5](cSig )=wDByaXU6oC1/ccYM+IdKYw==<br>
+[2013-10-25 18:43:56.051] # argv[ 6](EncData  )=SqPD9RjZ5KVzuIGaiLNovE6U4zM8jNAYZzUfj/hh8FS9jdT1J020+XFmtvrce7pmiMXYaUM1yyeVGGsD75cIvr9A0TUKpyiH+YELscgWKQ/6sJY/1o7a4hZKh7QDXGgIAM3XfgBK/QCC6j8itq3QI+d0ZwefU82wEeZHEILUWHqEJSjRx4ACcHgXmqblmEoXuQURKW/t57rRKcuSi2mhseM3ACn1nA9QmZXK5BQ/J6s4+M018PjbaLETd3xA4KpYqpWT/WG3hwIvfHA0SYkumABQDKtYaPhRzgD9YWPWTEPyvPEzEf0AFg==<br>
+[2013-10-25 18:43:56.051] # argv[ 7](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2013-10-25 18:43:56.051] # argv[ 8](Option     )=SL<br>
+[2013-10-25 18:43:56.053] # clnPublicKey : AwR88uJHeCdWNvp1Y+439nz8vIewAg==<br>
+[2013-10-25 18:43:56.053] # clnSignature : wDByaXU6oC1/ccYM+IdKYw==<br>
+[2013-10-25 18:43:56.053] # srvPrivateKey: A4e7SKz2uVhKE+zZ2wANWtaypaR8<br>
+[2013-10-25 18:43:56.053] # srvSecurekey : AUtxKJpJLMqHCqjE6c+MfyZXA8Ia<br>
+[2013-10-25 18:43:56.053] # decData      : MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=|90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==|NULL|1|6316669587913|V05280000000|강진우|20131025184338017979|7|1|0|19821203|2<br>
+[2013-10-25 18:43:56.053] MC0GCCqGSIb3DQIJAyEAkXr8KHesEA3tJ5b9uxZbhVMxyjslbTQqgBoJ9v792r4=
+[2013-10-25 18:43:56.053] 90+VsHLkp0uXNvWUFii43WwEjo46maLBCQNZSsKf5SRInTEwFjXqlZPqEqPKNXaRIE/hQ720gTg6O7CO+XzCwQ==
+[2013-10-25 18:43:56.053] NULL
+[2013-10-25 18:43:56.053] 1
+[2013-10-25 18:43:56.053] 6316669587913
+[2013-10-25 18:43:56.053] V05280000000
+[2013-10-25 18:43:56.053] 강진우
+[2013-10-25 18:43:56.053] 20131025184338017979
+[2013-10-25 18:43:56.053] 7
+[2013-10-25 18:43:56.053] 1
+[2013-10-25 18:43:56.053] 0
+[2013-10-25 18:43:56.053] 19821203
+[2013-10-25 18:43:56.053] 2
+[2013-10-25 18:43:56.053] # final ret code=0<br>

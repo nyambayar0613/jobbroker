@@ -1,0 +1,168 @@
+[2015-03-30 10:11:31.097] # OKNAME v3.70 start!<br>
+[2015-03-30 10:11:31.097] # mode=IPIN_CKEY<br>
+[2015-03-30 10:11:31.097] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:11:31.097] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:11:31.097] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:11:31.097] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:11:31.097] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:11:31.097] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:11:31.097] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:11:31.097] # Generating monthly key..
+[2015-03-30 10:11:31.099] pub1: AwQ6UuwBiTviypw8OO7LfOccm+/Ekg==
+[2015-03-30 10:11:31.099] pri1: AwaSGWMDYRCUHpez0NUbiushJYin
+[2015-03-30 10:11:31.099] sig1: brR8lU7w24dtHR2GyiZ4dA==
+[2015-03-30 10:11:31.099] # soap_timeout: 30000 ms<br>
+[2015-03-30 10:11:31.273] retmsg: AgIekyBI1WquMVVzROWUGqMjuft1TQ==:aLp3NIdmAwj5QhE3/f/Qew==:H7LJJ3OLPs8WXSR0SpFUDE+GkQaCAyRyBz12orHkBqexqjdE7d4lM65IPAs2P0HKfH/oy7diUuPh4jlzAhT/Q6dMKCauq0hsvVDmsPdTgVP+DvXWZEA=
+[2015-03-30 10:11:31.273] pub3: AgIekyBI1WquMVVzROWUGqMjuft1TQ==
+[2015-03-30 10:11:31.273] sig3: aLp3NIdmAwj5QhE3/f/Qew==
+[2015-03-30 10:11:31.273] pub2pri2sig2: H7LJJ3OLPs8WXSR0SpFUDE+GkQaCAyRyBz12orHkBqexqjdE7d4lM65IPAs2P0HKfH/oy7diUuPh4jlzAhT/Q6dMKCauq0hsvVDmsPdTgVP+DvXWZEA=
+[2015-03-30 10:11:31.274] srvSecurekey: B0NEcS9cdXZwWM3smP+9ihPMWrCE
+[2015-03-30 10:11:31.274] decData: AgTRw5b+o/NUJruasX2dezSwUVMRpQ==:AbZbHfJQ9mYY3s7tHaRQ5qpaFQTo:FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:11:31.274] # Current month<br>
+[2015-03-30 10:11:31.274] # public_key   : AgTRw5b+o/NUJruasX2dezSwUVMRpQ==<br>
+[2015-03-30 10:11:31.274] # private_key  : AbZbHfJQ9mYY3s7tHaRQ5qpaFQTo<br>
+[2015-03-30 10:11:31.274] # signature    : FpIqjRq3WWlfiNbUoFSuMQ==<br>
+[2015-03-30 10:11:31.274] # Last month<br>
+[2015-03-30 10:11:31.274] # public_key1  : <br>
+[2015-03-30 10:11:31.274] # private_key1 : <br>
+[2015-03-30 10:11:31.274] # signature1   : <br>
+[2015-03-30 10:11:31.274] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:11:31.274] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:11:31.274] 20150330101131274477
+[2015-03-30 10:11:31.275] # final ret code=0<br>
+[2015-03-30 10:11:31.286] # OKNAME v3.70 start!<br>
+[2015-03-30 10:11:31.286] # mode=IPIN_CKEY<br>
+[2015-03-30 10:11:31.286] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:11:31.286] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:11:31.286] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:11:31.286] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:11:31.286] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:11:31.286] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:11:31.286] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:11:31.287] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:11:31.287] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:11:31.287] 20150330101131286477
+[2015-03-30 10:11:31.287] # final ret code=0<br>
+[2015-03-30 10:11:44.405] # OKNAME v3.70 start!<br>
+[2015-03-30 10:11:44.405] # mode=IPIN_CKEY<br>
+[2015-03-30 10:11:44.405] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:11:44.405] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:11:44.405] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:11:44.405] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:11:44.405] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:11:44.405] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:11:44.405] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:11:44.405] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:11:44.405] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:11:44.405] 20150330101144405259
+[2015-03-30 10:11:44.405] # final ret code=0<br>
+[2015-03-30 10:11:47.360] # OKNAME v3.70 start!<br>
+[2015-03-30 10:11:47.360] # mode=IPIN_CKEY<br>
+[2015-03-30 10:11:47.360] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:11:47.360] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:11:47.360] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:11:47.360] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:11:47.360] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:11:47.360] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:11:47.360] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:11:47.360] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:11:47.360] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:11:47.360] 20150330101147360089
+[2015-03-30 10:11:47.360] # final ret code=0<br>
+[2015-03-30 10:12:29.176] # OKNAME v3.70 start!<br>
+[2015-03-30 10:12:29.176] # mode=IPIN_CKEY<br>
+[2015-03-30 10:12:29.176] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:12:29.176] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:12:29.176] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:12:29.176] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:12:29.176] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:12:29.176] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:12:29.176] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:12:29.176] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:12:29.176] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:12:29.176] 20150330101229176972
+[2015-03-30 10:12:29.176] # final ret code=0<br>
+[2015-03-30 10:13:30.117] # OKNAME v3.70 start!<br>
+[2015-03-30 10:13:30.117] # mode=IPIN_CKEY<br>
+[2015-03-30 10:13:30.117] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:13:30.117] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:13:30.117] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:13:30.117] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:13:30.117] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:13:30.117] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:13:30.117] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:13:30.117] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:13:30.117] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:13:30.117] 20150330101330117507
+[2015-03-30 10:13:30.117] # final ret code=0<br>
+[2015-03-30 10:14:04.473] # OKNAME v3.70 start!<br>
+[2015-03-30 10:14:04.474] # mode=IPIN_CKEY<br>
+[2015-03-30 10:14:04.474] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:14:04.474] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:14:04.474] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:14:04.474] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:14:04.474] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:14:04.474] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:14:04.474] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:14:04.474] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:14:04.474] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:14:04.474] 20150330101404474472
+[2015-03-30 10:14:04.474] # final ret code=0<br>
+[2015-03-30 10:15:59.435] # OKNAME v3.70 start!<br>
+[2015-03-30 10:15:59.435] # mode=IPIN_CKEY<br>
+[2015-03-30 10:15:59.435] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:15:59.435] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:15:59.435] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:15:59.435] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:15:59.435] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:15:59.435] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:15:59.435] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:15:59.435] # Generating monthly key..
+[2015-03-30 10:15:59.436] pub1: AwLErSxIkwEK4xav7a5MLoAgVkthBg==
+[2015-03-30 10:15:59.436] pri1: Ao33m18aMF6ZbKJUaP/CKUCeq/8k
+[2015-03-30 10:15:59.436] sig1: wgE1MMIv5SZprL+YCyAwrQ==
+[2015-03-30 10:15:59.436] # soap_timeout: 30000 ms<br>
+[2015-03-30 10:15:59.495] retmsg: AwI+xnbC0vhKPaJ4FQ9swjJyctAIxQ==:warjB7DCGknQjbmzQA1u2A==:VJbNODrVdD2zxuZV7WEmfb/JI6dWCdweuHAR1vNBokLMzvuKDhDlOIb79wJ0LdfepeG2q0S7mhn86zkRm+jm2FduW4uj7HwjII1QXIXYojUXn7Tp44s=
+[2015-03-30 10:15:59.495] pub3: AwI+xnbC0vhKPaJ4FQ9swjJyctAIxQ==
+[2015-03-30 10:15:59.495] sig3: warjB7DCGknQjbmzQA1u2A==
+[2015-03-30 10:15:59.495] pub2pri2sig2: VJbNODrVdD2zxuZV7WEmfb/JI6dWCdweuHAR1vNBokLMzvuKDhDlOIb79wJ0LdfepeG2q0S7mhn86zkRm+jm2FduW4uj7HwjII1QXIXYojUXn7Tp44s=
+[2015-03-30 10:15:59.496] srvSecurekey: BZkdhfMd+2WTkwTtP5aqRTCLqFrG
+[2015-03-30 10:15:59.496] decData: AgTRw5b+o/NUJruasX2dezSwUVMRpQ==:AbZbHfJQ9mYY3s7tHaRQ5qpaFQTo:FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:15:59.496] # Current month<br>
+[2015-03-30 10:15:59.496] # public_key   : AgTRw5b+o/NUJruasX2dezSwUVMRpQ==<br>
+[2015-03-30 10:15:59.496] # private_key  : AbZbHfJQ9mYY3s7tHaRQ5qpaFQTo<br>
+[2015-03-30 10:15:59.496] # signature    : FpIqjRq3WWlfiNbUoFSuMQ==<br>
+[2015-03-30 10:15:59.496] # Last month<br>
+[2015-03-30 10:15:59.496] # public_key1  : <br>
+[2015-03-30 10:15:59.496] # private_key1 : <br>
+[2015-03-30 10:15:59.496] # signature1   : <br>
+[2015-03-30 10:15:59.496] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:15:59.496] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:15:59.496] 20150330101559496928
+[2015-03-30 10:15:59.496] # final ret code=0<br>
+[2015-03-30 10:16:50.181] # OKNAME v3.70 start!<br>
+[2015-03-30 10:16:50.181] # mode=IPIN_CKEY<br>
+[2015-03-30 10:16:50.181] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:16:50.181] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:16:50.181] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:16:50.181] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:16:50.181] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:16:50.181] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:16:50.181] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:16:50.181] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:16:50.181] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:16:50.181] 20150330101650181057
+[2015-03-30 10:16:50.181] # final ret code=0<br>
+[2015-03-30 10:17:11.383] # OKNAME v3.70 start!<br>
+[2015-03-30 10:17:11.383] # mode=IPIN_CKEY<br>
+[2015-03-30 10:17:11.384] # argv[ 1](keypath    )=/home/njob/public_html/.//modules/okname/okname.key<br>
+[2015-03-30 10:17:11.384] # argv[ 2](memid      )=V00000000000<br>
+[2015-03-30 10:17:11.384] # argv[ 3](reserved1  )=0<br>
+[2015-03-30 10:17:11.384] # argv[ 4](reserved2  )=0<br>
+[2015-03-30 10:17:11.384] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-03-30 10:17:11.384] # argv[ 6](logpath	)=/home/njob/public_html/.//modules/okname/log<br>
+[2015-03-30 10:17:11.384] # argv[ 7](Option     )=CL<br>
+[2015-03-30 10:17:11.384] AgTRw5b+o/NUJruasX2dezSwUVMRpQ==
+[2015-03-30 10:17:11.384] FpIqjRq3WWlfiNbUoFSuMQ==
+[2015-03-30 10:17:11.384] 20150330101711384945
+[2015-03-30 10:17:11.384] # final ret code=0<br>

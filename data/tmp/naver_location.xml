@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geocode xmlns="naver:openapi">
+	<result>
+		<userquery><![CDATA[광주 동구 금남로 245]]></userquery>
+		<total>3</total>
+		<items>
+			<item>
+				<address><![CDATA[광주광역시 동구 금남로 245]]></address>
+				<isRoadAddress>true</isRoadAddress>
+				<point>
+					<x>126.9187313</x>
+					<y>35.1483701</y>
+				</point>
+
+			</item>
+			<item>
+				<address><![CDATA[광주광역시 동구 금남로 246]]></address>
+				<isRoadAddress>true</isRoadAddress>
+				<point>
+					<x>126.9182639</x>
+					<y>35.1477478</y>
+				</point>
+
+			</item>
+			<item>
+				<address><![CDATA[광주광역시 동구 금남로5가 245]]></address>
+				<isRoadAddress>false</isRoadAddress>
+				<point>
+					<x>126.9135595</x>
+					<y>35.1525565</y>
+				</point>
+
+			</item>
+		</items>
+	</result>
+</geocode>

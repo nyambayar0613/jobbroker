@@ -1,0 +1,32 @@
+[2014-02-08 22:15:31.386] # OKNAME v3.70 start!<br>
+[2014-02-08 22:15:31.404] # mode=IPIN_CKEY<br>
+[2014-02-08 22:15:31.404] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2014-02-08 22:15:31.404] # argv[ 2](memid      )=P00000000000<br>
+[2014-02-08 22:15:31.404] # argv[ 3](reserved1  )=0<br>
+[2014-02-08 22:15:31.404] # argv[ 4](reserved2  )=0<br>
+[2014-02-08 22:15:31.404] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2014-02-08 22:15:31.404] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2014-02-08 22:15:31.404] # argv[ 7](Option     )=CL<br>
+[2014-02-08 22:15:31.404] # Generating monthly key..
+[2014-02-08 22:15:31.406] pub1: AwFRvp+1xdO0rarHhiWXrUnKois0NQ==
+[2014-02-08 22:15:31.406] pri1: A9e4EVBCj0tACg90UpqaKKDBtBH6
+[2014-02-08 22:15:31.406] sig1: nT6kgxE6mbgk8WrRMzt8Xg==
+[2014-02-08 22:15:31.406] # soap_timeout: 30000 ms<br>
+[2014-02-08 22:15:31.491] retmsg: AgeR7eEGnmPncLYV9k1ru/dxoxbVeA==:rvPYRIIuILZ+eOUCOr2W2Q==:JNaUYDPHGiDPrt+ZVw6WKviNiGUiTD+1GzdjP8oUe+mx6nb4Miq5J64iozB37vCF4XC221UwfpYERbt3Np/aGeU82m4Xt24TOCf5KwHwH/2i6aHv22s=
+[2014-02-08 22:15:31.491] pub3: AgeR7eEGnmPncLYV9k1ru/dxoxbVeA==
+[2014-02-08 22:15:31.491] sig3: rvPYRIIuILZ+eOUCOr2W2Q==
+[2014-02-08 22:15:31.491] pub2pri2sig2: JNaUYDPHGiDPrt+ZVw6WKviNiGUiTD+1GzdjP8oUe+mx6nb4Miq5J64iozB37vCF4XC221UwfpYERbt3Np/aGeU82m4Xt24TOCf5KwHwH/2i6aHv22s=
+[2014-02-08 22:15:31.492] srvSecurekey: B0L1m9PMLcRFXXOWMZVBjCdrLap+
+[2014-02-08 22:15:31.492] decData: AwXbZ5FClpbWKzYxSbd6gBTZkBroWg==:AsRpmFRRExdYjRbukQluPZIpmlFP:82t99oZf04hlGS/z57tcaQ==
+[2014-02-08 22:15:31.493] # Current month<br>
+[2014-02-08 22:15:31.493] # public_key   : AwXbZ5FClpbWKzYxSbd6gBTZkBroWg==<br>
+[2014-02-08 22:15:31.493] # private_key  : AsRpmFRRExdYjRbukQluPZIpmlFP<br>
+[2014-02-08 22:15:31.493] # signature    : 82t99oZf04hlGS/z57tcaQ==<br>
+[2014-02-08 22:15:31.493] # Last month<br>
+[2014-02-08 22:15:31.493] # public_key1  : <br>
+[2014-02-08 22:15:31.493] # private_key1 : <br>
+[2014-02-08 22:15:31.493] # signature1   : <br>
+[2014-02-08 22:15:31.493] AwXbZ5FClpbWKzYxSbd6gBTZkBroWg==
+[2014-02-08 22:15:31.493] 82t99oZf04hlGS/z57tcaQ==
+[2014-02-08 22:15:31.493] 20140208221531493303
+[2014-02-08 22:15:31.493] # final ret code=0<br>

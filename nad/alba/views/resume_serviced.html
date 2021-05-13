@@ -1,0 +1,1553 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var mode = "<?php echo $mode;?>";
+var modes = "";
+<?php if($mode=='insert' && !$result){	 // 입력 메뉴를 통해 mode 를 get 으로 가져온 경우?>
+$(window).load(function(){
+	update_resume('insert');
+});
+<?php } ?>
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id, page_name:"<?php echo $page_name;?>" }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_info = function( no, mb_id ){
+	$('#pop_info').load('./views/_load/resume.php', { mode:'get_resume', mb_id:mb_id, page_name:"<?php echo $page_name;?>" }, function(){
+		$('#pop_resume').draggable({ handle: "#resumeHandle" });
+		$('#pop_resume').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var update_resume = function( mode, no, mb_id ){	 // 입력/수정
+
+	var mode = mode;
+	modes = mode;
+	
+	var wr_input_type = $("input[name='wr_input_type']:checked").val();
+
+	$('#pop_info').load('./views/_load/resume.php', { mode:mode, no:no, mb_id:mb_id, input_type:wr_input_type }, function(result){
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#memberFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		$('#add_form #wr_volume_dates').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#add_form #volume_date_sels').click(function(){
+			$('#add_form #wr_volume_dates').datepicker('show');
+		});
+
+		// 회원검색
+		$('#mb_search').keydown(function(event){
+			if(event.keyCode == 13){	// 회원검색 필드 에서 엔터키
+				search_member();
+				return false;
+			}
+		});
+
+	});
+
+}
+var ResumeFrm_submit = function(){
+	<?php echo $utility->input_cheditor('wr_introduce');?>
+	var albaFrm_options = { beforeSubmit : albaRequest, success : albaResponse }
+	$('#ResumeFrm').ajaxSubmit(albaFrm_options);
+	//$('#ResumeFrm').submit();
+}
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./resume.php?"+send_url+"&page_rows=" + sel;
+}
+var insert_area_blocks = 0;
+var insert_area_sel_first = function( vals, target ){	// 첫번째 지역값 선택
+	var sel = vals.value;
+	$('#'+target+'_display').load('./views/_load/alba.php', { mode:'insert_second_area', type:'area', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var insert_job_type_sel_first = function( vals, target ){	// 첫번째 직종값 선택
+	var sel = vals.value;	
+	$('#'+target+'_display').load('./views/_load/alba.php', { mode:'insert_second_job_type', type:'job_type', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var search_member = function(){	// 회원 검색
+	var sel = $('#mb_search').val();
+
+	if(!sel || sel==''){
+		alert("<?php echo $config->_errors('0032')?>");	 // 검색어를 입력해 주세요.
+		$('#mb_search').focus();
+		return false;
+	} else {
+
+		$.post('../member/process/search.php', { mode:'search', ajax:'true', mb_type:'individual', search_keyword:sel }, function(result){
+			
+			$('#memlist').html(result);
+			$('#memlist').show();
+
+		});
+
+	}
+}
+var get_member = function(mb_id){	// 회원의 no, mb_id 값을 가져와 input field 에 할당
+	
+	$.post('../member/process/search.php', { mode:'resume_list', mb_id:mb_id }, function(result){
+		$("#mb_id option[value="+mb_id+"]").attr('selected',true);
+		$('#resume_load').html(result);
+	});
+
+	/*
+	$.post('../member/process/search.php', { mode:'managers', mb_id:mb_id }, function(result){
+
+		var results = result.split("//");
+		var is_manager = results[0];	// 담당자 존재 유무
+		var manager_list = results[1];	 // 담당자 리스트
+
+		if(is_manager){
+			$('#manager_print').html(manager_list);
+			$('#manager_info').show();
+		} else {
+			$('#manager_print').html("");
+			$('#manager_info').hide();
+		}
+
+	});
+	*/
+}
+
+var dt = new Date();
+var year = dt.getFullYear();
+
+/* 학력 사항 ===================================================== */
+var school_ability = function( vals ){	 // 학력선택
+	var sel = vals.value.split('/');
+	var code = sel[0], rank = Number(sel[1]);
+
+	// 입력할 학력선택 초기화
+	$('#schoolSelect').hide();	// 입력할 학력선택
+	$("input[name='wr_school_type[]']").attr('disabled',true);
+	$("input[name='wr_school_type[]']").attr('checked',false);
+
+	if(rank <=3 ){	// 중학교 까지 (휴학 불가능)
+
+		$('#ability_high_school').hide();
+		$('#ability_half_college').hide();
+		$('#ability_college').hide();
+		$('#ability_graduate').hide();
+		$('#ability_success').hide();
+		
+		$('#wr_school_absence').attr('checked',false);	// 휴학중 체크
+		$('#wr_school_absence').attr('disabled',true);
+
+	} else {	 // 고등학교 이상 (휴학 가능)
+
+		$('#wr_school_absence').attr('disabled',false);
+
+		/* 고등학교 ======================================== */
+		if(rank==4 || rank==5){
+
+			$('#ability_high_school').show();
+			$('#ability_half_college').hide();
+			$('#ability_college').hide();
+			$('#ability_graduate').hide();
+			$('#ability_success').hide();
+
+			if(rank==4){	// 고등학교 재학
+				$('#high_school_eyear_block').hide();
+				$('#high_school_eyear_now').show();
+				$('#wr_high_school_graduation option[value=1]').attr('selected',true);
+				$('#wr_high_school_graduation').attr('disabled',true);
+			} else if(rank==5){	// 고등학교 졸업
+				$('#high_school_eyear_block').show();
+				$('#high_school_eyear_now').hide();
+				$('#wr_high_school_graduation option[value=0]').attr('selected',true);
+				$('#wr_high_school_graduation').attr('disabled',true);
+			}
+
+		/* //고등학교 ======================================== */
+
+		/* 대학(2,3년) ======================================== */
+		} else if(rank==6 || rank==7 || rank==8){
+
+			$('#ability_high_school').hide();
+			$('#ability_college').hide();
+			$('#ability_half_college').show();
+			$('#ability_graduate').hide();
+			$('#ability_success').hide();
+
+			$('#schoolSelect').show();	// 입력할 학력선택
+			$('#school_type0').attr('disabled',false);
+			$('#school_type1').attr('checked',true);
+			
+			if(rank==7){	// 대학(2,3년) 재학
+				$('#half_college_eyear_block_0').hide();
+				$('#half_college_eyear_now_0').show();
+				$('#wr_half_college_graduation_0 option[value=1]').attr('selected',true);
+				$('#wr_half_college_graduation_0').attr('disabled',true);
+			} else if(rank==6) {	// 대학(2,3년) 중퇴
+				$('#half_college_eyear_block_0').show();
+				$('#half_college_eyear_now_0').hide();
+				$('#wr_half_college_graduation_0 option[value=2]').attr('selected',true);
+				$('#wr_half_college_graduation_0').attr('disabled',true);
+			} else if(rank==8) {	// 대학(2,3년) 졸업
+				$('#half_college_eyear_block_0').show();
+				$('#half_college_eyear_now_0').hide();
+				$('#wr_half_college_graduation_0 option[value=0]').attr('selected',true);
+				$('#wr_half_college_graduation_0').attr('disabled',true);
+			}
+
+		/* //대학(2,3년) ======================================== */
+
+		/* 대학(4년) ======================================== */
+		} else if(rank==9 || rank==10 || rank==11){
+
+			$('#ability_high_school').hide();
+			$('#ability_half_college').hide();
+			$('#ability_college').show();
+			$('#ability_graduate').hide();
+			$('#ability_success').hide();
+
+			$('#schoolSelect').show();	// 입력할 학력선택
+			$('#school_type0').attr('disabled',false);
+			$('#school_type1').attr('disabled',false);
+			$('#school_type2').attr('checked',true);
+
+			if(rank==10){	// 대학(4년) 재학
+				$('#college_eyear_block_0').hide();
+				$('#college_eyear_now_0').show();
+				$('#wr_college_graduation_0 option[value=1]').attr('selected',true);
+				$('#wr_college_graduation_0').attr('disabled',true);
+			} else if(rank==9) {	// 대학(4년) 중퇴
+				$('#college_eyear_block_0').show();
+				$('#college_eyear_now_0').hide();
+				$('#wr_college_graduation_0 option[value=2]').attr('selected',true);
+				$('#wr_college_graduation_0').attr('disabled',true);
+			} else if(rank==11) {	// 대학(4년) 졸업
+				$('#college_eyear_block_0').show();
+				$('#college_eyear_now_0').hide();
+				$('#wr_college_graduation_0 option[value=0]').attr('selected',true);
+				$('#wr_college_graduation_0').attr('disabled',true);
+			}
+
+		/* //대학(4년) ======================================== */
+
+		/* 대학원 =========================================== */
+		} else if(rank==12 || rank==13 || rank==14){
+
+			$('#ability_high_school').hide();
+			$('#ability_half_college').hide();
+			$('#ability_college').hide();
+			$('#ability_graduate').show();
+			$('#ability_success').hide();
+
+			$('#schoolSelect').show();	// 입력할 학력선택
+			$('#school_type0').attr('disabled',false);
+			$('#school_type1').attr('disabled',false);
+			$('#school_type2').attr('disabled',false);
+			$('#school_type3').attr('checked',true);
+
+			if(rank==13){	// 대학원 재학
+				$('#graduate_eyear_block_0').hide();
+				$('#graduate_eyear_now_0').show();
+				$('#wr_graduate_graduation_0 option[value=2]').attr('selected',true);
+				$('#wr_graduate_graduation_0').attr('disabled',true);
+			} else if(rank==12) {	// 대학원 중퇴
+				$('#graduate_eyear_block_0').show();
+				$('#graduate_eyear_now_0').hide();
+				$('#wr_graduate_graduation_0 option[value=3]').attr('selected',true);
+				$('#wr_graduate_graduation_0').attr('disabled',true);
+			} else if(rank==14) {	// 대학원 졸업
+				$('#graduate_eyear_block_0').show();
+				$('#graduate_eyear_now_0').hide();
+				$('#wr_graduate_graduation_0 option[value=0]').attr('selected',true);
+				$('#wr_graduate_graduation_0').attr('disabled',true);
+			}
+
+		/* //대학원 =========================================== */
+
+		/* 대학원 이상 ========================================= */
+		} else if(rank==15){
+
+			$('#wr_school_absence').attr('checked',false);	// 휴학중 체크
+			$('#wr_school_absence').attr('disabled',true);
+
+			$('#ability_high_school').hide();
+			$('#ability_half_college').hide();
+			$('#ability_college').hide();
+			$('#ability_graduate').hide();
+			$('#ability_success').show();
+
+			$('#schoolSelect').show();	// 입력할 학력선택
+			$('#school_type0').attr('disabled',false);
+			$('#school_type1').attr('disabled',false);
+			$('#school_type2').attr('disabled',false);
+			$('#school_type3').attr('checked',true);
+
+		/* //대학원 이상 ========================================= */
+		}
+
+	}
+
+}
+// 대학(2,3년) 추가
+var half_college_cnt = 1;
+var half_college_limit = 1;
+var half_college_add = function(){
+	if(half_college_limit >= 5){
+		alert("대학(2,3년)은 최대 5개 까지 추가 가능합니다.");
+		return false;
+	}
+
+	half_college = "";
+	half_college += "<li class=\"pb5 positionR\" id=\"half_college_"+half_college_cnt+"\">";
+	//half_college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_half_college[]\" id=\"wr_half_college_"+half_college_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('half_college','"+half_college_cnt+"');\" value=\"출신학교 선택\">";
+	half_college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_half_college[]\" id=\"wr_half_college_"+half_college_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	//half_college += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('half_college','"+half_college_cnt+"');\"><span>선택</span></a> </em>";
+	half_college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_half_college_specialize[]\" id=\"wr_half_college_specialize_"+half_college_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	half_college += "<select name=\"wr_half_college_syear[]\" class=\"ipSelect\">";
+	half_college += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		half_college += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	half_college += "</select> ";
+	half_college += "년 ~ ";
+	half_college += "<span id=\"half_college_eyear_block_"+half_college_cnt+"\">";
+	half_college += "<select name=\"wr_half_college_eyear[]\" class=\"ipSelect\">";
+	half_college += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		half_college += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	half_college += "</select> ";
+	half_college += "년";
+	half_college += "</span> ";
+	half_college += "<select name=\"wr_half_college_graduation[]\" id=\"wr_half_college_graduation_"+half_college_cnt+"\" class=\"ipSelect\">";
+	half_college += "<option value=\"\">졸업여부</option>";
+	half_college += "<option value=\"0\">졸업</option>";
+	half_college += "<option value=\"1\">재학</option>";
+	half_college += "<option value=\"2\">중퇴</option>";
+	half_college += "</select>";
+	half_college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"half_college_remove('"+half_college_cnt+"');\"><span>-제거</span></a></em>";
+	half_college += "</li>";
+
+	$('#half_college_block').append(half_college);
+	$('#wr_half_college_graduation_0').attr('disabled',false);	// 졸업여부 활성화
+
+	// 출신학교 포커스
+	$('.graduate').focus(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+	});
+
+	// 전공입력 포커스
+	$('.specialize').focus(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+	});
+
+	//$('#wr_half_college_block_'+half_college_cnt).show();
+
+half_college_cnt++;
+half_college_limit++;
+}
+
+// 대학(2,3년) 제거	
+var half_college_remove = function( cnt ){
+half_college_limit--;
+	$('#half_college_'+cnt).remove();
+}
+
+// 대학(4년) 추가
+var college_cnt = 1;
+var college_limit = 1;
+var college_add = function(){
+	if(college_limit >= 5){
+		alert("대학(4년)은 최대 5개 까지 추가 가능합니다.");
+		return false;
+	}
+	
+	college = "";
+	college += "<li class=\"pb5 positionR\" id=\"college_"+college_cnt+"\">";
+	//college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_college[]\" id=\"wr_college_"+college_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('college','"+college_cnt+"');\" value=\"출신학교 선택\">";
+	college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_college[]\" id=\"wr_college_"+college_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	//college += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('college','"+college_cnt+"');\"><span>선택</span></a> </em>";
+	college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_college_specialize[]\" id=\"wr_college_specialize_"+college_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	college += "<select name=\"wr_college_syear[]\" class=\"ipSelect\">";
+	college += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		college += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	college += "</select> ";
+	college += "년 ~ ";
+	college += "<span id=\"college_eyear_block_"+college_cnt+"\">";
+	college += "<select name=\"wr_college_eyear[]\" class=\"ipSelect\">";
+	college += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		college += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	college += "</select> ";
+	college += "년 ";
+	college += "</span>";
+	college += "<select name=\"wr_college_graduation[]\" id=\"wr_college_graduation_"+college_cnt+"\" class=\"ipSelect\">";
+	college += "<option value=\"\">졸업여부</option>";
+	college += "<option value=\"0\">졸업</option>";
+	college += "<option value=\"1\">재학</option>";
+	college += "<option value=\"2\">중퇴</option>";
+	college += "</select>";
+	college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"college_remove('"+college_cnt+"');\"><span>-제거</span></a></em>";
+	college += "</li>";
+
+	$('#college_block').append(college);
+	$('#wr_college_graduation_0').attr('disabled',false);	// 졸업여부 활성화
+
+	// 출신학교 포커스
+	$('.graduate').focus(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+	});
+
+	// 전공입력 포커스
+	$('.specialize').focus(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+	});
+
+	//$('#wr_college_block_'+college_cnt).show();
+
+college_cnt++;
+college_limit++;
+}
+
+// 대학 (4년) 제거
+var college_remove = function( cnt ){
+college_limit--;
+	$('#college_'+cnt).remove();
+}
+
+// 대학원 추가
+var graduate_cnt = 1;
+var graduate_limit = 1;
+var graduate_add = function(){
+	if(graduate_limit >= 5){
+		alert("대학원은 최대 5개 까지 추가 가능합니다.");
+		return false;
+	}
+
+	graduate = "";
+	graduate += "<li class=\"pb5 positionR\" id=\"graduate_"+graduate_cnt+"\">";
+	//graduate += "<input class=\"txt graduate\" type=\"text\" name=\"wr_graduate[]\" id=\"wr_graduate_"+graduate_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('graduate','"+graduate_cnt+"');\" value=\"출신학교 선택\">";
+	graduate += "<input class=\"txt graduate\" type=\"text\" name=\"wr_graduate[]\" id=\"wr_graduate_"+graduate_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	//graduate += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('graduate','"+graduate_cnt+"');\"><span>선택</span></a> </em>";
+	graduate += "<input class=\"txt specialize\" type=\"text\" name=\"wr_graduate_specialize[]\" id=\"wr_graduate_specialize_"+graduate_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	graduate += "<select name=\"wr_graduate_grade[]\" class=\"ipSelect\">";
+	graduate += "<option value=\"\">학위</option>";
+	graduate += "<option value='0'>석사</option>";
+	graduate += "<option value='1'>박사</option>";
+	graduate += "</select> ";
+	graduate += "<select name=\"wr_graduate_syear[]\" class=\"ipSelect\">";
+	graduate += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		graduate += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	graduate += "</select> ";
+	graduate += "년 ~ ";
+	graduate += "<span id=\"graduate_eyear_block_"+graduate_cnt+"\">";
+	graduate += "<select name=\"wr_graduate_eyear[]\" class=\"ipSelect\">";
+	graduate += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		graduate += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	graduate += "</select> ";
+	graduate += "년 ";
+	graduate += "</span>";
+	graduate += "<select name=\"wr_graduate_graduation[]\" id=\"wr_graduate_graduation_"+graduate_cnt+"\" class=\"ipSelect\">";
+	graduate += "<option value=\"\">졸업여부</option>";
+	graduate += "<option value=\"0\">졸업</option>";
+	graduate += "<option value=\"1\">수료</option>";
+	graduate += "<option value=\"2\">재학</option>";
+	graduate += "<option value=\"3\">중퇴</option>";
+	graduate += "</select>";
+	graduate += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"graduate_remove('"+graduate_cnt+"');\"><span>-제거</span></a></em>";
+	graduate += "</li>";
+
+	$('#graduate_block').append(graduate);
+	$('#wr_graduate_graduation_0').attr('disabled',false);	// 졸업여부 활성화
+
+	// 출신학교 포커스
+	$('.graduate').focus(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+	});
+
+	// 전공입력 포커스
+	$('.specialize').focus(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+	});
+
+	//$('#wr_graduate_block_'+graduate_cnt).show();
+
+graduate_cnt++;
+graduate_limit++;
+}
+
+// 대학원 제거
+var graduate_remove = function(cnt){
+graduate_limit--;
+	$('#graduate_'+cnt).remove();
+}
+
+// 대학원 이상 추가
+var success_cnt = 1;
+var success_limit = 1;
+var success_add = function(){	
+	if(success_limit >= 5){
+		alert("대학원은 최대 5개 까지 추가 가능합니다.");
+		return false;
+	}
+
+	success = "";
+	success += "<li class=\"pb5 positionR\" id=\"success_"+success_cnt+"\">";
+	//success += "<input class=\"txt graduate\" type=\"text\" name=\"wr_success[]\" id=\"wr_success_"+success_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('success','"+success_cnt+"');\" value=\"출신학교 선택\">";
+	success += "<input class=\"txt graduate\" type=\"text\" name=\"wr_success[]\" id=\"wr_success_"+success_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	//success += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('success','"+success_cnt+"');\"><span>선택</span></a> </em>";
+	success += "<input class=\"txt specialize\" type=\"text\" name=\"wr_success_specialize[]\" id=\"wr_success_specialize_"+success_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	success += "<select name=\"wr_success_grade[]\" class=\"ipSelect\">";
+	success += "<option value=\"\">학위</option>";
+	success += "<option value='0'>석사</option>";
+	success += "<option value='1'>박사</option>";
+	success += "</select> ";
+	success += "<select name=\"wr_success_syear[]\" class=\"ipSelect\">";
+	success += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		success += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	success += "</select> ";
+	success += "년 ~ ";
+	success += "<span id=\"success_eyear_block_"+success_cnt+"\">";
+	success += "<select name=\"wr_success_eyear[]\" class=\"ipSelect\">";
+	success += "<option value=\"\">년도</option>";
+	for(i=year;i>=1900;--i){
+		success += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	success += "</select> ";
+	success += "년 ";
+	success += "</span>";
+	success += "<select name=\"wr_success_graduation[]\" id=\"wr_success_graduation_"+success_cnt+"\" class=\"ipSelect\">";
+	success += "<option value=\"\">졸업여부</option>";
+	success += "<option value=\"0\">졸업</option>";
+	success += "<option value=\"1\">수료</option>";
+	success += "<option value=\"2\">재학</option>";
+	success += "<option value=\"3\">중퇴</option>";
+	success += "</select>";
+	success += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"success_remove("+success_cnt+");\"><span>-제거</span></a></em>";
+	success += "</li>";
+
+
+	$('#success_block').append(success);
+	$('#wr_success_graduation_0').attr('disabled',false);	// 졸업여부 활성화
+
+	// 출신학교 포커스
+	$('.graduate').focus(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+	});
+
+	// 전공입력 포커스
+	$('.specialize').focus(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력') $(this).val('');
+	}).focusout(function(){
+		var vals = $(this).val();
+		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+	});
+	
+	//$('#wr_success_block_'+success_cnt).show();
+
+success_cnt++;
+success_limit++;
+}
+var success_remove = function(cnt){
+success_limit--;
+	$('#success_'+cnt).remove();
+}
+
+var school_search_pop_empty = function(){	 // 학교 검색 초기화
+	$('#school_search_keyword').val("");
+	$('#school_search_result').html("<li style=\"padding:5px; border-bottom:1px solid #eee;height:30px;text-align:center;padding-top:33px;padding-bottom:33px;\">학교명을 검색해 주세요.</li>");
+	$('#school_name').val("");
+	$('#schoolSearchPop').hide();	// 최종 닫음.
+}
+var school_types = function( vals ){	 // 입력할 학력선택
+	var sel = vals.value;
+	var checked = vals.checked;
+	if(checked==true){
+		$('#ability_'+sel).show();
+	} else {
+		$('#ability_'+sel).hide();
+	}
+}
+var school_search = function(){	// 학교 검색
+	var search_keyword = $('#school_search_keyword').val();
+	$('#school_search_result').load('./views/_load/alba_resume_regist.php', { mode:'school_search', type:search_mode, keyword:search_keyword, search_target:search_target }, function(result){
+		//alert(result);
+	});
+}
+
+/* //학력 사항 ===================================================== */
+
+/* 경력 사항 ===================================================== */
+var career_blocks = 0;
+var career_type_sel_first = function( vals, target ){	// 첫번째 직종값 선택
+	var sel = vals.value;
+	$('#'+target+'_display').load('./views/_load/resume_regist.php', { mode:'career_second_job_type', type:'job_type', p_code:sel, target:target }, function(result){
+		//alert(result);
+	});
+}
+var use_career = function( vals ){	// 경력 있음
+	var sel = vals.checked;
+	if(sel==true){
+		$('#career_add').show();
+		$('#wr_career_block_0').show();
+		$('.career_required').attr('required',true);
+	} else {
+		$('#career_add').hide();
+		$('.wr_career_block').hide();
+		$('.career_required').removeAttr('required');
+	}
+}
+var career_cnt = 1;
+var career_limit = 1;
+var career_add = function(){	// 경력 추가
+	if(career_limit >= 10){
+		alert("경력은 최대 10개 까지 추가 가능합니다.");
+		return false;
+	}
+
+	career = "";
+	career += "<tr class=\"wr_career_block\" id=\"wr_career_block_"+career_cnt+"\" style=\"display:none;\">";
+	career += "<td scope=\"row\" class=\"ctlt\"> <label><strong>경력사항</strong></label></td>";	// "+(career_cnt+1)+"
+	career += "<td class=\"pdlnb2\">";
+	career += "<div class=\"career1 positionR\">";
+	career += "<ul>";
+	career += "<li class=\"pb5 positionR\">";
+	career += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"career_remove('"+career_cnt+"');\"><span>-삭제</span></a></em>";
+	career += "<table border=\"0\" width=\"100%\">";
+	//career += "<caption><span class=\"skip\">경력사항 정보입력</span></caption>";	// "+(career_cnt+1)+"
+	career += "<colgroup><col width=\"200px\"><col></colgroup>";
+	career += "<tbody>";
+	career += "<tr>";
+	career += "<td>";
+	career += "<span>";
+	career += "<label>회사명<b class=\"col\">*</b></label>";
+	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_company[]\" id=\"wr_career_company_"+career_cnt+"\" style=\"width:450px;\" required hname=\"회사명\">";
+	career += "</span>";
+	career += "</td>";
+	career += "</tr>";
+	career += "<tr>";
+	career += "<td>";
+	career += "<span><label>근무직종<b class=\"col\">*</b></label></span>";
+
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_0\" title=\"1차직종선택\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_1');\" required hname=\"1차직종\">";
+	career += "<option value=\"\">1차직종선택</option>";
+	career += "</select> ";
+
+	career += "<span id=\"wr_career_type_"+career_cnt+"_1_display\">";
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_1\" title=\"2차직종선택\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_2');\">";
+	career += "<option value=\"\">2차직종선택</option>";
+	career += "<option value=\"\">1차 직종을 먼저 선택해 주세요</option>";
+	career += "</select> ";
+
+	career += "</span>";
+	career += "<span id=\"wr_career_type_"+career_cnt+"_2_display\">";
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_2\" title=\"3차직종선택\">";
+	career += "<option value=\"\">3차직종선택</option>";
+	career += "<option value=\"\">2차 직종을 먼저 선택해 주세요</option>";
+	career += "</select>";
+	career += "</span>";
+
+	career += "</td>";
+	career += "</tr>";
+	career += "<tr>";
+	career += "<td colspan=\"2\">";
+	career += "<label>근무기간<b class=\"col\">*</b></label>";
+	career += "<select name=\"wr_career_syear[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:80px;\">";
+	career += "<option value=\"\">년</option>";
+	for(i=year;i>=1900;--i){
+		career += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	career += "</select> ";
+	career += "년 ";
+	career += "<select name=\"wr_career_smonth[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:75px;\">";
+	career += "<option value=\"\">월</option>";
+	for(j=1;j<=12;j++){
+		career += "<option value=\""+j+"\">"+j+"</option>";
+	}
+	career += "</select> ";
+	career += "월 ~ ";
+	career += "<select name=\"wr_career_eyear[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:80px;\">";
+	career += "<option value=\"\">년</option>";
+	for(i=year;i>=1900;--i){
+		career += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	career += "</select> ";
+	career += "년 ";
+	career += "<select name=\"wr_career_emonth[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:75px;\">";
+	career += "<option value=\"\">월</option>";
+	for(j=1;j<=12;j++){
+		career += "<option value=\""+j+"\">"+j+"</option>";
+	}
+	career += "</select> ";
+	career += "월";
+	career += "</td>";
+	career += "</tr>";
+	career += "<tr>";
+	career += "<td  colspan=\"2\">";
+	career += "<label>담당업무<b class=\"col\">*</b></label>";
+	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_job[]\" id=\"wr_career_job_"+career_cnt+"\" style=\"width:470px;\" required hname=\"담당업무\">";
+	career += "</td>";
+	career += "</tr>";
+	career += "<tr>";
+	career += "<td  colspan=\"2\">";
+	career += "<label>상세업무</label>";
+	career += "<textarea class=\"txtarea\" name=\"wr_career_content[]\" id=\"wr_career_content_"+career_cnt+"\" style=\"border:1px solid #ddd; width:450px; height:50px; padding:10px;\"></textarea>";
+	//career += "(<span id=\"career_content_bytes_"+career_cnt+"\">0</span>/100자)";
+	career += "</td>";
+	career += "</tr>";
+	career += "</tbody>";
+	career += "</table>";
+	career += "</li>";
+	career += "</ul>";
+	career += "</div>";
+	career += "</td>";
+	career += "</tr>";
+
+	$('#career_block').append(career);
+
+	var career_type = $("#wr_career_type_"+career_cnt+"_0");
+
+	$.post('../../individual/views/_load/alba_resume_regist.php', { mode:'job_type_0_json' }, function(result){
+		var data = eval("(" + result + ")");
+		var types = "";
+		if(data.list!=''){
+			$.each(data.list, function(key, lists){
+				types += "<option value=\""+lists.code+"\">"+lists.name+"</option>";
+			});
+		}
+		career_type.append(types);
+	});
+
+	$('#wr_career_block_'+career_cnt).show();
+
+career_cnt++;
+career_limit++;
+}
+var career_remove = function( cnt ){	 // 경력 제거
+career_limit--;
+	$('#wr_career_block_'+cnt).remove();
+}
+/* //경력 사항 ===================================================== */
+
+/* 자격증 ======================================================== */
+var use_license = function( vals ){
+	var sel = vals.checked;
+	if(sel==true){
+		$('#license_add').show();
+		$('#wr_license_block_0').show();
+		$('.license_required').attr('required',true);
+	} else {
+		$('#license_add').hide();
+		$('.wr_license_block').hide();
+		$('.license_required').removeAttr('required');
+	}
+}
+var license_cnt = 1;
+var license_limit = 1;
+var license_add = function(){	// 경력 추가
+	if(license_limit >= 10){
+		alert("자격증은 최대 10개 까지 추가 가능합니다.");
+		return false;
+	}
+
+	license = "";
+	license += "<tr class=\"wr_license_block\" id=\"wr_license_block_"+license_cnt+"\">";
+	license += "<td scope=\"row\" class=\"ctlt\"> <label><strong>자격증</strong></label></td>";	 // "+(license_cnt+1)+"
+	license += "<td class=\"pdlnb2\">";
+	license += "<div class=\"career1 positionR\">";
+	license += "<ul>";
+	license += "<li class=\"pb5 positionR\">";
+	license += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"license_remove('"+license_cnt+"');\"><span>-삭제</span></a></em>";
+	license += "<table>";
+	//license += "<caption><span class=\"skip\">자격증사항 정보입력</span></caption>";
+	license += "<colgroup><col width=\"250px\"><col></colgroup>";
+	license += "<tbody>";
+	license += "<tr>";
+	license += "<td>";
+	license += "<span>";
+	license += "<label>자격증명<b class=\"col\">*</b></label>";
+	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_name[]\"  id=\"wr_license_name_"+license_cnt+"\" style=\"width:150px;\" required hname=\"자격증명\">";
+	//license += "<em class=\"pr10\"><a class=\"button\" onclick=\"license_search_pop('"+license_cnt+"');\"><span>선택</span></a></em>";
+	license += "</span>";
+	license += "</td>";
+	license += "<td>";
+	license += "<span>";
+	license += "<label>발행처<b class=\"col\">*</b></label>";
+	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_public[]\" id=\"wr_license_public_"+license_cnt+"\" style=\"width:150px;\" required hname=\"발행처\">";
+	license += "</span>";
+	license += "</td>";
+	license += "</tr>";
+	license += "<tr>";
+	license += "<td colspan=\"2\">";
+	license += "<label>취득년도<b class=\"col\">*</b></label>";
+	license += "<select name=\"wr_license_year[]\" class=\"ipSelect license_required\" required hname=\"취득년도\">";
+	license += "<option value=\"\">년</option>";
+	for(i=year;i>=1900;--i){
+		license += "<option value=\""+i+"\">"+i+"</option>";
+	}
+	license += "</select> 년 ";
+	license += "</td>";
+	license += "</tr>";
+	license += "</tbody>";
+	license += "</table>";
+	license += "</li>";
+	license += "</ul>";
+	license += "</div>";
+	license += "</td>";
+	license += "</tr>";
+
+	$('#license_block').append(license);
+
+	$('#wr_license_block_'+license_cnt).show();
+
+license_cnt++;
+license_limit++;
+}
+var license_remove = function( cnt ){
+license_limit--;
+	$('#wr_license_block_'+cnt).remove();
+}
+var license_search_pop = function( target ){	// 자격증 검색
+}
+/* //자격증 ======================================================= */
+
+/* 외국어능력 ====================================================== */
+var use_language = function( vals ){
+	var sel = vals.checked;
+	if(sel==true){
+		$('#language_add').show();
+		$('#wr_language_block_0').show();
+		$('.language_required').attr('required',true);
+	} else {
+		$('#language_add').hide();
+		$('.wr_language_block').hide();
+		$('.language_required').removeAttr('required');
+	}
+}
+/* //외국어능력 ====================================================== */
+
+var update_photos = function( mode, no, mb_id ){	// 포토앨범 등록/삭제
+	if(mode=='update'){	// 등록
+		$('#individualPhotoPop').show();
+		$('#mb_photos').val(no);
+		$('#individualPhotoPop').draggable({
+			handle: 'individualPhotoPop_handle'
+		});
+		$('.closeBtn').click(function(){
+			$('#individualPhotoPop').hide();
+		});
+	} else if(mode=='delete'){	// 삭제
+		if(confirm('포토앨범 사진을 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+			$.post('../member/process/regist.php', { mode:'photo_deletes', mb_id:mb_id, photo_no:no }, function(result){
+				//$('#photo_'+no).html("<img src=\""+result+"\" width=\"155\" height=\"100\" alt=\"photo\">");
+				$('#mb_photo_'+no).attr('src',result);
+			});
+		}
+	}
+
+}
+var photos_submit = function( mb_id ){	// 회사이미지 등록하기 버튼 클릭시
+	var photo_files = $('#photo_files').val();
+	if(!photo_files || photo_files==''){
+		alert("등록할 사진을 첨부해 주세요.");
+		return;
+	}
+	var photos_options = { beforeSubmit : photosRequest, success : photosResponse }
+	$('#ResumeFrm').attr('action','../member/process/regist.php');	// action 변경
+	$('#ResumeFrm #mode').val('photo_uploads');	// mode 변경
+	$('#ResumeFrm').ajaxSubmit(photos_options);
+}
+
+var photosRequest = function(formData, jqForm, photos_options){	 // 포토앨범 전송 전
+	return true;
+}
+var photosResponse = function(responseText, statusText, xhr, $form){	// 포토앨범 전송 후
+	$('#ResumeFrm').attr('action','./process/resume_regist.php');	// action 변경
+	$('#ResumeFrm #mode').val(mode);	// mode 변경
+	var mb_photos = $('#mb_photos').val();
+	$('#mb_photo_'+mb_photos).attr('src',responseText);
+	$('#individualPhotoPop').hide();
+	$('#ResumeFrm #mode').val(modes);
+}
+
+var albaRequest = function(formData, jqForm, albaFrm_options){
+	<?//php echo $utility->input_cheditor('wr_introduce');?>
+	return true;
+}
+var albaResponse = function(responseText, statusText, xhr, $form){
+	if(responseText=='success'){
+		//alert("<?php echo $alba_resume_control->_success('0000');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $alba_resume_control->_errors('0000');?>");
+	}
+	
+}
+var pay_conference = function( vals){	// 급여 추후협의 체크
+	var sel = vals.checked;
+	if(sel==true){
+		$('#wr_pay_type, #wr_pay').attr('disabled',true);
+		$('#wr_pay_type, #wr_pay').removeAttr('required');
+	} else {
+		$('#wr_pay_type, #wr_pay').attr('disabled',false);
+		$('#wr_pay_type, #wr_pay').attr('required',true);
+	}
+}
+var military_use = function( vals ){	// 병역여부
+	var sel = vals.value;
+	if(sel=='0' || sel=='2'){
+		$('#wr_military_type').val('');
+		$('#military_block').hide();
+	} else {
+		$('#military_block').show();
+	}
+}
+var delete_resume = function( no ){	// 이력서 삭제 (단순)
+	$('#quest_info').show();
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>이력서를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '이력서 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_resume = function(){	// 이력서 선택 삭제 (복수)
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 이력서를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 이력서 "+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '이력서 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_service = function( no ){	// 서비스승인
+	$('#pop_info').load('./views/_load/resume.php', { mode:'service', no:no }, function(){
+		$('#pop_service').show();
+		$('#pop_service').draggable({ handle: "#serviceHandle" });
+		$('#pop_service').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		$('#wr_service_main_focus1, #wr_service_main_focus_golds, #wr_service_neons, #wr_service_bolds, #wr_service_icons, #wr_service_colors, #wr_service_blinks, #wr_service_busys, #wr_service_basic1').datepicker({dateFormat: 'yy-mm-dd'});
+
+		var service_options = { beforeSubmit : serviceRequest, success : serviceResponse }
+		$('#ResumeServiceFrm').ajaxForm(service_options);
+
+	});
+}
+var serviceRequest = function(formData, jqForm, service_options){
+	return true;
+}
+var serviceResponse = function(responseText, statusText, xhr, $form){
+	var responses = responseText.split('@');
+
+	if(responses[0]){
+		//location.reload();
+		location.href = responses[1];
+	} else {
+		alert("<?php echo $alba_resume_control->_errors('0003');?>");
+	}
+}
+var sel_service_resume = function(){	// 선택 서비스승인
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('서비스승인할 이력서를 선택해 주세요.');
+		return false;
+	} else {
+		var service_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			service_no[i] = $(this).val();
+		i++;
+		});
+
+		sel_service(service_no);
+	}
+}
+
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 이력서 삭제 (단수)
+			case 'delete':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+			// 이력서 선택 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/resume_regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $alba_control->_errors('0002');?>");
+					}
+				});
+			break;
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+
+var input_types = function( vals ){	// 입력방식 선택
+	var sel = vals.value;
+	
+	if(confirm('등록방법을 변경하시면 기존에 입력하셨던 내용들이 모두 초기화 됩니다.\n\n등록방법을 변경하시겠습니까?')){
+		if(sel=='load'){	// 불러오기
+			$('.input_type_load').show();
+			$('.input_type_self').hide();
+			$('#wr_input_type_load').attr('checked',true);
+		} else if(sel=='self'){	// 직접등록
+			$('.input_type_load').hide();
+			$('.input_type_self').show();
+			update_resume('insert');
+			//$('#wr_input_type_self').attr('checked',true);
+		}
+	} else {
+		if(sel=='load'){
+			$('#wr_input_type_self').attr('checked',true);
+		} else if(sel=='self'){
+			$('#wr_input_type_load').attr('checked',true);
+		}
+	}
+}
+var update_mb_photos = function( mode ){
+	if(mode=='update'){	// 등록
+		$('#mbPhotoPop').show();
+		$('#mbPhotoPop').draggable({
+			handle: '#mbPhotoPop_handle'
+		});
+	} else if(mode=='delete') {
+		
+		alert(mode);
+
+		/*
+		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+			$.post('./process/regist.php', { mode:'mb_logo_delete', mb_id:mb_id }, function(result){
+				$('#alba_photo_'+no).attr('src',result);
+				close_alba_photos();
+			});
+		}
+		*/
+	}
+}
+var mb_photo_submit = function( ){	// 근무회사  이미지 등록하기 버튼 클릭시
+	var mb_photo_files = $('#mb_photo_files').val();
+	if(!mb_photo_files || mb_photo_files==''){
+		alert("등록할 사진을 첨부해 주세요.");
+		return;
+	}
+	var mb_photo_options = { beforeSubmit : mb_photoRequest, success : mb_photoResponse }
+	$('#ResumeFrm #mode').val('mb_photo_upload');
+	$('#ResumeFrm').ajaxSubmit(mb_photo_options);
+	//$('#AlbaFrm').submit();
+}
+var close_mb_photos = function(){	// 근무회사 이미지 등록폼 닫기
+	$('#mbPhotoPop').hide();
+	$('#mode').val(mode);	// 이미지 업로드 모드로 변경
+}
+var mb_photoRequest = function(formData, jqForm, photo_options){	 // 근무회사 이미지 전송 전
+	var queryString = $.param(formData); 
+	return true;
+}
+var mb_photoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
+	
+	//alert(responseText);
+	//return false;
+
+	if(responseText=='extension_error'){
+		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		return false;
+	} else {
+		var responses = responseText.split('@');
+		var mb_logo = $('#mb_logo').val(responses[0]);
+		$('#mb_photos').attr('src',"");
+		$('#mb_photos').attr('src',"../../data/alba/"+responses[0]);
+		//$('#mb_photo').html("");
+		//$('#mb_photo').html("<img src=\"../../data/alba/"+responses[0]+"\" style=\"width:100%;height:80px;\" alt=\"photo\">");
+		$('#mb_photo').val(responses[0]);
+		$('#wr_id').val(responses[1]);
+		close_mb_photos();
+	}
+	$('#ResumeFrm #mode').val(modes);
+}
+var postSearchPops = function(mb_type){	// 우편번호 검색창 띄우기
+	var mode = 'zipcode_'+mb_type;
+	$('#zipcode_info').load('../member/views/_load/layer.php', { mode:mode, mb_type:mb_type }, function(result){
+		$('.closeBtn, .close').click(function(){	// 우편번호 검색창 닫기
+			$('#postSearchPop').hide();
+		});
+
+		$('#postSearchPop').show();
+		$('#postSearchKeyword').focus();
+		$('#postSearchPop').draggable({ handle: "#postSearchPop_handle" });
+
+		$('#postSearchKeyword').keydown(function(event){	// 우편번호 검색창 엔터키 이벤트
+			if(event.keyCode==13){	
+				postSearchs(mb_type);
+				return false;
+			}
+		});
+	});
+}
+var new_postSearchPops = function(mb_type){
+	var mode = 'zipcode_'+mb_type;
+	$('#zipcode_info').load('../member/views/_load/layer.php', { mode:mode, mb_type:mb_type, type:'new' }, function(result){
+		$('.closeBtn, .close').click(function(){	// 우편번호 검색창 닫기
+			$('#new_postSearchPop').hide();
+		});
+
+		$('#new_postSearchPop').show();
+		$('#new_postSearchKeyword').focus();
+		$('#new_postSearchPop').draggable({ handle: "#new_postSearchPop_handle" });
+
+		$('#new_postSearchKeyword').keydown(function(event){	// 우편번호 검색창 엔터키 이벤트
+			if(event.keyCode==13){	
+				new_postSearchs(mb_type);
+				return false;
+			}
+		});
+	});
+}
+var postSearchs = function(mb_type){
+	var keyword = $('#postSearchKeyword').val();
+	if(!keyword || keyword==''){
+		alert("동명을 입력해 주세요.");
+		$('#postSearchKeyword').focus();
+		return false;
+	} else {
+		$.post('../member/views/_ajax/post_search.php', { mode:mb_type, keyword:keyword }, function(result){
+			$('#post_List').html("");
+			var data = eval("(" + result + ")");
+			if(data.list!=''){
+				$.each(data.list, function(key,lists){
+					zipcode = lists.ZIPCODE.split('-');
+					sido = lists.SIDO;
+					gugun = lists.GUGUN;
+					dong = lists.DONG;
+					ri = lists.RI;
+					bunji = lists.BUNJI;
+					doseo = (lists.DOSEO) ? "(도서지역)" : "";
+					bldg_name = lists.BLDG;
+					bldg = (bldg_name) ? " " + bldg_name : "";	// 건물명
+
+					if(mb_type=='individual'){	// 개인회원 우편번호 검색 결과
+						$('#post_List').append("<tr><td>"+lists.ZIPCODE+"</td><td class=\"address_list brend\"><a href=\"javascript:addPost('"+lists.ZIPCODE+"','"+sido+"','"+gugun+"','"+dong+"','"+ri+"','"+bunji+"', '"+bldg_name+"');\">"+lists.ADDRESS+"</a></td></tr>");
+					} else if(mb_type=='company'){	// 기업회원 우편번호 검색 결과
+						$('#post_List').append("<tr><td>"+lists.ZIPCODE+"</td><td class=\"address_list brend\"><a href=\"javascript:addPost_position('"+lists.ZIPCODE+"','"+sido+"','"+gugun+"','"+dong+"','"+ri+"','"+bunji+"', '"+bldg_name+"');\">"+lists.ADDRESS+"</a></td></tr>");
+					}
+				});
+			} else {
+				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+			}
+		});
+	}
+}
+var new_postSearchs = function(mb_type){
+	var keyword = $('#new_postSearchKeyword').val();
+	if(!keyword || keyword==''){
+		alert("도로명을 입력해 주세요.");
+		$('#new_postSearchKeyword').focus();
+		return false;
+	} else {
+		$.post('../member/views/_ajax/post_search.php', { mode:mb_type, keyword:keyword, type:'new' }, function(result){
+			$('#new_post_List').html("");
+			var data = eval("(" + result + ")");
+			
+			if(data.list!=''){
+				$.each(data.list, function(key,lists){
+					zipcode = lists.zipcode;
+					sido = lists.sido;
+					sigungu = lists.sigungu;
+					upmyon = lists.upmyon;
+					road_name = lists.road_name;
+					bdno_M = lists.bdno_M;
+					mass_delevery = lists.mass_delevery;
+
+					law_dong_name = lists.law_dong_name;
+					ri = lists.ri;
+					jibun_M = lists.jibun_M;
+
+					if(mb_type=='individual'){
+						var post_list = "<tr>";
+						post_list += "<td>"+zipcode+"</td>";
+						post_list += "<td class=\"address_list brend\"><a href=\"javascript:new_addPost('"+zipcode+"','"+sido+"','"+sigungu+"','"+upmyon+"','"+road_name+"','"+bdno_M+"','"+mass_delevery+"','"+law_dong_name+"','"+ri+"','"+jibun_M+"');\">"+sido+" "+sigungu+" "+upmyon+" "+road_name+" "+bdno_M+" "+mass_delevery+"</a></td>";
+						post_list += "<td>"+law_dong_name+" "+ri+" "+jibun_M+"</td>";
+						post_list += "</tr>";
+						$('#new_post_List').append(post_list);
+					} else {
+						var post_list = "<tr>";
+						post_list += "<td>"+zipcode+"</td>";
+						post_list += "<td class=\"address_list brend\"><a href=\"javascript:new_addPost_position('"+zipcode+"','"+sido+"','"+sigungu+"','"+upmyon+"','"+road_name+"','"+bdno_M+"','"+mass_delevery+"','"+law_dong_name+"','"+ri+"','"+jibun_M+"');\">"+sido+" "+sigungu+" "+upmyon+" "+road_name+" "+bdno_M+" "+mass_delevery+"</a></td>";
+						post_list += "<td>"+law_dong_name+" "+ri+" "+jibun_M+"</td>";
+						post_list += "</tr>";
+						$('#new_post_List').append(post_list);
+					}
+				});
+			} else {
+				$('#new_post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+			}
+		});
+	}
+}
+var addPost = function( zipcode, sido, gugun, dong, ri, bunji, bldg ){	// 우편번호 적용
+	// 우편번호
+	var zipcodes = zipcode.split('-');
+	$('#mb_zipcode0').val(zipcodes[0]);
+	$('#mb_zipcode1').val(zipcodes[1]);
+	// 기본주소
+	ris = (ri) ? ' ' + ri : '';	// 리가 없는 경우 공백이 들어올수 없다
+	bunjis = (bunji) ? ' ' + bunji : '';	// 번지가 없는 경우 공백이 들어올수 없다
+	$('#mb_address0').val(sido+' '+gugun+' '+dong+ris+bunjis+' '+bldg);
+	$('#postSearchPop').hide();
+	$('#mb_address1').focus();
+}
+var new_addPost = function( zipcode, sido, sigungu, upmyon, road_name, bdno_M, mass_delevery, law_dong_name, ri, jibun_M  ){	// 도로명 우편번호 적용
+	// 우편번호
+	var zipcodes = zipcode.split('-');
+	$('#new_mb_zipcode0').val(zipcodes[0]);
+	$('#new_mb_zipcode1').val(zipcodes[1]);
+
+	// 기본주소
+	var add_address = sido + " ";
+	add_address += sigungu + " ";
+	add_address += (upmyon) ? upmyon + " " : "";
+	add_address += road_name + " ";
+	add_address += bdno_M + " ";
+	add_address += (mass_delevery) ? mass_delevery : "";
+
+	var add_address1 = (law_dong_name) ? law_dong_name + " " : "";
+	add_address1 += (ri) ? ri + " " : "";
+	add_address1 += (jibun_M) ? jibun_M : "";
+
+	$('#new_mb_address0').val( add_address + "("+add_address1+")");
+	$('#new_postSearchPop').hide();
+	$('#new_mb_address1').focus();
+}
+var addPost_position = function( zipcode, sido, gugun, dong, ri, bunji, bldg ){	// 우편번호 적용 후 지도 이동
+	// 우편번호
+	var zipcodes = zipcode.split('-');
+	$('#mb_zipcode0').val(zipcodes[0]);
+	$('#mb_zipcode1').val(zipcodes[1]);
+	// 기본주소
+	ris = (ri) ? ' ' + ri : '';	// 리가 없는 경우 공백이 들어올수 없다
+	bunjis = (bunji) ? ' ' + bunji : '';	// 번지가 없는 경우 공백이 들어올수 없다
+	$('#mb_address0').val(sido+' '+gugun+' '+dong+ris+bunjis+' '+bldg);
+
+	if(use_map=='daum'){	// 다음
+		daum_addrSearch(sido+' '+gugun+' '+dong);
+	} else if(use_map=='naver'){	// 네이버
+		bunji_split = (ris+bunjis).split('~');
+		//sido+' '+gugun+' '+dong+ris+bunjis+' ';
+		naver_addrSearch(sido+' '+gugun+' '+dong+ris+bunjis);
+	} else if(use_map=='google'){	// 구글
+		google_addrSearch(sido+' '+gugun+' '+dong+ris+bunjis);
+	}
+
+}
+var new_addPost_position = function( zipcode, sido, sigungu, upmyon, road_name, bdno_M, mass_delevery, law_dong_name, ri, jibun_M  ){	// 도로명 우편번호 적용
+
+	// 우편번호
+	var zipcodes = zipcode.split('-');
+	$('#new_mb_zipcode0').val(zipcodes[0]);
+	$('#new_mb_zipcode1').val(zipcodes[1]);
+
+	// 기본주소
+	var add_address = sido + " ";
+	add_address += sigungu + " ";
+	add_address += (upmyon) ? upmyon + " " : "";
+	add_address += road_name + " ";
+	add_address += bdno_M + " ";
+	add_address += (mass_delevery) ? mass_delevery : "";
+
+	var add_address1 = (law_dong_name) ? law_dong_name + " " : "";
+	add_address1 += (ri) ? ri + " " : "";
+	add_address1 += (jibun_M) ? jibun_M : "";
+
+	$('#new_mb_address0').val( add_address + "("+add_address1+")");
+
+	if(use_map=='daum'){	// 다음
+		daum_addrSearch(add_address);
+	} else if(use_map=='naver'){	// 네이버
+		naver_addrSearch(add_address);
+	} else if(use_map=='google'){	// 구글
+		google_addrSearch(add_address);
+	}
+
+}
+// 신주소 (도로명 주소)
+var new_addresses = function( vals ){
+	var sel = vals.value;
+	$('.addresWrap').hide();
+	if(sel==1){
+		$('#new_address_block').show();
+		$('#new_mb_zipcode0').attr('required',true);
+		$('#new_mb_zipcode1').attr('required',true);
+		$('#new_mb_address0').attr('required',true);
+		$('#new_mb_address1').attr('required',true);
+		$('#mb_zipcode0').removeAttr('required');
+		$('#mb_zipcode1').removeAttr('required');
+		$('#mb_address0').removeAttr('required');
+		$('#mb_address1').removeAttr('required');
+	} else {
+		$('#old_address_block').show();
+		$('#new_mb_zipcode0').removeAttr('required');
+		$('#new_mb_zipcode1').removeAttr('required');
+		$('#new_mb_address0').removeAttr('required');
+		$('#new_mb_address1').removeAttr('required');
+		$('#mb_zipcode0').attr('required',true);
+		$('#mb_zipcode1').attr('required',true);
+		$('#mb_address0').attr('required',true);
+		$('#mb_address1').attr('required',true);
+	}
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class=nb>
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+해당 페이지는 이력서 유료상품 서비스 기간이 만료된 리스트입니다. <br>
+해당 이력서의 서비스/기간등을 수정하시고 싶으실때는 편집에 서비스승인 버튼을 클릭해주시면 됩니다.<br>
+등록하기 버튼은 관리자가 직접 해당회원의 새로운 이력서를 등록하는 기능입니다.<br>
+불러오기 버튼은 해당 이력서를 복사하여 수정후 새로운 이력서로 등록하는 기능입니다.<br>
+서비스/기간 부분은 현재 해당 이력서의 유료상품 서비스 기간을 나타내고 있는것입니다.  
+</dl></dl>
+
+<?php include_once "./views/_include/resume_search.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">이력서 정보 관리
+	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건이 검색되었습니다.</span>
+	<dt>
+		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+		</select>
+	</dt>
+</dl>
+	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>이력서등록</h1></a>
+	</dd>
+</dl>
+<table width="100%" class="ttlt">
+<col width="2%"><col width="5%"><col width="5%"><col width="12%"><col ><col width="20%"><col width="8%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td>등록구분</td>
+	<td>회원등급</td>
+	<td>이름/성별/나이/아이디</td>
+	<td>이력서</td>
+	<td>서비스/기간</td>
+	<td>편집</td>
+</tr>
+
+<tbody id="resume_list">
+<?php if(!$list['total_count']){ ?>
+<tr><td colspan="7" class="stlt"></td></tr>
+<?php } else { 
+	foreach($list['result'] as $val){
+	$wr_id = $val['wr_id'];
+	$mb_info = $member_control->get_member($wr_id);	// 기본 회원정보
+	if($val['wr_is_admin']){
+		$is_admin = $mb_level = "<span style='color:#dfdfdf;'>관리자</span>";
+	} else {
+		$is_admin = "사용자";
+		$mb_level = $member_control->get_level($mb_info['mb_level']);
+	}
+	$wr_gender = $alba_resume_control->gender_val[$val['wr_gender']];	// 성별
+	$wr_age = $member_control->get_age($mb_info['mb_birth']);
+	$wr_wdate = strtr(substr($val['wr_wdate'],0,11),'-','/');
+	$wr_udate = strtr(substr($val['wr_udate'],0,11),'-','/');
+
+	$wr_subject = stripslashes($val['wr_subject']);
+
+	$focus = ($utility->valid_day($val['wr_service_main_focus'])) ? "<span class='b'>".strtr(substr($val['wr_service_main_focus'],0,11),'-','/')."</span>" : '';
+	$focus_gold = ($utility->valid_day($val['wr_service_main_focus_gold'])) ? "<span class='b'>".strtr(substr($val['wr_service_main_focus_gold'],0,11),'-','/')."</span>" : '';
+	$service_basic = ($utility->valid_day($val['wr_service_basic'])) ? "<span class='b'>".strtr(substr($val['wr_service_basic'],0,11),'-','/')."</span>" : '';
+	
+	$busy = ($utility->valid_day($val['wr_service_busy'])) ? "<span class='b'>".strtr(substr($val['wr_service_busy'],0,11),'-','/')."</span>" : '';
+	$neon = ($utility->valid_day($val['wr_service_neon'])) ? "<span class='b'>".strtr(substr($val['wr_service_neon'],0,11),'-','/')."</span>" : '';
+	$bold = ($utility->valid_day($val['wr_service_bold'])) ? "<span class='b'>".strtr(substr($val['wr_service_bold'],0,11),'-','/')."</span>" : '';
+	$color = ($utility->valid_day($val['wr_service_color'])) ? "<span class='b'>".strtr(substr($val['wr_service_color'],0,11),'-','/')."</span>" : '';
+	$icon = ($utility->valid_day($val['wr_service_icon'])) ? "<span class='b'>".strtr(substr($val['wr_service_icon'],0,11),'-','/')."</span>" : '';
+	$blink = ($utility->valid_day($val['wr_service_blink'])) ? "<span class='b'>".strtr(substr($val['wr_service_blink'],0,11),'-','/')."</span>" : '';
+
+	$is_self = false;
+	if($val['input_type']=='self'){	// 관리자 직접입력 공고
+		$is_self = true;
+	}
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><?php echo $is_admin;?></td>
+	<td><?php echo $mb_level;?></td>
+	<?php if($is_self){ ?>
+	<td class="tl">
+		<span class="b">
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:(관리자직접등록)</p>
+		</span>
+	</td>
+	<?php } else { ?>
+	<td class="tl">
+		<a onclick="pop_member('<?php echo $wr_id;?>');" class="b">
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:<?php echo $val['wr_id'];?></p>
+		</a>
+	</td>
+	<?php } ?>
+	
+	<td>
+		<a class="b" href="<?php echo $alice['resume_path'];?>/detail.php?no=<?php echo $val['no'];?>" target="_blank"><?php echo $wr_subject;?></a>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
+			<li>수정일 : <?php echo $wr_udate;?> </li>
+			<?php if($wr_volume_date){ ?><li>마감일 : ~<?php echo $volume_date;?></li><?php } ?>
+			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
+		</div>
+	</td>
+	<td>
+		<?php if($focus) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">포커스</span>: ~<?php echo $focus;?></div><?php } ?>
+		<?php if($focus_gold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">포커스골드</span>: ~<?php echo $focus_gold;?></div><?php } ?>
+		<?php if($service_basic) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">일반리스트</span>: ~<?php echo $service_basic;?></div><?php } ?>
+		<?php if($busy) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">급구</span>: ~<?php echo $busy;?></div><?php } ?>
+		<?php if($neon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">형광펜</span>: ~<?php echo $neon;?></div><?php } ?>
+		<?php if($bold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">굵은글자</span>: ~<?php echo $bold;?></div><?php } ?>
+		<?php if($icon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">아이콘</span>: ~<?php echo $icon;?></div><?php } ?>
+		<?php if($color) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">글자색</span>: ~<?php echo $color;?></div><?php } ?>
+		<?php if($blink) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">반짝칼라</span>: ~<?php echo $blink;?></div><?php } ?>
+	</td>
+	<td>
+		<dt><a onClick="update_resume('update','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_26.gif"></a></dt>
+		<dt class='mt2'><a onClick="delete_resume('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_27.gif"></a></dt>
+		<dt class='mt2'><a onClick="update_resume('insert','','<?php echo $wr_id;?>');"><img src="../../images/btn/btn19_25.gif"></a></dt>
+		<dt class='mt2'><a onClick="update_resume('load','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_24.gif"></a></dt>
+		<dt class='mt2'><a onClick="sel_service('<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_20.gif"></a></dt>	
+	</td>
+</tr>
+<?php 
+	} // foreach end.
+}	// if end.
+?>
+</tbody>
+</table>
+
+<dl class="page">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+	</dt>
+	<dd>
+		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>이력서등록</h1></a>
+	</dd>
+</dl>
+
+<div id='pop_info'></div>
+<div id='zipcode_info'></div>
+
+</td>
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+</script>
+<?php include_once "../include/tail.php";?>

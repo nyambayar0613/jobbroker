@@ -1,0 +1,652 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<?php if($use_map=='daum'){ ?>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<?php echo $env['daum_map_key'];?>&libraries=services"></script>
+<?php } ?>
+<script>
+var mode = "<?php echo $mode;?>";
+var mb_type = "company";
+var mb_id_duplicate = false;
+var mb_nick_duplicate = false;
+var use_map = "<?php echo $use_map;?>";
+var daum_local_APIKEY = "<?php echo $daum_local_key;?>";
+var naver_map_KEY = "<?php echo $naver_map_key;?>";
+$(function(){
+	if(mode=='insert') update_member('insert','','company');
+});
+var pop_sms = function( no ){	 // 문자 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'sms', no:no }, function(result){
+		$('#pop_sms').show();
+		$('#pop_sms').draggable({ handle: "#smsFrmHandle" });
+		$('#pop_sms').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_email = function( no ){	// 이메일 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'email', no:no }, function(result){
+		$('#pop_mail').show();
+		$('#pop_mail').draggable({ handle: "#emailFrmHandle" });
+		$('#pop_mail').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var pop_memo = function(no){	// 메모 발송 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'memo', no:no }, function(result){
+		$('#pop_memo').show();
+		$('#pop_memo').draggable({ handle: "#memoFrmHandle" });
+		$('#pop_memo').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var memo_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberMemoFrm').ajaxForm(memo_options);	// memo ajax form submit
+	});
+}
+var sms_msg = function( no ){	// 메시지 불러오기
+	$.post('./views/_ajax/sms_msg.php', { no:no }, function(result){
+		$('#send_msg').val(result);
+		var send_msg = document.getElementById('send_msg');
+		CountChar(send_msg,80);
+	});
+}
+var sms_send = function(){	 // 문자 발송
+	//$('#SMSSendFrm').submit();
+	var send_options = { beforeSubmit: send_showRequest, success : send_showResponse };
+	$('#SMSSendFrm').ajaxSubmit(send_options);
+}
+var sms_cancel = function(){	// 문자 발송 취소
+	$('#send_msg').html('');
+	$('#msg_bytes').html('0');
+	$('#rphone_list').html('');
+	return;
+}
+var mail_send = function( no ){	// 메일 발송
+	var MemberEmailFrm = document.getElementById('MemberEmailFrm');
+	if(validate(MemberEmailFrm)==false){
+		return false;
+	} else {
+		if(!ed_content.outputBodyText()){	// 내용이 없는 경우
+			alert("<?php echo $config->_errors('0042');?>");
+			ed_content.returnFalse();
+			return false;
+		}
+		$('#quest_info').show();
+		$('#confirm_msg').html("메일을 전송하시겠습니까?<br/><br/>메일 수신거부와 상관없이 무조건 메일이 전송 되오니<br/> 유념하시기 바랍니다.");	
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '메일 전송 확인',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var update_member = function(mode, no, mb_type){	 // 입력/수정
+	
+	$('#pop_info').load('./views/_load/member.php', { mode:mode, no:no, mb_type:mb_type }, function(result){
+		if(!mb_type) mb_type = $("#MemberFrm input[name='mb_type").val();
+		$('#add_form').show();
+		$('#add_form').draggable({ handle: "#memberFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		//$('.service_date').datepicker({ dateFormat: 'yy-mm-dd' });
+
+		if(mb_type=='company'){	// 기업회원일때만
+			$('#MemberFrm').submit(function(){
+			<?php echo $utility->input_cheditor('mb_biz_vision');?>	// 기업개요 및 비전 에디터 내용 전달
+			/* 필수 항목일 경우 주석 제거 하세요.
+			if (document.getElementById('tx_mb_biz_vision')) {
+				if (!ed_mb_biz_vision.outputBodyText()) { 
+					alert('기업개요 및 비전을 입력하십시오.'); 
+					ed_mb_biz_vision.returnFalse();
+					return;
+				}
+			}
+			*/
+			<?php echo $utility->input_cheditor('mb_biz_result');?>	// 기업연혁 및 실적 에디터 내용 전달
+			/* 필수 항목일 경우 주석 제거 하세요.
+			if (document.getElementById('tx_mb_biz_result')) {
+				if (!ed_mb_biz_result.outputBodyText()) { 
+					alert('기업개요 및 비전을 입력하십시오.'); 
+					ed_mb_biz_result.returnFalse();
+					return;
+				}
+			}
+			*/
+			});
+		}
+		var member_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberFrm').ajaxForm(member_options);	// memo ajax form submit
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var MemberFrm_Submit = function(){
+	$('#return_regist').val('1');	// 등록후 공고 등록
+	$('#MemberFrm').submit();
+}
+var mb_types = function( vals ){	 // 회원구분
+	var sel = vals.value;
+	if(confirm("<?php echo $member_control->_errors('0008');?>")){
+		$('#pop_info').load('./views/_load/member.php', { mode:'insert', mb_type:sel }, function(result){
+			$('#add_form').show();
+			$('#add_form').draggable({ handle: "#memberFrmHandle" });
+			$('#add_form').center();
+			$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+			//$('.service_date').datepicker({ dateFormat: 'yy-mm-dd' });
+
+			if(sel=='company'){	// 기업회원일때만
+				$('#MemberFrm').submit(function(){
+				<?php echo $utility->input_cheditor('mb_biz_vision');?>	// 기업개요 및 비전 에디터 내용 전달
+				<?php echo $utility->input_cheditor('mb_biz_result');?>	// 기업연혁 및 실적 에디터 내용 전달
+				});
+			}
+			var member_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+			$('#MemberFrm').ajaxForm(member_options);	// memo ajax form submit
+			$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		});
+	} else {
+		change_sel = (sel=='individual') ? 'company' : 'individual';	 // 선택 초기화
+		$("input[name='mb_type']").filter("input[value='"+change_sel+"']").attr('checked',true);
+	}
+}
+var delete_member = function( no ){	 // 삭제
+	$('#quest_info').show();
+	$('#confirm_msg').html("구인공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>회원을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '회원 정보 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var pop_badness = function( no ){	// 불량 회원 등록
+	$('#pop_info').load('./views/_load/layer.php', { mode:'badness', no:no }, function(result){
+		$('#pop_badness').show();
+		$('#pop_badness').draggable({ handle: "#badnessFrmHandle" });
+		$('#pop_badness').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var bad_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberBadnessFrm').ajaxForm(bad_options);	// memo ajax form submit
+	});
+}
+var sel_delete_member = function(){		// 선택삭제
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제 할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("구인공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>선택하신 회원 정보"+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '회원 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_pop_email = function(){	// 선택 회원 메일전송
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('메일전송 할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		var mail_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			mail_no[i] = $(this).val();
+		i++;
+		});
+		$('#pop_info').load('./views/_load/layer.php', { mode:'email', no:mail_no }, function(result){
+			$('#pop_mail').show();
+			$('#pop_mail').draggable({ handle: "#emailFrmHandle" });
+			$('#pop_mail').center();
+			$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		});
+
+	}
+}
+var sel_level = function(){	// 선택 회원 등급 수정
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('등급을 수정할 회원을 선택해 주세요.');
+		return false;
+	} else {
+		var level_no = new Array();
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			level_no[i] = $(this).val();
+		i++;
+		});
+		$('#mb_level :eq(0)').attr('selected',true);
+		$('#pop_level').show();
+		$('#levelChangeBtn').click(function(){	// ok 확인 버튼
+			var sel_level = $('#mb_level :selected').text();
+			var sel_val = $('#mb_level :selected').val();
+			$('#quest_info').show();
+			$('#confirm_msg').html("선택한 회원 "+chk_length+"건을 ["+sel_level+"] 등급으로 수정 하시겠습니까?");	
+			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="예" />');
+			// 질의(Confirm) 창 띄우기
+			$.blockUI({ 
+				theme: true,
+				title: '회원 등급 수정 확인',
+				showOverlay: false,
+				message: $('#question')
+			});
+		});
+	}
+}
+var pop_smscharge = function( no ){	// SMS 충전 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'sms_charge', no:no }, function(result){
+		$('#pop_sms').show();
+		$('#pop_sms').draggable({ handle: "#smsFrmHandle" });
+		$('#pop_sms').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		$('#mb_sms').autoNumeric('init');
+		var sms_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberSMSFrm').ajaxForm(sms_options);	// SMS ajax form submit
+	});
+}
+var pop_jumpcharge = function( no ){	// 점프 서비스 충전 창
+	$('#pop_info').load('./views/_load/layer.php', { mode:'jump_charge', no:no }, function(result){
+		$('#pop_jump').show();
+		$('#pop_jump').draggable({ handle: "#smsFrmHandle" });
+		$('#pop_jump').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		$('#mb_jump').autoNumeric('init');
+		var jump_options = { beforeSubmit: showRequest, success: showResponse };	// memo ajax options
+		$('#MemberJumpFrm').ajaxForm(jump_options);	// SMS ajax form submit
+	});
+}
+var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			// 이메일 전송
+			case 'email':
+				<?php echo $utility->input_cheditor('content');?>	// 에디터 내용 전달
+				var mail_options = { beforeSubmit: showRequest, success: showResponse };	// email ajax options
+				$('#MemberEmailFrm').ajaxSubmit(mail_options);	// email ajax form submit
+			break;
+			// 회원 삭제 (단수)
+			case 'delete':
+				$.post('./process/regist.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $member_control->_errors('0007');?>");
+						$.unblockUI();
+						return false;
+					}
+				});
+			break;
+			// 선택 회원 삭제 (복수)
+			case 'sel_delete':
+				$.post('./process/regist.php', { mode:mode, no:no }, function(result){
+					if(result){
+						//alert('선택하신 회원정보 '+nos_cnt+'건이 삭제되었습니다.');
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0014');?>");
+						return false;
+					}
+				});
+			break;
+			// 선택 회원 등급수정
+			case 'sel_level':
+				$.post('./process/regist.php', { mode:mode, no:no, mb_level:sels }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $config->_errors('0054');?>");
+						return false;
+					}
+				});
+			break;
+		}	// switch end.
+	} else {
+		/*
+		switch(mode){
+			case 'email':
+				$('#pop_mail').html("");
+			break;
+		}
+		*/
+		$.unblockUI();
+	}
+}
+
+var postClose = function(){
+	$('#postSearchPop').hide();
+}
+
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $member_list['send_url'];?>";
+	location.href = "./index.php?"+send_url+"&page_rows=" + sel;
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('./views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var service_opens = function( mb_id ){	// 열람서비스
+	$('#pop_info').load('./views/_load/layer.php', { mode:'open_service', mb_id:mb_id }, function(result){
+		$('#mb_service_open').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#pop_open_service').draggable({ handle: "#MemberOpenServiceFrmHandle" });
+		$('#pop_open_service').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+		var open_options = { beforeSubmit: openRequest, success: openResponse };	// open service ajax options
+		$('#MemberOpenServiceFrm').ajaxForm(open_options);	// open service ajax form submit
+	});
+}
+</script>
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox">
+	<dl>
+				    기업회원의 등록, 수정, 삭제 등을 관리 하실 수 있습니다.<br/>
+					회원ID를 클릭하시면 해당 회원의 상세페이지로 이동합니다.<br/> 
+					문자(SMS)를 수동으로 충전, 차감할때는 리스트에서 SMS 목록을 클릭하시면 문자 건수등을 수정하실수 있습니다.<br/> 
+					(▼) 클릭시 내림, 올림차순으로 정렬된 리스트를 보실수 있습니다. <br/> 
+					엑셀저장 버튼을 클릭하시면 체크한 해당 회원정보를 엑셀파일로 다운받아보실 수 있습니다.<br/> 
+	</dl>
+</dl>
+
+<?php include_once "./views/_include/search.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기업회원 관리
+	<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
+	<dt>
+		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+		<select name="page_rows" onchange="page_rows(this);">
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15건 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30건 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50건 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70건 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100건 출력</option>
+		</select>
+	</dt>
+</dl>  
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+	</dt>
+	<dd>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+	</dd>
+</dl>
+
+<table width="100%" class="ttlt">
+<col width="2%"><col  width="7%"><col width="11%"><col width="11%"><col><col width="5%" span="2"><col width="9%"><col width="5%"><col width="8%"><col width="5%"><col  width="10%"><col  width="5%">
+<tr class="bg">
+	<td><input name="check_all" type="checkbox"></td>
+	<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">회원등급<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_company_name&flag=<?php echo ($sort=='mb_company_name'&&$flag=='asc')?'desc':'asc';?>">회사명<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름/대표자 (닉네임)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td>점프</td>
+	<!-- 
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_sms&flag=<?php echo ($sort=='mb_sms'&&$flag=='asc')?'desc':'asc';?>">SMS<span><?php echo ($sort=='mb_sms'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	-->
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td>열람서비스</td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">구인공고<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<!--<td>탈퇴요청일</td>
+	<td>탈퇴일</td>-->
+	<td>불량</td>
+	<td>편집</td>
+	<td>공고등록</td>
+</tr>
+<tbody id="member_list">
+<?php if(!$member_list['total_count']){ ?>
+<tr><td colspan="18" class="stlt"></td></tr>
+<?php } else { 
+	foreach($member_list['result'] as $val){
+	$service_member = $member_control->get_service_member($val['mb_id']);
+	$mb_level = $member_control->get_level($val['mb_level']);	 // 회원등급
+	$mb_wdate = substr($val['mb_wdate'],0,11);	// 가입일
+	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>탈퇴미요청</span>";
+	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>미탈퇴</span>";
+
+	if($val['mb_left_request']){
+		$mb_left_request_date = $val['mb_left_request_date'];
+		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>탈퇴요청중</span>";
+	}
+	if($val['mb_left']){
+		$mb_left_request_date = $val['mb_left_request_date'];
+		$mb_left_date = $val['mb_left_date'];
+	}
+
+?>
+<tr>
+	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
+	<td><?php echo $mb_level;?></td>
+	<td><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class='b'><?php echo $val['mb_id'];?></a></td>
+	<td><?php echo stripslashes($val['mb_company_name']);?></td>
+	<td><?php echo $val['mb_name']?> / <?php echo $val['mb_ceo_name']?> (<?php echo stripslashes($val['mb_nick']);?>)</td>
+	<td><a onclick="pop_jumpcharge('<?php echo $val['no'];?>');" class="b"><?php echo ($val['mb_type']=='individual')?number_format($service_member['mb_resume_jump_count']):number_format($service_member['mb_alba_jump_count']);?></a></td>
+	<!-- <td><a onclick="pop_smscharge('<?php echo $val['no'];?>');" class="b"><?php echo number_format($val['mb_sms']);?></a></td> -->
+	<td><?php echo number_format($val['mb_point']);?></td>	
+	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>');" title="클릭하시면 이력서 열람서비스 기간을 조절할수 있습니다."><?php echo $val['mb_service_open'];?></a></td>
+	<td><?php echo ($val['mb_alba_count'])?"<a href='../alba/index.php?mode=search&page_rows=30&search_field=wr_id&search_keyword=".$val['mb_id']."' class='b'>".number_format($val['mb_alba_count'])."</a>":$val['mb_alba_count'];?></td>
+	<td title="<?php echo $val['mb_wdate'];?>"><?php echo $mb_wdate;?></td>
+	<!--<td><?php echo $mb_left_request_date;?></td>
+	<td><?php echo $mb_left_date;?></td>-->
+	<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 <?php echo ($val['mb_badness'])?'정상':'불량';?>회원으로 변경 됩니다."><?php echo (!$val['mb_badness'])?'정상':'<b>불량</b>';?></a></td>
+
+	<td class="edit ">
+				<p class="" style="display:inline-block; width:85px;">
+					<span style="display:inline-block;width:40px;cursor:pointer;margin-right:1px;"class="" onClick="update_member('update','<?php echo $val['no'];?>','<?php echo $val['mb_type'];?>');"><img src="../../images/btn/19_05.gif"></span><span style="display:inline-block;width:40px;cursor:pointer;"class="" onClick="delete_member('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></span>
+				</p><br/>
+				<p class="" style="display:inline-block;width:82px; margin-top:1px;">
+					<span style="display:inline-block;width:26px;cursor:pointer; margin-right:1px;"class="" onClick="pop_sms('<?php echo $val['no'];?>');"><img src="../../images/btn/20_01.gif"></span><span style="display:inline-block;width:26px;cursor:pointer;margin-right:1px;"class="" onClick="pop_email('<?php echo $val['no'];?>');"><img src="../../images/btn/20_02.gif"></span><span style="display:inline-block;width:26px;cursor:pointer;"class="" onClick="pop_memo('<?php echo $val['no'];?>');"><img src="../../images/btn/20_03<?php echo ($val['mb_memo'])?"_1":"";?>.gif"></span>
+				</p>
+				</td>
+<td class="e">
+				<a href="../alba/index.php?mode=insert&mb_id=<?php echo $val['mb_id'];?>"><img src="../../images/btn/19_21.gif"></a>
+</td>
+</tr>
+<?php 
+	} // foreach end.
+} // if end.
+?>
+</tbody>
+</table>
+
+<dl class="page mb50">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+	</dt>
+	<dd>
+		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>회원등급</h1></a>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+	</dd>
+
+	<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
+		선택한 회원을
+		<select name="mb_level" id="mb_level">
+			<option>회원등급</option>
+			<?php foreach($category_list as $val){ if($val['rank']=='1') continue;?>
+			<option value='<?php echo $val['rank']?>'><?php echo $val['name']?></option>
+			<?php } ?>
+		</select>
+		으로 수정 <img src="../../images/btn/19_ok.gif" class='hand' id='levelChangeBtn'>
+	</dl>
+</dl>
+
+<div id='pop_info'></div>
+<div id='zipcode_info'></div>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table></td>
+</tr>
+</table>
+
+<script>
+var send_showRequest = function(formData, jqForm, send_options){
+	var queryString = $.param(formData); 
+	var SMSSendFrm = document.getElementById('SMSSendFrm');
+	return validate(SMSSendFrm);
+}
+var send_showResponse = function(responseText, statusText, xhr, $form){
+	var results = responseText.split('/');
+	var result = results[0], msg = results[1];
+	alert(msg);
+	if(result=='success'){
+		//alert("<?//php echo $sms_control->_success('0005');?>");
+		sms_cancel();	// 초기화
+	}
+}
+// ajax form 전송 전 데이터
+var showRequest = function(formData, jqForm, options){
+	var queryString = $.param(formData); 
+	var sendFrm = jqForm.attr('name');
+	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
+		$('#pop_mail').hide();
+		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
+		$.blockUI({ 
+			theme: true,
+			title: '회원 이메일 전송중',
+			showOverlay: false,
+			message: $('#email_status')
+		});
+	} else if(sendFrm=='MemberFrm'){	// 회원 등록/수정시
+		var memberFrm = document.getElementById('MemberFrm');
+		return validate(memberFrm);
+	}
+}
+// ajax form 전송 후 결과
+var showResponse = function(responseText, statusText, xhr, $form){
+
+	var results = responseText.split('/');
+
+	if(!results[1]){
+		alert(responseText);
+		return false;
+	}
+
+	if( results[0] == 'memo' ) {		// 메모 작성
+
+		if( results[1] ){
+			alert("<?php echo $member_control->_success('0002');?>");
+			$('#pop_memo').hide();
+			if( results[3] != "" ){	// 메모값이 있다면
+				$('#memo_'+results[2]).addClass('org');
+			} else {	 // 없다면
+				$('#memo_'+results[2]).removeClass('org');
+			}
+		} else {
+			alert("<?php echo $member_control->_errors('0002');?>");
+			return false;
+		}
+
+	} else if( results[0] == 'email' ) {	// 이메일 전송
+
+		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+
+	} else if( results[0] == 'member' ){	 // 회원 등록/수정 결과
+
+		var mode = results[1], msg = results[2], mb_type = results[4], mb_id = results[5], return_regist = results[6];
+		
+		if(return_regist){	// 회원등록 후 공고 등록 이라면
+			if(mb_type=='company'){
+				location.href = "../alba/index.php?mode=insert&mb_id="+mb_id;
+			} else if(mb_type=='individual'){
+				location.href = "../alba/resume.php?mode=insert&mb_id="+mb_id;
+			}
+		}
+
+		if(mode=='insert'){
+			if(msg=='0000'){
+				alert("<?php echo $member_control->_success('0004');?>");
+				location.reload();
+			}
+		} else if(mode=='update'){
+			if(msg=='0000'){
+				alert("<?php echo $member_control->_success('0003');?>");
+				location.reload();
+			}
+		}
+
+	} else if(results[0] == 'badness'){	// 불량회원 등록
+
+		if(results[1]){
+			alert("<?php echo $member_control->_success('0003');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $member_control->_errors('0009');?>");
+		}
+
+	} else if(results[0] == 'sms_charge'){	// SMS 충전
+
+		if(results[1]){
+			alert("<?php echo $member_control->_success('0005');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $member_control->_errors('0016');?>");
+		}
+
+	} else if(results[0] == 'jump_charge'){	// 점프 건수 충전
+
+			if(results[1]){
+				alert("<?php echo $member_control->_success('0006');?>");
+				location.reload();
+			} else {
+				alert("<?php echo $member_control->_errors('0017');?>");
+			}
+
+	}
+
+}
+var openRequest = function(formData, jqForm, open_options){	// 열람 서비스
+	var queryString = $.param(formData); 
+	return true;
+}
+var openResponse = function(responseText, statusText, xhr, $form){
+	if(responseText){
+		location.reload();
+	} else {
+		alert("<?php echo $member_control->_errors('0014');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

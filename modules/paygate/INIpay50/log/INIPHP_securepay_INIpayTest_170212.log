@@ -1,0 +1,17 @@
+INFO	[2017-02-12 14:45:58:82] <2940> START INIPHP chkfake (V5034-120709)(OS:Linux2.6.32-642.11.1.el6.x86_64,PHP:5.2.17)
+DEBUG	[2017-02-12 14:45:58:82] <2940> inipayhome:/home/njob/public_html/modules/paygate/INIpay50
+DEBUG	[2017-02-12 14:45:58:82] <2940> type:chkfake
+DEBUG	[2017-02-12 14:45:58:82] <2940> debug:true
+DEBUG	[2017-02-12 14:45:58:82] <2940> enctype:asym
+DEBUG	[2017-02-12 14:45:58:82] <2940> admin:1111
+DEBUG	[2017-02-12 14:45:58:82] <2940> checkopt:false
+DEBUG	[2017-02-12 14:45:58:82] <2940> mid:INIpayTest
+DEBUG	[2017-02-12 14:45:58:82] <2940> nointerest:no
+DEBUG	[2017-02-12 14:45:58:82] <2940> quotabase:lumpsum:00:02:03:04:05:06:07:08:09:10:11:12
+INFO	[2017-02-12 14:45:58:82] <2940> Check Field OK
+INFO	[2017-02-12 14:45:58:83] <2940> MERCHANT PRIV KEY LOAD OK
+INFO	[2017-02-12 14:45:58:83] <2940> MERCHANT PUB KEY LOAD OK []
+INFO	[2017-02-12 14:45:58:84] <2940> CHKFAKE KEY MAKE OK:MjAxNzAyMTIxNDQ1NTgwODM0NzUyMg==
+
+INFO	[2017-02-12 14:45:58:84] <2940> END chkfake  Laptime:[0sec]
+INFO	[2017-02-12 14:45:58:84] <2940> ===============================================================

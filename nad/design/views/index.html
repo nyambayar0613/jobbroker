@@ -1,0 +1,571 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo $alice['plugins_path']."/jquery.colourPicker.css"?>" />
+<script>
+$(function(){
+	// 사이트기본색 :: 사용자지정색사용
+	$('#site_colorUser select').colourPicker({
+		ico:	'../../images/btn/23_col.gif', 
+		title:	false
+	});
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#SiteDesignFrm').ajaxForm(form_options);
+
+});
+var site_colors = function( vals ){	// 사이트기본색 선택
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#site_colorSkin').hide();
+		$('#site_colorUser').show();
+	} else {
+		$('#site_colorSkin').show();
+		$('#site_colorUser').hide();
+	}
+}
+var use_sel = function( sel, vals ){	// 출력 체크
+	var checked = vals.checked;
+	if(checked==true){
+		$('.'+sel+'_print').show();
+	} else {
+		$('.'+sel+'_print').hide();
+	}
+}
+var professional_sel = function( no, vals, cate ){	// 전문인재정보 출력 직종 선택
+	var sel = vals.value;
+	var checked = vals.checked;
+
+	if(checked==true){
+		$('#professional_val').append("<input type='hidden' name='professional_val[]' value=\""+sel+"\" id=\"professional_val_"+sel+"\"/>");
+	} else {
+		$('#professional_val_'+sel).remove();
+	}
+
+	var professional_val = new Array();
+	var i = 0;
+	$("input[name='professional_val[]']").each(function(){
+		professional_val[i] = $(this).val();
+	i++;
+	});
+
+	$.post('./views/_load/category.php', { mode:'cate_sel', type:'job_type', checked:checked, code:professional_val }, function(result){
+		$('#professional_target').html(result);
+	});
+
+}
+var cate_sels = function( cate, no, code ){	 // 카테고리 선택
+
+	$('#professional_block').show();
+	
+	if(cate=='cate_0'){
+		var next_depth = 1;
+	} else if(cate=='cate_1'){
+		var next_depth = 2;
+	}
+
+	$('#'+cate+'_list .lists').removeClass('dnbg').addClass('wbg');
+	$('#'+cate+'_list #cate_'+no).addClass('dnbg');
+
+	// 메뉴 리스트 출력
+	$('#cate_'+next_depth+'_list').load('./views/_load/category.php', { mode:'next_cate', type:'job_type', code:code, next_depth:next_depth }, function(result){	
+
+	});
+
+}
+var main_skin_msg = function(){
+	alert("메인 스타일을 변경 하시면 스타일에 맞는 배너를 다시 설정 해 주세요.");
+}
+var main_left_msg = function(){
+	alert("좌측메뉴 사용시 서브 페이지 좌측에 출력되는 공고/이력서 메뉴가 메인 좌측에 출력 됩니다.");
+}
+var update_content = function( type ){
+
+	var $position = $('#update_'+type).position();
+
+	//alert( $position.left +" @ " + $position.top );
+
+	$('#pop_info').load('./views/_load/design.php', { mode:'service_content', type:type }, function(){
+		$('#pop_content').css({
+			"left" : $position.left+80,
+			"top" : $position.top
+		});
+		$('#pop_content').draggable({ handle: "#addFrmHandle" });
+		
+		var content_form_options = { target: '', beforeSubmit: content_showRequest, success : content_showResponse };
+
+		$('#ServiceContentRegistFrm').submit(function(){
+			switch(type){
+				case 'main_platinum_content':
+					<?php echo $utility->input_cheditor('main_platinum_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_grand_content':
+					<?php echo $utility->input_cheditor('main_grand_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_special_content':
+					<?php echo $utility->input_cheditor('main_special_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_busy_content':
+					<?php echo $utility->input_cheditor('main_busy_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_focus_content':
+					<?php echo $utility->input_cheditor('main_focus_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_basic_content':
+					<?php echo $utility->input_cheditor('main_basic_content');?>	// 에디터 내용 전달
+				break;
+				case 'main_rbasic_content':
+					<?php echo $utility->input_cheditor('main_rbasic_content');?>	// 에디터 내용 전달
+				break;
+				case 'alba_jump_content':
+					<?php echo $utility->input_cheditor('alba_jump_content');?>	// 에디터 내용 전달
+				break;
+				case 'resume_jump_content':
+					<?php echo $utility->input_cheditor('resume_jump_content');?>	// 에디터 내용 전달
+				break;
+				case 'alba_open_content':
+					<?php echo $utility->input_cheditor('alba_open_content');?>	// 에디터 내용 전달
+				break;
+				case 'resume_open_content':
+					<?php echo $utility->input_cheditor('resume_open_content');?>	// 에디터 내용 전달
+				break;
+			}
+
+		});
+
+		$('#ServiceContentRegistFrm').ajaxForm(content_form_options);
+
+	});	
+
+}
+</script>
+
+<input type="hidden" name="ui_theme" value="redmond" />
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+	<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+	<td width="1"></td>
+	<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+	<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+	<td class="h pr5">
+		<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+			<dl class="notbox">
+				<dl>
+				구인구직 사이트의 전반적인 색상, 레이아웃, 문구등을 수정 관리하는 페이지 입니다. <br>
+				</dl>
+			</dl>
+
+			<form name="SiteDesignFrm" method="post" id="SiteDesignFrm" action="./process/design.php" enctype="multipart/form-data">
+			<input type="hidden" name="mode" value="update" id="mode"/><!-- 사이트 기본 설정정보 수정 -->
+			<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+			<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+			<input type="hidden" name="no" value="<?=$design['no']?>"/><!-- 현재 설정 no -->
+			<input type="hidden" name="site_color" value="0"/>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">사이트기본설정</dl>  
+			<table width="100%" class="bg_col">
+			<col width=110><col> 
+			<tr>
+				<td class="ctlt">사이트기본색</td>
+				<td class="pdlnb2">
+					<dt class="st_col" style="display:<?php echo ($design['site_color'])?'none':'';?>;" id="site_colorSkin">
+						<input name="skin_color" type="radio" value="gr" class="radio" <?php echo ($design['skin_color']=='gr')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_gr">
+						<input name="skin_color" type="radio" value="bk" class="radio" <?php echo ($design['skin_color']=='bk')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_bk">
+						<input name="skin_color" type="radio" value="yel" class="radio" <?php echo ($design['skin_color']=='yel')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_yel">
+						<input name="skin_color" type="radio" value="org" class="radio" <?php echo ($design['skin_color']=='org')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_org">
+						<input name="skin_color" type="radio" value="dho" class="radio" <?php echo ($design['skin_color']=='dho')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_dho">
+						<input name="skin_color" type="radio" value="red" class="radio" <?php echo ($design['skin_color']=='red')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_red">
+						<input name="skin_color" type="radio" value="pk" class="radio" <?php echo ($design['skin_color']=='pk')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_pk">
+						<input name="skin_color" type="radio" value="pp" class="radio" <?php echo ($design['skin_color']=='pp')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_pp">
+						<input name="skin_color" type="radio" value="lgr" class="radio" <?php echo ($design['skin_color']=='lgr')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_lgr">
+						<input name="skin_color" type="radio" value="grn" class="radio" <?php echo ($design['skin_color']=='grn')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_grn">
+						<input name="skin_color" type="radio" value="bgr" class="radio" <?php echo ($design['skin_color']=='bgr')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_bgr">
+						<input name="skin_color" type="radio" value="wbl" class="radio" <?php echo ($design['skin_color']=='wbl')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_wbl">
+						<input name="skin_color" type="radio" value="dbl" class="radio" <?php echo ($design['skin_color']=='dbl')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_dbl">
+					</dt>
+				</td>
+			</tr>
+			</table>
+
+			<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">서비스 출력설정</dl>  
+			<table width="100%" class="bg_col">
+			<col width=130><col> 
+			
+
+	        <tr>
+				<td class="ctlt">플래티넘 구인정보</td>
+				<td class="pdlnb2">
+					<div>
+						<input name="main_platinum_use" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_use'])?'checked':'';?> onclick="use_sel('main_platinum',this);" id="main_platinum_use" /><label for="main_platinum_use">출력</label>
+						<input name="main_platinum_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_limit'])?'checked':'';?> onclick="" id="main_platinum_limit" /><label for="main_platinum_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+					</div>
+					<table width="790px" cellspacing="1" class="ln sep tf  main_platinum_print" style="display:<?php echo ($design['main_platinum_use'])?'':'none';?>;">
+					<tbody>
+					<tr height="25" align="center" class="bg b">
+						<th style="width:80px;">가로 출력수</th>
+						<th style="width:80px;">세로 출력수</th>
+						<th style="width:80px;">총 출력수</th>
+						<th style="width:250px">테두리칼라설정</th>
+						<th style="width:500px">배경칼라설정</th>
+					</tr>
+					<tr  height="30" class="wbg tc">
+						<td>
+						<input type="text" name="main_platinum_row" value="<?=$design['main_platinum_row'];?>" style="width:10px;border:0" readOnly />개
+						</td>
+						<td>  
+						<input type="text" name="main_platinum_row2" value="<?=$design['main_platinum_row2'];?>" style="width:50px;" />개
+						</td>
+						<td>  
+						<input type="text" name="main_platinum_total" value="<?=$design['main_platinum_total'];?>" style="width:50px;" />개
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<p style="padding:10px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_platinum_border_color" id="main_platinum_border_color"><?php echo $utility->gwsc($design['main_platinum_border_color']); ?></select>
+								</p>
+								<p style="padding:1px 2px 10px;">
+									<label>골드:</label>
+									<select name="main_platinum_border_gold_color" id="main_platinum_border_gold_color"><?php echo $utility->gwsc($design['main_platinum_border_gold_color']); ?></select>
+								</p>
+							</div>
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<p style="padding:5px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_platinum_background_color" id="main_platinum_background_color"><?php echo $utility->gwsc($design['main_platinum_background_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_platinum_font_color" id="main_platinum_font_color"><?php echo $utility->gwsc($design['main_platinum_font_color']); ?></select>
+								</p>
+								<p style="padding:1px 2px 5px;">
+									<label>골드:</label>
+									<select name="main_platinum_background_gold_color" id="main_platinum_background_gold_color"><?php echo $utility->gwsc($design['main_platinum_background_gold_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_platinum_font_gold_color" id="main_platinum_font_gold_color"><?php echo $utility->gwsc($design['main_platinum_font_gold_color']); ?></select>
+								</p>
+							</div>						
+						</td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">플래티넘 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_platinum_content');" id="update_main_platinum_content">내용수정</a></span>
+				</td>
+			</tr>
+			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
+			<tr>
+				<td class="ctlt">그랜드 구인정보</td>
+				<td class="pdlnb2">
+					<div>
+						<input name="main_grand_use" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_use'])?'checked':'';?> onclick="use_sel('main_grand',this);" id="main_grand_use" /><label for="main_grand_use">출력</label>
+						<input name="main_grand_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_limit'])?'checked':'';?> onclick="" id="main_grand_limit" /><label for="main_grand_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+					</div>
+					<table width="790px" cellspacing="1" class="ln sep tf main_grand_print" style="display:<?php echo ($design['main_grand_use'])?'':'none';?>;">
+					<tbody>
+					<tr height="25" align="center" class="bg b">
+						<th style="width:80px;">가로 출력수</th>
+						<th style="width:80px;">세로 출력수</th>
+						<th style="width:80px;">총 출력수</th>
+						<th style="width:250px">테두리칼라설정</th>
+						<th style="width:500px">배경칼라설정</th>
+					</tr>
+					<tr  height="30" class="wbg tc">
+						<td>
+						<input type="text" name="main_grand_row" value="<?=$design['main_grand_row'];?>" style="width:10px;border:0" readOnly />개
+						</td>
+						<td>  
+						<input type="text" name="main_grand_row2" value="<?=$design['main_grand_row2'];?>" style="width:50px;" />개
+						</td>
+						<td>  
+						<input type="text" name="main_grand_total" value="<?=$design['main_grand_total'];?>" style="width:50px;" />개
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+							<p style="padding:3px 2px 1px;">
+								<label>일반:</label>
+								<select name="main_grand_border_color" id="main_grand_border_color"><?php echo $utility->gwsc($design['main_grand_border_color']); ?></select>
+							</p>
+							<p style="padding:1px 2px 3px;">
+								<label>골드:</label>
+								<select name="main_grand_border_gold_color" id="main_grand_border_gold_color"><?php echo $utility->gwsc($design['main_grand_border_gold_color']); ?></select>
+							</p>
+							</div>
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<p style="padding:3px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_grand_background_color" id="main_grand_background_color"><?php echo $utility->gwsc($design['main_grand_background_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_grand_font_color" id="main_grand_font_color"><?php echo $utility->gwsc($design['main_grand_font_color']); ?></select>
+								</p>
+								<p style="padding:1px 2px 3px;">
+									<label>골드:</label>
+									<select name="main_grand_background_gold_color" id="main_grand_background_gold_color"><?php echo $utility->gwsc($design['main_grand_background_gold_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_grand_font_gold_color" id="main_grand_font_gold_color"><?php echo $utility->gwsc($design['main_grand_font_gold_color']); ?></select>
+								</p>
+							</div>						
+						</td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">그랜드 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_grand_content');" id="update_main_grand_content">내용수정</a></span>
+				</td>
+			</tr>
+			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
+	        <tr>
+				<td class="ctlt">스페셜 구인정보</td>
+				<td class="pdlnb2">
+					<div>
+						<input name="main_special_use" type="checkbox" value="1" class="check" <?php echo ($design['main_special_use'])?'checked':'';?> onclick="use_sel('main_special',this);" id="main_special_use" /><label for="main_special_use">출력</label>
+						<input name="main_special_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_special_limit'])?'checked':'';?> onclick="" id="main_special_limit" /><label for="main_special_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+					</div>
+					<table width="790px" cellspacing="1" class="ln sep tf main_special_print" style="display:<?php echo ($design['main_special_use'])?'':'none';?>;">
+					<tbody>
+					<tr height="25" align="center" class="bg b">
+						<th style="width:80px;">가로 출력수</th>
+						<th style="width:80px;">세로 출력수</th>
+						<th style="width:80px;">총 출력수</th>
+						<th style="width:250px">테두리칼라설정</th>
+						<th style="width:500px">배경칼라설정</th>
+					</tr>
+					<tr  height="30" class="wbg tc">
+						<td>
+						<input type="text" name="main_special_row" value="<?=$design['main_special_row'];?>" style="width:10px;border:0" readOnly />개
+						</td>
+						<td>  
+						<input type="text" name="main_special_row2" value="<?=$design['main_special_row2'];?>" style="width:50px;" />개
+						</td>
+						<td>  
+						<input type="text" name="main_special_total" value="<?=$design['main_special_total'];?>" style="width:50px;" />개
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<p style="padding:10px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_special_border_color" id="main_special_border_color"><?php echo $utility->gwsc($design['main_special_border_color']); ?></select>		
+								</p>
+								<p style="padding:1px 2px 10px;">
+									<label>골드:</label>
+									<select name="main_special_border_gold_color" id="main_special_border_gold_color"><?php echo $utility->gwsc($design['main_special_border_gold_color']); ?></select>
+								</p>
+							</div>
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<p style="padding:3px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_special_background_color" id="main_special_background_color"><?php echo $utility->gwsc($design['main_special_background_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_special_font_color" id="main_special_font_color"><?php echo $utility->gwsc($design['main_special_font_color']); ?></select>									
+								</p>
+								<p style="padding:1px 2px 3px;">
+									<label>골드:</label>
+									<select name="main_special_background_gold_color" id="main_special_background_gold_color"><?php echo $utility->gwsc($design['main_special_background_gold_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_special_font_gold_color" id="main_special_font_gold_color"><?php echo $utility->gwsc($design['main_special_font_gold_color']); ?></select>
+								</p>
+							</div>						
+						</td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">스페셜 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_special_content');" id="update_main_special_content">내용수정</a></span>
+				</td>
+			</tr>
+			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
+	        <tr>
+				<td class="ctlt">급구 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_busy_content');" id="update_main_busy_content">내용수정</a></span>
+				</td>
+			</tr>
+			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
+			<tr>
+				<td class="ctlt">포커스 인재정보</td>
+				<td class="pdlnb2">
+					<div>
+						<input name="main_focus_use" type="checkbox" value="1" class="check" <?php echo ($design['main_focus_use'])?'checked':'';?> onclick="use_sel('main_focus',this);" id="main_focus_use" /><label for="main_focus_use">출력</label>
+						<input name="main_focus_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_focus_limit'])?'checked':'';?> onclick="" id="main_focus_limit"/><label for="main_focus_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+					</div>
+					<table width="790px" cellspacing="1" class="ln sep tf main_focus_print" style="display:<?php echo ($design['main_platinum_use'])?'':'none';?>;">
+					<tbody>
+					<tr height="25" align="center" class="bg b">
+						<th style="width:240px;">총출력수</th>
+						<th style="width:250px">테두리칼라설정</th>
+						<th style="width:500px">배경칼라설정</th>
+					</tr>
+					<tr  height="30" class="wbg tc">
+						<td>
+						<input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="main_focus_total" size='7' value="<?php echo $design['main_focus_total'];?>"/>건
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<div style="padding:3px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_focus_border_color" id="main_focus_border_color"><?php echo $utility->gwsc($design['main_focus_border_color']); ?></select>
+								</div>
+								<div style="padding:1px 2px 3px;">
+									<label>골드:</label>
+									<select name="main_focus_border_gold_color" id="main_focus_border_gold_color"><?php echo $utility->gwsc($design['main_focus_border_gold_color']); ?></select>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div id="site_colorUser" style="">
+								<div style="padding:3px 2px 1px;">
+									<label>일반:</label>
+									<select name="main_focus_background_color" id="main_focus_background_color"><?php echo $utility->gwsc($design['main_focus_background_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_focus_font_color" id="main_focus_font_color"><?php echo $utility->gwsc($design['main_focus_font_color']); ?></select>
+								</div>
+								<div style="padding:1px 2px 3px;">
+									<label>골드:</label>
+									<select name="main_focus_background_gold_color" id="main_focus_background_gold_color"><?php echo $utility->gwsc($design['main_focus_background_gold_color']); ?></select>
+									<label style="margin-left:45px">글자색:</label>
+									<select name="main_focus_font_gold_color" id="main_focus_font_gold_color"><?php echo $utility->gwsc($design['main_focus_font_gold_color']); ?></select>
+								</div>
+							</div>						
+						</td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">포커스 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_focus_content');" id="update_main_focus_content">내용수정</a></span>
+				</td>
+			</tr>
+			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
+	        <tr>
+				<td class="ctlt">메인 일반형 구인정보</td>
+				<td class="pdlnb2">
+					<label><input name="main_bottom_alba_use" type="checkbox" value="1" class="check" <?php echo ($design['main_bottom_alba_use'])?'checked':'';?> />출력</label>
+					/ 1페이지당 출력건수 <input type="text" class="tnum tc b" name="main_bottom_alba_total" size='7' value="<?php echo $design['main_bottom_alba_total'];?>"/> 건
+					<span class="subtlt">출력 설정하시면 메인 페이지 하단에 일반형 구인정보에 출력됩니다</span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">메인 일반형 인재정보</td>
+				<td class="pdlnb2">
+					<label><input name="main_bottom_resume_use" type="checkbox" value="1" class="check" <?php echo ($design['main_bottom_resume_use'])?'checked':'';?> />출력</label>
+					/ 1페이지당 출력건수 <input type="text" class="tnum tc b" name="main_bottom_resume_total" size='7' value="<?php echo $design['main_bottom_resume_total'];?>"/> 건
+					<span class="subtlt">출력 설정하시면 메인 페이지 하단에 일반형 인재정보에 출력됩니다</span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">일반 구인정보 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_basic_content');" id="update_main_basic_content">내용수정</a></span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">일반 인재정보 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_rbasic_content');" id="update_main_rbasic_content">내용수정</a></span>
+				</td>
+			</tr>
+			</table>
+
+			<dl class="pbtn mt10"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기타 서비스 안내 설정</dl>  
+			<table width="100%" class="bg_col">
+			<col width=180><col> 
+	        <tr>
+				<td class="ctlt">구인공고 점프 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('alba_jump_content');" id="update_alba_jump_content">내용수정</a></span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">인재정보 점프 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('resume_jump_content');" id="update_resume_jump_content">내용수정</a></span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">구인공고 열람 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('alba_open_content');" id="update_alba_open_content">내용수정</a></span>
+				</td>
+			</tr>
+	        <tr>
+				<td class="ctlt">인재정보 열람 서비스안내</td>
+				<td class="pdlnb2">
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('resume_open_content');" id="update_resume_open_content">내용수정</a></span>
+				</td>
+			</tr>
+			</table>
+
+			<dl class="pbtn mt10"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+			</form>
+
+
+		</td>
+		</table>
+
+		<div id='pop_info'></div>
+
+	</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options) {	// 폼 전송전 데이터
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송 후 결과
+	
+	if(responseText){
+		alert("<?php echo $config->_success('0002');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $config->_errors('0005');?>");
+	}
+}
+function content_showRequest(formData, jqForm, form_options) {	// 폼 전송전 데이터
+}
+function content_showResponse(responseText, statusText, xhr, $form){	// 폼 전송 후 결과
+	if(responseText){
+		alert("<?php echo $config->_success('0002');?>");
+		$('#pop_content').hide();
+	} else {
+		alert("<?php echo $config->_errors('0005');?>");
+	}
+}
+</script>
+<?php include_once "../include/tail.php";?>

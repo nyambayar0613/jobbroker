@@ -1,0 +1,436 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<style>@import url("./views/_css/main.css");</style>
+
+<script>
+var QuickFrm_submit = function(){
+
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+
+	$('#QuickFrm').ajaxSubmit(form_options);
+
+}
+</script>
+
+<dl id="nwrap" class="gnb">
+<table class="layout">
+<tr valign="top">
+<td id="lmn" ><?php include_once "../include/left_menu.php"; ?></td>
+<!--<td width="3"><img src="../../images/comn/b.gif"></td>-->
+<td class="h pl1">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr>-->
+<tr>
+<!--<td class=nb_04></td>-->
+<td class="nb pt7 pl7 pr7" style="min-height:750px;">
+<h3>가운데</h3>
+<dl id="mcenter">
+	<!--사이트 접속통계 -->
+  <dl class="blnb m0">
+    <dl class="mtlt"><h4>사이트 접속통계</h4>
+    <dt class="more"><a href="../statistics/"><img src="../../images/comn/more.gif"></a></dt>
+    </dl>
+    <dl class="Maratio">
+
+	<span class="Mdtxt">	
+		<span style="right: 140px; position: relative;">
+			<img src="/images/nad/week_la_icon.gif" class="Mgrf_dgr"> 지난주
+			<img src="/images/nad/week_be_icon.gif" class="Mgrf_dgr"> 이번주
+		</span>
+		오늘 <font color="#ff5656;" class="b"><?php echo number_format($get_visits['today']);?></font> 
+		이번주 <font color="#ff5656;" class="b"><?php echo number_format($get_visits_main['visit_week']);?></font> 
+		전체 <font color="#ff5656;" class="b"><?php echo number_format($get_visits['total']);?></font> 
+	</span>
+	<?php
+	for($i=0;$i<=6;$i++){
+		//echo $yoil[date('w',strtotime($str_date))]."<Br/>";
+		$str_date = "-".$i." day";
+		$week_date = date('Y-m-d',strtotime($str_date));
+		$week_date_text = date('y-m-d',strtotime($str_date));
+		$yester_date = date( 'Y-m-d', strtotime($week_date . "-1 week") );
+		$yester_visit_sum = $statistics_control->get_visit_sum($yester_date);
+		$week_visit_sum = $statistics_control->get_visit_sum($week_date);
+		$yester_today_pert = ($yester_visit_sum['visit_count']) ? @sprintf("%.2f%%", ($yester_visit_sum['visit_count']/$visit_week) * 100) : "0%";
+		$week_today_pert = ($week_visit_sum['visit_count']) ? sprintf("%.2f%%", ($week_visit_sum['visit_count']/$visit_week) * 100) : "0%";
+	?>
+	<dl>
+		<ul>
+			<li title="<?php echo str_replace("-",".",$yester_date)." ".number_format($yester_visit_sum['visit_count']);?>명"><img src=../../images/comn/b.gif style="height:<?php echo $yester_today_pert;?>" class="Mgrf_pk"></li>			
+			<li title="<?php echo str_replace("-",".",$week_date)." ".number_format($week_visit_sum['visit_count']);?>명"><img src=../../images/comn/b.gif style="height:<?php echo $week_today_pert;?>" class="Mgrf_dgr"></li>
+		</ul>
+		<span class="b"><?php echo str_replace("-",".",$week_date_text);?></span>
+	</dl>
+	<?php
+	}	// for end.
+	?>                
+    </dl>
+  </dl>
+  <!--방문현황-->
+
+  <!--통계현황 -->
+	<dl class="h4font"><h4>통계현황</h4>
+		<span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+		<dt><a href="../statistics/"><img src="../../images/comn/more.gif"></a></dt>
+	</dl>
+	<table width="100%" class="font11 blnb tf" cellpadding="0" cellspacing="0">
+	<colgroup><col width="141px"><col width="82px"><col width="108px"></colgroup>
+	<tr class="font12 tc mtlt">
+		<td >&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><?php echo str_replace("-",".",date('Y-m-d'));?> (<?php echo $yoil[date('w')]?>)</td>
+		<td><?php echo str_replace("-",".",date('Y-m-d', strtotime('-1 day')));?> (<?php echo $yoil[date('w',strtotime('-1 day'))]?>)</td>
+	</tr>
+	<?php
+	$today_page_views = 0;
+	$yester_page_views = 0;
+	foreach($page_view_arr as $key => $val){
+		$today_page_views += $statistics_control->page_views($key, date('Y-m-d'));
+		$yester_page_views += $statistics_control->page_views($key, date('Y-m-d', strtotime('-1 day')) );
+	}
+	// 방문자수 비교
+	if( $get_visits['today'] > $get_visits['yesterday'] ){
+		$visit_count_status = "<font color='#ff5656'> △</font>";
+	} else if( $get_visits['today'] < $get_visits['yesterday'] ){
+		$visit_count_status = "<font color='#566aff'> ▽</font>";
+	} else {
+		$visit_count_status = " －";
+	}
+	// 페이지뷰 비교
+	if( $today_page_views > $yester_page_views ){
+		$page_view_status = "<font color='#ff5656'>△</font>";
+	} else if( $today_page_views < $yester_page_views ){
+		$page_view_status = "<font color='#566aff'>▽</font>";
+	} else {
+		$page_view_status = "&nbsp;－";
+	}
+
+	//$visit_percent = ( $get_visits['today'] / ($get_visits['today'] + $get_visits['yesterday']) ) * 100;
+
+	?>
+	<tr class="h26 tc">
+		<td rowspan="3" class="font12 mbtr">방문현황</td>
+		<td class="mbtb2">방문자수</td>
+		<td class="mbtb2">
+			<table width="100%" cellpadding="0" cellspacing="0">
+			<tr class="tc">
+				<td class="pl15"><font style="font-weight:bold"><?php echo number_format($get_visits['today']);?></font></td>
+				<td class="pr15"><!-- -10% --><?php echo $visit_count_status;?></td>
+			</tr>
+			</table>
+		</td>
+		<td class="mbtb2 b"><?php echo number_format($get_visits['yesterday']);?></td>
+	</tr>
+	<tr class="h26 tc">
+		<td>페이지뷰</td>
+		<td>
+			<table width="100%"cellpadding="0" cellspacing="0">
+			<tr class="tc">
+				<td class="pl15"><font style="font-weight:bold"><?php echo number_format($today_page_views);?></font></td>
+				<td class="pr15"><!-- -10% --><?php echo $page_view_status;?></td>
+			</tr>
+			</table>
+		</td>
+		<td class="b"><?php echo number_format($yester_page_views);?></td>
+	</tr>
+	</table>
+  <!--통계현황//-->
+
+  <!--결제현황 -->
+  <dl class="blnb" style="border-bottom:0">
+    <dl class="mtlt bno"><h4>결제현황</h4><span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+    <dt class="more"><a href="../payment/"><img src="../../images/comn/more.gif"></a></dt>
+    </dl>
+  </dl>
+  <table width="100%" class="tbl sep ln tf" cellspacing="1">
+  <col width="160"><col span="4">
+  <tr class="tc">
+    <th>서비스명</th>
+    <th>결제금액</th>
+    <th>입금</th>
+    <th>미입금</th>
+    <th>취소</th>
+  </tr>
+  <?php if(!$pay_list['total_count']){?>
+  <tr class="wbg tc">
+    <td class="num3" colspan="5" align="center" height="50">결제 내역이 존재하지 않습니다.</td>
+  </tr>
+  <?php 
+	  } else {
+	  foreach($pay_list['result'] as $_pay){
+		  $pay_service = explode('/',$_pay['pay_service']);
+		  $pay_service_cnt = count($pay_service);
+		  $pay_service_names = explode('_',$pay_service[0]);
+		  $service_name = "";
+		  $service_name .= $service_control->service_name[$pay_service_names[0]]['name'];
+		  $service_name .= " " . $service_control->service_name[$pay_service_names[0]]['service'][$pay_service_names[1]];
+	?>
+  <tr class="wbg tc">
+    <th class="pl5"><?php echo $service_name." 외 ".($pay_service_cnt-1)."가지";?></th>
+    <td class="num3"><?php echo number_format($_pay['pay_price']);?></td>
+    <td class="num3"><?php echo ($_pay['pay_status']=='0')?'0':number_format($_pay['pay_price']);?></td>
+    <td class="num3"><?php echo ($_pay['pay_status']=='0')?number_format($_pay['pay_price']):'0';?></td>
+    <td class="num3"><?php echo ($_pay['pay_status']=='3')?number_format($_pay['pay_price']):'0';?></td>
+  </tr>
+  <?php 
+		}	// foreach end.
+	} // if end.
+	?>
+  </table>
+
+  <!-- 채용/인재 -->
+	<dl class="blnb" style="border-bottom:0">
+		<dl class="mtlt bno"><h4>인재/채용 현황</h4><span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+			<dt class="more"><a href="../alba/"><img src="../../images/comn/more.gif"></a></dt>
+		</dl>
+	</dl>
+	<table width="100%" class="tbl sep ln tf" cellspacing="1">
+	<col width="100"><col span="3">
+	<tr class="tc">
+		<th></th>
+		<th>오늘</th>
+		<th>어제</th>
+		<th>지난주</th>
+	</tr>
+	<tr class="wbg tc">
+		<th class="tc">채용공고</th>
+		<td class="jobcr num3"><?php echo number_format($today_employ['total_count']);?></td>
+		<td class="jobcr num3"><?php echo number_format($yester_employ['total_count']);?></td>
+		<td class="num3"><?php echo number_format($last_employ['total_count']);?></td>
+	</tr>
+	<tr class="wbg tc">
+		<th class="tc">이력서</th>
+		<td class="jobcr num3"><?php echo number_format($today_resume['total_count']);?></td>
+		<td class="jobcr num3"><?php echo number_format($yester_resume['total_count']);?></td>
+		<td class="num3"><?php echo number_format($last_resume['total_count']);?></td>
+	</tr>
+	</table>
+	<script>
+	var quickmn_view = function(){
+		$('#quickmn').toggle();
+		$('#quickmn').draggable({ handle: "#quickHandle" });
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	}
+	</script>
+
+	<dl class="blnb">
+		<dl class="mtlt"><h4>퀵 메뉴 설정</h4>
+			<dt class="psa" style="top:6px;right:8px">
+				<a onClick="quickmn_view();" class="bbtn">
+				<h1 class="btn17"><span class="ic m0" style="background:url(../../images/comn/wbul_06.png) no-repeat 0 0"></span>설정</h1>
+				</a>
+			</dt>
+		</dl>
+
+		<ul class="List nmain">
+		<?php $i=0; foreach($quick_list as $quick){ ?>
+		<li <?php echo ($i==0)?"class='f'":"";?>><a href="..<?php echo $quick['url']?>"><?php echo $quick['sub_menu'] ?></a></li>
+		<?php $i++; } ?>
+		</ul>
+	</dl>
+
+</dl>
+  
+
+	<h3>오른쪽</h3>
+	<dl id="mright">
+
+		<!--실시간 검색어-->
+		<dl class="blnb m0">
+			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">실시간 검색어</h4>
+				<dt class="more"><a href="../statistics/realtime_keyword.php"><img src="../../images/comn/more.gif"></a></dt>
+			</dl>
+			<ul class="s11lst dgr hcol" style="margin: 5px 7px 2px;">
+			<?php $i = 0; foreach($category_list as $val){ $i++; if($i >3) break; ?>
+				<li><img class="mb3" src="../../images/nad/key<?php echo sprintf('%02d',$i);?>.gif"> <a href="<?php echo $alice['main_path'];?>/search.php?mode=search&search_keyword=<?php echo urlencode($val['wr_content']);?>" target="_blank"><?php echo $val['wr_content'];?></a><span style="float:right;" class="b"><?php echo $val['wr_hit'];?></span></li>
+			<?php } ?>
+			</ul>
+		</dl>
+			<!--실시간 검색어//-->
+		<!-- 공지사항&솔루션업데이트-->
+		<dl class="blnb">
+			<dl class="tbg lnb psr" style="padding:3px 0 0;height:25px">
+				<ul class="tabmn">
+					<li class="on" id="tab_2" style="width:60%;" onmouseover="Chtab('tab0',2,2);Ch_Class('tab_',2,2,'on')" onClick="window.open('http://netfu.co.kr/board/notice.php','','')">솔루션 업데이트 알리미</li>
+				</ul>
+				<!-- <dt class="more"><a href="../board/notice.html"><img src="../../images/comn/more.gif"></a></dt> -->
+			</dl>
+			<dl class="yflow" style="margin:6px 7px 2px;height:75px">
+				<h3>솔루션 업데이트 알리미</h3>
+				<?php echo stripslashes(stripslashes($netfu_update['data'])); ?>
+				</ul>
+			</dl>
+
+		</dl>
+		<!-- //공지사항&솔루션업데이트-->
+
+		<!-- 1:1 고객상담 -->
+		<dl class="blnb">
+			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">고객문의</h4>
+				<dt class="more"><a href="../board/qna.php"><img src="../../images/comn/more.gif"></a></dt>
+			</dl>
+
+			<?php if(!$cs_list['result']){?>
+			<ul class="s11lst dgr hcol" style="margin:5px 7px 2px">
+				<li>등록된 고객문의가 없습니다.</li>
+			</ul>
+			<?php } else {?>
+			<ul class="s11lst dgr hcol" style="margin:5px 7px 2px">
+			<?php foreach($cs_list['result'] as $cs_val){ ?>
+				<li><img src="../../images/nad/st<?php echo ($cs_val['wr_result'])?'2':'1';?>.gif" class="mb3"> <a href="../board/qna.php?no=<?php echo $cs_val['no'];?>"><?php echo stripslashes($cs_val['wr_subject']);?></a></li>
+			<?php } ?>
+			</ul>
+			<?php } ?>
+		</dl>
+		<!-- //1:1 고객상담 -->
+
+	<!--서비스이용현황 -->
+	<dl class="blnb" style="border-bottom:0">
+		<dl class="mtlt"><h4>서비스이용현황</h4></dl>
+		<table width="100%" class="tbl">
+		<col width=100><col>
+		<?php 
+		if($_method[$pg_company]){
+			foreach($_method[$pg_company] as $key=>$val){ 
+		?>
+		<tr>
+			<th class="pl5"><?php echo $val['name'];?></th>
+			<td class="tr">
+			<?php if(in_array($key,$methods)){?>
+			<span class="col">사용중</span> <em>|</em> <a href="../payment/pg.php">관리</a>
+			<?php } else {?>
+			<span class="org">OFF <em>|</em> <a href="../payment/pg.php">신청</a></span>
+			<?php } ?>
+			</td>
+		</tr><tr><td colspan="2" class="ln"></td></tr>
+		<?php 
+			} // foreach end.
+		}	// if end.
+		?>
+		</table>
+	</dl>
+	<!--//서비스이용현황 -->
+
+  <!--회원현황 -->
+  <dl class="blnb">
+    <dl class="mtlt"><h4>회원현황</h4>
+    <dt class="more"><a href="../member/"><img src="../../images/comn/more.gif"></a></dt></dl>
+    <table width="100%" class="tbl">
+    <col width=100><col>
+    <tr>
+      <th class="pl5">전체회원</th>
+      <td class="tc"><?php echo number_format($allMember);?></td>
+    </tr><tr><td colspan="2" class="ln"></td></tr>
+    <tr>
+      <th class="pl5">전체방문</th>
+      <td class="tc"><?php echo $visit_count;?></td>
+    </tr><tr><td colspan="2" class="ln"></td></tr>
+    <tr>
+      <th class="pl5">신규가입</th>
+      <td class="tc"><?php echo number_format($latestMember);?></td>
+    </tr><tr><td colspan="2" class="ln"></td></tr>
+    <tr>
+      <th class="pl5">탈퇴회원</th>
+      <td class="tc"><?php echo number_format($leftMember);?></td>
+    </tr>
+    </table>
+  </dl>
+</dl> 
+
+	</dl><!-- //오른쪽 -->
+
+	<dl id="quickmn" class="psa bocol lnb_col" style="display:none;top:2%;left:20%;width:600px; z-index:10;position:absolute;">
+  	<dl class="ntlt lnb_col m0"><h1>퀵 메뉴 선택</h1>
+    <a onClick="$('#quickmn').hide();"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a></dl>
+		<dl id='quickHandle'  class="nanum f11 col pbt5">  ※ 아래의 메뉴중에서 선택하여 퀵메뉴를 설정할 수 있습니다.</dl>
+
+		<form name="QuickFrm" method="post" id="QuickFrm" action="./process/regist.php">
+		<input type="hidden" name="mode" value="quick_update"/>
+		<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+		<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+		<table width="100%" class="tbl sep ln" cellspacing="1">
+		<col width=80><col>
+		<?php 
+			$m = 0;
+			foreach($top_menus as $tkey => $top_menu){ 
+				$tmp_menu = substr($tkey, 0, 3);
+				$menus = $menu[$tmp_menu]['menus'];
+				$menus_cnt = count($menus);				
+		?>
+		<tr class="wbg">
+			<th class="pl5"><b><?php echo $top_menu;?></b></th>
+			<td style="padding:0 5px 5px">
+				<ul style="padding:10px;">
+					<?php 
+						for($i=0;$i<$menus_cnt;$i++){ 
+							$sub_codes = $menus[$i]['code'];
+							$sub_names = $menus[$i]['name'];
+							$sub_menus = $menus[$i]['sub_menu'];
+							$sub_menus_cnt = count($sub_menus);
+							for($k=0;$k<$sub_menus_cnt;$k++){
+								$sub_menu_code = $sub_menus[$k]['code'];
+								$sub_menu_name = $sub_menus[$k]['name'];
+								$sub_menu_url = strtr($sub_menus[$k]['url'],array('../'=>'/'));
+								$menu_set = $tkey.':'.$top_menu.'/'.$sub_codes.':'.$sub_names.'/'.$sub_menu_code.':'.$sub_menu_name.'@'.$sub_menu_url;
+								$_subMenu = $quick_control->get_subMenu($admin_info['uid'],$sub_menu_code);
+								$checked = ($_subMenu) ? 'checked' : '';
+					?>
+					<li class="fl  pr10" style="letter-spacing:-0.1em;">
+						<label><input name="menu_code[]" type="checkbox" class="check" value="<?php echo $menu_set;?>" <?php echo $checked;?>><?php echo $sub_menus[$k]['name'];?></label>
+					</li>
+					<?php 
+							}	// sub menu for end.
+						}	// menu for end.
+					?>
+				</ul>
+			</td>
+		</tr>
+		<?php 
+			$m++;
+			} 
+		?>
+		</table>
+		<dl class="pbtn">
+			<a onClick="QuickFrm_submit();" class="cbtn grf_col lnb_col" style="width:60px"><h1 class="btn23">저장하기</h1></a>&nbsp;
+			<a onClick="$('#quickmn').hide();;" class="btn" style="width:60px"><h1 class="btn23"><strong>X</strong> 창닫기</h1></a>
+		</dl>
+		</form>
+	</dl>
+
+</td>
+<!--<td class=nb_05></td>-->
+</tr>
+<!--<tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+</dl>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+
+	var queryString = $.param(formData);
+
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+
+	if(responseText=='0006'){
+		alert("<?php echo $config->_errors('0006');?>");
+		return false;
+	} else {
+		if(responseText){
+			alert("<?php echo $config->_success('0023');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $config->_errors('0059');?>");
+			return false;
+		}
+	}
+
+}
+</script>
+
+
+<?php include_once "../include/tail.php";?>

@@ -1,0 +1,738 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+
+	<?php if($mode=='insert'){ ?>
+
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+
+	$('#BannerRegistFrm').submit(function(){
+
+		<?php echo $utility->input_cheditor('self_content');?>	// 에디터 내용 전달
+
+		//$(this).ajaxSubmit(form_options);
+
+		//return false;
+
+	});
+
+	<?php } ?>
+
+});
+var banner_groups = function( position, vals ){	 // 배너그룹
+	var sel = vals.value;
+	if(sel=='self') {
+		$('#group_display').show();
+	} else {
+		$('#group_display').hide();
+	}
+
+	//alert(position+"@"+sel);
+}
+var banner_types = function( vals ){	// 배너 등록방식 선택
+	var sel = vals.value;
+	switch(sel){
+		case 'image':	// 이미지 업로드
+			$('.image_upload').show();
+			$('#size_set_auto').show();
+			$("input[name='size_set']").filter('input[value=auto]').attr("checked", true);
+			$('#size_set_user').show();
+			$('#size_set').hide();
+			$('#bannerSelfContent').hide();
+			$('#bannerAdsenseContent').hide();
+		break;
+		case 'self':	 // 직접입력
+			$('.image_upload').hide();
+			$('#bannerSelfContent').show();
+			$('#bannerAdsenseContent').hide();
+		break;
+		case 'adsense':	// 에드센스
+			$("textarea[name='adsense_content']").placeholder();
+			$('.image_upload').show();
+			$('#size_set_auto').hide();
+			$("input[name='size_set']").filter('input[value=set]').attr("checked", true);
+			$('#size_set_user').show();
+			$('#size_set').show();
+			$('#bannerSelfContent').hide();
+			$('#bannerAdsenseContent').show();
+		break;
+	}
+}
+var size_sets = function( vals ){	// 배너크기
+	var sel = vals.value;
+	if(sel) $('#size_set').show();
+	else $('#size_set').hide();
+}
+var update_banner = function( mode, no ){	 // 배너 등록/수정
+	$('#add_form').load('./views/_load/banner.php', { mode:mode, no:no, position:"<?php echo $position;?>" }, function(){
+		$("#group_name").placeholder();
+		$('#add_form').show();
+		// Add Form Draggable
+		$('#add_form').draggable({ handle: "#addFrmHandle" });
+		$('#add_form').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+
+		var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+
+		$('#BannerRegistFrm').submit(function(){
+
+			<?php echo $utility->input_cheditor('self_content');?>	// 에디터 내용 전달
+
+			$(this).ajaxSubmit(form_options);
+
+			return false;
+
+		});
+
+	});
+}
+var change_group_rank = function( direction, src ){	// 배너 그룹 순위 조절
+	var parent = $('#banner_group_list');
+	var p_no = $(src).parents('tr.banner_group_list').attr('p_no');
+	var position = "<?php echo $position;?>";
+	if(direction =='up'){	
+		var next_no = $('tr.banner_group_list', $(parent)).first().attr('p_no');
+		if(p_no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.banner_group_list').prev().attr('p_no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.banner_group_list', $(parent)).last().attr('p_no');
+		if(p_no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.banner_group_list').next().attr('p_no');
+		}
+	}
+
+	// 순위 조절 ajax
+	$.post('./process/banner.php', { mode:'group_rank', type:direction, position:position, p_no:p_no, next_no:next_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.banner_group_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $banner_control->_errors('0000');?>");
+		}
+	});
+}
+var change_rank = function( direction, src, p_no ){	// 배너 그룹내 순위 조절
+	var parent = $('.banner_'+p_no);
+	var no = $(src).parents('tr.banner_list').attr('no');
+	var position = "<?php echo $position;?>";
+	if(direction =='up'){
+		var next_no = $('tr.banner_list', $(parent)).first().attr('no');
+		if(no == next_no){
+			alert('최상위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.banner_list').prev().attr('no');
+		}
+	} else if(direction =='down'){
+		var next_no = $('tr.banner_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
+			return false;
+		} else {
+			next_no = $(src).parents('tr.banner_list').next().attr('no');
+		}
+	}
+
+	// 순위 조절 ajax
+	$.post('./process/banner.php', { mode:'banner_rank', type:direction, position:position, no:no, next_no:next_no, p_no:p_no }, function(result){
+		if(result){
+			var src_obj = $(src).parents('tr.banner_list');
+			var target = direction=='up' ? $(src_obj).prev() : $(src_obj).next();
+			var tmp_obj = $(src_obj).remove();
+			direction=='up' ? $(tmp_obj).insertBefore($(target)) : $(tmp_obj).insertAfter($(target));
+		} else {
+			alert("<?php echo $banner_control->_errors('0002');?>");
+		}
+	});
+}
+var banner_views = function( no ){	// 리스트상 배너 출력/미출력
+	var results = "";
+	$.post('./process/banner.php', { mode:'views', no:no }, function(result){
+		if(result == '0003'){
+			alert("<?php echo $banner_control->_errors('0003');?>");
+		} else {
+			if(result==1){
+				msg = "사용";
+				results = "<a onClick=\"banner_views('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><strong class=\"col\">O</strong>"+msg+"</h1></a>";
+			} else {
+				msg = "미사용";
+				results = "<a onClick=\"banner_views('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><strong>X</strong>"+msg+"</h1></a>";
+			}
+			alert("배너를 ["+msg+"] 으로 변경했습니다.");
+			$('#views_'+no).html(results);
+		}
+	});
+}
+var banner_targets = function( no ){	// 리스트상 배너 타겟 설정
+	var results = "";
+	$.post('./process/banner.php', { mode:'targets', no:no }, function(result){
+		if(result == '0004'){
+			alert("<?php echo $banner_control->_errors('0004');?>");
+		} else {
+			msg = (result) ? "새창" : "본창";
+			results = "<a onClick=\"banner_targets('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><img src=\"../../images/ic/pop.gif\" class=\"mr2\">"+msg+"</h1></a>";
+			alert("배너를 ["+msg+"] 으로 변경했습니다.");
+			$('#targets_'+no).html(results);
+		}
+	});
+
+}
+var delete_banner = function( no ){	 // 리스트상 배너 삭제 (단수)
+	$('#quest_info').show();
+	$('#confirm_msg').html("배너를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	// 질의(Confirm) 창 띄우기
+	$.blockUI({ 
+		theme: true,
+		title: '배너 정보 삭제',
+		showOverlay: false,
+		message: $('#question')
+	});
+}
+var sel_delete_banner = function(){	 // 배너 선택삭제 (그룹째 삭제)
+	var chk_length = $("input[name='p_no[]']:checked").length;
+	if(chk_length==0){
+		alert('삭제할 배너 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').hide();
+		$('#confirm_msg').html("선택하신 배너 정보"+chk_length+"건을 삭제 하시겠습니까?");
+		var del_no = new Array();
+		var i = 0;
+		$("input[name='p_no[]']:checked").each(function(){
+			del_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '배너 정보 선택삭제',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var sel_bannerViews = function( views ){	 // 선택 배너 사용
+	var chk_length = $("input[name='p_no[]']:checked").length;
+	var msg = (views=='yes') ? "사용" : "미사용";
+	if(chk_length==0){
+		alert('변경할 배너 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').show();
+		$('#confirm_msg').html("선택하신 배너 정보를 ["+msg+"] 으로 변경 하시겠습니까?");
+		var view_no = new Array();
+		var i = 0;
+		$("input[name='p_no[]']:checked").each(function(){
+			view_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '배너 정보 사용/미사용 설정',
+			showOverlay: false,
+			message: $('#question')
+		});
+
+	}
+}
+var sel_bannerTargets = function( targets ){
+	var chk_length = $("input[name='p_no[]']:checked").length;
+	var msg = (targets=='_blank') ? "새창" : "본창";
+	if(chk_length==0){
+		alert('변경할 배너 정보를 선택해 주세요.');
+		return false;
+	} else {
+		$('#quest_info').show();
+		$('#confirm_msg').html("선택하신 배너 정보를 ["+msg+"] 으로 변경 하시겠습니까?");
+		var target_no = new Array();
+		var i = 0;
+		$("input[name='p_no[]']:checked").each(function(){
+			target_no[i] = $(this).val();
+		i++;
+		});
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_target\',\''+target_no+'\',\''+targets+'\');" value="예" />');
+		// 질의(Confirm) 창 띄우기
+		$.blockUI({ 
+			theme: true,
+			title: '배너 정보 본창/새창 설정',
+			showOverlay: false,
+			message: $('#question')
+		});
+	}
+}
+var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따른 처리
+	if(answer=='yes'){
+		switch(mode){
+			case 'delete':	// 삭제
+				$.post('./process/banner.php', { mode:mode, no:no } , function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $banner_control->_errors('0007');?>");
+						$.unblockUI();
+					}
+				});
+			break;
+			case 'sel_delete':	// 선택삭제
+				$.post('./process/banner.php', { mode:mode, no:no }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $banner_control->_errors('0007');?>");
+						$.unblockUI();
+					}
+				});
+			break;
+			case 'sel_view':	// 선택배너 사용/미사용
+				if(views=='yes'){
+					msg = "사용";
+					views = 1;
+				} else {
+					msg = "미사용";
+					views = 0;
+				}
+				$.post('./process/banner.php', { mode:mode, no:no, views:views }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $banner_control->_errors('0003');?>");
+					}
+				});
+			break;
+			case 'sel_target':
+				var msg = (views=='_blank') ? "새창" : "본창";
+				$.post('./process/banner.php', { mode:mode, no:no, targets:views }, function(result){
+					if(result){
+						location.reload();
+					} else {
+						alert("<?php echo $banner_control->_errors('0004');?>");
+					}
+				});
+			break;
+
+		}
+	} else {
+		$.unblockUI();
+	}
+}
+var roll_type = function( p_no, vals ){	// 리스트랑 배너 롤링 선택
+	var sel = vals.value;
+	if(sel==1){
+		$('.roll_type_'+p_no).show();
+		$('#roll_type_'+p_no).hide();
+	} else {
+		$('.roll_type_'+p_no).hide();
+		$('#roll_type_'+p_no).show();
+	}
+}
+var banner_rolls = function( p_no ){	 // 리스트상 배너 롤링 설정
+	var roll_type = $("select[name='roll_type["+p_no+"]'] option:selected").val();	// 고정/롤링 선택 값
+	var roll_direction = $("select[name='roll_direction["+p_no+"]'] option:selected").val();	// 롤링 방향 선택 값
+	var roll_time = $("input[name='roll_time["+p_no+"]']").val();	// 롤링 시간
+	var roll_turn = $("select[name='roll_turn["+p_no+"]'] option:selected").val();	// 롤링 순서
+	$.post('./process/banner.php', { mode:'banner_roll', ajax:'true', p_no:p_no, roll_type:roll_type, roll_direction:roll_direction, roll_time:roll_time, roll_turn:roll_turn }, function(result){
+		if(result){
+			alert("<?php echo $banner_control->_success('0003');?>");
+			location.reload();
+		} else {
+			alert("<?php echo $banner_control->_errors('0008');?>");
+		}
+	});
+	//alert(roll_type+"@"+roll_direction+"@"+roll_time+"@"+roll_turn);
+}
+</script>
+
+<style>
+tr.banner_list td dl a img{max-width:800px;}
+</style>
+
+
+<div id="question" style="display:none; cursor: default">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<dl class="notbox"><dl>
+배너를 관리하는 페이지입니다. 리스트 우측에 <b class="num3 col">위치별가이드</b>를 참고하셔어 배너를 등록하시면 됩니다. <br>
+이미지 파일명은 한글파일명은 안되며, 반드시 영문/숫자로 이루어져야 합니다. 예) abc123.jpg <br>
+배너사이즈는 가로 최대 <b class="num3 col">960px</b>입니다. 960px 한도내에서 여러개의 배너를 등록하실수 있습니다. <br>
+리스트에 보이는 배너의 스타일과 실제 사이트에 출력되는 배너의 스타일이 다를 수도 있습니다.<br>
+ </dl></dl>
+
+
+<dl class="srchb lnb4_col bg2_col">
+<table class="bg_col">
+  <col width=160><col>
+
+	<?php 
+	    $ii = 1; 
+		foreach($banner_title as $key => $val){ 
+		
+		$_banner = $banner_control->_banners($key);	 // 종류별 배너
+		$_banner_cnt = count($_banner);
+		$dy = ($ii < 10) ? "#main0".$ii : "#main".$ii; 
+		
+	?>
+	<tr>
+		<td class="ctlt"><a style="cursor: pointer;" onclick="window.open('/nad/design/views/banner_nav.html<?=$dy;?>','window','width=750, height=800,left=0, top=0, scrollbard=1, scrollbars=yes, resizable=yes')"><img src="/images/nad/nad_nav_btn.gif" class="pr5" style="padding-bottom: 1px;"><?php echo $val;?> 배너</a></td>
+		<td class="pdlnb2">
+			<ul class="List">
+				<?php for($i=0;$i<$_banner_cnt;$i++){ ?>
+				<li <?php echo ($i==0)?"class='f'":"";?>><a href='./banner.php?position=<?php echo $_banner[$i]['position'];?>' <?php echo ($position==$_banner[$i]['position'])?"class='none b col'":"";?>><?php echo $_banner[$i]['name'];?></a></li>
+				<?php } ?>
+			</ul>
+		</td>
+	</tr>
+	<?php $ii++; } ?>
+</table>
+</dl>
+
+<?php if($position=='main_top_banner'){ // 메인상단 배너일때만 ?>
+<script>
+var main_sel = function( design ){	// 스타일 설정
+	$('.designs').hide();
+	$('#design_'+design).show();
+}
+</script>
+<br/>
+<dl class="srchb lnb4_col">
+<table class="bg_col">
+  <col width=75><col>
+  <tr>
+    <td class="ctlt"><img src="../../images/comn/bul_08.png" class="t">메인스타일</td>
+    <td class="pdlnb2">
+		<ul class="List">
+			<label><input name="main_skin" type="radio" value="01" class="radio" <?php echo ($design['main_skin']=='01')?'checked':'';?> onclick="main_sel('01');">Design 01</label>&nbsp;&nbsp;
+			<label><input name="main_skin" type="radio" value="02" class="radio" <?php echo ($design['main_skin']=='02')?'checked':'';?> onclick="main_sel('02');">Design 02</label>&nbsp;&nbsp;
+			<label><input name="main_skin" type="radio" value="03" class="radio" <?php echo ($design['main_skin']=='03')?'checked':'';?> onclick="main_sel('03');">Design 03</label>&nbsp;&nbsp;
+			<label><input name="main_skin" type="radio" value="04" class="radio" <?php echo ($design['main_skin']=='04')?'checked':'';?> onclick="main_sel('04');">Design 04</label>&nbsp;&nbsp;
+			<label><input name="main_skin" type="radio" value="05" class="radio" <?php echo ($design['main_skin']=='05')?'checked':'';?> onclick="main_sel('05');">Design 05</label>
+		</ul>
+    </td>
+  </tr>
+	<tr class="designs" id="design_01" style="display:<?php echo ($design['main_skin']=='01')?'':'none';?>;">
+		<td class="pdlnb2" colspan="2"><img src="<?php echo $alice['admin_design_path'];?>/views/_images/banner_guide1.jpg"/></td>
+	<tr>
+	<tr class="designs" id="design_02" style="display:<?php echo ($design['main_skin']=='02')?'':'none';?>;">
+		<td class="pdlnb2" colspan="2"><img src="<?php echo $alice['admin_design_path'];?>/views/_images/banner_guide2.jpg"/></td>
+	<tr>
+	<tr class="designs" id="design_03" style="display:<?php echo ($design['main_skin']=='03')?'':'none';?>;">
+		<td class="pdlnb2" colspan="2"><img src="<?php echo $alice['admin_design_path'];?>/views/_images/banner_guide3.jpg"/></td>
+	<tr>
+	<tr class="designs" id="design_04" style="display:<?php echo ($design['main_skin']=='04')?'':'none';?>;">
+		<td class="pdlnb2" colspan="2"><img src="<?php echo $alice['admin_design_path'];?>/views/_images/banner_guide4.jpg"/></td>
+	<tr>
+	<tr class="designs" id="design_05" style="display:<?php echo ($design['main_skin']=='05')?'':'none';?>;">
+		<td class="pdlnb2" colspan="2"><img src="<?php echo $alice['admin_design_path'];?>/views/_images/banner_guide5.jpg"/></td>
+	<tr>
+</table>
+</dl>
+<?php } ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $banner_title[$positions[0]] ." > " . $menu_name['name']; ?> 배너관리
+<span class="bar">총 <b class="num3 col"><?php echo number_format($banner_list['total_count']);?></b>개의 배너가 등록되었습니다. <?php echo $position_msg;?></span>
+<dt>
+<select name="page_rows" onchange="page_rows(this);">
+	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+</select>
+</dt>
+</dl> 
+<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>사용</h1></a>
+		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미사용</h1></a>
+		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">새창</h1></a>
+		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a>
+	</dt>
+	<dd style="right: 65px;">
+		<a style="cursor:pointer;" onclick="window.open('/nad/design/views/banner_nav.html','window','width=750, height=800,left=0, top=0, scrollbard=1, scrollbars=yes, resizable=yes')"class="cbtn org_col"><h1 class="btn23"><strong>+</strong>위치별 가이드</h1></a>
+	</dd>
+	<?php if($position){ ?>
+	<dd>
+		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>배너등록</h1></a>
+	</dd>
+	<?php } ?>
+</dl>
+
+<table width="100%" class="ttlt">
+<tr class="bg">
+	<td width="30"><input name="check_all" type="checkbox"></td>
+    <td width="60">그룹순서</td>
+	<td width="90">배너설정</td>
+    <td width="40">순서</td>
+    <td>배너정보</td>
+    <td width="80">등록일</td>
+	<td class="e" width="60">편집</td>
+</tr> 
+
+	<tbody id="banner_group_list">
+	<?php 
+		if($banner_group_list) {
+		foreach($banner_group_list as $group){ 
+		$p_no = $group['p_no'];
+		$banner_list = $banner_control->banner_list(" where `p_no` = '".$p_no."' ");
+		$banner_list_cnt = $banner_list['total_count'];
+		$rowspan = ($banner_list_cnt > 1) ? "rowspan='".$banner_list_cnt."'" : "";
+		$roll_info = $banner_control->banner_Pno($p_no);
+	?>
+		<tr class="banner_group_list" p_no="<?php echo $p_no;?>">
+			<td><input type="checkbox" name='p_no[]' class='check_all' value="<?php echo $p_no;?>"></td>
+			<td class="none num3">
+				<a class="none iconcol" onclick="change_group_rank('up',this);">▲</a>
+				<a class="none iconcol" onclick="change_group_rank('down',this);">▼</a>
+			</td>
+			<td>
+				<div class="pb2">
+					<select style="width:70px;" name="roll_type[<?php echo $p_no;?>]" onchange="roll_type('<?php echo $p_no;?>',this);">
+						<option value="0">고정배너</option>
+						<option value="1" <?php echo ($roll_info['roll_type'])?'selected':'';?>>롤링배너</option>
+					</select>
+				</div>
+				<div class="pb2 roll_type_<?php echo $p_no;?>" style="display:<?php echo ($roll_info['roll_type'])?'':'none';?>;" id="roll_direction_<?php echo $p_code;?>">
+					<select style="width:70px;" name="roll_direction[<?php echo $p_no;?>]">
+						<option value="0">좌측방향</option>
+						<option value="1" <?php echo ($roll_info['roll_direction']=='1')?'selected':'';?>>우측방향</option>
+						<option value="2" <?php echo ($roll_info['roll_direction']=='2')?'selected':'';?>>위 방향</option>
+						<option value="3" <?php echo ($roll_info['roll_direction']=='3')?'selected':'';?>>아래방향</option>
+					</select>
+				</div>
+				<div class="roll_type_<?php echo $p_no;?>" style="display:<?php echo ($roll_info['roll_type'])?'':'none';?>;" id="roll_time_<?php echo $p_no;?>"><input type="text" style="width:30px;"  class="txt" name="roll_time[<?php echo $p_no;?>]" value="<?php echo ($roll_info['roll_time'])?$roll_info['roll_time']:3;?>"> 초</div>
+
+				<div class="pb10" style="margin-top:3px;display:;" id="roll_turn_<?php echo $p_no;?>">
+					<select style="width:70px;" name="roll_turn[<?php echo $p_no;?>]">
+						<option value="0">순차변경</option>
+						<option value="1" <?php echo ($roll_info['roll_turn'])?'selected':'';?>>랜덤변경</option>
+					</select>
+				</div>
+
+				<div class="fon11 col" style="line-height:1.2;display:<?php echo ($roll_info['roll_type'])?'none':'';?>;" id="roll_type_<?php echo $p_no;?>">고정배너는</br> 새로고침 시</br> 변경 됩니다.</div>
+
+				<div style="margin-top:3px;"><a onClick="banner_rolls('<?php echo $p_no;?>');" class="cbtn lnb_col grf_col"><h1 class="btn23">저장</h1></a></div>
+			</td>
+			<td class="none e" colspan="4" style="padding:0; border-bottom:none; vertical-align:top;">
+				<table width="100%">
+				<tbody class="banner_<?php echo $p_no;?>">
+				<?php foreach($banner_list['result'] as $val){ ?>
+					<tr class="banner_list" p_no="<?php echo $p_no;?>" no="<?php echo $val['no'];?>">
+						<td class="none num3" width="40"  height="130px">
+							<a class="none" onclick="change_rank('up',this,'<?php echo $p_no;?>');">▲</a>
+							<a class="none" onclick="change_rank('down',this,'<?php echo $p_no;?>');">▼</a>
+						</td>
+						<td class="tl" style="vertical-align:top;">
+							<dl class="fon11 psr mb3">
+								<?php if($val['type']=='image' && $val['width'] && $val['height']){ ?>
+								<div style="min-height:25px;">
+								<span  class="banner mr5">등록사이즈 : <?php echo $val['width'];?>px x <?php echo $val['height'];?>px</span><?php } ?>
+								<?php if($val['url']){ ?><span class="banner"> URL : <?php echo $utility->add_http($val['url']);?> </span>
+								
+								<?php } ?>	
+								</div>
+								<?php echo $banner_control->view_banner($val['no'],$val['type'],$val['position'], "", true);?>
+								<dt class="prt">
+									<span id="views_<?php echo $val['no'];?>">
+									<a onclick="banner_views('<?php echo $val['no'];?>');" class="btn"><h1 class="btn18"><?php if($val['view']){ ?><strong class='col'>O</strong>사용<?php } else { ?><strong>X</strong>미사용<?php } ?>
+									</h1></a>
+									</span>
+									<?php if($val['type']=='image'){ ?>
+									<span id="targets_<?php echo $val['no'];?>"><a onclick="banner_targets('<?php echo $val['no'];?>');" class="btn"><h1 class="btn18"><img src="../../images/ic/pop.gif" class="mr2"><?php echo ($val['target']=='_blank')?'새창':'본창';?></h1></a></span>
+									<?php } ?>
+								</dt>
+							</dl>
+						</td>
+						<td class="num3 " width="80"><?php echo substr($val['wdate'],0,11);?></td>
+						<td class="e" width="60">
+						<a onclick="update_banner('update','<?php echo $val['no'];?>');"><img class="pb2"  src="../../images/btn/19_05.gif"></a>
+						<a onclick="delete_banner('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a>
+						</td>
+					</tr>
+				<?php } // banner list foreach end. ?>
+				</tbody>
+
+				</table>
+			</td>
+		</tr>
+	<?php 
+		} // group foreach end. 
+	} else {	// group banner if
+	?>
+	<tr><td colspan="8" class="stlt"></td></tr>
+	<?php
+	}
+	?>
+	</tbody>
+
+</table>
+
+
+<dl class="page mb50">
+	<?php include_once "../include/paging.php"; ?>
+	<dt>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>사용</h1></a>
+		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미사용</h1></a>
+		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">새창</h1></a>
+		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a>
+	</dt>
+	<?php if($position){ ?>
+	<dd>
+		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>배너등록</h1></a>
+	</dd>
+	<?php } ?>
+</dl>
+
+<div id="add_form" class="bocol lnb_col" style="top:15%;left:33%;display:<?php echo ($mode=='insert')?'':'none';?>;">
+
+<form name="BannerRegistFrm" method="post" id="BannerRegistFrm" action="./process/banner.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="insert" id="mode"/><!-- 배너 등록 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
+<input type="hidden" name="position" value="<?php echo $position?>"/><!-- 배너 위치 -->
+<input type="hidden" name="type" id="type"/><!-- 배너 종류 -->
+
+	<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
+		<img src="../../images/comn/bul_10.png" class="t"><?php echo $menu_name['name'];?> 배너<label id='mode'>등록</label>
+		<span>권장사이즈 : <label id='limit_width'><?php echo $menu_name['width'];?>px (최대)</label> * <label id='limit_height'><?php echo ($menu_name['height']=='제한없음')?'제한없음':$menu_name['height'].'px (최대)';?></label> </span>
+		<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
+	</dl>
+	<table width="700" class="bg_col">
+	<col width=80><col>
+	<tr>
+		<td class="ctlt">등록방식</td>
+		<td class="pdlnb2">
+			<label><input name="type" type="radio" value="image" class="radio" checked>이미지업로드</label> &nbsp; &nbsp;&nbsp;
+			<label><input name="type" type="radio" value="self" class="radio">직접입력</label> &nbsp; &nbsp;&nbsp;
+			<label><input name="type" type="radio" value="adsense" class="radio">구글에드센스</label>
+		</td>
+	</tr>
+	<!-- 업로드 -->
+	<tr id="bannerSize" class="image_upload">
+		<td class="ctlt">배너크기</td>
+		<td class="pdlnb2">
+			<label><input name="size_set" type="radio" value="auto" class="radio" checked>원래이미지크기</label> &nbsp;
+			<label><input name="size_set" type="radio" value="set" class="radio">사용자지정크기</label> &nbsp;
+			<span id="size_set" style="display:none;">
+			가로 <input name="width" type="text" class="tnum" size="3"> px , 
+			세로 <input name="height" type="text" class="tnum" size="3"> px
+			</span>
+		</td>
+	</tr>
+	<tr id="bannerLink" class="image_upload">
+		<td class="ctlt">연결주소</td>
+		<td class="pdlnb2">http://
+			<input name="url" type="text" class="txt w50" style="ime-mode:inactive;">
+			<input name="target" type="checkbox" value="_blank" class="check" checked>새창열기
+		</td>
+	</tr>
+	<tr id="bannerFile" class="image_upload">
+		<td class="ctlt">배너파일</td>
+		<td class="pdlnb2">
+			<input name="upload" type="file" class="txt w50">
+			<span class="subtlt">확장자 *.jpg, *.gif, *.png, *.swf 만 가능</span>
+		</td>
+	</tr>
+	<!-- 직접입력 -->
+	<tr id="bannerSelfContent" style="display:none;">
+		<td class="ctlt">내용</td>
+		<td class="pdlnb2">
+		<?//php echo $utility->_editor('php', 'self_content', 'Banner', '', '100%', '300px', "", '../../' ); ?>
+		</td>
+	</tr>
+	<tr id="bannerAdsenseContent" style="display:none;">
+		<td class="ctlt">내용</td>
+		<td class="pdlnb2"><textarea name="adsense_content" class="bdtxt" style="height:300px"></textarea></td>
+	</tr>
+	</table>
+
+	<dl class="pbtn">  
+		<input type='image' src="../../images/btn/b23_01.png" class="ln_col">&nbsp;
+		<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/btn/23_10.gif"></a>
+	</dl>
+
+</form>
+
+</div>
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+var showRequest = function (formData, jqForm, form_options){
+
+	var BannerRegistFrm = document.getElementById('BannerRegistFrm');
+
+	var queryString = $.param(formData);
+
+	var banner_group = $("#banner_group :selected").val();
+
+	if(!banner_group || banner_group == ''){
+		alert("배너그룹을 선택해 주세요.");
+		$("#banner_group").focus();
+		return false;
+	}
+
+	return validate(BannerRegistFrm);
+}
+// 폼 전송후
+var showResponse = function (responseText, statusText, xhr, $form){
+
+	var results = responseText.split('/');
+	var mode = results[0], result = results[1];
+	if(mode=='insert'){
+		if(result) {
+			location.reload();
+		} else {
+			alert("<?php echo $banner_control->_errors('0005');?>");
+		}
+	} else {
+		if(result) {
+			location.reload();
+		} else {
+			alert("<?php echo $banner_control->_errors('0006');?>");
+		}
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

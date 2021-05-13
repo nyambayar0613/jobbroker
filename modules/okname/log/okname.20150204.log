@@ -1,0 +1,102 @@
+[2015-02-04 00:23:53.644] # OKNAME v3.70 start!<br>
+[2015-02-04 00:23:53.644] # mode=HS_CNFRM_POPUP<br>
+[2015-02-04 00:23:53.644] # Parameter IP: 	114.108.128.129<br>
+[2015-02-04 00:23:53.644] # argv[ 1](hs_cert_svc_tx_seqno)=20150204002353606239<br>
+[2015-02-04 00:23:53.644] # argv[ 2](nm)=현대자동차블르핸즈평화점<br>
+[2015-02-04 00:23:53.644] # argv[ 3](brdt)=19660419<br>
+[2015-02-04 00:23:53.644] # argv[ 4](sex)=1<br>
+[2015-02-04 00:23:53.644] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-02-04 00:23:53.644] # argv[ 6](var1)=01<br>
+[2015-02-04 00:23:53.644] # argv[ 7](var2)=01036780410<br>
+[2015-02-04 00:23:53.644] # argv[ 8](var3)=0<br>
+[2015-02-04 00:23:53.644] # argv[ 9](var4)=0<br>
+[2015-02-04 00:23:53.644] # argv[10](var5)=0<br>
+[2015-02-04 00:23:53.645] # argv[11](return_msg)=x<br>
+[2015-02-04 00:23:53.645] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/find_password2.php<br>
+[2015-02-04 00:23:53.645] # argv[13](in_tp_bit)=15<br>
+[2015-02-04 00:23:53.645] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-02-04 00:23:53.645] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-02-04 00:23:53.645] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2015-02-04 00:23:53.645] # argv[17](server_ip)=114.108.128.129<br>
+[2015-02-04 00:23:53.645] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2015-02-04 00:23:53.645] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-02-04 00:23:53.645] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2015-02-04 00:23:53.645] # argv[21](option)=QL<br>
+[2015-02-04 00:23:53.645] # soap_timeout: 30000 ms<br>
+[2015-02-04 00:23:53.686] # key   : AgZcQR0499gd0smugHasRGkcReYKIw==:F7uWs4fIomAzH1OiISJ+yg==<br>
+[2015-02-04 00:23:53.686] # spkey : AgZcQR0499gd0smugHasRGkcReYKIw==<br>
+[2015-02-04 00:23:53.686] # ssig  : F7uWs4fIomAzH1OiISJ+yg==<br>
+[2015-02-04 00:23:53.688] # nm               : 현대자동차블르핸즈평화점<br>
+[2015-02-04 00:23:53.688] # brdt             : 19660419<br>
+[2015-02-04 00:23:53.688] # e_nm             : AXttgz9qfNi9h/rAXCLu0iCLUxohI+Ae<br>
+[2015-02-04 00:23:53.688] # e_brdt           : 97TvXs+E+F4=<br>
+[2015-02-04 00:23:53.688] # cpkey : AwOourWEl+qVhV1bbfqTSL+LIkl4zQ==<br>
+[2015-02-04 00:23:53.688] # csig  : OB/blgWHHdqK2PBDhybQBA==<br>
+[2015-02-04 00:23:53.737] retmsg: hL3pUMV4cdiHy6cNJSWTsArmjVT51znFEIDqSunZYpeWwydWDUGJcjc2jnO550rNlz+qwjfthc7VDyb2LsLolsh3yuzf6TpEhd/QvjjtprNHRXObs2xZ81PQZRy5GMloPvgICFoV2lU2QxsyPIAzUrrfiWp8cgUu/vnnZYbrfGv3oe03FbbdVgV6sIwRXULl3auKhY+lO8j5deooLsqkpRarC+WscsWDRSiW1nn9EREQ3pLjEXF3mZROznh75ONlWbwH4BDfx0fo5x3ZWxEQUEJnDAzTFYf/LvqAm90Den7dZY4S5hWOzpF1wv13L43cBLEuCIXh3A0BdJ2WeQT1eLt9rePC9DDJVlvpV5AMhblOcZH2EosVXnBSEYGGdacXSJamVv81
+[2015-02-04 00:23:53.737] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNtpHZtsnr4ov4u7jsGRKbD5f4v7xhccx9rwqua84l6PWmNDx9E9fuPMQITw9tybtp71ilA0/SbyGlQUFc1TWP1o45O2QYsQCihY7MREsKv+aRo1MP163E8gLMHRPSXx7b9smHSIgINSirXPVyW5mZaA/d521tXMBV3OKAYoW0wWBjYjI6t+pVtiXLZS95j+73Ypz+UKLzbarsqNwAIAeWEZycCFsmUyb1+h4HpbovE1l
+[2015-02-04 00:23:53.737] B008
+[2015-02-04 00:23:53.737] 회원사 정보가 존재하지 않습니다.
+[2015-02-04 00:23:53.737] RuOtuDWMKBYx9YFHHtKsNtpHZtsnr4ov4u7jsGRKbD5f4v7xhccx9rwqua84l6PWmNDx9E9fuPMQITw9tybtp71ilA0/SbyGlQUFc1TWP1o45O2QYsQCihY7MREsKv+aRo1MP163E8gLMHRPSXx7b9smHSIgINSirXPVyW5mZaA/d521tXMBV3OKAYoW0wWBjYjI6t+pVtiXLZS95j+73Ypz+UKLzbarsqNwAIAeWEZycCFsmUyb1+h4HpbovE1l
+[2015-02-04 00:23:53.737] # final ret code=8<br>
+[2015-02-04 00:24:07.043] # OKNAME v3.70 start!<br>
+[2015-02-04 00:24:07.043] # mode=HS_CNFRM_POPUP<br>
+[2015-02-04 00:24:07.043] # Parameter IP: 	114.108.128.129<br>
+[2015-02-04 00:24:07.043] # argv[ 1](hs_cert_svc_tx_seqno)=201502040024079921<br>
+[2015-02-04 00:24:07.043] # argv[ 2](nm)=권혁만<br>
+[2015-02-04 00:24:07.043] # argv[ 3](brdt)=19660419<br>
+[2015-02-04 00:24:07.043] # argv[ 4](sex)=1<br>
+[2015-02-04 00:24:07.043] # argv[ 5](ntv_frnr_tp_cd)=1<br>
+[2015-02-04 00:24:07.043] # argv[ 6](var1)=01<br>
+[2015-02-04 00:24:07.043] # argv[ 7](var2)=01036780410<br>
+[2015-02-04 00:24:07.043] # argv[ 8](var3)=0<br>
+[2015-02-04 00:24:07.043] # argv[ 9](var4)=0<br>
+[2015-02-04 00:24:07.043] # argv[10](var5)=0<br>
+[2015-02-04 00:24:07.043] # argv[11](return_msg)=x<br>
+[2015-02-04 00:24:07.043] # argv[12](return_url)=http://alba.netfu.co.kr/n_alba/modules/okname/hs_cnfrm/find_password2.php<br>
+[2015-02-04 00:24:07.043] # argv[13](in_tp_bit)=15<br>
+[2015-02-04 00:24:07.043] # argv[14](hs_cert_msr_cd)=10<br>
+[2015-02-04 00:24:07.043] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2015-02-04 00:24:07.043] # argv[16](idcf_mbr_com_cd)=V00000000000<br>
+[2015-02-04 00:24:07.043] # argv[17](server_ip)=114.108.128.129<br>
+[2015-02-04 00:24:07.044] # argv[18](client_site_nm)=alba.netfu.co.kr<br>
+[2015-02-04 00:24:07.044] # argv[19](end_point_url)=http://tsafe.ok-name.co.kr:29080/KcbWebService/OkNameService<br>
+[2015-02-04 00:24:07.044] # argv[20](log_path)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2015-02-04 00:24:07.044] # argv[21](option)=QL<br>
+[2015-02-04 00:24:07.044] # soap_timeout: 30000 ms<br>
+[2015-02-04 00:24:07.084] # key   : AgDFiiVU91lxxmQIC6C1C3wiDLZQLQ==:hcLWoqLifxDHyG1jxTiVCA==<br>
+[2015-02-04 00:24:07.084] # spkey : AgDFiiVU91lxxmQIC6C1C3wiDLZQLQ==<br>
+[2015-02-04 00:24:07.084] # ssig  : hcLWoqLifxDHyG1jxTiVCA==<br>
+[2015-02-04 00:24:07.086] # nm               : 권혁만<br>
+[2015-02-04 00:24:07.086] # brdt             : 19660419<br>
+[2015-02-04 00:24:07.086] # e_nm             : xHpZIqZO<br>
+[2015-02-04 00:24:07.086] # e_brdt           : RISo4S7Cgvc=<br>
+[2015-02-04 00:24:07.086] # cpkey : AgDKtpMZNrWaVyPVdPQtWgHlxIarKg==<br>
+[2015-02-04 00:24:07.086] # csig  : kA1BWwDUufwwvmbrVGo3Pg==<br>
+[2015-02-04 00:24:07.127] retmsg: N42u7yQ+C3ExZ6GbWWCcyOB49doHmxIQlD56fuCRX7xVE9ebbckdmjcVvf6jIZoT5jDIL8Mcm9/hMS8x62e6rBQzR7vxs994BPe4vobr/sR3RsKGeh0LXbAjX6tULbPrqV2yBO+bXJptl0ZSAyzMNUfkdsa4JVKcV7lsR6QMLolUlpJTdpi6ln6jKX3PmftjbgNk3bduKfxqm38U+TgGMH/dkeykFayW1khZZZ6eirZzXuMU9pEpkxOPjkBNVL6QArXDKIE+HXSEqm/e9Pv8ML9jszVSb/KV+UYvfv21U37Ankuv0K/Y1mjgz2ky7jrhCyArQ7FHcTF4Sv4rsxc=
+[2015-02-04 00:24:07.127] retmsg: B008:회원사 정보가 존재하지 않습니다.:RuOtuDWMKBYx9YFHHtKsNhhwOaTuKxYG7kEojt0mggPBMMFXlDQI/0/IaNXuxEzNZLSqjUhwvOuA/3KwcAG0RkscDbyaV0OhXE4KJppFn5XLHHIZGpcObRFdJfUu35j3x7TcsH65ak0zlmxy2IPqDC+lm18LQ8UeBlBDJc9oxuqCY8EcE9N2xMDAJzlQ31s94R4lSKNud+JrlrIkW9rzMg==
+[2015-02-04 00:24:07.127] B008
+[2015-02-04 00:24:07.127] 회원사 정보가 존재하지 않습니다.
+[2015-02-04 00:24:07.127] RuOtuDWMKBYx9YFHHtKsNhhwOaTuKxYG7kEojt0mggPBMMFXlDQI/0/IaNXuxEzNZLSqjUhwvOuA/3KwcAG0RkscDbyaV0OhXE4KJppFn5XLHHIZGpcObRFdJfUu35j3x7TcsH65ak0zlmxy2IPqDC+lm18LQ8UeBlBDJc9oxuqCY8EcE9N2xMDAJzlQ31s94R4lSKNud+JrlrIkW9rzMg==
+[2015-02-04 00:24:07.127] # final ret code=8<br>
+[2015-02-04 00:24:45.465] # OKNAME v3.70 start!<br>
+[2015-02-04 00:24:45.465] # mode=IPIN_CKEY<br>
+[2015-02-04 00:24:45.465] # argv[ 1](keypath    )=/home/alba/public_html/n_alba/modules/okname/okname.key<br>
+[2015-02-04 00:24:45.466] # argv[ 2](memid      )=V00000000000<br>
+[2015-02-04 00:24:45.466] # argv[ 3](reserved1  )=0<br>
+[2015-02-04 00:24:45.466] # argv[ 4](reserved2  )=0<br>
+[2015-02-04 00:24:45.466] # argv[ 5](EndPointURL)=http://twww.ok-name.co.kr:8888/KcbWebService/OkNameService<br>
+[2015-02-04 00:24:45.466] # argv[ 6](logpath	)=/home/alba/public_html/n_alba/modules/okname/log<br>
+[2015-02-04 00:24:45.466] # argv[ 7](Option     )=CL<br>
+[2015-02-04 00:24:45.466] # Generating monthly key..
+[2015-02-04 00:24:45.467] pub1: Agb84yu4OQaAx27Qn96Y4SG4sQR/Dw==
+[2015-02-04 00:24:45.467] pri1: A5SAK4R85fofLdqxe9R1nFbhYZfP
+[2015-02-04 00:24:45.467] sig1: IxBb+/Fimv8kugkuZGAvtQ==
+[2015-02-04 00:24:45.467] # soap_timeout: 30000 ms<br>
+[2015-02-04 00:24:45.506] retmsg: AgHpwoBcSO7UM+yVJ7vJk3VGo+I2uA==:rZOMcoqj4+qMVlaQbnRc0w==:XhxTzOyQUZPvZ4+fr4PoMGFY36YazSHTOcqrd7kkFXAGgV0ixWuH5XD8JxIB+VozuOrLaZaRGOp2MfWdk0XXOYNbtXGo2CXUESZhFJMkRVOC1SaZCb8=
+[2015-02-04 00:24:45.506] pub3: AgHpwoBcSO7UM+yVJ7vJk3VGo+I2uA==
+[2015-02-04 00:24:45.506] sig3: rZOMcoqj4+qMVlaQbnRc0w==
+[2015-02-04 00:24:45.506] pub2pri2sig2: XhxTzOyQUZPvZ4+fr4PoMGFY36YazSHTOcqrd7kkFXAGgV0ixWuH5XD8JxIB+VozuOrLaZaRGOp2MfWdk0XXOYNbtXGo2CXUESZhFJMkRVOC1SaZCb8=
+[2015-02-04 00:24:45.507] srvSecurekey: A0W3zH+zAYmFnktolBSXUroUH5uy
+[2015-02-04 00:24:45.507] decData: AwcN3a9pdfBrUfFbGKqvIuhMDPGnhw==:AlsgUXci/S3gzgKU2Iqp2mzbVGLW:OSThCACyYZWuX58tJyS6sw==
+[2015-02-04 00:24:45.507] # ERROR S203: (Client key generation error.)<br>
+[2015-02-04 00:24:45.507] # final ret code=203<br>

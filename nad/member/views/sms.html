@@ -1,0 +1,173 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var send_options = { beforeSubmit: send_showRequest, success : send_showResponse };
+	$('#SMSSendFrm').ajaxForm(send_options);
+
+});
+var searchFrm_reset = function(){	// 검색 초기화
+	$('#search_field :eq(0)').attr('selected',true);
+	$('#search_receive :eq(0)').attr('selected',true);
+	$('#search_keyword').val("");
+}
+var selMember_add = function(){	// 발송회원 선택 추가
+	var chk_length = $("input[name='no[]']:checked").length;
+	if(chk_length==0){
+		alert('발송회원으로 추가될 회원을 선택해 주세요.');
+		return false;
+	} else {
+		var i = 0;
+		$("input[name='no[]']:checked").each(function(){
+			var no = $(this).val();
+			var mb_hphone = $('#mb_hp_'+no).html();
+			var mb_name = $('#mb_name_'+no).html();
+			var mb_id = $('#mb_id_'+no).html();
+			lines = (chk_length!=(i+1))?",\n":"";
+			$('#rphone_list').append(mb_hphone+"|"+mb_name+"|"+mb_id+lines);
+		i++;
+		});
+		$('#rphone_cnt').html(i);
+	}
+
+}
+var sms_send = function(){
+	$('#SMSSendFrm').submit();
+}
+var sms_cancel = function(){
+	$('#send_msg').html('');
+	$('#msg_bytes').html('0');
+	$('#rphone_list').html('');
+	return;
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><? include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left"><? include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+	<dl class="loc">
+		<?php echo $sub_menu_name;?>
+		<?php include_once "../include/navi.php"; ?>
+	</dl>
+	<dl class="notbox"><dl>
+	문자메세지를 발송할 대상을 검색하여 발송할 수 있습니다.<br>	
+	SMS포인트가 없는 경우 SMS가 발송되지 않사오니 SMS발송 건수를 충전하여 발송하시기 바랍니다.
+	</dl></dl>
+
+	<table width="100%" class="mt15">
+	<tr class="vt">
+		<td width="210" align="center"><?php include "./views/_include/sms.php"; ?></td>
+		<td class="pl10">    
+			<?php include "../include/sms_text.php"; ?>
+			<form method="get" name="MemberSearchFrm" action="<?php echo $_SERVER['PHP_SELF'];?>" id="MemberSearchFrm">
+			<input type="hidden" name="mode" value="member_search"/>
+			<dl class="srchb lnb5_gr bg2_gr mt7">
+				<dl class="tc pd7 wbg">
+					<select name="search_mb_type" class="s23" id="search_mb_type">
+					<option value="">회원선택</option>
+					<option value="individual" <?php echo ($search_mb_type=='individual')?'selected':'';?>>개인회원</option>
+					<option value="company" <?php echo ($search_mb_type=='company')?'selected':'';?>>기업회원</option>		
+					</select>
+					<select name="search_field" class="s23" id="search_field">
+					<option value="mb_name" <?php echo ($search_field=='mb_name')?'selected':'';?>>이름</option>
+					<option value="mb_nick" <?php echo ($search_field=='mb_nick')?'selected':'';?>>닉네임</option>
+					<option value="mb_id" <?php echo ($search_field=='mb_id')?'selected':'';?>>아이디</option>
+					<option value="mb_hphone" <?php echo ($search_field=='mb_hphone')?'selected':'';?>>휴대폰</option>
+					</select>
+					<select name="search_receive" class="s23" id="search_receive">
+					<option value="all" <?php echo ($search_receive=='all')?'selected':'';?>>전체</option>
+					<option value="yes" <?php echo ($search_receive=='yes')?'selected':'';?>>수신허용</option>
+					<option value="no" <?php echo ($search_receive=='no')?'selected':'';?>>수신거부</option>
+					</select>
+					<input type="text" name="search_keyword" value="<?php echo $search_keyword;?>" class="txt i23 w50" id="search_keyword"> 
+					<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
+					<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" onclick="searchFrm_reset();" value='초기화'></span>
+				</dl>
+			</dl>
+			</form>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원주소록
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
+			</dl>
+		<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="selMember_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>발송회원추가</h1></a>
+				</dt>
+			</dl> 
+			<table width="100%" class="ttlt">
+			<col width=30><col width=120><col span="3"><col width=55>
+			<tr class="bg">
+				<td><input name="check_all" type="checkbox"></td>
+				<td>회원구분</td>
+				<td>이름</td>
+				<td>아이디</td>
+				<td>휴대폰</td>
+				<td class="e">수신</td>
+			</tr>
+			<?php if(!$member_list['total_count']){ ?>
+			<tr><td colspan="6" class="stlt"></td></tr>
+			<?php } else { 
+				foreach($member_list['result'] as $val){
+				$sms_receive = (stristr($val['mb_receive'],'sms')) ? "허용" : "<span style='color:#c0c0c0;'>거부</span>";
+			?>
+			<tr>
+				<td><input name="no[]" type="checkbox" class="check_all" value="<?php echo $val['no'];?>"></td>
+				<td><?php echo $mb_types[$val['mb_type']];?></td>
+				<td id="mb_name_<?php echo $val['no'];?>"><?php echo $val['mb_name'];?></td>
+				<td class="num3" id="mb_id_<?php echo $val['no'];?>"><?php echo $val['mb_id'];?></td>
+				<td class="num3" id="mb_hp_<?php echo $val['no'];?>"><?php echo $utility->phone_pdash($val['mb_hphone']);?></td>
+				<td class="e"><?php echo $sms_receive;?></td>
+			</tr>
+			<?php 
+				}	// foreache end.
+			} // if end.
+			?>
+			</table>
+
+			<dl class="page mb50">
+				<dt>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="selMember_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>발송회원추가</h1></a>
+				</dt>
+				<?php include_once "../include/paging.php"; ?>
+			</dl> 
+
+</td>
+</tr>
+</table>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var send_showRequest = function(formData, jqForm, send_options){
+	return true;
+}
+var send_showResponse = function(responseText, statusText, xhr, $form){
+
+	var results = responseText.split('/');
+	var result = results[0], msg = results[1];
+
+	alert(msg);
+	//document.write(responseText);
+
+	if(result=='success'){
+		//alert("<?//php echo $sms_control->_success('0005');?>");
+		sms_cancel();	// 초기화
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

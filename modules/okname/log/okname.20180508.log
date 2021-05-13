@@ -1,0 +1,40 @@
+[2018-05-08 13:48:09.722] # OKNAME v3.70 start!<br>
+[2018-05-08 13:48:09.724] # mode=HS_CNFRM_POPUP<br>
+[2018-05-08 13:48:09.724] # Parameter IP: 	114.108.128.129<br>
+[2018-05-08 13:48:09.724] # argv[ 1](hs_cert_svc_tx_seqno)=20180508134809867718<br>
+[2018-05-08 13:48:09.724] # argv[ 2](nm)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 3](brdt)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 4](sex)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 5](ntv_frnr_tp_cd)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 6](var1)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 7](var2)=x<br>
+[2018-05-08 13:48:09.724] # argv[ 8](var3)=0<br>
+[2018-05-08 13:48:09.724] # argv[ 9](var4)=0<br>
+[2018-05-08 13:48:09.724] # argv[10](var5)=0<br>
+[2018-05-08 13:48:09.724] # argv[11](return_msg)=x<br>
+[2018-05-08 13:48:09.724] # argv[12](return_url)=http://mjob.netfu.co.kr/modules/okname/hs_cnfrm/adultfrm_popup2.php<br>
+[2018-05-08 13:48:09.724] # argv[13](in_tp_bit)=0<br>
+[2018-05-08 13:48:09.725] # argv[14](hs_cert_msr_cd)=10<br>
+[2018-05-08 13:48:09.725] # argv[15](hs_cert_rqst_caus_cd)=00<br>
+[2018-05-08 13:48:09.725] # argv[16](idcf_mbr_com_cd)=V05280T00000<br>
+[2018-05-08 13:48:09.725] # argv[17](server_ip)=114.108.128.129<br>
+[2018-05-08 13:48:09.725] # argv[18](client_site_nm)=mjob.netfu.co.kr<br>
+[2018-05-08 13:48:09.725] # argv[19](end_point_url)=http://safe.ok-name.co.kr/KcbWebService/OkNameService<br>
+[2018-05-08 13:48:09.725] # argv[20](log_path)=/home/mjob/public_html/.//modules/okname/log<br>
+[2018-05-08 13:48:09.725] # argv[21](option)=QL<br>
+[2018-05-08 13:48:09.725] # soap_timeout: 30000 ms<br>
+[2018-05-08 13:48:09.775] # key   : AgERPydbpmYJ15EwsM05T/UDPIBo7w==:iZBvgdi1TK58k5mxN7THGg==<br>
+[2018-05-08 13:48:09.775] # spkey : AgERPydbpmYJ15EwsM05T/UDPIBo7w==<br>
+[2018-05-08 13:48:09.775] # ssig  : iZBvgdi1TK58k5mxN7THGg==<br>
+[2018-05-08 13:48:09.777] # nm               : x    <br>
+[2018-05-08 13:48:09.777] # brdt             : x    <br>
+[2018-05-08 13:48:09.777] # e_nm             : YJi2G8M=<br>
+[2018-05-08 13:48:09.778] # e_brdt           : YJi2G8M=<br>
+[2018-05-08 13:48:09.778] # cpkey : AgNFgaTSaDC6OgggZmU7+ZRY/o+QwA==<br>
+[2018-05-08 13:48:09.778] # csig  : pGv+rk+988FxPBQ2BWmiIQ==<br>
+[2018-05-08 13:48:09.804] retmsg: WoimC9nOzjP3THJyxAV6Kj616HT53G3PEmjG3X4uk/AQxYuZ6LkRS+InwibNMZXYdeCVmTyzSZg9EksERRwUJif39P3dvT58JRmSOPJ2nbNNubYkojsfJMQJimhow0au3kgO9kc9vcXfueuQFQBlZbWtdmVZwPNLpqY7mCLWoi46VQH/mWg5TGhHcK8dhCDBuftABEPwacWaXzdk7lH40TBY7zT9cE6dLgpW/DwG1gaca0tUzQB0//dDIQLkevSzw5h8G2s+9mgp7/nzB9NEeK+fDN06lOYM9RIBo6+YXmFENA==
+[2018-05-08 13:48:09.804] retmsg: B000:정상:l4i7ItKfVYAXSio1JN1zR1TfkqMrV3dy0SVJiksww2eGXsRpdEswZnbDqixfYnmuDmacLXaaFlRdWUNH59nzeJydvjUEMgPb7y0PqEry6JDxR3FBIHcoRLqEG8X1LMoJd6+BVWSgAEt9DaTXDMXbnV7ypiCdPa+0XqfkPLjcUKuYEkxzwsEm1hSp1U/1W3sVA4DVFSBUKMLX+LTN6MhdzQ==
+[2018-05-08 13:48:09.804] B000
+[2018-05-08 13:48:09.804] 정상
+[2018-05-08 13:48:09.804] l4i7ItKfVYAXSio1JN1zR1TfkqMrV3dy0SVJiksww2eGXsRpdEswZnbDqixfYnmuDmacLXaaFlRdWUNH59nzeJydvjUEMgPb7y0PqEry6JDxR3FBIHcoRLqEG8X1LMoJd6+BVWSgAEt9DaTXDMXbnV7ypiCdPa+0XqfkPLjcUKuYEkxzwsEm1hSp1U/1W3sVA4DVFSBUKMLX+LTN6MhdzQ==
+[2018-05-08 13:48:09.804] # final ret code=0<br>

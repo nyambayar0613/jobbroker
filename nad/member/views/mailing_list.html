@@ -1,0 +1,154 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+var page_rows = function(sels){	// 출력 갯수
+	var sel = sels.value, send_url = "<?php echo $list['send_url'];?>";
+	location.href = "./mailing_list.php?"+send_url+"&page_rows=" + sel;
+}
+var pop_member = function( mb_id ){		// 회원 정보
+	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
+		$('#pop_mem').draggable({ handle: "#memHandle" });
+		$('#pop_mem').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+var content_view = function( no ){
+	$('#pop_info').load('../member/views/_load/layer.php', { mode:'send_content', no:no }, function(){
+		$('#pop_content').draggable({ handle: "#contentHandle" });
+		$('#pop_content').center();
+		$('html, body').animate({scrollTop:0}, 800); // 페이지 상단으로 이동
+	});
+}
+</script>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><? include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left"><? include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+	<table class="ltbl">
+	<tr>
+	<td width="1"></td><td class="nb">
+
+		<dl class="loc">
+			<?php echo $sub_menu_name;?>
+			<?php include_once "../include/navi.php"; ?>
+		</dl>
+		<dl class="notbox"><dl>
+		정기 메일링 / SMS 발송 내역 입니다.<br/>
+		고객관리에 활용하시기 바랍니다.<br/>
+		</dl></dl>
+
+		<dl class="srchb lnb4_col bg2_col">
+			<form name="MailingSearchFrm" method="GET" id="MailingSearchFrm" action="<?php echo $_SERVER['PHP_SELF'];?>">
+			<input type="hidden" name="mode" value="search" id="mode"/>
+			<input type="hidden" name="page" value="<?php echo $page;?>" id="page"/>
+			<input type="hidden" name="page_rows" value="<?php echo $page_rows;?>" id="page_rows"/>
+			
+			<table class="bg_col" id="dsrch">
+			<col width=90><col><col width=90><col>
+			<tr>
+				<td class="ctlt">구분</td>
+				<td class="pdlnb2">
+					<label><input type="radio" name="wr_type" class="radio" value="email" <?php echo ($wr_type=='email')?'checked':'';?>/>이메일</label> &nbsp;
+					<label><input type="radio" name="wr_type" class="radio" value="sms" <?php echo ($wr_type=='sms')?'checked':'';?>/>SMS</label> &nbsp;
+				</td>
+				<td class="ctlt">수신회원 유형</td>
+				<td class="pdlnb2">
+					<label><input type="radio" name="wr_mb_type" class="radio" value="company" <?php echo ($wr_mb_type=='company')?'checked':'';?>/>기업회원</label> &nbsp;
+					<label><input type="radio" name="wr_mb_type" class="radio" value="individual" <?php echo ($wr_mb_type=='individual')?'checked':'';?>/>개인회원</label> &nbsp;
+				</td>
+			</tr>
+			</table>
+
+			<dl class="tc pd7 wbg">
+				<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
+			</dl>
+
+			</form>
+		</dl>
+
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일링 발송내역
+			<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 발송되었습니다.</span>
+			<dt>
+				<select name="page_rows" onchange="page_rows(this);">
+					<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25개 출력</option>
+					<option value='45' <?php echo ($page_rows==45)?'selected':'';?>>45개 출력</option>
+					<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60개 출력</option>
+					<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80개 출력</option>
+					<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+				</select>
+			</dt>
+		</dl>  
+
+		<table width="100%" class="ttlt">
+		<col width="5%"><col width="12%"><col width="5%"><col><col width="5%"><col width="8%">
+		<tr class="bg">
+			<td>구분</td>
+			<td>수신회원</td>
+			<td>회원유형</td>
+			<td>발송제목</td>
+			<td>발송내용</td>
+			<td class="e">발송일</td>
+		</tr>
+		<?php if(!$list['total_count']){ ?>
+		<tr><td colspan="6" class="stlt"></td></tr>
+		<?php } else { 
+			foreach($list['result'] as $val){
+			$get_member = $member_control->get_member($val['wr_id']);
+		?>
+		<tr>
+			<td><?php echo ($val['wr_type']=='email')?'이메일':'SMS';?></td>
+			<td><a onclick="pop_member('<?php echo $val['wr_id'];?>');" class="b"><?php echo $get_member['mb_id'];?> (<?php echo $get_member['mb_name'];?>)</a></td>
+			<td><?php echo $member_control->mb_type[$get_member['mb_type']];?></td>
+			<td><?php echo ($val['wr_type']=='email')?stripslashes($val['wr_subject']):"<dt><a onClick=\"content_view('".$val['no']."');\" class=\"btn\"><h1 class=\"btn23\">SMS 발송내용</h1></a></dt>";?></td>
+			<td>
+				<dt><a onClick="content_view('<?php echo $val['no'];?>');" class="btn"><h1 class="btn23">내용보기</h1></a></dt>
+			</td>
+			<td class="e"><?php echo $val['wr_wdate'];?></td>
+		</tr>
+		<?php 
+			}	// foreach end.
+		}	// if end.
+		?>
+		<tbody>
+		</tbody>
+		</table>
+
+		<dl class="page">
+			<?php include_once "../include/paging.php"; ?>
+		</dl>
+
+	</td>
+	</tr>
+	</table>
+
+	<div id='pop_info'></div>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+var showRequest = function(formData, jqForm, form_options){
+	var MailingConfigFrm = document.getElementById('MailingConfigFrm');
+	var queryString = $.param(formData);
+	return validate(MailingConfigFrm);
+}
+var showResponse = function(responseText, statusText, xhr, $form){
+	if(responseText=='0000') {	 // 성공
+		alert("<?php echo $mailing_control->_success('0000');?>");
+		location.reload();
+	} else if(responseText=='0001') {	// 실패
+		alert("<?php echo $mailing_control->_errors('0001');?>");
+		return false;
+	}
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

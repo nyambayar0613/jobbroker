@@ -1,0 +1,324 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+
+	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
+	$('#MobileConfigFrm').ajaxForm(form_options);
+
+});
+</script>
+
+<div id="question" style="display:none; cursor: default;">
+	<div id='quest_info'></div>
+	<p align='center' id='confirm_msg'></p><br/>
+	<p align='center'>
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+	</p>
+</div> 
+
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox">
+	<dl>
+		실제 솔루션 설치시에는 모바일웹은 설치되지 않습니다. 모바일웹은 유료옵션을 통해 신청하신 후 이용하실 수 있습니다. 
+	</dl>
+</dl>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 기본 설정</dl>  
+
+<form name="MobileConfigFrm" method="post" id="MobileConfigFrm" action="./process/regist.php" enctype="multipart/form-data">
+<input type="hidden" name="ajax" value="1"/>
+<input type="hidden" name="no" value="<?php echo $no;?>"/>
+	<table width="100%" class="bg_col">
+	<col width=150><col> 
+	<tr>
+		<td class="ctlt">사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="wr_use" type="radio" value="1" class="radio" checked>사용함</label> &nbsp;
+			<label><input name="wr_use" type="radio" value="0" class="radio" <?php echo (!$mobile_info['wr_use'])?'checked':'';?>>사용안함</label> &nbsp;
+			<font class="fon11 dgr">고객님의 모바일웹 접속주소는 <input type="text" name="wr_mobile_url" id="wr_mobile_url" value="<?php echo $mobile_info['wr_mobile_url'];?>" class="txt" size="33" hname="접속주소" required title="모바일의 접속주소를 입력해주시기 바랍니다."> 입니다.</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">상단로고</td>
+		<td class="pdlnb2">
+			<input type="file" name="wr_logo" id="wr_logo" class="txt"  size="40" title="모바일 페이지의 로고등록을 할때 사용합니다.">
+			<dl class="fon11 bl mt5 ">
+				- 로고 가로크기는 220 픽셀, 세로크기는 32 픽셀 이내<br>
+				- 이미지는 jpg, gif, png 파일만 등록 가능
+			</dl>
+			<div class="fl bgb2_col" style="width:300px; text-align:center; height:50px; line-height:50px; border:1px solid #ddd;"><img style="padding-top:10px;" class="vm" src="<?php echo $mobile_info['wr_logo'];?>"/></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">색상선택</td>
+		<td class="pdlnb2">
+			<dt class="st_col">
+				<input type="radio" class="radio" name='wr_color' value="gr" <?php echo $mobile_info['wr_color']=="gr" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_gr">
+				<input type="radio" class="radio" name='wr_color' value="yel" <?php echo $mobile_info['wr_color']=="yel" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_yel">
+				<input type="radio" class="radio" name='wr_color' value="org" <?php echo $mobile_info['wr_color']=="org" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_org">
+				<input type="radio" class="radio" name='wr_color' value="dho" <?php echo $mobile_info['wr_color']=="dho" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_dho">
+				<input type="radio" class="radio" name='wr_color' value="red" <?php echo $mobile_info['wr_color']=="red" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_red">
+				<input type="radio" class="radio" name='wr_color' value="pk" <?php echo $mobile_info['wr_color']=="pk" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_pk">
+				<input type="radio" class="radio" name='wr_color' value="pp" <?php echo $mobile_info['wr_color']=="pp" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_pp">
+				<input type="radio" class="radio" name='wr_color' value="lgr" <?php echo $mobile_info['wr_color']=="lgr" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_lgr">
+				<input type="radio" class="radio" name='wr_color' value="grn" <?php echo $mobile_info['wr_color']=="grn" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_grn">
+				<input type="radio" class="radio" name='wr_color' value="bgr" <?php echo $mobile_info['wr_color']=="bgr" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_bgr">
+				<input type="radio" class="radio" name='wr_color' value="wbl" <?php echo $mobile_info['wr_color']=="wbl" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_wbl">
+				<input type="radio" class="radio" name='wr_color' value="dbl" <?php echo $mobile_info['wr_color']=="dbl" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_dbl">
+			</dt>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">카피라이트</td>
+		<td class="pdlnb2">
+			<dl class="twrap">
+				<textarea name="wr_copyright" class="fon11 h15" style="height:80px;" id="wr_copyright"><?php echo stripslashes($mobile_info['wr_copyright']);?></textarea>
+			</dl>
+		</td>
+	</tr>
+	</table>
+
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 메인 페이지 설정</dl>  
+	<table width="100%" class="bg_col">
+	<col width=130><col> 
+	<tr>
+		<td class="ctlt">메인 박스형 채용정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">메인 리스트형 채용정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_main_list_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_list_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_list_total" size='7' value="<?php echo $mobile_info['wr_main_list_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_list_page" size='7' value="<?php echo $mobile_info['wr_main_list_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">메인 포커스 인재정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_main_focus_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_focus_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_focus_total" size='7' value="<?php echo $mobile_info['wr_main_focus_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_focus_page" size='7' value="<?php echo $mobile_info['wr_main_focus_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">메인 게시판</td>
+		<td class="pdlnb2">
+			<label><input name="wr_main_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_board_use']==1)?'checked':'';?>>출력</label> &nbsp;
+			<table width="700" cellspacing="1" class="ln sep tf">
+			<tbody>
+			<tr height="25" align="center" class="bg b">
+				<th style="width:15px;">출력</th>
+				<th style="width:120px;">게시판명</th>
+				<th style="width:25px;">총 출력수</th>
+				<!-- <th  style="width:30px;">1페이지당 출력수</th> -->
+			</tr>
+			<?php 
+			foreach($board_menu as $menus){
+				$get_boardCode = $board_config_control->boCode_list($menus['code']);
+				if($get_boardCode){		// 하위 메뉴 없는 게시판의 경우 
+					$j = 0;
+					foreach($get_boardCode as $boards){
+			?>
+			<tr  height="30" class="wbg tc">
+				<td><input type="checkbox" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($main_board[$boards['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
+				<td><?php echo stripslashes($boards['bo_subject']);?></td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $mobile_info['wr_main_board_total'];?>"/>건</td>
+				<!-- 
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_page]" size='7' value="<?php echo $mobile_info['wr_main_board_page'];?>"/>건</td> 
+				-->
+			</tr>
+			<?php 
+					}	// get_boardCode foreach end.
+				} else {	 // 하위 있는 게시판의 경우
+					$pcode_List = $category_control->pcode_List($menus['code']);
+					$k = 0;
+					foreach($pcode_List as $boards){
+						$board_info = $board_config_control->boCode_list($boards['code']);
+						foreach($board_info as $val){
+			?>
+				<tr height="30" class="wbg tc">
+					<td><input type="checkbox" name="wr_main_board[<?php echo $val['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($main_board[$val['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
+					<td><?php echo stripslashes($val['bo_subject']);?></td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $val['bo_table'];?>][wr_total]" size='7' value="<?php echo $main_board[$val['bo_table']]['wr_total'];?>"/>건</td>
+					<!-- 
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $val['bo_table'];?>][wr_page]" size='7' value="<?php echo $mobile_info['wr_main_board_page'];?>"/>건</td> 
+					-->
+				</tr>
+			<?php
+						} // board_info foreach end.
+					} // pcode_List foreach end.
+				} // get_boardCode if end.
+			} // board_menu foreach end.
+			?>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">메인 공지사항</td>
+		<td class="pdlnb2">
+			<label><input name="wr_main_notice_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_notice_use'])?'checked':'';?>>출력</label> &nbsp;
+		</td>
+	</tr>
+	</table>
+
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 서브 페이지 설정</dl>  
+	<table width="100%" class="bg_col">
+	<col width=130><col> 
+	<tr><td height="5" colspan="2" style="background-color:#fff;"></td></tr>
+	<tr>
+		<td class="ctlt">서브 박스형 채용정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_sub_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_box_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_box_total" size='7' value="<?php echo $mobile_info['wr_sub_box_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_box_page" size='7' value="<?php echo $mobile_info['wr_sub_box_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">서브 리스트형 채용정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_sub_list_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_list_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_list_total" size='7' value="<?php echo $mobile_info['wr_sub_list_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_list_page" size='7' value="<?php echo $mobile_info['wr_sub_list_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">서브 일반 채용정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_sub_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_use'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_total" size='7' value="<?php echo $mobile_info['wr_sub_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_page" size='7' value="<?php echo $mobile_info['wr_sub_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">서브 포커스 인재정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_sub_focus" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_focus'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_focus_total" size='7' value="<?php echo $mobile_info['wr_sub_focus_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_focus_page" size='7' value="<?php echo $mobile_info['wr_sub_focus_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">서브 일반 인재정보</td>
+		<td class="pdlnb2">
+			<label><input name="wr_sub_individual" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_individual'])?'checked':'';?>>출력</label> &nbsp;
+			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_individual_total" size='7' value="<?php echo $mobile_info['wr_sub_individual_total'];?>"/>건, 
+			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_individual_page" size='7' value="<?php echo $mobile_info['wr_sub_individual_page'];?>"/>건 출력
+
+		</td>
+	</tr>
+	</table>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 커뮤니티 설정</dl>  
+	<table width="100%" class="bg_col">
+	<col width=130><col> 
+	<tr><td height="5" colspan="2" style="background-color:#fff;"></td></tr>
+	<tr>
+		<td class="ctlt">커뮤니티</td>
+		<td class="pdlnb2">
+			<label><input name="wr_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_board_use']==1)?'checked':'';?>>출력</label> &nbsp;
+			<table width="700" cellspacing="1" class="ln sep tf">
+			<tbody>
+			<tr height="25" align="center" class="bg b">
+				<th style="width:15px;">출력</th>
+				<th style="width:90px;">게시판명</th>
+				<th style="width:25px;">메인 출력수</th>
+				<th style="width:25px;">총 출력수</th>
+				<th style="width:30px;">1페이지당 출력수</th>
+			</tr>
+			<?php 
+
+			foreach($board_menu as $menus){
+				$get_boardCode = $board_config_control->boCode_list($menus['code']);
+				if($get_boardCode){		// 하위 메뉴 없는 게시판의 경우 
+					$j = 0;
+					foreach($get_boardCode as $boards){
+			?>
+			<tr  height="30" class="wbg tc">
+				<td><input type="checkbox" name="wr_board[<?php echo $boards['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($wr_board[$boards['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
+				<td><?php echo stripslashes($boards['bo_subject']);?></td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_total[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_total'];?>"/>건</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $boards['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_main'];?>"/>건</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_board[<?php echo $boards['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_page'];?>"/>건</td>
+			</tr>
+			<?php 
+					}	// get_boardCode foreach end.
+				} else {	 // 하위 있는 게시판의 경우
+					$pcode_List = $category_control->pcode_List($menus['code']);
+					$k = 0;
+					foreach($pcode_List as $boards){
+						$board_info = $board_config_control->boCode_list($boards['code']);
+						foreach($board_info as $val){
+			?>
+				<tr height="30" class="wbg tc">
+					<td><input type="checkbox" name="wr_board[<?php echo $val['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($wr_board[$val['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
+					<td><?php echo stripslashes($val['bo_subject']);?></td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_total'];?>"/>건</td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_main'];?>"/>건</td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_page'];?>"/>건</td>
+				</tr>
+			<?php
+						} // board_info foreach end.
+					} // pcode_List foreach end.
+				} // get_boardCode if end.
+			} // board_menu foreach end.
+			?>
+			</table>
+		</td>
+	</tr>
+	</table>
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+function showRequest(formData, jqForm, form_options) {	// 폼 전송전 데이터
+
+	var MobileConfigFrm = document.getElementById('MobileConfigFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(MobileConfigFrm);
+
+}
+function showResponse(responseText, statusText, xhr, $form){	// 폼 전송 후 결과
+	
+	if(responseText){
+		alert("<?php echo $mobile_control->_success('0000');?>");
+		location.reload();
+	} else {
+		alert("<?php echo $mobile_control->_errors('0000');?>");
+	}
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

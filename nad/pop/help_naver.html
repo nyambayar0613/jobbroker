@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+  <meta charset="utf-8">
+  <head>
+    <title>POPUP</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/axicon/axicon.css" />    
+    <style>
+    </style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    	<link rel="stylesheet" href="css_vertical/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->  
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--[if IE 7]>
+          <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->  
+    <script language="JavaScript">
+        function bluring(){        
+        if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")        
+        document.body.focus();         
+        }        
+        document.onfocusin=bluring;
+    </script>     
+  </head>
+  <body>
+    <div class="wrapper_help">  
+      <div class="admin_pop01">       
+        <div class="admin_pop0302">
+          <div class="admin_help_title01">■ 네이버 클라이언트 ID / Secret 발급 방법</div>
+          <div class="admin_pop_title01"><span>네이버 클라이언트 인증</span><br>
+ 네이버 클라이언트 인증 서비스에 등록하시면 네이버에서 제공하는 다양한 OpenAPI를 이용하실 수 있습니다.
+          </div>        
+          <div class="admin_pop_title01"><span>1.</span> <b>Naver Login Developers</b> <a href="https://nid.naver.com/devcenter/register.nhn">(https://nid.naver.com/devcenter/register.nhn)</a>로 이동하여 네이버 계정으로 로그인 하신 후 메뉴에서 애플리케이션 등록을 선택합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/naver01.png"></div>
+          <div class="admin_pop_title01"><span>2.</span> ① 새 애플리케이션 등록에서 <b>애플리케이션 이름</b>을 입력하고 애플리케이션에 맞는 <b>카테고리</b>를 선택한 후 서비스 환경을 <b>web</b>으로 체크합니다.<br>
+					② PC웹 및 Mobile웹에 맞는 <b>서비스 URL(사이트 주소)</b> 및 <b>Callback URL</b>을 입력합니다.<br> 
+					<b style="color:#0072bc">[PC웹 callback URL 주소]<br></b>
+					http://<b style="color:#ff0000">등록할 사이트 URL 주소</b>/member/process/naver_callback.php<br>
+					http://<b style="color:#ff0000">등록할 사이트 URL 주소</b>/member/process/naver_redirect.php<br>
+					※ 오른쪽 <b>+</b>아이콘을 클릭하면 주소를 추가하실 수 있습니다.<br>
+
+          <b style="color:#0072bc">[Mobile웹 callback URL 주소]</b><br>
+					http://<b style="color:#ff0000">등록할 사이트 모바일 URL 주소</b>/m/member/process/naver_callback.php<br>
+		      ③ <b>이용약관에 동의</b>하고 <b>확인</b>버튼을 누르면 애플리케이션 등록이 완료됩니다.
+					
+					</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/naver02.png"></div>            
+          <div class="admin_pop_title01"><span>3.</span> 등록된 내 애플리케이션의 메뉴에서<b>개요</b>를 선택하여 <b>Client ID / Client Secret</b> 을 확인 후 키 값을 복사합니다.</div>
+          <div class="admin_pop0301"><img src="/images/admin/sns/naver03.png"></div>              
+ 
+          <div class="admin_pop_title01"><span>4.</span> 뉴스 홈페이지 관리자의 <b>환경설정 - 사이트관리 - 기본정보설정</b>에서 <b>네이버 Client ID / 네이버 Client Secret</b>를 입력한 후 <b>저장</b>버튼을 눌러 앱 연동을 완료합니다.</div> 
+          <div class="admin_pop0301"><img src="/images/admin/sns/naver04.png"></div> 					
+        </div>
+        <div class="admin_pop0103"><a onclick="self.close();" class="cursor">닫기</div>
+      </div>
+    </div>  
+  </body>
+</html>
