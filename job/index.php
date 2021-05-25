@@ -3,7 +3,7 @@ $head_title = "구인정보";
 if($_GET['code']=='hurry') $head_title = "급구 구인정보";
 if($_GET['code']=='area') $head_title = "지역별 구인정보";
 if($_GET['code']=='job_type') $head_title = "업직종별 구인정보";
-if($_GET['code']=='subway') $head_title = "역세권별 구인정보";
+if($_GET['code']=='subway') $head_title = "역세권별 구인ррлл";
 if($_GET['code']=='univ') $head_title = "대학가별 구인정보";
 if($_GET['code']=='date') $head_title = "기간별 구인정보";
 if($_GET['code']=='pay') $head_title = "급여별 구인정보";
