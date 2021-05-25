@@ -17,7 +17,7 @@ if (G5_IS_MOBILE) {
 include_once(NFE_PATH.'/head.php');
 ?>
 
-			<div class="top_title">
+    <div class="top_title">
         <a href="#"><img src="images/top_arrow.png" alt="이전"></a><h2>개인회원가입</h2>
 			</div>
 		</header>
