@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+if (!defined('_GNUBOARD_')) exit; // Тус тусад нь хуудас руу нэвтрэх боломжгүй
 
 if(defined('G5_THEME_PATH')) {
     require_once(G5_THEME_PATH.'/index.php');
@@ -19,43 +19,43 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php" class="active">구인정보</a>
-					<a href="person_main.php">인재정보</a>
-					<a href="community_main.php">커뮤니티</a>
+					<a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
+					<a href="person_main.php">Хүний нөөцийн мэдээлэл</a>
+					<a href="community_main.php">Комиунити</a>
 				</div>
 				<div class="navi_cate">
-				  <a href="#" class="prev_btn menu_arrow"><img src="images/menu_arrow1.png" alt="이전"></a>
+				  <a href="#" class="prev_btn menu_arrow"><img src="images/menu_arrow1.png" alt="өмнөх"></a>
 					<div class="cate_con cf">
-						<a href="#">급구</a>
-						<a href="#">지역별</a>
-						<a href="#">업직종별</a>
-						<a href="#">역세권별</a>
-						<a href="#">대학가별</a>
-						<a href="#">기간별</a>
-						<a href="#">급여별</a>
-						<a href="#">대상별</a>
-						<a href="#" class="active">상세검색</a>
+						<a href="#">Яаралтай</a>
+						<a href="#">Бүс нутгаар</a>
+						<a href="#">Салбараар</a>
+						<a href="#">Автобусны буудалтай ойр</a>
+						<a href="#">Их сургуулиудтай ойр</a>
+						<a href="#">Хугацаагаар</a>
+						<a href="#">Цалин хөлсөөр</a>
+						<a href="#">Нөхцөлөөр</a>
+						<a href="#" class="active">Дэлгэрэнгүй хайх</a>
 					</div>
-				  <a href="#" class="next_btn menu_arrow"><img src="images/menu_arrow2.png" alt="다음"></a>
+				  <a href="#" class="next_btn menu_arrow"><img src="images/menu_arrow2.png" alt="дараагийх"></a>
 				</div>
 			</div>
 		</header>
 		<div id="main" class="cf">
 			<div class="container">
         
-				<!-- 상세검색 -->
+				<!-- Дэлгэрэнгүй хайх -->
 				<div class="schbox_wrap sch_wrap cf">
 					<div class="search_con search_box">
 						<table class="search_tb">
 
-							<!-- 근무지역 -->
+							<!-- ажлын байршил -->
 							<tr>
 								<th class="sch_hd">
-									<div>근무지역</div>
+									<div>Ажилын байршил</div>
 								</th>
 								<td class="sch_td1">
 									<select>
-										<option>시·도</option>
+										<option>хот</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -63,7 +63,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td2">
 									<select>
-										<option>시·군·구</option>
+										<option>хороо . дүүрэг</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -71,7 +71,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td3">
 									<select>
-										<option>읍·면·동</option>
+										<option>тоот . дугаар</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -79,14 +79,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 역세권 -->
+							<!-- Автобус/Метроны буудалтай ойр -->
 							<tr>
 								<th class="sch_hd">
-									<div>역세권</div>
+									<div>Автобусны буудалтай ойр</div>
 								</th>
 								<td class="sch_td1" colspan="3">
 									<select>
-										<option>서울·수도권</option>
+										<option>Улаанбаатар хотын бүс</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -95,14 +95,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 대학가 -->
+							<!-- их сургууль -->
 							<tr>
 								<th class="sch_hd">
-									<div>대학가</div>
+									<div>Их сургуультай ойр</div>
 								</th>
 								<td class="sch_td1">
 									<select>
-										<option>지역</option>
+										<option>Байршил</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -110,7 +110,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td2" colspan="2">
 									<select>
-										<option>인근대학 선택</option>
+										<option>Сургууль сонгох</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -118,14 +118,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 업직종 -->
+							<!-- Ажил мэргэжил -->
 							<tr>
 								<th class="sch_hd">
-									<div>업직종</div>
+									<div>Ажил мэргэжил</div>
 								</th>
 								<td class="sch_td1">
 									<select>
-										<option>업직종1차</option>
+										<option>Ажлын төрөл 1 </option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -133,7 +133,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td2">
 									<select>
-										<option>업직종2차</option>
+										<option>Ажлын төрөл 2</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -141,7 +141,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td3">
 									<select>
-										<option>업직종3차</option>
+										<option>Ажлын төрөл 3</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -149,14 +149,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 근무기간 -->
+							<!-- Ажиллах хугацаа -->
 							<tr>
 								<th class="sch_hd">
-									<div>근무기간</div>
+									<div>Ажиллах хугацаа</div>
 								</th>
 								<td class="sch_td1" colspan="3">
 									<select>
-										<option>근무기간</option>
+										<option>Ажиллах хугацаа</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -164,14 +164,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 근무요일 -->
+							<!-- Ажиллах өдөр -->
 							<tr>
 								<th class="sch_hd">
-									<div>근무요일</div>
+									<div>Ажиллах өдөр</div>
 								</th>
 								<td class="sch_td1" colspan="3">
 									<select>
-										<option>근무요일</option>
+										<option>Ажиллах өдөр</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -179,86 +179,86 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 근무시간 -->
+							<!-- Ажлын цаг -->
 							<tr>
 								<th class="sch_hd sch_hd1-2">
-									<div>근무시간</div>
+									<div>Ажлын цаг</div>
 								</th>
 								<td class="sch_td1 sch_td1-2" colspan="3">
 								  <fieldset>
-										<legend>근무시간</legend>
+										<legend>Ажлын цаг</legend>
 										<select>
-											<option>시</option>
+											<option>цаг</option>
 											<option></option>
 											<option></option>
 											<option></option>
 										</select>
 										<select>
-											<option>분</option>
+											<option>минут</option>
 											<option></option>
 											<option></option>
 											<option></option>
 										</select>
 										~
 										<select>
-											<option>시</option>
+											<option>цаг</option>
 											<option></option>
 											<option></option>
 											<option></option>
 										</select>
 										<select>
-											<option>분</option>
+											<option>минут</option>
 											<option></option>
 											<option></option>
 											<option></option>
 										</select>
-										<label><input type="checkbox" id="" name="">시간협의</label>
+										<label><input type="checkbox" id="" name="">Цагийн хэлэлцээ</label>
 									</fieldset>
 								</td>
 							</tr>
 
-							<!-- 급여 -->
+							<!-- Цалин, хөлс -->
 							<tr>
 								<th class="sch_hd">
-									<div>급여</div>
+									<div>Цалин</div>
 								</th>
 								<td class="sch_td2" colspan="3">
 								  <fieldset>
-										<legend>급여선택</legend>
+										<legend>Цалин сонгох</legend>
 										<ul>
-											<li><input type="checkbox" id="" name="">시급</li>
-											<li><input type="checkbox" id="" name="">일급</li>
-											<li><input type="checkbox" id="" name="">주급</li>
-											<li><input type="checkbox" id="" name="">월급</li>
-											<li><input type="checkbox" id="" name="">건별<input type="text" id="" name="">원 이상~<input type="text" id="" name="">원 이하</li>
+											<li><input type="checkbox" id="" name="">Цагын</li>
+											<li><input type="checkbox" id="" name="">Өдрийн</li>
+											<li><input type="checkbox" id="" name="">Долоо хоногийн</li>
+											<li><input type="checkbox" id="" name="">Сарын</li>
+											<li><input type="checkbox" id="" name="">Жилийн<input type="text" id="" name="">төгрөгөөс дээш~<input type="text" id="" name="">төгрөгөөс доош</li>
 										<ul>
 	                </fieldset>
 								</td>
 							</tr>
 
-							<!-- 성별 -->
+							<!-- хүйс -->
 							<tr>
 								<th class="sch_hd">
-									<div>성별선택</div>
+									<div>Хүйс сонгох</div>
 								</th>
 								<td class="sch_td2" colspan="3">
 								  <fieldset>
-										<legend>성별선택</legend>
-										<input type="radio" id="male" name="">남자
-										<input type="radio" id="female" name="">여자
-										<input type="checkbox" id="no-gender">성별무관
+										<legend>Хүйс сонгох</legend>
+										<input type="radio" id="male" name="">эрэгтэй
+										<input type="radio" id="female" name="">эмэгтэй
+										<input type="checkbox" id="no-gender">хүйс тодорхойлохгүй
                   </fieldset>
 								</td>
 							</tr>
 
-							<!-- 검색유형5 -->
+							<!-- Хайлтын төрөл 5 -->
 							<tr>
 								<th class="sch_hd">
-									<div>연령</div>
+									<div>нас</div>
 								</th>
 								<td class="sch_td1">
 									<select>
-										<option>나이</option>
+										<option>Нас</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -266,22 +266,22 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td2" colspan="2">
 								  <fieldset>
-									  <legend>연령선택</legend>
-										<input type="checkbox" id="under">이하
-										<input type="checkbox" id="over">이상
-										<input type="checkbox" id="unrelated">무관
+									  <legend>Нас сонгох</legend>
+										<input type="checkbox" id="under">доош
+										<input type="checkbox" id="over">дээш
+										<input type="checkbox" id="unrelated">хамааралгүй
 									</fieldset>
 								</td>
 							</tr>
 
-							<!-- 학력 -->
+							<!-- Боловсрол -->
 							<tr>
 								<th class="sch_hd">
-									<div>학력선택</div>
+									<div>Боловсрол сонгох</div>
 								</th>
 								<td class="sch_td1" colspan="3">
 									<select>
-										<option>학력</option>
+										<option>Боловсрол</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -289,14 +289,14 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- 검색유형3 -->
+							<!-- Хайлтын төрөл 5 -->
 							<tr>
 								<th class="sch_hd">
-									<div>경력선택</div>
+									<div>Мэргэжил сонгох</div>
 								</th>
 								<td class="sch_td1">
 									<select>
-										<option>기간</option>
+										<option>Хугацаа</option>
 										<option></option>
 										<option></option>
 										<option></option>
@@ -304,18 +304,18 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 								<td class="sch_td2" colspan="2">
 								  <fieldset>
-									  <legend>경력선택</legend>
-										<input type="checkbox" id="unrelated">무관
-										<input type="checkbox" id="new-recruit">신입
-										<input type="checkbox" id="career">경력
+									  <legend>Мэргэжил сонгох</legend>
+										<input type="checkbox" id="unrelated">хамааралгүй
+										<input type="checkbox" id="new-recruit">шинэ төгсөгч
+										<input type="checkbox" id="career">ажил мэргэжил
 									</fieldset>
 								</td>
 							</tr>
 
-							<!-- 검색어 입력 -->
+							<!-- хайлт оруулах -->
 							<tr>
 								<th class="sch_hd" style="background:#fff;border-right:0">
-									<div>검색어</div>
+									<div>Хайх үг</div>
 								</th>
 								<td class="sch_td2 sch_word" colspan="3" style="border-left:0;padding-right:5px">
 								  <input type="text" id="" name="" class="sch_in">
@@ -326,19 +326,19 @@ include_once(NFE_PATH.'/head.php');
 					<div class="schbtn_con cf">
 						<ul>
 							<li class="search_bx sch_bt sch_bt2" style="width:100%">
-								<button type="button" class="sch_button"><img src="images/search_icon3.png" alt="검색">검색</button>
+								<button type="button" class="sch_button"><img src="images/search_icon3.png" alt="Хайх">Хайх</button>
 							</li>
 						</ul>
 					</div>
         </div>
-				<!-- //상세검색 -->
+				<!-- //Дэлгэрэнгүй хайх -->
 
-				<!-- 배너 -->
+				<!-- banner -->
 			  <div class="banner01">
 				  <a href="#"><img src="images/banner1-2.jpg" alt=""></a>
 				</div>
 
-				<!-- 플래티넘 -->
+				<!-- пилатинум -->
 			  <section class="cont_box platinum_con">
           <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>플래티넘 구인정보<span class="bt_box"><em>1</em>/18건 <a href="#"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
 					<ul class="cont_box_inner">
