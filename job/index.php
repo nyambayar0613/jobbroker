@@ -1,53 +1,53 @@
 <?php
-$head_title = "구인정보";
-if($_GET['code']=='hurry') $head_title = "급구 구인정보";
-if($_GET['code']=='area') $head_title = "지역별 구인정보";
-if($_GET['code']=='job_type') $head_title = "업직종별 구인정보";
-if($_GET['code']=='subway') $head_title = "역세권별 구인ррлл";
-if($_GET['code']=='univ') $head_title = "대학가별 구인정보";
-if($_GET['code']=='date') $head_title = "기간별 구인정보";
-if($_GET['code']=='pay') $head_title = "급여별 구인정보";
-if($_GET['code']=='etc') $head_title = "대상별 구인정보";
-if($_GET['code']=='search') $head_title = "상세검색 구인정보";
+$head_title = "Ажлын байрны мэдээлэл";
+if($_GET['code']=='hurry') $head_title = "Яаралтай ажилд авна";
+if($_GET['code']=='area') $head_title = "Ажлын байрны мэдээлэл байршилаар";
+if($_GET['code']=='job_type') $head_title = "Ажлын байрны мэдээлэл салбараар";
+if($_GET['code']=='subway') $head_title = "Автобусны буудалтай ойр";
+if($_GET['code']=='univ') $head_title = "Их сургуультай ойр";
+if($_GET['code']=='date') $head_title = "Ажлын байрны мэдээлэл хугацаагаар";
+if($_GET['code']=='pay') $head_title = "Ажлын цалин, хөлсний мэдээлэл";
+if($_GET['code']=='etc') $head_title = "Ажлын байрны нөхцөл мэдээлэл";
+if($_GET['code']=='search') $head_title = "Дэлгэрэнгүй мэдээлэл хайх";
 include_once "../include/top.php";
 
-// : 급구는 이 함수안에서 검색합니다.
+// : 'Яаралтай' утгыг энэ функцээс хайж болно .
 $job_where = $netfu_mjob->job_search_func();
 ?>
 
 
-<!-- 검색 -->
+<!-- хайх -->
 <?php
-// : 상세검색폼
+// : дэлгэрэнгүй хайлтын өнгө
 include NFE_PATH.'/include/inc/job_search.detail.php';
-// : 일반검색
+// : энгийн өнгө
 //else include NFE_PATH.'/include/inc/job_search.inc.php';
 
 
 
 
-// : 플래티넘
+// : платинум
 $_banner = 'alba_platinum';
 include NFE_PATH.'/include/inc/banner.inc.php';
 include NFE_PATH.'/include/inc/adver/service1.inc.php';
 
 
 
-// : 그랜드
+// : grand
 $_banner = 'alba_grand';
 include NFE_PATH.'/include/inc/banner.inc.php';
 include NFE_PATH.'/include/inc/adver/service2.inc.php';
 
 
 
-// : 스페셜
+// : онцгой
 $_banner = 'alba_special';
 include NFE_PATH.'/include/inc/banner.inc.php';
 include NFE_PATH.'/include/inc/adver/service3.inc.php';
 
 
 
-// : 일반 리스트
+// : энгийн лист
 $_banner = 'alba_job_list';
 include NFE_PATH.'/include/inc/banner.inc.php';
 include NFE_PATH.'/include/inc/adver/em_list.inc.php';
