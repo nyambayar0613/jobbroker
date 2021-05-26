@@ -108,7 +108,7 @@ include_once(NFE_PATH.'/head.php');
 									<input type="text" maxlength="" id="" name=""  class="address1">
 									<button type="botton" class="form_bt form_bt2">Шуудангын дугаар</button>
 									<div class="cf">
-									 <input type="text" id="" name="" class="address2" placeholder="상세주소를 입력하세요.">
+									 <input type="text" id="" name="" class="address2" placeholder="Хаягаа дэлгэрэнгүй оруулна уу.">
 									</div>
 								</fieldset>
 							</li>
@@ -127,7 +127,7 @@ include_once(NFE_PATH.'/head.php');
 						  <li class="row12">
 								<label>Цээж зураг</label>
 								<div class="member_photo">
-									<img src="images/id_pic.png" alt="증명사진">
+									<img src="images/id_pic.png" alt="Зураг">
 									<input type="file" id="" name="">
                   <p>gif, jpg, png файлын формат, зөвхөн 100 × 130 пиксел ба 100kb хэмжээтэй файлуудыг бүртгэх боломжтой.</p>
 								</div>
