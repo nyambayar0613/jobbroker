@@ -98,7 +98,7 @@ include_once(NFE_PATH.'/head.php');
 											<option></option>
 										</select>
 										<p>-</p><input type="tel" size="4" maxlength="4" id="" name="" class="tel1 phone2">
-										<p>-</p><input type="tel" size="4" maxlength="4" id="" name="" class="tel2 ">
+										<p>-</p><input type="tel" size="4" maxlength="4" id="" name="" class="tel2  ">
 								</fieldset>
 							</li>
 							<li class="row10">
