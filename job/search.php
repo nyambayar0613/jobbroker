@@ -312,7 +312,7 @@ include_once(NFE_PATH.'/head.php');
 								</td>
 							</tr>
 
-							<!-- хайлт оруулах -->
+							<!-- хайх утга оруулах -->
 							<tr>
 								<th class="sch_hd" style="background:#fff;border-right:0">
 									<div>Хайх үг</div>
@@ -340,14 +340,14 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- пилатинум -->
 			  <section class="cont_box platinum_con">
-          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>플래티넘 구인정보<span class="bt_box"><em>1</em>/18건 <a href="#"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Пилатинум ажлын зар<span class="bt_box"><em>1</em>/18 тохиолдол <a href="#"><span class="btn">Зар сурталчилгаа<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
 					<ul class="cont_box_inner">
 						<li>
 
-						  <!-- 상세보기 -->
+						  <!-- дэлгэрэнгүй харах
               <div class="detail_ly cf">
                 <div class="detail_inner">
-                  <div class="company_name"><h2>스타뮤직(주)</h2>
+                  <div class="company_name"><h2>(주)</h2>
                     <div class="btn-r">
 									    <a>상세모집내용</a><a>공고 스크랩</a><button id="hide_ly" type="button">X</button>
                     </div>
@@ -393,87 +393,87 @@ include_once(NFE_PATH.'/head.php');
 									</div>
 								</div>
 							</div>
-							<!-- //상세보기 -->
+							<!-- //Дэлгэрэнгүй харах -->
 
-						  <button id="show_ly" class="more_option"><span>더보기</span></button>
+						  <button id="show_ly" class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo01.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвд цагийн ажилд зуучлах(агуулахын бүртгэл, бүтээгдэхүүн хүргэлт сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo02.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвд цагийн ажилд зуучлах(агуулахын бүртгэл, бүтээгдэхүүн хүргэлт сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo03.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвд цагийн ажилд зуучлах(агуулахын бүртгэл, бүтээгдэхүүн хүргэлт сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo04.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвд цагийн ажилд зуучлах(агуулахын бүртгэл, бүтээгдэхүүн хүргэлт сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo05.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвд цагийн ажилд зуучлах</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="white_box">
 							  <div class="whitebox_inner">
-                  <div class="text">신규광고 등록 대기중</div>
-								  <a href="#"><div class="btn">광고안내 및 신청<img src="images/chevron.png" alt="광고안내 및 신청"></div></a>
+                  <div class="text">Зар сурталчилгааны бүртгэл хүлээгдэж байна</div>
+								  <a href="#"><div class="btn">Зар суртачилгаа болон танилцуулга<img src="images/chevron.png" alt="Зар суртачилгаа болон бүртгэл"></div></a>
 								</div>
 							</div>
 						</li>
@@ -489,93 +489,93 @@ include_once(NFE_PATH.'/head.php');
 						</div>
 					</div>
 				</section>
-				<!-- //플래티넘 -->
+				<!-- //Пилатинум -->
 
-				<!-- 배너 -->
+				<!-- banner -->
 			  <div class="banner01">
 				  <a href="#"><img src="images/banner5.jpg" alt=""></a>
-				  <!-- 추가배너 <a href="#"><img src="images/banner5.jpg" alt=""></a> -->
+				  <!-- нэмэлт banner <a href="#"><img src="images/banner5.jpg" alt=""></a> -->
 				</div>
 
-				<!-- 그랜드형 -->
+				<!-- grand -->
 			  <section class="cont_box banner_con">
-          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>그랜드형 구인정보<span class="bt_box"><em>1</em>/18건 <a href="#"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Ажлын байрны төрөл<span class="bt_box"><em>1</em>/18 төрөл <a href="#"><span class="btn">Зар суртачилгаа<img src="images/chevron.png" alt="Зар суртачилгаа"></span></a></span></h2>
 					<ul class="cont_box_inner">
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo01.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo02.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo03.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo04.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo05.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="white_box">
 							  <div class="whitebox_inner">
-                  <div class="text">신규광고 등록 대기중</div>
-								  <a href="#"><div class="btn">광고안내 및 신청<img src="images/chevron.png" alt="광고안내 및 신청"></div></a>
+                  <div class="text">Зар сурталчилгааны бүртгэл хүлээгдэж байна </div>
+								  <a href="#"><div class="btn">Зар суртачилгааны танилцуулга болон бүртгэл<img src="images/chevron.png" alt="Зар суртачилгааны танилцуулга болон бүртгэл"></div></a>
 								</div>
 							</div>
 						</li>
@@ -591,95 +591,95 @@ include_once(NFE_PATH.'/head.php');
 						</div>
 					</div>
         </section>
-				<!-- //그랜드형 -->
+				<!-- //Grand -->
 
-				<!-- 배너 -->
+				<!-- banner -->
 			  <div class="banner01">
 				  <a href="#"><img src="images/banner3.jpg" alt=""></a>
 				</div>
 
-				<!-- 스페셜 -->
+				<!-- Special -->
 			  <section class="cont_box _con webzine_con web1">
-          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>스페셜 구인정보<em class="ad_btn"><a href="#"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></em></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Special ажлын мэдээлэл<em class="ad_btn"><a href="#"><span class="btn">Зар суртачилгааны танилцуулга<img src="images/chevron.png" alt="Зар суртачилгааны танилцуулга"></span></a></em></h2>
 					<ul class="cont_box_inner">
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo01.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвийн цагийн ажилд зуучлах </a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo02.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй мэдээлэл</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo03.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo04.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-						  <button class="more_option"><span>더보기</span></button>
+						  <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="logo_box">
 								<a href="#"><img src="images/logo05.png" alt="LOGO"></a>
 							</div>
 							<div class="text_box">
-								<div class="company"><a href="#">(주)파이낸뷰</a></div>
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</a></div>
+								<div class="company"><a href="#">Финанс Вью ХХК</a></div>
+								<div class="title"><a href="#">Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол)</a></div>
 								<div class="info">
-                  <span class="area">서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="etc"><p>상시모집</p></span>
+                  <span class="area">Seongdong-gu, Сөүл</span>
+									<span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="etc"><p>Тогтмол бүртгүүлэх</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="text_box2">
-								<div class="title"><img src="images/info.png" alt="">등록된 내용이 없습니다.</div>
+								<div class="title"><img src="images/info.png" alt="">Бүртгүүлсэн утга олдсонгүй.</div>
 							</div>
 						</li>
 					<div class="paging_con cf">
@@ -694,9 +694,9 @@ include_once(NFE_PATH.'/head.php');
 						</div>
 					</div>
 				</section>
-				<!-- //스페셜 -->
+				<!-- //special -->
 
-				<!-- 배너 -->
+				<!-- banner -->
 			  <div class="banner01">
 				  <a href="#"><img src="images/banner4.jpg" alt=""></a>
 				  <!-- <a href="#"><img src="images/banner1-3.jpg" alt=""></a> -->
@@ -704,11 +704,11 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 일반형 -->
 			  <section class="cont_box _con cont_list recruit1">
-          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>일반 구인정보<em class="ad_btn"><a href="#"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></em></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Ерөнхий ажлын мэдээлэл<em class="ad_btn"><a href="#"><span class="btn">Зар суртачилгаа<img src="images/chevron.png" alt="Зар суртачилгаа"></span></a></em></h2>
 					<ul class="cont_box_inner">
 						<li>
-              <button class="more_option"><span>더보기</span></button>
-							<div class="company"><a href="recruit_detail01.php">(주)파이낸뷰</a></div>
+              <button class="more_option"><span>Дэлгэрэнгүй</span></button>
+							<div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
 							<div class="text_box">
 								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
 								<div class="info">
