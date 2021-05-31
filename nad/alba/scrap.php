@@ -46,7 +46,7 @@
 
 		// Debugging check
 		if( $is_debug == true ) {
-			$_end = $utility->get_time();		// 속도측정 끝
+			$_end = $utility->get_time();		// 속도측정
 			$_time = $_end - $_begin;
 			echo "<p>Үргэлжлэх хугацаа :: " . $_time."</p>";
 		}
