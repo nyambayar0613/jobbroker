@@ -29,18 +29,18 @@ var page_rows = function(sels){	// 출력 갯수
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-가이드를 입력해 주세요.<br>
+	Гарын авлагыг оруулна уу.<br>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">입사지원 관리
-	<span>총 <b class="num3 col"><?php echo number_format($receive_list['total_count']);?></b>건이 신고되었습니다.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Ажлын байрны удирдлага
+	<span>нийт <b class="num3 col"><?php echo number_format($receive_list['total_count']);?></b>хэргийн талаар мэдээлсэн.</span>
 	<dt>
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
 		</select>
 	</dt>
 </dl>
@@ -49,14 +49,14 @@ var page_rows = function(sels){	// 출력 갯수
 <col width="2%"><col width="8%"><col width="5%"><col ><col width="8%"><col width="8%"><col><col width="8%"><col width="5%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>지원자 / ID</td>
-	<td>지원방식</td>
-	<td>지원이력서</td>
-	<td>지원일</td>
-	<td>지원회사 / ID</td>
-	<td>지원공고</td>
-	<td>열람일</td>
-	<td>삭제</td>
+	<td> Өргөдөл гаргагч / ID </td>
+	<td> Өргөдөл гаргах арга </td>
+	<td> Намтар </td>
+	<td> Өргөдөл гаргасан огноо </td>
+	<td> Өргөдөл гаргагч компани / ID </td>
+	<td> Хэрэглээний мэдэгдэл </td>
+	<td> Нээгдэх өдөр </td>
+	<td> Устгах </td>
 </tr>
 
 <tbody id="become_list">
@@ -72,12 +72,12 @@ var page_rows = function(sels){	// 출력 갯수
 	<td><input name="check_all" type="checkbox"></td>
 	<td><?php echo $wr_member['mb_name'];?> / <?php echo $wr_id;?></td>
 	<td><?php echo $become_type;?></td>
-	<td>지원이력서</td>
-	<td>지원일</td>
-	<td>지원회사 / ID</td>
-	<td>지원공고</td>
-	<td>열람일</td>
-	<td>삭제</td>
+	<td> Намтар </td>
+	<td> Өргөдөл гаргасан огноо </td>
+	<td> Өргөдөл гаргагч компани / ID </td>
+	<td> Хэрэглээний мэдэгдэл </td>
+	<td> Нээгдэх өдөр </td>
+	<td> Устгах </td>
 </tr>
 <?php  
 	}	// foreach end.
@@ -90,8 +90,8 @@ var page_rows = function(sels){	// 출력 갯수
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
 	</dt>
 </dl>
 
