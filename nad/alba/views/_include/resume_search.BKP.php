@@ -77,7 +77,7 @@ var job_type_sel_first = function( vals, target ){	// 첫번째 직종값 선택
 	});
 }
 var area_blocks = 0;
-var area_sel_first = function( vals, target ){	// 첫번째 지역값 선택
+var area_sel_first = function( vals, target ){	// thnvkodp
 	var sel = vals.value;
 	$('#'+target+'_display').load('./views/_load/alba.php', { mode:'second_area', type:'area', p_code:sel, target:target }, function(result){
 		//alert(result);
