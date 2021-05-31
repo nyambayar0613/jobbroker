@@ -37,15 +37,15 @@
 ?>
 				<div id="pop_alba" class="bocol lnb_col" style="top:10%;left:33%;display:;">
 					<dl class="ntlt lnb_col m0 hand" id="albaHandle">
-						<img src="../../images/comn/bul_10.png" class="t">구인정보
+						<img src="../../images/comn/bul_10.png" class="t">Ажлын байрны мэдээлэл
 						<a onClick="MM_showHideLayers('pop_alba','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 					</dl>  
 					<table width="730" class="bg_col tf">
 					<col width=100><col><col width=100><col>
 					<tr>
-						<td class="ctlt">아이디</td>
+						<td class="ctlt">ID</td>
 						<td class="pdlnb2 num11"><?php echo $member['mb_id'];?></td>
-						<td class="ctlt">이메일</td>
+						<td class="ctlt">И-мэйл</td>
 						<td class="pdlnb2 num11"><a onClick="pop_email('<?php echo $member['no'];?>');"><?php echo $member['mb_email'];?></a></td>
 					</tr>
 
@@ -282,43 +282,43 @@
 				<input type="hidden" name="wr_area_point" value="<?php echo ($mode=='insert')?"":$wr_area_point;?>" id="wr_area_point"/>
 
 				<dl class="ntlt lnb_col m0 hand" id="memberFrmHandle">
-					<img src="../../images/comn/bul_10.png" class="t">구인공고 <?php echo ($mode=='insert'||$mode=='load')?'등록':'수정';?>
-					<span>( <b class="col">*</b> 표시는 필수 입력사항 )</span>
+					<img src="../../images/comn/bul_10.png" class="t">Ажлын <?php echo ($mode=='insert'||$mode=='load')?'Бүртгэл':'Засвар';?>
+					<span>( <b class="col">*</b> Заавал оруулах шаардлагатай )</span>
 					<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 				</dl>
 
 				<table width="800" class="bg_col">
 				<col width="100px"><col>
 				<tr>
-					<td class="ctlt">등록방법 <b class="col">*</b></td>
+					<td class="ctlt">Бүртгүүлэх арга <b class="col">*</b></td>
 					<td class="pdlnb2">
 					<?php if($mode=='update'){ ?>
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_default" value="" <?php echo (!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_default">사용자등록</label>&nbsp;
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">직접등록</label>&nbsp;
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">불러오기</label>
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_default" value="" <?php echo (!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_default">Хэрэглэгчийн бүртгэл</label>&nbsp;
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">Шууд бүртгүүлэх</label>&nbsp;
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">Ачаалж байна</label>
 					<?php } else { ?>
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self'||!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">직접등록</label>&nbsp;
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">불러오기</label>
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self'||!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">Шууд бүртгүүлэх</label>&nbsp;
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">Ачаалж байна</label>
 					<?php } ?>
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">업체로고</td>
+					<td class="ctlt">Компанийн лого</td>
 					<td class="pdlnb2">
 						<!--  사진등록 layer  -->
 						<div class="layerPop  lnb_col" style="display:none; border:2px solid #ddd; background:#fff; position:absolute; width:420px; top:5%; left:25%; text-align:left; z-index:9999;" id="mbPhotoPop">
 							<dl style="">
 								<dt style="background:#eee; padding:20px 15px;cursor:pointer;" class="" id="mbPhotoPop_handle">
-									<strong>회사로고 등록</strong>
+									<strong>Компанийн лого бүртгүүэа</strong>
 									<em class="closeBtn" onclick="close_mb_photos()"><img width="11" height="11" class="pb5" src="../../images/icon/icon_close2.gif" alt="close"></em>
 								</dt>
 								<dd style="padding:10px 15px;">
-									<p style="padding-bottom:20px;"><strong>GIF,JPEG,JPG</strong> 파일형식으로,<br>
-									<strong>135*65픽셀 100KB</strong> 용량 이내의 파일만 등록 가능합니다.<br></p>
+									<p style="padding-bottom:20px;"><strong>GIF,JPEG,JPG</strong> файлын хэлбэрээр,<br>
+									<strong>135*65 Фиксел 100KB</strong> Зөвхөн багтаамжтай файлуудыг бүртгэх боломжтой..<br></p>
 									<div class="box2" style="border:1px solid #ddd; padding:10px;">
 										<input type="file" name="mb_logo_files" id="mb_logo_files" size="32" style="height:20px;" class="txtForm">
 									</div>
-									<div  style="width:100px; margin:20px auto; " class=" btn font_gray bg_white block"><a class="block" style="padding:10px 20px;" href="javascript:mb_logo_submit();">등록하기</a></div>
+									<div  style="width:100px; margin:20px auto; " class=" btn font_gray bg_white block"><a class="block" style="padding:10px 20px;" href="javascript:mb_logo_submit();">Бүртгүүлэх</a></div>
 								</dd>
 							</dl>
 						</div>
@@ -330,7 +330,7 @@
 									<div class="photo"> <img src="<?php echo $wr_mb_logo;?>" style="max-width:120px; max-height:80px;"  alt="photo" id="mb_photo"> </div>
 									<input type="hidden" name="mb_logo" id="mb_logo" value="<?php echo $get_alba['etc_0'];?>"/>
 									<div class="mt5 tc buttonWrap"> 
-										<a class="btn white" style="padding:2px 15px;" onclick="update_mb_logos('update');" id="mb_logo_update"> <span>등록</span> </a> 
+										<a class="btn white" style="padding:2px 15px;" onclick="update_mb_logos('update');" id="mb_logo_update"> <span>Бүртгэл</span> </a>
 									</div>
 								</li>
 							</ul>
@@ -339,33 +339,33 @@
 					</td>
 				</tr>
 				<tr class="input_type_load" style="display:none;">
-					<td class="ctlt">회원선택 <b class="col">*</b></td>
+					<td class="ctlt">Гишүүдийн сонголт <b class="col">*</b></td>
 					<td class="pdlnb2">
 						<dt>
 							<select style="width:260px;" name="mb_id" id="mb_id" onchange="get_member(this.value);">
-							<option value="">기업회원 선택</option>
+							<option value="">Компанийн гишүүнийг сонгоно уу</option>
 							<?php foreach($member_list['result'] as $val){ ?>
 							<option value="<?php echo $val['mb_id'];?>" <?php echo ($val['mb_id']==$mb_id)?'selected':'';?>><?php echo $val['mb_id'];?> / <?php echo $val['mb_name'];?></option>
 							<?php } ?>
 							</select>
 							<!-- <a href="../member/company.php?mode=insert" class="btn"><h1 class="btn23">회원등록</h1></a> -->
 							<input name="mb_search" type="text" class="txt" style="width:150px;" id="mb_search">
-							<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">회원검색</h1></a>
-							<span class="subtlt">이름,아이디,이메일로 검색</span>
+							<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">Гишүүн хайх</h1></a>
+							<span class="subtlt">Нэр, ID эсвэл и-мэйлээр хайх</span>
 							<ul id="memlist" style="display:none;max-height:100px;overflow-y:auto" class="blnb wbg pd3 f11 mt5">
 							<!-- loop -->
-							<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>이름(아이디) / 이메일</li>
+							<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>Нэр(ID) / И-мэйл</li>
 							<!-- loop -->
 							</ul>
 						</dt>
 					</td>
 				</tr>
 				<tr id="alba_block" class="input_type_load" style="display:none;">
-					<td class="ctlt">구인공고선택 </td>
+					<td class="ctlt">Ажлын зар сонгох </td>
 					<td class="pdlnb2" id="alba_load">
 					<?php $alba_list = $alba_control->get_alba_for_id($mb_id); ?>
 						<select name='sel_alba' id='sel_alba' onchange="update_alba('load',this.value,'<?php echo $mb_id;?>');">
-						<option value=''>구인공고선택</option>
+						<option value=''>Ажлын зар сонгох</option>
 						<?php
 						foreach($alba_list as $val){
 							$selected = ($no == $val['no']) ? 'selected' : '';
@@ -381,12 +381,12 @@
 				} 
 				?>
 				<tr id="manager_info" style="display:<?php echo ($manager_info['result'])?'':'none';?>;">
-					<td class="ctlt">담당자 선택</td>
+					<td class="ctlt">Хариуцагч сонгох</td>
 					<td class="pdlnb2" id="manager_print">
 					<?php 
 					if($manager_info['result']){
 						echo "<select name=\"manager_sel\" id=\"manager_sel\" onchange=\"manager_sels(this);\">";
-						echo "<option value=\"\">담당자명</option>";
+						echo "<option value=\"\">Хариуцагчын нэр</option>";
 						foreach($manager_info['result'] as $val){
 							$selected = ($val['wr_email']==$get_alba['wr_email'])?"selected":"";
 							echo "<option value=\"".$val['no']."\" ".$selected.">".stripslashes($val['wr_name'])."</option>";
@@ -397,75 +397,75 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">담당자명</td>
+					<td class="ctlt">Хариуцагчын нэр</td>
 					<td class="pdlnb2">
-						<input style="width:255px;" name="wr_person" id="wr_person" type="text" class="txt" value="<?php echo $get_alba['wr_person'];?>" hname='담당자명'/>
+						<input style="width:255px;" name="wr_person" id="wr_person" type="text" class="txt" value="<?php echo $get_alba['wr_person'];?>" hname='Хариуцагчын нэр'/>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">전화번호</td>
+					<td class="ctlt">Холбогдох дугаар</td>
 					<td class="pdlnb2">
-						<select style="width:111px;" id="wr_phone0" name="wr_phone[]" title="지역번호 선택" hname="지역번호">
-						<option value="">지역번호 선택</option>
+						<select style="width:111px;" id="wr_phone0" name="wr_phone[]" title="Холбогдох дугаар сонгох" hname="Хаяг, байршлын дугаар">
+						<option value="">Хаяг, байршлын дугаар</option>
 						<?php echo $tel_num_option; ?>
 						</select>
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="전화번호 앞자리" maxlength="4" id="wr_phone1" name="wr_phone[]" value="<?php echo $wr_phone[1];?>" hname="전화번호 앞자리">
+						<input type="text" class="txt" title="Утасны дугаарын урд хэсэг" maxlength="4" id="wr_phone1" name="wr_phone[]" value="<?php echo $wr_phone[1];?>" hname="Утасны дугаарын урд хэсэг">
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="전화번호 뒷자리" maxlength="4" id="wr_phone2" name="wr_phone[]" value="<?php echo $wr_phone[2];?>" hname="전화번호 뒷자리">
+						<input type="text" class="txt" title="Утасны дугаарын хойд хэсэг" maxlength="4" id="wr_phone2" name="wr_phone[]" value="<?php echo $wr_phone[2];?>" hname="Утасны дугаарын хойд хэсэг">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">휴대폰</td>
+					<td class="ctlt">Утасны дугаар</td>
 					<td class="pdlnb2">
-						<select style="width:111px;" id="wr_hphone0" name="wr_hphone[]" title="휴대폰 국번" hname="휴대폰 국번">
-						<option value="">국번</option>
+						<select style="width:111px;" id="wr_hphone0" name="wr_hphone[]" title=" Улсын дугаар " hname=" Улсын дугаар ">
+						<option value="">Улсын дугаар</option>
 						<?php echo $hp_num_option; ?>
 						</select>
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="휴대폰 앞자리" maxlength="4" id="wr_hphone1" name="wr_hphone[]" value="<?php echo $wr_hphone[1];?>">
+						<input type="text" class="txt" title="Утасны дугаарын урд хэсэг" maxlength="4" id="wr_hphone1" name="wr_hphone[]" value="<?php echo $wr_hphone[1];?>">
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="휴대폰 뒷자리" maxlength="4" id="wr_hphone2" name="wr_hphone[]" value="<?php echo $wr_hphone[2];?>">
+						<input type="text" class="txt" title="Утасны дугаарын хойд хэсэг" maxlength="4" id="wr_hphone2" name="wr_hphone[]" value="<?php echo $wr_hphone[2];?>">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">팩스번호</td>
+					<td class="ctlt">Факсын дугаар</td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:111px;" id="wr_fax0" name="wr_fax[]" title="지역번호 선택" hname="지역번호">
-						<option value="">지역번호 선택</option>
+						<select class="ipSelect" style="width:111px;" id="wr_fax0" name="wr_fax[]" title="Хаяг, байршил сонгох" hname="Хаяг, байршил сонгох">
+						<option value="">Хаяг, байршил сонгох</option>
 						<?php echo $fax_num_option; ?>
 						</select>
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="팩스번호 앞자리" maxlength="4" id="wr_fax1" name="wr_fax[]" value="<?php echo $wr_fax[1];?>" hname="팩스번호 앞자리">
+						<input type="text" class="txt" title="Факсын дугаарын урд хэсэг" maxlength="4" id="wr_fax1" name="wr_fax[]" value="<?php echo $wr_fax[1];?>" hname="Факсын дугаарын урд хэсэг">
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="팩스번호 뒷자리" maxlength="4" id="wr_fax2" name="wr_fax[]" value="<?php echo $wr_fax[2];?>" hname="팩스번호 뒷자리">					
+						<input type="text" class="txt" title="Факсын дугаарын хойд хэсэг" maxlength="4" id="wr_fax2" name="wr_fax[]" value="<?php echo $wr_fax[2];?>" hname="Факсын дугаарын хойд хэсэг">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">e-메일</td>
+					<td class="ctlt">И-мэйл</td>
 					<td class="pdlnb2">
 						<input type="text" class="txt" style="width:108px;ime-mode:disabled;" maxlength="30" id="wr_email" name="wr_email[]" hname="이메일" value="<?php echo $wr_email[0];?>"><span class="delimiter">@</span>
-						<input type="text" style="width:130px;ime-mode:disabled;" class="txt" maxlength="25" title="이메일 서비스 입력" id="wr_email_tail" name="wr_email[]" hname="이메일 서비스 제공자" value="<?php echo $wr_email[1];?>">
+						<input type="text" style="width:130px;ime-mode:disabled;" class="txt" maxlength="25" title="И-мэйл оруулах" id="wr_email_tail" name="wr_email[]" hname="И-мэйлийн үйлчилгээ" value="<?php echo $wr_email[1];?>">
 						<select class="ipSelect" style="width:140px;" id="email_service" onchange="email_sel(this);">
-						<option value="">직접입력</option>
+						<option value="">Утга оруулах</option>
 						<?php echo $email_option; ?>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">홈페이지(블로그)</td>
+					<td class="ctlt">Нүүр хуудас (блог)</td>
 					<td class="pdlnb2">
-						<input style="width:255px;ime-mode:inactive;" name="wr_page" id="wr_page" type="text" class="txt" value="<?php echo $get_alba['wr_page'];?>" hname='홈페이지' placeholder="http://"/>
+						<input style="width:255px;ime-mode:inactive;" name="wr_page" id="wr_page" type="text" class="txt" value="<?php echo $get_alba['wr_page'];?>" hname='Нүүр хуудас' placeholder="http://"/>
 					</td>
 				</tr>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				
 				<tr id="company_info_block" style="display:<?php echo ($company_list['result'])?'':'none';?>;">
-					<td class="ctlt">기업정보 선택</td>
+					<td class="ctlt">Байгууллагын мэдээлэл сонгох</td>
 					<td class="pdlnb2">
 						<span id="company_info_display">
 							<select name="company_info" onchange="company_info_load(this);">
-							<option value="">기업정보 선택</option>
+							<option value="">Байгууллагын мэдээлэл сонгох</option>
 							<?php
 							foreach($company_list['result'] as $val){
 								$selected = $val['no']==$get_alba['wr_company'] ? 'selected' : '';
@@ -478,22 +478,22 @@
 				</tr>
 
 				<tr>
-					<td class="ctlt">근무회사/점포명<b class="col">*</b></td>
+					<td class="ctlt">Ажиллаж буй компани / нэгжийн нэр<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input style="width:255px;ime-mode:active;" type="text" maxlength="16" class="txt" id="wr_company_name" name="wr_company_name" required hname="근무회사/점포명" value="<?php echo stripslashes($get_alba['wr_company_name']);?>">
+						<input style="width:255px;ime-mode:active;" type="text" maxlength="16" class="txt" id="wr_company_name" name="wr_company_name" required hname="Ажиллаж буй компани / нэгжийн нэр" value="<?php echo stripslashes($get_alba['wr_company_name']);?>">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">구인제목<b class="col">*</b></td>
+					<td class="ctlt">албан тушаалын нэр<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input type="text" class="txt w100" id="wr_subject" name="wr_subject" required hname="구인제목" value="<?php echo $wr_subject;?>">
+						<input type="text" class="txt w100" id="wr_subject" name="wr_subject" required hname="албан тушаалын нэр" value="<?php echo $wr_subject;?>">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">업직종<b class="col">*</b></td>
+					<td class="ctlt">ажил мэргэжил<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:110px;" id="wr_job_type0" name="wr_job_type0" title="1차 직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type1');" required hname="1차직종">
-						<option value="">= 1차 직종선택 =</option>
+						<select class="ipSelect" style="width:110px;" id="wr_job_type0" name="wr_job_type0" title="1-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type1');" required hname="1차직종">
+						<option value="">= 1-р ажил мэргэжил сонгох =</option>
 						<?php 
 						if($job_type_list){
 							foreach($job_type_list as $val){ 
@@ -507,8 +507,8 @@
 						?>
 						</select>
 						<span id="wr_job_type1_display">
-							<select class="ipSelect" style="width:140px;" id="wr_job_type1" name="wr_job_type1" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type2');">
-							<option value="">= 2차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_job_type1" name="wr_job_type1" title="2-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type2');">
+							<option value="">= 1-р ажил мэргэжил сонгох =</option>
 							<?php
 							if($wr_job_type1){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type0);
@@ -523,15 +523,15 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">1차 직종을 먼저 선택해 주세요</option>
+								<option value="">1-р ажил мэргэжлийг эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
 							</select>
 						</span>
 						<span id="wr_job_type2_display">
-							<select class="ipSelect" style="width:140px;" id="wr_job_type2" name="wr_job_type2" title="3차직종선택">
-							<option value="">= 3차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_job_type2" name="wr_job_type2" title="3-р ажил мэргэжил">
+							<option value="">= 3-р мэргэжил =</option>
 							<?php
 							if($wr_job_type2){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type1);
@@ -546,7 +546,7 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">2차 직종을 먼저 선택해 주세요</option>
+								<option value="">2-р ажил мэргэжлийш эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
@@ -554,13 +554,13 @@
 						</span>
 						<em>
 						<input type="checkbox" class="typeCheckbox" id="wr_beginner" name="wr_beginner" value="1" <?php echo ($get_alba['wr_beginner'])?'checked':'';?>>
-						<label for="wr_beginner">초보가능</label>
+						<label for="wr_beginner">Эхлэх боломжтой</label>
 						</em> 					
 
 
 						<div class="mt3">
-						<select class="ipSelect" style="width:110px;" id="wr_jobtype_10" name="wr_job_type3" title="1차 직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type4');" required hname="1차직종">
-						<option value="">= 1차 직종선택 =</option>
+						<select class="ipSelect" style="width:110px;" id="wr_jobtype_10" name="wr_job_type3" title="1-р мэргэжил сонгох" onchange="insert_job_type_sel_first(this,'wr_job_type4');" required hname="1차직종">
+						<option value="">= 1-р мэргэжил =</option>
 						<?php 
 						if($job_type_list){
 							foreach($job_type_list as $val){ 
@@ -574,8 +574,8 @@
 						?>
 						</select>
 						<span id="wr_job_type4_display">
-							<select class="ipSelect" style="width:140px;" id="wr_jobtype_11" name="wr_job_type4" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type5');">
-							<option value="">= 2차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_jobtype_11" name="wr_job_type4" title="2-р мэргэжил сонгох" onchange="insert_job_type_sel_first(this,'wr_job_type5');">
+							<option value="">= 2-р мэргэжил сонгох =</option>
 							<?php
 							if($wr_job_type4){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type3);
@@ -590,15 +590,15 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">1차 직종을 먼저 선택해 주세요</option>
+								<option value="">1-р мэргэжлийг эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
 							</select>
 						</span>
 						<span id="wr_job_type5_display">
-							<select class="ipSelect" style="width:140px;" id="wr_jobtype_12" name="wr_job_type5" title="3차직종선택">
-							<option value="">= 3차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_jobtype_12" name="wr_job_type5" title="3-р ажил мэргэжил">
+							<option value="">= 3-р ажил мэргэжил =</option>
 							<?php
 							if($wr_job_type5){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type4);
@@ -613,7 +613,7 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">2차 직종을 먼저 선택해 주세요</option>
+								<option value="">2-р мэргэжлийг эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
@@ -623,8 +623,8 @@
 
 
 						<div class="mt3">
-						<select class="ipSelect" style="width:110px;" id="wr_jobtype_20" name="wr_job_type6" title="1차 직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type7');" required hname="1차직종">
-						<option value="">= 1차 직종선택 =</option>
+						<select class="ipSelect" style="width:110px;" id="wr_jobtype_20" name="wr_job_type6" title="1-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type7');" required hname="1차직종">
+						<option value="">= 1-р ажил мэргэжил =</option>
 						<?php 
 						if($job_type_list){
 							foreach($job_type_list as $val){ 
@@ -638,8 +638,8 @@
 						?>
 						</select>
 						<span id="wr_job_type7_display">
-							<select class="ipSelect" style="width:140px;" id="wr_jobtype_21" name="wr_job_type7" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type8');">
-							<option value="">= 2차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_jobtype_21" name="wr_job_type7" title="2-р мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type8');">
+							<option value="">= 2-р мэргэжил сонгох =</option>
 							<?php
 							if($wr_job_type7){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type6);
@@ -654,15 +654,15 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">1차 직종을 먼저 선택해 주세요</option>
+								<option value="">1-р мэргэжлийг эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
 							</select>
 						</span>
 						<span id="wr_job_type8_display">
-							<select class="ipSelect" style="width:140px;" id="wr_jobtype_22" name="wr_job_type8" title="3차직종선택">
-							<option value="">= 3차 직종선택 =</option>
+							<select class="ipSelect" style="width:140px;" id="wr_jobtype_22" name="wr_job_type8" title="3-р ажил мэргэжил">
+							<option value="">= 3-р ажил мэргэжил =</option>
 							<?php
 							if($wr_job_type8){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type7);
@@ -677,7 +677,7 @@
 								}	// if end.
 							} else {
 							?>
-								<option value="">2차 직종을 먼저 선택해 주세요</option>
+								<option value="">2-р мэргэжлийг эхлээд сонгоно уу.</option>
 							<?php
 							}	// if end.
 							?>
@@ -688,10 +688,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">근무지 주소<b class="col">*</b></td>
+					<td class="ctlt">Ажлын байршил<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:82px;" id="wr_area_00" name="wr_area_0[]" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_01');" required hname="근무지 시·도">
-						<option value="">시·도</option>
+						<select class="ipSelect" style="width:82px;" id="wr_area_00" name="wr_area_0[]" title="хороо·дүүрэг сонгох" onchange="insert_area_sel_first(this,'wr_area_01');" required hname="근무지 시·도">
+						<option value="">хороо·дүүрэг</option>
 						<?php 
 						if($area_list){
 							foreach($area_list as $val){ 
@@ -705,8 +705,8 @@
 						?>
 						</select>
 						<span id="wr_area_01_display">
-							<select class="ipSelect" style="width:82px;" id="wr_area_01" name="wr_area_0[]" title="시군구 선택">
-								<option value="">시군구</option>
+							<select class="ipSelect" style="width:82px;" id="wr_area_01" name="wr_area_0[]" title="хороо, дүүргийг сонгоно уу">
+								<option value="">Хороо, дүүрэг</option>
 								<?php
 								if($wr_area_0[1]){
 									$pcodeList = $category_control->category_pcodeList('area', $wr_area_0[0]);
@@ -724,8 +724,8 @@
 							</select>
 						</span>
 						<span id="wr_area_02_display">
-							<select class="ipSelect" style="width:82px;" id="wr_area_02" name="wr_area_0[]" title="읍면동 선택">
-								<option value="">읍면동</option>
+							<select class="ipSelect" style="width:82px;" id="wr_area_02" name="wr_area_0[]" title="тоот, дугаар сонгох">
+								<option value="">тоот, дугаар</option>
 								<?php
 								if($wr_area_0[2]){
 									$pcodeList = $category_control->category_pcodeList('area', $wr_area_0[1]);
@@ -746,8 +746,8 @@
 						<input type="text" maxlength="16" class="txt" style="width:135px;" id="wr_area_03" name="wr_area_0[]" value="<?php echo $wr_area_03_val;?>">
 
 						<div class="mt3">
-							<select class="ipSelect" style="width:82px;" id="wr_area_10" name="wr_area_1[]" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_11');" required hname="근무지 시·도">
-							<option value="">시·도</option>
+							<select class="ipSelect" style="width:82px;" id="wr_area_10" name="wr_area_1[]" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_11');" required hname="Ажлын байршил">
+							<option value="">хороо·дүүрэг</option>
 							<?php 
 							if($area_list){
 								foreach($area_list as $val){ 
@@ -761,8 +761,8 @@
 							?>
 							</select>
 							<span id="wr_area_11_display">
-								<select class="ipSelect" style="width:82px;" id="wr_area_11" name="wr_area_1[]" title="시군구 선택">
-									<option value="">시군구</option>
+								<select class="ipSelect" style="width:82px;" id="wr_area_11" name="wr_area_1[]" title="Хороо дүүрэг сонгох">
+									<option value="">Хороо дүүрэг</option>
 									<?php
 									if($wr_area_1[1]){
 										$pcodeList = $category_control->category_pcodeList('area', $wr_area_1[0]);
@@ -781,7 +781,7 @@
 							</span>
 							<span id="wr_area_12_display">
 								<select class="ipSelect" style="width:82px;" id="wr_area_12" name="wr_area_1[]" title="읍면동 선택">
-									<option value="">읍면동</option>
+									<option value="">Тоот, дүүрэг</option>
 									<?php
 									if($wr_area_1[2]){
 										$pcodeList = $category_control->category_pcodeList('area', $wr_area_1[1]);
@@ -803,8 +803,8 @@
 						</div>
 
 						<div class="mt3">
-							<select class="ipSelect" style="width:82px;" id="wr_area_20" name="wr_area_2[]" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_21');" required hname="근무지 시·도">
-							<option value="">시·도</option>
+							<select class="ipSelect" style="width:82px;" id="wr_area_20" name="wr_area_2[]" title="хороо·дүүрэг сонгох" onchange="insert_area_sel_first(this,'wr_area_21');" required hname="хороо·дүүрэг">
+							<option value="">хороо·дүүрэг</option>
 							<?php 
 							if($area_list){
 								foreach($area_list as $val){ 
@@ -818,8 +818,8 @@
 							?>
 							</select>
 							<span id="wr_area_21_display">
-								<select class="ipSelect" style="width:82px;" id="wr_area_21" name="wr_area_2[]" title="시군구 선택">
-									<option value="">시군구</option>
+								<select class="ipSelect" style="width:82px;" id="wr_area_21" name="wr_area_2[]" title="хороо·дүүрэг сонгох">
+									<option value="">хороо·дүүрэг</option>
 									<?php
 									if($wr_area_2[1]){
 										$pcodeList = $category_control->category_pcodeList('area', $wr_area_2[0]);
@@ -837,8 +837,8 @@
 								</select>
 							</span>
 							<span id="wr_area_22_display">
-								<select class="ipSelect" style="width:82px;" id="wr_area_22" name="wr_area_2[]" title="읍면동 선택">
-									<option value="">읍면동</option>
+								<select class="ipSelect" style="width:82px;" id="wr_area_22" name="wr_area_2[]" title="Тоот дугаар сонгох">
+									<option value="">Тоот, дугаар</option>
 									<?php
 									if($wr_area_2[2]){
 										$pcodeList = $category_control->category_pcodeList('area', $wr_area_2[1]);
@@ -862,10 +862,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">인근지하철</td>
+					<td class="ctlt">Ойролцоох метро</td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:82px;" id="wr_subway_area_0" name="wr_subway_area_0" title="지역 선택" onchange="subway_sel_area(this,'wr_subway_line_0');" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="지하철 지역">
-						<option value="">지역</option>
+						<select class="ipSelect" style="width:82px;" id="wr_subway_area_0" name="wr_subway_area_0" title="Байршил сонгох" onchange="subway_sel_area(this,'wr_subway_line_0');" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="Метроны буудал">
+						<option value="">Бүс нутгаар</option>
 						<?php 
 						if($subway_list){
 							foreach($subway_list as $val){ 
@@ -878,8 +878,8 @@
 						}	// if end.
 						?>
 						</select>
-						<select class="ipSelect" style="width:82px;" id="wr_subway_line_0" name="wr_subway_line_0" title="호선 선택" onchange="subway_sel_line(this,'wr_subway_station_0');" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="지하철 호선">
-						<option value="">호선</option>
+						<select class="ipSelect" style="width:82px;" id="wr_subway_line_0" name="wr_subway_line_0" title="호선 선택" onchange="subway_sel_line(this,'wr_subway_station_0');" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="Метроны гарц">
+						<option value="">Гарц</option>
 						<?php
 						if($wr_subway_line_0){
 							$pcodeList = $category_control->category_pcodeList('subway', $wr_subway_area_0);
@@ -895,8 +895,8 @@
 						}	// if end.
 						?>
 						</select>
-						<select class="ipSelect" style="width:82px;" id="wr_subway_station_0" name="wr_subway_station_0" title="지하철역 선택" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="지하철역">
-						<option value="">지하철역</option>
+						<select class="ipSelect" style="width:82px;" id="wr_subway_station_0" name="wr_subway_station_0" title="Метроны буудал сонгох" <?php echo ($form_subway['etc_0'])?'required':'';?> hname="Метроны буудал">
+						<option value="">Метроны буудал</option>
 						<?php
 						if($wr_subway_station_0){
 							$pcodeList = $category_control->category_pcodeList('subway', $wr_subway_line_0);
@@ -917,24 +917,24 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">근무지 지도위치</td>
+					<td class="ctlt">Ажлын байршил</td>
 					<td class="pdlnb2">
-						<input type="radio" class="chk" name="wr_area_company" value="0" id="wr_area_company_0" checked onclick="wr_areas(this);"><label for="wr_area_company_0">직접입력</label>&nbsp;
+						<input type="radio" class="chk" name="wr_area_company" value="0" id="wr_area_company_0" checked onclick="wr_areas(this);"><label for="wr_area_company_0">Утга оруулах</label>&nbsp;
 						<input type="radio" class="chk" name="wr_area_company" value="1" id="wr_area_company_1" <?php echo ($get_alba['wr_area_company'])?'checked':'';?> onclick="wr_areas(this);"><label for="wr_area_company_1">기업정보위치</label>
 					</td>
 				</tr>
 				<tr id="wr_area_block" style="display:<?php echo ($get_alba['wr_area_company'])?'none':'';?>;">
-					<td class="ctlt">지도검색</td>
+					<td class="ctlt">Бүс нутгаар хайх</td>
 					<td class="pdlnb2">
-						<input type="text" class="txt" style="width:480px;" id="wr_area" name="wr_area" value="<?php echo $wr_area;?>" placeholder="주소">
-						<em><a class="button" onclick="execDaumPostcode();"><span>주소검색</span></a></em> 
+						<input type="text" class="txt" style="width:480px;" id="wr_area" name="wr_area" value="<?php echo $wr_area;?>" placeholder="Хаяг">
+						<em><a class="button" onclick="execDaumPostcode();"><span>Хаяг хайх</span></a></em>
 						<div id="map" style="margin-top:5px;width:490px;height:250px;"></div>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">인근대학</td>
+					<td class="ctlt">Ойролцоох их дээд сургуулиуд</td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:82px;" id="wr_college_area" name="wr_college_area" title="지역 선택" onchange="college_area(this,'wr_college_vicinity');" <?php echo ($form_college['etc_0'])?'required':'';?> hname="인근대학 지역">
+						<select class="ipSelect" style="width:82px;" id="wr_college_area" name="wr_college_area" title="Байршил сонгох" onchange="college_area(this,'wr_college_vicinity');" <?php echo ($form_college['etc_0'])?'required':'';?> hname="Ойролцоох их дээд сургуулиудийн байршил">
 						<option value="">지역</option>
 						<?php 
 						if($area_list){
@@ -948,8 +948,8 @@
 						}	// if end.
 						?>
 						</select>
-						<select class="ipSelect" style="width:310px;" id="wr_college_vicinity" name="wr_college_vicinity" title="인근대학 선택" <?php echo ($form_college['etc_0'])?'required':'';?> hname="인근대학">
-						<option value="">인근대학 선택</option>
+						<select class="ipSelect" style="width:310px;" id="wr_college_vicinity" name="wr_college_vicinity" title="Ойролцоох их дээд сургуулиуд сонгох" <?php echo ($form_college['etc_0'])?'required':'';?> hname="Ойролцоох их дээд сургуулиуд">
+						<option value="">Ойролцоох их дээд сургуулиуд</option>
 						<?php
 						if($wr_college_vicinity){
 							$pcodeList = $category_control->category_pcodeList('job_college', $wr_college_area);
@@ -1040,7 +1040,7 @@
 				<?php } */ ?>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">근무기간<b class="col">*</b></td>
+					<td class="ctlt">Ажлын хугацаа<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php 
 						if($alba_date_list){
@@ -1056,7 +1056,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">근무요일<b class="col">*</b></td>
+					<td class="ctlt">Ажлын өдөр<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php 
 						if($alba_week_list){
@@ -1064,7 +1064,7 @@
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 							$checked = ($get_alba['wr_week'] == $val['code']) ? "checked" : "";
 						?>
-						<input type="radio" title="<?php echo $name;?>" class="chk" id="wr_week_<?php echo $val['code'];?>" name="wr_week" value="<?php echo $val['code'];?>" required hname="근무기간" option="radio" <?php echo $checked;?>><label for="wr_week_<?php echo $val['code'];?>"><?php echo $name;?></label>&nbsp;
+						<input type="radio" title="<?php echo $name;?>" class="chk" id="wr_week_<?php echo $val['code'];?>" name="wr_week" value="<?php echo $val['code'];?>" required hname="Ажлын хугацаа" option="radio" <?php echo $checked;?>><label for="wr_week_<?php echo $val['code'];?>"><?php echo $name;?></label>&nbsp;
 						<?php 
 							}	// foreach end.
 						}	// if end.
@@ -1072,42 +1072,42 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">근무시간<b class="col">*</b></td>
+					<td class="ctlt">Ажлын цаг<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select style="width:82px;" class="ipSelect wr_time" name="wr_stime[]" id="wr_stime" <?php echo ($wr_time_conference)?'':'required';?> hname="근무시간" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
-						<option value="">선택</option>
+						<select style="width:82px;" class="ipSelect wr_time" name="wr_stime[]" id="wr_stime" <?php echo ($wr_time_conference)?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
+						<option value="">Сонгох</option>
 						<?php for($i=0;$i<=23;$i++){ ?>
 						<option value="<?php echo sprintf('%02d',$i);?>" <?php echo ($wr_stime[0]&&$wr_stime[0]==$i)?'selected':'';?>><?php echo sprintf('%02d',$i);?>시</option>
 						<?php } ?>
 						</select>
-						<select style="width:82px;"class="ipSelect wr_time" name="wr_stime[]" id="wr_smin" <?php echo ($wr_time_conference)?'':'required';?> hname="근무시간" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
-						<option value="">선택</option>
+						<select style="width:82px;"class="ipSelect wr_time" name="wr_stime[]" id="wr_smin" <?php echo ($wr_time_conference)?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
+						<option value="">Сонгох</option>
 						<?php for($i=0;$i<=5;$i++){?>
 						<option value="<?php echo $i;?>0" <?php echo ($wr_stime[1]==$i.'0')?'selected':'';?>><?php echo $i;?>0분</option>
 						<?php } ?>
 						</select>
 						<span id="nextworktime">~</span>
-						<select style="width:82px;"class="ipSelect wr_time" name="wr_etime[]" id="wr_etime" <?php echo ($wr_time_conference)?'':'required';?> hname="근무시간" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
-						<option value="">선택</option>
+						<select style="width:82px;"class="ipSelect wr_time" name="wr_etime[]" id="wr_etime" <?php echo ($wr_time_conference)?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
+						<option value="">Сонгох</option>
 						<?php for($i=0;$i<=23;$i++){ ?>
 						<option value="<?php echo sprintf('%02d',$i);?>" <?php echo ($wr_etime[0]&&$wr_etime[0]==$i)?'selected':'';?>><?php echo sprintf('%02d',$i);?>시</option>
 						<?php } ?>
 						</select>
-						<select style="width:82px;"class="ipSelect wr_time" name="wr_etime[]" id="wr_emin" <?php echo ($wr_time_conference)?'':'required';?> hname="근무시간" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
-						<option value="">선택</option>
+						<select style="width:82px;"class="ipSelect wr_time" name="wr_etime[]" id="wr_emin" <?php echo ($wr_time_conference)?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($wr_time_conference)?'disabled':'';?>>
+						<option value="">Сонгох</option>
 						<?php for($i=0;$i<=5;$i++){?>
-						<option value="<?php echo $i;?>0" <?php echo ($wr_etime[1]==$i.'0')?'selected':'';?>><?php echo $i;?>0분</option>
+						<option value="<?php echo $i;?>0" <?php echo ($wr_etime[1]==$i.'0')?'selected':'';?>><?php echo $i;?>0 минут</option>
 						<?php } ?>
 						</select>
 						<input type="checkbox" class="typeCheckbox" id="wr_time_conference" name="wr_time_conference" value="1" onclick="time_conference(this);"  <?php echo ($wr_time_conference)?'checked':'';?>>
-						<label for="wr_time_conference">시간협의</label>					
+						<label for="wr_time_conference">Цаг тохирох</label>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">급여<b class="col">*</b></td>
+					<td class="ctlt">Цалин<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select style="width:82px;" class="ipSelect" name="wr_pay_type" id="wr_pay_type" hname="급여조건" option="select" onchange="pay_types(this,'type');">
-						<option value="">= 급여 =</option>
+						<select style="width:82px;" class="ipSelect" name="wr_pay_type" id="wr_pay_type" hname="Цалингийн нөхцөл" option="select" onchange="pay_types(this,'type');">
+						<option value="">= Цалин =</option>
 						<?php 
 						if($alba_pay_list){
 							foreach($alba_pay_list as $val){ 
@@ -1120,16 +1120,16 @@
 						}	// if end.
 						?>
 						</select>
-						<input style="width:155px;" type="text" maxlength="10" class="txt" name="wr_pay" id="wr_pay" style="ime-mode:inactive;" <?php echo ($get_alba['wr_pay_conference'])?'disabled':'required';?> hname="급여금액" value="<?php echo $get_alba['wr_pay'];?>" placeholder="0" data-v-min="0" data-v-max="10000000000">
-						<label for="wr_pay">원</label>
-						<?php if($env['pay_view']){?><em class="text_help"> 최저임금 : 시급 <strong class="txtEng"><?php echo number_format($env['time_pay']);?>원</strong></em><?php } ?>
+						<input style="width:155px;" type="text" maxlength="10" class="txt" name="wr_pay" id="wr_pay" style="ime-mode:inactive;" <?php echo ($get_alba['wr_pay_conference'])?'disabled':'required';?> hname="Цалингийн хэмжээ" value="<?php echo $get_alba['wr_pay'];?>" placeholder="0" data-v-min="0" data-v-max="10000000000">
+						<label for="wr_pay">төгрөг</label>
+						<?php if($env['pay_view']){?><em class="text_help"> хөдөлмөрийн хөлсний доод хэмжээ : цагын мөнгө <strong class="txtEng"><?php echo number_format($env['time_pay']);?>төгрөг</strong></em><?php } ?>
 						<p class="pt10 pb3"> 
 							<span class="lowpay">
-								<input type="radio" class="chk" name="wr_pay_conference" value="1" id="wr_pay_conference_1" <?php echo ($get_alba['wr_pay_conference']=='1')?'checked':'';?> onclick="pay_types(this,'conference');"/><label for="wr_pay_conference_1">추후협의</label>&nbsp;
-								<input type="radio" class="chk" name="wr_pay_conference" value="2" id="wr_pay_conference_2" <?php echo ($get_alba['wr_pay_conference']=='2')?'checked':'';?> onclick="pay_types(this,'conference');"/><label for="wr_pay_conference_2">면접후결정</label>
+								<input type="radio" class="chk" name="wr_pay_conference" value="1" id="wr_pay_conference_1" <?php echo ($get_alba['wr_pay_conference']=='1')?'checked':'';?> onclick="pay_types(this,'conference');"/><label for="wr_pay_conference_1">Дараа нь тохирох</label>&nbsp;
+								<input type="radio" class="chk" name="wr_pay_conference" value="2" id="wr_pay_conference_2" <?php echo ($get_alba['wr_pay_conference']=='2')?'checked':'';?> onclick="pay_types(this,'conference');"/><label for="wr_pay_conference_2">Ярилцлагын дараа тохирох</label>
 								<!-- <input type="checkbox" class="chk" id="wr_pay_conference" name="wr_pay_conference" value="1" <?php echo ($get_alba['wr_pay_conference'])?'checked':'';?>>
 								<label for="wr_pay_conference">협의가능</label> -->
-								<?php if($env['pay_view']){?><em class="text_help"> (당사는 본 채용건과 관련하여 '최저임금법'을 준수합니다.)</em> <?php } ?>
+								<?php if($env['pay_view']){?><em class="text_help"> Манай компани 'Хөдөлмөрийн хөлсний доод хэмжээний тухай хууль' -ийг дагаж мөрддөг болно.</em> <?php } ?>
 							</span> 
 						</p>
 						<p class="pb3">
@@ -1149,7 +1149,7 @@
 				</tr>
 
 				<tr>
-					<td class="ctlt">근무형태<b class="col">*</b></td>
+					<td class="ctlt">Ажлын төрөл<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php 
 						if($work_type_list){ 
@@ -1157,7 +1157,7 @@
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 							$checked = (@in_array($val['code'],$wr_work_type)) ? 'checked' : '';
 						?>
-							<input type="checkbox" class="chk" name="wr_work_type[]" value="<?php echo $val['code'];?>" id="wr_work_type_<?php echo $val['code'];?>" required hname="근무형태" option="checkbox" <?php echo $checked;?>><label for="wr_work_type_<?php echo $val['code'];?>"><?php echo $name;?></label>&nbsp;
+							<input type="checkbox" class="chk" name="wr_work_type[]" value="<?php echo $val['code'];?>" id="wr_work_type_<?php echo $val['code'];?>" required hname="Ажлын төрөл" option="checkbox" <?php echo $checked;?>><label for="wr_work_type_<?php echo $val['code'];?>"><?php echo $name;?></label>&nbsp;
 						<?php
 							}	// foreach end.
 						}	// if end.
@@ -1167,18 +1167,18 @@
 
 
 				<tr>
-					<td class="ctlt">복리후생</td>
+					<td class="ctlt">Халамж</td>
 					<td class="pdlnb2">
 						<input type="text" style="width:255px;" class="txt" id="welfare_read" name="welfare_read" readonly onfocus="welfare_open();" value="<?php echo $get_alba['wr_welfare_read'];?>" hname="복리후생">
-						<em class="pr10"><a class="btn" style="padding:0 10px;" onclick="welfare_open();"><span >선택</span></a></em>
+						<em class="pr10"><a class="btn" style="padding:0 10px;" onclick="welfare_open();"><span >Сонгох</span></a></em>
 
 						<!-- 복리후생 선택 -->          
 						<div style="z-index:10000;  display:none; position:absolute; top:25%; left:20%; background:#fff;"  class=" dev_lywel" id="welfareLayer_val"> 
 							<div id="welfar" class="layerGireg border_color5">
 							<dl>
-								<dt class="positionL bg_color4">복리후생 선택</dt>
+								<dt class="positionL bg_color4">Халамж сонгох</dt>
 								<dd class="lgBody">
-									<table summary="복리후생을 선택할 수 있습니다.">
+									<table summary="Та халамжийн тэтгэмжийг сонгож болно.">
 									<colgroup><col width="100px"><col width="*"></colgroup>
 									<tbody>
 									<?php
@@ -1217,7 +1217,7 @@
 								</dd>
 							</dl>
 							<span class="closeBtn">
-								<img class="onclick" alt="닫기" src="../../images/icon/icon_close3.gif" width="11" height="11" onclick="welfare_close();">
+								<img class="onclick" alt="Хаах" src="../../images/icon/icon_close3.gif" width="11" height="11" onclick="welfare_close();">
 							</span> 
 							</div>
 						</div>
@@ -1227,24 +1227,24 @@
 				</tr>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">성별<b class="col">*</b></td>
+					<td class="ctlt">Хүйс<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input type="radio" class="chk" value="0" id="wr_gender_0" name="wr_gender" hname="성별" option="radio" <?php echo ($get_alba['wr_gender']=='0')?'checked':'';?>><label for="wr_gender_0">성별무관</label>&nbsp;
-						<input type="radio" class="chk" value="1" id="wr_gender_1" name="wr_gender" hname="성별" option="radio" <?php echo ($get_alba['wr_gender']=='1')?'checked':'';?>><label for="wr_gender_1">남자</label>&nbsp;
-						<input type="radio" class="chk" value="2" id="wr_gender_2" name="wr_gender" hname="성별" option="radio" <?php echo ($get_alba['wr_gender']=='2')?'checked':'';?>><label for="wr_gender_2">여자</label>
+						<input type="radio" class="chk" value="0" id="wr_gender_0" name="wr_gender" hname="Хүйс" option="radio" <?php echo ($get_alba['wr_gender']=='0')?'checked':'';?>><label for="wr_gender_0">Сонгохгүй</label>&nbsp;
+						<input type="radio" class="chk" value="1" id="wr_gender_1" name="wr_gender" hname="Хүйс" option="radio" <?php echo ($get_alba['wr_gender']=='1')?'checked':'';?>><label for="wr_gender_1">Эр</label>&nbsp;
+						<input type="radio" class="chk" value="2" id="wr_gender_2" name="wr_gender" hname="Хүйс" option="radio" <?php echo ($get_alba['wr_gender']=='2')?'checked':'';?>><label for="wr_gender_2">Эм</label>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">연령<b class="col">*</b></td>
+					<td class="ctlt">Нас<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<label><input type="radio" class="chk" id="wr_age_limit_0" name="wr_age_limit" value="0" onclick="age_sel(this);" <?php echo ($form_age['etc_0'])?'required':'';?> hname="연령" option="radio" <?php echo ($wr_age_limit=='0')?'checked':'';?>>연령무관</label>&nbsp;
-						<label><input type="radio"  class="chk" id="wr_age_limit_1" name="wr_age_limit" value="1" onclick="age_sel(this);" <?php echo ($form_age['etc_0'])?'required':'';?> hname="연령" option="radio" <?php echo ($wr_age_limit=='1')?'checked':'';?>>연령제한 있음</label>&nbsp;
+						<label><input type="radio" class="chk" id="wr_age_limit_0" name="wr_age_limit" value="0" onclick="age_sel(this);" <?php echo ($form_age['etc_0'])?'required':'';?> hname="Нас" option="radio" <?php echo ($wr_age_limit=='0')?'checked':'';?>>Бүх нас</label>&nbsp;
+						<label><input type="radio"  class="chk" id="wr_age_limit_1" name="wr_age_limit" value="1" onclick="age_sel(this);" <?php echo ($form_age['etc_0'])?'required':'';?> hname="Нас" option="radio" <?php echo ($wr_age_limit=='1')?'checked':'';?>>Насны хязгаар</label>&nbsp;
 
 						<span id="wr_age_display" style="display: <?php echo ($wr_age_limit)?'':'none';?>;">
-							<input type="text"  maxlength="2" style="width:30px;text-align:center;" class="txt wr_age" id="wr_sage" name="wr_sage" value="<?php echo $wr_age[0];?>" <?php echo ($wr_age_limit)?'required':'';?> hname="제한연령">
-							<label>세 이상~</label>
-							<input type="text"  maxlength="2" style="width:30px;text-align:center;" class="txt wr_age" id="wr_eage" name="wr_eage" value="<?php echo $wr_age[1];?>" <?php echo ($wr_age_limit)?'required':'';?> hname="제한연령">
-							<label>세 이하</label>
+							<input type="text"  maxlength="2" style="width:30px;text-align:center;" class="txt wr_age" id="wr_sage" name="wr_sage" value="<?php echo $wr_age[0];?>" <?php echo ($wr_age_limit)?'required':'';?> hname="насны хязгаар">
+							<label>3-аас дээш~</label>
+							<input type="text"  maxlength="2" style="width:30px;text-align:center;" class="txt wr_age" id="wr_eage" name="wr_eage" value="<?php echo $wr_age[1];?>" <?php echo ($wr_age_limit)?'required':'';?> hname="насны хязгаар">
+							<label>3-аас доош</label>
 							<!-- <span class="age">(<strong class="selectCnt" name="YearConv1" id="YearConv1"></strong>년생 이상~<strong class="selectCnt" name="YearConv2" id="YearConv2"></strong>년생 이하)
 							</span> -->
 						</span>
@@ -1265,7 +1265,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">학력조건<b class="col">*</b></td>
+					<td class="ctlt">Боловсролын нөхцөл<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php
 						if($job_ability_list) {
@@ -1273,7 +1273,7 @@
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 							$checked = ($get_alba['wr_ability']==$val['code']) ? "checked" : "";
 						?>
-						<label><input type="radio" id="wr_ability_<?php echo $val['code'];?>" name="wr_ability" value="<?php echo $val['code'];?>" required hname="학력조건" option="radio" <?php echo $checked;?>> <?php echo $name;?></label>&nbsp;
+						<label><input type="radio" id="wr_ability_<?php echo $val['code'];?>" name="wr_ability" value="<?php echo $val['code'];?>" required hname="Боловсролын нөхцөл" option="radio" <?php echo $checked;?>> <?php echo $name;?></label>&nbsp;
 						<?php 
 							} // foreach end.
 						}	// if end.
@@ -1281,15 +1281,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">경력사항<b class="col">*</b></td>
+					<td class="ctlt">Ажил мэргэжил<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<label><input type="radio" id="wr_career_type_0" name="wr_career_type" value="0" onclick="career_sels(this);" required hname="경력사항" option="radio" <?php echo ($wr_career_type=='0')?'checked':'';?>> 경력무관</label>&nbsp;
-						<label><input type="radio" id="wr_career_type_1" name="wr_career_type" value="1" onclick="career_sels(this);" required hname="경력사항" option="radio" <?php echo ($wr_career_type=='1')?'checked':'';?>> 신입</label>&nbsp;
-						<label><input type="radio" id="wr_career_type_2" name="wr_career_type" value="2" onclick="career_sels(this);" required hname="경력사항" option="radio" <?php echo ($wr_career_type=='2')?'checked':'';?>> 경력</label>
+						<label><input type="radio" id="wr_career_type_0" name="wr_career_type" value="0" onclick="career_sels(this);" required hname="Ажил мэргэжил" option="radio" <?php echo ($wr_career_type=='0')?'checked':'';?>> Сонгохгүй</label>&nbsp;
+						<label><input type="radio" id="wr_career_type_1" name="wr_career_type" value="1" onclick="career_sels(this);" required hname="Ажил мэргэжил" option="radio" <?php echo ($wr_career_type=='1')?'checked':'';?>> Шинэ ажилтан</label>&nbsp;
+						<label><input type="radio" id="wr_career_type_2" name="wr_career_type" value="2" onclick="career_sels(this);" required hname="Ажил мэргэжил" option="radio" <?php echo ($wr_career_type=='2')?'checked':'';?>> Ажил мэргэжил</label>
 
 						<span id="wr_careers_display" style="display: <?php echo ($wr_career_type=='2')?'':'none';?>;">
-							<select class="ipSelect" name="wr_career" id="wr_career" <?php echo ($get_alba['wr_career_type']=='2')?'required':'';?> hname="경력" option="select">
-							<option value="">= 경력선택 =</option>
+							<select class="ipSelect" name="wr_career" id="wr_career" <?php echo ($get_alba['wr_career_type']=='2')?'required':'';?> hname="Ажил мэргэжил" option="select">
+							<option value="">= Ажил мэргэжил сонгох =</option>
 							<?php
 							if($job_career_list) {
 								foreach($job_career_list as $val){
@@ -1302,12 +1302,12 @@
 							}	// if end.
 							?>
 							</select>
-							이상
+							Дээш
 						</span>					
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">우대조건</td>
+					<td class="ctlt">Хөнгөлөлттэй нөхцөл</td>
 					<td class="pdlnb2">
 						<ul class="preferenceTerms">
 						<?php
@@ -1331,15 +1331,15 @@
 				</tr>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">모집인원<b class="col">*</b></td>
+					<td class="ctlt">Ажилл авах хүний тоо<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input type="text" maxlength="5" style="width:110px;text-align:center;" class="txt" id="wr_volume" name="wr_volume" value="<?php echo $get_alba['wr_volume'];?>" <?php echo (@in_array('0',$wr_volumes)||@in_array('00',$wr_volumes))?'':'required';?> hname="모집인원"> <label>명</label>&nbsp;
-						<input type="checkbox" class="chk" id="volume_0" name="wr_volumes[]" value="0" onclick="volume_sel(this);" <?php echo (@in_array('0',$wr_volumes))?'checked':'';?>><label for="volume_0">0명</label>&nbsp;
-						<input type="checkbox" class="chk" id="volume_00" name="wr_volumes[]" value="00" onclick="volume_sel(this);" <?php echo (@in_array('00',$wr_volumes))?'checked':'';?>><label for="volume_00">00명</label>
+						<input type="text" maxlength="5" style="width:110px;text-align:center;" class="txt" id="wr_volume" name="wr_volume" value="<?php echo $get_alba['wr_volume'];?>" <?php echo (@in_array('0',$wr_volumes)||@in_array('00',$wr_volumes))?'':'required';?> hname="모집인원"> <label>Хүн</label>&nbsp;
+						<input type="checkbox" class="chk" id="volume_0" name="wr_volumes[]" value="0" onclick="volume_sel(this);" <?php echo (@in_array('0',$wr_volumes))?'checked':'';?>><label for="volume_0">0 Хүн</label>&nbsp;
+						<input type="checkbox" class="chk" id="volume_00" name="wr_volumes[]" value="00" onclick="volume_sel(this);" <?php echo (@in_array('00',$wr_volumes))?'checked':'';?>><label for="volume_00">00 Хүн</label>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">모집대상</td>
+					<td class="ctlt">Ажилт авах нөхцөл</td>
 					<td class="pdlnb2">
 						<?php
 						if($job_target) {
@@ -1356,13 +1356,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">모집종료일<b class="col">*</b></td>
+					<td class="ctlt">Ажилд авах хугацаа дуусах огноо<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<input type="radio" class="chk" name="volume_check" value="wr_volume_dates" checked/>
 						<input type="text" style="width:165px;" class="txt" id="wr_volume_dates" name="wr_volume_date" hname="모집종료일" value="<?php echo $get_alba['wr_volume_date'];?>">
 						<em class="pr10"><a class="btn" id="volume_date_sels"><span>날짜선택</span></a></em>
-						<label><input type="radio" class="chk" name="volume_check" value="wr_volume_always" id="wr_volume_always" <?php echo ($get_alba['wr_volume_always'])?'checked':'';?>/>상시모집</label>&nbsp;
-						<label><input type="radio" class="chk" name="volume_check" value="wr_volume_end" id="wr_volume_end" <?php echo ($get_alba['wr_volume_end'])?'checked':'';?>/>채용시까지</label>
+						<label><input type="radio" class="chk" name="volume_check" value="wr_volume_always" id="wr_volume_always" <?php echo ($get_alba['wr_volume_always'])?'checked':'';?>/>Тогтмол элсэлт</label>&nbsp;
+						<label><input type="radio" class="chk" name="volume_check" value="wr_volume_end" id="wr_volume_end" <?php echo ($get_alba['wr_volume_end'])?'checked':'';?>/>Ажилд авах хүртэл</label>
 					</td>
 				</tr>
 				<tr>
@@ -1371,25 +1371,25 @@
 						<div class="passtypeWrap pb5 clearfix">
 							<ul>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk requisition_chk" id="wr_requisition_online" name="wr_requisition[]" value="online" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('online',$wr_requisition))?'checked':'';?>><label for="wr_requisition_online"><strong class="text_orange">온라인지원</strong></label>
+									<input type="checkbox" class="chk requisition_chk" id="wr_requisition_online" name="wr_requisition[]" value="online" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('online',$wr_requisition))?'checked':'';?>><label for="wr_requisition_online"><strong class="text_orange">Онлайн</strong></label>
 								</li>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk requisition_chk" id="wr_requisition_email" name="wr_requisition[]" value="email" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('email',$wr_requisition))?'checked':'';?>><label for="wr_requisition_email"><strong class="text_orange">e-메일지원</strong></label>
+									<input type="checkbox" class="chk requisition_chk" id="wr_requisition_email" name="wr_requisition[]" value="email" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('email',$wr_requisition))?'checked':'';?>><label for="wr_requisition_email"><strong class="text_orange">И-мэйл</strong></label>
 								</li>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk" id="wr_requisition_phone" name="wr_requisition[]" value="phone" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('phone',$wr_requisition))?'checked':'';?>><label for="wr_requisition_phone">전화연락</label>
+									<input type="checkbox" class="chk" id="wr_requisition_phone" name="wr_requisition[]" value="phone" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('phone',$wr_requisition))?'checked':'';?>><label for="wr_requisition_phone">Утас</label>
 								</li>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk" id="wr_requisition_meet" name="wr_requisition[]" value="meet" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('meet',$wr_requisition))?'checked':'';?>><label for="wr_requisition_meet">방문접수</label>
+									<input type="checkbox" class="chk" id="wr_requisition_meet" name="wr_requisition[]" value="meet" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('meet',$wr_requisition))?'checked':'';?>><label for="wr_requisition_meet">Биечлэн уулзах</label>
 								</li>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk" id="wr_requisition_post" name="wr_requisition[]" value="post" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('post',$wr_requisition))?'checked':'';?>><label for="wr_requisition_post">우편</label>
+									<input type="checkbox" class="chk" id="wr_requisition_post" name="wr_requisition[]" value="post" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('post',$wr_requisition))?'checked':'';?>><label for="wr_requisition_post">Шуудан</label>
 								</li>                
 								<li class="fl pr10">
-									<input type="checkbox" class="chk" id="wr_requisition_fax" name="wr_requisition[]" value="fax" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('fax',$wr_requisition))?'checked':'';?>><label for="wr_requisition_fax">팩스</label>
+									<input type="checkbox" class="chk" id="wr_requisition_fax" name="wr_requisition[]" value="fax" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('fax',$wr_requisition))?'checked':'';?>><label for="wr_requisition_fax">Факс</label>
 								</li>
 								<li class="fl pr10">
-									<input type="checkbox" class="chk" id="wr_requisition_homepage" name="wr_requisition[]" value="homepage" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="접수방법" option="checkbox" <?php echo (@in_array('homepage',$wr_requisition))?'checked':'';?>><label for="wr_requisition_homepage">홈페이지</label>
+									<input type="checkbox" class="chk" id="wr_requisition_homepage" name="wr_requisition[]" value="homepage" onclick="requisition_sel(this);" <?php echo ($form_requisition['etc_0'])?'required':'';?> hname="Өргөдөл гаргах арга" option="checkbox" <?php echo (@in_array('homepage',$wr_requisition))?'checked':'';?>><label for="wr_requisition_homepage">Нүүр хуудас</label>
 								</li>
 							</ul>
 						</div>
@@ -1399,24 +1399,24 @@
 						</div>
 						<div class="emailLayer requisition" id="form_input" style="display: <?php echo (@in_array('online',$wr_requisition)||@in_array('email',$wr_requisition))?'':'none';?>;">
 							<input type="checkbox" class="chk" id="wr_form" name="wr_form" value="1" <?php echo ($get_alba['wr_form'])?'checked':'';?> onclick="attach_view(this);"> 
-							<label for="wr_form">자사양식지원</label>
+							<label for="wr_form">Дэмжлэг</label>
 								<span id="acceptmethod2AttachChoice">
 								(
 								<input type="radio" id="wr_form_required_1" class="chk" name="wr_form_required" value="1" checked> 
-								<label for="wr_form_required_1">필수</label>,
+								<label for="wr_form_required_1">Шаардлагатай</label>,
 								<input type="radio" id="wr_form_required_0" class="chk" name="wr_form_required" value="0" <?php echo (!$get_alba['wr_form_required'])?'checked':'';?>> 
-								<label for="wr_form_required_0">선택</label>
+								<label for="wr_form_required_0">Сонгох</label>
 								)
 								<input type="file" class="txtForm" style="width:200px; height:20px;display:none;" size="32" id="wr_form_attach" name="wr_form_attach" value="<?php echo $get_alba['wr_form_attach'];?>">
 								<?php if($get_alba['wr_form_attach']){ // 등록된 양식 파일이 있다면?>
-								<div style="padding-top:5px;">등록된 파일 :: <a href="javascript:file_download('<?php echo $alice['alba_path'];?>/download.php?no=<?php echo $no;?>','<?php echo $get_alba['wr_form_attach'];?>');"><?php echo $wr_form_attach[1];?></a></div>
+								<div style="padding-top:5px;">Бүртгэгдсэн файл :: <a href="javascript:file_download('<?php echo $alice['alba_path'];?>/download.php?no=<?php echo $no;?>','<?php echo $get_alba['wr_form_attach'];?>');"><?php echo $wr_form_attach[1];?></a></div>
 								<?php } ?>
 							</span>
 						</div>				
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">제출서류</td>
+					<td class="ctlt">Хавсаргах бичиг баримт</td>
 					<td class="pdlnb2">
 						<ul>
 						<?php 
@@ -1424,21 +1424,21 @@
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 						?>
 							<li class="fl pr10">
-								<input type="checkbox" class="chk" id="wr_papers_<?php echo $val['code'];?>" name="wr_papers[]" value="<?php echo $name;?>" <?php echo (@in_array($name,$wr_papers))?'checked':'';?> hname="제출서류" option="checkbox"><label for="wr_papers_<?php echo $val['code'];?>"><?php echo $name;?></label>
+								<input type="checkbox" class="chk" id="wr_papers_<?php echo $val['code'];?>" name="wr_papers[]" value="<?php echo $name;?>" <?php echo (@in_array($name,$wr_papers))?'checked':'';?> hname="Хавсаргах бичиг баримт" option="checkbox"><label for="wr_papers_<?php echo $val['code'];?>"><?php echo $name;?></label>
 							</li>
 						<?php } ?>
 						</ul>					
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">사전질문</td>
+					<td class="ctlt">Асуулт</td>
 					<td class="pdlnb2">
-						<em class="text_help">사전인터뷰 질문을 등록하시면 온라인 입사지원시 지원자가 이력서와 함께 질문에 대한 답변을 작성해서 보냅니다.</em>
-						<textarea style="width:100%; height:100px;  border:1px solid #ddd;" id="wr_pre_question" class="txt" name="wr_pre_question" <?php echo ($form_question['etc_0'])?'required':'';?> hname="사전질문"><?php echo stripslashes($get_alba['wr_pre_question']);?></textarea>
+						<em class="text_help">Хэрэв та ярилцлагын өмнөх асуултыг бүртгүүлсэн бол өргөдөл гаргагч анкетын хамт бичиж илгээнэ.</em>
+						<textarea style="width:100%; height:100px;  border:1px solid #ddd;" id="wr_pre_question" class="txt" name="wr_pre_question" <?php echo ($form_question['etc_0'])?'required':'';?> hname="Асуулт"><?php echo stripslashes($get_alba['wr_pre_question']);?></textarea>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">상세모집요강<b class="col">*</b></td>
+					<td class="ctlt">Ажилд авах талаархи дэлгэрэнгүй заавар<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php echo $utility->make_cheditor("wr_content", stripslashes($get_alba['wr_content']));	// 에디터 생성?>
 					</td>
@@ -1620,11 +1620,11 @@
 			case 'second_job_type':
 				
 				if($target=='wr_job_type_1' || $target=='wr_job_type_4' || $target=='wr_job_type_7'){
-					$title = "= 2차 직종선택 =";
-					$option = "<option value=\"\">1차 직종을 먼저 선택해 주세요</option>";
+					$title = "= 2-р ажил мэргэжил =";
+					$option = "<option value=\"\">1-р ажил мэргэжлийг эхлээд сонгоно уу.</option>";
 				} else if($target=='wr_job_type_2' || $target=='wr_job_type_5' || $target=='wr_job_type_8'){
-					$title = "= 3차 직종선택 =";
-					$option = "<option value=\"\">2차 직종을 먼저 선택해 주세요</option>";
+					$title = "= 3-р ажил мэргэжил =";
+					$option = "<option value=\"\">2-р ажил мэргэжил</option>";
 				}
 
 				$targets = array( "wr_job_type_1" => "wr_job_type_2", "wr_job_type_2" => "wr_job_type_3", "wr_job_type_3" => "wr_job_type_4", "wr_job_type_4" => "wr_job_type_5","wr_job_type_5" => "wr_job_type_6", "wr_job_type_6" => "wr_job_type_7", "wr_job_type_7" => "wr_job_type_8" );
@@ -1650,11 +1650,11 @@
 			case 'insert_second_job_type':
 
 				if($target=='wr_job_type1' || $target=='wr_job_type4' || $target=='wr_job_type7'){
-					$title = "= 2차 직종선택 =";
-					$option = "<option value=\"\">1차 직종을 먼저 선택해 주세요</option>";
+					$title = "= 2-р ажил мэргэжил =";
+					$option = "<option value=\"\">1-р ажил мэргэжлийг эхлээд сонгоно уу</option>";
 				} else if($target=='wr_job_type2' || $target=='wr_job_type5' || $target=='wr_job_type8'){
-					$title = "= 3차 직종선택 =";
-					$option = "<option value=\"\">2차 직종을 먼저 선택해 주세요</option>";
+					$title = "= 3-р ажил мэргэжил =";
+					$option = "<option value=\"\">2-р ажил мэргэжлийг эхлээд сонгоно уу</option>";
 				}
 
 				$targets = array( "wr_job_type1" => "wr_job_type2", "wr_job_type2" => "wr_job_type3", "wr_job_type3" => "wr_job_type4", "wr_job_type4" => "wr_job_type5","wr_job_type5" => "wr_job_type6", "wr_job_type6" => "wr_job_type7", "wr_job_type7" => "wr_job_type8" );
@@ -1682,15 +1682,15 @@
 				
 				$pcodeList = $category_control->category_pcodeList($type, $p_code);
 
-				$result  = "<select class=\"ipSelect\" style=\"width:180px;\" id=\"".$target."\" name=\"".$target."\" title=\"시·군·구 선택\">";
-				$result .= "<option value=\"\"> -- 시·군·구 --</option>";
+				$result  = "<select class=\"ipSelect\" style=\"width:180px;\" id=\"".$target."\" name=\"".$target."\" title=\"хороо·тоот сонгох\">";
+				$result .= "<option value=\"\"> -- хороо·тоот --</option>";
 				if($pcodeList){
 					foreach($pcodeList as $val){
 						$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 						$result .= "<option value=\"".$val['code']."\">".$name."</option>";
 					}
 				} else {
-					$result .= "<option value=\"\">시·도 를 먼저 선택해 주세요</option>";
+					$result .= "<option value=\"\">хороо·тоотыг эхлээд сонгоно уу.</option>";
 				}
 				$result .= "</select>";
 
@@ -1703,37 +1703,37 @@
 				$pcodeList = $category_control->category_pcodeList($type, $p_code);
 
 				if($target=='wr_area_01'){
-					$title = "시군구 선택";
-					$option = "<option value=\"\">시군구</option>";
+					$title = "Хот, дүүрэг сонгох";
+					$option = "<option value=\"\">Хот, дүүрэг</option>";
 					$name = "wr_area_0[]";
 					$targets = "wr_area_02";
 				} else if($target=='wr_area_02'){
-					$title = "읍면동 선택";
-					$option = "<option value=\"\">읍면동</option>";
+					$title = "хороо, тоот сонгох";
+					$option = "<option value=\"\">хороо, тоот</option>";
 					$name = "wr_area_0[]";
 					$targets = "";
 				}
 
 				if($target=='wr_area_11'){
-					$title = "시군구 선택";
-					$option = "<option value=\"\">시군구</option>";
+					$title = "Хот, дүүрэг сонгох";
+					$option = "<option value=\"\">Хот, дүүрэг</option>";
 					$name = "wr_area_1[]";
 					$targets = "wr_area_12";
 				} else if($target=='wr_area_12'){
-					$title = "읍면동 선택";
-					$option = "<option value=\"\">읍면동</option>";
+					$title = "хороо, тоот сонгох";
+					$option = "<option value=\"\">хороо, тоот</option>";
 					$name = "wr_area_1[]";
 					$targets = "";
 				}
 
 				if($target=='wr_area_21'){
-					$title = "시군구 선택";
-					$option = "<option value=\"\">시군구</option>";
+					$title = "Хот, дүүрэг сонгох";
+					$option = "<option value=\"\">Хот, дүүрэг</option>";
 					$name = "wr_area_2[]";
 					$targets = "wr_area_22";
 				} else if($target=='wr_area_22'){
-					$title = "읍면동 선택";
-					$option = "<option value=\"\">읍면동</option>";
+					$title = "хороо, тоот сонгох";
+					$option = "<option value=\"\">хороо, тоот</option>";
 					$name = "wr_area_2[]";
 					$targets = "";
 				}
@@ -1759,9 +1759,9 @@
 				$pcodeList = $category_control->category_pcodeList($type, $p_code);
 
 				if($mode=='subway_line')
-					$result = "<option value=\"\">호선</option>";
+					$result = "<option value=\"\">Гарц</option>";
 				else if($mode=='subway_station')
-					$result = "<option value=\"\">지하철역</option>";
+					$result = "<option value=\"\">Метроны буудал</option>";
 
 				if($pcodeList){
 					foreach($pcodeList as $val){
@@ -1779,7 +1779,7 @@
 			
 				$pcodeList = $category_control->category_pcodeList($type, $p_code);
 
-				$result = "<option value=\"\">인근대학 선택</option>";
+				$result = "<option value=\"\">Ойролцоох их сургууль сонгох</option>";
 
 				if($pcodeList){
 					foreach($pcodeList as $val){
@@ -1837,29 +1837,29 @@
 
 
 					<dl class="ntlt lnb_col m0 hand" id="serviceHandle">
-						<img src="../../images/comn/bul_10.png" class="t">서비스승인
+						<img src="../../images/comn/bul_10.png" class="t">Үйлчилгээний зөвшөөрөл
 						<a onClick="MM_showHideLayers('pop_service','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 					</dl>
 
 					<table width="700" class="bg_col tf">
 					<col width="110"><col width="180"><col>
 					<tr>
-						<td class="ctlt" colspan="3">메인 페이지</td>
+						<td class="ctlt" colspan="3">Үндсэн хуудас</td>
 					</tr>
 					<tr>
-						<td class="ctlt">플래티넘</td>
+						<td class="ctlt">Пилатинум</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_platinums" name="wr_service_platinum" value="<?php echo ($get_alba['wr_service_platinum'])?$get_alba['wr_service_platinum']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					</tr>
-						<td class="ctlt">플래티넘 골드</td>
+						<td class="ctlt">Пилатинум алтан</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_platinum_main_gold" name="wr_service_platinum_main_gold" value="<?php echo ($get_alba['wr_service_platinum_main_gold'])?$get_alba['wr_service_platinum_main_gold']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					</tr>
-						<td class="ctlt">플래티넘 로고강조</td>
+						<td class="ctlt">Пилатинум лого</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_platinum_main_logo" name="wr_service_platinum_main_logo" value="<?php echo ($get_alba['wr_service_platinum_main_logo'])?$get_alba['wr_service_platinum_main_logo']:'0000-00-00';?>"/>
 						</td>
@@ -1867,11 +1867,11 @@
 							<ul class="aniLogo platinum_logo">
 								<li>
 									<input type="radio" class="chk" name="platinum_logo_effect" value="0" id="platinum_logo_0" checked>
-									<label for="platinum_logo_0"><img class="vm platinum_fade_image"  width="72"  alt="반짝로고1" src="../../images/basic/img_aniLogo1.gif"/></label>
+									<label for="platinum_logo_0"><img class="vm platinum_fade_image"  width="72"  alt="Лого 1" src="../../images/basic/img_aniLogo1.gif"/></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="platinum_logo_effect" value="1" id="platinum_logo_1" <?php echo ($get_alba['wr_service_platinum_main_logo_val']=='1')?'checked':'';?>>
-									<label for="platinum_logo_1"><img class="vm"  width="72"  alt="반짝로고2" src="../../images/basic/img_aniLogo2.gif" /></label>
+									<label for="platinum_logo_1"><img class="vm"  width="72"  alt="Лого 2" src="../../images/basic/img_aniLogo2.gif" /></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="platinum_logo_effect" value="2" id="platinum_logo_2" <?php echo ($get_alba['wr_service_platinum_main_logo_val']=='2')?'checked':'';?>>
@@ -1886,19 +1886,19 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">그랜드</td>
+						<td class="ctlt">Гранд</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_grands" name="wr_service_grand" value="<?php echo ($get_alba['wr_service_grand'])?$get_alba['wr_service_grand']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">그랜드 골드</td>
+						<td class="ctlt">Гранд алтан</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_grand_main_gold" name="wr_service_grand_main_gold" value="<?php echo ($get_alba['wr_service_grand_main_gold'])?$get_alba['wr_service_grand_main_gold']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">그랜드 로고강조</td>
+						<td class="ctlt">Гранд лого</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_grand_main_logo" name="wr_service_grand_main_logo" value="<?php echo ($get_alba['wr_service_grand_main_logo'])?$get_alba['wr_service_grand_main_logo']:'0000-00-00';?>"/>
 						</td>
@@ -1906,11 +1906,11 @@
 							<ul class="aniLogo grand_logo">
 								<li>
 									<input type="radio" class="chk" name="grand_logo_effect" value="0" id="grand_logo_0" checked>
-									<label for="grand_logo_0"><img class="vm grand_fade_image"  width="72"  alt="반짝로고1" src="../../images/basic/img_aniLogo1.gif"/></label>
+									<label for="grand_logo_0"><img class="vm grand_fade_image"  width="72"  alt="Лого 1" src="../../images/basic/img_aniLogo1.gif"/></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="grand_logo_effect" value="1" id="grand_logo_1" <?php echo ($get_alba['wr_service_grand_main_logo_val']=='1')?'checked':'';?>>
-									<label for="grand_logo_1"><img class="vm"  width="72"  alt="반짝로고2" src="../../images/basic/img_aniLogo2.gif" /></label>
+									<label for="grand_logo_1"><img class="vm"  width="72"  alt="Лого 2" src="../../images/basic/img_aniLogo2.gif" /></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="grand_logo_effect" value="2" id="grand_logo_2" <?php echo ($get_alba['wr_service_grand_main_logo_val']=='2')?'checked':'';?>>
@@ -1925,19 +1925,19 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">스페셜</td>
+						<td class="ctlt">Онцгой</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_specials" name="wr_service_special" value="<?php echo ($get_alba['wr_service_special'])?$get_alba['wr_service_special']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">스페셜 골드</td>
+						<td class="ctlt"></td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_special_main_gold" name="wr_service_special_main_gold" value="<?php echo ($get_alba['wr_service_special_main_gold'])?$get_alba['wr_service_special_main_gold']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">스페셜 로고강조</td>
+						<td class="ctlt">Онцгой алтан</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_special_main_logo" name="wr_service_special_main_logo" value="<?php echo ($get_alba['wr_service_special_main_logo'])?$get_alba['wr_service_special_main_logo']:'0000-00-00';?>"/>
 						</td>
@@ -1945,11 +1945,11 @@
 							<ul class="aniLogo special_logo">
 								<li>
 									<input type="radio" class="chk" name="special_logo_effect" value="0" id="special_logo_0" checked>
-									<label for="special_logo_0"><img class="vm special_fade_image"  width="72"  alt="반짝로고1" src="../../images/basic/img_aniLogo1.gif"/></label>
+									<label for="special_logo_0"><img class="vm special_fade_image"  width="72"  alt="Лого1" src="../../images/basic/img_aniLogo1.gif"/></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="special_logo_effect" value="1" id="special_logo_1" <?php echo ($get_alba['wr_service_special_main_logo_val']=='1')?'checked':'';?>>
-									<label for="special_logo_1"><img class="vm"  width="72"  alt="반짝로고2" src="../../images/basic/img_aniLogo2.gif" /></label>
+									<label for="special_logo_1"><img class="vm"  width="72"  alt="Лого 2" src="../../images/basic/img_aniLogo2.gif" /></label>
 								</li>
 								<li>
 									<input type="radio" class="chk" name="special_logo_effect" value="2" id="special_logo_2" <?php echo ($get_alba['wr_service_special_main_logo_val']=='2')?'checked':'';?>>
@@ -1965,7 +1965,7 @@
 					</tr>
 					<?php if($main_basic_check['is_pay']){ ?>
 					<tr>
-						<td class="ctlt">일반리스트</td>
+						<td class="ctlt">Энгийн</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_basics" name="wr_service_basic" value="<?php echo ($get_alba['wr_service_basic'])?$get_alba['wr_service_basic']:'0000-00-00';?>"/>
 						</td>
@@ -1974,15 +1974,15 @@
 					<tr><td colspan="3" class="lnb wbg" height="5"></td></tr>
 
 					<tr>
-						<td class="ctlt" colspan="3">강조옵션 상품</td>
+						<td class="ctlt" colspan="3">Сонголтын бүтээгдэхүүнийг тодруулах</td>
 					</tr>
 					<tr>
-						<td class="ctlt">형광펜</td>
+						<td class="ctlt">Тодруулага</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_neons" name="wr_service_neon" value="<?php echo ($get_alba['wr_service_neon'])?$get_alba['wr_service_neon']:'0000-00-00';?>"/>
 						</td>
 						<td class="pdlnb2 num11">
-							<div class="boxRadio bg_color2 ml10 mt10  pt5 pb5 alba_option_neon" ><strong>칼라선택:</strong>
+							<div class="boxRadio bg_color2 ml10 mt10  pt5 pb5 alba_option_neon" ><strong>Өнгө сонгох:</strong>
 							<?php 
 								for($i=0;$i<$alba_option_neon_color_cnt;$i++){ 
 								if($get_alba['wr_service_neon_val']){
@@ -1993,20 +1993,20 @@
 							?>
 								<span class="">
 									<input type="radio" value="<?php echo $alba_option_neon_color[$i];?>" name="alba_option_neon_sel" id="alba_option_neon_<?php echo $i;?>" class="chk" <?php echo $checked;?>>
-									<label for="alba_option_neon_<?php echo $i;?>" style="background:#<?php echo $alba_option_neon_color[$i];?>;">형광펜</label>
+									<label for="alba_option_neon_<?php echo $i;?>" style="background:#<?php echo $alba_option_neon_color[$i];?>;">Тодруулга</label>
 								</span>
 							<?php } ?>
 							</div>						
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">굵은글자</td>
+						<td class="ctlt">Bold текст</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_bolds" name="wr_service_bold" value="<?php echo ($get_alba['wr_service_bold'])?$get_alba['wr_service_bold']:'0000-00-00';?>"/>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">아이콘</td>
+						<td class="ctlt">Айкон</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_icons" name="wr_service_icon" value="<?php echo ($get_alba['wr_service_icon'])?$get_alba['wr_service_icon']:'0000-00-00';?>"/>
 						</td>
@@ -2035,12 +2035,12 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">글자색</td>
+						<td class="ctlt">Текстын өнгө</td>
 						<td class="pdlnb2 num11">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_colors" name="wr_service_color" value="<?php echo ($get_alba['wr_service_color'])?$get_alba['wr_service_color']:'0000-00-00';?>"/>
 						</td>
 						<td class="pdlnb2 num11">
-							<div class="boxRadio bg_color2 ml10 mt10  pt5 pb5 alba_option_color"><strong>칼라선택:</strong>
+							<div class="boxRadio bg_color2 ml10 mt10  pt5 pb5 alba_option_color"><strong>Өнгө сонгох:</strong>
 							<?php 
 								for($i=0;$i<$alba_option_colors_cnt;$i++){
 								if($get_alba['wr_service_color_val']){
@@ -2055,7 +2055,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">반짝칼라</td>
+						<td class="ctlt">Гэгээлэг өнгө</td>
 						<td class="pdlnb2 num11" >
 							<input type="text" style="width:165px;" class="txt" id="wr_service_blinks" name="wr_service_blink" value="<?php echo ($get_alba['wr_service_blink'])?$get_alba['wr_service_blink']:'0000-00-00';?>"/>
 						</td>
@@ -2063,7 +2063,7 @@
 					</tr>
 					<tr><td colspan="3" class="lnb wbg" height="5"></td></tr>
 					<tr>
-						<td class="ctlt">급구</td>
+						<td class="ctlt">Яаралтай</td>
 						<td class="pdlnb2 num11" colspan="2">
 							<input type="text" style="width:165px;" class="txt" id="wr_service_busys" name="wr_service_busy" value="<?php echo ($get_alba['wr_service_busy'])?$get_alba['wr_service_busy']:'0000-00-00';?>"/>
 						</td>
