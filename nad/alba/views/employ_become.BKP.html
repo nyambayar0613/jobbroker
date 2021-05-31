@@ -14,12 +14,12 @@ var pop_member = function( mb_id ){		// 회원 정보
 }
 var become_delete = function( no ){	 // 삭제 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("Ажилд орох өргөдлөө устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("입사지원 정보를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Ажлын байрны өргөдлийн мэдээллийг устгах',
+		title: '입사지원 정보 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -28,7 +28,7 @@ var become_delete = function( no ){	 // 삭제 (단수)
 var become_deletes = function( ){	 // 삭제 (복수)
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах мэдээллийг сонгоно уу.');
+		alert('삭제 할 지원정보를 선택해 주세요.');
 		return false;
 	} else {
 		var del_no = new Array();
@@ -38,18 +38,18 @@ var become_deletes = function( ){	 // 삭제 (복수)
 		i++;
 		});
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон ажлын байрны өргөдлийн мэдээлэл"+chk_length+"устгах уу?");
+		$('#confirm_msg').html("선택하신 입사지원 정보"+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="Тиим" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Ажлын байрны өргөдлийг сонгох, устгах',
+			title: '입사지원 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -93,8 +93,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="Тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="Үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -112,29 +112,28 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
- Хувь гишүүдийн онлайн болон и-мэйл өргөдлийг зохицуулах хуудас юм. <br>
+개인회원들의 온라인, 이메일 입사지원 현황을 관리하시는 페이지 입니다. <br>
 </dl></dl>
 
 <?//php include_once "./views/_include/comment_search.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Ажлын өргөдөл удирдах
-	<span> <b class="num3 col"><?php echo number_format($list['total_count']);?></b>Нэг бүрчлэн хайгдсан.</span>
-
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">입사지원 관리
+	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건이 검색되었습니다.</span>
 	<dt>
 		<!-- <label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp; -->
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 		</select>
 	</dt>
 </dl>
 <dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-		<a onClick="become_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="become_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 	</dt>
 </dl>
 
@@ -142,11 +141,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <col width="2%"><col width="7%"><col><col width="7%"><col width="7%"><col width="4%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td> Өргөдөл гаргагч </td>
-	<td> Өргөдөл гаргаснаа мэдэгдэх </td>
-	<td> Програмд ​​нэгдэх </td>
-	<td> Өргөдөл гаргасан огноо </td>
-	<td> Устгах </td>
+	<td>지원자</td>
+	<td>지원한 구인 공고</td>
+	<td>입사지원</td>
+	<td>지원일</td>
+	<td>삭제</td>
 </tr>
 <tbody id="become_list">
 
@@ -160,7 +159,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	$wr_subject = stripslashes($get_alba['wr_subject']);
 	$wr_wdate = strtr(substr($get_alba['wr_wdate'],0,11),'-','/');
 	$wr_udate = strtr(substr($get_alba['wr_udate'],0,11),'-','/');
-	$wr_volume_date = $get_alba['wr_volume_date'];	// Ажилд авах хугацаа дуусах (эцсийн хугацаа)
+	$wr_volume_date = $get_alba['wr_volume_date'];	// 모집종료(마감)일
 	$volume_date = strtr(substr($wr_volume_date,2,11),'-','/');
 ?>
 <tr>
@@ -172,10 +171,10 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	</td>
 	<td>
 		<a href="<?php echo $alice['alba_path'];?>/detail.php?no=<?php echo $get_alba['no'];?>" class="b" target="_blank"><?php echo $wr_subject;?></a>
-		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">Бүртгүүсэн огноо : <?php echo $wr_wdate;?>&nbsp;
-			<li>Өөрчилсөн огноо : <?php echo $wr_udate;?> </li>
-			<?php if($wr_volume_date){ ?><li>Дуусах хугацаа : ~<?php echo $volume_date;?></li><?php } ?>
-			<li>Хайх : <?php echo number_format($get_alba['wr_hit']);?>Түлхүүр</li>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
+			<li>수정일 : <?php echo $wr_udate;?> </li>
+			<?php if($wr_volume_date){ ?><li>마감일 : ~<?php echo $volume_date;?></li><?php } ?>
+			<li>조회 : <?php echo number_format($get_alba['wr_hit']);?>건</li>
 		</div>
 	</td>
 	<td><?php echo $receive_control->become_arr[$val['type']];?></td>
@@ -192,8 +191,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүглийг сонгох</h1></a>
-		<a onClick="become_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтуудыг устгах</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="become_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 	</dt>
 </dl>
 
