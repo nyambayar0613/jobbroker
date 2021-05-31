@@ -43,7 +43,7 @@
 
 		$job_type_list = $category_control->category_codeList('job_type');		// 직종
 		$area_list = $category_control->category_codeList('area');					// 지역
-		$job_career_list = $category_control->category_codeList('job_career', '', 'yes');		// 경력조건
+		$job_career_list = $category_control->category_codeList('job_career', '', 'yes');		// 경력조
 		$job_ability_list = $category_control->category_codeList('job_ability', '', 'yes');		// 학력조건
 		$indi_ability_list = $category_control->category_codeList('indi_ability', '', 'yes');		// 최종학력
 
