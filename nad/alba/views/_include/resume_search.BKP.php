@@ -124,7 +124,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 		<td class="ctlt">Үйлчилгээ</td>
 		<td class="pdlnb2" colspan="3">
 			<label><input name="wr_service[]" type="checkbox" value="main_focus" class="check" id="wr_service_main_focus" <?php echo (@in_array('main_focus',$wr_service))?'checked':'';?>/>Фокус</label>
-			<label><input name="wr_service[]" type="checkbox" value="main_focus_gold" class="check" id="wr_service_main_focus_gold" <?php echo (@in_array('main_focus_gold',$wr_service))?'checked':'';?>/>Фокус gold</label>
+			<label><input name="wr_service[]" type="checkbox" value="main_focus_gold" class="check" id="wr_service_main_focus_gold" <?php echo (@in_array('main_focus_gold',$wr_service))?'checked':'';?>/>Фокус алтан</label>
 			<label><input name="wr_service[]" type="checkbox" value="basic" class="check" id="wr_service_basic" <?php echo (@in_array('basic',$wr_service))?'checked':'';?>/>Энийн</label>
 			<label><input name="wr_service[]" type="checkbox" value="busy" class="check" id="wr_service_busy" <?php echo (@in_array('busy',$wr_service))?'checked':'';?>/>Яааралтай</label>
 			<label><input name="wr_service[]" type="checkbox" value="neon" class="check" id="wr_service_neon" <?php echo (@in_array('neon',$wr_service))?'checked':'';?>/>Тодруулга</label>
