@@ -72,7 +72,7 @@
 		$pages = $utility->get_paging($page_rows, $page, $alba_list['total_page'],"./employ_ing.php?".$sorting."page_rows=".$page_rows."&".$alba_list['send_url']."&page=");
 
 		$use_map = $env['use_map'];	// 사용 지도 api
-		$daum_local_key = $env['daum_local_key'];	// 다음 지도 local 검색 key
+		$daum_local_key = $env['daum_local_key'];	// 다음 지도 local 검색
 		$naver_map_key = $env['naver_map_key'];	// 네이버 지도 key
 
 		$map_control->get_map();	 // 지도
