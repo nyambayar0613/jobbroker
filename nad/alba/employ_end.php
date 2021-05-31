@@ -13,7 +13,7 @@
 
 		##
 		# Menu Navigation
-		$top_menu = "구인구직관리";
+		$top_menu = "Ажил хайх удирдлага";
 		$top_menu_code = "100000";
 
 		$page_name = "alba_list";
@@ -103,7 +103,7 @@
 		if( $is_debug == true ) {
 			$_end = $utility->get_time();		// 속도측정 끝
 			$_time = $_end - $_begin;
-			echo "<p>작업수행시간 :: " . $_time."</p>";
+			echo "<p>Үргэлжлэх хугацаа :: " . $_time."</p>";
 		}
 
 		$db->close();		// DB Close
