@@ -1040,7 +1040,7 @@
 				<?php } */ ?>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">Ажлын хугацаа<b class="col">*</b></td>
+					<td class="ctlt">Ажиллах хугацаа<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<?php 
 						if($alba_date_list){
@@ -1048,7 +1048,7 @@
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 							$checked = ($get_alba['wr_date'] == $val['code']) ? "checked" : "";
 						?>
-						<input type="radio" class="chk" id="wr_date_<?php echo $val['code'];?>" name="wr_date" value="<?php echo $val['code'];?>" required hname="근무기간" option="radio" <?php echo $checked;?>><label for="wr_date_<?php echo $val['code'];?>"><?php echo $name;?></label>
+						<input type="radio" class="chk" id="wr_date_<?php echo $val['code'];?>" name="wr_date" value="<?php echo $val['code'];?>" required hname="Ажиллах хугацаа" option="radio" <?php echo $checked;?>><label for="wr_date_<?php echo $val['code'];?>"><?php echo $name;?></label>
 						<?php 
 							}	// foreach end.
 						}	// if end.
