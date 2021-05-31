@@ -33,15 +33,15 @@
 ?>
 				<div id="pop_resume" class="bocol lnb_col" style="top:10%;left:33%;display:;">
 					<dl class="ntlt lnb_col m0 hand" id="resumeHandle">
-						<img src="../../images/comn/bul_10.png" class="t">Анкетны мэдээлэл
+						<img src="../../images/comn/bul_10.png" class="t">이력서정보
 						<a onClick="MM_showHideLayers('pop_resume','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 					</dl>  
 					<table width="730" class="bg_col tf">
 					<col width=100><col><col width=100><col>
 					<tr>
-						<td class="ctlt">ID</td>
+						<td class="ctlt">아이디</td>
 						<td class="pdlnb2 num11"><?php echo $member['mb_id'];?></td>
-						<td class="ctlt">И-мэйл</td>
+						<td class="ctlt">이메일</td>
 						<td class="pdlnb2 num11"><a onClick="pop_email('<?php echo $member['no'];?>');"><?php echo $member['mb_email'];?></a></td>
 					</tr>
 
@@ -302,15 +302,15 @@
 				<input type="hidden" name="wr_id" id="wr_id" value="<?php echo $mb_id;?>"/>
 
 				<dl class="ntlt lnb_col m0 hand" id="memberFrmHandle">
-					<img src="../../images/comn/bul_10.png" class="t">Анкет <?php echo ($mode=='insert')?'бүртгэл':'засвар';?>
-					<span>( <b class="col">*</b> утга оруулах шаардлага)</span>
+					<img src="../../images/comn/bul_10.png" class="t">이력서 <?php echo ($mode=='insert')?'등록':'수정';?>
+					<span>( <b class="col">*</b> 표시는 필수 입력사항 )</span>
 					<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 				</dl>
                 <!------------- 우편번호 레이어창 ------------->
 				<div class="lnb_col positionA" style="border:2px solid #ddd; background:#fff; width:450px; top:20%;left:35%;text-align:left;display:none;z-index:9999;" id="postSearchPop">
 					<dl>
 						<dt style="padding:20px 15px;cursor:pointer;" class="bg_gray1" id="postSearchPop_handle">
-							<strong>Шуудангын дуугаар хайх</strong>
+							<strong>우편번호 검색</strong>
 							<em class="closeBtn" onclick="postClose();"><img width="11" height="11" class="pb5" src="../../images/icon/icon_close2.gif" alt="arrow"></em>
 						</dt>
 
@@ -323,14 +323,14 @@
 				<table width="800" class="bg_col">
 				<col width='100'><col>
 				<tr>
-					<td class="ctlt">Бүртгүүлэх арга <b class="col">*</b></td>
+					<td class="ctlt">등록방법 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self'||!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">Шууд бүртгүүлэх</label>&nbsp;
-						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">Ачаалж байна</label>
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_self" value="self" <?php echo ($input_type=='self'||!$input_type)?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_self">직접등록</label>&nbsp;
+						<input type="radio" class="chk" name="wr_input_type" id="wr_input_type_load" value="load" <?php echo ($input_type=='load')?'checked':'';?> onclick="input_types(this);"/><label for="wr_input_type_load">불러오기</label>
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">Анкетны зураг</td>
+					<td class="ctlt">이력서사진</td>
 					<td class="pdlnb2">
 						<!--  사진등록 layer
 						<div class="layerPop  lnb_col" style="display:none; border:2px solid #ddd; background:#fff; position:absolute; width:420px; top:5%; left:25%; text-align:left; z-index:9999;" id="mbPhotoPop">
@@ -377,62 +377,62 @@
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">Нэр <b class="col">*</b></td>
+					<td class="ctlt">이름 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input style="110px;" type="text" name="mb_name" id="mb_name" class="txt" hname="Нэр" value="<?php echo $member['mb_name'];?>">
+						<input style="110px;" type="text" name="mb_name" id="mb_name" class="txt" hname="이름" value="<?php echo $member['mb_name'];?>">
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">Төрсөн огноо/Хүйс <b class="col">*</b></td>
+					<td class="ctlt">생년월일/성별 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select title="Он сонгох" class="ipSelect" name="mb_birth_year" id="mb_birth_year" style="width:80px" hname="Төрсөн огноо">
-						<option value="">Он</option>
+						<select title="년도선택" class="ipSelect" name="mb_birth_year" id="mb_birth_year" style="width:80px" hname="생년">
+						<option value="">년도</option>
 						<?php for($i=date('Y')-15;$i>=1900;--$i){ ?>
 							<option value='<?=$i?>' <?php echo ($mb_birth[0]==$i)?'selected':'';?>><?=$i?></option>
 						<?php } ?>
 						</select> 년 
-						<select title="Сар сонгох" class="ipSelect" name="mb_birth_month" id="mb_birth_month" style="width:59px" hname="Төрсөн сар">
-						<option value="">Сар</option>
+						<select title="월 선택" class="ipSelect" name="mb_birth_month" id="mb_birth_month" style="width:59px" hname="생월">
+						<option value="">월</option>
 						<?php for($i=1;$i<=12;$i++){?>
 						<option value="<?php echo sprintf('%02d',$i);?>" <?php echo ($mb_birth[1]==$i)?'selected':'';?>><?php echo sprintf('%02d',$i);?></option>
 						<?php } ?>
-						</select> Төгрөг
-						<select title="Өдөр сонгох" class="ipSelect" name="mb_birth_day" id="mb_birth_day" style="width:59px" hname="Төрсөн өдөр">
-						<option value="">Өдөр</option>
+						</select> 월 
+						<select title="일 선택" class="ipSelect" name="mb_birth_day" id="mb_birth_day" style="width:59px" hname="생일">
+						<option value="">일</option>
 						<?php for($i=1;$i<=31;$i++){?>
 						<option value="<?php echo sprintf('%02d',$i);?>" <?php echo ($mb_birth[2]==$i)?'selected':'';?>><?php echo sprintf('%02d',$i);?></option>
 						<?php } ?>
-						</select> Өдөр
-						<input type="radio" value="0" name="mb_gender" id="mb_gender_0" class="chk" hname="Хүйс" checked>
-						<label for="mb_gender_0">Эр</label>
-						<input type="radio" value="1" name="mb_gender" id="mb_gender_1" class="chk" hname="Хүйс" <?php echo ($member['mb_gender'])?'checked':'';?>>
-						<label for="mb_gender_1">Эм</label>
+						</select> 일 
+						<input type="radio" value="0" name="mb_gender" id="mb_gender_0" class="chk" hname="성별" checked>
+						<label for="mb_gender_0">남</label>
+						<input type="radio" value="1" name="mb_gender" id="mb_gender_1" class="chk" hname="성별" <?php echo ($member['mb_gender'])?'checked':'';?>>
+						<label for="mb_gender_1">여</label>
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">Холбогдох дугаар <b class="col">*</b></td>
+					<td class="ctlt">전화번호 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:111px;" id="mb_phone0" name="mb_phone[]" title="Хаяг, дугаар сонгох" hname="Хаяг сонгох">
-						<option value="">Хаяг, дугаар сонгох</option>
+						<select class="ipSelect" style="width:111px;" id="mb_phone0" name="mb_phone[]" title="지역번호 선택" hname="지역번호">
+						<option value="">지역번호 선택</option>
 						<?php echo $tel_num_option; ?>
 						</select>
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="Холбогдох дугаарын урд хэсэг" maxlength="4" id="mb_phone1" name="mb_phone[]" hname="Холбогдох дугаарын урд хэсэг" value="<?php echo $mb_phone[1];?>">
+						<input type="text" class="txt" title="전화번호 앞자리" maxlength="4" id="mb_phone1" name="mb_phone[]" hname="전화번호 앞자리" value="<?php echo $mb_phone[1];?>">
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="Холбогдох дугаарын хойд хэсэг" maxlength="4" id="mb_phone2" name="mb_phone[]" hname="Холбогдох дугаарын хойд хэсэг" value="<?php echo $mb_phone[2];?>">
+						<input type="text" class="txt" title="전화번호 뒷자리" maxlength="4" id="mb_phone2" name="mb_phone[]" hname="전화번호 뒷자리" value="<?php echo $mb_phone[2];?>">
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">Холбогдох дугаар <b class="col">*</b></td>
+					<td class="ctlt">휴대폰 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:111px;" id="mb_hphone0" name="mb_hphone[]" title="Холбогдох улсын дугаар">
-						<option value="">Улсын дугаар</option>
+						<select class="ipSelect" style="width:111px;" id="mb_hphone0" name="mb_hphone[]" title="휴대폰 국번">
+						<option value="">국번</option>
 						<?php echo $hp_num_option; ?>
 						</select>
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="Холбогдох дугаарын урд хэсэг" maxlength="4" id="mb_hphone1" name="mb_hphone[]" required hname="Холбогдох дугаарын урд хэсэг" value="<?php echo $mb_hphone[1];?>">
+						<input type="text" class="txt" title="휴대폰 앞자리" maxlength="4" id="mb_hphone1" name="mb_hphone[]" required hname="휴대폰 앞자리" value="<?php echo $mb_hphone[1];?>">
 						<span class="delimiter">-</span>
-						<input type="text" class="txt" title="Холбогдох дугаарын хойд хэсэг" maxlength="4" id="mb_hphone2" name="mb_hphone[]" required hname="Холбогдох дугаарын хойд хэсэг" value="<?php echo $mb_hphone[2];?>">
+						<input type="text" class="txt" title="휴대폰 뒷자리" maxlength="4" id="mb_hphone2" name="mb_hphone[]" required hname="휴대폰 뒷자리" value="<?php echo $mb_hphone[2];?>">
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
@@ -442,7 +442,7 @@
 							<input type="text" style="width:55px;" class="tnum" title="우편번호 앞자리" maxlength="3" id="mb_zipcode0" name="mb_zipcode[]" readonly <?//php echo (!$member['mb_address_road'])?'required':'';?> hname="우편번호 앞자리" value="<?php echo $mb_zipcode[0];?>">
 							<span class="delimiter">-</span>
 							<input type="text" style="width:55px;" class="tnum" title="우편번호 뒷자리" maxlength="4" id="mb_zipcode1" name="mb_zipcode[]" readonly <?//php echo (!$member['mb_address_road'])?'required':'';?> hname="우편번호 뒷자리" value="<?php echo $mb_zipcode[1];?>">
-							<a class="btn" style="padding:0 10px;" onclick="execDaumPostcode();"><span>Шуудангын дугаар хайх</span></a>
+							<a class="btn" style="padding:0 10px;" onclick="execDaumPostcode();"><span>우편번호 검색</span></a>
 							<div class="adress2 mt3">
 								<input type="text" class="tnum w100 mb3" title="주소" id="mb_address0" name="mb_address0" <?//php echo (!$member['mb_address_road'])?'required':'';?> hname="주소" value="<?php echo $member['mb_address0'];?>">
 								<input type="text" class="tnum w100" title="상세주소" id="mb_address1" name="mb_address1" <?//php echo (!$member['mb_address_road'])?'required':'';?> hname="상세주소" value="<?php echo $member['mb_address1'];?>">
@@ -451,38 +451,38 @@
 					</td>
 				</tr>
 				<tr class="input_type_self" style="display:<?php echo ($input_type=='self'||!$input_type)?'':'none';?>;">
-					<td class="ctlt">И-мэйл <b class="col">*</b></td>
+					<td class="ctlt">이메일 <b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input name="mb_email" type="text" class="txt w50" value="<?php echo $member['mb_email'];?>" hname='И-мэйл'>
+						<input name="mb_email" type="text" class="txt w50" value="<?php echo $member['mb_email'];?>" hname='이메일'>
 					</td>
 				</tr>
 				<tr class="input_type_load" style="display:none;">
-					<td class="ctlt">Гишүүдийн сонголт <b class="col">*</b></td>
+					<td class="ctlt">회원선택 <b class="col">*</b></td>
 					<td class="pdlnb2">
 						<dt>
 							<select name="mb_id" id="mb_id" style="width:258px;" onchange="get_member(this.value);">
-							<option value="">Хувь  хүн сонголт</option>
+							<option value="">개인회원 선택</option>
 							<?php foreach($member_list['result'] as $val){ ?>
 							<option value="<?php echo $val['mb_id'];?>" <?php echo ($val['mb_id']==$mb_id)?'selected':'';?>><?php echo $val['mb_id'];?> / <?php echo $val['mb_name'];?></option>
 							<?php } ?>
 							</select>
 							<!-- <a href="../member/individual.php?mode=insert" class="btn"><h1 class="btn23">회원등록</h1></a> -->
 							<input name="mb_search" type="text" class="txt" style="width:150px;" id="mb_search">
-							<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">Гишүүн хайх</h1></a>
-							<span class="subtlt">Нэр,ID,И-мэйлээр хайх</span>
+							<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">회원검색</h1></a>
+							<span class="subtlt">이름,아이디,이메일로 검색</span>
 							<ul id="memlist" style="display:none;max-height:100px;overflow-y:auto" class="blnb wbg pd3 f11 mt5">
 							<!-- loop -->
-							<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>Нэр(ID) / И-мэйл</li>
+							<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>이름(아이디) / 이메일</li>
 							<!-- loop -->
 						</dt>
 					</td>
 				</tr>
 				<tr id="resume_block" class="input_type_load" style="display:none;">
-					<td class="ctlt">Анкет сонгох </td>
+					<td class="ctlt">이력서선택 </td>
 					<td class="pdlnb2" id="resume_load">
 					<?php $resume_list = $alba_resume_control->get_resume_for_id($mb_id); ?>
 						<select name='sel_alba' id='sel_alba' onchange="update_resume('load',this.value,'<?php echo $mb_id;?>');">
-						<option value=''>Анкет сонгох</option>
+						<option value=''>이력서선택</option>
 						<?php
 						foreach($resume_list as $val){
 							$selected = ($no == $val['no']) ? 'selected' : '';
@@ -494,16 +494,16 @@
 				</tr>
 
 				<tr>
-					<td class="ctlt">Анкетын гарчиг<b class="col">*</b></td>
+					<td class="ctlt">이력서제목<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<input type="text" class="txt w100" id="wr_subject" name="wr_subject" required hname="анкетын гарчиг" value="<?php echo $get_resume['wr_subject'];?>">
+						<input type="text" class="txt w100" id="wr_subject" name="wr_subject" required hname="이력서제목" value="<?php echo $get_resume['wr_subject'];?>">
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">Ажлын байршил<b class="col">*</b></td>
+					<td class="ctlt">근무지<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:168px;" id="wr_area00" name="wr_area0" title="хот·дүүрэг сонгох" onchange="insert_area_sel_first(this,'wr_area_01');" required hname="Ажлын байршил">
-						<option value=""> -- хот·дүүрэг --</option>
+						<select class="ipSelect" style="width:168px;" id="wr_area00" name="wr_area0" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_01');" required hname="근무지 시·도">
+						<option value=""> -- 시·도 --</option>
 						<?php 
 							foreach($area_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -513,8 +513,8 @@
 						<?php } ?>
 						</select>
 						<span id="wr_area_01_display">
-							<select class="ipSelect" style="width:168px;" id="wr_area_01" name="wr_area1" title="Ажлын байршил">
-							<option value=""> --дүүрэг·хороо --</option>
+							<select class="ipSelect" style="width:168px;" id="wr_area_01" name="wr_area1" title="시·군·구 선택">
+							<option value=""> -- 시·군·구 --</option>
 							<?php
 							if($wr_area0){
 								$pcodeList = $category_control->category_pcodeList('area', $wr_area0);
@@ -527,7 +527,7 @@
 								}	// foreach end.
 							} else {
 							?>
-								<option value="">дүүрэг·хороог эхлээд сонгоно уу.</option>
+								<option value="">시·도 를 먼저 선택해 주세요</option>
 							<?php
 							}	// if end.
 							?>
@@ -535,11 +535,11 @@
 						</span>
 						<em >
 							<input type="checkbox" class="typeCheckbox" id="wr_home_work" name="wr_home_work" value="1" <?php echo ($get_resume['wr_home_work'])?'checked':'';?>>
-							<label for="wr_home_work">Гэрээсээ ажиллах боломжтой</label>
+							<label for="wr_home_work">재택근무가능</label>
 						</em>
 						<div class='mt3'>
-							<select class="ipSelect" style="width:168px;" id="wr_area01" name="wr_area2" title="хот·дүүрэг сонгох" onchange="insert_area_sel_first(this,'wr_area_03');" required hname="Ажлын байршил">
-							<option value=""> -- хот·дүүрэг --</option>
+							<select class="ipSelect" style="width:168px;" id="wr_area01" name="wr_area2" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_03');" required hname="근무지 시·도">
+							<option value=""> -- 시·도 --</option>
 							<?php 
 								foreach($area_list as $val){ 
 								$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -549,8 +549,8 @@
 							<?php } ?>
 							</select>
 							<span id="wr_area_03_display">
-								<select class="ipSelect" style="width:168px;" id="wr_area_03" name="wr_area3" title="хот·дүүрэг сонгох">
-								<option value=""> -- хорооо·тоот --</option>
+								<select class="ipSelect" style="width:168px;" id="wr_area_03" name="wr_area3" title="시·군·구 선택">
+								<option value=""> -- 시·군·구 --</option>
 								<?php
 								if($wr_area2){
 									$pcodeList = $category_control->category_pcodeList('area', $wr_area2);
@@ -563,7 +563,7 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">хот·дүүргийг эхлээд сонгоно уу.</option>
+									<option value="">시·도 를 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
@@ -571,8 +571,8 @@
 							</span>
 						</div>
 						<div class='mt3'>
-							<select class="ipSelect" style="width:168px;" id="wr_area04" name="wr_area4" title="хот·дүүрэг сонгох" onchange="insert_area_sel_first(this,'wr_area_05');" required hname="Ажлын байршил">
-							<option value=""> --хот·дүүрэг --</option>
+							<select class="ipSelect" style="width:168px;" id="wr_area04" name="wr_area4" title="시·도 선택" onchange="insert_area_sel_first(this,'wr_area_05');" required hname="근무지 시·도">
+							<option value=""> -- 시·도 --</option>
 							<?php 
 								foreach($area_list as $val){ 
 								$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -582,8 +582,8 @@
 							<?php } ?>
 							</select>
 							<span id="wr_area_05_display">
-								<select class="ipSelect" style="width:168px;" id="wr_area_05" name="wr_area5" title="хот·дүүрэг сонгох">
-								<option value=""> -- хот·дүүрэг --</option>
+								<select class="ipSelect" style="width:168px;" id="wr_area_05" name="wr_area5" title="시·군·구 선택">
+								<option value=""> -- 시·군·구 --</option>
 								<?php
 								if($wr_area4){
 									$pcodeList = $category_control->category_pcodeList('area', $wr_area4);
@@ -596,7 +596,7 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">хот·дүүргйиг эхлээд сонгоно уу.</option>
+									<option value="">시·도 를 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
@@ -606,10 +606,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">Ажил мэргэжил<b class="col">*</b></td>
+					<td class="ctlt">업직종<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:110px;" id="wr_job_type0" name="wr_job_type0" title="1-р ажил мэргэжил сонгох" onchange="insert_job_type_sel_first(this,'wr_job_type1');" required hname="1차직종">
-						<option value="">1-р ажил мэргэжил</option>
+						<select class="ipSelect" style="width:110px;" id="wr_job_type0" name="wr_job_type0" title="1차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type1');" required hname="1차직종">
+						<option value="">1차직종선택</option>
 						<?php 
 							foreach($job_type_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -619,8 +619,8 @@
 						<?php } ?>
 						</select>
 						<span id="wr_job_type1_display">
-							<select class="ipSelect" style="width:110px;" id="wr_job_type1" name="wr_job_type1" title="2-р ажил мэргэжил сонгох" onchange="insert_job_type_sel_first(this,'wr_job_type2');">
-							<option value="">2-р ажил мэргэжил</option>
+							<select class="ipSelect" style="width:110px;" id="wr_job_type1" name="wr_job_type1" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type2');">
+							<option value="">2차직종선택</option>
 							<?php
 							if($wr_job_type1){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type0);
@@ -633,7 +633,7 @@
 								}	// foreach end.
 							} else {
 							?>
-								<option value="">1-р ажил мэргэжлйиг эхлээд сонгоно уу.</option>
+								<option value="">1차 직종을 먼저 선택해 주세요</option>
 							<?php
 							}	// if end.
 							?>
@@ -641,7 +641,7 @@
 						</span>
 						<span id="wr_job_type2_display">
 							<select class="ipSelect" style="width:110px;" id="wr_job_type2" name="wr_job_type2" title="3차직종선택">
-							<option value="">3-р ажил мэргэжил</option>
+							<option value="">3차직종선택</option>
 							<?php
 							if($wr_job_type2){
 								$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type1);
@@ -654,15 +654,15 @@
 								}	// foreach end.
 							} else {
 							?>
-								<option value="">2-р ажил мэргэжлйиг эхлээд сонгоно уу.</option>
+								<option value="">2차 직종을 먼저 선택해 주세요</option>
 							<?php
 							}	// if end.
 							?>
 							</select>
 						</span>
 						<div class="mt3">
-							<select class="ipSelect" style="width:110px;" id="wr_job_type3" name="wr_job_type3" title="1-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type4');" required hname="1차직종">
-							<option value="">1-р ажил мэргэжил</option>
+							<select class="ipSelect" style="width:110px;" id="wr_job_type3" name="wr_job_type3" title="1차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type4');" required hname="1차직종">
+							<option value="">1차직종선택</option>
 							<?php 
 								foreach($job_type_list as $val){ 
 								$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -672,8 +672,8 @@
 							<?php } ?>
 							</select>
 							<span id="wr_job_type4_display">
-								<select class="ipSelect" style="width:110px;" id="wr_job_type4" name="wr_job_type4" title="2-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type4');">
-								<option value="">2-р ажил мэргэжил</option>
+								<select class="ipSelect" style="width:110px;" id="wr_job_type4" name="wr_job_type4" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type4');">
+								<option value="">2차직종선택</option>
 								<?php
 								if($wr_job_type1){
 									$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type0);
@@ -686,15 +686,15 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">1-р ажил мэргэжлйиг эхлээд сонгоно уу.</option>
+									<option value="">1차 직종을 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
 								</select>
 							</span>
 							<span id="wr_job_type5_display">
-								<select class="ipSelect" style="width:110px;" id="wr_job_type5" name="wr_job_type5" title="3-р ажил мэргэжил">
-								<option value="">3-р ажил мэргэжил</option>
+								<select class="ipSelect" style="width:110px;" id="wr_job_type5" name="wr_job_type5" title="3차직종선택">
+								<option value="">3차직종선택</option>
 								<?php
 								if($wr_job_type2){
 									$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type1);
@@ -707,7 +707,7 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">2-р ажил мэргэжлйиг эхлээд сонгоно уу.</option>
+									<option value="">2차 직종을 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
@@ -715,8 +715,8 @@
 							</span>
 						</div>
 						<div class="mt3">
-							<select class="ipSelect" style="width:110px;" id="wr_job_type6" name="wr_job_type6" title="1-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type7');" required hname="1-р ажил мэргэжил">
-							<option value="">1-р ажил мэргэжил</option>
+							<select class="ipSelect" style="width:110px;" id="wr_job_type6" name="wr_job_type6" title="1차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type7');" required hname="1차직종">
+							<option value="">1차직종선택</option>
 							<?php 
 								foreach($job_type_list as $val){ 
 								$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -726,8 +726,8 @@
 							<?php } ?>
 							</select>
 							<span id="wr_job_type7_display">
-								<select class="ipSelect" style="width:110px;" id="wr_job_type7" name="wr_job_type7" title="2-р ажил мэргэжил" onchange="insert_job_type_sel_first(this,'wr_job_type8');">
-								<option value="">2-р ажил мэргэжил</option>
+								<select class="ipSelect" style="width:110px;" id="wr_job_type7" name="wr_job_type7" title="2차직종선택" onchange="insert_job_type_sel_first(this,'wr_job_type8');">
+								<option value="">2차직종선택</option>
 								<?php
 								if($wr_job_type1){
 									$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type0);
@@ -740,7 +740,7 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">1-р ажил мэргэжлйиг эхлээд сонгоно уу.</option>
+									<option value="">1차 직종을 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
@@ -748,7 +748,7 @@
 							</span>
 							<span id="wr_job_type8_display">
 								<select class="ipSelect" style="width:110px;" id="wr_job_type8" name="wr_job_type8" title="3차직종선택">
-								<option value="">3-р ажил мэргэжил</option>
+								<option value="">3차직종선택</option>
 								<?php
 								if($wr_job_type2){
 									$pcodeList = $category_control->category_pcodeList('job_type', $wr_job_type1);
@@ -761,7 +761,7 @@
 									}	// foreach end.
 								} else {
 								?>
-									<option value="">2-р ажил мэргэжлйиг эхлээд сонгоно уу</option>
+									<option value="">2차 직종을 먼저 선택해 주세요</option>
 								<?php
 								}	// if end.
 								?>
@@ -771,10 +771,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">Ажиллах цаг<b class="col">*</b></td>
+					<td class="ctlt">근무일시<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select class="ipSelect" style="width:110px;" id="wr_date" name="wr_date" title="Ажиллах цаг" required hname="Ажиллах хугацаа">
-						<option value=""> -- Ажиллах цаг --</option>
+						<select class="ipSelect" style="width:110px;" id="wr_date" name="wr_date" title="근무기간" required hname="근무기간">
+						<option value=""> -- 근무기간 --</option>
 						<?php 
 							foreach($alba_date_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -783,8 +783,8 @@
 						<option value="<?php echo $val['code'];?>" <?php echo $selected;?>><?php echo $name;?></option>
 						<?php } ?>
 						</select>
-						<select class="ipSelect" style="width:110px;" id="wr_week" name="wr_week" title="Ажиллах гараг" required hname="Ажллах гараг">
-						<option value=""> -- Ажллах гараг --</option>
+						<select class="ipSelect" style="width:110px;" id="wr_week" name="wr_week" title="근무요일" required hname="근무요일">
+						<option value=""> -- 근무요일 --</option>
 						<?php 
 							foreach($alba_week_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -793,8 +793,8 @@
 						<option value="<?php echo $val['code'];?>" <?php echo $selected;?>><?php echo $name;?></option>
 						<?php } ?>
 						</select>
-						<select class="ipSelect" style="width:110px;" id="wr_time" name="wr_time" title="Ажиллах цаг" required hname="Ажиллах цаг">
-						<option value=""> -- Ажиллах цаг --</option>
+						<select class="ipSelect" style="width:110px;" id="wr_time" name="wr_time" title="근무시간" required hname="근무시간">
+						<option value=""> -- 근무시간 --</option>
 						<?php 
 							foreach($alba_time_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -805,15 +805,15 @@
 						</select>
 						<em>
 							<input type="checkbox" class="typeCheckbox" id="wr_work_direct" name="wr_work_direct" value="1" <?php echo ($get_resume['wr_work_direct'])?'checked':'';?>>
-							<label for="wr_work_direct">Шууд ажилд ороход бэлэн</label>
+							<label for="wr_work_direct">즉시출근가능</label>
 						</em>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">Цалин<b class="col">*</b></td>
+					<td class="ctlt">급여<b class="col">*</b></td>
 					<td class="pdlnb2">
-						<select style="width:89px;" name="wr_pay_type" id="wr_pay_type" class="ipSelect" <?php echo ($get_resume['wr_pay_conference'])?'disabled':'required';?> hname="Цалингын нөхцөл">
-						<option value="">= Цалин =</option>
+						<select style="width:89px;" name="wr_pay_type" id="wr_pay_type" class="ipSelect" <?php echo ($get_resume['wr_pay_conference'])?'disabled':'required';?> hname="급여조건">
+						<option value="">= 급여 =</option>
 						<?php 
 							foreach($alba_pay_list as $val){ 
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -826,13 +826,13 @@
 						<label>원</label>
 						<em class="pl10 pb3"> 
 							<input type="checkbox" name="wr_pay_conference" id="wr_pay_conference" class="chk" value="1" onclick="pay_conference(this);" <?php echo ($get_resume['wr_pay_conference'])?'checked':'';?>>
-							<label for="wr_pay_conference">Дараа нь тохирно</label>
+							<label for="wr_pay_conference">추후협의</label>
 						</em>
-						<?php if($env['pay_view']){?><em class="text_help"> Хөдөлмөрийн хөлсний доод хэмжээ : Цагын хөлс <strong class="txtEng"><?php echo number_format($env['time_pay']);?>원</strong></em><?php } ?>
+						<?php if($env['pay_view']){?><em class="text_help"> 최저임금 : 시급 <strong class="txtEng"><?php echo number_format($env['time_pay']);?>원</strong></em><?php } ?>
 					</td>
 				</tr>
 				<tr>
-					<td class="ctlt">Ажлын төрөл<b class="col">*</b></td>
+					<td class="ctlt">근무형태<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<ul>
 						<?php 
@@ -841,7 +841,7 @@
 							$checked = (@in_array($val['code'],$wr_work_type)) ? "checked" : "";
 						?>
 							<li class="fl pr10">
-								<input type="checkbox" name="wr_work_type[]" id="wr_work_type_<?php echo $val['code'];?>" class="chk" value="<?php echo $val['code'];?>" required hname="Ажлын төрөл" <?php echo $checked;?>>
+								<input type="checkbox" name="wr_work_type[]" id="wr_work_type_<?php echo $val['code'];?>" class="chk" value="<?php echo $val['code'];?>" required hname="근무형태" <?php echo $checked;?>>
 								<label for="wr_work_type_<?php echo $val['code'];?>"><?php echo $name;?></label>
 							</li>
 						<?php } ?>
@@ -850,10 +850,10 @@
 				</tr>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">Боловсролын байдал<b class="col">*</b></td>
+					<td class="ctlt">최종학력<b class="col">*</b></td>
 					<td class="pdlnb2">
 						<select class="ipSelect" style="width:223px;" id="wr_school_ability" name="wr_school_ability" title="학력" onchange="school_ability(this);" <?php echo ($form_ability['etc_0'])?'required':'';?> hname="학력">
-						<option value=""> -- Боловсролын байдал сонгох --</option>
+						<option value=""> -- 학력선택 --</option>
 						<?php
 							foreach($indi_ability_list as $val){
 							$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -864,34 +864,34 @@
 						</select>
 						<em class="pl10 pb3"> 
 							<input type="checkbox" name="wr_school_absence" id="wr_school_absence" class="chk" value="1" <?php echo ($get_resume['wr_school_absence'])?'checked':'';?>>
-							<label for="wr_school_absence">Чөлөө авсан</label>
+							<label for="wr_school_absence">휴학중</label>
 						</em>
 						<div class="schoolSelect pt5" id="schoolSelect" style="display:<?php echo ($schoolSelect_view)?'':'none';?>;">
-							<em class="text_help"> Оруулах мэдээллээ сонгох:</em>
+							<em class="text_help"> 입력할 학력선택:</em>
 							<span>
 								<input type="checkbox" name="wr_school_type[]" class="chk" id="school_type0" value="high_school" onclick="school_types(this);" <?php echo ($mode=='update'||$mode=='load')?$high_school_disabled:'disabled';?> <?php echo $high_school_checked;?>>
-								<label for="school_type0">Ахлах сургууль</label>
+								<label for="school_type0">고등학교</label>
 								<input type="checkbox" name="wr_school_type[]" class="chk" id="school_type1" value="half_college" onclick="school_types(this);" <?php echo ($mode=='update'||$mode=='load')?$half_college_disabled:'disabled';?> <?php echo $half_college_checked;?>>
-								<label for="school_type1">Их сургууль(2,3жил)</label>
+								<label for="school_type1">대학(2,3년)</label>
 								<input type="checkbox" name="wr_school_type[]" class="chk" id="school_type2" value="college" onclick="school_types(this);" <?php echo ($mode=='update'||$mode=='load')?$college_disabled:'disabled';?> <?php echo $college_checked;?>>
-								<label for="school_type2">Их сургууль(4жил)</label>
+								<label for="school_type2">대학교(4년)</label>
 								<input type="checkbox" name="wr_school_type[]" class="chk" id="school_type3" value="graduate" onclick="school_types(this);" disabled <?php echo $graduate_checked;?>>
-								<label for="school_type3">Магистр</label>
+								<label for="school_type3">대학원</label>
 							</span>
 						</div>
 					</td>
 				</tr>
 				<tr id="ability_high_school" style="display:<?php echo ($mode=='update'||$mode=='load')?$high_school_display:'none';?>;">
 				<?php if($mode=='insert'){ ?>
-					<td scope="row"  class="ctlt"> <label><strong>Ахлах сургууль</strong></label></td>
+					<td scope="row"  class="ctlt"> <label><strong>고등학교</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1">
 							<ul>
 								<li class="pb5 positionR">
-									<input class="txt" type="text" name="wr_high_school_name" id="wr_high_school_name" value="Сургуулиа оруулах" style="width:100px;">
+									<input class="txt" type="text" name="wr_high_school_name" id="wr_high_school_name" value="출신학교 입력" style="width:100px;">
 
 									<select name="wr_high_school_syear" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 									<?php for($i=date('Y');$i>=1900;--$i){ ?>
 									<option value='<?=$i?>'><?=$i?></option>
 									<?php } ?>
@@ -899,33 +899,33 @@
 									년 ~ 
 									<span id="high_school_eyear_block">
 										<select name="wr_high_school_eyear" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
 										</select>
 										년
 									</span>
-									<span id="high_school_eyear_now">Одоогын байдал</span>
+									<span id="high_school_eyear_now">현재</span>
 									<select name="wr_high_school_graduation" id="wr_high_school_graduation" class="ipSelect">
-									<option value="">Төгсөлтийн байдал</option>
-									<option value="0">Төгссөн</option>
-									<option value="1">Суралцаж байгаа</option>
+									<option value="">졸업여부</option>
+									<option value="0">졸업</option>
+									<option value="1">재학</option>
 									</select>
 								</li>
 							</ul>
 						</div>
 					</td>
 				<?php } else if($mode=='update'||$mode=='load'){ // 수정/불러오기 일때 ?>
-					<td scope="row" class="ctlt"> <label><strong>Ахлах сургууль</strong></label></td>
+					<td scope="row" class="ctlt"> <label><strong>고등학교</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1">
 							<ul>
 								<li class="pb5 positionR">
-									<input class="txt" type="text" name="wr_high_school_name" id="wr_high_school_name" value="<?php echo ($get_resume['wr_high_school_name'])?$get_resume['wr_high_school_name']:"Сургуулиа оруулах";?>" style="width:100px;">
+									<input class="txt" type="text" name="wr_high_school_name" id="wr_high_school_name" value="<?php echo ($get_resume['wr_high_school_name'])?$get_resume['wr_high_school_name']:"출신학교 입력";?>" style="width:100px;">
 
 									<select name="wr_high_school_syear" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 									<?php for($i=date('Y');$i>=1900;--$i){ ?>
 									<option value='<?=$i?>' <?php echo ($get_resume['wr_high_school_syear']==$i)?'selected':'';?>><?=$i?></option>
 									<?php } ?>
@@ -933,18 +933,18 @@
 									년 ~ 
 									<span id="high_school_eyear_block">
 										<select name="wr_high_school_eyear" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>' <?php echo ($get_resume['wr_high_school_eyear']==$i)?'selected':'';?>><?=$i?></option>
 										<?php } ?>
 										</select>
 										년
 									</span>
-									<span id="high_school_eyear_now">Одоогын байдал</span>
+									<span id="high_school_eyear_now">현재</span>
 									<select name="wr_high_school_graduation" id="wr_high_school_graduation" class="ipSelect">
-									<option value="">Төгсөлтийн байдал</option>
-									<option value="0" <?php echo ($get_resume['wr_high_school_graduation']=='0')?'selected':'';?>>Төгссөн</option>
-									<option value="1" <?php echo ($get_resume['wr_high_school_graduation']=='1')?'selected':'';?>>Суралцаж байгаа</option>
+									<option value="">졸업여부</option>
+									<option value="0" <?php echo ($get_resume['wr_high_school_graduation']=='0')?'selected':'';?>>졸업</option>
+									<option value="1" <?php echo ($get_resume['wr_high_school_graduation']=='1')?'selected':'';?>>재학</option>
 									</select>
 								</li>
 							</ul>
@@ -953,39 +953,39 @@
 				<?php } ?>
 				</tr>
 				<tr id="ability_half_college" style="display:<?php echo ($mode=='update'||$mode=='load')?$half_college_display:'none';?>;">
-					<td scope="row" class="ctlt"> <label><strong>Их сургууль(2,3 жил)</strong></label></td>
+					<td scope="row" class="ctlt"> <label><strong>대학(2,3년)</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1 positionR">
 							<ul id="half_college_block">
 							<?php if($mode=='insert' || ($mode=='update' && !$wr_half_college) ){ ?>
 								<li class="pb5 positionR">
-									<input class="txt graduate" type="text" name="wr_half_college[]" id="wr_half_college_0" style="width:100px;" value="Сургуулиа оруулах">
-									<input class="txt specialize" type="text" name="wr_half_college_specialize[]" id="wr_half_college_specialize_0" style="width:80px;" value="Мэргэжилээ оруулах">
+									<input class="txt graduate" type="text" name="wr_half_college[]" id="wr_half_college_0" style="width:100px;" value="출신학교 입력">
+									<input class="txt specialize" type="text" name="wr_half_college_specialize[]" id="wr_half_college_specialize_0" style="width:80px;" value="전공입력">
 
 									<select name="wr_half_college_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
 									</select> 
-									жил ~
+									년 ~ 
 									<span id="half_college_eyear_block_0">
 										<select name="wr_half_college_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>'><?=$i?></option>
 											<?php } ?>
 										</select>
 										년
 									</span>
-									<span id="half_college_eyear_now_0">Одоогын байдал</span>
+									<span id="half_college_eyear_now_0">현재</span>
 									<select name="wr_half_college_graduation[]" id="wr_half_college_graduation_0" class="ipSelect">
-										<option value="">Төгсөлтийн байдал</option>
-										<option value="0">Төгссөн</option>
-										<option value="1">Суралцаж байгаа</option>
-										<option value="2">Гарсан</option>
+										<option value="">졸업여부</option>
+										<option value="0">졸업</option>
+										<option value="1">재학</option>
+										<option value="2">중퇴</option>
 									</select>
-									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_add();"><span>+нэмэлт</span></a></em>
+									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_add();"><span>+추가</span></a></em>
 								</li>
 							<?php // 수정시
 							} else if($mode=='update'||$mode=='load'){ 
@@ -1002,7 +1002,7 @@
 									<input class="txt specialize" type="text" name="wr_half_college_specialize[]" id="wr_half_college_specialize_<?php echo $j;?>" style="width:80px;" value="<?php echo ($school_specialize)?$school_specialize:'전공입력';?>">
 
 									<select name="wr_half_college_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>' <?php echo ($school_syear==$i)?'selected':'';?>><?=$i?></option>
 										<?php } ?>
@@ -1010,24 +1010,24 @@
 									년 ~ 
 									<span id="half_college_eyear_block_<?php echo $j;?>">
 										<select name="wr_half_college_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>' <?php echo ($school_eyear==$i)?'selected':'';?>><?=$i?></option>
 											<?php } ?>
 										</select>
 										년
 									</span>
-									<span id="half_college_eyear_now_<?php echo $j;?>">Одоогын байдал</span>
+									<span id="half_college_eyear_now_<?php echo $j;?>">현재</span>
 									<select name="wr_half_college_graduation[]" id="wr_half_college_graduation_<?php echo $j;?>" class="ipSelect">
-										<option value="">Төгсөлтийн байдал</option>
-										<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>Төгссөн</option>
-										<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>Суралцаж байгаа</option>
-										<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>Гарсан</option>
+										<option value="">졸업여부</option>
+										<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>졸업</option>
+										<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>재학</option>
+										<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>중퇴</option>
 									</select>
 									<?php if($j==0){ ?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_add();"><span>+нэмэлт</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_add();"><span>+추가</span></a></em>
 									<?php } else {?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_remove('<?php echo $j;?>');"><span>-арилгах</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="half_college_remove('<?php echo $j;?>');"><span>-제거</span></a></em>
 									<?php } ?>
 								</li>
 							<?php 
@@ -1041,17 +1041,17 @@
 				</tr>
 
 				<tr id="ability_college" style="display:<?php echo ($mode=='update'||$mode=='load')?$college_display:'none';?>;">
-					<td scope="row" class="ctlt"> <label><strong>Их сургууль(4жил)</strong></label></td>
+					<td scope="row" class="ctlt"> <label><strong>대학(4년)</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1 positionR">
 							<ul id="college_block">
 							<?php if($mode=='insert' || ($mode=='update' && !$wr_college)){ ?>
 								<li class="pb5 positionR">
-									<input class="txt graduate" type="text" name="wr_college[]" id="wr_college_0" style="width:100px;" value="Сургуулиа оруулах">
-									<input class="txt specialize" type="text" name="wr_college_specialize[]" id="wr_college_specialize_0" style="width:80px;" value="Мэргэжилээ оруулах">
+									<input class="txt graduate" type="text" name="wr_college[]" id="wr_college_0" style="width:100px;" value="출신학교 입력">
+									<input class="txt specialize" type="text" name="wr_college_specialize[]" id="wr_college_specialize_0" style="width:80px;" value="전공입력">
 
 									<select name="wr_college_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
@@ -1059,19 +1059,19 @@
 									년 ~ 
 									<span id="college_eyear_block_0">
 										<select name="wr_college_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>'><?=$i?></option>
 											<?php } ?>
 										</select>
 										년
 									</span>
-                                    <span id="half_college_eyear_now_<?php echo $j;?>">Одоогын байдал</span>
-                                    <select name="wr_half_college_graduation[]" id="wr_half_college_graduation_<?php echo $j;?>" class="ipSelect">
-                                        <option value="">Төгсөлтийн байдал</option>
-                                        <option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>Төгссөн</option>
-                                        <option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>Суралцаж байгаа</option>
-                                        <option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>Гарсан</option>
+									<span id="college_eyear_now_0">현재</span>
+									<select name="wr_college_graduation[]" id="wr_college_graduation_0" class="ipSelect">
+										<option value="">졸업여부</option>
+										<option value="0">졸업</option>
+										<option value="1">재학</option>
+										<option value="2">중퇴</option>
 									</select>
 									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="college_add();"><span>+추가</span></a></em>
 								</li>
@@ -1090,7 +1090,7 @@
 									<input class="txt specialize" type="text" name="wr_college_specialize[]" id="wr_college_specialize_<?php echo $j;?>" style="width:80px;" value="<?php echo ($school_specialize)?$school_specialize:'전공입력';?>">
 
 									<select name="wr_college_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>' <?php echo ($school_syear==$i)?'selected':'';?>><?=$i?></option>
 										<?php } ?>
@@ -1098,24 +1098,24 @@
 									년 ~ 
 									<span id="college_eyear_block_<?php echo $j;?>">
 										<select name="wr_college_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>' <?php echo ($school_eyear==$i)?'selected':'';?>><?=$i?></option>
 											<?php } ?>
 										</select>
-										жил
-                                    </span>
-									<span id="college_eyear_now_<?php echo $j;?>">Одоогын байдал</span>
+										년
+									</span>
+									<span id="college_eyear_now_<?php echo $j;?>">현재</span>
 									<select name="wr_college_graduation[]" id="wr_college_graduation_<?php echo $j;?>" class="ipSelect">
-										<option value="">Төгсөлтийн байдал</option>
-										<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>Төгссөн</option>
-										<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>Суралцаж байгаа</option>
-										<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>Гарсан</option>
+										<option value="">졸업여부</option>
+										<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>졸업</option>
+										<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>재학</option>
+										<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>중퇴</option>
 									</select>
 									<?php if($j==0){ ?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="college_add();"><span>+нэмэлт</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="college_add();"><span>+추가</span></a></em>
 									<?php } else { ?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="college_remove('<?php echo $j;?>');"><span>-арилгах</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="college_remove('<?php echo $j;?>');"><span>-제거</span></a></em>
 									<?php } ?>
 								</li>
 							<?php
@@ -1129,23 +1129,23 @@
 				</tr>
 
 				<tr id="ability_graduate" style="display:<?php echo ($mode=='update'||$mode=='load')?$graduate_display:'none';?>;">
-					<td scope="row" class="ctlt"> <label><strong>Магистер</strong></label></td>
+					<td scope="row" class="ctlt"> <label><strong>대학원</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1 positionR">
 							<ul id="graduate_block">
 							<?php if($mode=='insert' || ($mode=='update' && !$wr_graduate)){ ?>
 								<li class="pb5 positionR">
-									<input class="txt graduate" type="text" name="wr_graduate[]" id="wr_graduate_0" style="width:100px;" value="Сургуулиа оруулах">
-									<input class="txt specialize" type="text" name="wr_graduate_specialize[]" id="wr_graduate_specialize_0" style="width:80px;" value="Мэргэжилээ оруулах">
+									<input class="txt graduate" type="text" name="wr_graduate[]" id="wr_graduate_0" style="width:100px;" value="출신학교 입력">
+									<input class="txt specialize" type="text" name="wr_graduate_specialize[]" id="wr_graduate_specialize_0" style="width:80px;" value="전공입력">
 
 									<select name="wr_graduate_grade[]" class="ipSelect">
-									<option value="">Зэрэг</option>
-									<option value='0'>Магистер</option>
-									<option value='1'>Доктор</option>
+									<option value="">학위</option>
+									<option value='0'>석사</option>
+									<option value='1'>박사</option>
 									</select> 
 
 									<select name="wr_graduate_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
@@ -1153,22 +1153,22 @@
 									년 ~ 
 									<span id="graduate_eyear_block_0">
 										<select name="wr_graduate_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>'><?=$i?></option>
 											<?php } ?>
 										</select>
 										년
 									</span>
-									<span id="graduate_eyear_now_0">Одоогын байдал</span>
+									<span id="graduate_eyear_now_0">현재</span>
 									<select name="wr_graduate_graduation[]" id="wr_graduate_graduation_0" class="ipSelect">
-									<option value="">Төгсөлтийн байдал</option>
-									<option value="0">Төгсөх анги</option>
-									<option value="1">Төгссөн</option>
-									<option value="2">Суралцаж байгаа</option>
-									<option value="3">Гарсан</option>
+									<option value="">졸업여부</option>
+									<option value="0">졸업</option>
+									<option value="1">수료</option>
+									<option value="2">재학</option>
+									<option value="3">중퇴</option>
 									</select>
-									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_add();"><span>+Нэмэлт</span></a></em>
+									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_add();"><span>+추가</span></a></em>
 								</li>
 							<?php // 수정시
 							} else if($mode=='update'||$mode=='load'){ 
@@ -1186,42 +1186,42 @@
 									<input class="txt specialize" type="text" name="wr_graduate_specialize[]" id="wr_graduate_specialize_<?php echo $j;?>" style="width:80px;" value="<?php echo ($school_specialize)?$school_specialize:'전공입력';?>">
 
 									<select name="wr_graduate_grade[]" class="ipSelect">
-									<option value="">Зэрэг</option>
-									<option value='0' <?php echo ($school_grade=='0')?'selected':'';?>>Магистр</option>
-									<option value='1' <?php echo ($school_grade=='1')?'selected':'';?>>Доктор</option>
+									<option value="">학위</option>
+									<option value='0' <?php echo ($school_grade=='0')?'selected':'';?>>석사</option>
+									<option value='1' <?php echo ($school_grade=='1')?'selected':'';?>>박사</option>
 									</select> 
 
 									<select name="wr_graduate_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>' <?php echo ($school_syear==$i)?'selected':'';?>><?=$i?></option>
 										<?php } ?>
 									</select> 
-									жил ~
+									년 ~ 
 									<?php if($school_graduation=='2'){	 // 재학중 이라면 ?>
-									<span id="graduate_eyear_now_<?php echo $j;?>">Одоогын байдал</span>
+									<span id="graduate_eyear_now_<?php echo $j;?>">현재</span>
 									<?php } else { ?>
 									<span id="graduate_eyear_block_<?php echo $j;?>">
 										<select name="wr_graduate_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>' <?php echo ($school_eyear==$i)?'selected':'';?>><?=$i?></option>
 											<?php } ?>
 										</select>
-										жил
+										년
 									</span>
 									<?php } ?>
 									<select name="wr_graduate_graduation[]" id="wr_graduate_graduation_<?php echo $j;?>" class="ipSelect">
-									<option value="">Төгсөлтийн байдал</option>
-									<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>Төгсөх анги</option>
-									<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>Төгссөн</option>
-									<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>Суралцаж байгаа</option>
-									<option value="3" <?php echo ($school_graduation=='3')?'selected':'';?>>Гарсан</option>
+									<option value="">졸업여부</option>
+									<option value="0" <?php echo ($school_graduation=='0')?'selected':'';?>>졸업</option>
+									<option value="1" <?php echo ($school_graduation=='1')?'selected':'';?>>수료</option>
+									<option value="2" <?php echo ($school_graduation=='2')?'selected':'';?>>재학</option>
+									<option value="3" <?php echo ($school_graduation=='3')?'selected':'';?>>중퇴</option>
 									</select>
 									<?php if($j==0){ ?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_add();"><span>+Нэмэлт</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_add();"><span>+추가</span></a></em>
 									<?php } else { ?>
-										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_remove('<?php echo $j;?>');"><span>-арилгах</span></a></em>
+										<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="graduate_remove('<?php echo $j;?>');"><span>-제거</span></a></em>
 									<?php } ?>
 								</li>
 							<?php
@@ -1235,23 +1235,23 @@
 				</tr>
 
 				<tr id="ability_success" style="display:none;">
-					<td scope="row" class="ctlt"> <label><strong>Магистр</strong></label></td>
+					<td scope="row" class="ctlt"> <label><strong>대학원</strong></label></td>
 					<td class="pdlnb2">
 						<div class="school1 positionR">
 							<ul id="success_block">
 
 								<li class="pb5 positionR">
-									<input class="txt graduate" type="text" name="wr_success[]" id="wr_success_0" style="width:100px;" value="Сургуулиа оруулах">
-									<input class="txt specialize" type="text" name="wr_success_specialize[]" id="wr_success_specialize_0" style="width:80px;" value="Мэргэжил ">
+									<input class="txt graduate" type="text" name="wr_success[]" id="wr_success_0" style="width:100px;" value="출신학교 입력">
+									<input class="txt specialize" type="text" name="wr_success_specialize[]" id="wr_success_specialize_0" style="width:80px;" value="전공입력">
 
 									<select name="wr_success_grade[]" class="ipSelect">
-									<option value="">Зэрэг</option>
-									<option value='0'>Магистр</option>
-									<option value='1'>Доктор</option>
+									<option value="">학위</option>
+									<option value='0'>석사</option>
+									<option value='1'>박사</option>
 									</select> 
 
 									<select name="wr_success_syear[]" class="ipSelect">
-									<option value="">Жил</option>
+									<option value="">년도</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
@@ -1259,7 +1259,7 @@
 									년 ~ 
 									<span id="success_eyear_block_0">
 										<select name="wr_success_eyear[]" class="ipSelect">
-										<option value="">Жил</option>
+										<option value="">년도</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>'><?=$i?></option>
 											<?php } ?>
@@ -1267,13 +1267,13 @@
 										년
 									</span>
 									<select name="wr_success_graduation[]" id="wr_success_graduation_0" class="ipSelect">
-									<option value="">Төгсөлтийн байдал</option>
-									<option value="0">Төгсөх анги</option>
-									<option value="1">Төгссөн</option>
-									<option value="2">Магистр</option>
-									<option value="3">Гарсан</option>
+									<option value="">졸업여부</option>
+									<option value="0">졸업</option>
+									<option value="1">수료</option>
+									<option value="2">재학</option>
+									<option value="3">중퇴</option>
 									</select>
-									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="success_add();"><span>+нэмэлт</span></a></em>
+									<em style="right:0; top:2px;" class="positionA insert"> <a class="button white" onclick="success_add();"><span>+추가</span></a></em>
 								</li>
 
 							</ul>
@@ -1282,10 +1282,10 @@
 				</tr>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">Ажил мэргэжил</td>
+					<td class="ctlt">경력사항</td>
 					<td class="pdlnb2">
 						<input type="checkbox" name="wr_career_use" id="wr_career_use" class="chk" value="1" onclick="use_career(this);" <?php echo ($wr_career_use)?'checked':'';?> hname="경력사항" option="checkbox">
-						<label for="wr_career_use"><strong>Туршлага байгаа</strong></label>
+						<label for="wr_career_use"><strong>경력있음</strong></label>
 						<em style="right:0; top:0;display:<?php echo ($wr_career_use)?'':'none';?>;" class="insert" id="career_add"> <a class="button white" onclick="career_add();"><span>+추가</span></a></em>
 					</td>
 				</tr>
@@ -1536,16 +1536,16 @@
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tbody id="license_block">
 					<tr>
-						<td class="ctlt">Гэрчилгээ</td>
+						<td class="ctlt">보유자격증</td>
 						<td class="pdlnb2">
-							<input type="checkbox" name="wr_license_use"  id="wr_license_use" class="chk" value="1" onclick="use_license(this);" <?php echo ($wr_license_use)?'checked':'';?> <?php echo ($form_license['etc_0'])?'required':'';?> hname="Мэргэжлийн үнэмлэх" option="checkbox">
-							<label for="wr_license_use"><strong>Гэрчилгээ байгаа</strong></label>
-							<em style="right:0; top:0; display:<?php echo ($wr_license)?'':'none';?>;" class="insert" id="license_add"> <a class="button white" onclick="license_add();"><span>+нэмэх</span></a></em>
+							<input type="checkbox" name="wr_license_use"  id="wr_license_use" class="chk" value="1" onclick="use_license(this);" <?php echo ($wr_license_use)?'checked':'';?> <?php echo ($form_license['etc_0'])?'required':'';?> hname="자격증" option="checkbox">
+							<label for="wr_license_use"><strong>자격증있음</strong></label>
+							<em style="right:0; top:0; display:<?php echo ($wr_license)?'':'none';?>;" class="insert" id="license_add"> <a class="button white" onclick="license_add();"><span>+추가</span></a></em>
 						</td>
 					</tr>
 					<?php if($mode=='insert' || ($mode=='update' && !$wr_license)){ ?>
 					<tr class="wr_license_block" id="wr_license_block_0" style="display:none;">
-						<td scope="row"  class="ctlt subline"> <label><strong>Мэргэжлийн үнэмлэх</strong></label></td>
+						<td scope="row"  class="ctlt subline"> <label><strong>자격증</strong></label></td>
 						<td  class="pdlnb2">
 							<div class="career1 positionR">
 							<ul>
@@ -1556,27 +1556,27 @@
 								<tr>
 									<td>
 										<span>
-											<label>Мэргэжлийн үнэмлэхийн нэр<b class="col">*</b></label>
-											<input class="txt license_required" type="text" name="wr_license_name[]"  id="wr_license_name_0" style="width:135px;" hname="Мэргэжлийн үнэмлэхийн нэр">
+											<label>자격증명<b class="col">*</b></label>
+											<input class="txt license_required" type="text" name="wr_license_name[]"  id="wr_license_name_0" style="width:135px;" hname="자격증명">
 											<!-- <em class="pr10"><a class="button" onclick="license_search_pop('0');"><span>선택</span></a></em> -->
 										</span>
 									</td>
 									<td>
 										<span>
-											<label>Авсан огноо<b class="col">*</b></label>
-											<input class="txt license_required" type="text" name="wr_license_public[]" id="wr_license_public_0" style="width:135px;" hname="Авсан огноо">
+											<label>발행처<b class="col">*</b></label>
+											<input class="txt license_required" type="text" name="wr_license_public[]" id="wr_license_public_0" style="width:135px;" hname="발행처">
 										</span>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="2">
-										<label>Авсан огноо<b class="col">*</b></label>
-										<select style="width:80px;" name="wr_license_year[]" class="ipSelect license_required" hname="Авсан огноо">
-										<option value="">жил</option>
+										<label>취득년도<b class="col">*</b></label>
+										<select style="width:80px;" name="wr_license_year[]" class="ipSelect license_required" hname="취득년도">
+										<option value="">년</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>'><?=$i?></option>
 										<?php } ?>
-										</select> жил
+										</select> 년 
 									</td>
 								</tr>
 								</tbody>
@@ -1592,12 +1592,12 @@
 						foreach($wr_license as $key => $val){
 					?>
 					<tr class="wr_license_block" id="wr_license_block_<?php echo $key;?>">
-						<td scope="row"  class="subline"> <label><strong>Мэрэгжлийн үнэмлэх</strong></label></td>
+						<td scope="row"  class="subline"> <label><strong>자격증</strong></label></td>
 						<td  class="pdlnb2">
 							<div class="career1 positionR">
 							<ul>
 								<li class="pb5 positionR">
-								<em style="right:0; top:5px;" class="positionA delete"> <a class="button white" onclick="license_remove('<?php echo $key;?>');"><span>-арилгах</span></a></em>
+								<em style="right:0; top:5px;" class="positionA delete"> <a class="button white" onclick="license_remove('<?php echo $key;?>');"><span>-삭제</span></a></em>
 								<table>
 								<!-- <caption><span class="skip">자격증사항 정보입력</span></caption> -->
 								<colgroup><col width="250px"><col width="*"></colgroup>
@@ -1605,26 +1605,26 @@
 								<tr>
 									<td>
 										<span>
-											<label>Мэрэгжлийн үнэмлэхийн нэр<b class="col">*</b></label>
-											<input class="txt license_required" type="text" name="wr_license_name[]"  id="wr_license_name_<?php echo $key;?>" style="width:135px;" hname="Мэрэгжлийн үнэмлэхийн нэр" value="<?php echo $val['name'];?>">
+											<label>자격증명<b class="col">*</b></label>
+											<input class="txt license_required" type="text" name="wr_license_name[]"  id="wr_license_name_<?php echo $key;?>" style="width:135px;" hname="자격증명" value="<?php echo $val['name'];?>">
 										</span>
 									</td>
 									<td>
 										<span>
 											<label>발행처<b class="col">*</b></label>
-											<input class="txt license_required" type="text" name="wr_license_public[]" id="wr_license_public_<?php echo $key;?>" style="width:135px;" hname="Авсан огноо" value="<?php echo $val['public'];?>">
+											<input class="txt license_required" type="text" name="wr_license_public[]" id="wr_license_public_<?php echo $key;?>" style="width:135px;" hname="발행처" value="<?php echo $val['public'];?>">
 										</span>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="2">
-										<label>Авсан огноо<b class="col">*</b></label>
-										<select style="width:80px;" name="wr_license_year[]" class="ipSelect license_required" hname="Авсан огноо">
-										<option value="">Жил</option>
+										<label>취득년도<b class="col">*</b></label>
+										<select style="width:80px;" name="wr_license_year[]" class="ipSelect license_required" hname="취득년도">
+										<option value="">년</option>
 										<?php for($i=date('Y');$i>=1900;--$i){ ?>
 										<option value='<?=$i?>' <?php echo ($val['year']==$i)?'selected':'';?>><?=$i?></option>
 										<?php } ?>
-										</select> Жил
+										</select> 년 
 									</td>
 								</tr>
 								</tbody>
@@ -1643,23 +1643,23 @@
 
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">Гадаад хэлний оноо</td>
+					<td class="ctlt">외국어능력</td>
 					<td class="pdlnb2 ">
-						<input type="checkbox" name="wr_language_use" id="wr_language_use" class="chk" value="1" onclick="use_language(this);" <?php echo ($wr_language_use)?'checked':'';?> <?php echo ($form_language['etc_0'])?'required':'';?> hname="Мэргэжлийн үнэмлэх" option="checkbox">
-						<label for="wr_language_use"><strong>Гадаад хэлний оноо байгаа.</strong></label>
+						<input type="checkbox" name="wr_language_use" id="wr_language_use" class="chk" value="1" onclick="use_language(this);" <?php echo ($wr_language_use)?'checked':'';?> <?php echo ($form_language['etc_0'])?'required':'';?> hname="자격증" option="checkbox">
+						<label for="wr_language_use"><strong>외국어능력 있음</strong></label>
 					</td>
 				</tr>
 				<?php if($mode=='insert' || ($mode=='update' && !$wr_language)){ ?>
 				<tr class="wr_language_block" id="wr_language_block_0" style="display:none;">
-					<td scope="row"  class="ctlt subline"><label><strong>Гадаад хэлний түвшин</strong></label></td>
+					<td scope="row"  class="ctlt subline"><label><strong>외국어능력</strong></label></td>
 					<td  class="pdlnb2">
 						<div class="language positionR">
 						<ul>
 							<li class="positionR">
 								<span>
-									<label>Гадаад хэл<b class="col">*</b></label>
-									<select title="Гадаад хэл сонгох" name="wr_language_name[]" id="wr_language_name_0" style="width:130px;" class="ipSelect language_required" hname="Гадаад хэл">
-									<option value=""> Гадаад хэл сонгох </option>
+									<label>외국어<b class="col">*</b></label>
+									<select title="외국어 선택" name="wr_language_name[]" id="wr_language_name_0" style="width:130px;" class="ipSelect language_required" hname="외국어">
+									<option value=""> 외국어선택 </option>
 									<?php
 										foreach($indi_language_list as $val){
 										$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -1670,15 +1670,15 @@
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_0" id="wr_language_level_0_0" value="0" checked>
-									<label for="wr_language_level_0_0">Дээд(Харилцан ярианы чадвар)</label>
+									<label for="wr_language_level_0_0">상(회화능숙)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_0" id="wr_language_level_0_1" value="1">
-									<label for="wr_language_level_0_1">Дунд(Энгийн харилцан яриа)</label>
+									<label for="wr_language_level_0_1">중(일상대화)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_0" id="wr_language_level_0_2" value="2">
-									<label for="wr_language_level_0_2">Бага(Анхан шатны яриа)</label>
+									<label for="wr_language_level_0_2">하(간단대화)</label>
 								</span>
 							</li>
 							
@@ -1688,9 +1688,9 @@
 									<ul>
 										<li class="pb5 positionR">
 										<span>
-											<label>Албан ёсны шалгалт</label>
+											<label>공인시험</label>
 											<select title="시험 선택" name="language_license_0[]" id="language_license_0_0" style="width:130px;" class="ipSelect">
-											<option value=""> Шалгалт сонгох </option>
+											<option value=""> 시험선택 </option>
 											<?php
 												foreach($indi_language_license_list as $val){
 												$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -1700,17 +1700,17 @@
 											</select>
 										</span>
 										<span> 
-											<label class="pl10">оноо / үнэлгээ</label>
+											<label class="pl10">점수/등급</label>
 											<input type="text" style="width:80px;" name="language_license_level_0[]" class="txt" id="language_license_level_0_0">
 										</span>
 										<span>
-											<label class="pl10">Авсан жил</label>
+											<label class="pl10">취득년도</label>
 											<select style="width:80px;" name="language_license_year_0[]" class="ipSelect">
-											<option value="">жил</option>
+											<option value="">년</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>'><?=$i?></option>
 											<?php } ?>
-											</select> жил
+											</select> 년
 										</span> 
 										</li>
 									</ul>
@@ -1721,9 +1721,9 @@
 							<li class="positionR">
 								<span>
 									<input type="checkbox" name="wr_language_study_0" id="wr_language_study_0" class="chk" value="1">
-									<label style="width:100px;"  for="wr_language_study_0">Хэлний бэлтгэлийн туршлага</label>
-									<select title="Сургалтын хугацааг сонгох" name="wr_language_study_date_0" id="wr_language_study_date_0" style="width:90px;" class="ipSelect">
-									<option value="">Сургалтын хугацааг сонгох</option>
+									<label style="width:100px;"  for="wr_language_study_0">어학연수 경험있음</label>
+									<select title="연수기간 선택" name="wr_language_study_date_0" id="wr_language_study_date_0" style="width:90px;" class="ipSelect">
+									<option value="">연수기간 선택</option>
 									<?php foreach($language_date as $key => $val){ ?>
 									<option value="<?php echo $key;?>"><?php echo $val;?></option>
 									<?php } ?>
@@ -1740,15 +1740,15 @@
 					foreach($wr_language as $lkey => $lval){
 				?>
 				<tr class="wr_language_block" id="wr_language_block_<?php echo $lkey;?>">
-					<td scope="row"  class="ctlt subline"> <label><strong>Гадаад хэлни түвшин</strong></label></td>
+					<td scope="row"  class="ctlt subline"> <label><strong>외국어능력</strong></label></td>
 					<td  class="pdlnb2">
 						<div class="language positionR">
 						<ul>
 							<li class="positionR">
 								<span>
-									<label>Гадаад хэл<b class="col">*</b></label>
-									<select title="외국어 선택" name="wr_language_name[]" id="wr_language_name_<?php echo $lkey;?>" style="width:130px;" class="ipSelect language_required" hname="Гадаад хэл">
-									<option value=""> Гадаад хэлний оноо сонгох </option>
+									<label>외국어<b class="col">*</b></label>
+									<select title="외국어 선택" name="wr_language_name[]" id="wr_language_name_<?php echo $lkey;?>" style="width:130px;" class="ipSelect language_required" hname="외국어">
+									<option value=""> 외국어선택 </option>
 									<?php
 										foreach($indi_language_list as $val){
 										$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
@@ -1760,15 +1760,15 @@
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_<?php echo $lkey;?>" id="wr_language_level_<?php echo $lkey;?>_0" value="0" checked>
-									<label for="wr_language_level_<?php echo $lkey;?>_0">Дээд(Харилцан ярианы чадвар)</label>
+									<label for="wr_language_level_<?php echo $lkey;?>_0">상(회화능숙)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_<?php echo $lkey;?>" id="wr_language_level_<?php echo $lkey;?>_1" value="1" <?php echo ($lval['level']=='1')?'checked':'';?>>
-									<label for="wr_language_level_<?php echo $lkey;?>_1">Дунд(Энгийн харилцан яриа)</label>
+									<label for="wr_language_level_<?php echo $lkey;?>_1">중(일상대화)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_language_level_<?php echo $lkey;?>" id="wr_language_level_<?php echo $lkey;?>_2" value="2" <?php echo ($lval['level']=='2')?'checked':'';?>>
-									<label for="wr_language_level_<?php echo $lkey;?>_2">Бага(Анхан шатны яриа)</label>
+									<label for="wr_language_level_<?php echo $lkey;?>_2">하(간단대화)</label>
 								</span>
 							</li>
 							
@@ -1785,9 +1785,9 @@
 								<li class="positionR">
 									<ul>
 										<li class="pb5 positionR">
-										<em style="right:0; top:0;" class="positionA delete"><a class="button white" onclick="language_license_remove('<?php echo $lkey;?>','<?php echo $j;?>');"><span>Шалгалт устгах</span></a></em>
+										<em style="right:0; top:0;" class="positionA delete"><a class="button white" onclick="language_license_remove('<?php echo $lkey;?>','<?php echo $j;?>');"><span>시험삭제</span></a></em>
 										<span>
-											<label>Албан ёсны шалгалт</label>
+											<label>공인시험</label>
 											<select title="시험 선택" name="language_license_<?php echo $lkey;?>[]" id="language_license_<?php echo $lkey;?>_<?php echo $j;?>" style="width:130px;" class="ipSelect">
 											<option value=""> 시험선택 </option>
 											<?php
@@ -1800,17 +1800,17 @@
 											</select>
 										</span>
 										<span> 
-											<label class="pl10">үнэлгээ/бүртгэл</label>
+											<label class="pl10">점수/등급</label>
 											<input type="text" style="width:80px;" name="language_license_level_<?php echo $lkey;?>[]" class="txt" id="language_license_level_<?php echo $lkey;?>_<?php echo $j;?>" value="<?php echo $license_level;?>">
 										</span>
 										<span>
-											<label class="pl10">Авсан огноо</label>
+											<label class="pl10">취득년도</label>
 											<select style="width:80px;" name="language_license_year_<?php echo $lkey;?>[]" class="ipSelect">
-											<option value="">жил</option>
+											<option value="">년</option>
 											<?php for($i=date('Y');$i>=1900;--$i){ ?>
 											<option value='<?=$i?>' <?php echo ($license_year==$i)?'selected':'';?>><?=$i?></option>
 											<?php } ?>
-											</select> жил
+											</select> 년
 										</span> 
 										</li>
 									</ul>
@@ -1822,12 +1822,12 @@
 							<li class="positionR">
 								<span>
 									<input type="checkbox" name="wr_language_study_<?php echo $lkey;?>" id="wr_language_study_<?php echo $lkey;?>" class="chk" value="1" <?php echo ($lval['study'])?'checked':'';?>>
-									<label style="width:100px;" class="" for="wr_language_study_<?php echo $lkey;?>">Хэлний бэлтгэлийн туршлага</label>
-									<select title="Сургалтын хугацааг сонгох" name="wr_language_study_date_<?php echo $lkey;?>" id="wr_language_study_date_<?php echo $lkey;?>" style="width:90px;" class="ipSelect">
-									<option value="">Сургалтын хугацааг сонгох</option>
+									<label style="width:100px;" class="" for="wr_language_study_<?php echo $lkey;?>">어학연수 경험있음</label>
+									<select title="연수기간 선택" name="wr_language_study_date_<?php echo $lkey;?>" id="wr_language_study_date_<?php echo $lkey;?>" style="width:90px;" class="ipSelect">
+									<option value="">연수기간 선택</option>
 									<?php foreach($language_date as $key => $val){ ?>
-                                        <option value="<?php echo $key;?>" <?php echo ($lval['study_date']==$key)?'selected':'';?>><?php echo $val;?></option>
-                                    <?php } ?>
+									<option value="<?php echo $key;?>" <?php echo ($lval['study_date']==$key)?'selected':'';?>><?php echo $val;?></option>
+									<?php } ?>
 									</select>
 								</span>
 							</li>
@@ -1842,26 +1842,26 @@
 				?>
 				<tr><td colspan="4" class="lnb wbg" height="5"></td></tr>
 				<tr>
-					<td class="ctlt">OA түвшин</td>
+					<td class="ctlt">OA능력</td>
 					<td class="pdlnb2">
 						<ul>
 							<li class="sklist">
-								<label class="pr5" style="display:inline-block; width:160px;"><img alt="Word" src="../../images/icon/icon_word1.gif" width="16" height="16">word(hangul·MS word)</label>
+								<label class="pr5" style="display:inline-block; width:160px;"><img alt="워드" src="../../images/icon/icon_word1.gif" width="16" height="16">워드(한글·MS워드)</label>
 								<span>
 									<input type="radio" name="wr_oa[word]" id="wr_oa_word_0" value="0" checked>
-									<label for="wr_oa_word_0">Шагнал (хүснэгт / хэрэгсэл боломжтой)</label>
+									<label for="wr_oa_word_0">상(표/도구 활용가능)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_oa[word]" id="wr_oa_word_1" value="1" <?php echo ($wr_oa['word']=='1')?'checked':'';?>>
-									<label for="wr_oa_word_1">Дунд (баримт бичгийг засах боломжтой))</label>
+									<label for="wr_oa_word_1">중(문서편집 가능)</label>
 								</span>
 								<span>
 									<input type="radio" name="wr_oa[word]" id="wr_oa_word_2" value="2" <?php echo ($wr_oa['word']=='2')?'checked':'';?>>
-									<label for="wr_oa_word_2">бага (анхан шатны))</label>
+									<label for="wr_oa_word_2">하(기본 사용)</label>
 								</span>
 							</li>
 							<li class="sklist">
-								<label class="pr5" style="display:inline-block; width:160px;"><img alt="프리젠테이션" src="../../images/icon/icon_power1.gif" width="16" height="16">Танилцуулга (PowerPoint)</label>
+								<label class="pr5" style="display:inline-block; width:160px;"><img alt="프리젠테이션" src="../../images/icon/icon_power1.gif" width="16" height="16">프리젠테이션(파워포인트)</label>
 								<span>
 									<input type="radio" name="wr_oa[pt]" id="wr_oa_pt_0" value="0" checked>
 									<label for="wr_oa_pt_0">상(챠트/효과 활용가능)</label>
@@ -1876,7 +1876,7 @@
 								</span>
 							</li>
 							<li class="sklist">
-								<label class="pr5" style="display:inline-block; width:160px;"><img alt="스프레드시트" src="../../images/icon/icon_excel1.gif" width="16" height="16">Хүснэгт (Excel)</label>
+								<label class="pr5" style="display:inline-block; width:160px;"><img alt="스프레드시트" src="../../images/icon/icon_excel1.gif" width="16" height="16">스프레드시트(엑셀)</label>
 								<span>
 									<input type="radio" name="wr_oa[sheet]" id="wr_oa_sheet_0" value="0" checked>
 									<label for="wr_oa_sheet_0">상(수식/함수 활용가능)</label>
@@ -1891,7 +1891,7 @@
 								</span>
 							</li>
 							<li class="sklist">
-								<label class="pr5" style="display:inline-block; width:160px;"><img alt="인터넷" src="../../images/icon/icon_ie1.gif" width="16" height="16">Интернет (мэдээллийн хайлт)</label>
+								<label class="pr5" style="display:inline-block; width:160px;"><img alt="인터넷" src="../../images/icon/icon_ie1.gif" width="16" height="16">인터넷(정보검색)</label>
 								<span>
 									<input type="radio" name="wr_oa[internet]" id="wr_oa_internet_0" value="0" checked>
 									<label for="wr_oa_internet_0">상(정보수집 능숙)</label>
