@@ -129,15 +129,15 @@ var area_point = function( area_id, point, mode ){	// 위치 정보에 따른 �
 	var wr_area_0 = ($('#wr_area_'+area_id+'0 option:selected').val()) ? $('#wr_area_'+area_id+'0 option:selected').text() : "";
 	var wr_area_1 = ($('#wr_area_'+area_id+'1 option:selected').val()) ? $('#wr_area_'+area_id+'1 option:selected').text() : "";
 	var wr_area_2 = ($('#wr_area_'+area_id+'2 option:selected').val()) ? $('#wr_area_'+area_id+'2 option:selected').text() : "";
-	var wr_area_3 = ($('#wr_area_'+area_id+'3').val()=='번지수입력' || $('#wr_area_'+area_id+'3').val()=='') ? "" : $('#wr_area_'+area_id+'3').val();
+	var wr_area_3 = ($('#wr_area_'+area_id+'3').val()=='Гудамжны дугаараа оруулна уу' || $('#wr_area_'+area_id+'3').val()=='') ? "" : $('#wr_area_'+area_id+'3').val();
 
 	if(!wr_area_0 || wr_area_0 == ""){
-		alert("지도의 위치를 확인할 시·도 를 선택해 주세요.");
+		alert("Газрын зураг дээрх байршлыг шалгахын тулд хот / дүүргээ сонгоно уу.");
 		$('#wr_area_'+area_id+'0').focus();
 		return false;
 	}
 	if(!wr_area_1 || wr_area_1 == ""){
-		alert("지도의 위치를 확인할 시군구 를 선택해 주세요.");
+		alert("Газрын зургийн байршлыг харахын тулд хот, дүүргээ сонгоно уу.");
 		$('#wr_area_'+area_id+'1').focus();
 		return false;
 	}
@@ -198,9 +198,9 @@ var addArea_position = function( sido, gugun, dong, bunji, bldg ){	// 지도 이
 
 	if(use_map=='daum'){	// 다음
 
-		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+		if(gugun=='Бүгд' || (gugun.indexOf('Бүгд') >= 1)){
 			daum_addrSearch(sido);
-			$('#addrResult').html(sido + " 전체");
+			$('#addrResult').html(sido + " Бүгд");
 		} else {
 			if(dong && bunji) {
 				daum_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
@@ -213,9 +213,9 @@ var addArea_position = function( sido, gugun, dong, bunji, bldg ){	// 지도 이
 
 	} else if(use_map=='naver'){		// 네이버
 
-		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+		if(gugun=='Бүгд' || (gugun.indexOf('Бүгд') >= 1)){
 			naver_addrSearch(sido);
-			$('#addrResult').html(sido + " 전체");
+			$('#addrResult').html(sido + " Бүгд");
 		} else {
 			if(dong && bunji) {
 				naver_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
@@ -228,9 +228,9 @@ var addArea_position = function( sido, gugun, dong, bunji, bldg ){	// 지도 이
 
 	} else if(use_map=='google'){	// 구글
 
-		if(gugun=='전체' || (gugun.indexOf('전체') >= 1)){
+		if(gugun=='Бүгд' || (gugun.indexOf('Бүгд') >= 1)){
 			google_addrSearch(sido);
-			$('#addrResult').html(sido + " 전체");
+			$('#addrResult').html(sido + " Бүгд");
 		} else {
 			if(dong && bunji) {
 				google_addrSearch(sido+' '+gugun+' '+dong+' '+bunji);
@@ -327,7 +327,7 @@ var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/
 			handle: '#albaPhotoPop_handle'
 		});
 	} else if(mode=='delete') {
-		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+		if(confirm('Байгууллагын зураг устгах уу?\n\n Устгасан мэдээллийг сэргээх боломжгүй.')){
 			$.post('./process/regist.php', { mode:'alba_photo_delete', mb_id:mb_id, photo_no:no }, function(result){
 				$('#alba_photo_'+no).attr('src',result);
 				close_alba_photos();
@@ -338,7 +338,7 @@ var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/
 var alba_photo_submit = function(){	// 근무회사  이미지 등록하기 버튼 클릭시
 	var alba_photo_files = $('#alba_photo_files').val();
 	if(!alba_photo_files || alba_photo_files==''){
-		alert("등록할 사진을 첨부해 주세요.");
+		alert("Бүртгүүлэхийн тулд зураг хавсаргана уу.");
 		return;
 	}
 	var alba_photo_options = { beforeSubmit : alba_photoRequest, success : alba_photoResponse }
@@ -355,7 +355,7 @@ var alba_photoRequest = function(formData, jqForm, photo_options){	 // 근무회
 }
 var alba_photoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
 	if(responseText=='extension_error'){
-		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		alert("GIF, JPEG, JPG зургууд л оруулах боломжтой.\n\nОруулах зургаа шалгана уу.");
 		return false;
 	} else {
 		var alba_photos = $('#alba_photos').val();
@@ -513,12 +513,12 @@ var albaResponse = function(responseText, statusText, xhr, $form){	// 로고 전
 }
 var delete_alba = function( no ){	 // 삭제 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>정규직 공고를 삭제하시겠습니까?");	
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Бүтэн цагийн ажлыг устгах уу?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '정규직 공고 삭제',
+		title: 'Бүтэн цагийн ажлыг устгах',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -526,22 +526,22 @@ var delete_alba = function( no ){	 // 삭제 (단수)
 var sel_delete_alba = function(){	 // 선택 삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('삭제 할 공고를 선택해 주세요.');
+		alert('Устгахыг хүссэн зараа сонгоно уу.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 정규직 공고 "+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/Сонгосон ажлын зар "+chk_length+"устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '정규직 공고 선택삭제',
+			title: 'Бүтэн цагийн ажлын зарыг сонгох, устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -665,7 +665,7 @@ var get_member = function(mb_id){	// 회원의 no, mb_id 값을 가져와 input 
 var sel_service_alba = function(){	// 선택 서비스승인
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('서비스승인할 공고를 선택해 주세요.');
+		alert('Үйлчилгээнд хамрагдахын тулд зараа сонгоно уу.');
 		return false;
 	} else {
 		var service_no = new Array();
@@ -729,16 +729,16 @@ var manager_sels = function( vals ){
 var service_toggle = function( no ){
 	$('#service_view_'+no).toggle();
 	if( $('#service_view_'+no).css('display') == 'none' ){
-		$('#service_toggle_'+no).html("+ 서비스 보기");
+		$('#service_toggle_'+no).html("+ Үйлчилгээ харах");
 	} else {
-		$('#service_toggle_'+no).html("+ 서비스 닫기");
+		$('#service_toggle_'+no).html("+ Үйлчилгээ хаах");
 	}
 }
 
 var input_types = function( vals ){	// 입력방식 선택
 	var sel = vals.value;
 	
-	if(confirm('등록방법을 변경하시면 기존에 입력하셨던 내용들이 모두 초기화 됩니다.\n\n등록방법을 변경하시겠습니까?')){
+	if(confirm('Хэрэв та бүртгэлийн аргыг өөрчилбөл өмнө оруулсан бүх мэдээллийг эхлүүлэх болно.\n\nБүртгэлийн аргыг өөрчлөх үү?')){
 		//$('#alba_photo_0').attr('src','../../images/comn/no_profileimg.gif');
 		//$('#alba_photo_1').attr('src','../../images/comn/no_profileimg.gif');
 		//$('#alba_photo_2').attr('src','../../images/comn/no_profileimg.gif');
@@ -786,7 +786,7 @@ var update_mb_logos = function( mode ){	// 근무회사 이미지 등록/삭제
 var mb_logo_submit = function( ){	// 근무회사  이미지 등록하기 버튼 클릭시
 	var mb_logo_files = $('#mb_logo_files').val();
 	if(!mb_logo_files || mb_logo_files==''){
-		alert("등록할 사진을 첨부해 주세요.");
+		alert("Бүртгүүлэхийн тулд зураг хавсаргана уу.");
 		return;
 	}
 	var mb_logo_options = { beforeSubmit : mb_logoRequest, success : mb_logoResponse }
@@ -804,7 +804,7 @@ var mb_logoRequest = function(formData, jqForm, photo_options){	 // 근무회사
 }
 var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무회사 이미지 전송 후
 	if(responseText=='extension_error'){
-		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		alert("GIF, JPEG, JPG зургууд л оруулах боломжтой.\n\nОруулах зургаа шалгана уу.");
 		return false;
 	} else {
 		var responses = responseText.split('@');
@@ -826,8 +826,8 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
 	</p>
 </div> 
 
@@ -845,25 +845,25 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 <dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-해당 페이지는 구인공고중 모집 마감일이 남아 있지만 유료옵션 서비스 기간이 만료된 구인공고 리스트입니다. <br>
-해당 공고의 서비스/기간등을 수정하시고 싶으실때는 편집에 서비스승인 버튼을 클릭해주시면 됩니다.<br>
-등록하기 버튼은 관리자가 직접 해당회원의 새로운 구인공고를 등록하는 기능입니다.<br>
-불러오기 버튼은 해당 구인공고를 복사하여 수정후 새로운 구인공고로 등록하는 기능입니다.<br>
-유료로 현재 노출되고 있는 공고는 서비스/기간 부분에 서비스보기 버튼이 생성이 됩니다. 서비스보기를 누르시면 현재 진행중인 유료상품기간이 노출됩니다. 
+Энэ хуудас нь ажилд авах эцсийн хугацаа үлдсэн ажлын байрны зарын жагсаалт боловч төлбөрт үйлчилгээний хугацаа дууссан болно. <br>
+Та үйлчилгээ / хугацааг засварлахыг хүсвэл засварлах хэсэгт байгаа үйлчилгээ батлах товчийг дарна уу.<br>
+Бүртгүүлэх товчлуур нь админ гишүүний шинэ ажлын байрыг шууд бүртгэх хэсэг юм.<br>
+Ачаалах товч нь Ажлын байрны зарыг хувилах бөгөөд засварласны дараа шинээр бүртгүүлэх юм.<br>
+Одоогоор төлбөртэй байгаа зар сурталчилгааны хувьд үйлчилгээ / Хугацаан ангилалын үйлчилгээ харах товчийг үүсгэсэн. Хэрэв "Үйлчилгээ харах" дээр дарвал тухайн төлсөн бүтээгдэхүүний хугацаа харагдана.
 </dl></dl>
 
 <?php include_once "./views/_include/search.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정규직 정보 관리
-	<span>총 <b class="num3 col"><?php echo number_format($alba_list['total_count']);?></b>건이 검색되었습니다.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Мэдээлэл удирдах
+	<span>총 <b class="num3 col"><?php echo number_format($alba_list['total_count']);?></b>төрөл олдлоо.</span>
 	<dt>
-		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Үргэлж дэлгэрэнгүй хайх</label>&nbsp;
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
 		</select>
 	</dt>
 
@@ -871,9 +871,9 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 
 	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">Сонгосон үйлчилгээг батлах</h1></a>
 	</dt>
 	<dd>
 		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>공고등록</h1></a>
@@ -883,12 +883,11 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 <col width="2%"><col width="5%"><col width="5%"><col width="18%"><col ><col width="20%"><col width="8%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>등록구분</td>
-	<td>회원등급</td>
-	<td>회사명/아이디/담당자명</td>
-	<td>구인정보</td>
-	<td>서비스/기간</td>
-	<td>편집</td>
+	<td>Гишүүнчлэлийн түвшин</td>
+	<td>Компанийн нэр / ID  / хариуцсан хүн</td>
+	<td>Ажлын байрны мэдээлэл</td>
+	<td>Үйлчилгээ/ Хугацаа</td>
+	<td>Өөрчлөх</td>
 </tr>
 
 <tbody id="alba_list">
@@ -1041,33 +1040,33 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 	<?php if($is_self){ ?>
 	<td class="tl">
 	    <span class="b" >
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">회사명</span>:<?php echo $company_name;?></p>
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">아이디</span>:(관리자직접등록)</p>
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">담당자명</span>:<?php echo $val['wr_person'];?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">Байгууллагын нэр</span>:<?php echo $company_name;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">ID</span>:(Админ бүртгэл)</p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">Хариуцсан хүн</span>:<?php echo $val['wr_person'];?></p>
 		</span>
 	</td>
 	<?php } else { ?>
 	<td class="tl">
 	    <a onclick="pop_member('<?php echo $wr_id;?>');" class="b" >
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">회사명</span>:<?php echo $company_name;?></p>
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">아이디</span>:<?php echo $wr_id;?></p>
-		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">담당자명</span>:<?php echo $val['wr_person'];?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">Байгууллагын нэр</span>:<?php echo $company_name;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">ID</span>:<?php echo $wr_id;?></p>
+		<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:60px;">Хариуцсан хүн</span>:<?php echo $val['wr_person'];?></p>
 		</a>
 	</td>
 	<?php } ?>
 	<td>
 		<!-- <a onclick="pop_info('<?php echo $val['no']?>','<?php echo $wr_id;?>');" class="b"><?php echo $wr_subject;?></a> -->
 		<a href="<?php echo $alice['alba_path'];?>/detail.php?no=<?php echo $val['no'];?>" class="b" target="_blank"><?php echo $wr_subject;?></a>
-		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
-			<li>수정일 : <?php echo $wr_udate;?> </li>
-			<li>마감일 : <?php echo $volume_end_date;?></li>
-			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">Бүртгэлийн огноо : <?php echo $wr_wdate;?>&nbsp;
+			<li>Засварласан огноо : <?php echo $wr_udate;?> </li>
+			<li>Дуусах хугацаа : <?php echo $volume_end_date;?></li>
+			<li>Хайх : <?php echo number_format($val['wr_hit']);?>төрөл</li>
 		</div>
 	</td>
 	<td>
 		<?php
-		if($is_service){ // 서비스가 1가지라도 있는 경우 ?>
-			<span><a class="btn wbl" style="padding:0 5px;" onclick="service_toggle('<?php echo $val['no'];?>');" id="service_toggle_<?php echo $val['no'];?>">+ 서비스 보기</a></span>
+		if($is_service){ // Үйлчилгээ байгаа тохиолдолд ?>
+			<span><a class="btn wbl" style="padding:0 5px;" onclick="service_toggle('<?php echo $val['no'];?>');" id="service_toggle_<?php echo $val['no'];?>">+ Үйлчилгээ харах</a></span>
 			<span id="service_view_<?php echo $val['no'];?>" style="display:none;">
 				<?php echo $wr_platinum;?><?php echo $wr_platinum_main_gold;?><?php echo $wr_platinum_main_logo;?>
 				<?php echo $wr_special;?><?php echo $wr_special_gold;?><?php echo $wr_special_logo;?>
@@ -1091,8 +1090,8 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 				<?php echo $wr_blink;?>
 				<?php echo $wr_jump;?>
 			</span>
-		<?php } else { // 서비스가 아예 없는 경우 ?>
-			<span style="color:#dfdfdf;">서비스 없음</span>
+		<?php } else { // Үйлчилгээ байхгүй тохиолдолд ?>
+			<span style="color:#dfdfdf;">Үйлчилгээ байхгүй</span>
 		<?php } // is_service if end. ?>
 	</td>
 	<td>
@@ -1113,12 +1112,12 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete_alba();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="sel_service_alba();" class="btn org"><h1 class="btn23">Сонгосон үйлчилгээг батлах</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>공고등록</h1></a>
+		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Зар сурталчилгааны бүртгэл</h1></a>
 	</dd>
 </dl>
 
