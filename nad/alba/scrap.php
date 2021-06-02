@@ -13,7 +13,7 @@
 
 		##
 		# Menu Navigation
-		$top_menu = "환경설정";
+		$top_menu = "Орчны тохиргоо";
 		$top_menu_code = "100000";
 
 		##
