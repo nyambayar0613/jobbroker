@@ -13,7 +13,7 @@
 
 		##
 		# Menu Navigation
-		$top_menu = "구인구직관리";
+		$top_menu = "Ажил хайх удирдлага";
 		$top_menu_code = "100000";
 
 		##
