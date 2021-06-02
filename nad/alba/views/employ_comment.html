@@ -19,24 +19,24 @@ var comment_update = function( no ){
 	var wr_content = addslashes($('#wr_content_'+no).val());
 	
 	$('#quest_info').show();
-	$('#confirm_msg').html("입력하신 내용 대로 수정 하시겠습니까?");	
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'update\',\''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Оруулсан утгаар өөрчлөх үү?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'update\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '댓글 수정',
+		title: 'сэтгэгдэл өөрчлөх',
 		showOverlay: false,
 		message: $('#question')
 	});
 }
 var comment_delete = function( no ){
 	$('#quest_info').show();
-	$('#confirm_msg').html("댓글에 답변이 있는 경우 해당 답변 모두 삭제 되니 신중히 삭제 하시기 바랍니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>댓글을 삭제하시겠습니까?");	
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Сэтгэгдлийн доор хариу байгаа тохиолдолд хамт устах тул анхаарна уу. .<br/><br/>Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Сэтгэгдэл устгах уу?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '댓글 삭제',
+		title: 'Сэтгэгдэл устгах',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -44,22 +44,22 @@ var comment_delete = function( no ){
 var sel_alba_delete_comment = function(){	// 정규직을 기준으로 선택 삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('댓글을 삭제할 공고를 선택해 주세요.');
+		alert('Устгах талбараа сонгоно уу.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("선택하신 공고 "+chk_length+"건에 속한 댓글을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Сонгосон талбар"+chk_length+"Сэтгэгдлийг устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_comment_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_comment_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '댓글 선택삭제',
+			title: 'Сэтгэгдэл устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -68,22 +68,22 @@ var sel_alba_delete_comment = function(){	// 정규직을 기준으로 선택 �
 var sel_delete_comment = function(){	// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('삭제 할 댓글을 선택해 주세요.');
+		alert('Устгах сэтгэгдэлээ сонгоно уу.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("댓글에 답변이 있는 경우 해당 답변 모두 삭제 되니 신중히 삭제 하시기 바랍니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 댓글 "+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Сэтгэгдлийн доор хариу байгаа тохиолдолд хамт устах тул анхаарна уу. .<br/><br/>Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Сэтгэгдэл устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '댓글 선택삭제',
+			title: 'Сэтгэгдэл устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -145,8 +145,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тйим" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
 	</p>
 </div> 
 
@@ -164,30 +164,30 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-채용(정규직)공고에 댓글 현황 및 관리를 하실수 있습니다. <br>
+	Та ажилд зуучлах (бүтэн цагаар) зарласан сэтгэгдэл статус, менежментийг удирдах боломжтой. <br>
 </dl></dl>
 
 <?php include_once "./views/_include/comment_search.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정규직 댓글 관리
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сэтгэгдэл удирдах
 	<?php if(!$wr_num){ ?>
-	<span>총 <b class="num3 col"><?php echo number_format(count($list['alba_list']));?></b>건이 검색되었습니다.</span>
+	<span>Нийт <b class="num3 col"><?php echo number_format(count($list['alba_list']));?></b>утга олдлоо.</span>
 	<dt>
 		<!-- <label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp; -->
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
 		</select>
 	</dt>
 	<?php } ?>
 </dl>
 <dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
 	</dt>
 </dl>
 <?php if(!$wr_num){ ?>
@@ -195,9 +195,9 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <col width="2%"><col width="14%"><col><col width="5%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>공고등록회원</td>
-	<td>채용(정규직)공고</td>
-	<td>댓글수</td>
+	<td>Бүртгэлтэй гишүүн</td>
+	<td>Ажилд авах зар(бүтэн цагийн)</td>
+	<td>Сэтгэгдлийн тоо</td>
 </tr>
 <tbody id="alba_list">
 <?php if(!$list['alba_list']){ ?>
@@ -205,8 +205,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <?php } else { 
 	foreach($list['alba_list'] as $val){
 	$wr_id = $val['wr_id'];
-	$mb_info = $member_control->get_member($wr_id);	// 기본 회원정보
-	$company_info = $member_control->get_company_member($wr_id);	// 기업 회원정보
+	$mb_info = $member_control->get_member($wr_id);	// Ерөнхий гишүүнчлэлийн мэдээлэл
+	$company_info = $member_control->get_company_member($wr_id);	// Байгууллагын мэдээлэл
 	$company_name = stripslashes($company_info['mb_company_name']);
 	$wr_subject = stripslashes($val['wr_subject']);
 ?>
@@ -228,12 +228,12 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <col width="2%"><col width="14%"><col><col width="10%"><col width="5%" span="3">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>공고제목</td>
-	<td>댓글 내용</td>
-	<td>댓글등록회원</td>
-	<td>수정</td>
-	<td>취소</td>
-	<td>삭제</td>
+	<td>Зарын утга</td>
+	<td>Сэдгэгдэлийн агуулга</td>
+	<td>Сэтгэгдэл бүртгүүлсэн гишүүн</td>
+	<td>Тохиргоо</td>
+	<td>Цуцлах</td>
+	<td>Устгах</td>
 </tr>
 <tbody>
 <?php if(!$total_count){ ?>
@@ -255,12 +255,12 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<?php echo $tds;?>
 			<td <?php echo ($val['wr_comment_reply'])?"class='pl50'":"";?>>
 				<dl class="twrap"><textarea name="wr_content[]" class="" id="wr_content_<?php echo $val['wr_no'];?>" style="height:32px;"><?php echo stripslashes($wr_content);?></textarea></dl>
-				<?php if($val['wr_del']){ ?>*삭제된 댓글 입니다.<?php } // 삭제된 댓글 ?>
+				<?php if($val['wr_del']){ ?>*Устсан сэтгэгдэл.<?php } // Устсан сэтгэгдэл ?>
 			</td>
 			<td><?php echo $val['wr_id'];?></td>
-			<td><a onclick="comment_update('<?php echo $val['wr_no']?>');">수정</a></td>
+			<td><a onclick="comment_update('<?php echo $val['wr_no']?>');">Өөрчлөх</a></td>
 			<td><a onclick="javascript:history.go(-1);">취소</a></td>
-			<td><a onclick="comment_delete('<?php echo $val['wr_no']?>');">삭제</a></td>
+			<td><a onclick="comment_delete('<?php echo $val['wr_no']?>');">Устгах</a></td>
 		</tr>
 	<?php
 		$i++;
@@ -274,11 +274,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
 		<?php if(!$total_count){ ?>
-		<a onClick="sel_alba_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_alba_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
 		<?php } else { ?>
-		<a onClick="sel_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_delete_comment();" class="btn"><h1 class="btn23"><strong>-</strong>Устгах</h1></a>
 		<?php } ?>
 	</dt>
 </dl>
