@@ -13,7 +13,7 @@
 
 		##
 		# Menu Navigation
-		$top_menu = "Орчны тохригоо";
+		$top_menu = "Орчны тохиргоо";
 		$top_menu_code = "100000";
 
 		##
