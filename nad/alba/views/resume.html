@@ -379,16 +379,16 @@ var college_add = function(){
 	college = "";
 	college += "<li class=\"pb5 positionR\" id=\"college_"+college_cnt+"\">";
 	//college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_college[]\" id=\"wr_college_"+college_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('college','"+college_cnt+"');\" value=\"출신학교 선택\">";
-	college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_college[]\" id=\"wr_college_"+college_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_college[]\" id=\"wr_college_"+college_cnt+"\" style=\"width:100px;\" value=\"Сургуулиа оруулах\"> ";
 	//college += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('college','"+college_cnt+"');\"><span>선택</span></a> </em>";
-	college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_college_specialize[]\" id=\"wr_college_specialize_"+college_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_college_specialize[]\" id=\"wr_college_specialize_"+college_cnt+"\" style=\"width:80px;\" value=\"Мэргэжил оруулах\"> ";
 	college += "<select name=\"wr_college_syear[]\" class=\"ipSelect\">";
-	college += "<option value=\"\">년도</option>";
+	college += "<option value=\"\">Жил</option>";
 	for(i=year;i>=1900;--i){
 		college += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	college += "</select> ";
-	college += "년 ~ ";
+	college += "Жил ~ ";
 	college += "<span id=\"college_eyear_block_"+college_cnt+"\">";
 	college += "<select name=\"wr_college_eyear[]\" class=\"ipSelect\">";
 	college += "<option value=\"\">년도</option>";
@@ -396,15 +396,15 @@ var college_add = function(){
 		college += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	college += "</select> ";
-	college += "년 ";
+	college += "Жил ";
 	college += "</span>";
 	college += "<select name=\"wr_college_graduation[]\" id=\"wr_college_graduation_"+college_cnt+"\" class=\"ipSelect\">";
-	college += "<option value=\"\">졸업여부</option>";
-	college += "<option value=\"0\">졸업</option>";
-	college += "<option value=\"1\">재학</option>";
-	college += "<option value=\"2\">중퇴</option>";
+	college += "<option value=\"\">Төгссөн эсэх</option>";
+	college += "<option value=\"0\">Төгссөн</option>";
+	college += "<option value=\"1\">Төгсөх анги</option>";
+	college += "<option value=\"2\">Сургуулиас гарсан</option>";
 	college += "</select>";
-	college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"college_remove('"+college_cnt+"');\"><span>-제거</span></a></em>";
+	college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"college_remove('"+college_cnt+"');\"><span>-арилгах</span></a></em>";
 	college += "</li>";
 
 	$('#college_block').append(college);
@@ -413,19 +413,19 @@ var college_add = function(){
 	// 출신학교 포커스
 	$('.graduate').focus(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택') $(this).val('');
+		if(vals=='Сургууль сонгох') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+		if(vals=='Сургууль сонгох' || vals=='') $(this).val('Сургууль сонгох');
 	});
 
 	// 전공입력 포커스
 	$('.specialize').focus(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력') $(this).val('');
+		if(vals=='Мэргэжил сонгох') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+		if(vals=='Мэргэжил сонгох' || vals=='') $(this).val('Мэргэжил сонгох');
 	});
 
 	//$('#wr_college_block_'+college_cnt).show();
@@ -445,43 +445,43 @@ var graduate_cnt = 1;
 var graduate_limit = 1;
 var graduate_add = function(){
 	if(graduate_limit >= 5){
-		alert("대학원은 최대 5개 까지 추가 가능합니다.");
+		alert("Та дээд тал нь 5н сургууль нэмэх боломжтой.");
 		return false;
 	}
 
 	graduate = "";
 	graduate += "<li class=\"pb5 positionR\" id=\"graduate_"+graduate_cnt+"\">";
 	//graduate += "<input class=\"txt graduate\" type=\"text\" name=\"wr_graduate[]\" id=\"wr_graduate_"+graduate_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('graduate','"+graduate_cnt+"');\" value=\"출신학교 선택\">";
-	graduate += "<input class=\"txt graduate\" type=\"text\" name=\"wr_graduate[]\" id=\"wr_graduate_"+graduate_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	graduate += "<input class=\"txt graduate\" type=\"text\" name=\"wr_graduate[]\" id=\"wr_graduate_"+graduate_cnt+"\" style=\"width:100px;\" value=\"Сургууль оруулах\"> ";
 	//graduate += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('graduate','"+graduate_cnt+"');\"><span>선택</span></a> </em>";
-	graduate += "<input class=\"txt specialize\" type=\"text\" name=\"wr_graduate_specialize[]\" id=\"wr_graduate_specialize_"+graduate_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	graduate += "<input class=\"txt specialize\" type=\"text\" name=\"wr_graduate_specialize[]\" id=\"wr_graduate_specialize_"+graduate_cnt+"\" style=\"width:80px;\" value=\"Мэргэжил оруулах\"> ";
 	graduate += "<select name=\"wr_graduate_grade[]\" class=\"ipSelect\">";
-	graduate += "<option value=\"\">학위</option>";
-	graduate += "<option value='0'>석사</option>";
-	graduate += "<option value='1'>박사</option>";
+	graduate += "<option value=\"\">зэрэг</option>";
+	graduate += "<option value='0'>магистр</option>";
+	graduate += "<option value='1'>доктор</option>";
 	graduate += "</select> ";
 	graduate += "<select name=\"wr_graduate_syear[]\" class=\"ipSelect\">";
-	graduate += "<option value=\"\">년도</option>";
+	graduate += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		graduate += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	graduate += "</select> ";
-	graduate += "년 ~ ";
+	graduate += "жил ~ ";
 	graduate += "<span id=\"graduate_eyear_block_"+graduate_cnt+"\">";
 	graduate += "<select name=\"wr_graduate_eyear[]\" class=\"ipSelect\">";
-	graduate += "<option value=\"\">년도</option>";
+	graduate += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		graduate += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	graduate += "</select> ";
-	graduate += "년 ";
+	graduate += "жил ";
 	graduate += "</span>";
 	graduate += "<select name=\"wr_graduate_graduation[]\" id=\"wr_graduate_graduation_"+graduate_cnt+"\" class=\"ipSelect\">";
-	graduate += "<option value=\"\">졸업여부</option>";
-	graduate += "<option value=\"0\">졸업</option>";
-	graduate += "<option value=\"1\">수료</option>";
-	graduate += "<option value=\"2\">재학</option>";
-	graduate += "<option value=\"3\">중퇴</option>";
+	graduate += "<option value=\"\">Төгссөн эсэх</option>";
+	graduate += "<option value=\"0\">Төгссөн</option>";
+	graduate += "<option value=\"1\">Төгсөх анги</option>";
+	graduate += "<option value=\"2\">Суралцаж байгаа</option>";
+	graduate += "<option value=\"3\">Сургуулиас гарсан</option>";
 	graduate += "</select>";
 	graduate += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"graduate_remove('"+graduate_cnt+"');\"><span>-제거</span></a></em>";
 	graduate += "</li>";
@@ -492,19 +492,19 @@ var graduate_add = function(){
 	// 출신학교 포커스
 	$('.graduate').focus(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택') $(this).val('');
+		if(vals=='Сургууль оруулах') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+		if(vals=='Сургууль оруулах' || vals=='') $(this).val('Сургууль оруулах');
 	});
 
 	// 전공입력 포커스
 	$('.specialize').focus(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력') $(this).val('');
+		if(vals=='Мэргэжил оруулах') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+		if(vals=='Мэргэжил оруулах' || vals=='') $(this).val('Мэргэжил оруулах');
 	});
 
 	//$('#wr_graduate_block_'+graduate_cnt).show();
@@ -524,45 +524,45 @@ var success_cnt = 1;
 var success_limit = 1;
 var success_add = function(){	
 	if(success_limit >= 5){
-		alert("대학원은 최대 5개 까지 추가 가능합니다.");
+		alert("Та дээд тал нь 5н сургууль нэмэх боломжтой.");
 		return false;
 	}
 
 	success = "";
 	success += "<li class=\"pb5 positionR\" id=\"success_"+success_cnt+"\">";
 	//success += "<input class=\"txt graduate\" type=\"text\" name=\"wr_success[]\" id=\"wr_success_"+success_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('success','"+success_cnt+"');\" value=\"출신학교 선택\">";
-	success += "<input class=\"txt graduate\" type=\"text\" name=\"wr_success[]\" id=\"wr_success_"+success_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
+	success += "<input class=\"txt graduate\" type=\"text\" name=\"wr_success[]\" id=\"wr_success_"+success_cnt+"\" style=\"width:100px;\" value=\"Сургууль оруулах\\"> ";
 	//success += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('success','"+success_cnt+"');\"><span>선택</span></a> </em>";
-	success += "<input class=\"txt specialize\" type=\"text\" name=\"wr_success_specialize[]\" id=\"wr_success_specialize_"+success_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
+	success += "<input class=\"txt specialize\" type=\"text\" name=\"wr_success_specialize[]\" id=\"wr_success_specialize_"+success_cnt+"\" style=\"width:80px;\" value=\"Мэргэжил оруулах\"> ";
 	success += "<select name=\"wr_success_grade[]\" class=\"ipSelect\">";
-	success += "<option value=\"\">학위</option>";
-	success += "<option value='0'>석사</option>";
-	success += "<option value='1'>박사</option>";
+	success += "<option value=\"\">зэрэг</option>";
+	success += "<option value='0'>магистр</option>";
+	success += "<option value='1'>доктор</option>";
 	success += "</select> ";
 	success += "<select name=\"wr_success_syear[]\" class=\"ipSelect\">";
-	success += "<option value=\"\">년도</option>";
+	success += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		success += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	success += "</select> ";
-	success += "년 ~ ";
+	success += "жил ~ ";
 	success += "<span id=\"success_eyear_block_"+success_cnt+"\">";
 	success += "<select name=\"wr_success_eyear[]\" class=\"ipSelect\">";
-	success += "<option value=\"\">년도</option>";
+	success += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		success += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	success += "</select> ";
-	success += "년 ";
+	success += "жил ";
 	success += "</span>";
 	success += "<select name=\"wr_success_graduation[]\" id=\"wr_success_graduation_"+success_cnt+"\" class=\"ipSelect\">";
-	success += "<option value=\"\">졸업여부</option>";
-	success += "<option value=\"0\">졸업</option>";
-	success += "<option value=\"1\">수료</option>";
-	success += "<option value=\"2\">재학</option>";
-	success += "<option value=\"3\">중퇴</option>";
+	success += "<option value=\"\">Төгссөн эсэх</option>";
+	success += "<option value=\"0\">Төгссөн</option>";
+	success += "<option value=\"1\">Төгсөх анги</option>";
+	success += "<option value=\"2\">Суралцаж байгаа</option>";
+	success += "<option value=\"3\">Сургуулиас гарсан</option>";
 	success += "</select>";
-	success += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"success_remove("+success_cnt+");\"><span>-제거</span></a></em>";
+	success += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"success_remove("+success_cnt+");\"><span>-арилгах</span></a></em>";
 	success += "</li>";
 
 
@@ -572,19 +572,19 @@ var success_add = function(){
 	// 출신학교 포커스
 	$('.graduate').focus(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택') $(this).val('');
+		if(vals=='Сургууль оруулах') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
+		if(vals=='Сургууль оруулах' || vals=='') $(this).val('Сургууль оруулах');
 	});
 
 	// 전공입력 포커스
 	$('.specialize').focus(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력') $(this).val('');
+		if(vals=='Мэргэжил оруулах') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
+		if(vals=='Мэргэжил оруулах' || vals=='') $(this).val('Мэргэжил оруулах');
 	});
 	
 	//$('#wr_success_block_'+success_cnt).show();
@@ -645,18 +645,18 @@ var career_cnt = 1;
 var career_limit = 1;
 var career_add = function(){	// 경력 추가
 	if(career_limit >= 10){
-		alert("경력은 최대 10개 까지 추가 가능합니다.");
+		alert("Та дээд тал нь 10 хүртэлх мэргэжил нэмэх боломжтой.");
 		return false;
 	}
 
 	career = "";
 	career += "<tr class=\"wr_career_block\" id=\"wr_career_block_"+career_cnt+"\" style=\"display:none;\">";
-	career += "<td scope=\"row\" class=\"ctlt\"> <label><strong>경력사항</strong></label></td>";	// "+(career_cnt+1)+"
+	career += "<td scope=\"row\" class=\"ctlt\"> <label><strong>Ажил мэргэжил</strong></label></td>";	// "+(career_cnt+1)+"
 	career += "<td class=\"pdlnb2\">";
 	career += "<div class=\"career1 positionR\">";
 	career += "<ul>";
 	career += "<li class=\"pb5 positionR\">";
-	career += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"career_remove('"+career_cnt+"');\"><span>-삭제</span></a></em>";
+	career += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"career_remove('"+career_cnt+"');\"><span>-устгах</span></a></em>";
 	career += "<table border=\"0\" width=\"100%\">";
 	//career += "<caption><span class=\"skip\">경력사항 정보입력</span></caption>";	// "+(career_cnt+1)+"
 	career += "<colgroup><col width=\"200px\"><col></colgroup>";
@@ -664,30 +664,30 @@ var career_add = function(){	// 경력 추가
 	career += "<tr>";
 	career += "<td>";
 	career += "<span>";
-	career += "<label>회사명<b class=\"col\">*</b></label>";
-	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_company[]\" id=\"wr_career_company_"+career_cnt+"\" style=\"width:450px;\" required hname=\"회사명\">";
+	career += "<label>Байгууллагын нэр<b class=\"col\">*</b></label>";
+	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_company[]\" id=\"wr_career_company_"+career_cnt+"\" style=\"width:450px;\" required hname=\"Байгууллагын нэр\">";
 	career += "</span>";
 	career += "</td>";
 	career += "</tr>";
 	career += "<tr>";
 	career += "<td>";
-	career += "<span><label>근무직종<b class=\"col\">*</b></label></span>";
+	career += "<span><label>Ажлын төрөл<b class=\"col\">*</b></label></span>";
 
-	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_0\" title=\"1차직종선택\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_1');\" required hname=\"1차직종\">";
-	career += "<option value=\"\">1차직종선택</option>";
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_0\" title=\"1-р ажил мэргэжилё\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_1');\" required hname=\"1-р ажил мэргэжил\">";
+	career += "<option value=\"\">1-р ажил мэргэжил</option>";
 	career += "</select> ";
 
 	career += "<span id=\"wr_career_type_"+career_cnt+"_1_display\">";
-	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_1\" title=\"2차직종선택\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_2');\">";
-	career += "<option value=\"\">2차직종선택</option>";
-	career += "<option value=\"\">1차 직종을 먼저 선택해 주세요</option>";
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_1\" title=\"2-р ажил мэргэжил\" onchange=\"career_type_sel_first(this,'wr_career_type_"+career_cnt+"_2');\">";
+	career += "<option value=\"\">2-р ажил мэргэжил</option>";
+	career += "<option value=\"\">1-р ажил мэргэжлийг эхлээд сонгоно уу.</option>";
 	career += "</select> ";
 
 	career += "</span>";
 	career += "<span id=\"wr_career_type_"+career_cnt+"_2_display\">";
-	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_2\" title=\"3차직종선택\">";
-	career += "<option value=\"\">3차직종선택</option>";
-	career += "<option value=\"\">2차 직종을 먼저 선택해 주세요</option>";
+	career += "<select class=\"ipSelect\" style=\"width:110px;\" name=\"wr_career_type_"+career_cnt+"[]\" id=\"wr_career_type_"+career_cnt+"_2\" title=\"3-р ажил мэргэжил\">";
+	career += "<option value=\"\">3-р ажил мэргэжил</option>";
+	career += "<option value=\"\">2-р ажил мэргэжлийг эхлээд сонгоно уу.</option>";
 	career += "</select>";
 	career += "</span>";
 
@@ -695,46 +695,46 @@ var career_add = function(){	// 경력 추가
 	career += "</tr>";
 	career += "<tr>";
 	career += "<td colspan=\"2\">";
-	career += "<label>근무기간<b class=\"col\">*</b></label>";
-	career += "<select name=\"wr_career_syear[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:80px;\">";
-	career += "<option value=\"\">년</option>";
+	career += "<label>Ажиллах хугацаа<b class=\"col\">*</b></label>";
+	career += "<select name=\"wr_career_syear[]\" class=\"ipSelect\" required hname=\"Ажиллах хугацаа\" style=\"width:80px;\">";
+	career += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		career += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	career += "</select> ";
-	career += "년 ";
-	career += "<select name=\"wr_career_smonth[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:75px;\">";
-	career += "<option value=\"\">월</option>";
+	career += "жил ";
+	career += "<select name=\"wr_career_smonth[]\" class=\"ipSelect\" required hname=\"Ажиллах хугацаа\" style=\"width:75px;\">";
+	career += "<option value=\"\">сар</option>";
 	for(j=1;j<=12;j++){
 		career += "<option value=\""+j+"\">"+j+"</option>";
 	}
 	career += "</select> ";
-	career += "월 ~ ";
+	career += "сар ~ ";
 	career += "<select name=\"wr_career_eyear[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:80px;\">";
 	career += "<option value=\"\">년</option>";
 	for(i=year;i>=1900;--i){
 		career += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	career += "</select> ";
-	career += "년 ";
-	career += "<select name=\"wr_career_emonth[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:75px;\">";
-	career += "<option value=\"\">월</option>";
+	career += "жил ";
+	career += "<select name=\"wr_career_emonth[]\" class=\"ipSelect\" required hname=\"Ажиллах хугацаа\" style=\"width:75px;\">";
+	career += "<option value=\"\">сар</option>";
 	for(j=1;j<=12;j++){
 		career += "<option value=\""+j+"\">"+j+"</option>";
 	}
 	career += "</select> ";
-	career += "월";
+	career += "сар";
 	career += "</td>";
 	career += "</tr>";
 	career += "<tr>";
 	career += "<td  colspan=\"2\">";
-	career += "<label>담당업무<b class=\"col\">*</b></label>";
-	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_job[]\" id=\"wr_career_job_"+career_cnt+"\" style=\"width:470px;\" required hname=\"담당업무\">";
+	career += "<label>Хариуцсан албан тушаал<b class=\"col\">*</b></label>";
+	career += "<input class=\"txt\" type=\"text\" name=\"wr_career_job[]\" id=\"wr_career_job_"+career_cnt+"\" style=\"width:470px;\" required hname=\"Хариуцсан албан тушаал\">";
 	career += "</td>";
 	career += "</tr>";
 	career += "<tr>";
 	career += "<td  colspan=\"2\">";
-	career += "<label>상세업무</label>";
+	career += "<label>Албан тушаал дэлгэрэнгүй</label>";
 	career += "<textarea class=\"txtarea\" name=\"wr_career_content[]\" id=\"wr_career_content_"+career_cnt+"\" style=\"border:1px solid #ddd; width:450px; height:50px; padding:10px;\"></textarea>";
 	//career += "(<span id=\"career_content_bytes_"+career_cnt+"\">0</span>/100자)";
 	career += "</td>";
@@ -790,18 +790,18 @@ var license_cnt = 1;
 var license_limit = 1;
 var license_add = function(){	// 경력 추가
 	if(license_limit >= 10){
-		alert("자격증은 최대 10개 까지 추가 가능합니다.");
+		alert("Та дээд тал нь 10 хүртэлх гэрчилгээ нэмэх боломжтой..");
 		return false;
 	}
 
 	license = "";
 	license += "<tr class=\"wr_license_block\" id=\"wr_license_block_"+license_cnt+"\">";
-	license += "<td scope=\"row\" class=\"ctlt\"> <label><strong>자격증</strong></label></td>";	 // "+(license_cnt+1)+"
+	license += "<td scope=\"row\" class=\"ctlt\"> <label><strong>Мэргэжлийн үнэмлэх</strong></label></td>";	 // "+(license_cnt+1)+"
 	license += "<td class=\"pdlnb2\">";
 	license += "<div class=\"career1 positionR\">";
 	license += "<ul>";
 	license += "<li class=\"pb5 positionR\">";
-	license += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"license_remove('"+license_cnt+"');\"><span>-삭제</span></a></em>";
+	license += "<em style=\"right:0; top:5px;\" class=\"positionA delete\"> <a class=\"button white\" onclick=\"license_remove('"+license_cnt+"');\"><span>-устгах</span></a></em>";
 	license += "<table>";
 	//license += "<caption><span class=\"skip\">자격증사항 정보입력</span></caption>";
 	license += "<colgroup><col width=\"250px\"><col></colgroup>";
@@ -809,27 +809,27 @@ var license_add = function(){	// 경력 추가
 	license += "<tr>";
 	license += "<td>";
 	license += "<span>";
-	license += "<label>자격증명<b class=\"col\">*</b></label>";
-	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_name[]\"  id=\"wr_license_name_"+license_cnt+"\" style=\"width:150px;\" required hname=\"자격증명\">";
+	license += "<label>Үнэмлэхийн нэр<b class=\"col\">*</b></label>";
+	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_name[]\"  id=\"wr_license_name_"+license_cnt+"\" style=\"width:150px;\" required hname=\"Үнэмлэхийн нэр\">";
 	//license += "<em class=\"pr10\"><a class=\"button\" onclick=\"license_search_pop('"+license_cnt+"');\"><span>선택</span></a></em>";
 	license += "</span>";
 	license += "</td>";
 	license += "<td>";
 	license += "<span>";
-	license += "<label>발행처<b class=\"col\">*</b></label>";
-	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_public[]\" id=\"wr_license_public_"+license_cnt+"\" style=\"width:150px;\" required hname=\"발행처\">";
+	license += "<label>Авсан огноо<b class=\"col\">*</b></label>";
+	license += "<input class=\"txt license_required\" type=\"text\" name=\"wr_license_public[]\" id=\"wr_license_public_"+license_cnt+"\" style=\"width:150px;\" required hname=\"Авсан огноо\">";
 	license += "</span>";
 	license += "</td>";
 	license += "</tr>";
 	license += "<tr>";
 	license += "<td colspan=\"2\">";
-	license += "<label>취득년도<b class=\"col\">*</b></label>";
-	license += "<select name=\"wr_license_year[]\" class=\"ipSelect license_required\" required hname=\"취득년도\">";
-	license += "<option value=\"\">년</option>";
+	license += "<label>Хүчинтэй хугацаа<b class=\"col\">*</b></label>";
+	license += "<select name=\"wr_license_year[]\" class=\"ipSelect license_required\" required hname=\"Хүчинтэй хугацаа\">";
+	license += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		license += "<option value=\""+i+"\">"+i+"</option>";
 	}
-	license += "</select> 년 ";
+	license += "</select> жил ";
 	license += "</td>";
 	license += "</tr>";
 	license += "</tbody>";
@@ -881,7 +881,7 @@ var update_photos = function( mode, no, mb_id ){	// 포토앨범 등록/삭제
 			$('#individualPhotoPop').hide();
 		});
 	} else if(mode=='delete'){	// 삭제
-		if(confirm('포토앨범 사진을 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+		if(confirm('Зургийн цомгийг устгах уу??\n\nУстгасны дараа өгөгдлийг сэргээх боломжгүй болно.')){
 			$.post('../member/process/regist.php', { mode:'photo_deletes', mb_id:mb_id, photo_no:no }, function(result){
 				//$('#photo_'+no).html("<img src=\""+result+"\" width=\"155\" height=\"100\" alt=\"photo\">");
 				$('#mb_photo_'+no).attr('src',result);
@@ -893,7 +893,7 @@ var update_photos = function( mode, no, mb_id ){	// 포토앨범 등록/삭제
 var photos_submit = function( mb_id ){	// 회사이미지 등록하기 버튼 클릭시
 	var photo_files = $('#photo_files').val();
 	if(!photo_files || photo_files==''){
-		alert("등록할 사진을 첨부해 주세요.");
+		alert("Бүртгүүлэхийн тулд зураг хавсаргана уу.");
 		return;
 	}
 	var photos_options = { beforeSubmit : photosRequest, success : photosResponse }
@@ -948,12 +948,12 @@ var military_use = function( vals ){	// 병역여부
 }
 var delete_resume = function( no ){	// 이력서 삭제 (단순)
 	$('#quest_info').show();
-	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>이력서를 삭제하시겠습니까?");	
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Устгасны дараа өгөгдлийг сэргээх боломжгүй болно..<br/><br/>Анкетийг устгах уу?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '이력서 삭제',
+		title: 'Анкетийг устгах',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -961,22 +961,22 @@ var delete_resume = function( no ){	// 이력서 삭제 (단순)
 var sel_delete_resume = function(){	// 이력서 선택 삭제 (복수)
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('삭제 할 이력서를 선택해 주세요.');
+		alert('Устгах анкетаа сонгоно уу.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 이력서 "+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Сонгосон анкет"+chk_length+"устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '이력서 선택삭제',
+			title: 'Анкет устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -1013,7 +1013,7 @@ var serviceResponse = function(responseText, statusText, xhr, $form){
 var sel_service_resume = function(){	// 선택 서비스승인
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('서비스승인할 이력서를 선택해 주세요.');
+		alert('Үйлчилгээг батлахын тулд анкетаа сонгоно уу.');
 		return false;
 	} else {
 		var service_no = new Array();
@@ -1059,7 +1059,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 var input_types = function( vals ){	// 입력방식 선택
 	var sel = vals.value;
 	
-	if(confirm('등록방법을 변경하시면 기존에 입력하셨던 내용들이 모두 초기화 됩니다.\n\n등록방법을 변경하시겠습니까?')){
+	if(confirm('Хэрэв та бүртгэлийн аргыг өөрчилбөл өмнө оруулсан бүх мэдээллийг эхлүүлэх болно..\n\nБүртгэлийн аргыг өөрчлөх үү?')){
 		if(sel=='load'){	// 불러오기
 			$('.input_type_load').show();
 			$('.input_type_self').hide();
@@ -1123,7 +1123,7 @@ var mb_photoResponse = function(responseText, statusText, xhr, $form){	// 근무
 	//return false;
 
 	if(responseText=='extension_error'){
-		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		alert("GIF, JPEG, JPG зургууд л оруулах шаардлагатай.\n\nОруулах зургаа шалгана уу.");
 		return false;
 	} else {
 		var responses = responseText.split('@');
@@ -1213,7 +1213,7 @@ var postSearchs = function(mb_type){
 var new_postSearchs = function(mb_type){
 	var keyword = $('#new_postSearchKeyword').val();
 	if(!keyword || keyword==''){
-		alert("도로명을 입력해 주세요.");
+		alert("Замын нэрийг оруулна уу.");
 		$('#new_postSearchKeyword').focus();
 		return false;
 	} else {
@@ -1252,7 +1252,7 @@ var new_postSearchs = function(mb_type){
 					}
 				});
 			} else {
-				$('#new_post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+				$('#new_post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">Хайлт олдсонгүй.</td></tr>");
 			}
 		});
 	}
@@ -1374,8 +1374,8 @@ var new_addresses = function( vals ){
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="Тийм" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="Үгүй" />
 	</p>
 </div> 
 
@@ -1392,11 +1392,11 @@ var new_addresses = function( vals ){
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-해당 페이지는 개인회원들의 이력서를 관리하는 페이지 입니다. <br>
-해당 이력서의 서비스/기간등을 수정하시고 싶으실때는 편집에 서비스승인 버튼을 클릭해주시면 됩니다.<br>
-등록하기 버튼은 관리자가 직접 해당회원의 새로운 이력서를 등록하는 기능입니다.<br>
-불러오기 버튼은 해당 이력서를 복사하여 수정후 새로운 이력서로 등록하는 기능입니다.<br>
-서비스/기간 부분은 현재 해당 이력서의 유료상품 서비스 기간을 나타내고 있는것입니다.  
+	Энэ хуудас нь гишүүдийн мэдээллийг удирдахад зориулагдсан болно. <br>
+	Анкетны үйлчилгээ / хугацаа зэргийг засварлахыг хүсвэл засварлах хэсэгт байгаа үйлчилгээ батлах товчийг дарна уу.<br>
+	Бүртгүүлэх товчлуур нь админ гишүүний шинэ ажлын байрыг шууд бүртгэх хэсэг юм.<br>
+	Ачаалах товч нь Ажлын байрны зарыг хувилах бөгөөд засварласны дараа шинээр бүртгүүлэх юм.<br>
+	Одоогоор төлбөртэй байгаа зар сурталчилгааны хувьд үйлчилгээ / Хугацаан ангилалын үйлчилгээ харах товчийг үүсгэсэн. Хэрэв "Үйлчилгээ харах" дээр дарвал тухайн төлсөн бүтээгдэхүүний хугацаа харагдана
 </dl></dl>
 
 <?php include_once "./views/_include/resume_search.php"; ?>
@@ -1406,22 +1406,22 @@ var new_addresses = function( vals ){
 	<dt>
 		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
 		</select>
 	</dt>
 </dl>
 	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
+		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">Сонголт батлах</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>이력서등록</h1></a>
+		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Анкет бүртгүүлэх</h1></a>
 	</dd>
 </dl>
 <table width="100%" class="ttlt">

@@ -719,16 +719,16 @@ var pay_types = function( vals, types ){
 		<a onClick="update_alba('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Зар суртачилгааны бүртгэл</h1></a>
 	</dd>
 </dl>
-<table width="100%" class="ttlt " >
-<col width="2%"><col width="5%"><col width="5%"><col width="18%"><col ><col width="20%"><col width="8%">
-<tr class="bg">
-	<td><input name="check_all" type="checkbox"></td>
-	<td><a href="./?<?php echo $alba_list['send_url'];?>&sort=wr_is_admin&flag=<?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'asc':'desc';?>" title="Бүртгэлийн ангилалыг сонгоход админы бүртгүүлсэн зар/ хэрэглэгчийн зар ангилан хайна. >Бүртгэлийн ангилал <span><?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'▲':'▼';?></span></a></td>
-	<td>Гишүүнчлэлийн түвшин</td>
-	<td>Компанийн нэр / ID  / хариуцсан хүн</td>
-	<td>Ажлын байрны мэдээлэл</td>
-	<td>Үйлчилгээ/ Хугацаа</td>
-	<td>Өөрчлөх</td>
+	<table width="100%" class="ttlt " >
+		<col width="2%"><col width="5%"><col width="5%"><col width="18%"><col ><col width="20%"><col width="8%">
+		<tr class="bg">
+			<td><input name="check_all" type="checkbox"></td>
+			<td><a href="./?<?php echo $alba_list['send_url'];?>&sort=wr_is_admin&flag=<?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'asc':'desc';?>" title="Бүртгэлийн ангилалыг дарахад админы бүртгүүлсэн зар/хэрэглэгчийн бүртгүүлсэн зар гэж ангилан харуулна">Бүртгэлийн ангилал<span><?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'▲':'▼';?></span></a></td>
+			<td>Гишүүнчлэлийн зэрэг</td>
+			<td>Байгууллагын нэр/ID/Хариуцсан хүн</td>
+			<td>Ажлын байрны мэдээлэл</td>
+			<td>Үйлчилгээ/хугацаа</td>
+			<td>Хайх</td>
 </tr>
 
 <tbody id="alba_list">
