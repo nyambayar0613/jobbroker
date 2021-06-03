@@ -39,12 +39,12 @@ var page_rows = function(sels){	// 출력 갯수
 }
 var delete_resume = function( no ){	// 이력서 삭제 (단순)
 	$('#quest_info').show();
-	$('#confirm_msg').html("Устгахыг хүсч буй хүний ​​нөөцийн мэдээллийг сонгоно уу.<br/><br/> устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능합니다.<br/><br/>이력서를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Анкет устгах',
+		title: '이력서 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -52,22 +52,22 @@ var delete_resume = function( no ){	// 이력서 삭제 (단순)
 var sel_delete_resume = function(){	// 이력서 선택 삭제 (복수)
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгахыг хүсч буй хүний ​​нөөцийн мэдээллийг сонгоно уу.');
+		alert('삭제 할 이력서를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Устгахыг хүсч буй анкетаа сонгоно уу.<br/><br/>Сонгосон анкет "+chk_length+"устгах уу?");
+		$('#confirm_msg').html("한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>선택하신 이력서 "+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Сонгосон анкет устгах',
+			title: '이력서 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -75,12 +75,12 @@ var sel_delete_resume = function(){	// 이력서 선택 삭제 (복수)
 }
 var recover_resume = function( no ){	// 복구하기 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("Сонгосон хүний ​​нөөцийн мэдээллийг сэргээх үү?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'recover\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("선택하신 신고 인력서를 복구 하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'recover\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Анкет сэргээх',
+		title: '신고 인력서 복구',
 		showOverlay: false,
 		message: $('#question')
 	});	
@@ -88,22 +88,22 @@ var recover_resume = function( no ){	// 복구하기 (단수)
 var sel_recover_resume = function( ){
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Сэргээх хүний ​​нөөцийн мэдээллийг сонгоно уу.');
+		alert('복구할 인력서를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон мэдээлэл "+chk_length+"сэргээх үү?");
+		$('#confirm_msg').html("선택하신 인력서 "+chk_length+"건을 복구 하시겠습니까?");
 		var re_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			re_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_recover\',\''+re_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_recover\',\''+re_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Сонгосон мэдэгдлийг сэргээнэ үү',
+			title: '선택 신고 공고 복구',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -163,8 +163,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -181,25 +181,25 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-Мэдэгдсэн анкетыг шалгаж, засах, устгах, сэргээх ажлыг удирдаж болно.<br/>
+신고된 이력서를 확인가능 하고 수정, 삭제, 복구 등을 관리 하실 수 있습니다.<br/>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Мэдэгдсэн анкетыг удирдах
-	<span>Нийт <b class="num3 col"><?php echo number_format($resume_list['total_count']);?></b>төрөл олдлоо.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">신고 이력서 관리
+	<span>총 <b class="num3 col"><?php echo number_format($resume_list['total_count']);?></b>건이 신고되었습니다.</span>
 	<dt>
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 		</select>
 	</dt>
 </dl>
 <dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
-		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг сэргээх</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택복구</h1></a>
 		<!-- <a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a> -->
 	</dt>
 </dl>
@@ -208,13 +208,13 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <col width="2%"><col width="5%"><col width="5%"><col width="12%"><col ><col width="10%"><col width="18%"><col width="8%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>Бүртгэлийн ангилал</td>
-	<td>Гишүүнчлэлийн зэрэг</td>
-	<td>Нэр/хүйс/нас/ID</td>
-	<td>Анкет</td>
-	<td>Мэдэгдсэн өдөр</td>
-	<td>Мэдэгдсэн шалтгаан</td>
-	<td>Хайх</td>
+	<td>등록구분</td>
+	<td>회원등급</td>
+	<td>이름/성별/나이/아이디</td>
+	<td>이력서</td>
+	<td>신고일</td>
+	<td>신고사유</td>
+	<td>편집</td>
 </tr>
 
 <tbody id="resume_list">
@@ -243,18 +243,18 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 
 	<td class="tl">
 	<a onclick="pop_member('<?php echo $wr_id;?>');" class="b">
-	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нэр</span>:<?php echo $mb_info['mb_name'];?></p>
-	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Хүйс</span>:<?php echo $wr_gender;?></p>
-	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нас</span>:<?php echo $wr_age;?>세</p>
-	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">ID</span>:<?php echo $val['wr_id'];?></p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
+	<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:<?php echo $val['wr_id'];?></p>
 	</a>
 	</td>	
 	<td>
 		<a onclick="pop_info('<?php echo $val['no']?>','<?php echo $wr_id;?>');" class="b"><?php echo $wr_subject;?></a>
-		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">Бүртгэлийн огноо : <?php echo $wr_wdate;?>&nbsp;
-			<li>Өөрчилсөн огноо : <?php echo $wr_udate;?> </li>
-			<?php if($wr_volume_date){ ?><li>Дуусах хугацаа : ~<?php echo $volume_date;?></li><?php } ?>
-			<li>Нийт : <?php echo number_format($val['wr_hit']);?>төрөл</li>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
+			<li>수정일 : <?php echo $wr_udate;?> </li>
+			<?php if($wr_volume_date){ ?><li>마감일 : ~<?php echo $volume_date;?></li><?php } ?>
+			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
 		</div>
 	</td>
 	<td><?php echo $val['wr_report_date'];?></td>
@@ -275,8 +275,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийн устгах</h1></a>
-		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг сэргээх</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_recover_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택복구</h1></a>
 		<!-- <a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a> -->
 	</dt>
 </dl>
