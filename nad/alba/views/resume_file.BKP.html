@@ -14,12 +14,12 @@ var pop_member = function( mb_id ){		// 회원 정보
 }
 var deletes = function( no ){	// 삭제 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("Хавсралтыг устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("첨부파일을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Хавсралт устгах',
+		title: '첨부파일 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -27,7 +27,7 @@ var deletes = function( no ){	// 삭제 (단수)
 var sel_deletes = function(){
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах хавсралтаа сонгоно уу.');
+		alert('삭제 할 첨부파일을 선택해 주세요.');
 		return false;
 	} else {
 		var del_no = new Array();
@@ -37,18 +37,18 @@ var sel_deletes = function(){
 		i++;
 		});
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон хавсралтууд"+chk_length+"устгах уу?");
+		$('#confirm_msg').html("선택하신 첨부파일 "+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Устгах хавсралтаа сонгоно уу',
+			title: '첨부파일 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -93,8 +93,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -112,26 +112,26 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="loc"><!--<img src="../../images/comn/bul_11.png" class="t">--><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-Хув хүний бүртгэлтэй хэрэглэгчдийн Mypage -с анкет болон файл хадгалах орчин юм.<br>
+개인회원들이 자신의 마이페이지에서 이력서파일 및 기타 구인구직에 필요한 파일등을 저장해 놓은 공간입니다. <br>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Үргэлжлүүлэх хавсралтыг удирдах
-	<span>Нийт <b class="num3 col"><?php echo number_format($list['total_count']);?></b>төрөл олдлоо.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">이력서 첨부파일 관리
+	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건이 검색되었습니다.</span>
 	<dt>
 		<!-- <label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp; -->
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 		</select>
 	</dt>
 </dl>
 <dl class="page top  lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 	</dt>
 </dl>
 
@@ -139,11 +139,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <col width="2%"><col width="7%"><col width="7%"><col><col width="10%"><col width="4%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>Бүртгэлийн ангилал</td>
-	<td>Гишүүний мэдээлэл</td>
-	<td>Файлын нэр</td>
-	<td>Бүртгүүлсэн огноо</td>
-	<td>устгах</td>
+	<td>회원구분</td>
+	<td>회원정보</td>
+	<td>파일명</td>
+	<td>등록일</td>
+	<td>삭제</td>
 </tr>
 <tbody>
 <?php if(!$list['total_count']){?>
@@ -151,7 +151,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <?php } else { 
 	foreach($list['result'] as $val){ 
 	$get_member = $member_control->get_member($val['wr_id']);
-	$mb_type = ($get_member['mb_type']=='individual') ? "Хувь хүн" : "Албан байгууллага";
+	$mb_type = ($get_member['mb_type']=='individual') ? "개인회원" : "기업회원";
 ?>
 <tr>
 	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
@@ -175,8 +175,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 	</dt>
 </dl>
 
