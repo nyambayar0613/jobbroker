@@ -1479,41 +1479,41 @@ var new_addresses = function( vals ){
 	<?php if($is_self){ ?>
 	<td class="tl">
 		<span class="b">
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:(관리자직접등록)</p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нэр</span>:<?php echo $mb_info['mb_name'];?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Хүйс</span>:<?php echo $wr_gender;?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нас</span>:<?php echo $wr_age;?>세</p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">ID</span>:(Админы бүртгэл)</p>
 		</span>
 	</td>
 	<?php } else { ?>
 	<td class="tl">
 		<a onclick="pop_member('<?php echo $wr_id;?>');" class="b">
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">이름</span>:<?php echo $mb_info['mb_name'];?></p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">성별</span>:<?php echo $wr_gender;?></p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">나이</span>:<?php echo $wr_age;?>세</p>
-			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">아이디</span>:<?php echo $val['wr_id'];?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нэр</span>:<?php echo $mb_info['mb_name'];?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Хүйс</span>:<?php echo $wr_gender;?></p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">Нас</span>:<?php echo $wr_age;?>нас</p>
+			<p style="margin-left:10%;"><span style="font-weight:normal;display:inline-block;width:45px;">ID</span>:<?php echo $val['wr_id'];?></p>
 		</a>
 	</td>
 	<?php } ?>
 	
 	<td>
 		<a class="b" href="<?php echo $alice['resume_path'];?>/detail.php?no=<?php echo $val['no'];?>" target="_blank"><?php echo $wr_subject;?></a>
-		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">등록일 : <?php echo $wr_wdate;?>&nbsp;
-			<li>수정일 : <?php echo $wr_udate;?> </li>
-			<?php if($wr_volume_date){ ?><li>마감일 : ~<?php echo $volume_date;?></li><?php } ?>
-			<li>조회 : <?php echo number_format($val['wr_hit']);?>건</li>
+		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">Бүртгэлийн огноо : <?php echo $wr_wdate;?>&nbsp;
+			<li>Өөрчилсөн огноо : <?php echo $wr_udate;?> </li>
+			<?php if($wr_volume_date){ ?><li>Дуусах хугацаа : ~<?php echo $volume_date;?></li><?php } ?>
+			<li>Нийт : <?php echo number_format($val['wr_hit']);?>төрөл</li>
 		</div>
 	</td>
 	<td>
-		<?php if($focus) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">포커스</span>: ~<?php echo $focus;?></div><?php } ?>
-		<?php if($focus_gold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">포커스골드</span>: ~<?php echo $focus_gold;?></div><?php } ?>
-		<?php if($service_basic) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">일반리스트</span>: ~<?php echo $service_basic;?></div><?php } ?>
-		<?php if($busy) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">급구</span>: ~<?php echo $busy;?></div><?php } ?>
-		<?php if($neon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">형광펜</span>: ~<?php echo $neon;?></div><?php } ?>
-		<?php if($bold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">굵은글자</span>: ~<?php echo $bold;?></div><?php } ?>
-		<?php if($icon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">아이콘</span>: ~<?php echo $icon;?></div><?php } ?>
-		<?php if($color) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">글자색</span>: ~<?php echo $color;?></div><?php } ?>
-		<?php if($blink) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">반짝칼라</span>: ~<?php echo $blink;?></div><?php } ?>
+		<?php if($focus) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Фокус</span>: ~<?php echo $focus;?></div><?php } ?>
+		<?php if($focus_gold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Фокус голд</span>: ~<?php echo $focus_gold;?></div><?php } ?>
+		<?php if($service_basic) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Энгийн</span>: ~<?php echo $service_basic;?></div><?php } ?>
+		<?php if($busy) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Яаралтай</span>: ~<?php echo $busy;?></div><?php } ?>
+		<?php if($neon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Тодруулга</span>: ~<?php echo $neon;?></div><?php } ?>
+		<?php if($bold) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Тод текст</span>: ~<?php echo $bold;?></div><?php } ?>
+		<?php if($icon) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Айкон</span>: ~<?php echo $icon;?></div><?php } ?>
+		<?php if($color) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Текстийн өнгө</span>: ~<?php echo $color;?></div><?php } ?>
+		<?php if($blink) { ?><div class="mt5 " style="margin-left:10%;text-align:left;"><b>ㆍ</b><span style="display:inline-block;width:70px;">Гэгээлэг өнгө</span>: ~<?php echo $blink;?></div><?php } ?>
 	</td>
 	<td>
 		<dt><a onClick="update_resume('update','<?php echo $val['no'];?>');"><img src="../../images/btn/btn19_26.gif"></a></dt>
@@ -1533,12 +1533,12 @@ var new_addresses = function( vals ){
 <dl class="page">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">선택 서비스승인</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_delete_resume();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
+		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">Сонгосон үйлчилгээг батлах</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>이력서등록</h1></a>
+		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Анкет бүртгүүлэх</h1></a>
 	</dd>
 </dl>
 
