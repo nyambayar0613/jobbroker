@@ -294,44 +294,44 @@ var school_ability = function( vals ){	 // 학력선택
 	}
 
 }
-// Их дээд сургууль (2,3жил) нэмэх
+// 대학(2,3년) 추가
 var half_college_cnt = 1;
 var half_college_limit = 1;
 var half_college_add = function(){
 	if(half_college_limit >= 5){
-		alert("Их сургууль(2,3жил)хамгийн ихдээ 5ш хүртэл нэмэх боломжтой ");
+		alert("대학(2,3년)은 최대 5개 까지 추가 가능합니다.");
 		return false;
 	}
 
 	half_college = "";
 	half_college += "<li class=\"pb5 positionR\" id=\"half_college_"+half_college_cnt+"\">";
 	//half_college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_half_college[]\" id=\"wr_half_college_"+half_college_cnt+"\" style=\"width:100px;\" readonly onclick=\"school_search_pop('half_college','"+half_college_cnt+"');\" value=\"출신학교 선택\">";
-	half_college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_half_college[]\" id=\"wr_half_college_"+half_college_cnt+"\" style=\"width:100px;\" value=\"Сургуулиа оруулах\"> ";
+	half_college += "<input class=\"txt graduate\" type=\"text\" name=\"wr_half_college[]\" id=\"wr_half_college_"+half_college_cnt+"\" style=\"width:100px;\" value=\"출신학교 입력\"> ";
 	//half_college += "<em class=\"pr10\"> <a class=\"button\" onclick=\"school_search_pop('half_college','"+half_college_cnt+"');\"><span>선택</span></a> </em>";
-	half_college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_half_college_specialize[]\" id=\"wr_half_college_specialize_"+half_college_cnt+"\" style=\"width:80px;\" value=\"Мэрэгжил оруулах\"> ";
+	half_college += "<input class=\"txt specialize\" type=\"text\" name=\"wr_half_college_specialize[]\" id=\"wr_half_college_specialize_"+half_college_cnt+"\" style=\"width:80px;\" value=\"전공입력\"> ";
 	half_college += "<select name=\"wr_half_college_syear[]\" class=\"ipSelect\">";
-	half_college += "<option value=\"\">Жил</option>";
+	half_college += "<option value=\"\">년도</option>";
 	for(i=year;i>=1900;--i){
 		half_college += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	half_college += "</select> ";
-	half_college += "жил ~ ";
+	half_college += "년 ~ ";
 	half_college += "<span id=\"half_college_eyear_block_"+half_college_cnt+"\">";
 	half_college += "<select name=\"wr_half_college_eyear[]\" class=\"ipSelect\">";
-	half_college += "<option value=\"\">Жил</option>";
+	half_college += "<option value=\"\">년도</option>";
 	for(i=year;i>=1900;--i){
 		half_college += "<option value=\""+i+"\">"+i+"</option>";
 	}
 	half_college += "</select> ";
-	half_college += "жил";
+	half_college += "년";
 	half_college += "</span> ";
 	half_college += "<select name=\"wr_half_college_graduation[]\" id=\"wr_half_college_graduation_"+half_college_cnt+"\" class=\"ipSelect\">";
-	half_college += "<option value=\"\">Төгссөн эсэх</option>";
-	half_college += "<option value=\"0\">Төгссөн</option>";
-	half_college += "<option value=\"1\">Суралцаж байгаа</option>";
-	half_college += "<option value=\"2\">Гарсан</option>";
+	half_college += "<option value=\"\">졸업여부</option>";
+	half_college += "<option value=\"0\">졸업</option>";
+	half_college += "<option value=\"1\">재학</option>";
+	half_college += "<option value=\"2\">중퇴</option>";
 	half_college += "</select>";
-	half_college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"half_college_remove('"+half_college_cnt+"');\"><span>-Арилгах</span></a></em>";
+	half_college += "<em style=\"right:0; top:2px;\" class=\"positionA insert\"> <a class=\"button white\" onclick=\"half_college_remove('"+half_college_cnt+"');\"><span>-제거</span></a></em>";
 	half_college += "</li>";
 
 	$('#half_college_block').append(half_college);
@@ -340,19 +340,19 @@ var half_college_add = function(){
 	// 출신학교 포커스
 	$('.graduate').focus(function(){
 		var vals = $(this).val();
-		if(vals=='Сургуулиа сонгох') $(this).val('');
+		if(vals=='출신학교 선택') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='Сургуулиа сонгох' || vals=='') $(this).val('Сургуулиа сонгох');
+		if(vals=='출신학교 선택' || vals=='') $(this).val('출신학교 선택');
 	});
 
 	// 전공입력 포커스
 	$('.specialize').focus(function(){
 		var vals = $(this).val();
-		if(vals=='Мэрэгжил оруулах') $(this).val('');
+		if(vals=='전공입력') $(this).val('');
 	}).focusout(function(){
 		var vals = $(this).val();
-		if(vals=='Мэрэгжил оруулах' || vals=='') $(this).val('Мэрэгжил оруулах');
+		if(vals=='전공입력' || vals=='') $(this).val('전공입력');
 	});
 
 	//$('#wr_half_college_block_'+half_college_cnt).show();
@@ -372,7 +372,7 @@ var college_cnt = 1;
 var college_limit = 1;
 var college_add = function(){
 	if(college_limit >= 5){
-		alert("Их сургууль(2,3жил)хамгийн ихдээ 5ш хүртэл нэмэх боломжтой.");
+		alert("대학(4년)은 최대 5개 까지 추가 가능합니다.");
 		return false;
 	}
 	
