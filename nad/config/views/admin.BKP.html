@@ -23,12 +23,12 @@ $(function(){
 
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox"><dl>
-	Админ сайт руу нэвтрэх боломжтой админы ID ба нууц үгийг оруулна уу.<br>
-	Админы нууц үгийг тогтмол, ойр ойрхон сольж байхыг зөвлөж байна. (Мэдээлэл алдагдахаас болгоомжил)
+관리자 사이트에 로그인 할 수 있는 관리자의 아이디, 비밀번호 등을 입력합니다.<br>
+관리자의 비밀번호는 주기적으로 자주 변경하시는 것이 좋습니다. (정보유출 주의)
 </dl></dl>
 
 <dl class="ntlt lnb_col">
-<img src="../../images/comn/bul_10.png" class="t">Админы мэдээллийн тохиргоо</dl>
+<img src="../../images/comn/bul_10.png" class="t">관리자정보설정</dl>
 
 <form name="AdminRegistFrm" method="post" id="AdminRegistFrm" action="./process/admin.php">
 <input type="hidden" name="mode" value="super_update"/><!-- 관리자 정보 수정 -->
@@ -40,16 +40,16 @@ $(function(){
 <table width="100%" class="bg_col">
 <col width=115><col><col width=115><col>
   <tr>
-  	<td class="ctlt">ID</td>
-  	<td class="pdlnb2"><input type="text" class="txt w50" name="uid" value="<?=$get_admin['uid']?>" id="uid" minbyte=6 maxbyte=20 hname='ID'></td>
-  	<td class="ctlt">Nickname</td>
-  	<td class="pdlnb2"><input type="text" class="txt w50" name="nick" value="<?=$get_admin['nick']?>" id="nick" required hname='Nickname'></td>
+  	<td class="ctlt">아이디</td>
+  	<td class="pdlnb2"><input type="text" class="txt w50" name="uid" value="<?=$get_admin['uid']?>" id="uid" minbyte=6 maxbyte=20 hname='아이디'></td>
+  	<td class="ctlt">닉네임</td>
+  	<td class="pdlnb2"><input type="text" class="txt w50" name="nick" value="<?=$get_admin['nick']?>" id="nick" required hname='닉네임'></td>
   </tr>
   <tr>
-  	<td class="ctlt">Шинэ нууц үг</td>
-  	<td class="pdlnb2">Шинэ нууц үг батлах<input type="password" class="txt w50" name="password" id="password" minbyte=6 maxbyte=20 hname="Шинэ нууц үг " required matching="password_re"></td>
-  	<td class="ctlt"></td>
-  	<td class="pdlnb2"><input type="password" class="txt w50" name="password_re" id="password_re" hname="Шинэ нууц үг батлах"></td>
+  	<td class="ctlt">새비밀번호</td>
+  	<td class="pdlnb2"><input type="password" class="txt w50" name="password" id="password" minbyte=6 maxbyte=20 hname="새비밀번호" required matching="password_re"></td>
+  	<td class="ctlt">새비밀번호확인</td>
+  	<td class="pdlnb2"><input type="password" class="txt w50" name="password_re" id="password_re" hname="새비밀번호확인"></td>
   </tr>
 </table> 
 
