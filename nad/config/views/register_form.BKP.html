@@ -64,9 +64,9 @@ var change_rank = function(direction, src){	// 카테고리 순위조절 (단일
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-Ашиглах эсэхээ сонгоно уу. <br>
-Ажлын байрны бүртгэлд бүртгүүлэхэд шаардлагатай талбаруудыг сонгох хэсэг<br>
-Анкетаа бүртгүүлэхэд шаардлагатай талбаруудыг сонгох хэсэг <br>
+기업회원 가입폼 설정 페이지는 기업회원 회원가입시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
+채용정보 항목 설정 페이지는 채용공고 등록시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
+이력서 항목 설정 페이지는 이력서 등록시 필요한 필드를 선택하는 공간입니다. 사용유무를 선택하시면 됩니다. <br>
 </dl></dl>
 <dl class="pt5 pb5"><?php include_once "./views/_include/form_menu.php"; ?></dl>
 
@@ -85,12 +85,12 @@ var change_rank = function(direction, src){	// 카테고리 순위조절 (단일
 	<col width=60><col width=60><col> 
 	<?php } ?>
 		<tr class="bg">
-			<td>Ашиглах эсэх</td>
-			<td>Хэрэгтэй эсэх</td>
+			<td>사용유무</td>
+			<td>필수유무</td>
 			<?php if($type=='company_form'){ ?>
-			<td>Дараалал</td>
+			<td>순서</td>
 			<?php } ?>
-			<td class="e">Утга</td>
+			<td class="e">항목명</td>    
 		</tr>
 
 		<tbody id="category_list">
