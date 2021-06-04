@@ -135,7 +135,7 @@ var instagram_on = function(){
 	<table width="100%" class="bg_col">
 	<col width=150><col> 
 	<tr>
-		<td class="ctlt">Вэб хөтчийн гарчиг</td>
+		<td class="ctlt">Вэб хөтчийн нэр</td>
 		<td class="pdlnb2">
 			<input type='text' name="site_title" class="txt w50" id="site_title" value="<?php echo stripslashes($env['site_title']);?>" required hname='Вэб хөтчийн гарчиг'>
 			<span class="subtlt">Browser-н гарчгийн дээд мөрөнд харуулах агуулга</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_title.html','window','width=712, height=242,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
@@ -145,7 +145,7 @@ var instagram_on = function(){
 		<td class="ctlt">И-мэйл эсвэл SMS илгээх үед сайтын нэр</td>
 		<td class="pdlnb2">
 			<input type='text' name="site_name" class="txt w50" id="site_name" value="<?php echo stripslashes($env['site_name']);?>" required hname='И-мэйл эсвэл SMS илгээх үед сайтын нэр'>
-			<span class="subtlt">И-мэйл эсвэл SMS илгээхдээ илгээгчийн нэрийг хэвлэнэ.</span>
+			<span class="subtlt">И-мэйл эсвэл SMS  илгээгчийн нэр.</span>
 		</td>
 	</tr>
 	<tr>
@@ -165,16 +165,16 @@ var instagram_on = function(){
 	</tr>
 	-->
 	<tr>
-		<td class="ctlt">favicon дүрс тохируулах</td>
+		<td class="ctlt">(favicon) дүрс тохируулах</td>
 		<td class="pdlnb2">
 			<input type='file' name="favicon" class="txt" size="53" id="favicon"> 
 			<span class="subtlt">Файлын тодорхойлолт : 16 x 16 또는 32 x 32 pexel, 16/256/true color *.ico бүртгүүлэх боломжтой</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">админ и-мэйл</td>
+		<td class="ctlt">Админы и-мэйл</td>
 		<td class="pdlnb2">
-			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='админ и-мэйл'>
+			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='Админы и-мэйл'>
 			<span class="subtlt">Хүлээн авсан /Илгээсэн и-мэйл хаяг</span>
 		</td>
 	</tr>
@@ -249,7 +249,7 @@ var instagram_on = function(){
 		<td class="ctlt">Хөдөлмөрийн хөлсний доод хэмжээ</td>
 		<td class="pdlnb2">
 			<!-- <input type="hidden" name="pay_view" value="1"/> -->
-			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/>хэвлэх</label> /
+			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/></label> /
 			Үндсэн жил
 			<select name="pay_year">
 			<?php for($i=(date('Y')+2);$i>=2000;--$i){ ?>
@@ -275,9 +275,9 @@ var instagram_on = function(){
 	<tr>
 		<td class="ctlt">Нэвтрэсний дараа хуудас руу буцах</td>
 		<td class="pdlnb2">
-			<label><input name="login_return" type="radio" value="0" class="radio" checked>Нэвтрэхээс өмнө хуудас</label> &nbsp;
+			<label><input name="login_return" type="radio" value="0" class="radio" checked>Өмнөх хуудас</label> &nbsp;
 			<label><input name="login_return" type="radio" value="1" class="radio" <?php echo ($env['login_return']==1)?'checked':'';?>>Нүүр хуудас</label> &nbsp;
-			<label><input name="login_return" type="radio" value="2" class="radio" <?php echo ($env['login_return']==2)?'checked':'';?>>Тогтсон хуудас</label> &nbsp;
+			<label><input name="login_return" type="radio" value="2" class="radio" <?php echo ($env['login_return']==2)?'checked':'';?>>Энэ хуудас</label> &nbsp;
 			<span id="login_return_page_block" style="display:<?php echo ($env['login_return']==2)?'':'none';?>;"><input name="login_return_page" type="text" class="tnum" size="50" id="login_return_page"></span>
 		</td>
 	</tr>
@@ -315,7 +315,7 @@ var instagram_on = function(){
 	</tr>
 	-->
 	<tr>
-		<td class="ctlt">"Том хүн" баталгаажуулалт ашиглах эсэх</td>
+		<td class="ctlt">Баталгаажуулалт ашиглах эсэх</td>
 		<td class="pdlnb2">
 			<label><input name="use_adult" type="radio" class="radio" value="1" <?php echo ($env['use_adult']==1)?'checked':'';?>>Ашиглана</label> &nbsp;&nbsp;
 			<label><input name="use_adult" type="radio" class="radio" value="0" <?php echo (!$env['use_adult'])?'checked':'';?>>Ашиглахгүй</label>
@@ -371,7 +371,7 @@ var instagram_on = function(){
 			<input name="article_denied" type="radio" value="0" class="radio" id='denied_0' checked><label for='denied_0'>Ашиглах</label>&nbsp;
 			<input name="article_denied" type="radio" value="1" class="radio" id='denied_1' <?php echo ($env['article_denied']==1)?'checked':'';?>><label for='denied_1'>KCAPTCHA зураг</label>&nbsp;
 			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>Санамсаргүй тоо үүсгэгч</label>&nbsp;
-			<span class="subtlt">			<span class="subtlt">Бичлэгийг автоматаар бүртгэхгүй байх тохиргоо хийснээр зар сурталчилгаанаас сэргийлнэ</span>
+			<span class="subtlt">			<span class="subtlt">Бичлэгийг автоматаар бүртгэхгүй байх</span>
 </span>
 		</td>
 	</tr> 
