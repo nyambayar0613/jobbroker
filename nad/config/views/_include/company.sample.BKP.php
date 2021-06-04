@@ -6,7 +6,7 @@
 <div class="pop_b1">
 	<div>
 		<table border="0" cellspacing="0" cellpadding="0" width="<?php echo $width;?>">
-		<tr><td class="tit"><span>Компанийн мэдээллийн жишээ.</span></td></tr>
+		<tr><td class="tit"><span>샘플 회사정보입니다.</span></td></tr>
 		</table>
 	</div>
 	<div class="pop_b2">
@@ -21,18 +21,18 @@
 		<td valign="top">
 		<table border="0" cellspacing="0" cellpadding="0" width="96%" align="center" class="sbox_tbl">
 		<tr>
-		<th width="22%">Төлөөлөгчийн нэр</th>
-		<td style="font-weight:normal;">Төлөөлөгчийн нэр жишээ</td>
+		<th width="22%">대표자명</th>
+		<td style="font-weight:normal;">샘플 대표자명</td>
 		</tr>
 		<tr><td colspan="2" height="1" bgcolor="#f4f4f4"></td></tr>
 		<tr>
-		<th>Компаний хаяг</th>
-		<td style="font-weight:normal;">Компаний хаяг</td>
+		<th>회사주소</th>
+		<td style="font-weight:normal;">샘플 회사주소</td>
 		</tr>
 		<tr><td colspan="2" height="1" bgcolor="#f4f4f4"></td></tr>
 		<tr>
-		<th>Салбарууд</th>
-		<td style="font-weight:normal;">Жишээ салбарууд</td>
+		<th>업종</th>
+		<td style="font-weight:normal;">샘플 업종</td>
 		</tr>
 		<tr><td colspan="2" height="1" bgcolor="#f4f4f4"></td></tr>
 		</table>
