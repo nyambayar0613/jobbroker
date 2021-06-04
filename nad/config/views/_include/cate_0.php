@@ -48,7 +48,7 @@
 		<td><input name="view" type="checkbox" value="yes" checked></td>
 		<?php if($is_job){ ?><td><input name="etc_0" type="checkbox" value="1" id="cate_0_adult" title="Хэрэв та том хүн ангилал сонгосон бол категорийг ашиглахдаа баталгаажуулах шаардлагатай."></td><?php } ?>
 		<td class="plr5">
-			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_0_name" hname='1-р үеийн ангиллын нэр' required cate="cate_0">
+			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_0_name" hname='1-р ангиллын нэр' required cate="cate_0">
 		</td>
 		<td>
 			<a class='btn' onclick="cate_insert('cate_0');"><h1 class="btn19" style="width:21px">Бүртгэх</h1></a>
