@@ -1,7 +1,7 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <dl class="wbg" style="padding:0 5px 5px;margin:3px"> 
-  <dl class="b nanum fon13 pd7">2-р үе <?php echo $type_arr[$type]['sub_name'];?> төрөл</dl>
+  <dl class="b nanum fon13 pd7">2-р хэсэг <?php echo $type_arr[$type]['sub_name'];?> төрөл</dl>
   <table width="100%" cellspacing="1" class="ln sep tf">
     <col width=25><?php if($is_job){ ?><col width=30><?php } ?><col><?php if($is_pay){ ?><col width=50><?php } ?><col width=75>
     <tr align="center" class="bg b" height="25">
@@ -14,7 +14,7 @@
 
 	<tbody id="cate_1_list">
 	<tr class="wbg tc" style="height:150px;">
-		<td colspan='<?php echo ($is_job||$is_pay)?'4':'3';?>'>1үе <?php echo $type_arr[$type]['sub_name'];?>үүсгэнэ үү.</td>
+		<td colspan='<?php echo ($is_job||$is_pay)?'4':'3';?>'>1-р хэсгийг <?php echo $type_arr[$type]['sub_name'];?>сонгоно уу.</td>
 	</tr>
 	</tbody>
 
