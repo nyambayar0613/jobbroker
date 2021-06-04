@@ -1,0 +1,91 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+<script>
+$(function(){
+	var form_options = {
+		target: '',
+		beforeSubmit: showRequest,
+		success : showResponse
+	};
+	$('#AdminRegistFrm').ajaxForm(form_options);
+});
+</script>
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1">
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td width="1" style="background-color:#000;">
+<td class="h pr5" style="background-color:#fff;">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+<dl class="notbox"><dl>
+	Админ сайт руу нэвтрэх боломжтой админы ID ба нууц үгийг оруулна уу.<br>
+	Админы нууц үгийг тогтмол, ойр ойрхон сольж байхыг зөвлөж байна. (Мэдээлэл алдагдахаас болгоомжил)
+</dl></dl>
+
+<dl class="ntlt lnb_col">
+<img src="../../images/comn/bul_10.png" class="t">Админы мэдээллийн тохиргоо</dl>
+
+<form name="AdminRegistFrm" method="post" id="AdminRegistFrm" action="./process/admin.php">
+<input type="hidden" name="mode" value="super_update"/><!-- 관리자 정보 수정 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="no" value="<?=$get_admin['no']?>"/><!-- 관리자 정보 고유 key -->
+<input type="hidden" name="level" value="<?=$get_admin['level']?>"/>
+<input type="hidden" name="name" value="<?=$get_admin['name']?>"/>
+
+<table width="100%" class="bg_col">
+<col width=115><col><col width=115><col>
+  <tr>
+  	<td class="ctlt">ID</td>
+  	<td class="pdlnb2"><input type="text" class="txt w50" name="uid" value="<?=$get_admin['uid']?>" id="uid" minbyte=6 maxbyte=20 hname='ID'></td>
+  	<td class="ctlt">Nickname</td>
+  	<td class="pdlnb2"><input type="text" class="txt w50" name="nick" value="<?=$get_admin['nick']?>" id="nick" required hname='Nickname'></td>
+  </tr>
+  <tr>
+  	<td class="ctlt">Шинэ нууц үг</td>
+  	<td class="pdlnb2">Шинэ нууц үг батлах<input type="password" class="txt w50" name="password" id="password" minbyte=6 maxbyte=20 hname="Шинэ нууц үг " required matching="password_re"></td>
+  	<td class="ctlt"></td>
+  	<td class="pdlnb2"><input type="password" class="txt w50" name="password_re" id="password_re" hname="Шинэ нууц үг батлах"></td>
+  </tr>
+</table> 
+
+<dl class="pbtn">  
+	<input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;
+	<a onClick="resetFrm('AdminRegistFrm');"><img src="../../images/btn/35_reload.gif"></a>
+</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+
+	var AdminRegistFrm = document.getElementById('AdminRegistFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(AdminRegistFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){
+
+	if(responseText=='0003'){
+		alert("<?php echo $admin_control->_success('0003');?>\n\n<?php echo $admin_control->_success('0006');?>");
+		location.href = "../";
+	} else {
+		alert(responseText);
+		return false;
+	}
+	
+}
+</script>
+<?php include_once "../include/tail.php";?>
