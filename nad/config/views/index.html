@@ -125,7 +125,7 @@ var instagram_on = function(){
 
 <?php include_once "./views/_include/menu.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">사이트기본설정</dl>  
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сайтын ерөнхий тохиргоо</dl>
 <form name="SiteConfigFrm" method="post" id="SiteConfigFrm" action="./process/config.php" enctype="multipart/form-data">
 <input type="hidden" name="mode" value="config_update"/><!-- 사이트 기본 설정정보 수정 -->
 <input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
@@ -135,24 +135,24 @@ var instagram_on = function(){
 	<table width="100%" class="bg_col">
 	<col width=150><col> 
 	<tr>
-		<td class="ctlt">웹브라우저 타이틀</td>
+		<td class="ctlt">Вэб хөтчийн гарчиг</td>
 		<td class="pdlnb2">
-			<input type='text' name="site_title" class="txt w50" id="site_title" value="<?php echo stripslashes($env['site_title']);?>" required hname='웹브라우저 타이틀'>
-			<span class="subtlt">브라우저 창의 최상단 제목줄에 표시할 내용</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_title.html','window','width=712, height=242,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<input type='text' name="site_title" class="txt w50" id="site_title" value="<?php echo stripslashes($env['site_title']);?>" required hname='Вэб хөтчийн гарчиг'>
+			<span class="subtlt">Browser-н гарчгийн дээд мөрөнд харуулах агуулга</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_title.html','window','width=712, height=242,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">메일,SMS 발송시 사이트명</td>
+		<td class="ctlt">И-мэйл эсвэл SMS илгээх үед сайтын нэр</td>
 		<td class="pdlnb2">
-			<input type='text' name="site_name" class="txt w50" id="site_name" value="<?php echo stripslashes($env['site_name']);?>" required hname='메일,SMS 발송시 사이트명'>
-			<span class="subtlt">메일,SMS 발송시 발송자의 이름으로 출력</span>
+			<input type='text' name="site_name" class="txt w50" id="site_name" value="<?php echo stripslashes($env['site_name']);?>" required hname='И-мэйл эсвэл SMS илгээх үед сайтын нэр'>
+			<span class="subtlt">И-мэйл эсвэл SMS илгээхдээ илгээгчийн нэрийг хэвлэнэ.</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">사이트 영문명</td>
+		<td class="ctlt">Сайтын нэр англи</td>
 		<td class="pdlnb2">
-			<input type='text' name="site_english" class="txt w50" id="site_english" value="<?php echo stripslashes($env['site_english']);?>" required hname='사이트 영문명'>
-			<span class="subtlt">사이트 하단 등 영문이 필요한 경우 사용됩니다.</span>
+			<input type='text' name="site_english" class="txt w50" id="site_english" value="<?php echo stripslashes($env['site_english']);?>" required hname='Сайтын нэр англи'>
+			<span class="subtlt">Англи хэл хэрэгтэй тохиолдолд ашиглана.</span>
 		</td>
 	</tr>
 	<!--
@@ -165,17 +165,17 @@ var instagram_on = function(){
 	</tr>
 	-->
 	<tr>
-		<td class="ctlt">파비콘 아이콘설정</td>
+		<td class="ctlt">favicon дүрс тохируулах</td>
 		<td class="pdlnb2">
 			<input type='file' name="favicon" class="txt" size="53" id="favicon"> 
-			<span class="subtlt">파일규격 : 16 x 16 또는 32 x 32 픽셀, 16/256/트루컬러의 *.ico 등록가능</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<span class="subtlt">Файлын тодорхойлолт : 16 x 16 또는 32 x 32 pexel, 16/256/true color *.ico бүртгүүлэх боломжтой</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">관리자이메일</td>
+		<td class="ctlt">админ и-мэйл</td>
 		<td class="pdlnb2">
-			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='관리자이메일'>
-			<span class="subtlt">수신/발신용 기본 메일 주소</span>
+			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='админ и-мэйл'>
+			<span class="subtlt">Хүлээн авсан /Илгээсэн и-мэйл хаяг</span>
 		</td>
 	</tr>
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
@@ -187,17 +187,17 @@ var instagram_on = function(){
 		</td>
 	</tr> -->
 	<tr class="call_center" style="display:<?php echo ($env['call_center_use'])?'':'none';?>;">
-		<td class="ctlt">고객센터번호</td>
+		<td class="ctlt">Хэрэглэгчийн төвийн дугаар</td>
 		<td class="pdlnb2">				
 			<input type='text' name="call_center" class="txt phone" style="width:200px;ime-mode:disabled;" id="call_center" value="<?php echo stripslashes($env['call_center']);?>">
-			<span class="subtlt">사이트 발신용 번호</span>
+			<span class="subtlt">Сайт руу залгах дугаар</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">휴대폰번호</td>
+		<td class="ctlt">Гар утасны дугаар</td>
 		<td class="pdlnb2">
 			<input type='text' name="hphone" class="txt phone" style="width:200px;ime-mode:disabled;" id="hphone" value="<?php echo stripslashes($env['hphone']);?>"> 
-			<span class="subtlt">사이트 수신용 휴대폰 번호 설정</span>
+			<span class="subtlt">Гар утасны дугаарыг тохируулах</span>
 		</td>
 	</tr>
 	<!--
@@ -246,16 +246,16 @@ var instagram_on = function(){
 	</tr>  
 	-->
 	<tr>
-		<td class="ctlt">최저임금</td>
+		<td class="ctlt">Хөдөлмөрийн хөлсний доод хэмжээ</td>
 		<td class="pdlnb2">
 			<!-- <input type="hidden" name="pay_view" value="1"/> -->
-			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/>출력</label> / 
-			기준 연도 
+			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/>хэвлэх</label> /
+			Үндсэн жил
 			<select name="pay_year">
 			<?php for($i=(date('Y')+2);$i>=2000;--$i){ ?>
 				<option value='<?=$i?>' <?php echo ($env['pay_year']==$i)?'selected':'';?>><?=$i?></option>
 			<?php } ?>
-			</select> 년 / 시급 <input type='text' name="time_pay" class="txt" id="time_pay" value="<?php echo $env['time_pay'];?>"> 원<span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_pay.html','window','width=712, height=399,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			</select> жил / цагын хөлс <input type='text' name="time_pay" class="txt" id="time_pay" value="<?php echo $env['time_pay'];?>"> төгрөг<span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_pay.html','window','width=712, height=399,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<!--
@@ -273,34 +273,34 @@ var instagram_on = function(){
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
 
 	<tr>
-		<td class="ctlt">로그인후 리턴페이지</td>
+		<td class="ctlt">Нэвтрэсний дараа хуудас руу буцах</td>
 		<td class="pdlnb2">
-			<label><input name="login_return" type="radio" value="0" class="radio" checked>로그인전 페이지</label> &nbsp;
-			<label><input name="login_return" type="radio" value="1" class="radio" <?php echo ($env['login_return']==1)?'checked':'';?>>메인페이지</label> &nbsp;
-			<label><input name="login_return" type="radio" value="2" class="radio" <?php echo ($env['login_return']==2)?'checked':'';?>>지정페이지</label> &nbsp;  
+			<label><input name="login_return" type="radio" value="0" class="radio" checked>Нэвтрэхээс өмнө хуудас</label> &nbsp;
+			<label><input name="login_return" type="radio" value="1" class="radio" <?php echo ($env['login_return']==1)?'checked':'';?>>Нүүр хуудас</label> &nbsp;
+			<label><input name="login_return" type="radio" value="2" class="radio" <?php echo ($env['login_return']==2)?'checked':'';?>>Тогтсон хуудас</label> &nbsp;
 			<span id="login_return_page_block" style="display:<?php echo ($env['login_return']==2)?'':'none';?>;"><input name="login_return_page" type="text" class="tnum" size="50" id="login_return_page"></span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">로그인후 유지시간</td>
+		<td class="ctlt">Нэвтэрсний дараах хадгалах хугацаа</td>
 		<td class="pdlnb2">
 			<input name="session_time" type="text" class="tnum" size="3" id="session_time" value="<?php echo $env['session_time']?>"> 분
-			<span class="subtlt">로그인 유지시간은 로그인후 페이지가 로딩된 후 아무 행동도 하지 않고 유지되는 시간</span>
+			<span class="subtlt">Хуудсанд нэвтэрч, ачаалсны дараа хуудас идэвхгүй хэвээр байх хугацаа</span>
 		</td>
 	</tr>
-	<?php /* 알바에선 사용하지 않습니다 필요한 경우 사용하세요. ?>
+	<?php /*Энлийн үед ашиглахгүй бөгөөд шаардлагатай үед л ашиглах. ?>
 	<tr>
-		<td class="ctlt">프로필사진 업로드 최대크기</td>
+		<td class="ctlt">Профайл зураг байршуулах хамгийн дээд хэмжээ</td>
 		<td class="pdlnb2">
-			<input type="text" name="profile_size" class="tnum" size="10" value="<?php echo ($env['profile_size'])?$env['profile_size']:'2097152';?>"> Bytes/1파일
-			<span class="subtlt">1파일당 최대 <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> 까지 설정가능합니다.</span>
+			<input type="text" name="profile_size" class="tnum" size="10" value="<?php echo ($env['profile_size'])?$env['profile_size']:'2097152';?>"> Bytes/1файл
+			<span class="subtlt">Нэг файлын дээд хэмжээ <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> хүртэл өөрчилж болно.</span>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">업로드 최대크기</td>
+		<td class="ctlt">upload хийх дээд хэмжээ </td>
 		<td class="pdlnb2">
-			<input type="text" name="file_size" class="tnum" size="10" value="<?php echo ($env['file_size'])?$env['file_size']:'2097152';?>"> Bytes/1파일
-			<span class="subtlt">기업로고, 이력서사진 등 업로드 파일제한 용량 (1파일당 최대 <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> 까지 설정가능합니다.)</span>
+			<input type="text" name="file_size" class="tnum" size="10" value="<?php echo ($env['file_size'])?$env['file_size']:'2097152';?>"> Bytes/1файл
+			<span class="subtlt">Компанийн лого, анкетны зураг гэх мэт файл байршуулах (файлын дээд хэмжээ) <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> хүртэл торхируулах боломжтой.)</span>
 		</td>
 	</tr>
 	<?php */ ?>
@@ -315,36 +315,36 @@ var instagram_on = function(){
 	</tr>
 	-->
 	<tr>
-		<td class="ctlt">성인 인증 사용여부</td>
+		<td class="ctlt">"Том хүн" баталгаажуулалт ашиглах эсэх</td>
 		<td class="pdlnb2">
-			<label><input name="use_adult" type="radio" class="radio" value="1" <?php echo ($env['use_adult']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
-			<label><input name="use_adult" type="radio" class="radio" value="0" <?php echo (!$env['use_adult'])?'checked':'';?>>사용안함</label>
+			<label><input name="use_adult" type="radio" class="radio" value="1" <?php echo ($env['use_adult']==1)?'checked':'';?>>Ашиглана</label> &nbsp;&nbsp;
+			<label><input name="use_adult" type="radio" class="radio" value="0" <?php echo (!$env['use_adult'])?'checked':'';?>>Ашиглахгүй</label>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">아이핀 사용여부</td>
+		<td class="ctlt">I-PIN код ашиглах эсэх</td>
 		<td class="pdlnb2">
-			<label><input name="use_ipin" type="radio" class="radio" value="1" <?php echo ($env['use_ipin']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
-			<label><input name="use_ipin" type="radio" class="radio" value="0" <?php echo (!$env['use_ipin'])?'checked':'';?>>사용안함</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<label><input name="use_ipin" type="radio" class="radio" value="1" <?php echo ($env['use_ipin']==1)?'checked':'';?>>Ашиглана</label> &nbsp;&nbsp;
+			<label><input name="use_ipin" type="radio" class="radio" value="0" <?php echo (!$env['use_ipin'])?'checked':'';?>>Ашиглахгүй</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr id="ipin_block" style="display:<?php echo ($use_ipin)?'':'none';?>;">
-		<td class="ctlt">아이핀 설정</td>
+		<td class="ctlt">I-PIN тохиргоо</td>
 		<td class="pdlnb2">
-			아이핀 코드 <input type='text' name='ipin_id' hname="아이핀 코드" class='txt' size="25" id='ipin_id' value="<?php echo $env['ipin_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;아이핀 패스워드 <input type='password' name='ipin_pw' hname="아이핀 패스워드" class='txt' size="20" id='ipin_pw' value="<?php echo $env['ipin_pw'];?>"> -->
+			i-pin код <input type='text' name='ipin_id' hname="i-pin код" class='txt' size="25" id='ipin_id' value="<?php echo $env['ipin_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;아이핀 패스워드 <input type='password' name='ipin_pw' hname="아이핀 패스워드" class='txt' size="20" id='ipin_pw' value="<?php echo $env['ipin_pw'];?>"> -->
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">휴대폰 인증 사용여부</td>
+		<td class="ctlt">Гар утасны баталгаажуулалтыг ашиглах эсэх</td>
 		<td class="pdlnb2">
-			<label><input name="use_hphone" type="radio" class="radio" value="1" <?php echo ($env['use_hphone']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
-			<label><input name="use_hphone" type="radio" class="radio" value="0" <?php echo (!$env['use_hphone'])?'checked':'';?>>사용안함</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<label><input name="use_hphone" type="radio" class="radio" value="1" <?php echo ($env['use_hphone']==1)?'checked':'';?>>Ашиглана</label> &nbsp;&nbsp;
+			<label><input name="use_hphone" type="radio" class="radio" value="0" <?php echo (!$env['use_hphone'])?'checked':'';?>>Ашиглахгүй</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr id="hphone_block" style="display:<?php echo ($use_hphone)?'':'none';?>;">
-		<td class="ctlt">휴대폰 인증 설정</td>
+		<td class="ctlt">Гар утасны баталгаажуулалтыг ашиглах эсэх</td>
 		<td class="pdlnb2">
-			인증 코드 <input type='text' name='hphone_id' hname="휴대폰 인증 코드" class='txt' size="15" id='hphone_id' value="<?php echo $env['hphone_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;인증 패스워드 <input type='password' name='hphone_pw' hname="휴대폰 인증 패스워드" class='txt' size="20" id='hphone_pw' value="<?php echo $env['hphone_pw'];?>"> -->
+			баталгаажуулах код  <input type='text' name='hphone_id' hname="баталгаажуулах код" class='txt' size="15" id='hphone_id' value="<?php echo $env['hphone_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;인증 패스워드 <input type='password' name='hphone_pw' hname="휴대폰 인증 패스워드" class='txt' size="20" id='hphone_pw' value="<?php echo $env['hphone_pw'];?>"> -->
 		</td>
 	</tr>
 <!--
@@ -366,20 +366,21 @@ var instagram_on = function(){
 	</tr> -->
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
 	<tr>
-		<td class="ctlt">게시물 자동등록방지 설정</td>
+		<td class="ctlt">Автомат бүртгэлээс урьдчилан сэргийлэх тохиргоо</td>
 		<td class="pdlnb2">
-			<input name="article_denied" type="radio" value="0" class="radio" id='denied_0' checked><label for='denied_0'>사용안함</label>&nbsp;
-			<input name="article_denied" type="radio" value="1" class="radio" id='denied_1' <?php echo ($env['article_denied']==1)?'checked':'';?>><label for='denied_1'>KCAPTCHA 이미지</label>&nbsp;
-			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>임의의 난수 생성기</label>&nbsp;
-			<span class="subtlt">게시물이 자동등록되지 않도록 설정하여 광고글이 도배되는걸 방지</span>
+			<input name="article_denied" type="radio" value="0" class="radio" id='denied_0' checked><label for='denied_0'>Ашиглах</label>&nbsp;
+			<input name="article_denied" type="radio" value="1" class="radio" id='denied_1' <?php echo ($env['article_denied']==1)?'checked':'';?>><label for='denied_1'>KCAPTCHA зураг</label>&nbsp;
+			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>Санамсаргүй тоо үүсгэгч</label>&nbsp;
+			<span class="subtlt">			<span class="subtlt">Бичлэгийг автоматаар бүртгэхгүй байх тохиргоо хийснээр зар сурталчилгаанаас сэргийлнэ</span>
+</span>
 		</td>
 	</tr> 
 	<tr>
-		<td class="ctlt">사이트 공사중페이지 설정</td>
+		<td class="ctlt">Сайтын хуудасны тохиргоо</td>
 		<td class="pdlnb2">
-			<input name="under_construction" type="radio" class="radio" value="1" <?php echo ($env['under_construction']==1)?'checked':'';?>><label>사용함</label> &nbsp;&nbsp;
-			<input name="under_construction" type="radio" class="radio" value="0" <?php echo (!$env['under_construction'])?'checked':'';?>><label>사용안함</label>
-			<span class="subtlt">사이트 처음 접속시에 공사중 페이지 노출</span>
+			<input name="under_construction" type="radio" class="radio" value="1" <?php echo ($env['under_construction']==1)?'checked':'';?>><label>Ашиглана</label> &nbsp;&nbsp;
+			<input name="under_construction" type="radio" class="radio" value="0" <?php echo (!$env['under_construction'])?'checked':'';?>><label>Ашиглахгүй</label>
+			<span class="subtlt">Сайтын анх холбогдсон хуудсыг харуулна</span>
 		</td>
 	</tr> 
 <!--	
@@ -392,104 +393,104 @@ var instagram_on = function(){
 	</tr>
 -->
 	<tr>
-		<td class="ctlt">상세페이지 SNS 설정</td>
+		<td class="ctlt">Дэлгэрэнгүй хуудас SNS өөрчлөх</td>
 		<td class="pdlnb2">
 			<input name="sns_all" type="checkbox" class="check" onFocus="blur()" value="all" id='sns_all' onclick="sns_alls(this);" <?php echo ($sns_count==6)?'checked':'';?>><label class="fon11 b mr5" for="sns_all">ALL</label>
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="facebook" id="sns_facebook" <?php echo (@in_array('facebook',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico01.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_facebook">페이스북</label>
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="twitter" id="sns_twitter" <?php echo (@in_array('twitter',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico02.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_twitter">트위터</label>
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="kakao_story" id="kakao_story" <?php echo (@in_array('kakao_story',$sns_feed))?'checked':'';?> onclick="kakao_on();"> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico03.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="kakao_story">카카오스토리</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="facebook" id="sns_facebook" <?php echo (@in_array('facebook',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico01.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_facebook"> Facebook</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="twitter" id="sns_twitter" <?php echo (@in_array('twitter',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico02.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_twitter">Twitter</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="kakao_story" id="kakao_story" <?php echo (@in_array('kakao_story',$sns_feed))?'checked':'';?> onclick="kakao_on();"> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico03.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="kakao_story">Kakao Story</label>
 
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="line" id="sns_line" <?php echo (@in_array('line',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico04.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_line">라인</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="line" id="sns_line" <?php echo (@in_array('line',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico04.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_line">Line</label>
 
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="pin" id="pin" <?php echo (@in_array('pin',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico05.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="pin">핀터레스트</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="pin" id="pin" <?php echo (@in_array('pin',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico05.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="pin">Pinterest</label>
 
-			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="sns_plus" id="sns_plus" <?php echo (@in_array('sns_plus',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico06.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_plus">더보기</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="sns_plus" id="sns_plus" <?php echo (@in_array('sns_plus',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico06.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_plus">Дэлгэрнгүй үзэх</label>
 			<!-- <input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="clog" id="sns_clog" <?php echo (@in_array('clog',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/clog.gif" class="vm"><label class="fon11 mr5" for="sns_clog">C로그</label> -->
 
 			<!-- <input name="content[]" type="checkbox" class="check" onFocus="blur()" value="naver" checked> <img src="<?php echo $alice['images_path'];?>/ic/sns/blog.gif" class="vm"><label class="fon11 mr5">네이버블로그</label> -->
 		</td>
 	</tr>
 	<tr id="kakao_block" style="display:<?php echo (@in_array('kakao_talk',$sns_feed) || @in_array('kakao_story',$sns_feed))?'':'none';?>;">
-		<td class="ctlt">카카오 API 키</td>
+		<td class="ctlt">Kakao API key</td>
 		<td class="pdlnb2">
 			<input type='text' name="kakao_key" class="txt" style="width:205px;" id="kakao_key" value="<?php echo stripslashes($env['kakao_key']);?>">
-			<span class="subtlt"><a href="https://developers.kakao.com/" target="_blank">https://developers.kakao.com/</a> 에서 app key 를 등록하신후 [Javascript 키] 를 복사하여 입력해 주세요.</span>><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_kakao.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<span class="subtlt"><a href="https://developers.kakao.com/" target="_blank">https://developers.kakao.com/</a> ээс app key бүртгүүлсний дараа [Javascript 키] хуулж утгыг оруулна уу.</span>><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_kakao.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
 
-	<?php /* 필요한 경우 사용하세요 ?>
+	<?php /* Хэрэгтэй үедээ л ашиглана уу ?>
 	<tr>
 		<td class="ctlt">Facebook APP Id</td>
 		<td class="pdlnb2">
 			<input type='text' name="facebook_appid" class="txt" id="facebook_appid" size="50" value="<?php echo $env['facebook_appid'];?>">
-			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>페이스북 Developers App</a> 에서 발급 받으신 App Id 를 입력해 주세요.</span>
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a>-с гаргасан Апп ID-г оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
 		<td class="ctlt">Facebook Secret Code</td>
 		<td class="pdlnb2">
 			<input type='text' name="facebook_secret" class="txt" id="facebook_secret" size='50' value="<?php echo $env['facebook_secret'];?>">
-			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>페이스북 Developers App</a> 에서 발급 받으신 Secret Code 를 입력해 주세요.</span>
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a>-с гаргасан Secret Code оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
 		<td class="ctlt">Twitter Key</td>
 		<td class="pdlnb2">
 			<input type='text' name="twitter_key" class="txt" id="twitter_key" size="50" value="<?php echo $env['twitter_key'];?>">
-			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>트위터 Developers Apps</a> 에서 발급 받으신 Consumer key 를 입력해 주세요.</span>
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a> -с гаргасан Consumer key оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
 		<td class="ctlt">Twitter Scret</td>
 		<td class="pdlnb2">
 			<input type='text' name="twitter_secret" class="txt" id="twitter_secret" size="50" value="<?php echo $env['twitter_secret'];?>">
-			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>트위터 Developers Apps</a> 에서 발급 받으신 Consumer secret 을 입력해 주세요.</span>
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a>  -с гаргасан Consumer secret оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
 	<?php */ ?>
 
 	<tr>
-		<td class="ctlt pdlnb1">META 사이트 제작자</td>
+		<td class="ctlt pdlnb1">META  Сайт бүтээгч</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_author" class="txt w50" id="meta_author" value="<?php echo stripslashes($env['meta_author']);?>"><!-- tnum => 한글안됨 -->
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Author" content=""&gt;</u> 부분 (사이트 제작자를 나타냅니다.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Author" content=""&gt;</u> хэсэг (сайт бүтээгчийг төлөөлнө.)</dt>
 		</td>
 	</tr>    
 	<tr>
-		<td class="ctlt pdlnb1">META 간단한 설명글</td>
+		<td class="ctlt pdlnb1">META Товч тодорхойлолт</td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="meta_description" class="fon11 h15" style="height:80px;" id="meta_description"><?php echo stripslashes($env['meta_description']);?></textarea></dl>
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Description" content=""&gt;</u> 부분 ( 사이트 문서에 대한 간단한 설명을 저장 합니다.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Description" content=""&gt;</u> хэсэг ( Сайтын баримт бичгийн талаарх тайлбарыг хадгална.)</dt>
 		</td>
 	</tr>     
 	<tr>
-		<td class="ctlt pdlnb1">META 저작권 정보</td>
+		<td class="ctlt pdlnb1">META Зохиогчийн эрхийн талаархи мэдээлэл</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_copyright" class="txt w50" id="meta_copyright" value="<?php echo stripslashes($env['meta_copyright']);?>">
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Copyright" content=""&gt;</u> 부분 (사이트 저작권 정보를 나타냅니다.)</dt>
+			<dt class="mt2 subt">HTML дээд source <u>&lt;meta name="Copyright" content=""&gt;</u> 부분 (Сайтын зохиогчийн эрхийн мэдээллийг гаргана.)</dt>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt pdlnb1">META 검색 키워드</td>
+		<td class="ctlt pdlnb1">META хайх түлхүүр үг</td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="meta_keywords" class="fon11 h15" style="height:80px;" id="meta_keywords"><?php echo stripslashes($env['meta_keywords']);?></textarea></dl>
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Keywords" content=""&gt;</u> 부분 (메타방식 검색엔진에서 참조하는 부분입니다)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Keywords" content=""&gt;</u> хэсэг (мета төрлийн хайлтын системийн хэсэг.)</dt>
 		</td>
 	</tr>    
 	<tr>
-		<td class="ctlt pdlnb1">META 사이트 분류</td>
+		<td class="ctlt pdlnb1">META сайт ангилал</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_classifiction" class="txt w50" id="meta_classifiction" value="<?php echo stripslashes($env['meta_classifiction']);?>">
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Classification" content=""&gt;</u> 부분 (검색엔진에서 사이트의 분류를 지정/파악 합니다.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Classification" content=""&gt;</u> хэсэг (Хайлтын систем дэх сайтын ангиллыг тодорхойлох / ойлгох.)</dt>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt pdlnb1">META 퍼블리셔명</td>
+		<td class="ctlt pdlnb1">META punlisher нэр</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_publisher" class="txt w50" id="meta_publisher" value="<?php echo stripslashes($env['meta_publisher']);?>">
-			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Publisher" content=""&gt;</u> 부분 (사이트 퍼블리셔명을 지정합니다.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Publisher" content=""&gt;</u> хэсэг (Сайтын publisher name тодруулна.)</dt>
 		</td>
 	</tr>
 <!--
@@ -515,7 +516,7 @@ var instagram_on = function(){
 	</tr>
 -->
 	<tr>
-		<td class="ctlt pdlnb1">Google 통계 스크립트</td>
+		<td class="ctlt pdlnb1">Google статистик скрипт</td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="google_scripts" class="fon11 h15" style="height:200px;" id="google_scripts"><?php echo stripslashes($env['google_scripts']);?></textarea></dl>
 		</td>
