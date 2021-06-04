@@ -1,7 +1,7 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <dl class="wbg" style="padding:0 5px 5px;margin:3px"> 
-  <dl class="b nanum fon13 pd7">1үе <?php echo ($type=='job_college')?'Их ёургуулийн байршил':$type_arr[$type]['sub_name'];?> Төрөл</dl>
+  <dl class="b nanum fon13 pd7">1үе <?php echo ($type=='job_college')?'Их сургуулийн байршил':$type_arr[$type]['sub_name'];?> Төрөл</dl>
   <table width="100%" cellspacing="1" class="ln sep tf">
     <col width=25><?php if($is_job){ ?><col width=30><?php } ?><col><col width=75>
     <tr align="center" class="bg b" height="25">
@@ -64,9 +64,9 @@
 <dl class="bg_col tl psr" style="margin:5px 5px 0;height:25px">
 	<a class="cbtn gr2_org lnb2_org" onclick="change_ranks('cate_0','up');"><h1 class="btn19 org">▲ Дээшээ</h1></a>
 	<a class="cbtn gr2_org lnb2_org" onclick="change_ranks('cate_0','down');"><h1 class="btn19 org">▼ Доошоо</h1></a>
-	<a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','first');"><h1 class="btn19 col">▲ Хамгийн эхэнд</h1></a>
-	<a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','last');"><h1 class="btn19 col">▼ Сүүлд</h1></a>
+	<a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','first');"><h1 class="btn19 col">▲ Эхлэл</h1></a>
+	<a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','last');"><h1 class="btn19 col">▼ Сүүл</h1></a>
 	<dd class="prt">
-		<a class="cbtn grf_col lnb_col" onclick="cate_input('cate_0');"><h1 class="btn19"><strong>+</strong>Нэмэх</h1></a>
+		<a class="cbtn grf_col lnb_col" onclick="cate_input('cate_0');"><h1 class="btn19"><strong>+</strong>нэмэх</h1></a>
 	</dd>
 </dl>
