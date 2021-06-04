@@ -147,12 +147,12 @@ var cate_delete = function( cate, no ){	// 카테고리 삭제 (다중)
 	var name = $('#name_'+no).val();
 	$('#quest_name').html(name);
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг устгах уу?<br/></br>Ангиллын мэдээлэл нь сайтыг ерөнхий хамардаг тул анхааралтай устгана уу.");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\', \''+cate+'\');" value="тийм" />');
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\', \''+cate+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '<?php echo $type_arr[$type][sub_name];?> Ангилал устгах',
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -161,12 +161,12 @@ var delete_category = function(no){	 // 카테고리 삭제 (단일)
 	var name = $('#name_'+no).val();
 	$('#quest_name').html(name);
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг устгах уу?<br/></br>Ангиллын мэдээлэл нь сайтыг ерөнхий хамардаг тул анхааралтай устгана уу.");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'cate_delete\', \''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '<?php echo $type_arr[$type][sub_name];?> Ангилал устгах',
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -177,7 +177,7 @@ var change_rank = function(direction, src){	// 카테고리 순위조절 (단일
 	if(direction =='up'){	
 		var next_no = $('tr.category_list', $(parent)).first().attr('no');
 		if(no == next_no){
-			alert('Хамгийн бага дараалал.');
+			alert('최상위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.category_list').prev().attr('no');
@@ -185,7 +185,7 @@ var change_rank = function(direction, src){	// 카테고리 순위조절 (단일
 	} else if(direction =='down'){
 		var next_no = $('tr.category_list', $(parent)).last().attr('no');
 		if(no == next_no){
-			alert('Хамгийн бага дараалал.');
+			alert('최하위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.category_list').next().attr('no');
@@ -231,7 +231,7 @@ var change_ranks = function( cate, direction ){	 // 카테고리 순위조절 (�
 				return false;
 			}
 			if(no == next_no){
-				alert('Хамгийн бага дараалал.');
+				alert('최상위 순위 입니다.');
 				return false;
 			} else {
 				next_no = $('#cate_'+sel_no).prev().attr('data_no');
@@ -243,7 +243,7 @@ var change_ranks = function( cate, direction ){	 // 카테고리 순위조절 (�
 				return false;
 			}
 			if(no == next_no){
-				alert('Дараалал.');
+				alert('최하위 순위 입니다.');
 				return false;
 			} else {
 				next_no = $('#cate_'+sel_no).next().attr('data_no');
@@ -271,18 +271,18 @@ var sel_delete_category = function(){	// 선택삭제
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон <?php echo $type_arr[$type][sub_name];?> ангилал "+chk_length+"устгах уу?<br/></br>Ангиллын мэдээлэл нь сайтыг ерөнхий хамардаг тул анхааралтай устгана уу.");
+		$('#confirm_msg').html("선택하신 <?php echo $type_arr[$type][sub_name];?> 분류 "+chk_length+"건을 삭제 하시겠습니까?<br/></br>분류 정보는 사이트 전반적으로 영향을 주니 신중하게 삭제하시기 바랍니다.");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '<?php echo $type_arr[$type][sub_name];?> Ангилал сонгож устгах',
+			title: '<?php echo $type_arr[$type][sub_name];?> 분류 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -303,12 +303,12 @@ var sel_category = function(){	 // 일괄적용
 		return false;
 	}
 	$('#quest_info').hide();
-	$('#confirm_msg').html("<?php echo $type_arr[$type][sub_name];?> Ангиллын нэрийг одоо оруулсан утгаар багцлах уу?");
-	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'sel_category','"+sel_nos+"','"+sel_names+"');\" value='тийм' />");
+	$('#confirm_msg').html("<?php echo $type_arr[$type][sub_name];?> 분류명(들)을 현재 입력하신대로 일괄적용 하시겠습니까?");
+	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'sel_category','"+sel_nos+"','"+sel_names+"');\" value='예' />");
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '<?php echo $type_arr[$type][sub_name];?> Ангиллын багц',
+		title: '<?php echo $type_arr[$type][sub_name];?> 분류 일괄적용',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -338,7 +338,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 					}
 				});
 			break;
-			case 'sel_delete':	// Сонголт устгах
+			case 'sel_delete':	// 선택삭제
 				$.post('./process/category.php', { mode:mode, type:type, no:no }, function(result){
 					if(result){
 						location.reload();
@@ -349,10 +349,10 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 					}
 				});
 			break;
-			case 'sel_category':	// Багц
+			case 'sel_category':	// 일괄적용
 				$.post('./process/category.php', { mode:mode, type:type, no:no, name:name }, function(result){
 					if(result){
-						//alert('Ангиллын нэр (үүд) -ийг хамтад нь ашигласан болно.');
+						//alert('분류명(들)이 일괄적용 되었습니다.');
 						location.reload();
 					} else {
 						alert("<?php echo $config->_errors('0025');?>");
@@ -370,12 +370,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 <div id="question" style="display:none; cursor: default">
 	<div id='quest_info'>
-		<p>Ангиллын нэр  : <span id='quest_name'></span></p><br/>
+		<p>분류명 : <span id='quest_name'></span></p><br/>
 	</div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -396,8 +396,8 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 		<!-- Guide -->
 		<dl class="notbox">
 			<dl>
-				Та утгын тохиргоогоор дамжуулан утга нэмэх / өөрчлөх / устгах боломжтой. <br/>
-				Та категориудыг засах, нэмэх, хэрэглэгчийн дэлгэц дээр харагдах дарааллыг өөрчлөх боломжтой.<br/>
+			각 항목별 설정을 통해 항목을 추가/수정/삭제 하실 수 있습니다. <br/>
+			분류항목을 수정하고 추가할 수 있으며 사용자화면에서 보이는 순서도 바꿀 수 있습니다.<br/>
 			</dl>
 		</dl>
 		<!-- //Guide -->
@@ -412,20 +412,20 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 		<?php } ?>
 
 
-		<?php if(in_array($type,$multiple_type)){	// олон ангилал ?>
+		<?php if(in_array($type,$multiple_type)){	// 다중 카테고리 ?>
 			<table width="100%" class="mt10 tf">
 			 <col><col width=20><col><col width=20><col>
 			  <tr align="center" valign="top">
 				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_0.php"; ?></td>
 				<td class="fon10 vm col">▶</td>
 				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_1.php"; ?></td>
-				<?php if($type!='job_college'){	 // Ойролцоох их дээд сургуулиуд 2-р хэсэг ?>
+				<?php if($type!='job_college'){	 // 인근대학은 2차 까지만 ?>
 				<td class="fon10 vm col">▶</td>
 				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_2.php"; ?></td>
 				<?php } ?>
 			  </tr>
 			</table>
-		<?php } else if(in_array($type,$double_type)){	// 2-р категори ?>
+		<?php } else if(in_array($type,$double_type)){	// 2차 카테고리 ?>
 			<table width="100%" class="mt10 tf">
 			 <col><col width=20><col><col width=20><col>
 			  <tr align="center" valign="top">
@@ -434,29 +434,29 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 				<td class="lnb2_col ba bg_col"><?php include "./views/_include/cate_1.php"; ?></td>
 			  </tr>
 			</table>
-		<?php } else {	// 1-р категори?>
+		<?php } else {	// 1차 카테고리 ?>
 		<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 				</dt>
 				<dd>
-					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>Багц</h1></a>
-					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
+					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
 				</dd>
 			</dl>
 			<table width="100%" class="ttlt">
 			<col width=30><col width=50><?php if($type=='alba_date'){?><col width=40><col width=40><?php } ?><col><col span="2" width=56> 
 				<tr class="bg">
 					<td><input type='checkbox' name='check_all'></td>
-					<td>Дараалал</td>
+					<td>순서</td>
 					<?php if($type=='alba_date'){?>
-					<td>Хаах</td>
-					<td>Урт хугацаа</td>
+					<td>단기</td>
+					<td>장기</td>
 					<?php } ?>
-					<td>Ангиллын нэр/td>
-					<td>Өөрчлөх</td>
-					<td class="e">Устгах</td>
+					<td>분류명</td>    
+					<td>수정</td>
+					<td class="e">삭제</td>
 				</tr>
 
 				<?php if(!$category_list){ ?>
@@ -465,7 +465,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 			
 				<tbody id="category_list">
 				<?php foreach($category_list as $val){ 
-					$name = $utility->remove_quoted($val['name']);	 //
+					$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 				?>
 				<tr class="category_list" no="<?php echo $val['no'];?>">
 					<td><input type='checkbox' name="no[]" class='check_all' value="<?php echo $val['no'];?>"></td>
@@ -493,7 +493,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 			<input type="hidden" name="type" value="<?php echo $type;?>" id="type"/>
 			<input type="hidden" name="ajax" value="1"/>
 				<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
-					<td colspan='2'>Ангилын нэр оруулах</td>
+					<td colspan='2'>분류명 입력</td>
 					<td class="pdlnb1"><input name="name" type="text" class="txt w100" id="name"></td>
 					<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
 				</tr> 
@@ -502,12 +502,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 			<dl class="page mb50"> 
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 				</dt>
 				<dd>
-					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>Багц</h1></a>
-					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
+					<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+					<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
 				</dd>
 			</dl>
 		<?php } ?>
@@ -576,9 +576,9 @@ var date_check = function( vals, field, no ){
 		
 		if(result){
 			if(field=='etc_0'){
-				alert("Богино хугацааны ажлын мэдээлэл бөгөөд ажлын хугацааг сонгосон болно.");
+				alert("단기 정규직정보 근무기간이 선택되었습니다.");
 			} else {
-				alert("Богино хугацааны ажлын мэдээлэл бөгөөд ажлын хугацааг сонгосон болно.");
+				alert("장기 정규직정보 근무기간이 선택되었습니다.");
 			}
 		} else {
 			alert("<?php echo $category_control->_errors('0005');?>");
