@@ -58,9 +58,9 @@
 							</td>
 						<?php } ?>
 						<td>
-							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $sel_cate;?>','<?php echo $val['no'];?>');">수정</h1></a>
+							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $sel_cate;?>','<?php echo $val['no'];?>');">Өөрчлөх</h1></a>
 							<?php if( stristr($val['code'],'all') === false ){ // 전체가 아닐때만 삭제가능 ?>
-							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $sel_cate;?>','<?php echo $val['no'];?>');">삭제</h1></a>
+							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $sel_cate;?>','<?php echo $val['no'];?>');">Устгах</h1></a>
 							<?php } ?>
 						</td>
 					</tr>
@@ -112,14 +112,14 @@
 ?>
 					<tr class="wbg tc <?php echo $cate;?>_lists lists" height="30" id="cate_<?php echo $val['no'];?>" onclick="cate_sels('<?php echo $cate;?>','<?php echo $val['no'];?>','<?php echo $val['code'];?>');" data_no="<?php echo $val['no'];?>">
 						<td><input name="view[]" type="checkbox" value="yes" id="view_<?php echo $val['no'];?>" <?php echo ($val['view']=='yes')?'checked':'';?> onclick="cate_view('<?php echo $val['no']?>',this);"></td>
-						<?php if($is_job){ ?><td><input name="etc_0[]" type="checkbox" value="yes" id="adult_<?php echo $val['no'];?>" <?php echo ($val['etc_0'])?'checked':'';?> onclick="adult_view('<?php echo $val['no']?>',this);" title="성인분류로 체크하시면 카테고리 사용시 성인인증을 요구합니다."></td><?php } ?>
+						<?php if($is_job){ ?><td><input name="etc_0[]" type="checkbox" value="yes" id="adult_<?php echo $val['no'];?>" <?php echo ($val['etc_0'])?'checked':'';?> onclick="adult_view('<?php echo $val['no']?>',this);" title="Хэрэв та том хүн ангилал сонгосон бол категорийг ашиглахдаа баталгаажуулах шаардлагатай.."></td><?php } ?>
 						<td class="plr5">
 							<input type='text' name="name[]" class="txt w100 <?php echo $cate;?>_list" style="ime-mode:active;" value="<?php echo $name;?>" id="name_<?php echo $val['no'];?>" no="<?php echo $val['no'];?>" cate="<?php echo $cate;?>"/>
 						</td>
 						<?php if($is_pay){ ?>
 							<td>
 								<select name="etc_0" id="etc_0_<?php echo $val['no'];?>">
-								<option value="">조건</option>
+								<option value="">Нөхцөл</option>
 								<?php foreach($pay_level as $pay_level_key => $pay_level_val){?>
 								<option value="<?php echo $pay_level_key;?>" <?php echo ($pay_level_key==$val['etc_0'])?'selected':'';?>><?php echo $pay_level_val;?></option>
 								<?php } ?>
@@ -127,9 +127,9 @@
 							</td>
 						<?php } ?>
 						<td>
-							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $cate;?>','<?php echo $val['no'];?>');">수정</h1></a>
+							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $cate;?>','<?php echo $val['no'];?>');">Өөрчлөх</h1></a>
 							<?php if( stristr($val['code'],'all') === false ){ // 전체가 아닐때만 삭제가능 ?>
-							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $cate;?>','<?php echo $val['no'];?>');">삭제</h1></a>
+							<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $cate;?>','<?php echo $val['no'];?>');">Устгах</h1></a>
 							<?php } ?>
 						</td>
 					</tr>
