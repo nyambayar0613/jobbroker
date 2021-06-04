@@ -1,7 +1,7 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <dl class="wbg" style="padding:0 5px 5px;margin:3px">
-    <dl class="b nanum fon13 pd7">3-үе <?php echo $type_arr[$type]['sub_name'];?> төрөл</dl>
+    <dl class="b nanum fon13 pd7">3-хэсэг <?php echo $type_arr[$type]['sub_name'];?> төрөл</dl>
     <table width="100%" cellspacing="1" class="ln sep tf">
         <col width=25><col><col width=75>
         <tr align="center" class="bg b" height="25">
@@ -11,7 +11,7 @@
 
         <tbody id="cate_2_list">
         <tr class="wbg tc" style="height:150px;">
-            <td colspan='2'>2-р үе <?php echo $type_arr[$type]['sub_name'];?>эхлээд сонгоно уу.</td>
+            <td colspan='2'>2-р хэсгийг <?php echo $type_arr[$type]['sub_name'];?>эхлээд сонгоно уу.</td>
         </tr>
         </tbody>
 
@@ -26,7 +26,7 @@
             <tr class="bg_col tc" height="30" id="cate_2_input" class="cate_2" style="display:none;">
                 <td><input name="view" type="checkbox" value="yes" checked></td>
                 <td class="plr5">
-                    <input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_2_name" hname='3-р үеийн ангиллын нэр' required cate="cate_2">
+                    <input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_2_name" hname='3-р хэсгийн нэр' required cate="cate_2">
                 </td>
             </tr>
 
