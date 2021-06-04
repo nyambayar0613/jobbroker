@@ -4,7 +4,7 @@
 <table class="bg_col">
   <col width=80><col>
   <tr>
-    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">등록폼 설정</td>
+    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">Бүртгэлийн хэлбэрийг тохируулах</td>
     <td class="wbg pl7">
     <ul class="List">
 	<?
