@@ -50,7 +50,7 @@ var change_rank = function(direction, src){	// 순위 조절
 		var next_no = $('tr.category_list', $(parent)).first().attr('no');
 
 		if(no == next_no){
-			alert('Хамгийн бага дараалал.');
+			alert('최상위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.category_list').prev().attr('no');
@@ -61,7 +61,7 @@ var change_rank = function(direction, src){	// 순위 조절
 		var next_no = $('tr.category_list', $(parent)).last().attr('no');
 		
 		if(no == next_no){
-			alert('Хамгийн бага дараалал.');
+			alert('최하위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.category_list').next().attr('no');
@@ -95,14 +95,14 @@ var update_category = function(no){	 // 수정
 	$('#quest_name').html(name);
 
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг өөрчлөх үү?");
+	$('#confirm_msg').html("위의 정보로 수정하시겠습니까?");
 
-	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'update','"+no+"','"+addslashes(name)+"');\" value='тийм' />");
+	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'update','"+no+"','"+addslashes(name)+"');\" value='예' />");
 
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Категорийн мэдээлэл засах',
+		title: '카테고리 정보 수정',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -115,14 +115,14 @@ var delete_category = function(no){	 // 삭제
 	$('#quest_name').html(name);
 
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг өөрчлөх үү?");
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
 
 	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Категорийн мэдээлэл засах',
+		title: '카테고리 정보 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -134,13 +134,13 @@ var sel_delete_category = function(){	// 선택삭제
 
 	if(chk_length==0){
 
-		alert('Устгахын тулд категорийн мэдээллийг сонгоно уу.');
+		alert('삭제할 카테고리 정보를 선택해 주세요.');
 		return false;
 
 	} else {
 
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон утга "+chk_length+"устгах уу?");
+		$('#confirm_msg').html("선택하신 분류 정보 "+chk_length+"건을 삭제 하시겠습니까?");
 
 		var del_no = new Array();
 		var i = 0;
@@ -149,12 +149,12 @@ var sel_delete_category = function(){	// 선택삭제
 		i++;
 		});
 
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Категорийн мэдээлэл засах',
+			title: '카테고리 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -178,14 +178,14 @@ var sel_category = function(){	 // 일괄적용
 	});
 
 	$('#quest_info').hide();
-	$('#confirm_msg').html("Ангиллын нэрийг одоо оруулсан утгаар багцлах уу?");
+	$('#confirm_msg').html("분류명(들)을 현재 입력하신대로 일괄적용 하시겠습니까?");
 	
-	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'sel_category','"+sel_nos+"','"+sel_names+"');\" value='тийм' />");
+	$('#questionAnswerYes').html("<input type='button' onClick=\"questionAnswer('yes', 'sel_category','"+sel_nos+"','"+sel_names+"');\" value='예' />");
 
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Категорийн мэдээлэл багцлах',
+		title: '카테고리 정보 일괄적용',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -251,12 +251,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 </script>
 <div id="question" style="display:none; cursor: default">
 	<div id='quest_info'>
-		<p>Ангиллын нэр : <span id='quest_name'></span></p><br/>
+		<p>분류명 : <span id='quest_name'></span></p><br/>
 	</div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -273,8 +273,8 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 <?php if($type!='category'){?>
 <dl class="notbox">
 	<dl>
-		1: 1 лавлагаа, зар сурталчилгаа / харьяаллын лавлагаа, асуулт хариулт гэх мэт төрөл бүрийн ангиллыг удирддана.<br>
-		Категориудыг засах, нэмэх, хэрэглэгчийн дэлгэц дээр харагдах дарааллыг өөрчлөх боломжтой.<br>
+	1:1문의 항목, 광고/제휴문의, FAQ 항목 등 사이트내에 들어있는 각종 분류항목을 관리합니다.<br>
+	분류항목을 수정하고 추가할 수 있으며 사용자화면에서 보이는 순서도 바꿀 수 있습니다.<br>
 	</dl>
 </dl>
 <?php } ?>
@@ -287,10 +287,10 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	<col width=30><col width=50><col><col span="2" width=56> 
 		<tr class="bg">
 			<td><input type='checkbox' name='check_all'></td>
-			<td>Дараалал</td>
-			<td>Ангиллын нэр</td>
-			<td>Өөрчлөх</td>
-			<td class="e">Устгах</td>
+			<td>순서</td>
+			<td>분류명</td>    
+			<td>수정</td>
+			<td class="e">삭제</td>
 		</tr>
 
 		<?php if(!$category_list){ ?>
@@ -299,7 +299,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	
 		<tbody id="category_list">
 		<?php foreach($category_list as $val){ 
-			$name = $utility->remove_quoted($val['name']);	 //
+			$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 		?>
 		<tr class="category_list" no="<?php echo $val['no'];?>">
 			<td><input type='checkbox' name="no[]" class='check_all' value="<?php echo $val['no'];?>"></td>
@@ -322,7 +322,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	<input type="hidden" name="type" value="<?php echo $type;?>" id="type"/>
 	<input type="hidden" name="ajax" value="1"/>
 		<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
-			<td colspan='2'>Ангиллын нэрийг оруулна уу</td>
+			<td colspan='2'>분류명 입력</td>
 			<td class="pdlnb1"><input name="name" type="text" class="txt w100" value="" id="name"></td>      
 			<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
 		</tr> 
@@ -331,12 +331,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 	<dl class="page"> 
 		<dt>
-			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 		</dt>
 		<dd>
-			<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>Багц</h1></a>
-			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
+			<a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a>
+			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
 		</dd>
 	</dl>
 
