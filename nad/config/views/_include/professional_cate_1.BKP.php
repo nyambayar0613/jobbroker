@@ -1,17 +1,17 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <dl class="wbg" style="padding:0 5px 5px;margin:3px"> 
-  <dl class="b nanum fon13 pd7">2-р үе <?php echo $type_arr[$type]['sub_name'];?> төрөл</dl>
+  <dl class="b nanum fon13 pd7">2차 <?php echo $type_arr[$type]['sub_name'];?> 분류</dl>
   <table width="100%" cellspacing="1" class="ln sep tf">
     <col width=25><col><col width=75>
     <tr align="center" class="bg b" height="25">
-      <td class="fon11">Сонгох</td>
-      <td class="fon11">Утга</td>
+      <td class="fon11">선택</td>
+      <td class="fon11">항목</td>
     </tr>
 
 	<tbody id="cate_1_list">
 	<tr class="wbg tc" style="height:150px;">
-		<td colspan='2'>1-р үе <?php echo $type_arr[$type]['sub_name'];?>эхлээд сонгоно уу.</td>
+		<td colspan='2'>1차 <?php echo $type_arr[$type]['sub_name'];?>을(를) 먼저 선택해 주세요.</td>
 	</tr>
 	</tbody>
 
@@ -26,7 +26,7 @@
 	<tr class="bg_col tc" height="30" id="cate_1_input" class="cate_1" style="display:none;">
 		<td><input name="view" type="checkbox" value="yes" checked></td>
 		<td class="plr5">
-			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2-р үеийн ангиллын нэр' required cate="cate_1">
+			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2차 분류명' required cate="cate_1">
 		</td>
 	</tr> 
 
