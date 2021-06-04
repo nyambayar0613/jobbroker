@@ -1,0 +1,569 @@
+<?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
+
+<script>
+$(function(){
+	var form_options = { beforeSubmit: showRequest, success : showResponse };
+
+	$('#SiteConfigFrm').ajaxForm(form_options);
+
+	/*
+	$('#SiteConfigFrm').submit(function(){
+		$(this).ajaxSubmit(form_options);
+		return false;
+	});
+	*/
+
+	$("input[name='login_return']").click(function(){	// 로그인 후 리턴 페이지
+		var sel = $(this).val();
+		if(sel==2){
+			$('#login_return_page_block').show();
+		} else {
+			$('#login_return_page_block').hide();
+		}
+	});
+
+	$("input[name='use_point']").click(function(){
+		var use_points = $(this).val();
+		if(use_points=='1') $('.point_sets').show();
+		else $('.point_sets').hide();
+	});
+
+	$("input[name='use_ipin']").click(function(){
+		var use_ipins = $(this).val();
+		if(use_ipins=='1') $('#ipin_block').show();
+		else $('#ipin_block').hide();
+	});
+
+	$("input[name='use_hphone']").click(function(){
+		var use_hphones = $(this).val();
+		if(use_hphones=='1') $('#hphone_block').show();
+		else $('#hphone_block').hide();
+	});
+
+	/*
+	$("input[name='use_adult']").click(function(){
+		var use_adults = $(this).val();
+		if(use_adults=='1') $('#adult_block').show();
+		else $('#adult_block').hide();
+	});
+	*/
+
+});
+var center_use = function( vals ){
+	var cs_type = <?php echo $env['cs_type'];?>;
+	var checked = vals.checked;
+	if(checked==true){
+		$('.call_center').show();
+		if(cs_type){
+			$('#cs_type_image').hide();
+		} else {
+			$('#cs_type_image').show();
+		}
+	} else {
+		$('.call_center').hide();
+	}
+}
+var cs_types = function(vals){
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#cs_type_text').show();
+		$('#cs_type_image').hide();
+	} else {
+		$('#cs_type_text').hide();
+		$('#cs_type_image').show();
+	}
+}
+var sns_alls = function(vals){
+	var sel = vals.checked;
+	if(sel==true)
+		$("input[name='sns_feed[]']").attr('checked',true);
+	else
+		$("input[name='sns_feed[]']").attr('checked',false);
+}
+var use_digitals = function( vals){
+	var sel = vals.value;
+	if(sel=='1'){
+		$('#digital_content_wrap').show();
+	} else {
+		$('#digital_content_wrap').hide();
+	}
+}
+var kakao_on = function( ){
+	if( $('#kakao_talk').is(':checked') == true || $('#kakao_story').is(':checked') == true ){
+		$('#kakao_block').show();
+	} else {
+		$('#kakao_block').hide();
+	}
+}
+var instagram_on = function(){
+	if( $('#sns_instagram').is(':checked') ){
+		$('#instagram_block').show();
+	} else {
+		$('#instagram_block').hide();
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<style>
+.point_sets { display:<?php echo ($env[use_point])?'':'none';?>;}
+.help_btn01{margin-left:5px}
+</style>
+
+<table class="layout">
+<tr valign="top">
+<td id="lmn"><?php include_once "../include/left_menu.php"; ?></td>
+<td width="1"></td>
+<td id="left" class="<?php echo $top_menu_code;?>"><?php include_once "../include/left.php"; ?></td>
+<td id="lopen"  class="<?php echo $top_menu_code;?>" onClick="left_menu_open('<?php echo $top_menu_code;?>');" onMouseOver="this.className='on'" onMouseOut="this.className=''"><img src="../../images/comn/b.gif"></td>
+<td class="h pr5">
+<table class="ltbl">
+<!--<tr><td class=nb_01></td><td class=nb_02></td><td class=nb_03></td></tr><tr>-->
+<td width="1"></td><td class="nb">
+
+<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
+
+<?php include_once "./views/_include/menu.php"; ?>
+
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сайтын үндсэн тохиргоо</dl>
+<form name="SiteConfigFrm" method="post" id="SiteConfigFrm" action="./process/config.php" enctype="multipart/form-data">
+<input type="hidden" name="mode" value="config_update"/><!-- 사이트 기본 설정정보 수정 -->
+<input type="hidden" name="ajax" value="1"/><!-- ajax mode 유무 -->
+<input type="hidden" name="uid" value="<?=$admin_info['uid']?>"/><!-- 현재 설정 관리자 uid -->
+<input type="hidden" name="no" value="<?=$env['no']?>"/>
+
+	<table width="100%" class="bg_col">
+	<col width=150><col> 
+	<tr>
+		<td class="ctlt">Вэб хөтчийн гарчиг</td>
+		<td class="pdlnb2">
+			<input type='text' name="site_title" class="txt w50" id="site_title" value="<?php echo stripslashes($env['site_title']);?>" required hname='Вэб хөтчийн гарчиг>
+			<span class="subtlt">브라우저 창의 최상단 제목줄에 표시할 내용</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_title.html','window','width=712, height=242,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">메일,SMS 발송시 사이트명</td>
+		<td class="pdlnb2">
+			<input type='text' name="site_name" class="txt w50" id="site_name" value="<?php echo stripslashes($env['site_name']);?>" required hname='메일,SMS 발송시 사이트명'>
+			<span class="subtlt">메일,SMS 발송시 발송자의 이름으로 출력</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">사이트 영문명</td>
+		<td class="pdlnb2">
+			<input type='text' name="site_english" class="txt w50" id="site_english" value="<?php echo stripslashes($env['site_english']);?>" required hname='사이트 영문명'>
+			<span class="subtlt">사이트 하단 등 영문이 필요한 경우 사용됩니다.</span>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<td class="ctlt">즐겨찾기 타이틀</td>
+		<td class="pdlnb2">
+			<input type='text' name="favorite_title" class="txt w50" id="favorite_title" value="<?php echo stripslashes($env['favorite_title']);?>" required hname='즐겨찾기 타이틀'> 
+			<span class="subtlt">즐겨찾기 추가시 타이틀</span>
+		</td>
+	</tr>
+	-->
+	<tr>
+		<td class="ctlt">파비콘 아이콘설정</td>
+		<td class="pdlnb2">
+			<input type='file' name="favicon" class="txt" size="53" id="favicon"> 
+			<span class="subtlt">파일규격 : 16 x 16 또는 32 x 32 픽셀, 16/256/트루컬러의 *.ico 등록가능</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">관리자이메일</td>
+		<td class="pdlnb2">
+			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='관리자이메일'>
+			<span class="subtlt">수신/발신용 기본 메일 주소</span>
+		</td>
+	</tr>
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
+	<input type="hidden" name="call_center_use" value="1"/>
+	<!-- <tr>
+		<td class="ctlt">고객센터출력유무</td>
+		<td class="pdlnb2">
+			<label><input name="call_center_use" type="checkbox" class="check" onFocus="blur()" value="1" id='call_center_use' <?php echo ($env['call_center_use'])?'checked':'';?> onclick="center_use(this);"/>출력</label>
+		</td>
+	</tr> -->
+	<tr class="call_center" style="display:<?php echo ($env['call_center_use'])?'':'none';?>;">
+		<td class="ctlt">고객센터번호</td>
+		<td class="pdlnb2">				
+			<input type='text' name="call_center" class="txt phone" style="width:200px;ime-mode:disabled;" id="call_center" value="<?php echo stripslashes($env['call_center']);?>">
+			<span class="subtlt">사이트 발신용 번호</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">휴대폰번호</td>
+		<td class="pdlnb2">
+			<input type='text' name="hphone" class="txt phone" style="width:200px;ime-mode:disabled;" id="hphone" value="<?php echo stripslashes($env['hphone']);?>"> 
+			<span class="subtlt">사이트 수신용 휴대폰 번호 설정</span>
+		</td>
+	</tr>
+	<!--
+	<tr class="call_center" style="display:<?php echo ($env['call_center_use'])?'':'none';?>;">
+		<td class="ctlt">고객센터사용</td>
+		<td class="pdlnb2">
+			<label><input name="cs_type" type="radio" value="0" class="radio" checked onclick="cs_types(this);">이미지</label> &nbsp;
+			<label><input name="cs_type" type="radio" value="1" class="radio" <?php echo ($env['cs_type'])?'checked':'';?> onclick="cs_types(this);">텍스트</label> &nbsp;
+		</td>
+	</tr>  
+	<tr id="cs_type_text" class="call_center" style="display:<?php echo ($env['cs_type']&&$env['call_center_use'])?'':'none';?>;">
+		<td class="ctlt">고객센터영업시간(텍스트)</td>
+		<td class="pdlnb2">
+			<dl class="twrap fl" style="width:190px">
+				<textarea name="call_time" class="fon11" style="height:52px;" id="call_time"><?php echo stripslashes($env['call_time']);?></textarea>
+			</dl>
+			<dl class="fl ml10 pt3" style="width:30%">
+			<dt class="subt fl mr5">입력예)</dt>
+			<dt class="fl subt">평일 Am 09:00 ~ Pm 06:00<br>
+			점심 Pm 12:00 ~ Pm 01:00<br>
+			주말ㆍ공휴일은 휴무입니다.</dt>
+			</dl>
+		</td>
+	</tr>  
+	<tr id="cs_type_image" class="call_center" style="display:<?php echo (!$env['cs_type']&&$env['call_center_use'])?'':'none';?>;">
+		<td class="ctlt">고객센터영업시간(이미지)</td>
+		<td class="pdlnb2">
+			<span>
+				<div>
+					<?php if($env['call_time_image']){?><img src="<?php echo $alice['peg_path']."/".$env['call_time_main_1'];?>"/><br/><br/><?php } ?>
+					<input type='file' name="call_time_main_1" class="txt" size="53" id="call_time_main_1"> 
+					메인 페이지 고객센터 1 <span class="subtlt">권장 : 가로 최대 314px, 세로 151px </span>
+				</div>
+				<div style="padding-top:5px;">
+					<?php if($env['call_time_image']){?><img src="<?php echo $alice['peg_path']."/".$env['call_time_main_2'];?>"/><br/><br/><?php } ?>
+					<input type='file' name="call_time_main_2" class="txt" size="53" id="call_time_main_2"> 
+					메인 페이지 고객센터 2 <span class="subtlt">권장 : 가로 최대 259px, 세로 151px </span>
+				</div>
+				<div style="padding-top:5px;">
+					<?php if($env['call_time_image']){?><img src="<?php echo $alice['peg_path']."/".$env['call_time_image'];?>"/><br/><br/><?php } ?>
+					<input type='file' name="call_time_image" class="txt" size="53" id="call_time_image"> 
+					서브 페이지 좌측 고객센터 <span class="subtlt">권장 : 가로 최대 155px, 세로 112px </span>
+				</div>
+			</span>
+		</td>
+	</tr>  
+	-->
+	<tr>
+		<td class="ctlt">최저임금</td>
+		<td class="pdlnb2">
+			<!-- <input type="hidden" name="pay_view" value="1"/> -->
+			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/>출력</label> / 
+			기준 연도 
+			<select name="pay_year">
+			<?php for($i=(date('Y')+2);$i>=2000;--$i){ ?>
+				<option value='<?=$i?>' <?php echo ($env['pay_year']==$i)?'selected':'';?>><?=$i?></option>
+			<?php } ?>
+			</select> 년 / 시급 <input type='text' name="time_pay" class="txt" id="time_pay" value="<?php echo $env['time_pay'];?>"> 원<span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_pay.html','window','width=712, height=399,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<td class="ctlt">온라인 디지털 콘텐츠 산업발전에 의한표시</td>
+		<td class="pdlnb2">
+			<label><input name="use_digital" type="radio" value="1" class="radio" checked onclick="use_digitals(this);">사용</label> &nbsp;
+			<label><input name="use_digital" type="radio" value="0" class="radio" <?php echo ($env['use_digital']=='0')?'checked':'';?> onclick="use_digitals(this);">미사용</label> &nbsp;
+			<dl class="twrap" style="display:<?php echo ($env['use_digital'])?'':'none';?>;" id="digital_content_wrap">
+				<textarea name="digital_content" class="fon11 h15" style="height:80px;" id="digital_content"><?php echo stripslashes($env['digital_content']);?></textarea>
+			</dl>
+		</td>
+	</tr>
+	-->
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
+
+	<tr>
+		<td class="ctlt">로그인후 리턴페이지</td>
+		<td class="pdlnb2">
+			<label><input name="login_return" type="radio" value="0" class="radio" checked>로그인전 페이지</label> &nbsp;
+			<label><input name="login_return" type="radio" value="1" class="radio" <?php echo ($env['login_return']==1)?'checked':'';?>>메인페이지</label> &nbsp;
+			<label><input name="login_return" type="radio" value="2" class="radio" <?php echo ($env['login_return']==2)?'checked':'';?>>지정페이지</label> &nbsp;  
+			<span id="login_return_page_block" style="display:<?php echo ($env['login_return']==2)?'':'none';?>;"><input name="login_return_page" type="text" class="tnum" size="50" id="login_return_page"></span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">로그인후 유지시간</td>
+		<td class="pdlnb2">
+			<input name="session_time" type="text" class="tnum" size="3" id="session_time" value="<?php echo $env['session_time']?>"> 분
+			<span class="subtlt">로그인 유지시간은 로그인후 페이지가 로딩된 후 아무 행동도 하지 않고 유지되는 시간</span>
+		</td>
+	</tr>
+	<?php /* 알바에선 사용하지 않습니다 필요한 경우 사용하세요. ?>
+	<tr>
+		<td class="ctlt">프로필사진 업로드 최대크기</td>
+		<td class="pdlnb2">
+			<input type="text" name="profile_size" class="tnum" size="10" value="<?php echo ($env['profile_size'])?$env['profile_size']:'2097152';?>"> Bytes/1파일
+			<span class="subtlt">1파일당 최대 <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> 까지 설정가능합니다.</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">업로드 최대크기</td>
+		<td class="pdlnb2">
+			<input type="text" name="file_size" class="tnum" size="10" value="<?php echo ($env['file_size'])?$env['file_size']:'2097152';?>"> Bytes/1파일
+			<span class="subtlt">기업로고, 이력서사진 등 업로드 파일제한 용량 (1파일당 최대 <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> 까지 설정가능합니다.)</span>
+		</td>
+	</tr>
+	<?php */ ?>
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
+	<!--
+	<tr>
+		<td class="ctlt">다이렉트 결제</td>
+		<td class="pdlnb2">
+			<label><input name="use_direct" type="radio" class="radio" value="1" <?php echo ($env['use_direct']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
+			<label><input name="use_direct" type="radio" class="radio" value="0" <?php echo (!$env['use_direct'])?'checked':'';?>>사용안함</label>
+		</td>
+	</tr>
+	-->
+	<tr>
+		<td class="ctlt">성인 인증 사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="use_adult" type="radio" class="radio" value="1" <?php echo ($env['use_adult']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
+			<label><input name="use_adult" type="radio" class="radio" value="0" <?php echo (!$env['use_adult'])?'checked':'';?>>사용안함</label>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">아이핀 사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="use_ipin" type="radio" class="radio" value="1" <?php echo ($env['use_ipin']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
+			<label><input name="use_ipin" type="radio" class="radio" value="0" <?php echo (!$env['use_ipin'])?'checked':'';?>>사용안함</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<tr id="ipin_block" style="display:<?php echo ($use_ipin)?'':'none';?>;">
+		<td class="ctlt">아이핀 설정</td>
+		<td class="pdlnb2">
+			아이핀 코드 <input type='text' name='ipin_id' hname="아이핀 코드" class='txt' size="25" id='ipin_id' value="<?php echo $env['ipin_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;아이핀 패스워드 <input type='password' name='ipin_pw' hname="아이핀 패스워드" class='txt' size="20" id='ipin_pw' value="<?php echo $env['ipin_pw'];?>"> -->
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt">휴대폰 인증 사용여부</td>
+		<td class="pdlnb2">
+			<label><input name="use_hphone" type="radio" class="radio" value="1" <?php echo ($env['use_hphone']==1)?'checked':'';?>>사용함</label> &nbsp;&nbsp;
+			<label><input name="use_hphone" type="radio" class="radio" value="0" <?php echo (!$env['use_hphone'])?'checked':'';?>>사용안함</label><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_ipin-mobile.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<tr id="hphone_block" style="display:<?php echo ($use_hphone)?'':'none';?>;">
+		<td class="ctlt">휴대폰 인증 설정</td>
+		<td class="pdlnb2">
+			인증 코드 <input type='text' name='hphone_id' hname="휴대폰 인증 코드" class='txt' size="15" id='hphone_id' value="<?php echo $env['hphone_id'];?>"> <!-- &nbsp;&nbsp;&nbsp;인증 패스워드 <input type='password' name='hphone_pw' hname="휴대폰 인증 패스워드" class='txt' size="20" id='hphone_pw' value="<?php echo $env['hphone_pw'];?>"> -->
+		</td>
+	</tr>
+<!--
+	<tr id="foreigner_block">
+		<td class="ctlt">내/외국인 설정</td>
+		<td class="pdlnb2">
+			<label><input name="register_form" type="radio" value="0" class="radio" checked>내국인</label> &nbsp;&nbsp;
+			<label><input name="register_form" type="radio" value="1" class="radio" <?php echo ($env['register_form']==1)?'checked':'';?>>외국인</label> &nbsp;
+			<label><input name="register_form" type="radio" value="2" class="radio" <?php echo ($env['register_form']==2)?'checked':'';?>>모두사용</label> &nbsp;
+		</td>
+	</tr>
+	 <tr id="adult_block" style="display:<?php echo ($env['use_adult'])?'':'none';?>;">
+		<td class="ctlt">성인 인증 설정</td>
+		<td class="pdlnb2">
+			<label><input name="use_adult_all" type="radio" class="radio" value="1" <?php echo ($env['use_adult_all']==1)?'checked':'';?>>전체 사용</label> &nbsp;&nbsp;
+			<label><input name="use_adult_all" type="radio" class="radio" value="0" <?php echo (!$env['use_adult_all'])?'checked':'';?>>성인카테고리만 사용</label>
+			<span class="subtlt">'전체 사용' 체크시 사이트 접속 첫 페이지에서 인증을 요구합니다.</span>
+		</td>
+	</tr> -->
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
+	<tr>
+		<td class="ctlt">게시물 자동등록방지 설정</td>
+		<td class="pdlnb2">
+			<input name="article_denied" type="radio" value="0" class="radio" id='denied_0' checked><label for='denied_0'>사용안함</label>&nbsp;
+			<input name="article_denied" type="radio" value="1" class="radio" id='denied_1' <?php echo ($env['article_denied']==1)?'checked':'';?>><label for='denied_1'>KCAPTCHA 이미지</label>&nbsp;
+			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>임의의 난수 생성기</label>&nbsp;
+			<span class="subtlt">게시물이 자동등록되지 않도록 설정하여 광고글이 도배되는걸 방지</span>
+		</td>
+	</tr> 
+	<tr>
+		<td class="ctlt">사이트 공사중페이지 설정</td>
+		<td class="pdlnb2">
+			<input name="under_construction" type="radio" class="radio" value="1" <?php echo ($env['under_construction']==1)?'checked':'';?>><label>사용함</label> &nbsp;&nbsp;
+			<input name="under_construction" type="radio" class="radio" value="0" <?php echo (!$env['under_construction'])?'checked':'';?>><label>사용안함</label>
+			<span class="subtlt">사이트 처음 접속시에 공사중 페이지 노출</span>
+		</td>
+	</tr> 
+<!--	
+	<tr>
+		<td class="ctlt">RSS Feed 설정</td>
+		<td class="pdlnb2">
+			<input name="rss_feed" type="radio" class="radio" value="1" checked><label>사용함</label> &nbsp;&nbsp;
+			<input name="rss_feed" type="radio" class="radio" value="0" <?php echo (!$env['rss_feed'])?'checked':'';?>><label>사용안함</label> &nbsp; 
+		</td>
+	</tr>
+-->
+	<tr>
+		<td class="ctlt">상세페이지 SNS 설정</td>
+		<td class="pdlnb2">
+			<input name="sns_all" type="checkbox" class="check" onFocus="blur()" value="all" id='sns_all' onclick="sns_alls(this);" <?php echo ($sns_count==6)?'checked':'';?>><label class="fon11 b mr5" for="sns_all">ALL</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="facebook" id="sns_facebook" <?php echo (@in_array('facebook',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico01.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_facebook">페이스북</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="twitter" id="sns_twitter" <?php echo (@in_array('twitter',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico02.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_twitter">트위터</label>
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="kakao_story" id="kakao_story" <?php echo (@in_array('kakao_story',$sns_feed))?'checked':'';?> onclick="kakao_on();"> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico03.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="kakao_story">카카오스토리</label>
+
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="line" id="sns_line" <?php echo (@in_array('line',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico04.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_line">라인</label>
+
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="pin" id="pin" <?php echo (@in_array('pin',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico05.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="pin">핀터레스트</label>
+
+			<input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="sns_plus" id="sns_plus" <?php echo (@in_array('sns_plus',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/sns_ico06.gif" class="vm" style="margin-right:5px"><label class="fon11 mr5" for="sns_plus">더보기</label>
+			<!-- <input name="sns_feed[]" type="checkbox" class="check" onFocus="blur()" value="clog" id="sns_clog" <?php echo (@in_array('clog',$sns_feed))?'checked':'';?>> <img src="<?php echo $alice['images_path'];?>/ic/sns/clog.gif" class="vm"><label class="fon11 mr5" for="sns_clog">C로그</label> -->
+
+			<!-- <input name="content[]" type="checkbox" class="check" onFocus="blur()" value="naver" checked> <img src="<?php echo $alice['images_path'];?>/ic/sns/blog.gif" class="vm"><label class="fon11 mr5">네이버블로그</label> -->
+		</td>
+	</tr>
+	<tr id="kakao_block" style="display:<?php echo (@in_array('kakao_talk',$sns_feed) || @in_array('kakao_story',$sns_feed))?'':'none';?>;">
+		<td class="ctlt">카카오 API 키</td>
+		<td class="pdlnb2">
+			<input type='text' name="kakao_key" class="txt" style="width:205px;" id="kakao_key" value="<?php echo stripslashes($env['kakao_key']);?>">
+			<span class="subtlt"><a href="https://developers.kakao.com/" target="_blank">https://developers.kakao.com/</a> 에서 app key 를 등록하신후 [Javascript 키] 를 복사하여 입력해 주세요.</span>><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_kakao.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+		</td>
+	</tr>
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
+
+	<?php /* 필요한 경우 사용하세요 ?>
+	<tr>
+		<td class="ctlt">Facebook APP Id</td>
+		<td class="pdlnb2">
+			<input type='text' name="facebook_appid" class="txt" id="facebook_appid" size="50" value="<?php echo $env['facebook_appid'];?>">
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>페이스북 Developers App</a> 에서 발급 받으신 App Id 를 입력해 주세요.</span>
+		</td>
+	</tr> 
+	<tr>
+		<td class="ctlt">Facebook Secret Code</td>
+		<td class="pdlnb2">
+			<input type='text' name="facebook_secret" class="txt" id="facebook_secret" size='50' value="<?php echo $env['facebook_secret'];?>">
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>페이스북 Developers App</a> 에서 발급 받으신 Secret Code 를 입력해 주세요.</span>
+		</td>
+	</tr> 
+	<tr>
+		<td class="ctlt">Twitter Key</td>
+		<td class="pdlnb2">
+			<input type='text' name="twitter_key" class="txt" id="twitter_key" size="50" value="<?php echo $env['twitter_key'];?>">
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>트위터 Developers Apps</a> 에서 발급 받으신 Consumer key 를 입력해 주세요.</span>
+		</td>
+	</tr> 
+	<tr>
+		<td class="ctlt">Twitter Scret</td>
+		<td class="pdlnb2">
+			<input type='text' name="twitter_secret" class="txt" id="twitter_secret" size="50" value="<?php echo $env['twitter_secret'];?>">
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>트위터 Developers Apps</a> 에서 발급 받으신 Consumer secret 을 입력해 주세요.</span>
+		</td>
+	</tr> 
+	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
+	<?php */ ?>
+
+	<tr>
+		<td class="ctlt pdlnb1">META 사이트 제작자</td>
+		<td class="pdlnb2">
+			<input type='text' name="meta_author" class="txt w50" id="meta_author" value="<?php echo stripslashes($env['meta_author']);?>"><!-- tnum => 한글안됨 -->
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Author" content=""&gt;</u> 부분 (사이트 제작자를 나타냅니다.)</dt>
+		</td>
+	</tr>    
+	<tr>
+		<td class="ctlt pdlnb1">META 간단한 설명글</td>
+		<td class="pdlnb2">
+			<dl class="twrap"><textarea name="meta_description" class="fon11 h15" style="height:80px;" id="meta_description"><?php echo stripslashes($env['meta_description']);?></textarea></dl>
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Description" content=""&gt;</u> 부분 ( 사이트 문서에 대한 간단한 설명을 저장 합니다.)</dt>
+		</td>
+	</tr>     
+	<tr>
+		<td class="ctlt pdlnb1">META 저작권 정보</td>
+		<td class="pdlnb2">
+			<input type='text' name="meta_copyright" class="txt w50" id="meta_copyright" value="<?php echo stripslashes($env['meta_copyright']);?>">
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Copyright" content=""&gt;</u> 부분 (사이트 저작권 정보를 나타냅니다.)</dt>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt pdlnb1">META 검색 키워드</td>
+		<td class="pdlnb2">
+			<dl class="twrap"><textarea name="meta_keywords" class="fon11 h15" style="height:80px;" id="meta_keywords"><?php echo stripslashes($env['meta_keywords']);?></textarea></dl>
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Keywords" content=""&gt;</u> 부분 (메타방식 검색엔진에서 참조하는 부분입니다)</dt>
+		</td>
+	</tr>    
+	<tr>
+		<td class="ctlt pdlnb1">META 사이트 분류</td>
+		<td class="pdlnb2">
+			<input type='text' name="meta_classifiction" class="txt w50" id="meta_classifiction" value="<?php echo stripslashes($env['meta_classifiction']);?>">
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Classification" content=""&gt;</u> 부분 (검색엔진에서 사이트의 분류를 지정/파악 합니다.)</dt>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt pdlnb1">META 퍼블리셔명</td>
+		<td class="pdlnb2">
+			<input type='text' name="meta_publisher" class="txt w50" id="meta_publisher" value="<?php echo stripslashes($env['meta_publisher']);?>">
+			<dt class="mt2 subt">HTML 상단 소스 <u>&lt;meta name="Publisher" content=""&gt;</u> 부분 (사이트 퍼블리셔명을 지정합니다.)</dt>
+		</td>
+	</tr>
+<!--
+	<tr>
+		<td class="ctlt pdlnb1">Google 통계 ID</td>
+		<td class="pdlnb2">
+			<a name="google_analytics">
+			<input type='text' name="google_id" class="txt" style="width:200px;" id="google_id" value="<?php echo stripslashes($env['google_id']);?>"> <a href='http://www.google.co.kr/analytics' target='_blank'>http://www.google.co.kr/analytics</a> (도움말)
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt pdlnb1">Google 통계 비밀번호</td>
+		<td class="pdlnb2">
+			<input type='password' name="google_pass" class="txt" style="width:210px;" id="google_pass" value="<?php echo stripslashes($env['google_pass']);?>">
+			<a href='https://accounts.google.com/ServiceLogin?btmpl=va&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FIssuedAuthSubTokens#accesscodes' target='_blank'>애플리케이션비밀번호발급</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="ctlt pdlnb1">Google 통계 프로필</td>
+		<td class="pdlnb2">
+			<input type='text' name="google_profile_id" class="txt" style="width:200px;" id="google_profile_id" value="<?php echo stripslashes($env['google_profile_id']);?>">
+		</td>
+	</tr>
+-->
+	<tr>
+		<td class="ctlt pdlnb1">Google 통계 스크립트</td>
+		<td class="pdlnb2">
+			<dl class="twrap"><textarea name="google_scripts" class="fon11 h15" style="height:200px;" id="google_scripts"><?php echo stripslashes($env['google_scripts']);?></textarea></dl>
+		</td>
+	</tr>  
+<!--	
+	<tr>
+		<td class="ctlt pdlnb1">아이피 차단 설정<dl class="mt7 subt">입력시 쉼표(,)로 구분<br/></dl></td>
+		<td class="pdlnb2">
+			<dl class="twrap">
+				<textarea name="intercept_ip" style="height:60px;" class="fon11"><?php echo stripslashes($env['intercept_ip']);?></textarea>
+			</dl>
+			<span class="subtlt">입력된 IP의 컴퓨터는 접근할 수 없음. 123.123.+ 도 입력 가능. (엔터로 구분)</span>
+		</td>
+	</tr>
+-->
+	</table>
+
+	<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
+
+</form>
+
+<!--</td><td class=nb_05></td></tr><tr><td class=nb_06></td><td class=nb_07></td><td class=nb_08></td></tr>-->
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+// 폼 전송전
+function showRequest(formData, jqForm, form_options){
+
+	var SiteConfigFrm = document.getElementById('SiteConfigFrm');
+
+	var queryString = $.param(formData);
+
+	return validate(SiteConfigFrm);
+}
+// 폼 전송후
+function showResponse(responseText, statusText, xhr, $form){	
+	if(responseText=='0002') {	 // 성공
+		alert("<?php echo $config->_success('0002');?>");
+		location.reload();
+	} else if(responseText=='0005') {	// 실패
+		alert("<?php echo $config->_errors('0005');?>");
+		return false;
+	}
+
+}
+</script>
+
+<?php include_once "../include/tail.php";?>

@@ -79,7 +79,7 @@
 							<?php if($is_pay){ ?>
 								<td>
 									<select name="etc_0" id="etc_0_<?php echo $val['no'];?>">
-									<option value="">조건</option>
+									<option value="">Нөхцөл</option>
 									<?php foreach($pay_level as $pay_level_key => $pay_level_val){?>
 									<option value="<?php echo $pay_level_key;?>" <?php echo ($pay_level_key==$val['etc_0'])?'selected':'';?>><?php echo $pay_level_val;?></option>
 									<?php } ?>
@@ -87,8 +87,8 @@
 								</td>
 							<?php } ?>
 							<td>
-								<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $cate;?>','<?php echo $val['no'];?>');">수정</h1></a>
-								<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $cate;?>','<?php echo $val['no'];?>');">삭제</h1></a>
+								<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_update('<?php echo $cate;?>','<?php echo $val['no'];?>');">Өөрчлөх</h1></a>
+								<a class='btn'><h1 class="btn19" style="width:21px" onclick="cate_delete('<?php echo $cate;?>','<?php echo $val['no'];?>');">Устгах</h1></a>
 							</td>
 						</tr>
 <?php
