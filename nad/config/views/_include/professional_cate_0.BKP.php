@@ -1,12 +1,12 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <dl class="wbg" style="padding:0 5px 5px;margin:3px"> 
-  <dl class="b nanum fon13 pd7">1-р үе <?php echo ($type=='job_college')?'Их сургуулийн байршил':$type_arr[$type]['sub_name'];?> Төрөл</dl>
+  <dl class="b nanum fon13 pd7">1차 <?php echo ($type=='job_college')?'대학지역':$type_arr[$type]['sub_name'];?> 분류</dl>
   <table width="100%" cellspacing="1" class="ln sep tf">
     <col width=25><col><col width=75>
     <tr align="center" class="bg b" height="25">
-      <td class="fon11">Сонгох</td>
-      <td class="fon11">Утга</td>
+      <td class="fon11">선택</td>
+      <td class="fon11">항목</td>
     </tr>
 
 	<tbody id="cate_0_list">
@@ -28,11 +28,11 @@
 			}	// foreach end.
 		} else { ?>
 	<tr class="wbg tc">
-		<td colspan='2' style="height:120px;">1-р үе <?php echo $type_arr[$type]['sub_name'];?>[Нийтлэг ангилал] - [Мэргэжлийн төрөл] ангилалд үүсгэнэ үү.</td>
+		<td colspan='2' style="height:120px;">1차 <?php echo $type_arr[$type]['sub_name'];?>을(를) [공통적용 분류] - [직종] 분류에서 생성해 주세요.</td>
 	</tr>
 	<?php } // if end. ?>
 	</tbody>
 
   </table>
 </dl>
-
+  
