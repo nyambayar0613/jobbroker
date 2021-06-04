@@ -31,7 +31,7 @@
 		<?php if($is_job){ ?><td><input name="etc_0" type="checkbox" value="1" id="cate_1_adult" title="Хэрэв та том хүн ангилал сонгосон бол категорийг ашиглахдаа баталгаажуулах шаардлагатай."></td><?php } ?>
 		<?php if($is_pay){ ?>
 		<td class="plr5">
-			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2-р үеийн ангиллын нэр' required cate="cate_1">
+			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2-р ангиллын нэр' required cate="cate_1">
 		</td>
 		<td>
 			<select name="etc_0">
@@ -43,7 +43,7 @@
 		</td>
 		<?php } else { ?>
 		<td class="plr5">
-			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2-р үеийн ангиллын нэр' required cate="cate_1">
+			<input type='text' name="name" class="txt w100 cate_name" style="ime-mode:active;" id="cate_1_name" hname='2-р ангиллын нэр' required cate="cate_1">
 		</td>
 		<?php } ?>
 		<td>
@@ -59,8 +59,8 @@
 <dl class="bg_col tl psr cate_1" style="margin:5px 5px 0;height:25px;display:none;">
     <a class="cbtn gr2_org lnb2_org" onclick="change_ranks('cate_0','up');"><h1 class="btn19 org">▲ Дээшээ</h1></a>
     <a class="cbtn gr2_org lnb2_org" onclick="change_ranks('cate_0','down');"><h1 class="btn19 org">▼ Доошоо</h1></a>
-    <a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','first');"><h1 class="btn19 col">▲ Хамгийн эхэнд</h1></a>
-    <a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','last');"><h1 class="btn19 col">▼ Сүүлд</h1></a>
+    <a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','first');"><h1 class="btn19 col">▲ Эхлэл</h1></a>
+    <a class="cbtn gr2_col lnb2_col" onclick="change_ranks('cate_0','last');"><h1 class="btn19 col">▼ Сүүл</h1></a>
 	<dd class="prt" id='cate_1_inputBtn'>
 		<a class="cbtn grf_col lnb_col" onclick="cate_input('cate_1');"><h1 class="btn19"><strong>+</strong>нэмэх</h1></a>
 	</dd>
