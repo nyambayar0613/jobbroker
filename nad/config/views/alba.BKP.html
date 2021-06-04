@@ -7,8 +7,8 @@
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -23,10 +23,10 @@
 <dl class="loc"><img src="../../images/comn/bul_11.png" class="t"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-Гарын авлагыг оруулна уу.<br>
+가이드를 입력해 주세요.<br>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Ерөнхий мэдээллийг өөөрлөх </dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기본 정보 설정</dl>
 
 <form name="AlbaConfigFrm" method="post" id="AlbaConfigFrm" action="./process/alba.php" enctype="multipart/form-data">
 <input type="hidden" name="mode" value="alba_update"/><!-- 알바 설정정보 수정 -->
@@ -37,14 +37,14 @@
 	<table width="100%" class="bg_col">
 	<col width=150><col> 
 		<tr>
-			<td class="ctlt">Хөдөлмөрийн хөлсний доод хэмжээ</td>
+			<td class="ctlt">최저임금</td>
 			<td class="pdlnb2">
-			Үндсэн жил
+			기준 연도 
 			<select name="pay_year">
 			<?php for($i=date('Y');$i>=2000;--$i){ ?>
 				<option value='<?=$i?>'><?=$i?></option>
 			<?php } ?>
-			</select> жил / цагын хөлс <input type='text' name="time_pay" class="txt" id="time_pay" value=""> төгрөг
+			</select> 년 / 시급 <input type='text' name="time_pay" class="txt" id="time_pay" value=""> 원
 			</td>
 		</tr>
 	</table>
