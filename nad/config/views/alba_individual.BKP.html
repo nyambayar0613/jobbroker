@@ -7,8 +7,8 @@
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -23,18 +23,18 @@
 <dl class="loc"><img src="../../images/comn/bul_11.png" class="t"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-	Гарын авлага оруулна уу.<br>
+가이드를 입력해 주세요.<br>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Ажлын байрны мэдээллийн үйлчилгээг өөрчлөх</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">인재정보 서비스 설정</dl>
 
 	<table width="100%" class="bg_col">
 	<col width=180><col> 
 		<tr>
-			<td class="ctlt">Профайл зураг байршуулах хамгийн дээд хэмжээ</td>
+			<td class="ctlt">프로필 사진 업로드 최대크기</td>
 			<td class="pdlnb2">
 				<input type="text" name="file_size" class="tnum" size="10" value="<?php echo ($env['file_size'])?$env['file_size']:'2097152';?>"> Bytes/1파일
-				<span class="subtlt">Компанийн лого,анкетны зураг гэх мэт файл байршуулах (файлын дээд хэмжээ) <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> хүртэл боломжтой.)</span>
+				<span class="subtlt">기업로고, 이력서사진 등 업로드 파일제한 용량 (1파일당 최대 <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> 까지 설정가능합니다.)</span>
 			</td>
 		</tr>
 	</table>
