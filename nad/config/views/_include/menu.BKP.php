@@ -4,10 +4,10 @@
 <table class="bg_col">
   <col width=80><col>
   <tr>
-    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">사이트 설정</td>
+    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">Сайтын тохиргоо</td>
     <td class="wbg pl7">
     <ul class="List">
-    <li class="f"><a href='./index.php' <?=(!$type)?"class='none b col' ":"";?>>기본설정</a></li>
+    <li class="f"><a href='./index.php' <?=(!$type)?"class='none b col' ":"";?>>Ерөнхий тохиргоо</a></li>
 	<?php
 	if(is_array($netfu_util->site_content)) { foreach($netfu_util->site_content as $k=>$v) {
 	?>
