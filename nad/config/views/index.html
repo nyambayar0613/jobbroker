@@ -149,9 +149,9 @@ var instagram_on = function(){
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">Сайтын нэр англи</td>
+		<td class="ctlt">Сайтын нэр (англи)</td>
 		<td class="pdlnb2">
-			<input type='text' name="site_english" class="txt w50" id="site_english" value="<?php echo stripslashes($env['site_english']);?>" required hname='Сайтын нэр англи'>
+			<input type='text' name="site_english" class="txt w50" id="site_english" value="<?php echo stripslashes($env['site_english']);?>" required hname='Сайтын нэр (англи)'>
 			<span class="subtlt">Англи хэл хэрэгтэй тохиолдолд ашиглана.</span>
 		</td>
 	</tr>
@@ -165,17 +165,17 @@ var instagram_on = function(){
 	</tr>
 	-->
 	<tr>
-		<td class="ctlt">(favicon) дүрс тохируулах</td>
+		<td class="ctlt">(favicon) дүрс</td>
 		<td class="pdlnb2">
 			<input type='file' name="favicon" class="txt" size="53" id="favicon"> 
-			<span class="subtlt">Файлын тодорхойлолт : 16 x 16 또는 32 x 32 pexel, 16/256/true color *.ico бүртгүүлэх боломжтой</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<span class="subtlt">Файл : 16 x 16 또는 32 x 32 pexel, 16/256/true color *.ico бүртгүүлэх боломжтой</span><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/pop_favicon.html','window','width=712, height=334,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr>
 		<td class="ctlt">Админы и-мэйл</td>
 		<td class="pdlnb2">
 			<input type='text' name="email" class="txt w50" id="email" style="ime-mode:inactive;" value="<?php echo stripslashes($env['email']);?>" required hname='Админы и-мэйл'>
-			<span class="subtlt">Хүлээн авсан /Илгээсэн и-мэйл хаяг</span>
+			<span class="subtlt">Хүлээн авсан /илгээсэн и-мэйл хаяг</span>
 		</td>
 	</tr>
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>
@@ -246,11 +246,11 @@ var instagram_on = function(){
 	</tr>  
 	-->
 	<tr>
-		<td class="ctlt">Хөдөлмөрийн хөлсний доод хэмжээ</td>
+		<td class="ctlt">Хөдөлмөрийн хөлс</td>
 		<td class="pdlnb2">
 			<!-- <input type="hidden" name="pay_view" value="1"/> -->
 			<label><input name="pay_view" type="checkbox" class="check" onFocus="blur()" value="1" id='pay_view' <?php echo ($env['pay_view'])?'checked':'';?>/></label> /
-			Үндсэн жил
+			Жил
 			<select name="pay_year">
 			<?php for($i=(date('Y')+2);$i>=2000;--$i){ ?>
 				<option value='<?=$i?>' <?php echo ($env['pay_year']==$i)?'selected':'';?>><?=$i?></option>
@@ -282,10 +282,10 @@ var instagram_on = function(){
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">Нэвтэрсний дараах хадгалах хугацаа</td>
+		<td class="ctlt">Хадгалах хугацаа</td>
 		<td class="pdlnb2">
 			<input name="session_time" type="text" class="tnum" size="3" id="session_time" value="<?php echo $env['session_time']?>"> 분
-			<span class="subtlt">Хуудсанд нэвтэрч, ачаалсны дараа хуудас идэвхгүй хэвээр байх хугацаа</span>
+			<span class="subtlt"></span>
 		</td>
 	</tr>
 	<?php /*Энлийн үед ашиглахгүй бөгөөд шаардлагатай үед л ашиглах. ?>
@@ -297,7 +297,7 @@ var instagram_on = function(){
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">upload хийх дээд хэмжээ </td>
+		<td class="ctlt">Upload хийх дээд хэмжээ </td>
 		<td class="pdlnb2">
 			<input type="text" name="file_size" class="tnum" size="10" value="<?php echo ($env['file_size'])?$env['file_size']:'2097152';?>"> Bytes/1файл
 			<span class="subtlt">Компанийн лого, анкетны зураг гэх мэт файл байршуулах (файлын дээд хэмжээ) <b><?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</b> хүртэл торхируулах боломжтой.)</span>
@@ -370,8 +370,8 @@ var instagram_on = function(){
 		<td class="pdlnb2">
 			<input name="article_denied" type="radio" value="0" class="radio" id='denied_0' checked><label for='denied_0'>Ашиглах</label>&nbsp;
 			<input name="article_denied" type="radio" value="1" class="radio" id='denied_1' <?php echo ($env['article_denied']==1)?'checked':'';?>><label for='denied_1'>KCAPTCHA зураг</label>&nbsp;
-			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>Санамсаргүй тоо үүсгэгч</label>&nbsp;
-			<span class="subtlt">			<span class="subtlt">Бичлэгийг автоматаар бүртгэхгүй байх</span>
+			<input name="article_denied" type="radio" value="2" class="radio" id='denied_2' <?php echo ($env['article_denied']==2)?'checked':'';?>><label for='denied_2'>Random тоо</label>&nbsp;
+			<span class="subtlt">			<span class="subtlt">Автоматаар бүртгэхгүй байх</span>
 </span>
 		</td>
 	</tr> 
@@ -414,7 +414,7 @@ var instagram_on = function(){
 		<td class="ctlt">Kakao API key</td>
 		<td class="pdlnb2">
 			<input type='text' name="kakao_key" class="txt" style="width:205px;" id="kakao_key" value="<?php echo stripslashes($env['kakao_key']);?>">
-			<span class="subtlt"><a href="https://developers.kakao.com/" target="_blank">https://developers.kakao.com/</a> ээс app key бүртгүүлсний дараа [Javascript 키] хуулж утгыг оруулна уу.</span>><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_kakao.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
+			<span class="subtlt"><a href="https://developers.kakao.com/" target="_blank">https://developers.kakao.com/</a> ээс app key бүртгүүлсний дараа [Javascript key] хуулж утгыг оруулна уу.</span>><span class="help_btn01"><a onclick="window.open('<?php echo $alice['admin_pop_url'];?>/help_kakao.html','window','width=760, height=400,left=0, top=0, scrollborder=0, scrollbars=yes, resizable=no')"><img src="/images/help01.png"></a></span>
 		</td>
 	</tr>
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
@@ -424,28 +424,28 @@ var instagram_on = function(){
 		<td class="ctlt">Facebook APP Id</td>
 		<td class="pdlnb2">
 			<input type='text' name="facebook_appid" class="txt" id="facebook_appid" size="50" value="<?php echo $env['facebook_appid'];?>">
-			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a>-с гаргасан Апп ID-г оруулна уу.</span>
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a> Апп ID-г оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
 		<td class="ctlt">Facebook Secret Code</td>
 		<td class="pdlnb2">
 			<input type='text' name="facebook_secret" class="txt" id="facebook_secret" size='50' value="<?php echo $env['facebook_secret'];?>">
-			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a>-с гаргасан Secret Code оруулна уу.</span>
+			<span class="subtlt"><a href='https://developers.facebook.com/apps' target='_blank'>Facebook Developers App</a> Secret Code оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
 		<td class="ctlt">Twitter Key</td>
 		<td class="pdlnb2">
 			<input type='text' name="twitter_key" class="txt" id="twitter_key" size="50" value="<?php echo $env['twitter_key'];?>">
-			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a> -с гаргасан Consumer key оруулна уу.</span>
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a>  Consumer key оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr>
-		<td class="ctlt">Twitter Scret</td>
+		<td class="ctlt">Twitter Secret</td>
 		<td class="pdlnb2">
 			<input type='text' name="twitter_secret" class="txt" id="twitter_secret" size="50" value="<?php echo $env['twitter_secret'];?>">
-			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a>  -с гаргасан Consumer secret оруулна уу.</span>
+			<span class="subtlt"><a href='https://dev.twitter.com/apps' target='_blank'>Twitter Developers Apps</a> Consumer secret оруулна уу.</span>
 		</td>
 	</tr> 
 	<tr><td colspan="2" class="wbg lnb lnt" height="5"></td></tr>    
@@ -455,42 +455,42 @@ var instagram_on = function(){
 		<td class="ctlt pdlnb1">META  Сайт бүтээгч</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_author" class="txt w50" id="meta_author" value="<?php echo stripslashes($env['meta_author']);?>"><!-- tnum => 한글안됨 -->
-			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Author" content=""&gt;</u> хэсэг (сайт бүтээгчийг төлөөлнө.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Author" content=""&gt;</u> (сайт бүтээгч)</dt>
 		</td>
 	</tr>    
 	<tr>
 		<td class="ctlt pdlnb1">META Товч тодорхойлолт</td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="meta_description" class="fon11 h15" style="height:80px;" id="meta_description"><?php echo stripslashes($env['meta_description']);?></textarea></dl>
-			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Description" content=""&gt;</u> хэсэг ( Сайтын баримт бичгийн талаарх тайлбарыг хадгална.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Description" content=""&gt;</u> ( Сайтын баримт бичгийн талаарх тайлбар)</dt>
 		</td>
 	</tr>     
 	<tr>
 		<td class="ctlt pdlnb1">META Зохиогчийн эрхийн талаархи мэдээлэл</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_copyright" class="txt w50" id="meta_copyright" value="<?php echo stripslashes($env['meta_copyright']);?>">
-			<dt class="mt2 subt">HTML дээд source <u>&lt;meta name="Copyright" content=""&gt;</u> 부분 (Сайтын зохиогчийн эрхийн мэдээллийг гаргана.)</dt>
+			<dt class="mt2 subt">HTML дээд source <u>&lt;meta name="Copyright" content=""&gt;</u> (Сайтын зохиогчийн эрхийн мэдээлэл)</dt>
 		</td>
 	</tr>
 	<tr>
 		<td class="ctlt pdlnb1">META хайх түлхүүр үг</td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="meta_keywords" class="fon11 h15" style="height:80px;" id="meta_keywords"><?php echo stripslashes($env['meta_keywords']);?></textarea></dl>
-			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Keywords" content=""&gt;</u> хэсэг (мета төрлийн хайлтын системийн хэсэг.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Keywords" content=""&gt;</u> (Мета төрлийн хайлтын системийн хэсэг)</dt>
 		</td>
 	</tr>    
 	<tr>
 		<td class="ctlt pdlnb1">META сайт ангилал</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_classifiction" class="txt w50" id="meta_classifiction" value="<?php echo stripslashes($env['meta_classifiction']);?>">
-			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Classification" content=""&gt;</u> хэсэг (Хайлтын систем дэх сайтын ангиллыг тодорхойлох / ойлгох.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Classification" content=""&gt;</u>(Хайлтын систем дэх сайтын ангиллын талаарх)</dt>
 		</td>
 	</tr>
 	<tr>
 		<td class="ctlt pdlnb1">META punlisher нэр</td>
 		<td class="pdlnb2">
 			<input type='text' name="meta_publisher" class="txt w50" id="meta_publisher" value="<?php echo stripslashes($env['meta_publisher']);?>">
-			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Publisher" content=""&gt;</u> хэсэг (Сайтын publisher name тодруулна.)</dt>
+			<dt class="mt2 subt">HTML дэд source <u>&lt;meta name="Publisher" content=""&gt;</u> хэсэг (Сайтын publisher name тодруулна)</dt>
 		</td>
 	</tr>
 <!--
@@ -516,7 +516,7 @@ var instagram_on = function(){
 	</tr>
 -->
 	<tr>
-		<td class="ctlt pdlnb1">Google статистик скрипт</td>
+		<td class="ctlt pdlnb1">Google статистик </td>
 		<td class="pdlnb2">
 			<dl class="twrap"><textarea name="google_scripts" class="fon11 h15" style="height:200px;" id="google_scripts"><?php echo stripslashes($env['google_scripts']);?></textarea></dl>
 		</td>
