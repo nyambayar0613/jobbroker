@@ -38,25 +38,25 @@
 	<input type="hidden" name="uid" value="<?php echo $get_admin['uid'];?>"/>
 
 		<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
-			<img src="../../images/comn/bul_10.png" class="t">Дэд админы тохиргоо
+			<img src="../../images/comn/bul_10.png" class="t">부관리자 설정
 			<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 		</dl>
 
 		<table width="100%" class="bg_col">
 		<col width=80><col><col width=80><col><col width=80><col>
 		<tr>
-			<td class="ctlt">Админы ID</td>
+			<td class="ctlt">관리자아이디</td>
 			<td class="pdlnb2"><?php echo $get_admin['uid'];?></td>
-			<td class="ctlt">Админы нэр</td>
+			<td class="ctlt">관리자명</td>
 			<td class="pdlnb2">
 				<?php if($mode=='sadmin_update'){ ?>
-				<input  style="width:150px;" name="name" type="text" class="txt " id="name" style="ime-mode:active;" required hname='Админы нэр' value="<?php echo $get_admin['name'];?>">
+				<input  style="width:150px;" name="name" type="text" class="txt " id="name" style="ime-mode:active;" required hname='관리자명' value="<?php echo $get_admin['name'];?>">
 				<?php } else echo $get_admin['name']; ?>
 			</td>
-			<td class="ctlt">Админы nickname</td>
+			<td class="ctlt">관리자닉네임</td>
 			<td class="pdlnb2" >
 				<?php if($mode=='sadmin_update'){ ?>
-				<input name="nick" type="text" class="tnum" id="nick" style="width:150px;ime-mode:active;" required hname='Админы nickname' value="<?php echo $get_admin['nick'];?>">
+				<input name="nick" type="text" class="tnum" id="nick" style="width:150px;ime-mode:active;" required hname='관리자닉네임' value="<?php echo $get_admin['nick'];?>">
 				<?php } else echo $get_admin['nick']; ?>
 			</td>
 		</tr>
@@ -65,15 +65,15 @@
 		</tr>
 		<?php if($mode=='sadmin_update'){ ?>
 		<tr>
-			<td class="ctlt">Нууц үг</td>
-			<td class="pdlnb2"><input  style="width:150px;" name="password" type="password" class="tnum " id="password" <?php echo ($mode!='sadmin_update')?"minbyte=6 maxbyte=20 hname='Нууц үг' required":"";?> matching="password_re"></td>
-			<td class="ctlt">Нууц үг батлах</td>
-			<td class="pdlnb2" colspan="3"><input  style="width:150px;" name="password_re" type="password" class="tnum " id="password_re" hname="Нууц үг батлах"></td>
+			<td class="ctlt">비밀번호</td>
+			<td class="pdlnb2"><input  style="width:150px;" name="password" type="password" class="tnum " id="password" <?php echo ($mode!='sadmin_update')?"minbyte=6 maxbyte=20 hname='비밀번호' required":"";?> matching="password_re"></td>
+			<td class="ctlt">비밀번호확인</td>
+			<td class="pdlnb2" colspan="3"><input  style="width:150px;" name="password_re" type="password" class="tnum " id="password_re" hname="비밀번호확인"></td>
 		</tr>
 		<?php } ?>
 		</table>
 
-		<dl class="mt10 lnb lnt ctlt bg tc" style="line-height:29px">Дэд админ боломжтой цэсийг сонгоно</dl>
+		<dl class="mt10 lnb lnt ctlt bg tc" style="line-height:29px">부관리자가 사용가능한 메뉴 선택</dl>
 		<dl class="xflow mt5 lnb" style="width:770px;margin-right:-5px">
 			<?php
 				$t = 0;
@@ -130,31 +130,31 @@
 	<input type="hidden" name="level" value="9"/><!-- 부관리자의 경우 level 을 9 로 설정 -->
 
 		<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
-			<img src="../../images/comn/bul_10.png" class="t">Дэд админ тохируулах
+			<img src="../../images/comn/bul_10.png" class="t">부관리자 설정
 			<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 		</dl>
 
 		<table width="100%" class="bg_col">
 		<col width=80><col><col width=80><col><col width=80><col>
 		<tr>
-			<td class="ctlt">Админы ID</td>
-			<td class="pdlnb2"><input  style="width:150px;" name="uid" type="text" class="tnum " id="uid" style="ime-mode:disabled;" maxbyte=20 required hname='Админы ID'></td>
-			<td class="ctlt">Админы нэр</td>
-			<td class="pdlnb2"><input  style="width:150px;" name="name" type="text" class="txt " id="name" style="ime-mode:active;" required hname='Админы нэр'></td>
-					<td class="ctlt">Админы nickname</td>
-			<td class="pdlnb2" ><input name="nick" type="text" class="tnum" id="nick" style="width:150px; ime-mode:active;" required hname='Админы nickname'></td>
+			<td class="ctlt">관리자아이디</td>
+			<td class="pdlnb2"><input  style="width:150px;" name="uid" type="text" class="tnum " id="uid" style="ime-mode:disabled;" maxbyte=20 required hname='관리자아이디'></td>
+			<td class="ctlt">관리자명</td>
+			<td class="pdlnb2"><input  style="width:150px;" name="name" type="text" class="txt " id="name" style="ime-mode:active;" required hname='관리자명'></td>
+					<td class="ctlt">관리자닉네임</td>
+			<td class="pdlnb2" ><input name="nick" type="text" class="tnum" id="nick" style="width:150px; ime-mode:active;" required hname='관리자닉네임'></td>
 		</tr>
 		<tr>
 		</tr>
 		<tr>
-			<td class="ctlt">Нууц үг</td>
-			<td class="pdlnb2"><input  style="width:150px;" name="password" type="password" class="tnum" id="password" minbyte=6 maxbyte=20 hname="Нууц үг" required matching="password_re"></td>
-			<td class="ctlt">Нууц үг батлах</td>
-			<td class="pdlnb2" colspan="3"><input style="width:150px;" name="password_re" type="password" class="tnum" id="password_re" hname="Нууц үг батлах"></td>
+			<td class="ctlt">비밀번호</td>
+			<td class="pdlnb2"><input  style="width:150px;" name="password" type="password" class="tnum" id="password" minbyte=6 maxbyte=20 hname="비밀번호" required matching="password_re"></td>
+			<td class="ctlt">비밀번호확인</td>
+			<td class="pdlnb2" colspan="3"><input style="width:150px;" name="password_re" type="password" class="tnum" id="password_re" hname="비밀번호확인"></td>
 		</tr>
 		</table>
 
-		<dl class="mt10 lnb lnt ctlt bg tc" style="line-height:29px">Дэд админ боломжтой цэсийг сонгоно</dl>
+		<dl class="mt10 lnb lnt ctlt bg tc" style="line-height:29px">부관리자가 사용가능한 메뉴 선택</dl>
 		<dl class="xflow mt5 lnb" style="width:770px;margin-right:-5px">
 			<?php
 				$t = 0;
