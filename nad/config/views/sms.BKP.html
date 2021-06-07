@@ -41,9 +41,9 @@ function length_count(num,filed, max_count) {
             } 
         } 
 
-        if (max_count < str_count) {
-            alert("үгийн тоо "+ max_count +" byte дээш боломжгүй");
-            if (escape(str).length > 4) {
+        if (max_count < str_count) { 
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능 합니다"); 
+            if (escape(str).length > 4) { 
                 str_count -= 2; 
                 max_length += 2; 
             } else { 
@@ -78,9 +78,9 @@ function length_counts(num,filed, max_count) {
             } 
         } 
 
-        if (max_count < str_count) {
-			alert("үгийн тоо "+ max_count +" byte дээш боломжгүй");
-			if (escape(str).length > 4) {
+        if (max_count < str_count) { 
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능합니다"); 
+            if (escape(str).length > 4) { 
                 str_count -= 2; 
                 max_length += 2; 
             } else { 
@@ -100,8 +100,8 @@ function length_counts(num,filed, max_count) {
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -118,15 +118,15 @@ function length_counts(num,filed, max_count) {
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-SMS илгээхэд NetPuw-ийн SMS модуль холбогдсон байна<br/>
-NetPuw вэбсайт дахь SMS дуудлагын тоог нэмнэ үү<br/>
-SMS дуудлагын тоо <a href="http://netfu.co.kr/service/sms.php" target="_blank">[Netpw вэбсайт] - Нэмэлт үйлчилгээ - Та SMS үйлчилгээний хүсэлт </a> цэсээр дамжуулан цэнэглэх боломжтой.<br>
-Нэг удаа илгээх текстийн тоо 1000-аас доош байна<br>
-<strong>SMS : </strong>дээд тал нь 90Bytes <br/>
-<strong>LMS : </strong>90Bytes хэтрэх, дээд тал нь 2,000Bytes
+SMS 문자 발송은 넷퓨의 SMS 모듈이 연동이 되어 있습니다.<br/>
+넷퓨 홈페이지에서 SMS 콜수를 충전하시기 바랍니다.<br/>
+SMS 콜수는 <a href="http://netfu.co.kr/service/sms.php" target="_blank">[넷퓨 홈페이지] - 부가서비스 - SMS서비스신청</a> 메뉴를 통하여 충전 가능합니다.<br>
+한번에 발송할 수 있는 문자 수는 1000건으로 제한됩니다.<br>
+<strong>SMS : </strong>최대 90Bytes 이내 (한글기준) 단문 메시지<br/>
+<strong>LMS : </strong>90Bytes 초과, 최대 2,000Bytes 이내 (한글기준) 장문 메시지
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS тохиргоо</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS 설정</dl>
 
 <form name="SMSConfigFrm" method="post" id="SMSConfigFrm" action="./process/sms.php" enctype="multipart/form-data">
 <input type="hidden" name="mode" value="config_update"/><!-- SMS 환경설정 -->
@@ -136,43 +136,43 @@ SMS дуудлагын тоо <a href="http://netfu.co.kr/service/sms.php" targe
 	<table width="100%" class="bg_col">
 	<col width=150><col><col width=150><col> 
 	<tr>
-		<td class="ctlt">SMS ашиглах эсэх</td>
+		<td class="ctlt">SMS 사용유무</td>
 		<td class="pdlnb2" colspan="3">
-			<label><input name="sms_use" type="radio" value="1" class="radio" checked onclick="sms_uses(this);">Ашиглана</label> &nbsp;
-			<label><input name="sms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['sms_use'])?'checked':'';?> onclick="sms_uses(this);">Ашиглахгүй</label> &nbsp;
+			<label><input name="sms_use" type="radio" value="1" class="radio" checked onclick="sms_uses(this);">사용</label> &nbsp;
+			<label><input name="sms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['sms_use'])?'checked':'';?> onclick="sms_uses(this);">미사용</label> &nbsp;
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">LMS ашиглах эсэх</td>
+		<td class="ctlt">LMS 사용유무</td>
 		<td class="pdlnb2" colspan="3">
-			<label><input name="lms_use" type="radio" value="1" class="radio" checked>Ашиглана</label> &nbsp;
-			<label><input name="lms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['lms_use'])?'checked':'';?>>Ашиглахгүй</label> &nbsp;
+			<label><input name="lms_use" type="radio" value="1" class="radio" checked>사용</label> &nbsp;
+			<label><input name="lms_use" type="radio" value="0" class="radio" <?php echo (!$sms_config['lms_use'])?'checked':'';?>>미사용</label> &nbsp;
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">Үлдсэн хэсэг</td>
+		<td class="ctlt">잔여건수</td>
 		<td class="pdlnb2" colspan="3">
-			<?php echo number_format($sms_ord);?> үлдсэн<span class="Cashimg"><a href="http://netfu.co.kr/service/sms.php" target="_blank"><img src="/images/icon/sms_cash.gif"></a></span> &nbsp;
+			<?php echo number_format($sms_ord);?> 건 남음<span class="Cashimg"><a href="http://netfu.co.kr/service/sms.php" target="_blank"><img src="/images/icon/sms_cash.gif"></a></span> &nbsp;
 		</td>
 	</tr>
 	<tbody id="sms_use_block" style="display:<?php echo ($sms_config['sms_use'])?'':'none';?>;">
 	<tr>
 		<td class="ctlt">SMS ID</td>
 		<td class="pdlnb2" colspan="3">
-			<input class="SmsBoxform" name="sms_api_id" type="text" id="sms_api_id" style="width:200px;" value="<?php echo $sms_config['sms_api_id'];?>"><span class="subtlt"> <strong>Netfu гишүүний ID</strong>оруулна уу.</span> &nbsp;
+			<input class="SmsBoxform" name="sms_api_id" type="text" id="sms_api_id" style="width:200px;" value="<?php echo $sms_config['sms_api_id'];?>"><span class="subtlt"> <strong>넷퓨 홈페이지 회원 아이디</strong>를 입력해주십시오</span> &nbsp;
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">SMS үйлчилгээний түлхүүр</td>
+		<td class="ctlt">SMS 서비스키</td>
 		<td class="pdlnb2" colspan="3">
-			<input class="SmsBoxform" name="sms_api_key" type="text" id="sms_api_key" style="width:200px;" value="<?php echo $sms_config['sms_api_key'];?>"><span class="subtlt"> <strong>Netfu SMS үйлилгээний түлхүүр</strong>оруулна уу.</span> &nbsp;
+			<input class="SmsBoxform" name="sms_api_key" type="text" id="sms_api_key" style="width:200px;" value="<?php echo $sms_config['sms_api_key'];?>"><span class="subtlt"> <strong>넷퓨 SMS 서비스키</strong>를 입력해주십시오</span> &nbsp;
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">Админы автоматаар илгээх хүлээн авагчийн дугаар</td>
+		<td class="ctlt">관리자 자동발송 수신번호</td>
 		<td class="pdlnb2" colspan="3">
 			<input type='text' name="sms_admin_num" class="txt phone" style="width:200px;ime-mode:disabled;" id="sms_admin_num" value="<?php echo $sms_admin_num;?>">
-			<span class="subtlt">Автоматаар илгээхэд хэрэглэгч/админ гэж 2удаа илгээнэ.</span>
+			<span class="subtlt">관리자에게 자동발송 사용시 사용자/관리자 두번 sms 전송됩니다. (총 2건 발송/차감)</span>
 		</td>
 	</tr>
 	</tbody>
@@ -183,8 +183,8 @@ SMS дуудлагын тоо <a href="http://netfu.co.kr/service/sms.php" targe
 </form>
 
 <?php include_once "../include/sms_text.php";?>
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS тохиргоо
-	<span>SMS илгээх функцийг ашиглах утгыг шалгана уу</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">SMS메세지 설정
+	<span>SMS 발송기능 사용할 항목만 체크</span>
 	<!-- <dt><a href="#" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>SMS예제추가</h1></a></dt> -->
 </dl>
 
@@ -210,19 +210,19 @@ SMS дуудлагын тоо <a href="http://netfu.co.kr/service/sms.php" targe
 			<ul>
 				<li>
 					<dl class="gr2_col bgb2_col">
-						<h2>Гишүүний SMS <? echo $val['msg_type']; ?></h2>
+						<h2>회원SMS <? echo $val['msg_type']; ?></h2>
 						<p><textarea name="sms_msg[<?php echo $no;?>][msg_content]" onkeyup="length_count(<?=$i?>,this, 2000)" onchange="length_count(<?=$i?>,this, 2000)" onfocus="length_count(<?=$i?>,this, 2000)" style="height:158px;" class="sms_msg"><?php echo $val['msg_content'];?></textarea></p>
 						<span id="span_byte<?=$i?>" class="b lsm num11 dho">0</span> Byte
 					</dl>
-					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_user]" type="checkbox" class="check" value="1" <?php echo $user_checked;?>>ё</label></dt>
+					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_user]" type="checkbox" class="check" value="1" <?php echo $user_checked;?>>회원에게 자동발송</label></dt>
 				</li>
 				<li>
 					<dl class="gr2_col bgb2_col">
-						<h2>Админы SMS</h2>
+						<h2>관리자SMS</h2>
 						<p class='<?php echo $disabled;?>'><textarea name="sms_msg[<?php echo $no;?>][msg_admin_content]" style="height:158px;" <?php echo $disabled;?> onkeyup="length_counts(<?=$i?>,this, 2000)" onchange="length_counts(<?=$i?>,this, 2000)" onfocus="length_counts(<?=$i?>,this, 2000)" class="sms_msg_admin"><?php echo ($val['msg_send_admin'])?$val['msg_admin_content']:"";?></textarea></p>
 						<span id="span_bytes<?=$i?>" class="b lsm num11 dho">0</span> Byte
 					</dl>
-					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_admin]" type="checkbox" class="check" value="1" <?php echo $disabled;?> <?php echo $admin_checked;?>>Автоматаар админ руу илгээнэ</label></dt>
+					<dt><label><input name="sms_msg[<?php echo $no;?>][msg_is_admin]" type="checkbox" class="check" value="1" <?php echo $disabled;?> <?php echo $admin_checked;?>>관리자에게 자동발송</label></dt>
 				</li>
 			</ul>
 		</li>
@@ -236,22 +236,22 @@ SMS дуудлагын тоо <a href="http://netfu.co.kr/service/sms.php" targe
 		<li id="sms_add" style="display:none;">
 			<h1 style="padding:4px 0 3px; margin-top:0px">
 				<input name="" type="checkbox" class="check" value="">
-				<input name="" type="text" class="txt w50" value="Цаг агаар">
+				<input name="" type="text" class="txt w50" value="날씨">
 			</h1>
 			<ul>
 				<li>
 					<dl class="gr2_col bgb2_col">
-						<h2>гишүүний SMS</h2>
+						<h2>회원SMS</h2>
 						<p><textarea name=''></textarea></p>
 					</dl>
-					<dt><input name="" type="checkbox" class="check" value="">Автоматаар илгээнэ</dt>
+					<dt><input name="" type="checkbox" class="check" value="">회원에게 자동발송</dt>
 				</li>
 				<li>
 					<dl class="gr2_col bgb2_col">
-						<h2>Админы SMS</h2>
+						<h2>관리자SMS</h2>
 						<p class="disabled"><textarea name='' disabled></textarea></p>
 					</dl>
-					<dt><input name="" type="checkbox" class="check" disabled>Автоматаар илгээнэ</dt>
+					<dt><input name="" type="checkbox" class="check" disabled>관리자에게 자동발송</dt>
 				</li>
 			</ul>
 		</li>
