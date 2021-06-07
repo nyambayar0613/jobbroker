@@ -172,7 +172,7 @@
 					<div class="lnb_col positionA" style="border:2px solid #ddd; background:#fff; width:450px; top:20%;left:40%;text-align:left;display:none;z-index:9999;" id="postSearchPop">
 						<dl>
 							<dt style="padding:20px 15px;cursor:pointer;" class="bg_gray1" id="postSearchPop_handle">
-								<strong>Шуудангын дугаар хайх</strong>
+								<strong>우편번호 검색</strong>
 								<em class="closeBtn" onclick="postClose();"><img width="11" height="11" class="pb5" src="../../images/icon/icon_close2.gif" alt="arrow"></em>
 							</dt>
 
@@ -180,7 +180,7 @@
 
 							<div class="mt5" id="mapBlock" style="display:none;">
 								<table cellpadding="0" cellspacing="0" align="center">
-								<tr><td style="padding:15px 0 10px;"><b>Байгууллагын байршил(Газрын зураг)</b> - дарахад газрын зураг гарч ирнэ.</td></tr>
+								<tr><td style="padding:15px 0 10px;"><b>회사위치(약도)</b> - 클릭시 위치가 지정됩니다.</td></tr>
 								<tr>
 									<td>
 										<div style="border:3px solid <?php echo $map_color;?>">
@@ -201,8 +201,8 @@
 					</div>
 
 					<dl class="ntlt lnb_col m0 hand" id="companyFrmHandle">
-						<img src="../../images/comn/bul_10.png" class="t">Нэвтрэх мэдээлэл<?php echo ($mode=='insert')?'утга оруулах':'өөрчлөх';?>
-						<span>( <b class="col">*</b> тэмдэг оруулах шаардлагатай)</span>
+						<img src="../../images/comn/bul_10.png" class="t">기업 정보<?php echo ($mode=='insert')?'입력':'수정';?>
+						<span>( <b class="col">*</b> 표시는 필수 입력사항 )</span>
 						<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 					</dl>
 
@@ -210,22 +210,22 @@
 					<col width=100><col>
 					<?php if($mode=='insert'){ ?>
 					<tr class="input_type_load" style="display:;">
-						<td class="ctlt">Гишүүн сонгох <b class="col">*</b></td>
+						<td class="ctlt">회원선택 <b class="col">*</b></td>
 						<td class="pdlnb2">
 							<dt>
 								<select style="width:260px;" name="mb_id" id="mb_id" onchange="get_member(this.value);">
-								<option value="">Байгууллагын гишүүн сонгох</option>
+								<option value="">기업회원 선택</option>
 								<?php foreach($member_list['result'] as $val){ ?>
 								<option value="<?php echo $val['mb_id'];?>" <?php echo ($val['mb_id']==$mb_id)?'selected':'';?>><?php echo $val['mb_id'];?> / <?php echo $val['mb_name'];?></option>
 								<?php } ?>
 								</select>
 								<!-- <a href="../member/company.php?mode=insert" class="btn"><h1 class="btn23">회원등록</h1></a> -->
 								<input name="mb_search" type="text" class="txt" style="width:150px;" id="mb_search">
-								<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">Гишүүн хайх</h1></a>
-								<span class="subtlt">Нэр,ID,И-мэйл хайх</span>
+								<a onClick="search_member();" class="cbtn lnb_col grf_col"><h1 class="btn19">회원검색</h1></a>
+								<span class="subtlt">이름,아이디,이메일로 검색</span>
 								<ul id="memlist" style="display:none;max-height:100px;overflow-y:auto" class="blnb wbg pd3 f11 mt5">
 								<!-- loop -->
-								<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>Нэр(ID) / И-мэйл</li>
+								<li style="line-height:20px" onMouseOver="this.className='bg hand'" onMouseOut="this.className=''" onClick="MM_showHideLayers('memlist','','hide')"><b>ㆍ</b>이름(아이디) / 이메일</li>
 								<!-- loop -->
 								</ul>
 							</dt>
@@ -233,32 +233,32 @@
 					</tr>
 					<?php } else if($mode=='update') { ?>
 					<tr>
-						<td class="ctlt">ID <b class="col">*</b></td>
+						<td class="ctlt">아이디 <b class="col">*</b></td>
 						<td class="pdlnb2">
-							<input name="mb_id" type="text" class="tnum w50" value="<?php echo $company['mb_id'];?>" required hname='ID' <?php echo ($mode=='update')?'readonly':'';?>>
-							<?php if($mode=='update') { ?><span class="subtlt">ID засах боломжгүй.</span><?php } ?>
+							<input name="mb_id" type="text" class="tnum w50" value="<?php echo $company['mb_id'];?>" required hname='아이디' <?php echo ($mode=='update')?'readonly':'';?>>
+							<?php if($mode=='update') { ?><span class="subtlt">아이디는 수정이 불가능 합니다.</span><?php } ?>
 						</td>
 					</tr>
 					<?php } ?>
 					<tr>
-						<td class="ctlt">Төлөөлөгч байгууллагын мэдээлэл</td>
+						<td class="ctlt">대표기업정보</td>
 						<td class="pdlnb2">
-							<label><input type="checkbox" class="check" id="is_public" name="is_public" value="1" <?php echo ($company['is_public'])?'checked':'';?>>Төлөөлөгчийн сонголт</label>
-							<span class="subtlt">Хэрэв та төлөөлөхийг сонговол <?php echo $company['mb_id'];?> гишүүний өөрчилсөн төлөөлөх компанийн мэдээллийг одоогийн компанийн мэдээлэл болгон өөрчилнө. </span>
+							<label><input type="checkbox" class="check" id="is_public" name="is_public" value="1" <?php echo ($company['is_public'])?'checked':'';?>>대표 선택</label>
+							<span class="subtlt">대표로 선택하시면 <?php echo $company['mb_id'];?> 회원이 설정한 대표기업정보가 현재 기업정보로 변경됩니다.</span>
 						</td>
 					</tr>
 					<?php if($company['mb_logo'] || $company['mb_logo_sel']){ ?>
 					<tr>
-						<td class="ctlt">Лого урьдчилж харах</td>
+						<td class="ctlt">로고 미리보기</td>
 						<td class="pdlnb2">
 							<img src="<?php echo $company_logo;?>" style="max-width:200px;max-height:100px;"/>
 						</td>
 					</tr>
 					<?php } ?>
 					<tr>
-						<td class="ctlt">Байгууллагын лого/td>
+						<td class="ctlt">회사로고</td>
 						<td class="pdlnb2">
-							<label><input type="radio" name="wr_logo" class="radio" id="wr_logo_0" value="0" checked/>шууд</label> <input type="file" class="txtForm" style="height:20px;" size="30" id="mb_logo" name="mb_logo"> [Зөвлөмж: Өргөн 200px ба түүнээс бага, Өндөр 100px ба түүнээс бага ]
+							<label><input type="radio" name="wr_logo" class="radio" id="wr_logo_0" value="0" checked/>직접</label> <input type="file" class="txtForm" style="height:20px;" size="30" id="mb_logo" name="mb_logo"> [ 권장 : 넓이 200px 이하, 높이 100px 이하 ]
 							<div class="mt20">
 							<?php 
 							$n = 1;
@@ -273,90 +273,89 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Захирлын нэр(ceo) <b class="col">*</b></td>
-						<td class="pdlnb2"><input name="mb_ceo_name" type="text" class="txt w50" value="<?php echo stripslashes($company['mb_ceo_name']);?>" required hname='Захирлын нэр' style="ime-mode:active;"></td>
+						<td class="ctlt">대표자명(ceo) <b class="col">*</b></td>
+						<td class="pdlnb2"><input name="mb_ceo_name" type="text" class="txt w50" value="<?php echo stripslashes($company['mb_ceo_name']);?>" required hname='대표자명' style="ime-mode:active;"></td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллага/нэгжийн нэр <b class="col">*</b></td>
-						<td class="pdlnb2"><input type="text" class="txt w50" id="mb_company_name" name="mb_company_name" value="<?php echo $company['mb_company_name'];?>" hname="Байгууллага/нэгжийн нэр" required style="ime-mode:active;"></td>
+						<td class="ctlt">회사/점포명 <b class="col">*</b></td>
+						<td class="pdlnb2"><input type="text" class="txt w50" id="mb_company_name" name="mb_company_name" value="<?php echo $company['mb_company_name'];?>" hname="회사/점포명" required style="ime-mode:active;"></td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллагын ангилал <b class="col">*</b></td>
+						<td class="ctlt">회사분류 <b class="col">*</b></td>
 						<td class="pdlnb2">
-							<select style="width:200px;" id="mb_biz_type" name="mb_biz_type" title="Байгууллагын ангиллыг сонгоно уу" required hname="Компаний ангилал">
-							<option value="">Байгууллагын ангиллыг сонгоно уу</option>
+							<select style="width:200px;" id="mb_biz_type" name="mb_biz_type" title="회사분류 선택" required hname="회사분류">
+							<option value="">회사분류 선택</option>
 							<?php echo $biz_type_option; ?>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Холбогдох дугаар<b class="col">*</b></td>
+						<td class="ctlt">전화번호 <b class="col">*</b></td>
 						<td class="pdlnb2">
-							<select style="width:95px;" id="mb_phone0" name="mb_phone[]" title="Бүс нутгын кодыг сонгоно уу" required hname="Бүс нутгын код">
-							<option value="">Бүс нутгын кодыг сонгоно уу</option>
+							<select style="width:95px;" id="mb_phone0" name="mb_phone[]" title="지역번호 선택" required hname="지역번호">
+							<option value="">지역번호 선택</option>
 							<?php echo $tel_num_option; ?>
 							</select>
 							<span class="delimiter">-</span>
-							<input style="width:95px;" type="text" class="tnum" title="Холбогдох дугаар урд хэсэг" maxlength="4" id="mb_phone1" name="mb_phone[]" required hname="Холбогдох дугаар хойд хэсэг" value="<?php echo $mb_phone[1];?>">
+							<input style="width:95px;" type="text" class="tnum" title="전화번호 앞자리" maxlength="4" id="mb_phone1" name="mb_phone[]" required hname="전화번호 앞자리" value="<?php echo $mb_phone[1];?>">
 							<span class="delimiter">-</span>
-							<input style="width:95px;" type="text" class="tnum" title="Холбогдох дугаар хойд хэсэг" maxlength="4" id="mb_phone2" name="mb_phone[]" required hname="Холбогдох дугаар хойд хэсэг" value="<?php echo $mb_phone[2];?>">
+							<input style="width:95px;" type="text" class="tnum" title="전화번호 뒷자리" maxlength="4" id="mb_phone2" name="mb_phone[]" required hname="전화번호 뒷자리" value="<?php echo $mb_phone[2];?>">
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Гар утасны дугаар</td>
+						<td class="ctlt">휴대폰번호</td>
 						<td class="pdlnb2">
-							<select style="width:95px;" id="mb_hphone0" name="mb_h
-							phone[]" title="Орон нутгын дугаар">
+							<select style="width:95px;" id="mb_hphone0" name="mb_hphone[]" title="휴대폰 국번">
 							<?php echo $hp_num_option; ?>
 							</select>
 							<span class="delimiter">-</span>
-							<input style="width:95px;" type="text" class="tnum" title="Дугаар урд хэсэг" maxlength="4" id="mb_hphone1" name="mb_hphone[]" hname="Дугаар урд хэсэг" value="<?php echo $mb_hphone[1];?>">
+							<input style="width:95px;" type="text" class="tnum" title="휴대폰 앞자리" maxlength="4" id="mb_hphone1" name="mb_hphone[]" hname="휴대폰 앞자리" value="<?php echo $mb_hphone[1];?>">
 							<span class="delimiter">-</span>
-							<input style="width:95px;" type="text" class="tnum" title="Дугаар хойд хэсэг" maxlength="4" id="mb_hphone2" name="mb_hphone[]" hname="Дугаар хойд хэсэг" value="<?php echo $mb_hphone[2];?>">
+							<input style="width:95px;" type="text" class="tnum" title="휴대폰 뒷자리" maxlength="4" id="mb_hphone2" name="mb_hphone[]" hname="휴대폰 뒷자리" value="<?php echo $mb_hphone[2];?>">
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллага/нэжийн хаяг <b class="col">*</b></td>
+						<td class="ctlt">회사/점포 주소 <b class="col">*</b></td>
 						<td class="pdlnb2">
 
 							<div class="addresWrap" id="address_block">
-								<input type="text" style="width:55px;" class="tnum" title="Урд хэсэг" maxlength="3" id="mb_zipcode0" name="mb_zipcode[]" readonly hname=" Урд хэсэг" value="<?php echo $mb_zipcode[0];?>">
+								<input type="text" style="width:55px;" class="tnum" title="우편번호 앞자리" maxlength="3" id="mb_zipcode0" name="mb_zipcode[]" readonly hname="우편번호 앞자리" value="<?php echo $mb_zipcode[0];?>">
 								<span class="delimiter">-</span>
-								<input type="text" style="width:55px;" class="tnum" title=" хойд хэсэг" maxlength="4" id="mb_zipcode1" name="mb_zipcode[]" readonly hname=" Хойд хэсэг" value="<?php echo $mb_zipcode[1];?>">
-								<a class="btn" style="padding:0 10px;" onclick="execDaumPostcode();"><span>Шуудангын дугаар</span></a>
+								<input type="text" style="width:55px;" class="tnum" title="우편번호 뒷자리" maxlength="4" id="mb_zipcode1" name="mb_zipcode[]" readonly hname="우편번호 뒷자리" value="<?php echo $mb_zipcode[1];?>">
+								<a class="btn" style="padding:0 10px;" onclick="execDaumPostcode();"><span>우편번호 검색</span></a>
 								<div class="adress2 mt3">
-									<input type="text" class="tnum w100 mb3" title="хаяг" id="mb_address0" name="mb_address0" hname="хаяг" value="<?php echo $company['mb_biz_address0'];?>">
-									<input type="text" class="tnum w100" title="дэлгэрэнгүй хаяг" id="mb_address1" name="mb_address1" hname="дэлгэрэнгүй хаяг" value="<?php echo $company['mb_biz_address1'];?>">
+									<input type="text" class="tnum w100 mb3" title="주소" id="mb_address0" name="mb_address0" hname="주소" value="<?php echo $company['mb_biz_address0'];?>">
+									<input type="text" class="tnum w100" title="상세주소" id="mb_address1" name="mb_address1" hname="상세주소" value="<?php echo $company['mb_biz_address1'];?>">
 								</div>
 							</div>
 
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Бизнес эрхлэгчийн дугаар </td>
+						<td class="ctlt">사업자번호</td>
 						<td class="pdlnb2">
-							<input type="text"  style="width:50px;" class="tnum" title="Бизнес эрхлэгчийн дугаар 1" maxlength="3" id="mb_biz_no0" name="mb_biz_no[]" value="<?php echo $mb_biz_no[0];?>" hname="Бизнес эрхлэгчийн дугаар">
+							<input type="text"  style="width:50px;" class="tnum" title="사업자번호1" maxlength="3" id="mb_biz_no0" name="mb_biz_no[]" value="<?php echo $mb_biz_no[0];?>" hname="사업자번호"> 
 							<span class="delimiter">-</span> 
-							<input type="text" style="width:40px;" class="tnum" title="Бизнес эрхлэгчийн дугаар 2" maxlength="2" id="mb_biz_no1" name="mb_biz_no[]" value="<?php echo $mb_biz_no[1];?>" hname="Бизнес эрхлэгчийн дугаар">
+							<input type="text" style="width:40px;" class="tnum" title="사업자번호2" maxlength="2" id="mb_biz_no1" name="mb_biz_no[]" value="<?php echo $mb_biz_no[1];?>" hname="사업자번호"> 
 							<span class="delimiter">-</span> 
-							<input type="text" style="width:70px;" class="tnum" title="Бизнес эрхлэгчийн дугаар 3" maxlength="5" id="mb_biz_no2" name="mb_biz_no[]" value="<?php echo $mb_biz_no[2];?>" hname="Бизнес эрхлэгчийн дугаар">
+							<input type="text" style="width:70px;" class="tnum" title="사업자번호3" maxlength="5" id="mb_biz_no2" name="mb_biz_no[]" value="<?php echo $mb_biz_no[2];?>" hname="사업자번호">
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Факсын дугаар</td>
+						<td class="ctlt">팩스번호</td>
 						<td class="pdlnb2">
-							<select style="width:95px;" id="mb_biz_fax0" name="mb_biz_fax[]" title="Бүс нутгын дугаар" hname="Бүс нутгын дугаар">
-							<option value="">Бүс нутгын дугаар</option>
+							<select style="width:95px;" id="mb_biz_fax0" name="mb_biz_fax[]" title="지역번호 선택" hname="팩스 지역번호">
+							<option value="">지역번호 선택</option>
 							<?php echo $tel_num_option; ?>
 							</select> 
 							<span class="delimiter">-</span> 
-							<input style="width:95px;" type="text" class="tnum" title="Факсын дугаар урд хэсэг" maxlength="4" id="mb_biz_fax1" name="mb_biz_fax[]" hname="Факсын дугаар урд хэсэг" value="<?php echo $mb_biz_fax[1];?>">
+							<input style="width:95px;" type="text" class="tnum" title="팩스번호 앞자리" maxlength="4" id="mb_biz_fax1" name="mb_biz_fax[]" hname="팩스번호 앞자리" value="<?php echo $mb_biz_fax[1];?>"> 
 							<span class="delimiter">-</span> 
-							<input style="width:95px;" type="text" class="tnum" title="Факсын дугаар хойд хэсэг" maxlength="4" id="mb_biz_fax2" name="mb_biz_fax[]" hname="Факсын дугаар хойд хэсэг" value="<?php echo $mb_biz_fax[2];?>">
+							<input style="width:95px;" type="text" class="tnum" title="팩스번호 뒷자리" maxlength="4" id="mb_biz_fax2" name="mb_biz_fax[]" hname="팩스번호 뒷자리" value="<?php echo $mb_biz_fax[2];?>">
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Нүүр хуудасны хаяг</td>
+						<td class="ctlt">홈페이지주소</td>
 						<td class="pdlnb2">
 							<input name="mb_homepage" type="text" class="tnum w50" value="<?php echo $utility->add_http($company['mb_homepage']);?>"/>
 						</td>
@@ -368,62 +367,62 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Жагсаалтанд орсон эсэх</td>
+						<td class="ctlt">상장여부</td>
 						<td class="pdlnb2">
-							<select style="width:200px;" id="mb_biz_success" name="mb_biz_success" title="Жагсаалтанд орсон эсэх" hname="Жагсаалтанд орсон эсэх">
-							<option value="">Жагсаалтанд орсон эсэх</option>
+							<select style="width:200px;" id="mb_biz_success" name="mb_biz_success" title="상장여부 선택" hname="상장여부">
+							<option value="">상장여부 선택</option>
 							<?php echo $biz_success_option;?>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллагын төрөл</td>
+						<td class="ctlt">기업형태</td>
 						<td class="pdlnb2">
-							<select style="width:200px;" id="mb_biz_form" name="mb_biz_form" title="Байгууллагын төрөл" hname="Байгууллагын төрөл">
-							<option value="">Байгууллагын төрөл</option>
+							<select style="width:200px;" id="mb_biz_form" name="mb_biz_form" title="기업형태 선택" hname="기업형태">
+							<option value="">기업형태 선택</option>
 							<?php echo $biz_form_option;?>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Голчлон хйидэг үйл ажиллагаа</td>
+						<td class="ctlt">주요사업내용</td>
 						<td class="pdlnb2">
-							<input type="text" maxlength="16" class="tnum" style="width:350px;" id="mb_biz_content" name="mb_biz_content" value="<?php echo $company['mb_biz_content'];?>"> <span class="subtlt">(жишээ : 네트워크 트래픽 관리제품 개발 및 판매)</span>
+							<input type="text" maxlength="16" class="tnum" style="width:350px;" id="mb_biz_content" name="mb_biz_content" value="<?php echo $company['mb_biz_content'];?>"> <span class="subtlt">(예 : 네트워크 트래픽 관리제품 개발 및 판매)</span>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгуулагдсан он</td>
+						<td class="ctlt">설립년도</td>
 						<td class="pdlnb2">
-							<select style="width:200px;" id="mb_biz_foundation" name="mb_biz_foundation" title="Байгуулагдсан он" hname="Байгуулагдсан он">
-							<option value="">Сонгох</option>
+							<select style="width:200px;" id="mb_biz_foundation" name="mb_biz_foundation" title="설립연도 선택" hname="설립연도">
+							<option value="">선택</option>
 							<?php echo $foundation_option;?>
-							</select> Байгуулах
+							</select> 설립
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Ажилтны тоо</td>
+						<td class="ctlt">사원수</td>
 						<td class="pdlnb2">
-							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_member_count" name="mb_biz_member_count" hname="Ажилтны тоо" value="<?php echo $company['mb_biz_member_count'];?>"> 명 <span class="subtlt">(예 : 200)</span>
+							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_member_count" name="mb_biz_member_count" hname="사원수" value="<?php echo $company['mb_biz_member_count'];?>"> 명 <span class="subtlt">(예 : 200)</span>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Хөрөнгө</td>
+						<td class="ctlt">자본금</td>
 						<td class="pdlnb2">
-							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_stock" name="mb_biz_stock" hname="Хөрөнгө" value="<?php echo $company['mb_biz_stock'];?>"> төгрөг <span class="subtlt">(예 : 3억 5천만)</span>
+							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_stock" name="mb_biz_stock" hname="자본금" value="<?php echo $company['mb_biz_stock'];?>"> 원 <span class="subtlt">(예 : 3억 5천만)</span>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Ашиг, орлого</td>
+						<td class="ctlt">매출액</td>
 						<td class="pdlnb2">
-							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_sale" name="mb_biz_sale" hname="Ашиг, орлого" value="<?php echo $company['mb_biz_sale'];?>"> 원 <span class="subtlt">(예 : 3억 5천만)</span>
+							<input type="text" maxlength="16" class="tnum" style="width:200px;" id="mb_biz_sale" name="mb_biz_sale" hname="매출액" value="<?php echo $company['mb_biz_sale'];?>"> 원 <span class="subtlt">(예 : 3억 5천만)</span>
 						</td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллагын тухай, зорилт</td>
+						<td class="ctlt">기업개요 및 비전</td>
 						<td class="pdlnb2"><?php echo $utility->make_cheditor('mb_biz_vision',$company['mb_biz_vision']);?></td>
 					</tr>
 					<tr>
-						<td class="ctlt">Байгууллагын түүх, гүйцэтгэл</td>
+						<td class="ctlt">기업연혁 및 실적</td>
 						<td class="pdlnb2"><?php echo $utility->make_cheditor('mb_biz_result',$company['mb_biz_result']);?></td>
 					</tr>
 
