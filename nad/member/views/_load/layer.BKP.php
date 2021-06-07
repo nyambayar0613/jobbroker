@@ -40,8 +40,8 @@
 						<dt class="fl mr10"><?php include_once "../_include/sms.php"; ?></dt>
 						<dt class="fr">
 							<?php include_once "../../../include/sms_text.php"; ?>
-							<dl class="ntlt lnb_col">Текст мессежийн жишээ
-								<span class="subtlt bar">Мессеж дээр дарахад шууд мессежний цонх гарч ирнэ.</span>
+							<dl class="ntlt lnb_col">문자메세지예제
+								<span class="subtlt bar">메세지를 클릭하면 메세지창에 바로 입력이 됩니다</span>
 								<dt><a href="../config/sms.php" class="btn"><h1 class="btn23">예문보기</h1></a></dt>
 							</dl>
 							<table width="100%" cellspacing="1" class="sep ln">

@@ -84,7 +84,7 @@ var searchFrmInit = function(){
 			<label><input name="mb_type" type="radio" value="individual" class="radio" <?php echo ($_GET['mb_type']=='individual')?'checked':'';?>>Хувь хүн</label> &nbsp;
 			<label><input name="mb_type" type="radio" value="company" class="radio" <?php echo ($_GET['mb_type']=='company')?'checked':'';?>>Байгууллага</label> &nbsp;
 		</td>
-		<td class="ctlt">Зочилёоон хүмүүсийн тоо</td>
+		<td class="ctlt">Зочилсон хүмүүсийн тоо</td>
 		<td class="pdlnb2">
 			<label><input name="loginAll" type="checkbox" value="1" class="check" id='loginAll' <?php echo ($_GET['loginAll']=='1')?'checked':'';?>>Нийт</label> &nbsp;
 			<input name="loginCnt_low" type="text" class="tnum tc" size="8" id='loginCnt_low' <?php echo ($_GET['loginAll']=='1')?"disabled value=''":"value='".$_GET['loginCnt_low']."'";?>> ~
