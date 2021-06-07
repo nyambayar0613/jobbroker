@@ -78,12 +78,12 @@ var delete_level = function( no ){	// 등급 삭제
 	var name = $('#name_'+no).val();
 	$('#quest_name').html(name);
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'level_delete\', \''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'level_delete\', \''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Гишүүнчлэлийн түвшинг устгах',
+		title: '회원등급 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -99,13 +99,13 @@ var update_level_sel = function(){	// 일괄수정
 	});
 	
 	$('#quest_info').hide();
-	$('#confirm_msg').html("Гишүүнчлэлийн түвшинг одоо оруулсан утгаар өөрчлөх үү?");
+	$('#confirm_msg').html("회원등급을 현재 입력하신대로 일괄수정 하시겠습니까?");
 	
-	$('#questionAnswerYes').html("<input type=\"button\" onClick=\"questionAnswer('yes', 'sel_level_update','"+sel_nos+"');\" value=\"тийм\" />");
+	$('#questionAnswerYes').html("<input type=\"button\" onClick=\"questionAnswer('yes', 'sel_level_update','"+sel_nos+"');\" value=\"예\" />");	
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Гишүүнчлэлийн түвшний мэдээллийг багцлах',
+		title: '회원등급 정보 일괄적용',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -171,8 +171,8 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -188,10 +188,10 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 <td width="1"></td><td class="nb">
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox"><dl>
-Та гишүүний pojnt түвшинг тогтоож, гишүүнчлэлийн түвшний нэрийг тохируулах боломжтой.<br/>
-Гишүүдийн point-г комиунитид голчлон ашигладаг бөгөөд ажлын байрны сурталчилгаа, анкет бүртгүүлэхдээ гишүүдийн үйл ажиллагааны төлөв байдлыг хянаж болно.<br/>
+회원 포인트별로 레벨을 지정할수 있으며, 회원등급명 설정이 가능합니다.<br/>
+회원 포인트는 커뮤니티에서 주로 사용되며, 구인공고, 이력서 등록시 회원 활동 상황을 알수 있는 척도가 됩니다.<br/>
 </dl></dl>
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүнчлэлийн түвшний тохиргоо</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원등급설정</dl>  
 
 <form name="pointConfigFrm" method="post" id="pointConfigFrm" action="./process/level.php" enctype="multipart/form-data">
 <input type="hidden" name="mode" value="update" id="mode"/><!-- 회원등급/포인트 설정정보 수정 -->
@@ -203,12 +203,12 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 	<table width="100%" class="ttlt">
 	<col width=50><col width=50><col width=150><col width=23><col><col width=52><col width=52>
 	<tr class="bg">
-		<td>Хэвлэх</td>
-		<td>Түвшин</td>
-		<td>Түвшний нэр</td>
-		<td colspan="2">Өөрчлөх</td>
-		<td>Засварлах</td>
-		<td class="e">Устгах</td>
+		<td>출력</td>
+		<td>레벨</td>
+		<td>회원등급명</td>
+		<td colspan="2">등급설정</td>
+		<td>수정</td>
+		<td class="e">삭제</td>
 	</tr>
 	<?php if(!$level_category){ ?>
 	<tr><td colspan="7" class="stlt"></td></tr>
@@ -235,13 +235,13 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 		<td class="ln_r ln_b tl" style="padding:5px 0px;">
 			<dl class="ds2 w100">
 				<span class="ds fl" style="width:210px;">
-					&nbsp;<label class="m0 h20">Үйл ажиллагааны point</label>
+					&nbsp;<label class="m0 h20">활동포인트</label> 
 					<?php if($val['rank']==1){ ?> <b>0</b> &nbsp;<?php } else { ?>
 					<input type="text" name="etc_0[<?php echo $no;?>]" class="tnum b num_only" style='ime-mode:disabled;' size="5" value="<?php echo $val['etc_0'];?>" id="etc_0_<?php echo $no;?>">
 					<?php } ?>
-					<img src='../../images/ic/point.gif' class="vm"> <label class="m3"></label>
+					<img src='../../images/ic/point.gif' class="vm"> <label class="m3">이상일때</label>
 				</span>
-				<a class="btn b19 fl" onclick="icon_input('<?php echo $no;?>');"><span>Ikon бүртгэл</span></a>
+				<a class="btn b19 fl" onclick="icon_input('<?php echo $no;?>');"><span>등급아이콘등록</span></a>
 				<span id='limg_<?php echo $no;?>' style="display:none;" class="ds fl ml5">
 					<span id='limg_<?php echo $no;?>_file'><input type="file" name="etc_1[<?php echo $no;?>]" class="txt img_file" size="19" id="img_<?php echo $no;?>" no="<?php echo $no;?>"/></span>
 					<span id='limg_<?php echo $no;?>_loading'></span>
@@ -269,11 +269,11 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 		<td colspan='2' class="ln_r ln_b tl" style="padding:5px 0px;">
 			<dl class="ds2 w100">
 				<span class="ds fl" style="width:220px;">
-					&nbsp;<label class="m0">Point</label>
+					&nbsp;<label class="m0">활동포인트</label> 
 					<input name="point" type="text" class="tnum b num_only" style='ime-mode:disabled;' size="6" value="0" id='point'>
-					<img src='../../images/ic/point.gif' class="vm"> <label class="m3"></label>
+					<img src='../../images/ic/point.gif' class="vm"> <label class="m3">이상일때</label>
 				</span>
-				<a class="btn b19 fl" onclick="icon_input();"><span>Айкон бүртгэл</span></a>
+				<a class="btn b19 fl" onclick="icon_input();"><span>등급아이콘등록</span></a>
 				<span id='limg' style="display:none;" class="ds fl ml5">
 					<span id='limg_file'>
 						<input type="file" name="img_file" class="txt" size="19"/>
@@ -287,58 +287,58 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 
 	</table>
 	<div class="clearfix">
-	<dd class="pt5 fr" style="margin-left:5px;" onClick="input_Display();"><a class="btn"><h1 class="btn23"><strong class="col">O</strong>Түвшин нэмэх</h1></a></dd>
-	<dd class="pt5 fr" onClick="update_level_sel();"><a class="btn"><h1 class="btn23"><strong>O</strong>Тохиргоо</h1></a></dd>
+	<dd class="pt5 fr" style="margin-left:5px;" onClick="input_Display();"><a class="btn"><h1 class="btn23"><strong class="col">O</strong>등급추가</h1></a></dd>
+	<dd class="pt5 fr" onClick="update_level_sel();"><a class="btn"><h1 class="btn23"><strong>O</strong>일괄수정</h1></a></dd>
 	</div>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Ерөнхий point тохиргоо</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기본포인트설정</dl>
 
 	<table width="100%" class="bg_col">
 	<col width=150><col> 
 		<tr>
-			<td class="ctlt">Гишүүнчлэлийн түвшин</td>
+			<td class="ctlt">회원가입시 등급</td>
 			<td class="pdlnb2">
 				<select name="register_level" id='register_level'>
-				<option value="">(Түвшин) сонгох</option>
+				<option value="">회원등급(레벨)선택</option>
 				<?php 
 					foreach($level_category as $level){
 						if($level['rank']==1) continue;
 				?>
-					<option value='<?=$level['rank']?>' <?=($env['register_level']==$level['rank'])?'selected':'';?>><?=$level['name'];?> (<?php echo $level['rank'];?>)</option>
+					<option value='<?=$level['rank']?>' <?=($env['register_level']==$level['rank'])?'selected':'';?>><?=$level['name'];?> (<?php echo $level['rank'];?>레벨)</option>
 				<?php } ?>
 				</select>&nbsp;
-				<span class="subtlt">Автоматаар тохируулах эсэх ээ сонгоно уу.</span>
+				<span class="subtlt">회원가입시 자동으로 부여될 회원등급을 설정합니다.</span>
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Point ашиглах эсэх</td>
+			<td class="ctlt">포인트 사용유무</td>
 			<td class="pdlnb2">
-				<label><input type="radio" name="use_point" value="1" checked /> Ашиглана</label>&nbsp;
-				<label><input type="radio" name="use_point" value="0" <?php echo (!$env['use_point'])?'checked':'';?>/> Ашиглахгүй</label>&nbsp;
-				<span class="subtlt"></span>
+				<label><input type="radio" name="use_point" value="1" checked /> 사용</label>&nbsp;
+				<label><input type="radio" name="use_point" value="0" <?php echo (!$env['use_point'])?'checked':'';?>/> 미사용</label>&nbsp;
+				<span class="subtlt">전체 포인트 기능을 사용할지 설정합니다.</span>
 			</td>
 		</tr>
 		<tbody id="point_sets" style="display:<?php echo ($env['use_point'])?'':'none';?>;">
 		<tr>
-			<td class="ctlt">Гишүүнчлэлийн түвшний автомат тохиргоо</td>
+			<td class="ctlt">회원등급자동설정</td>
 			<td class="pdlnb2">
 				<label><input type="radio" name="auto_level" value="1" checked /> 사용</label>&nbsp;
-				<label><input type="radio" name="auto_level" value="0" <?php echo (!$env['auto_level'])?'checked':'';?>/> Ашиглахгүй</label>&nbsp;
-				<span class="subtlt"></span>
+				<label><input type="radio" name="auto_level" value="0" <?php echo (!$env['auto_level'])?'checked':'';?>/> 미사용</label>&nbsp;
+				<span class="subtlt">포인트 지급시 설정된 포인트에 따라 자동으로 회원등급이 변경 됩니다.</span>
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Гишүүнээр бүртгүүлэхэд төлсөн point</td>
+			<td class="ctlt">회원 가입시 지급 포인트</td>
 			<td class="pdlnb2">
-				<input type='text' name="register_point" class="txt" size="10" id="register_point" value="<?php echo $env['register_point'];?>"> point
-				<span class="subtlt"></span>
+				<input type='text' name="register_point" class="txt" size="10" id="register_point" value="<?php echo $env['register_point'];?>"> 포인트
+				<span class="subtlt">회원 가입시 한번만 부여, 마이너스(-) 도 가능합니다.</span>
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Нэвтрэх үед төлсөн point</td>
+			<td class="ctlt">로그인시 지급 포인트</td>
 			<td class="pdlnb2">
-				<input type='text' name="login_point" class="txt" size="10" id="login_point" value="<?php echo $env['login_point'];?>"> point
-				<span class="subtlt"></span>
+				<input type='text' name="login_point" class="txt" size="10" id="login_point" value="<?php echo $env['login_point'];?>"> 포인트
+				<span class="subtlt">회원 로그인시 하루에 한번만 부여, 마이너스(-) 도 가능합니다.</span>
 			</td>
 		</tr>
 		<!-- 
@@ -365,17 +365,18 @@ var configSubmit = function(){	// 기본포인트설정 폼 전송
 			</td>
 		</tr> -->
 		<tr>
-			<td class="ctlt">Ажлын байрны төлбөрийн point </td>
+			<td class="ctlt">구인 유료결제 포인트</td>
 			<td class="pdlnb2">
-				<input type='text' name="alba_point_percent" class="txt" size="10" id="alba_point_percent" value="<?php echo $env['alba_point_percent'];?>"> % point
-				<span class="subtlt">% <span style="color:#ff0000;"></span></span>
+				<input type='text' name="alba_point_percent" class="txt" size="10" id="alba_point_percent" value="<?php echo $env['alba_point_percent'];?>"> % 포인트
+				<span class="subtlt">구인공고 유료 결제 금액의 지급 포인트 % <span style="color:#ff0000;">결제시 포인트 사용하면 적립되지 않습니다.</span></span>
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Төлбөртэй оноог үргэлжлүүлэх</td>
+			<td class="ctlt">이력서 유료결제 포인트</td>
 			<td class="pdlnb2">
-				<input type='text' name="alba_resume_point_percent" class="txt" size="10" id="alba_resume_point_percent" value="<?php echo $env['alba_resume_point_percent'];?>"> % point
-				<span class="subtlt"> % <span style="color:#ff0000;">
+				<input type='text' name="alba_resume_point_percent" class="txt" size="10" id="alba_resume_point_percent" value="<?php echo $env['alba_resume_point_percent'];?>"> %  포인트
+				<span class="subtlt">이력서 등록시 유료 결제 금액의 지급 포인트 % <span style="color:#ff0000;">결제시 포인트 사용하면 적립되지 않습니다.</span></span>
+			</td>
 		</tr>
 		<!-- <tr>
 			<td class="ctlt">구인(정규직)공고 보기 포인트</td>
