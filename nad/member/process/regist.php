@@ -878,7 +878,7 @@
 									if($company_custom_list['total_count']){
 										foreach($company_custom_list['result'] as $val){
 											$company_mail_msg = $mailing_control->auto_make_Mail('company', $val);
-											$mail_subject = $mb['mb_name']."님께서 신청하신 ".date('Y')."년 ".date('m')."월 ".date('d')."일 맞춤인재 정보입니다.";
+											$mail_subject = $mb['mb_name']."Өргөдөл гаргасан ".date('Y')."он ".date('m')."сар ".date('d')."өдөрт тохирсон ажлын мэдээлэл юм.";
 											$mailer->sendMail($env['site_name'], $env['email'], $mb['mb_email'], $mail_subject, stripslashes($company_mail_msg['company_mailing']), 1);
 
 											$mailing_mail['wr_type'] = "email";
@@ -902,7 +902,7 @@
 									if($individual_custom_list['total_count']){
 										foreach($individual_custom_list['result'] as $val){
 											$individual_mail_msg = $mailing_control->auto_make_Mail('individual', $val);
-											$mail_subject = $mb['mb_name']."님께서 신청하신 ".date('Y')."년 ".date('m')."월 ".date('d')."일 맞춤채용 정보입니다.";
+                                            $mail_subject = $mb['mb_name']."Өргөдөл гаргасан ".date('Y')."он ".date('m')."сар ".date('d')."өдөрт тохирсон ажлын мэдээлэл юм.";
 											$mailer->sendMail($env['site_name'], $env['email'], $mb['mb_email'], $mail_subject, stripslashes($individual_mail_msg['individual_mailing']), 1);
 
 											$mailing_mail['wr_type'] = "email";
