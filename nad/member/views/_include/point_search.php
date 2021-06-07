@@ -1,7 +1,7 @@
 <?php if (!defined("_ALICE_")) exit; // 개별 페이지 접근 불가 ?>
 
 <script>
-// 검색폼 초기화
+// 검색폼 초기화огн
 var searchFrmInit = function(){
 	$('#start_dayAll').attr('checked',false);
 	$('#start_day, #end_day').attr('disabled',false);
