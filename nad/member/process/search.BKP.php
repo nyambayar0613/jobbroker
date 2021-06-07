@@ -41,7 +41,7 @@
 				}	// foreach end.
 			} else {
 ?>
-				<li style="line-height:20px"><b>ㆍ</b>Таны хайсан үр дүн олдсонгүй.</li>
+				<li style="line-height:20px"><b>ㆍ</b>검색 결과가 없습니다.</li>
 <?php
 			}	// if end.
 
@@ -55,7 +55,7 @@
 				$get_alba = $alba_control->get_alba_for_id($mb_id);
 
 				$result  = "<select name='sel_alba' id='sel_alba' onchange=\"update_alba('load',this.value,'".$mb_id."');\">";
-				$result .= "<option value=''>Ажлын байрны байршлыг сонгоно уу.</option>";
+				$result .= "<option value=''>채용공고선택</option>";
 				if($get_alba){
 					foreach($get_alba as $val){
 						$result .= "<option value='".$val['no']."'>".stripslashes($val['wr_subject'])."</option>";
@@ -77,7 +77,7 @@
 				if($manager_info['result']){
 					$result['result'] = true;
 					$result['manager_list']  = "<select name=\"manager_sel\" id=\"manager_sel\" onchange=\"manager_sels(this);\">";
-					$result['manager_list'] .= "<option value=\"\">Хариуцсан хүний нэр</option>";
+					$result['manager_list'] .= "<option value=\"\">담당자명</option>";
 					foreach($manager_info['result'] as $val){
 						$result['manager_list'] .= "<option value=\"".$val['no']."\">".stripslashes($val['wr_name'])."</option>";
 					}
@@ -115,7 +115,7 @@
 				$get_resume = $alba_resume_control->get_resume_for_id($mb_id);
 
 				$result  = "<select name='sel_resume' id='sel_resume' onchange=\"update_resume('load',this.value,'".$mb_id."');\">";
-				$result .= "<option value=''>Анкет сонгох</option>";
+				$result .= "<option value=''>이력서선택</option>";
 				if($get_resume){
 					foreach($get_resume as $val){
 						$result .= "<option value='".$val['no']."'>".stripslashes($val['wr_subject'])."</option>";
@@ -137,7 +137,7 @@
 				$company_list = $member_control->__CompanyList($page,"",$con);
 
 				$result = "<select name=\"company_info\" onchange=\"company_info_load(this);\">";
-				$result .= "<option value=\"\">Компанийн мэдээллийг сонгох</option>";
+				$result .= "<option value=\"\">기업정보 선택</option>";
 				foreach($company_list['result'] as $val){
 					$result .= "<option value=\"".$val['no']."\">".$val['mb_ceo_name']."/".$val['mb_company_name']."</option>";
 				}
