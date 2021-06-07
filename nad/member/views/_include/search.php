@@ -134,7 +134,7 @@ var searchFrmInit = function(){
 	<input type="hidden" name="mb_type" value="individual" id="mb_type"/>
 	<?php } ?>
 	<tr>
-		<td class="ctlt">Нэвтэрсэн хүтүүсийн тоо</td>
+		<td class="ctlt">Нэвтэрсэн хүмүүсийн тоо</td>
 		<td class="pdlnb2" colspan="3">
 			<label><input name="loginAll" type="checkbox" value="1" class="check" id='loginAll' <?php echo ($_GET['loginAll']=='1')?'checked':'';?>>Нийт</label> &nbsp;
 			<input name="loginCnt_low" type="text" class="tnum tc" size="8" id='loginCnt_low' <?php echo ($_GET['loginAll']=='1')?"disabled value=''":"value='".$_GET['loginCnt_low']."'";?>> ~
