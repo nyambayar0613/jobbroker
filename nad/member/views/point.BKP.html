@@ -57,8 +57,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -76,29 +76,29 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 			<dl class="notbox">
 				<dl>
-					Гишүүн бүрийн point мэдээллийг хэвлэнэ.<br>
-					Админи нь өөрчлөх / устгах боломжтой.<br/>
-					Хасах тэмдэг оруулна уу (-) ex) -100
+					회원별 포인트 적립 내용을 출력합니다.<br> 
+					관리자가 임의로 회원별로 포인트를 지급/수정/삭제 할수 있습니다.<br/>
+					차감시 (-) 를 입력하시면 됩니다. ex) -100
 				</dl>
 			</dl>
 			<?php include_once "./views/_include/point_search.php"; ?>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Point management (total of all points) : <?php echo number_format($total_point['point']);?> point )
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">포인트관리 (전체 포인트 합계 : <?php echo number_format($total_point['point']);?> 포인트 )
 				<span>총 <b class="num3 col"><?php echo number_format($point_list['total_count']);?></b>건의 포인트가 등록되었습니다.</span>
 				<dt>
 					<select name="page_rows" onchange="page_rows(this);">
-						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
-						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
-						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
-						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
-						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 					</select>
 				</dt>
 			</dl>  
 			<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 				</dt>
 				<!-- <dd>
 					<a onClick="point_insert();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>포인트입력</h1></a>
@@ -108,13 +108,13 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<col width="30"><col width="150"><col width="150"><col width="150"><col ><col width="100"><col width="100"><col width="150">
 			<tr class="bg">
 				<td><input name="check_all" type="checkbox"></td>
-				<td>ГишүүнийID</td>
-				<td>Нэр/Хариуцагч</td>
-				<td>Nickname</td>
-				<td>Хуримтлал / ашиглалтын түүх</td>
-				<td>Point</td>
-				<td>Point sum</td>
-				<td>Огноо</td>
+				<td>회원ID</td>
+				<td>이름/대표자</td>
+				<td>별명</td>
+				<td>적립/사용내역</td>
+				<td>포인트</td>
+				<td>포인트합</td>
+				<td>일시</td>
 			</tr>
 
 			<tbody id="point_list">
@@ -143,7 +143,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			</tbody>
 			</table>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Point төлбөр</dl>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">포인트지급</dl>
 
 			<form name="MemberPointFrm" method="post" id="MemberPointFrm" action="./process/point.php">
 			<input type="hidden" name="mode" value="insert" id="mode"/>
@@ -154,16 +154,16 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<table width="100%" class="ttlt">
 			<col width=150><col><col width="150"><col width="60"> 
 			<tr class="bg">
-				<td>Гишүүний ID</td>
-				<td>Хуримтлал / ашиглалтын түүх</td>
-				<td>Poiint</td>
-				<td>Оруулах</td>
+				<td>회원아이디</td>
+				<td>적립/사용내역</td>
+				<td>포인트</td>
+				<td>입력</td>
 			</tr>
 			<tbody>
 			<tr>
 				<td class="pdlnb2">
 					<select name="mb_id" id="mb_id">
-					<option value="">Гишүүний ID</option>
+					<option value="">회원아이디</option>
 					<?php foreach($member_id['result'] as $val){	// 회원 id 리스트 ?>
 					<option value="<?php echo $val['mb_id'];?>"><?php echo $val['mb_id'];?></option>
 					<?php } ?>
@@ -180,8 +180,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="page">
 				<?php include_once "../include/paging.php"; ?>
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 				</dt>
 				<!-- <dd>
 					<a onClick="point_insert();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>포인트입력</h1></a>
