@@ -156,32 +156,33 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 			<dl class="notbox">
 				<dl>
-				    불량회원의 차단유무를 확인가능 하고 삭제, 복귀 등을 관리 하실 수 있습니다.<br/> 
-					회원정보를 클릭하시면 해당 회원의 상세페이지로 이동합니다.<br/> 
+				    Алдаа гарсан гишүүдыг шалгах, устгах болон буцаах боломжтой. <br/>
+					Гишүүний мэдээллийг дарж гишүүний дэлгэрэнгүй хуудас руу орно уу .<br/>
 			    </dl>
 			</dl>
 			<?php include_once "./views/_include/search.php"; ?>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원관리
-				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүд удирдах
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>Гишүүн олдсонгүй.</span>
 				<dt>
-					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
 					<select name="page_rows" onchange="page_rows(this);">
-						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
-						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
-						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
-						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
-						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
 					</select>
 				</dt>
 			</dl>  
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Нийт хайлт</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong></h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Бүгдийг сонгох</h1></a>
 				</dt>
 				<dd>
-					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>선택복귀</h1></a>
+					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Буцах</h1></a>
 				</dd>
 			</dl>			
 			
@@ -189,21 +190,21 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<col ><col ><col ><col ><col ><col ><col><col ><col ><col >
 			<tr class="bg">
 				<td><input name="check_all" type="checkbox"></td>
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">회원구분<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름/대표자(성별/나이)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td title="커뮤니티에서 사용되는 닉네임 입니다."><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_nick&flag=<?php echo ($sort=='mb_nick'&&$flag=='asc')?'desc':'asc';?>">닉네임<span><?php echo ($sort=='mb_nick'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">회원등급<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ангилал<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр/Хариуцагч(Хүйс/нас)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td title="нэр."><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_nick&flag=<?php echo ($sort=='mb_nick'&&$flag=='asc')?'desc':'asc';?>">Nickname<span><?php echo ($sort=='mb_nick'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td title="нэр."><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн зэрэг<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 				<!--<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>-->
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_denied&flag=<?php echo ($sort=='mb_denied'&&$flag=='asc')?'desc':'asc';?>">차단유무<span><?php echo ($sort=='mb_denied'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_udate&flag=<?php echo ($sort=='mb_udate'&&$flag=='asc')?'desc':'asc';?>">차단일<span><?php echo ($sort=='mb_udate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_denied&flag=<?php echo ($sort=='mb_denied'&&$flag=='asc')?'desc':'asc';?>">Блоклох эсэх<span><?php echo ($sort=='mb_denied'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_udate&flag=<?php echo ($sort=='mb_udate'&&$flag=='asc')?'desc':'asc';?>">Блоклсон огноо<span><?php echo ($sort=='mb_udate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">Элссэн огноо<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 				<!--<td><a href="./bad_list.php?<?php echo $member_list['send_url'];?>&sort=mb_login_count&flag=<?php echo ($sort=='mb_login_count'&&$flag=='asc')?'desc':'asc';?>">방문수<span><?php echo ($sort=='mb_login_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>-->
 				<!-- <td>SMS</td> -->
 				<td>E-mail</td>
-				<td>메모</td>
-				<td>삭제</td>
-				<td class="e">복귀</td>
+				<td>Тэмдэглэл</td>
+				<td>Устгах</td>
+				<td class="e">Буцах</td>
 			</tr>
 
 			<tbody id="member_list">
@@ -212,13 +213,13 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<?php } else { 
 				foreach($member_list['result'] as $val){
 				if($val['mb_type']=='individual'){
-					$individual_msg = "<span style='color:#dfdfdf;' title='개인회원 전용 정보입니다.'>개인</span>";
+					$individual_msg = "<span style='color:#dfdfdf;' title='Энэ мэдээлэл нь зөвхөн гишүүдэд зориулагдсан болно..'>Хувь хүн</span>";
 					$mb_type = "개인회원";
 					$mb_company_name = $individual_msg;
 					$mb_service_open = $individual_msg;
 					$mb_alba_resume = number_format($val['mb_alba_resume_count']);	// 필요한 경우 사용
 				} else if($val['mb_type']=='company'){
-					$company_msg = "<span style='color:#dfdfdf;' title='기업회원 전용 정보입니다.'>기업</span>";
+					$company_msg = "<span style='color:#dfdfdf;' title='Зөвхөн байгууллагын гишүүдэд зориулсан болно.'>Байгууллага</span>";
 					$mb_type = "기업회원";
 					$mb_company_name = stripslashes($val['mb_company_name']);
 					$mb_service_open = $val['mb_service_open'];		// 필요한 경우 사용
@@ -260,11 +261,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 				<td><a onClick="pop_email('<?php echo $val['no'];?>');"><img src="../../images/btn/19_08.gif"></a></td>
 				<td>
 					<a onClick="pop_memo('<?php echo $val['no'];?>');" class="btn"><h1 class="btn19<?php echo ($val['mb_memo'])?" org":"";?>" id="memo_<?php echo $val['no'];?>">
-					<span class="ic" style="background-image:url(../../images/ic/memo.gif)"></span>메모</h1>
+					<span class="ic" style="background-image:url(../../images/ic/memo.gif)"></span>Тэмдэглэл</h1>
 					</a>
 				</td>
 				<td><a onClick="delete_member('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></a></td>
-				<td class="e"><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 복귀할수 있는 설정창이 뜹니다."><img src="../../images/btn/19_re.gif"></a></td>
+				<td class="e"><a onclick="pop_badness('<?php echo $val['no'];?>');" title="Тохиргооны цонх руу буцахын дарна уу."><img src="../../images/btn/19_re.gif"></a></td>
 			</tr>
 			<?php 
 				}	// foreach end.
@@ -277,11 +278,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="page">
 				<?php include_once "../include/paging.php"; ?>
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголты</h1></a>
 				</dt>
 				<dd>
-					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>선택복귀</h1></a>
+					<a onClick="sel_return();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Өмнөх цэс рүү буцах</h1></a>
 				</dd>
 
 			</dl>
