@@ -70,39 +70,39 @@
 <col><!-- 메모 -->
 </colgroup>
 <tr>
-<td colspan="17" class="ntlt">Гишүүний удирдлага <span class="fon11 dgr pL3 nom">| &nbsp;Төрөл <b class="num2 col"><?=$member_list['total_count'];?></b>Гишүүн олдсонгүй.</span></td>
+<td colspan="17" class="ntlt">회원관리 <span class="fon11 dgr pL3 nom">| &nbsp;총 <b class="num2 col"><?=$member_list['total_count'];?></b>명의 회원이 검색되었습니다.</span></td>
 </tr>
 <tr><td colspan="17" height="2" class="ln_dbl"></td></tr>
 <tr class="bg tc">
 <td align="center">NO</td>
-<td align="center">Гишүүний ангилал</td>
-<td align="center">Гишүүний ID</td>
-<td align="center">Нэр/төлөөлөгч</td>
-<td align="center">И-мэйл</td>
-<td align="center">Холбогдох дугаар</td>
-<td align="center">Утасны дугаар</td>
-<td align="center">Шуудангын дугаар</td>
-<td align="center">Хаяг</td>
-<td align="center">Nickname</td>
-<td align="center">Хүйс/нас</td>
-<td align="center">Гишүүнчлэлийн зэрэг</td>
-<td align="center">Point</td>
-<td align="center">Байгууллагын нэр</td>
+<td align="center">회원구분</td>
+<td align="center">회원ID</td>
+<td align="center">이름/대표자</td>
+<td align="center">이메일</td>
+<td align="center">휴대폰번호</td>
+<td align="center">전화번호</td>
+<td align="center">우편번호</td>
+<td align="center">주소</td>
+<td align="center">닉네임</td>
+<td align="center">성별/나이</td>
+<td align="center">회원등급</td>
+<td align="center">포인트</td>
+<td align="center">회사명</td>
 <!-- <td align="center">알바공고건수</td>
 <td align="center">이력서열람서비스(기간)</td>
 <td align="center">알바이력서건수</td>
 <td align="center">알바지원건수</td> -->
-<td align="center">Зочилсон хүний тоо</td>
-<td align="center">Бүртгүүлсэн огноо/td>
+<td align="center">방문수</td>
+<td align="center">가입일</td>
 <!-- <td align="center">탈퇴요청일</td>
 <td align="center">게시물수</td> -->
-<td align="center">Тэмдэглэл</td>
+<td align="center">메모</td>
 </tr>
 <?php
 	if(!$member_list){
 ?>
 <tr>
-<td class="stlt" colspan="11">Бүртгэгдсэн мэдээлэл байхгүй байна.</td>
+<td class="stlt" colspan="11">등록된 내용이 없습니다.</td>
 </tr>
 <?php 
 	} else {
@@ -111,19 +111,19 @@
 	$no++;
 
 	if($val['mb_type']=='individual'){
-		$individual_msg = "<span style='color:#dfdfdf;'>Хувийн</span>";
-		$mb_type = "Хувь хүний бүртгэл";
+		$individual_msg = "<span style='color:#dfdfdf;'>개인</span>";
+		$mb_type = "개인회원";
 		$mb_company_name = $individual_msg;
 		$mb_service_open = $individual_msg;
 		$mb_alba_resume = number_format($val['mb_alba_resume_count']);
 	} else if($val['mb_type']=='company'){
-		$company_msg = "<span style='color:#dfdfdf;'>Нэврэх</span>";
-		$mb_type = "Байгууллагын бүртгэл";
+		$company_msg = "<span style='color:#dfdfdf;'>기업</span>";
+		$mb_type = "기업회원";
 		$mb_company_name = stripslashes($val['mb_company_name']);
 		$mb_service_open = $val['mb_service_open'];
 		$mb_alba_resume = $company_msg;
 	}
-	$mb_type .= ($val['mb_badness']) ? " <b>(Алдаа)</b>" : "";
+	$mb_type .= ($val['mb_badness']) ? " <b>(불량)</b>" : "";
 	$mb_name  = $val['mb_name'];
 	$mb_name .= ($val['mb_company_name']) ? "/" . $val['mb_company_name'] : "";
 
@@ -131,7 +131,7 @@
 	$get_age = $member_control->get_age($val['mb_birth']);	// 나이
 	//$mb_name .= ($val['mb_type']=='individual') ? " (".$get_gender."/".$get_age."세)" : "";
 
-	$mb_info = ($val['mb_type']=='individual') ? $get_gender . "/" . $get_age."нас" : $company_msg;
+	$mb_info = ($val['mb_type']=='individual') ? $get_gender . "/" . $get_age."세" : $company_msg;
 
 	$mb_alba_count = number_format($val['mb_alba_count']);	// 기업 :: 알바공고수 / 개인 :: 알바지원수
 	$mb_wdate = substr($val['mb_wdate'],0,11);
@@ -139,8 +139,8 @@
 		$mb_left_request_date = $val['mb_left_request_date'];
 		$mb_left = $val['mb_left'];
 	} else {
-		$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;'>Цуцлах хүсэлт гаргахгүй</span>";
-		$mb_left = "<span style='color:#dfdfdf;'>Цуцлахгүй</span>";
+		$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;'>탈퇴미요청</span>";
+		$mb_left = "<span style='color:#dfdfdf;'>미탈퇴</span>";
 	}
 	$level_name = $member_control->get_level($val['mb_level']);
 
