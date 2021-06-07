@@ -27,19 +27,19 @@ var QuickFrm_submit = function(){
 <dl id="mcenter">
 	<!--사이트 접속통계 -->
   <dl class="blnb m0">
-    <dl class="mtlt"><h4>사이트 접속통계</h4>
+    <dl class="mtlt"><h4>Сайтад нэвтрэх</h4>
     <dt class="more"><a href="../statistics/"><img src="../../images/comn/more.gif"></a></dt>
     </dl>
     <dl class="Maratio">
 
 	<span class="Mdtxt">	
 		<span style="right: 140px; position: relative;">
-			<img src="/images/nad/week_la_icon.gif" class="Mgrf_dgr"> 지난주
-			<img src="/images/nad/week_be_icon.gif" class="Mgrf_dgr"> 이번주
+			<img src="/images/nad/week_la_icon.gif" class="Mgrf_dgr"> Өнгөрсөн 7 хоног
+			<img src="/images/nad/week_be_icon.gif" class="Mgrf_dgr"> Энэ 7 хоног
 		</span>
-		오늘 <font color="#ff5656;" class="b"><?php echo number_format($get_visits['today']);?></font> 
-		이번주 <font color="#ff5656;" class="b"><?php echo number_format($get_visits_main['visit_week']);?></font> 
-		전체 <font color="#ff5656;" class="b"><?php echo number_format($get_visits['total']);?></font> 
+		Өнөөдөр <font color="#ff5656;" class="b"><?php echo number_format($get_visits['today']);?></font>
+		Энэ 7 хоног <font color="#ff5656;" class="b"><?php echo number_format($get_visits_main['visit_week']);?></font>
+		Нийт <font color="#ff5656;" class="b"><?php echo number_format($get_visits['total']);?></font>
 	</span>
 	<?php
 	for($i=0;$i<=6;$i++){
@@ -68,8 +68,8 @@ var QuickFrm_submit = function(){
   <!--방문현황-->
 
   <!--통계현황 -->
-	<dl class="h4font"><h4>통계현황</h4>
-		<span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+	<dl class="h4font"><h4>Статистик</h4>
+		<span class="subtlt">(Өнөөдөр <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
 		<dt><a href="../statistics/"><img src="../../images/comn/more.gif"></a></dt>
 	</dl>
 	<table width="100%" class="font11 blnb tf" cellpadding="0" cellspacing="0">
@@ -108,8 +108,8 @@ var QuickFrm_submit = function(){
 
 	?>
 	<tr class="h26 tc">
-		<td rowspan="3" class="font12 mbtr">방문현황</td>
-		<td class="mbtb2">방문자수</td>
+		<td rowspan="3" class="font12 mbtr">Нэвтэрсэн байдал</td>
+		<td class="mbtb2">Нэвтэрсэн</td>
 		<td class="mbtb2">
 			<table width="100%" cellpadding="0" cellspacing="0">
 			<tr class="tc">
@@ -121,7 +121,7 @@ var QuickFrm_submit = function(){
 		<td class="mbtb2 b"><?php echo number_format($get_visits['yesterday']);?></td>
 	</tr>
 	<tr class="h26 tc">
-		<td>페이지뷰</td>
+		<td>Хуудас</td>
 		<td>
 			<table width="100%"cellpadding="0" cellspacing="0">
 			<tr class="tc">
@@ -137,22 +137,22 @@ var QuickFrm_submit = function(){
 
   <!--결제현황 -->
   <dl class="blnb" style="border-bottom:0">
-    <dl class="mtlt bno"><h4>결제현황</h4><span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+    <dl class="mtlt bno"><h4>Төлбөрийн байдал</h4><span class="subtlt">(өнөөдөр <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
     <dt class="more"><a href="../payment/"><img src="../../images/comn/more.gif"></a></dt>
     </dl>
   </dl>
   <table width="100%" class="tbl sep ln tf" cellspacing="1">
   <col width="160"><col span="4">
   <tr class="tc">
-    <th>서비스명</th>
-    <th>결제금액</th>
-    <th>입금</th>
-    <th>미입금</th>
-    <th>취소</th>
+    <th>Үйлчилгээний нэр</th>
+    <th>Төлбөрийн хэмжээ</th>
+    <th>Төлсөн мөнгө</th>
+    <th>Төлөөгүй мөнгө</th>
+    <th>Цуцлах</th>
   </tr>
   <?php if(!$pay_list['total_count']){?>
   <tr class="wbg tc">
-    <td class="num3" colspan="5" align="center" height="50">결제 내역이 존재하지 않습니다.</td>
+    <td class="num3" colspan="5" align="center" height="50">Төлбөрийн мэдээлэл байхгүй байна.</td>
   </tr>
   <?php 
 	  } else {
@@ -179,7 +179,7 @@ var QuickFrm_submit = function(){
 
   <!-- 채용/인재 -->
 	<dl class="blnb" style="border-bottom:0">
-		<dl class="mtlt bno"><h4>인재/채용 현황</h4><span class="subtlt">(오늘 <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
+		<dl class="mtlt bno"><h4>Ажлын байр/ажилд авах статус</h4><span class="subtlt">(Өнөөдөр <span class="col5 num3"><?=date('Y.m.d')?></span> <?php echo date("l");?>)</span>
 			<dt class="more"><a href="../alba/"><img src="../../images/comn/more.gif"></a></dt>
 		</dl>
 	</dl>
@@ -187,18 +187,18 @@ var QuickFrm_submit = function(){
 	<col width="100"><col span="3">
 	<tr class="tc">
 		<th></th>
-		<th>오늘</th>
-		<th>어제</th>
-		<th>지난주</th>
+		<th>Өнөөдөр</th>
+		<th>Өчигдөр</th>
+		<th>Өнгөрсөн 7 хоног</th>
 	</tr>
 	<tr class="wbg tc">
-		<th class="tc">채용공고</th>
+		<th class="tc">Ажлын зар</th>
 		<td class="jobcr num3"><?php echo number_format($today_employ['total_count']);?></td>
 		<td class="jobcr num3"><?php echo number_format($yester_employ['total_count']);?></td>
 		<td class="num3"><?php echo number_format($last_employ['total_count']);?></td>
 	</tr>
 	<tr class="wbg tc">
-		<th class="tc">이력서</th>
+		<th class="tc">Анкет</th>
 		<td class="jobcr num3"><?php echo number_format($today_resume['total_count']);?></td>
 		<td class="jobcr num3"><?php echo number_format($yester_resume['total_count']);?></td>
 		<td class="num3"><?php echo number_format($last_resume['total_count']);?></td>
@@ -213,10 +213,10 @@ var QuickFrm_submit = function(){
 	</script>
 
 	<dl class="blnb">
-		<dl class="mtlt"><h4>퀵 메뉴 설정</h4>
+		<dl class="mtlt"><h4>Цэсийн тохиргоо</h4>
 			<dt class="psa" style="top:6px;right:8px">
 				<a onClick="quickmn_view();" class="bbtn">
-				<h1 class="btn17"><span class="ic m0" style="background:url(../../images/comn/wbul_06.png) no-repeat 0 0"></span>설정</h1>
+				<h1 class="btn17"><span class="ic m0" style="background:url(../../images/comn/wbul_06.png) no-repeat 0 0"></span>Тохиргоо</h1>
 				</a>
 			</dt>
 		</dl>
@@ -231,12 +231,12 @@ var QuickFrm_submit = function(){
 </dl>
   
 
-	<h3>오른쪽</h3>
+	<h3>Баруун</h3>
 	<dl id="mright">
 
 		<!--실시간 검색어-->
 		<dl class="blnb m0">
-			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">실시간 검색어</h4>
+			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">Үргэлжлэх хугацаа</h4>
 				<dt class="more"><a href="../statistics/realtime_keyword.php"><img src="../../images/comn/more.gif"></a></dt>
 			</dl>
 			<ul class="s11lst dgr hcol" style="margin: 5px 7px 2px;">
@@ -250,12 +250,12 @@ var QuickFrm_submit = function(){
 		<dl class="blnb">
 			<dl class="tbg lnb psr" style="padding:3px 0 0;height:25px">
 				<ul class="tabmn">
-					<li class="on" id="tab_2" style="width:60%;" onmouseover="Chtab('tab0',2,2);Ch_Class('tab_',2,2,'on')" onClick="window.open('http://netfu.co.kr/board/notice.php','','')">솔루션 업데이트 알리미</li>
+					<li class="on" id="tab_2" style="width:60%;" onmouseover="Chtab('tab0',2,2);Ch_Class('tab_',2,2,'on')" onClick="window.open('http://netfu.co.kr/board/notice.php','','')">Solution update alarm</li>
 				</ul>
 				<!-- <dt class="more"><a href="../board/notice.html"><img src="../../images/comn/more.gif"></a></dt> -->
 			</dl>
 			<dl class="yflow" style="margin:6px 7px 2px;height:75px">
-				<h3>솔루션 업데이트 알리미</h3>
+				<h3>Solution update</h3>
 				<?php echo stripslashes(stripslashes($netfu_update['data'])); ?>
 				</ul>
 			</dl>
@@ -265,13 +265,13 @@ var QuickFrm_submit = function(){
 
 		<!-- 1:1 고객상담 -->
 		<dl class="blnb">
-			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">고객문의</h4>
+			<dl class="mtlt"><h4 class="hand" onClick="location.href='../board/qna.html'">Хэрэглэгчийн лавлагаа</h4>
 				<dt class="more"><a href="../board/qna.php"><img src="../../images/comn/more.gif"></a></dt>
 			</dl>
 
 			<?php if(!$cs_list['result']){?>
 			<ul class="s11lst dgr hcol" style="margin:5px 7px 2px">
-				<li>등록된 고객문의가 없습니다.</li>
+				<li>Бүртгүүлсэн хэрэглэгчийн лавлагаа байхгүй байна.</li>
 			</ul>
 			<?php } else {?>
 			<ul class="s11lst dgr hcol" style="margin:5px 7px 2px">
@@ -285,7 +285,7 @@ var QuickFrm_submit = function(){
 
 	<!--서비스이용현황 -->
 	<dl class="blnb" style="border-bottom:0">
-		<dl class="mtlt"><h4>서비스이용현황</h4></dl>
+		<dl class="mtlt"><h4>Үйлчилгээ ашиглалтын байдал</h4></dl>
 		<table width="100%" class="tbl">
 		<col width=100><col>
 		<?php 
@@ -296,9 +296,9 @@ var QuickFrm_submit = function(){
 			<th class="pl5"><?php echo $val['name'];?></th>
 			<td class="tr">
 			<?php if(in_array($key,$methods)){?>
-			<span class="col">사용중</span> <em>|</em> <a href="../payment/pg.php">관리</a>
+			<span class="col">Ашиглаж байгаа</span> <em>|</em> <a href="../payment/pg.php">Удирдах</a>
 			<?php } else {?>
-			<span class="org">OFF <em>|</em> <a href="../payment/pg.php">신청</a></span>
+			<span class="org">OFF <em>|</em> <a href="../payment/pg.php">Ашиглах</a></span>
 			<?php } ?>
 			</td>
 		</tr><tr><td colspan="2" class="ln"></td></tr>
@@ -312,24 +312,24 @@ var QuickFrm_submit = function(){
 
   <!--회원현황 -->
   <dl class="blnb">
-    <dl class="mtlt"><h4>회원현황</h4>
+    <dl class="mtlt"><h4>Гишүүнчлэлийн байдал</h4>
     <dt class="more"><a href="../member/"><img src="../../images/comn/more.gif"></a></dt></dl>
     <table width="100%" class="tbl">
     <col width=100><col>
     <tr>
-      <th class="pl5">전체회원</th>
+      <th class="pl5">Бүх гишүүд</th>
       <td class="tc"><?php echo number_format($allMember);?></td>
     </tr><tr><td colspan="2" class="ln"></td></tr>
     <tr>
-      <th class="pl5">전체방문</th>
+      <th class="pl5">Нийт зочилсон</th>
       <td class="tc"><?php echo $visit_count;?></td>
     </tr><tr><td colspan="2" class="ln"></td></tr>
     <tr>
-      <th class="pl5">신규가입</th>
+      <th class="pl5">Шинэ бүртгэл</th>
       <td class="tc"><?php echo number_format($latestMember);?></td>
     </tr><tr><td colspan="2" class="ln"></td></tr>
     <tr>
-      <th class="pl5">탈퇴회원</th>
+      <th class="pl5">Гишүүнээс гарах</th>
       <td class="tc"><?php echo number_format($leftMember);?></td>
     </tr>
     </table>
@@ -339,9 +339,9 @@ var QuickFrm_submit = function(){
 	</dl><!-- //오른쪽 -->
 
 	<dl id="quickmn" class="psa bocol lnb_col" style="display:none;top:2%;left:20%;width:600px; z-index:10;position:absolute;">
-  	<dl class="ntlt lnb_col m0"><h1>퀵 메뉴 선택</h1>
+  	<dl class="ntlt lnb_col m0"><h1>Цэс сонгох</h1>
     <a onClick="$('#quickmn').hide();"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a></dl>
-		<dl id='quickHandle'  class="nanum f11 col pbt5">  ※ 아래의 메뉴중에서 선택하여 퀵메뉴를 설정할 수 있습니다.</dl>
+		<dl id='quickHandle'  class="nanum f11 col pbt5">  ※ Та доорх цэсүүдийг сонгож, тохируулах боломжтой.</dl>
 
 		<form name="QuickFrm" method="post" id="QuickFrm" action="./process/regist.php">
 		<input type="hidden" name="mode" value="quick_update"/>
@@ -390,8 +390,8 @@ var QuickFrm_submit = function(){
 		?>
 		</table>
 		<dl class="pbtn">
-			<a onClick="QuickFrm_submit();" class="cbtn grf_col lnb_col" style="width:60px"><h1 class="btn23">저장하기</h1></a>&nbsp;
-			<a onClick="$('#quickmn').hide();;" class="btn" style="width:60px"><h1 class="btn23"><strong>X</strong> 창닫기</h1></a>
+			<a onClick="QuickFrm_submit();" class="cbtn grf_col lnb_col" style="width:60px"><h1 class="btn23">Хадгалах</h1></a>&nbsp;
+			<a onClick="$('#quickmn').hide();;" class="btn" style="width:60px"><h1 class="btn23"><strong>X</strong> Хаах</h1></a>
 		</dl>
 		</form>
 	</dl>
