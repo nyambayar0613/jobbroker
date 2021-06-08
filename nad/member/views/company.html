@@ -441,11 +441,11 @@ var service_opens = function( mb_id ){	// 열람서비스
 	$mb_level = $member_control->get_level($val['mb_level']);	 // 회원등급
 	$mb_wdate = substr($val['mb_wdate'],0,11);	// 가입일
 	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>탈퇴미요청</span>";
-	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>미탈퇴</span>";
+	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>Цуцлахгүй</span>";
 
 	if($val['mb_left_request']){
 		$mb_left_request_date = $val['mb_left_request_date'];
-		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>탈퇴요청중</span>";
+		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>Цуцлах хүсэлт гаргасан</span>";
 	}
 	if($val['mb_left']){
 		$mb_left_request_date = $val['mb_left_request_date'];
