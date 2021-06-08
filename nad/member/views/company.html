@@ -497,19 +497,19 @@ var service_opens = function( mb_id ){	// 열람서비스
 	</dt>
 	<dd>
 		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Гишүүнчлэлийн зэрэг</h1></a>
-		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
 		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүний бүртгэл</h1></a>
 	</dd>
 
 	<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
-		선택한 회원을
+		Сонгосон гишүүн
 		<select name="mb_level" id="mb_level">
-			<option>회원등급</option>
+			<option>Гишүүнчлэлийг зэрэг</option>
 			<?php foreach($category_list as $val){ if($val['rank']=='1') continue;?>
 			<option value='<?php echo $val['rank']?>'><?php echo $val['name']?></option>
 			<?php } ?>
 		</select>
-		으로 수정 <img src="../../images/btn/19_ok.gif" class='hand' id='levelChangeBtn'>
+		-р өөрчлөх <img src="../../images/btn/19_ok.gif" class='hand' id='levelChangeBtn'>
 	</dl>
 </dl>
 
@@ -542,7 +542,7 @@ var showRequest = function(formData, jqForm, options){
 	var sendFrm = jqForm.attr('name');
 	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
 		$('#pop_mail').hide();
-		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
+		$('#status_info').html("<span style='font-size:9pt;'><p>И-мэйл илгээж байна ...<p><Br/><font color=crimson><b>[Амжилттай]</b></font> гарж иртэл ачаалаж болохгүй.<p></span>");
 		$.blockUI({ 
 			theme: true,
 			title: 'Гишүүний и-мэйл илгээх',

@@ -714,30 +714,29 @@ var service_opens = function( mb_id ){	// 열람 서비스
 </dl>
 
 <?php include_once "./views/_include/search.php"; ?>
-
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">개인회원 관리
-	<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
-	<dt>
-		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
-		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15건 출력</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30건 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50건 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70건 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100건 출력</option>
-		</select>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүд удирдах
+		<span>төрөл <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>Гишүүн олдсонгүй.</span>
+		<dt>
+			<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
+			<select name="page_rows" onchange="page_rows(this);">
+				<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
+				<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш</option>
+				<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
+				<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
+				<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+			</select>
 	</dt>
 </dl>  
 
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Нийт хайлт</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong></h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Бүгдийг сонгох</h1></a>
 	</dt>
 	<dd>
-		<a href="./process/download.php?mb_type=individual&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
-		<a onClick="update_member('insert','','individual');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+		<a href="./process/download.php?mb_type=individual&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
+		<a onClick="update_member('insert','','individual');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүнчлэлийн бүртгэл</h1></a>
 	</dd>
 
 
@@ -747,25 +746,25 @@ var service_opens = function( mb_id ){	// 열람 서비스
 <col width="2%"><col width="7%"><col width="11%" span="2"><col width="9%"><col width="6%" span="2"><col width="7%"><col width="5%"><col width="5%"><col width="8%"><col width="5%"><col width="8%"><col width="5%"><col width="10%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">회원등급<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름 (성별/나이)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн зэрэг<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр(хүйс/нас)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<td>닉네임</td>
 	<td>점프</td>
 	<!-- 
 	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_sms&flag=<?php echo ($sort=='mb_sms'&&$flag=='asc')?'desc':'asc';?>">SMS<span><?php echo ($sort=='mb_sms'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	-->
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_resume_count&flag=<?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'desc':'asc';?>">이력서<span><?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">지원수<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td>입사지원수</td>
-	<td>열람서비스</td>
-	<td>열람건수</td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">Point<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_resume_count&flag=<?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'desc':'asc';?>">Анкет<span><?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">Хүсэлтийн тоо<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td>Ажилд орох өргөдлийн тоо</td>
+	<td>Унших үйлчилгээ</td>
+	<td>Уншсан тоо</td>
 	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<!--<td>탈퇴요청일</td>
 	<td>탈퇴일</td>-->
-	<td>불량</td>
-	<td>편집</td>
+	<td>Алдаа</td>
+	<td>Зассан</td>
 </tr>
 <tbody id="member_list">
 <?php if(!$member_list['total_count']){ ?>
