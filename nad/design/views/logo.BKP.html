@@ -22,7 +22,7 @@ $(function(){
 		$('#'+type+'_upload').live('change', function(){
 			$('#type').val(type);
 			$('#'+type+'_preview').html('');
-			$('#'+type+'_preview').html("<img src=\"<?php echo $alice['helper_img_path'];?>/bar_loader.gif\" alt='Uploading...'/>");
+			$('#'+type+'_preview').html("<img src=\"<?php echo $alice['helper_img_path'];?>/bar_loader.gif\" alt='업로드중...'/>");
 
 			$('#SiteLogoFrm').ajaxSubmit(logo_options);
 
@@ -44,8 +44,8 @@ $(function(){
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-	Лого бүртгэх хэмжээ (өргөн * урт)-ийг санал болгож буй хэмжээнээс хэтрэхгүй байхаар бүртгүүлнэ үү.<br>
-	Мэйл логог флаш хэлбэрээр бүртгүүлсэн бол лого хэвлэгдээгүй байх магагдалтай тул зураг хэлбэрээр бүртгүүлнэ үү.
+로고등록시 권장사이즈(가로*세로)는 최대사이즈이므로 권장사이즈를 초과하지 않도록 등록하시기 바랍니다.<br>
+메일로고를 플래시로 등록할 경우 로고가 출력이 안될수 있으므로 이미지로 등록하시기 바랍니다. 
 </dl></dl>
 
 <form name="SiteLogoFrm" method="post" id="SiteLogoFrm" action="./process/logo.php" enctype="multipart/form-data">
@@ -56,29 +56,29 @@ $(function(){
 <input type="hidden" name="no" value="<?=$logo['no']?>"/><!-- 현재 설정 no -->
 
 	<div class="fl" style="width:33%;margin-right:0.5%;overflow:hidden">
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Дээд лого</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">상단로고</dl>
 	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
-	<tr><td class="fon11 tc"><b>[</b> Хэмжээ : <font class="num11">100px * 51px</font> <b>]</b></td></tr>
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">100px * 51px</font> <b>]</b></td></tr>      
 	<tr height="100"><td class="wbg tc" id="top_preview"><?php echo $design_control->view_logo($logo['top']);?></td></tr>
-	<tr><td id='top_logo'><input type='file' name='top' class='txt i23 logos' id="top_upload" title="Дээд лого"></td></tr>
+	<tr><td id='top_logo'><input type='file' name='top' class='txt i23 logos' id="top_upload" title="상단로고"></td></tr>  
 	</table>
 	</div>
 
 	<div class="fl" style="width:33%;margin-right:0.5%">
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Дээд лого</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일상단로고</dl>
 	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
-	<tr><td class="fon11 tc"><b>[</b>Хэмжээ : <font class="num11">180px * 60px</font> <b>]</b></td></tr>
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">180px * 60px</font> <b>]</b></td></tr>      
 	<tr height="100"><td class="wbg tc" id="mail_preview"><?php echo $design_control->view_logo($logo['mail']);?></td></tr>
-	<tr><td id='mail_logo'><input type='file' name='mail' class='txt i23 logos' id="mail_upload" title="Дээд лого"></td></tr>
+	<tr><td id='mail_logo'><input type='file' name='mail' class='txt i23 logos' id="mail_upload" title="메일상단로고"></td></tr>  
 	</table>
 	</div>
 
 	<div class="fl" style="width:33%">
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Мэйл-н доод лого</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일하단로고</dl>
 	<table cellspacing="7" border="0" width="100%" class="bg_col bgb2_col ba sep">	
-	<tr><td class="fon11 tc"><b>[</b> Хэмжээ : <font class="num11">180px * 60px</font> <b>]</b></td></tr>
+	<tr><td class="fon11 tc"><b>[</b> 권장사이즈 : <font class="num11">180px * 60px</font> <b>]</b></td></tr>      
 	<tr height="100"><td class="wbg tc" id="mail_bottom_preview"><?php echo $design_control->view_logo($logo['mail_bottom']);?></td></tr>
-	<tr><td id='mail_bottom_logo'><input type='file' name='mail_bottom' class='txt i23 logos' id="mail_bottom_upload" title="Мэйл-н доод лого"></td></tr>
+	<tr><td id='mail_bottom_logo'><input type='file' name='mail_bottom' class='txt i23 logos' id="mail_bottom_upload" title="메일하단로고"></td></tr>  
 	</table>
 	</div>
 
