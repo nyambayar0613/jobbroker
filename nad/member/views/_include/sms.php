@@ -14,7 +14,7 @@
 		<td class="connum">
 			<strong>Хүлээн авагч <!-- (<span id="rphone_cnt">0</span>명) --></strong>
 			<textarea id="rphone_list" style="height:100px;" name="rphone_list" required hname="Хүлээн авагч"><?php echo ($mode=='sms')?$member['mb_hphone']."|".$member['mb_name']."|".$member['mb_id']:"";?></textarea>
-			<dt class="mt2">Олон тоогоор илгээхдээ тэдгээрийг таслалаар тусгаарлана (,).</dt>
+			<dt class="mt2">Олон тоогоор илгээх үед таслалаар тусгаарлана (,).</dt>
 			<!--<dl>보내는사람 &nbsp;&nbsp;<?php echo $env['call_center']?> <input type="text" class="tnum" style="width:86px;" name="sphone" value="<?php echo $env['call_center']?>" required hname="보내는사람"></dl> -->
 			<input type="hidden" name="sphone" value="<?php echo $env['call_center']?>"/>
 		</td>
