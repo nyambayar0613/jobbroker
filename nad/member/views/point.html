@@ -17,14 +17,14 @@ var sel_delete_member = function(){	// 포인트 내역 선택삭제
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("선택하신 포인트내역 "+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("сонгосон point "+chk_length+"устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
@@ -84,7 +84,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<?php include_once "./views/_include/point_search.php"; ?>
 
 			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Point management (total of all points) : <?php echo number_format($total_point['point']);?> point )
-				<span>총 <b class="num3 col"><?php echo number_format($point_list['total_count']);?></b>건의 포인트가 등록되었습니다.</span>
+				<span>Нийт <b class="num3 col"><?php echo number_format($point_list['total_count']);?></b>Point бүртгэгдлээ.</span>
 				<dt>
 					<select name="page_rows" onchange="page_rows(this);">
 						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
