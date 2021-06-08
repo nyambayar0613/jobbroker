@@ -125,16 +125,16 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			</dl>
 			<?php include_once "./views/_include/search.php"; ?>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"> Санал болгох хүний нөөцийн мэдээллийг удирдах
-				<span>Нийт <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>хүн олдлоо.</span>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">맞춤인재정보 기업회원관리
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
 				<dt>
-					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
 					<select name="page_rows" onchange="page_rows(this);">
-						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25ш</option>
-						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40ш</option>
-						<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60ш</option>
-						<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80ш</option>
-						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25개 출력</option>
+						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40개 출력</option>
+						<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60개 출력</option>
+						<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 					</select>
 				</dt>
 			</dl>  
@@ -143,16 +143,16 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<col width="2%"><col width="12%"><col><col><col><col><col><col><col><col><col width="6%">
 			<tr class="bg">
 				<td><!-- <input name="check_all" type="checkbox"> --></td>
-				<td>Гишүүний мэдээлэл</td>
-				<td>Ажил мэргэжил</td>
-				<td>Ажлын байршил</td>
-				<td>Ажлын цаг</td>
-				<td>Хүйс</td>
-				<td>Нас</td>
-				<td>Адбан тушаал</td>
-				<td>Хүлээн авагч</td>
-				<td>Хадгалсан өдөр</td>
-				<td class="e">Өөрчлөх</td>
+				<td>회원정보</td>
+				<td>업직종</td>
+				<td>근무지</td>
+				<td>근무일시</td>
+				<td>성별</td>
+				<td>연령</td>
+				<td>근무형태</td>
+				<td>메일링수신</td>
+				<td>저장일</td>
+				<td class="e">편집</td>
 			</tr>
 
 			<tbody id="member_list">
@@ -169,10 +169,10 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 				<td><!-- <input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"> --></td>
 				<td id="tr_<?php echo $val['mb_id'];?>"><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class="b"><?php echo $val['mb_id'];?> (<?php echo $val['mb_name'];?>)</a></td>
 				<td colspan="8">
-					<span<?php echo ($custom_title_count)?" class='b'":"";?>>Хүний нөөцийн мэдээлэл хадгалах :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / Нийт <?php echo number_format($custom_title_count);?>төрөл хадгалагдлаа.</span>
+					<span<?php echo ($custom_title_count)?" class='b'":"";?>>최종 맞춤 인재정보 저장 :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / 총 <?php echo number_format($custom_title_count);?>건 저장</span>
 				</td>
 				<td class="edit e">
-					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">Тохиргооны мэдээллийг үзэх</h1></a></dt>
+					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">설정정보열람</h1></a></dt>
 				</td>
 			</tr>
 			<?php 
@@ -237,7 +237,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 					<td><?php echo $custom_gender;?></td>
 					<td><?php echo $custom_age;?></td>
 					<td><?php echo @implode($custom_work_types,",");?></td>
-					<td>И-мэйл : <?php echo ($custom['wr_email'])?'<b>수신</b>':'хүлээн аваагүй';?>/ SMS : <?php echo ($custom['wr_sms'])?'<b>хүлээн авсан</b>':'хүлээн аваагүй';?></td>
+					<td>이메일 : <?php echo ($custom['wr_email'])?'<b>수신</b>':'미수신';?>/ SMS : <?php echo ($custom['wr_sms'])?'<b>수신</b>':'미수신';?></td>
 					<td><?php echo $custom['wdate'];?></td>
 					<td class="edit e">
 						<p style="display:inline-block; width:85px;">
