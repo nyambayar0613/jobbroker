@@ -185,7 +185,7 @@ var sel_delete_member = function(){		// 선택삭제
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
@@ -235,7 +235,7 @@ var sel_level = function(){	// 선택 회원 등급 수정
 			var sel_val = $('#mb_level :selected').val();
 			$('#quest_info').show();
 			$('#confirm_msg').html("Сонгосон гишүүн "+chk_length+"төрөл ["+sel_level+"] өөрчлөх үү?");
-			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="예" />');
+			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="тийм" />');
 			// 질의(Confirm) 창 띄우기
 			$.blockUI({ 
 				theme: true,
@@ -400,13 +400,13 @@ var service_opens = function( mb_id ){	// 열람서비스
 </dl>  
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">И-мэйл илгээх</h1></a>
 	</dt>
 	<dd>
-		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
-		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
+		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүнчлэлийн бүртгэл</h1></a>
 	</dd>
 </dl>
 
@@ -414,23 +414,23 @@ var service_opens = function( mb_id ){	// 열람서비스
 <col width="2%"><col  width="7%"><col width="11%"><col width="11%"><col><col width="5%" span="2"><col width="9%"><col width="5%"><col width="8%"><col width="5%"><col  width="10%"><col  width="5%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">회원등급<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_company_name&flag=<?php echo ($sort=='mb_company_name'&&$flag=='asc')?'desc':'asc';?>">회사명<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름/대표자 (닉네임)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td>점프</td>
+	<td title="Комиунитид хэрэглэгддэг гишүүнчлэлийн түвшин."><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_company_name&flag=<?php echo ($sort=='mb_company_name'&&$flag=='asc')?'desc':'asc';?>">Байгууллагын нэр<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр/Хариуцсан хүн (Nickname)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td>Jump</td>
 	<!-- 
 	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_sms&flag=<?php echo ($sort=='mb_sms'&&$flag=='asc')?'desc':'asc';?>">SMS<span><?php echo ($sort=='mb_sms'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	-->
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td>열람서비스</td>
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">구인공고<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">Point<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td>Унших үйлчилгээ</td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">Ажлын зар<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./company.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">Элссэн огноо<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<!--<td>탈퇴요청일</td>
 	<td>탈퇴일</td>-->
-	<td>불량</td>
-	<td>편집</td>
-	<td>공고등록</td>
+	<td>Алдаа</td>
+	<td>Засах</td>
+	<td>Зар бүртгэх</td>
 </tr>
 <tbody id="member_list">
 <?php if(!$member_list['total_count']){ ?>
@@ -491,14 +491,14 @@ var service_opens = function( mb_id ){	// 열람서비스
 <dl class="page mb50">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">И-мэйл илгээх</h1></a>
 	</dt>
 	<dd>
-		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>회원등급</h1></a>
+		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Гишүүнчлэлийн зэрэг</h1></a>
 		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
-		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүний бүртгэл</h1></a>
 	</dd>
 
 	<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
