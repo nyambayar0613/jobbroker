@@ -164,12 +164,12 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 		<input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
 		<input type="hidden" name="no" value="<?php echo $mailing_config['no'];?>"/>
 
-		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정기메일링 / SMS 설정</dl>  
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Тогтмол шуудан / SMS тохиргоо</dl>
 
 		<table width="100%" class="bg_col">
 		<col width=150><col>
 		<tr>
-			<td class="ctlt">Mailing ашиглах эсэх</td>
+			<td class="ctlt">Мэйл ашиглах эсэх</td>
 			<td class="pdlnb2">
 				<label><input type="radio" class="radio" name="wr_mail_use" value="1" <?php echo ($mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглана</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_use" value="0" <?php echo (!$mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглахгүй</label> &nbsp;&nbsp;/&nbsp;&nbsp;
 				<label><input type="radio" class="radio" name="wr_mail_auto" value="1" <?php echo ($mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_auto" value="0" <?php echo (!$mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат бус</label>
@@ -218,7 +218,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Байгууллагын гишүүн (Тохирсон ажлын байрны мэдээлэл)<br/>Захидлын агуулгыг засах</td>
+			<td class="ctlt">Байгууллага (Санал болгох хүний нөөцийн мэдээлэл)<br/>Агуулгыг засах</td>
 			<td class="pdlnb2">
 				<div id="skinContent">
 					<?php echo $utility->make_cheditor('wr_company_mailing', stripslashes($mailing_config['wr_company_mailing']));	// 에디터 생성?>
@@ -226,7 +226,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Хувь хүн (Тохирсон ажлын байрны мэдээлэл)<br/>Захидлын агуулгыг засах</td>
+			<td class="ctlt">Хувь хүн (Санал болгох ажлын байрны мэдээлэл)<br/>Агуулгыг засах</td>
 			<td class="pdlnb2">
 				<?php echo $utility->make_cheditor('wr_individual_mailing', stripslashes($mailing_config['wr_individual_mailing']));	// 에디터 생성?>
 			</td>
