@@ -51,12 +51,12 @@ var mail_send = function( no ){	// 메일 발송
 			return false;
 		}
 		$('#quest_info').show();
-		$('#confirm_msg').html("И-мэйл илгээх үү?<br/><br/>Хүлээн авахаас татгалзсан эсэхээс үл хамааран и-мэйлийг илгээх учир<br/> анхаарна уу.");
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="тийм" />');
+		$('#confirm_msg').html("메일을 전송하시겠습니까?<br/><br/>메일 수신거부와 상관없이 무조건 메일이 전송 되오니<br/> 유념하시기 바랍니다.");	
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Илгээлтийг батлах',
+			title: '메일 전송 확인',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -86,8 +86,8 @@ var page_rows = function(sels){	// 출력 갯수
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 <div id="email_status" style="display:none; cursor: default">
@@ -107,31 +107,32 @@ var page_rows = function(sels){	// 출력 갯수
 
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox"><dl>
-	Хостинг компанийн и-мэйлийн багтаамжаас хамааран илгээх чадвар хязгаарлагдмал байж болно.<br>
+메일을 발송할 대상을 검색하여 발송할 수 있습니다.<br>
+호스팅업체의 해당메일용량에 따라서 메일발송 용량에 제한을 받을수 있습니다. 
 </dl></dl>
 
 <?php include_once "./views/_include/mail_search.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүний хаягийн тэмдэглэл
-	<span>Нйит <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>Гишүүн олдсонгүй.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원주소록
+	<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
 	<dt>
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
-			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+			<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 		</select>
 	</dt>
 </dl>
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
-<dt><a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a></dt>
+<dt><a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a></dt>
 <dd class="">
 <select name="send_selMember" style="height:23px; padding:3px;" id="send_selMember">
-	<option value="0">Хайлтын жагсаалтад байгаа бүх гишүүдэд</option>
-	<option value="1">Зөвхөн сонгогдсон гишүүдийн хувьд</option>
+	<option value="0">현재 검색리스트에 있는 모든 회원에게</option>
+	<option value="1">선택한 회원에게만</option>
 </select>
-<a onClick="sel_pop_email();" class="cbtn grf_col lnb_col" style="width:80px"><h1 class="btn23 b">И-мэйл харах</h1></a>
+<a onClick="sel_pop_email();" class="cbtn grf_col lnb_col" style="width:80px"><h1 class="btn23 b">메일보내기</h1></a>
 </dd>
 </dl>
 
@@ -142,19 +143,19 @@ var page_rows = function(sels){	// 출력 갯수
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
 	
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн ангилал<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">회원구분<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_email&flag=<?php echo ($sort=='mb_email'&&$flag=='asc')?'desc':'asc';?>">И-мэйл<span><?php echo ($sort=='mb_email'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_email&flag=<?php echo ($sort=='mb_email'&&$flag=='asc')?'desc':'asc';?>">이메일<span><?php echo ($sort=='mb_email'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_receive&flag=<?php echo ($sort=='mb_receive'&&$flag=='asc')?'desc':'asc';?>">И-мэйл хүлээн авах эсэх<span><?php echo ($sort=='mb_receive'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_receive&flag=<?php echo ($sort=='mb_receive'&&$flag=='asc')?'desc':'asc';?>">메일수신여부<span><?php echo ($sort=='mb_receive'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a> (<a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_nick&flag=<?php echo ($sort=='mb_nick'&&$flag=='asc')?'desc':'asc';?>">Nickname<span><?php echo ($sort=='mb_nick'&&$flag=='asc')?'▲':'▼';?></span></a>)</td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a> (<a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_nick&flag=<?php echo ($sort=='mb_nick'&&$flag=='asc')?'desc':'asc';?>">닉네임<span><?php echo ($sort=='mb_nick'&&$flag=='asc')?'▲':'▼';?></span></a>)</td>
 	
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_login_count&flag=<?php echo ($sort=='mb_login_count'&&$flag=='asc')?'desc':'asc';?>">Хэрэглэгчийн тоо<span><?php echo ($sort=='mb_login_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_login_count&flag=<?php echo ($sort=='mb_login_count'&&$flag=='asc')?'desc':'asc';?>">방문수<span><?php echo ($sort=='mb_login_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 
-	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">Элссэн огноо<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./mail.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 
 </tr>
 
@@ -170,7 +171,7 @@ var page_rows = function(sels){	// 출력 갯수
 ?>
 <tr>
 	<td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
-	<td>Гишүүнчлэлийн ангилал</td>
+	<td>회원구분</td>
 	<td><?php echo $val['mb_id'];?></td>
 	<td><?php echo $val['mb_email'];?></td>
 	<td><?php echo (@in_array('email',$mb_receive))?'<b>Yes</b>':'No';?></td>
@@ -185,13 +186,13 @@ var page_rows = function(sels){	// 출력 갯수
 
 <dl class="page mb50">
 <?php include_once "../include/paging.php"; ?>
-<dt><a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a></dt>
+<dt><a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a></dt>
 <dd class="">
 <select name="send_selMember" style="height:23px; padding:3px;" id="send_selMember">
-	<option value="0">Хайлтын жагсаалтад байгаа бүх гишүүдэд</option>
-	<option value="1">Зөвхөн сонгогдсон гишүүдийн хувьд</option>
+	<option value="0">현재 검색리스트에 있는 모든 회원에게</option>
+	<option value="1">선택한 회원에게만</option>
 </select>
-	<a onClick="sel_pop_email();" class="cbtn grf_col lnb_col" style="width:80px"><h1 class="btn23 b">И-мэйл харах</h1></a>
+<a onClick="sel_pop_email();" class="cbtn grf_col lnb_col" style="width:80px"><h1 class="btn23 b">메일보내기</h1></a>
 </dd>
 </dl>
 
@@ -212,10 +213,10 @@ var showRequest = function(formData, jqForm, options){
 	var sendFrm = jqForm.attr('name');
 	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
 		$('#pop_mail').hide();
-		$('#status_info').html("<span style='font-size:9pt;'><p>И-мэйл илгээж байна ...<p><Br/><font color=crimson><b>[Амжилттай]</b></font> гарж иртэл ачаалаж болохгүй.<p></span>");
+		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
 		$.blockUI({ 
 			theme: true,
-			title: 'Гишүүний и-мэйл илгээх',
+			title: '회원 이메일 전송중',
 			showOverlay: false,
 			message: $('#email_status')
 		});
@@ -229,7 +230,7 @@ var showResponse = function(responseText, statusText, xhr, $form){
 
 	var results = responseText.split('/');
 
-	$('#status_info').append("<br/><br/> "+results[2]+" <font color=crimson><b>[Амжилттай]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='Батлах' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+	$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
 
 }
 </script>
