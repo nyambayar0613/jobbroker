@@ -37,8 +37,8 @@ var content_view = function( no ){
 			<?php include_once "../include/navi.php"; ?>
 		</dl>
 		<dl class="notbox"><dl>
-		Тогтмол шуудангаар / SMS илгээсэн түүх<br/>
-		Хэрэглэгчийн удирдлага ашиглана уу<br/>
+		정기 메일링 / SMS 발송 내역 입니다.<br/>
+		고객관리에 활용하시기 바랍니다.<br/>
 		</dl></dl>
 
 		<dl class="srchb lnb4_col bg2_col">
@@ -50,35 +50,35 @@ var content_view = function( no ){
 			<table class="bg_col" id="dsrch">
 			<col width=90><col><col width=90><col>
 			<tr>
-				<td class="ctlt">Ангилал</td>
+				<td class="ctlt">구분</td>
 				<td class="pdlnb2">
-					<label><input type="radio" name="wr_type" class="radio" value="email" <?php echo ($wr_type=='email')?'checked':'';?>/>И-мэйл</label> &nbsp;
+					<label><input type="radio" name="wr_type" class="radio" value="email" <?php echo ($wr_type=='email')?'checked':'';?>/>이메일</label> &nbsp;
 					<label><input type="radio" name="wr_type" class="radio" value="sms" <?php echo ($wr_type=='sms')?'checked':'';?>/>SMS</label> &nbsp;
 				</td>
-				<td class="ctlt">Хүлээн авагчийн гишүүний төрөл</td>
+				<td class="ctlt">수신회원 유형</td>
 				<td class="pdlnb2">
-					<label><input type="radio" name="wr_mb_type" class="radio" value="company" <?php echo ($wr_mb_type=='company')?'checked':'';?>/>Байгууллага</label> &nbsp;
-					<label><input type="radio" name="wr_mb_type" class="radio" value="individual" <?php echo ($wr_mb_type=='individual')?'checked':'';?>/>Хувь хүн</label> &nbsp;
+					<label><input type="radio" name="wr_mb_type" class="radio" value="company" <?php echo ($wr_mb_type=='company')?'checked':'';?>/>기업회원</label> &nbsp;
+					<label><input type="radio" name="wr_mb_type" class="radio" value="individual" <?php echo ($wr_mb_type=='individual')?'checked':'';?>/>개인회원</label> &nbsp;
 				</td>
 			</tr>
 			</table>
 
 			<dl class="tc pd7 wbg">
-				<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='хайх'></span>
+				<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
 			</dl>
 
 			</form>
 		</dl>
 
-		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Илгээх утга
-			<span>Нийт <b class="num3 col"><?php echo number_format($list['total_count']);?></b>төрөл илгээгдлээ.</span>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">메일링 발송내역
+			<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 발송되었습니다.</span>
 			<dt>
 				<select name="page_rows" onchange="page_rows(this);">
-					<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25ш</option>
-					<option value='45' <?php echo ($page_rows==45)?'selected':'';?>>45ш</option>
-					<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60ш</option>
-					<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80ш</option>
-					<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+					<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25개 출력</option>
+					<option value='45' <?php echo ($page_rows==45)?'selected':'';?>>45개 출력</option>
+					<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60개 출력</option>
+					<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80개 출력</option>
+					<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 				</select>
 			</dt>
 		</dl>  
@@ -86,12 +86,12 @@ var content_view = function( no ){
 		<table width="100%" class="ttlt">
 		<col width="5%"><col width="12%"><col width="5%"><col><col width="5%"><col width="8%">
 		<tr class="bg">
-			<td>Ангилал</td>
-			<td>Хүлээн авах гишүүн</td>
-			<td>Гишүүнчлэлийн төрөл</td>
-			<td>Илгээх утга</td>
-			<td>Агуулга</td>
-			<td class="e">Илгээсэн огноо</td>
+			<td>구분</td>
+			<td>수신회원</td>
+			<td>회원유형</td>
+			<td>발송제목</td>
+			<td>발송내용</td>
+			<td class="e">발송일</td>
 		</tr>
 		<?php if(!$list['total_count']){ ?>
 		<tr><td colspan="6" class="stlt"></td></tr>
@@ -103,9 +103,9 @@ var content_view = function( no ){
 			<td><?php echo ($val['wr_type']=='email')?'이메일':'SMS';?></td>
 			<td><a onclick="pop_member('<?php echo $val['wr_id'];?>');" class="b"><?php echo $get_member['mb_id'];?> (<?php echo $get_member['mb_name'];?>)</a></td>
 			<td><?php echo $member_control->mb_type[$get_member['mb_type']];?></td>
-			<td><?php echo ($val['wr_type']=='email')?stripslashes($val['wr_subject']):"<dt><a onClick=\"content_view('".$val['no']."');\" class=\"btn\"><h1 class=\"btn23\">SMS агуулга</h1></a></dt>";?></td>
+			<td><?php echo ($val['wr_type']=='email')?stripslashes($val['wr_subject']):"<dt><a onClick=\"content_view('".$val['no']."');\" class=\"btn\"><h1 class=\"btn23\">SMS 발송내용</h1></a></dt>";?></td>
 			<td>
-				<dt><a onClick="content_view('<?php echo $val['no'];?>');" class="btn"><h1 class="btn23">Агуулга харах</h1></a></dt>
+				<dt><a onClick="content_view('<?php echo $val['no'];?>');" class="btn"><h1 class="btn23">내용보기</h1></a></dt>
 			</td>
 			<td class="e"><?php echo $val['wr_wdate'];?></td>
 		</tr>
