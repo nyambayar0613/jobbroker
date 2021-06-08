@@ -178,7 +178,7 @@ var sel_delete_member = function(){		// 선택삭제
 	} else {
 		$('#quest_info').hide();
 		$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/><br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>устгах уу");
-		var del_no = new Array();
+ 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
