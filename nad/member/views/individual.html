@@ -778,12 +778,12 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	$mb_name .= " (".$get_gender."/".$get_age."세)";
 
 	$mb_wdate = substr($val['mb_wdate'],0,11);	// 가입일
-	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>탈퇴미요청</span>";
-	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>미탈퇴</span>";
+	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>Цуцлах хүсэлт буцаах</span>";
+	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>Цуцлахгүй</span>";
 
 	if($val['mb_left_request']){
 		$mb_left_request_date = $val['mb_left_request_date'];
-		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>탈퇴요청중</span>";
+		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>Цуцлах хүсэлт</span>";
 	}
 	if($val['mb_left']){
 		$mb_left_request_date = $val['mb_left_request_date'];
@@ -832,14 +832,14 @@ var service_opens = function( mb_id ){	// 열람 서비스
 <dl class="page mb50">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
-		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг устгах</h1></a>
+		<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
+		<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">И-мэйл илгээх</h1></a>
 	</dt>
 	<dd>
-		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>회원등급</h1></a>
-		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
-		<a onClick="update_member('insert','','individual');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
+		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Гишүүнчлэлийн зэрэг</h1></a>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
+		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүний бүртгэл</h1></a>
 	</dd>
 
 	<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
@@ -883,10 +883,10 @@ var showRequest = function(formData, jqForm, options){
 	var sendFrm = jqForm.attr('name');
 	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
 		$('#pop_mail').hide();
-		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
+		$('#status_info').html("<span style='font-size:9pt;'><p>И-мэйл илгээж байна ...<p><Br/><font color=crimson><b>[Амжилттай]</b></font> гарж иртэл ачаалаж болохгүй.<p></span>");
 		$.blockUI({ 
 			theme: true,
-			title: '회원 이메일 전송중',
+			title: 'Гишүүний и-мэйл илгээх',
 			showOverlay: false,
 			message: $('#email_status')
 		});
@@ -922,7 +922,7 @@ var showResponse = function(responseText, statusText, xhr, $form){
 
 	} else if( results[0] == 'email' ) {	// 이메일 전송
 
-		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+		$('#status_info').append("<br/><br/>총 "+results[2]+" төрөл <font color=crimson><b>[Амжилттай]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='Батлах' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
 
 	} else if( results[0] == 'member' ){	 // 회원 등록/수정 결과
 
