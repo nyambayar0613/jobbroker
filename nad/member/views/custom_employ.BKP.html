@@ -3,7 +3,7 @@
 <script>
 var page_rows = function(sels){	// 출력 갯수
 	var sel = sels.value, send_url = "<?php echo $member_list['send_url'];?>";
-	location.href = "./custom_individual.php?"+send_url+"&page_rows=" + sel;
+	location.href = "./custom_employ.php?"+send_url+"&page_rows=" + sel;
 }
 var pop_member = function( mb_id ){		// 회원 정보
 	$('#pop_info').load('../member/views/_load/member.php', { mode:'get_member', mb_id:mb_id }, function(){
@@ -23,7 +23,7 @@ var customInfo_open = function( mb_id ){
 	}
 }
 var update_custom = function( no, mb_id ){
-	$('#pop_info').load('./views/_load/member.php', { mode:'custom_individual', no:no, mb_id:mb_id }, function(result){
+	$('#pop_info').load('./views/_load/member.php', { mode:'custom_employ', no:no, mb_id:mb_id }, function(result){
 		$('#pop_custom').show();
 		$('#pop_custom').draggable({ handle: "#customHandle" });
 		$('#pop_custom').center();
@@ -61,12 +61,12 @@ var age_sel = function( vals ){	// 연령 제한 선택
 }
 var delete_custom = function( no ){	 // 삭제
 	$('#quest_info').show();
-	$('#confirm_msg').html("Устгасан мэдээллтйг сэргээх боломжгүй.<br/><br/>Мэдээллийг устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 불가능 합니다.<br/><br/>맞춤 채용정보 설정을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '맞춤 인재정보 설정 삭제',
+		title: '맞춤 채용정보 설정 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -76,11 +76,11 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 		switch(mode){
 			// 회원 삭제 (단수)
 			case 'delete':
-				$.post('./process/custom.php', { mode:'individual_delete', no:no } , function(result){
+				$.post('./process/custom.php', { mode:'employ_delete', no:no } , function(result){
 					if(result){
 						location.reload();
 					} else {
-						alert("<?php echo $alba_company_control->_errors('0009');?>");
+						alert("<?php echo $alba_individual_control->_errors('0014');?>");
 						$.unblockUI();
 						return false;
 					}
@@ -97,8 +97,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 <div id="email_status" style="display:none; cursor: default;">
@@ -119,22 +119,22 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 			<dl class="notbox">
 				<dl>
-				가입된 기업회원 정보를 기준으로 맞춤 인재정보 관리를 합니다.<br/>
+				가입된 개인회원 정보를 기준으로 맞춤 채용정보 관리를 합니다.<br/>
 				각 회원별 <span class="btn23 wbl">설정정보열람</span> 을 클릭하시면 맞춤 인재정보를 확인할수 있습니다.
 				</dl>
 			</dl>
 			<?php include_once "./views/_include/search.php"; ?>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"> Санал болгох хүний нөөцийн мэдээллийг удирдах
-				<span>Нийт <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>хүн олдлоо.</span>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원관리
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
 				<dt>
-					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
 					<select name="page_rows" onchange="page_rows(this);">
-						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25ш</option>
-						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40ш</option>
-						<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60ш</option>
-						<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80ш</option>
-						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25개 출력</option>
+						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40개 출력</option>
+						<option value='60' <?php echo ($page_rows==60)?'selected':'';?>>60개 출력</option>
+						<option value='80' <?php echo ($page_rows==80)?'selected':'';?>>80개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 					</select>
 				</dt>
 			</dl>  
@@ -143,16 +143,16 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<col width="2%"><col width="12%"><col><col><col><col><col><col><col><col><col width="6%">
 			<tr class="bg">
 				<td><!-- <input name="check_all" type="checkbox"> --></td>
-				<td>Гишүүний мэдээлэл</td>
-				<td>Ажил мэргэжил</td>
-				<td>Ажлын байршил</td>
-				<td>Ажлын цаг</td>
-				<td>Хүйс</td>
-				<td>Нас</td>
-				<td>Адбан тушаал</td>
-				<td>Хүлээн авагч</td>
-				<td>Хадгалсан өдөр</td>
-				<td class="e">Өөрчлөх</td>
+				<td>회원정보</td>
+				<td>업직종</td>
+				<td>근무지</td>
+				<td>근무일시</td>
+				<td>성별</td>
+				<td>연령</td>
+				<td>근무형태</td>
+				<td>메일링수신</td>
+				<td>저장일</td>
+				<td class="e">편집</td>
 			</tr>
 
 			<tbody id="member_list">
@@ -160,7 +160,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<tr><td colspan="18" class="stlt"></td></tr>
 			<?php } else { 
 				foreach($member_list['result'] as $val){
-				$custom_titles = $alba_company_control->custom_titles($val['mb_id']);	 // 타이틀 뽑기
+				$custom_titles = $alba_individual_control->custom_titles($val['mb_id']);	 // 타이틀 뽑기
 				//$custom_list = $alba_company_control->custom_list("", "", " where `is_delete` = 0 ");
 				$custom_title_count = count($custom_titles);
 				$last_save_time = $custom_titles[$custom_title_count-1]['wdate'];
@@ -169,10 +169,10 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 				<td><!-- <input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"> --></td>
 				<td id="tr_<?php echo $val['mb_id'];?>"><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class="b"><?php echo $val['mb_id'];?> (<?php echo $val['mb_name'];?>)</a></td>
 				<td colspan="8">
-					<span<?php echo ($custom_title_count)?" class='b'":"";?>>Хүний нөөцийн мэдээлэл хадгалах :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / Нийт <?php echo number_format($custom_title_count);?>төрөл хадгалагдлаа.</span>
+					<span<?php echo ($custom_title_count)?" class='b'":"";?>>최종 맞춤 채용정보 저장 :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / 총 <?php echo number_format($custom_title_count);?>건 저장</span>
 				</td>
 				<td class="edit e">
-					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">Тохиргооны мэдээллийг үзэх</h1></a></dt>
+					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">설정정보열람</h1></a></dt>
 				</td>
 			</tr>
 			<?php 
@@ -237,7 +237,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 					<td><?php echo $custom_gender;?></td>
 					<td><?php echo $custom_age;?></td>
 					<td><?php echo @implode($custom_work_types,",");?></td>
-					<td>И-мэйл : <?php echo ($custom['wr_email'])?'<b>хүлээн авсан</b>':'хүлээн аваагүй';?>/ SMS : <?php echo ($custom['wr_sms'])?'<b>хүлээн авсан</b>':'хүлээн аваагүй';?></td>
+					<td>이메일 : <?php echo ($custom['wr_email'])?'<b>수신</b>':'미수신';?>/ SMS : <?php echo ($custom['wr_sms'])?'<b>수신</b>':'미수신';?></td>
 					<td><?php echo $custom['wdate'];?></td>
 					<td class="edit e">
 						<p style="display:inline-block; width:85px;">
@@ -279,8 +279,9 @@ var showResponse = function(responseText, statusText, xhr, $form){
 	if(responseText){
 		location.reload();
 	} else {
-		alert("<?php echo $alba_company_control->_errors('0008');?>");
+		alert("<?php echo $alba_individual_control->_errors('0013');?>");
 	}
 }
 </script>
+
 <?php include_once "../include/tail.php";?>
