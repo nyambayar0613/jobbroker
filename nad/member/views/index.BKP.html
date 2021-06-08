@@ -62,13 +62,13 @@ var mail_send = function( no ){	// 메일 발송
 			ed_content.returnFalse();
 			return false;
 		}
-		$('#confirm_msg').html("И-мэйл илгээх үү?<br/><br/>Хүлээн авахаас татгалзсан эсэхээё үл хамааран илгээх учир<br/> анхаарна уу.");
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'e\n' +
-				'\t\t$(\'#quest_info\').show();mail\',\''+no+'\');" value="예" />');
+		$('#quest_info').show();
+		$('#confirm_msg').html("메일을 전송하시겠습니까?<br/><br/>메일 수신거부와 상관없이 무조건 메일이 전송 되오니<br/> 유념하시기 바랍니다.");	
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'И-мэйл илгээлт батлах',
+			title: '메일 전송 확인',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -89,7 +89,7 @@ var update_member = function(mode, no, mb_type){	 // 입력/수정
 			/* 필수 항목일 경우 주석 제거 하세요.
 			if (document.getElementById('tx_mb_biz_vision')) {
 				if (!ed_mb_biz_vision.outputBodyText()) { 
-					alert('Байгууллагын тухай мэдээлэл оруулна уу.');
+					alert('기업개요 및 비전을 입력하십시오.'); 
 					ed_mb_biz_vision.returnFalse();
 					return;
 				}
@@ -99,7 +99,7 @@ var update_member = function(mode, no, mb_type){	 // 입력/수정
 			/* 필수 항목일 경우 주석 제거 하세요.
 			if (document.getElementById('tx_mb_biz_result')) {
 				if (!ed_mb_biz_result.outputBodyText()) { 
-					alert('Байгууллагын тухай мэдээлэл оруулна уу.');
+					alert('기업개요 및 비전을 입력하십시오.'); 
 					ed_mb_biz_result.returnFalse();
 					return;
 				}
@@ -140,7 +140,7 @@ var mb_types = function( vals ){	 // 회원구분
 }
 var delete_member = function( no ){	 // 삭제
 	$('#quest_info').show();
-	$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/><br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>устгах уу");
+	$('#confirm_msg').html("구인공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>구인공고 및 기업회원 정보가 삭제되면 개인회원이 취업활동 증명서를 발급할 수 없게 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능하니 되도록 데이터를 유지하시기 바랍니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>회원을 삭제하시겠습니까?");	
 	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
@@ -163,22 +163,22 @@ var pop_badness = function( no ){	// 불량 회원 등록
 var sel_delete_member = function(){		// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах гишүүнийг сонгоно уу.');
+		alert('삭제 할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/><br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>устгах уу");
+		$('#confirm_msg').html("구인공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>구인공고 및 기업회원 정보가 삭제되면 개인회원이 취업활동 증명서를 발급할 수 없게 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능하니 되도록 데이터를 유지하시기 바랍니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>선택하신 회원 정보"+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Гишүүний мэдээлэл устгах',
+			title: '회원 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -187,7 +187,7 @@ var sel_delete_member = function(){		// 선택삭제
 var sel_pop_email = function(){	// 선택 회원 메일전송
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('И-мэйл илгээх гишүүнийг сонгоно уу.');
+		alert('메일전송 할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		var mail_no = new Array();
@@ -208,7 +208,7 @@ var sel_pop_email = function(){	// 선택 회원 메일전송
 var sel_level = function(){	// 선택 회원 등급 수정
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Тохиргоо хийх гишүүнийг сонгоно уу.');
+		alert('등급을 수정할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		var level_no = new Array();
@@ -223,12 +223,12 @@ var sel_level = function(){	// 선택 회원 등급 수정
 			var sel_level = $('#mb_level :selected').text();
 			var sel_val = $('#mb_level :selected').val();
 			$('#quest_info').show();
-			$('#confirm_msg').html("сонгосон гишүүн "+chk_length+"төрлийг ["+sel_level+"] өөрчлөх үү?");
-			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="тийм" />');
+			$('#confirm_msg').html("선택한 회원 "+chk_length+"건을 ["+sel_level+"] 등급으로 수정 하시겠습니까?");	
+			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="예" />');
 			// 질의(Confirm) 창 띄우기
 			$.blockUI({ 
 				theme: true,
-				title: 'Тохиргоог батлах',
+				title: '회원 등급 수정 확인',
 				showOverlay: false,
 				message: $('#question')
 			});
@@ -335,8 +335,8 @@ var member_login = function( mb_id, mb_type ){
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 <div id="email_status" style="display:none; cursor: default;">
@@ -357,38 +357,38 @@ var member_login = function( mb_id, mb_type ){
 			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 			<dl class="notbox">
 				<dl>
-				    Нийт гишүүдийн бүртгэл, засвар, устгах зэрэг удирдлага хийх.<br/>
-					Гишүүний ID-г дарахад хамаарах дэлгэрэнгүй хуудас руу үсрэнэ.<br/>
-					Текст (SMS) -ийг гараар цэнэглэх эсвэл хасах үед SMS жагсаалтыг дарж текст мессежний тоог засах хэрэгтэй.<br/>
-					(▼)Дарж эрэмбэлэгдсэн жагсаалтыг харна уу. <br/>
-					Excel-ийг хадгалах товчийг дарж шалгасан гишүүдийн мэдээллийг Excel файл хэлбэрээр татаж авна уу.<br/>
+				    전체회원의 등록, 수정, 삭제 등을 관리 하실 수 있습니다.<br/>
+					회원ID를 클릭하시면 해당 회원의 상세페이지로 이동합니다.<br/> 
+					문자(SMS)를 수동으로 충전, 차감할때는 리스트에서 SMS 목록을 클릭하시면 문자 건수등을 수정하실수 있습니다.<br/> 
+					(▼) 클릭시 내림, 올림차순으로 정렬된 리스트를 보실수 있습니다. <br/> 
+					엑셀저장 버튼을 클릭하시면 체크한 해당 회원정보를 엑셀파일로 다운받아보실 수 있습니다.<br/> 
 				</dl>
 			</dl>
 			<?php include_once "./views/_include/search.php"; ?>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүд удирдах
-				<span>Нийт <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>Хүн олдлоо.</span>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">회원관리
+				<span>총 <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>명의 회원이 검색되었습니다.</span>
 				<dt>
-					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
 					<select name="page_rows" onchange="page_rows(this);">
-						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
-						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш</option>
-						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
-						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
-						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+						<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+						<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+						<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+						<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+						<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 					</select>
 				</dt>
 			</dl>  
 
 			<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
-					<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">Мэйл илгээх</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+					<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
 				</dt>
 				<dd>
-					<a href="./process/download.php<?php echo ($member_list['send_url'])?"?".$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
-					<a onClick="update_member('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүнчлэлийн бүртгэл</h1></a>
+					<a href="./process/download.php<?php echo ($member_list['send_url'])?"?".$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+					<a onClick="update_member('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
 				</dd>				
 			</dl>
 
@@ -396,20 +396,20 @@ var member_login = function( mb_id, mb_type ){
 			<col width="2%"><col width="7%"><col width="10%"><col ><col width="7%"><col width="5%" span="1"><col width="8%"><col width="5%"><col width="5%"><col width="5%"><col width="7%"><col width="6%"><col width="4%"><col width="4%"><col width="8%">
 			<tr class="bg">
 				<td><input name="check_all" type="checkbox"></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ангилал<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр/Хариуцсан хүн (хүйс/нас)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td title="Комиунити-д ашигладаг болно."><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн түвшин<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_type&flag=<?php echo ($sort=='mb_type'&&$flag=='asc')?'desc':'asc';?>">회원구분<span><?php echo ($sort=='mb_type'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">회원ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">이름/대표자 (성별/나이)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">회원등급<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>	
 				<!--
 				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_sms&flag=<?php echo ($sort=='mb_sms'&&$flag=='asc')?'desc':'asc';?>">SMS<span><?php echo ($sort=='mb_sms'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 				-->
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">Point<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_company_name&flag=<?php echo ($sort=='mb_company_name'&&$flag=='asc')?'desc':'asc';?>">Байгууллагын нэр<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">Ажлын зар<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_resume_count&flag=<?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'desc':'asc';?>">Анкет<span><?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">Ажилд орох өргөдөл<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_service_open&flag=<?php echo ($sort=='mb_service_open'&&$flag=='asc')?'desc':'asc';?>">Үйлчилгээ<span><?php echo ($sort=='mb_service_open'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">Элссэн огноо<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_point&flag=<?php echo ($sort=='mb_point'&&$flag=='asc')?'desc':'asc';?>">포인트<span><?php echo ($sort=='mb_point'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_company_name&flag=<?php echo ($sort=='mb_company_name'&&$flag=='asc')?'desc':'asc';?>">회사명<span><?php echo ($sort=='mb_company_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">구인공고<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_resume_count&flag=<?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'desc':'asc';?>">이력서<span><?php echo ($sort=='mb_alba_resume_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_alba_count&flag=<?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'desc':'asc';?>">입사지원<span><?php echo ($sort=='mb_alba_count'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_service_open&flag=<?php echo ($sort=='mb_service_open'&&$flag=='asc')?'desc':'asc';?>">열람서비스<span><?php echo ($sort=='mb_service_open'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 				
 				<!--<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_left_request_date&flag=<?php echo ($sort=='mb_left_request_date'&&$flag=='asc')?'desc':'asc';?>">탈퇴요청일<span><?php echo ($sort=='mb_left_request_date'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 				<td><a href="./index.php?<?php echo $member_list['send_url'];?>&sort=mb_left_date&flag=<?php echo ($sort=='mb_left_date'&&$flag=='asc')?'desc':'asc';?>">탈퇴일<span><?php echo ($sort=='mb_left_date'&&$flag=='asc')?'▲':'▼';?></span></a></td>
@@ -417,9 +417,9 @@ var member_login = function( mb_id, mb_type ){
 				<td>E-mail</td>
 
 				<td>메모</td>-->
-				<td>Алдаа гарсан эсэх</td>
-				<td>Нэвтрэх</td>
-				<td class="e">Өөрчлөх</td>
+				<td>불량</td>
+				<td>로그인</td>
+				<td class="e">편집</td>
 			</tr>
 
 			<tbody id="member_list">
@@ -428,7 +428,7 @@ var member_login = function( mb_id, mb_type ){
 			<?php } else { 
 				foreach($member_list['result'] as $val){
 				if($val['mb_type']=='individual'){
-					$individual_msg = "<span style='color:#dfdfdf;' title='개인회원 전용 정보입니다.'>Хувь хүн</span>";
+					$individual_msg = "<span style='color:#dfdfdf;' title='개인회원 전용 정보입니다.'>개인</span>";
 					$mb_type = "개인회원";
 					$mb_company_name = $individual_msg;
 					$mb_service_open = $individual_msg;
@@ -507,7 +507,7 @@ var member_login = function( mb_id, mb_type ){
 					</a>
 				</td>-->
 				<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 <?php echo (!$val['mb_badness'])?'정상':'불량';?>회원으로 변경 됩니다."><?php echo (!$val['mb_badness'])?'정상':'<b>불량</b>';?></a></td>
-				<td><a onClick="member_login('<?php echo $val['mb_id'];?>', '<?php echo $val['mb_type'];?>');">Нэвтрэх</a></td>
+				<td><a onClick="member_login('<?php echo $val['mb_id'];?>', '<?php echo $val['mb_type'];?>');">로그인</a></td>
 				<td class="edit e">
 				<p class="" style="display:inline-block; width:85px;">
 					<span style="display:inline-block;width:40px;cursor:pointer;margin-right:1px;"class="" onClick="update_member('update','<?php echo $val['no'];?>','<?php echo $val['mb_type'];?>');"><img src="../../images/btn/19_05.gif"></span><span style="display:inline-block;width:40px;cursor:pointer;"class="" onClick="delete_member('<?php echo $val['no'];?>');"><img src="../../images/btn/19_06.gif"></span>
@@ -528,25 +528,25 @@ var member_login = function( mb_id, mb_type ){
 			<dl class="page">
 				<?php include_once "../include/paging.php"; ?>
 				<dt>
-					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
-					<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">И-мэйл илгээх</h1></a>
+					<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+					<a onClick="sel_delete_member();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+					<a onClick="sel_pop_email();" class="btn"><h1 class="btn23">메일전송</h1></a>
 				</dt>
 				<dd>
-					<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Гишүүнчлэлийн зэрэг</h1></a>
-					<a href="./process/download.php<?php echo ($member_list['send_url'])?"?".$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
-					<a onClick="update_member('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүнчлэлийн бүртгэл</h1></a>
+					<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>회원등급</h1></a>
+					<a href="./process/download.php<?php echo ($member_list['send_url'])?"?".$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>엑셀저장</h1></a>
+					<a onClick="update_member('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>회원등록</h1></a>
 				</dd>
 
 				<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
-					Сонгосон гишүүнийг
+					선택한 회원을
 					<select name="mb_level" id="mb_level">
-						<option>Гишүүнчлэлийн зэрэг</option>
+						<option>회원등급</option>
 						<?php foreach($category_list as $val){ if($val['rank']=='1') continue;?>
 						<option value='<?php echo $val['rank']?>'><?php echo $val['name']?></option>
 						<?php } ?>
 					</select>
-					өөрчлөх <img src="../../images/btn/19_ok.gif" class='hand' id='levelChangeBtn'>
+					으로 수정 <img src="../../images/btn/19_ok.gif" class='hand' id='levelChangeBtn'>
 				</dl>
 			</dl>
 
@@ -585,10 +585,10 @@ var showRequest = function(formData, jqForm, options){
 	
 	if(sendFrm=='MemberEmailFrm'){	// 이메일 전송시
 		$('#pop_mail').hide();
-		$('#status_info').html("<span style='font-size:9pt;'><p>Мэйл илгээж байна ...<p><Br/><font color=crimson><b>[Амжилттай]</b></font>гэсэг үг гарч иртэл хүлээнэ үү.<p></span>");
+		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
 		$.blockUI({ 
 			theme: true,
-			title: 'Илгээж байна',
+			title: '회원 이메일 전송중',
 			showOverlay: false,
 			message: $('#email_status')
 		});
@@ -624,7 +624,7 @@ var showResponse = function(responseText, statusText, xhr, $form){
 
 	} else if( results[0] == 'email' ) {	// 이메일 전송
 
-		$('#status_info').append("<br/><br/>Нийт "+results[2]+" төрөл <font color=crimson><b>[амжилттай]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='Батлах' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
 
 	} else if( results[0] == 'member' ){	 // 회원 등록/수정 결과
 
