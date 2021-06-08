@@ -63,8 +63,8 @@ var update_company = function( mode, no ){
 }
 var deletes = function( no ){	// 삭제 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("한번 삭제된 데이터는 복구가 안됩니다.<br/><br/>기업정보를 삭제하시겠습니까?");	
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Байгууллагын мэдээллийг усгах уу?");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
@@ -80,14 +80,14 @@ var sel_deletes = function(){	// 선택삭제 (복수)
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("한번 삭제된 데이터는 복구가 안됩니다.<br/><br/>선택하신 기업 정보 "+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Устгасан мэдээллийг сэргээх боломжгүй.<br/><br/>Сонгосон мэдээллийг "+chk_length+"устгах уу?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
@@ -243,33 +243,33 @@ var postClose = function(){
 
 <dl class="notbox">
 	<dl>
-		기업회원의 기업정보를 관리 하는 페이지입니다.<br/>
-		회원ID 하나로 여러 기업정보를 등록 관리 할수 있습니다. <br/> 
-		엑셀저장 버튼을 클릭하시면 체크한 해당 회원정보를 엑셀파일로 다운받아보실 수 있습니다.<br/> 
+		Байгууллагын гишүүдийн мэдээллийг удирдах.<br/>
+		Yэг гишүүний үнэмлэхээр компанийн олон мэдээллийг бүртгэж, удирдах боломжтой. <br/>
+		Excel-ийг хадгалах товчийг дарж Excel файл хэлбэрээр татаж авна уу.<br/>
 	</dl>
 </dl>
 
 <?php include_once "./views/_include/company_search.php"; ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기업정보 관리
-	<span>총 <b class="num3 col"><?php echo number_format($list['total_count']);?></b>건의 기업정보가 검색되었습니다.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Байгууллагын мэдээлэл удирдах
+	<span>Нийт <b class="num3 col"><?php echo number_format($list['total_count']);?></b>төрөл мэдээ олдлоо.</span>
 	<dt>
 		<select name="page_rows" onchange="page_rows(this);">
-			<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25건 출력</option>
-			<option value='35' <?php echo ($page_rows==35)?'selected':'';?>>35건 출력</option>
-			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50건 출력</option>
-			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70건 출력</option>
-			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100건 출력</option>
+			<option value='25' <?php echo ($page_rows==25)?'selected':'';?>>25ш</option>
+			<option value='35' <?php echo ($page_rows==35)?'selected':'';?>>35ш</option>
+			<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
+			<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
+			<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
 		</select>
 	</dt>
 </dl>  
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>기업정보등록</h1></a>
+		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Мэлээлэл бүртгэх</h1></a>
 	</dd>
 </dl>
 
@@ -277,19 +277,19 @@ var postClose = function(){
 <col width="2%"><col span="12"><col width="6%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td>회원ID</td>
-	<td>대표기업</td>
-	<td>대표자명</td>
-	<td>회사명</td>
-	<td>회사분류</td>
-	<td>사업자등록번호</td>
-	<td>전화번호</td>
-	<td>휴대폰번호</td>
-	<td>팩스번호</td>
-	<td>이메일</td>
-	<td>기업형태</td>
-	<td>상장여부</td>
-	<td>편집</td>
+	<td>Гишүүний ID</td>
+	<td>Төлөөлөгч компани</td>
+	<td>Төлөөлөгчийн нэр</td>
+	<td>Байгууллагын нэр</td>
+	<td>Байгууллагын төрөл</td>
+	<td>Бизнес эрхлэгчийн бүртгэлийн дугаар</td>
+	<td>Холбогдох дугаар</td>
+	<td>Утасны дугаар</td>
+	<td>Факсын дугаар</td>
+	<td>И-мэйл</td>
+	<td>Ажлын хэлбэр</td>
+	<td>Жагсаалтанд орсон эсэх</td>
+	<td>Өөрчлөх</td>
 </tr>
 <tbody id="member_list">
 <?php if(!$list['total_count']){ ?>
@@ -327,11 +327,11 @@ var postClose = function(){
 <dl class="page mb50">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
 		<a onClick="sel_deletes();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>기업정보등록</h1></a>
+		<a onClick="update_company('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Байгууллагын мэдээллийн бүртгэл</h1></a>
 	</dd>
 </dl>
 
