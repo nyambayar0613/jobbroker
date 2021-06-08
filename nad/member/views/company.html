@@ -440,12 +440,12 @@ var service_opens = function( mb_id ){	// 열람서비스
 	$service_member = $member_control->get_service_member($val['mb_id']);
 	$mb_level = $member_control->get_level($val['mb_level']);	 // 회원등급
 	$mb_wdate = substr($val['mb_wdate'],0,11);	// 가입일
-	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>탈퇴미요청</span>";
-	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>Цуцлахгүй</span>";
+	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='Буцаах хүсэлт гаргаагүй гишүүн.'>Цуцлалт буцаах хүсэлт</span>";
+	$mb_left_date = "<span style='color:#dfdfdf;' title='Буцаах хүсэлт гаргаагүй гишүүн.'>Цуцлахгүй</span>";
 
 	if($val['mb_left_request']){
 		$mb_left_request_date = $val['mb_left_request_date'];
-		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>Цуцлах хүсэлт гаргасан</span>";
+		$mb_left_date = "<span style='color:#dfdfdf;' title='Цуцлах хүсэлт гаргасан гишүүн.'>Цуцлах хүсэлт гаргасан</span>";
 	}
 	if($val['mb_left']){
 		$mb_left_request_date = $val['mb_left_request_date'];
@@ -462,12 +462,12 @@ var service_opens = function( mb_id ){	// 열람서비스
 	<td><a onclick="pop_jumpcharge('<?php echo $val['no'];?>');" class="b"><?php echo ($val['mb_type']=='individual')?number_format($service_member['mb_resume_jump_count']):number_format($service_member['mb_alba_jump_count']);?></a></td>
 	<!-- <td><a onclick="pop_smscharge('<?php echo $val['no'];?>');" class="b"><?php echo number_format($val['mb_sms']);?></a></td> -->
 	<td><?php echo number_format($val['mb_point']);?></td>	
-	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>');" title="클릭하시면 이력서 열람서비스 기간을 조절할수 있습니다."><?php echo $val['mb_service_open'];?></a></td>
+	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>');" title="Дарж үйлчилгээг тохируулах боломжтой."><?php echo $val['mb_service_open'];?></a></td>
 	<td><?php echo ($val['mb_alba_count'])?"<a href='../alba/index.php?mode=search&page_rows=30&search_field=wr_id&search_keyword=".$val['mb_id']."' class='b'>".number_format($val['mb_alba_count'])."</a>":$val['mb_alba_count'];?></td>
 	<td title="<?php echo $val['mb_wdate'];?>"><?php echo $mb_wdate;?></td>
 	<!--<td><?php echo $mb_left_request_date;?></td>
 	<td><?php echo $mb_left_date;?></td>-->
-	<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 <?php echo ($val['mb_badness'])?'정상':'불량';?>회원으로 변경 됩니다."><?php echo (!$val['mb_badness'])?'정상':'<b>불량</b>';?></a></td>
+	<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 <?php echo ($val['mb_badness'])?'정상':'Алдаа';?>Гишүүнээр өөрчлөгдсөн."><?php echo (!$val['mb_badness'])?'정상':'<b>Алдаа</b>';?></a></td>
 
 	<td class="edit ">
 				<p class="" style="display:inline-block; width:85px;">
@@ -545,7 +545,7 @@ var showRequest = function(formData, jqForm, options){
 		$('#status_info').html("<span style='font-size:9pt;'><p>메일 전송중 ...<p><Br/><font color=crimson><b>[완료]</b></font> 이라는 단어가 나오기 전에는 새로고침 하지 마세요.<p></span>");
 		$.blockUI({ 
 			theme: true,
-			title: '회원 이메일 전송중',
+			title: 'Гишүүний и-мэйл илгээх',
 			showOverlay: false,
 			message: $('#email_status')
 		});
@@ -581,7 +581,7 @@ var showResponse = function(responseText, statusText, xhr, $form){
 
 	} else if( results[0] == 'email' ) {	// 이메일 전송
 
-		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[완료]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='확인' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
+		$('#status_info').append("<br/><br/>총 "+results[2]+" 건 전송 <font color=crimson><b>[Амжилттай]</b></font><br/><p align='center'><span id='emailConfirm'><input type='button' value='Батлах' style='width:40px;' onclick='$.unblockUI();'/> </span></p>");
 
 	} else if( results[0] == 'member' ){	 // 회원 등록/수정 결과
 
