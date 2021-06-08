@@ -97,8 +97,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
 	</p>
 </div> 
 <div id="email_status" style="display:none; cursor: default;">
@@ -128,7 +128,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүн удирдах
 				<span>Нийт <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>хүн олдлоо</span>
 				<dt>
-					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">항상 상세검색</label>&nbsp;
+					<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Дэлгэрэнгүй хайх</label>&nbsp;
 					<select name="page_rows" onchange="page_rows(this);">
 						<option value='25' <?php echo ($page_rows==15)?'selected':'';?>>25ш</option>
 						<option value='40' <?php echo ($page_rows==40)?'selected':'';?>>40ш</option>
@@ -149,7 +149,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 				<td>Ажлын цаг</td>
 				<td>Хүйс</td>
 				<td>Нас</td>
-				<td>Адбан тушаал</td>
+				<td>Албан тушаал</td>
 				<td>Хүлээн авагч</td>
 				<td>Хадгалсан өдөр</td>
 				<td class="e">Өөрчлөх</td>
@@ -169,7 +169,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 				<td><!-- <input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"> --></td>
 				<td id="tr_<?php echo $val['mb_id'];?>"><a onclick="pop_member('<?php echo $val['mb_id'];?>');" class="b"><?php echo $val['mb_id'];?> (<?php echo $val['mb_name'];?>)</a></td>
 				<td colspan="8">
-					<span<?php echo ($custom_title_count)?" class='b'":"";?>>최종 맞춤 채용정보 저장 :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] / 총 <?php echo number_format($custom_title_count);?>건 저장</span>
+					<span<?php echo ($custom_title_count)?" class='b'":"";?>>최종 맞춤 채용정보 저장 :: [<?php echo ($custom_title_count)?$last_save_time:"0000-00-00 00:00:00";?>] /Нийт <?php echo number_format($custom_title_count);?>건 저장</span>
 				</td>
 				<td class="edit e">
 					<dt><a onClick="customInfo_open('<?php echo $val['mb_id'];?>');" class="btn"><h1 class="btn23<?php echo ($custom_titles)?' wbl':'';?>">Тохиргооны мэдээллийг үзэх</h1></a></dt>
