@@ -152,7 +152,7 @@ var mb_types = function( vals ){	 // 회원구분
 var delete_member = function( no ){	 // 삭제
 	$('#quest_info').show();
 	$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>Сонгогдсон гишүүдийн мэдээлэл"+chk_length+"устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
@@ -178,7 +178,7 @@ var sel_delete_member = function(){		// 선택삭제
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("구인공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>선택하신 회원 정보"+chk_length+"건을 삭제 하시겠습니까?");
+		$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/><br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>устгах уу");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
