@@ -70,12 +70,12 @@ var mail_send = function( no ){	// 메일 발송
 			return false;
 		}
 		$('#quest_info').show();
-		$('#confirm_msg').html("Та SMS илгээх үү? <br/> <br/> Хүлээн авахаас татгалзсан эсэхээс үл хамааран илгээнэ.");
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="тийм" />');
+		$('#confirm_msg').html("메일을 전송하시겠습니까?<br/><br/>메일 수신거부와 상관없이 무조건 메일이 전송 되오니<br/> 유념하시기 바랍니다.");	
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'email\',\''+no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'И-мэйл баталгаажуулна уу',
+			title: '메일 전송 확인',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -96,7 +96,7 @@ var update_member = function(mode, no, mb_type){	 // 입력/수정
 			/* 필수 항목일 경우 주석 제거 하세요.
 			if (document.getElementById('tx_mb_biz_vision')) {
 				if (!ed_mb_biz_vision.outputBodyText()) { 
-					alert('Компанийн танилцуулга, зорилт оруулна уу');
+					alert('기업개요 및 비전을 입력하십시오.'); 
 					ed_mb_biz_vision.returnFalse();
 					return;
 				}
@@ -106,7 +106,7 @@ var update_member = function(mode, no, mb_type){	 // 입력/수정
 			/* 필수 항목일 경우 주석 제거 하세요.
 			if (document.getElementById('tx_mb_biz_result')) {
 				if (!ed_mb_biz_result.outputBodyText()) { 
-					alert('Компанийн танилцуулга, зорилт оруулна уу');
+					alert('기업개요 및 비전을 입력하십시오.'); 
 					ed_mb_biz_result.returnFalse();
 					return;
 				}
@@ -150,12 +150,12 @@ var mb_types = function( vals ){	 // 회원구분
 }
 var delete_member = function( no ){	 // 삭제
 	$('#quest_info').show();
-	$('#confirm_msg').html("Ажлын байрны танилцуулга, анкет гэх мэт гишүүдтэй холбоотой мэдээллийг хамтад нь устгана.<br/><br/><br/><br/>Устгасан мэдээллийгсэргээх боломжгүй.<br/><br/>Мөн устгасан гишүүдийн мэдээллийг 'гишүүнээс гарах' руу шилжүүлэхгүй.<br/><br/>устгах уу");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("채용공고,이력서등 회원과 관련된 데이터들은 모두 함께 삭제 됩니다.<br/><br/>한번 삭제된 데이터들은 복구가 불가능합니다.<br/><br/>또한 이곳에서 삭제된 회원 데이터는 '탈퇴 회원' 으로 이동되지 않습니다.<br/><br/>회원을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Гишүүний мэдээлэл устгах',
+		title: '회원 정보 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -173,7 +173,7 @@ var pop_badness = function( no ){	// 불량 회원 등록
 var sel_delete_member = function(){		// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах гишүүнээ сонгоно уу.');
+		alert('삭제 할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
@@ -188,7 +188,7 @@ var sel_delete_member = function(){		// 선택삭제
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Гишүүний мэдээлэл устгах',
+			title: '회원 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -197,7 +197,7 @@ var sel_delete_member = function(){		// 선택삭제
 var sel_pop_email = function(){	// 선택 회원 메일전송
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('И-мэйл илгээх гишүүнээ сонгоно уу.');
+		alert('메일전송 할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		var mail_no = new Array();
@@ -218,7 +218,7 @@ var sel_pop_email = function(){	// 선택 회원 메일전송
 var sel_level = function(){	// 선택 회원 등급 수정
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Түвшин зэрэглэлийг засварлах гишүүнээ сонгоно уу.');
+		alert('등급을 수정할 회원을 선택해 주세요.');
 		return false;
 	} else {
 		var level_no = new Array();
@@ -233,12 +233,12 @@ var sel_level = function(){	// 선택 회원 등급 수정
 			var sel_level = $('#mb_level :selected').text();
 			var sel_val = $('#mb_level :selected').val();
 			$('#quest_info').show();
-			$('#confirm_msg').html("Сонгосон гишүүн "+chk_length+"төрөл ["+sel_level+"] түвшинг өөрчлөх үү?");
-			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="тийм" />');
+			$('#confirm_msg').html("선택한 회원 "+chk_length+"건을 ["+sel_level+"] 등급으로 수정 하시겠습니까?");	
+			$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_level\',\''+level_no+'\',\''+sel_val+'\');" value="예" />');
 			// 질의(Confirm) 창 띄우기
 			$.blockUI({ 
 				theme: true,
-				title: 'Гишүүнчлэлийн зэрэглэл засварлалт батлах ',
+				title: '회원 등급 수정 확인',
 				showOverlay: false,
 				message: $('#question')
 			});
@@ -686,8 +686,8 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -705,11 +705,11 @@ var service_opens = function( mb_id ){	// 열람 서비스
 
 <dl class="notbox">
 	<dl>
-				    Гишүүдийн бүртгэл, өөрчлөх, устгах үйл ажиллагааг удирдаж болно.<br/>
-					Гишүүний ID дээр дарж гишүүний дэлгэрэнгүй хуудас руу орно уу.<br/>
-					SMS жагсаалтыг дарж текст мессежний тоог засах боломжтой.<br/>
-					(▼) Буурах эсвэл өсөх дарааллаар эрэмбэлэгдсэн жагсаалтыг харахын тулд дарна уу. <br/>
-					Excel-ийг хадгалах товчийг дарж шалгасан гишүүдийн мэдээллийг Excel файл хэлбэрээр татаж авна уу.<br/>
+				    개인회원의 등록, 수정, 삭제 등을 관리 하실 수 있습니다.<br/>
+					회원ID를 클릭하시면 해당 회원의 상세페이지로 이동합니다.<br/> 
+					문자(SMS)를 수동으로 충전, 차감할때는 리스트에서 SMS 목록을 클릭하시면 문자 건수등을 수정하실수 있습니다.<br/> 
+					(▼) 클릭시 내림, 올림차순으로 정렬된 리스트를 보실수 있습니다. <br/> 
+					엑셀저장 버튼을 클릭하시면 체크한 해당 회원정보를 엑셀파일로 다운받아보실 수 있습니다.<br/> 
 	</dl>
 </dl>
 
