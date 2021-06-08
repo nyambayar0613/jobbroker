@@ -94,7 +94,7 @@ var change_group_rank = function( direction, src ){	// 배너 그룹 순위 조�
 	if(direction =='up'){	
 		var next_no = $('tr.banner_group_list', $(parent)).first().attr('p_no');
 		if(p_no == next_no){
-			alert('highest rank.');
+			alert('최상위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.banner_group_list').prev().attr('p_no');
@@ -102,7 +102,7 @@ var change_group_rank = function( direction, src ){	// 배너 그룹 순위 조�
 	} else if(direction =='down'){
 		var next_no = $('tr.banner_group_list', $(parent)).last().attr('p_no');
 		if(p_no == next_no){
-			alert('lowest rank.');
+			alert('최하위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.banner_group_list').next().attr('p_no');
@@ -128,15 +128,15 @@ var change_rank = function( direction, src, p_no ){	// 배너 그룹내 순위 �
 	if(direction =='up'){
 		var next_no = $('tr.banner_list', $(parent)).first().attr('no');
 		if(no == next_no){
-			alert('highest rank.');
+			alert('최상위 순위 입니다.');
 			return false;
 		} else {
-			next_no = $(src).parents('tr.banner_group_list').prev().attr('p_no');
+			next_no = $(src).parents('tr.banner_list').prev().attr('no');
 		}
 	} else if(direction =='down'){
-		var next_no = $('tr.banner_group_list', $(parent)).last().attr('p_no');
-		if(p_no == next_no){
-			alert('lowest rank.');
+		var next_no = $('tr.banner_list', $(parent)).last().attr('no');
+		if(no == next_no){
+			alert('최하위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.banner_list').next().attr('no');
@@ -162,13 +162,13 @@ var banner_views = function( no ){	// 리스트상 배너 출력/미출력
 			alert("<?php echo $banner_control->_errors('0003');?>");
 		} else {
 			if(result==1){
-				msg = "Ашиглана";
+				msg = "사용";
 				results = "<a onClick=\"banner_views('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><strong class=\"col\">O</strong>"+msg+"</h1></a>";
 			} else {
-				msg = "Ашиглахгүй";
+				msg = "미사용";
 				results = "<a onClick=\"banner_views('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><strong>X</strong>"+msg+"</h1></a>";
 			}
-			alert("Banner ["+msg+"] өөрчлөх үү?");
+			alert("배너를 ["+msg+"] 으로 변경했습니다.");
 			$('#views_'+no).html(results);
 		}
 	});
@@ -179,9 +179,9 @@ var banner_targets = function( no ){	// 리스트상 배너 타겟 설정
 		if(result == '0004'){
 			alert("<?php echo $banner_control->_errors('0004');?>");
 		} else {
-			msg = (result) ? "Шиэж цонх" : "Үндсэн цонх";
+			msg = (result) ? "새창" : "본창";
 			results = "<a onClick=\"banner_targets('"+no+"');\" class=\"btn\"><h1 class=\"btn18\"><img src=\"../../images/ic/pop.gif\" class=\"mr2\">"+msg+"</h1></a>";
-			alert("Banner ["+msg+"] өөрчлөх үү?");
+			alert("배너를 ["+msg+"] 으로 변경했습니다.");
 			$('#targets_'+no).html(results);
 		}
 	});
@@ -189,12 +189,12 @@ var banner_targets = function( no ){	// 리스트상 배너 타겟 설정
 }
 var delete_banner = function( no ){	 // 리스트상 배너 삭제 (단수)
 	$('#quest_info').show();
-	$('#confirm_msg').html("Banner устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("배너를 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Banner мэдээлэл устгах',
+		title: '배너 정보 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -202,22 +202,22 @@ var delete_banner = function( no ){	 // 리스트상 배너 삭제 (단수)
 var sel_delete_banner = function(){	 // 배너 선택삭제 (그룹째 삭제)
 	var chk_length = $("input[name='p_no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах Banner мэдээллийг сонгоно уу.');
+		alert('삭제할 배너 정보를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон мэдээлэл"+chk_length+"устгах уу?");
+		$('#confirm_msg').html("선택하신 배너 정보"+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='p_no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Banner мэдээллийг сонгох, устгах',
+			title: '배너 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -225,24 +225,24 @@ var sel_delete_banner = function(){	 // 배너 선택삭제 (그룹째 삭제)
 }
 var sel_bannerViews = function( views ){	 // 선택 배너 사용
 	var chk_length = $("input[name='p_no[]']:checked").length;
-	var msg = (views=='yes') ? "Ашиглана" : "Ашиглахгүй";
+	var msg = (views=='yes') ? "사용" : "미사용";
 	if(chk_length==0){
-		alert('Солихын тулд Banner мэдээллийг сонгоно уу.');
+		alert('변경할 배너 정보를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').show();
-		$('#confirm_msg').html("Сонгосон Banner мэдээлэл["+msg+"] устгах уу?");
+		$('#confirm_msg').html("선택하신 배너 정보를 ["+msg+"] 으로 변경 하시겠습니까?");
 		var view_no = new Array();
 		var i = 0;
 		$("input[name='p_no[]']:checked").each(function(){
 			view_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Banner мэдээлэл ашиглана/ашиглахгүй тохируулах',
+			title: '배너 정보 사용/미사용 설정',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -251,13 +251,13 @@ var sel_bannerViews = function( views ){	 // 선택 배너 사용
 }
 var sel_bannerTargets = function( targets ){
 	var chk_length = $("input[name='p_no[]']:checked").length;
-	var msg = (targets=='_blank') ? "Шинэ цонх" : "Үндсэн цонх";
+	var msg = (targets=='_blank') ? "새창" : "본창";
 	if(chk_length==0){
-		alert('Солихын тулд Banner мэдээллийг сонгоно уу.');
+		alert('변경할 배너 정보를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').show();
-		$ ('# confirm_msg'). html ("Сонгосон баннерын мэдээллийг [" + msg + "] болгож өөрчлөх үү?");
+		$('#confirm_msg').html("선택하신 배너 정보를 ["+msg+"] 으로 변경 하시겠습니까?");
 		var target_no = new Array();
 		var i = 0;
 		$("input[name='p_no[]']:checked").each(function(){
@@ -268,7 +268,7 @@ var sel_bannerTargets = function( targets ){
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Баннерын мэдээллийн үндсэн / шинэ цонхны тохиргоо',
+			title: '배너 정보 본창/새창 설정',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -299,10 +299,10 @@ var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따
 			break;
 			case 'sel_view':	// 선택배너 사용/미사용
 				if(views=='yes'){
-					msg = "Ашиглана";
+					msg = "사용";
 					views = 1;
 				} else {
-					msg = "Ашиглахгүй";
+					msg = "미사용";
 					views = 0;
 				}
 				$.post('./process/banner.php', { mode:mode, no:no, views:views }, function(result){
@@ -314,7 +314,7 @@ var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따
 				});
 			break;
 			case 'sel_target':
-				var msg = (views=='_blank') ? "шинэ цонх" : "Үндсэн цонх";
+				var msg = (views=='_blank') ? "새창" : "본창";
 				$.post('./process/banner.php', { mode:mode, no:no, targets:views }, function(result){
 					if(result){
 						location.reload();
@@ -365,8 +365,8 @@ tr.banner_list td dl a img{max-width:800px;}
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -384,10 +384,12 @@ tr.banner_list td dl a img{max-width:800px;}
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-	Энэ хуудас нь баннеруудыг удирдана. Та жагсаалтын баруун талд байрлах <b class = "num3 col"> MAP GUIDE </b> аар хандаж баннер бүртгүүлэх боломжтой.<br>
-	Зургийн файлын нэр нь монгол хэлээр бичигдэхгүй бөгөөд үсэг, тоон тэмдэгтээс бүрдэх ёстой. жишээ) abc123.jpg <br>
-	Баннерын хамгийн дээд хэмжээ нь <b class = "num3 col"> 960px </b> байна. Та 960px хязгаарт багтаан бүртгүүлэх боломжтой. <br>
+배너를 관리하는 페이지입니다. 리스트 우측에 <b class="num3 col">위치별가이드</b>를 참고하셔어 배너를 등록하시면 됩니다. <br>
+이미지 파일명은 한글파일명은 안되며, 반드시 영문/숫자로 이루어져야 합니다. 예) abc123.jpg <br>
+배너사이즈는 가로 최대 <b class="num3 col">960px</b>입니다. 960px 한도내에서 여러개의 배너를 등록하실수 있습니다. <br>
+리스트에 보이는 배너의 스타일과 실제 사이트에 출력되는 배너의 스타일이 다를 수도 있습니다.<br>
  </dl></dl>
+
 
 <dl class="srchb lnb4_col bg2_col">
 <table class="bg_col">
@@ -428,7 +430,7 @@ var main_sel = function( design ){	// 스타일 설정
 <table class="bg_col">
   <col width=75><col>
   <tr>
-    <td class="ctlt"><img src="../../images/comn/bul_08.png" class="t">Main Style</td>
+    <td class="ctlt"><img src="../../images/comn/bul_08.png" class="t">메인스타일</td>
     <td class="pdlnb2">
 		<ul class="List">
 			<label><input name="main_skin" type="radio" value="01" class="radio" <?php echo ($design['main_skin']=='01')?'checked':'';?> onclick="main_sel('01');">Design 01</label>&nbsp;&nbsp;
@@ -458,33 +460,33 @@ var main_sel = function( design ){	// 스타일 설정
 </dl>
 <?php } ?>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $banner_title[$positions[0]] ." > " . $menu_name['name']; ?> Banner удирдах
-<span class="bar">Нийт <b class="num3 col"><?php echo number_format($banner_list['total_count']);?></b>ш Banner бүртгэгдлээ. <?php echo $position_msg;?></span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t"><?php echo $banner_title[$positions[0]] ." > " . $menu_name['name']; ?> 배너관리
+<span class="bar">총 <b class="num3 col"><?php echo number_format($banner_list['total_count']);?></b>개의 배너가 등록되었습니다. <?php echo $position_msg;?></span>
 <dt>
 <select name="page_rows" onchange="page_rows(this);">
-	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
-	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш</option>
-	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш</option>
-	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш</option>
-	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш</option>
+	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 </select>
 </dt>
 </dl> 
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
-		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>Ашиглах</h1></a>
-		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>Ашиглахгүй</h1></a>
-		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">Шинэ цонх</h1></a>
-		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">Үндсэн цонх</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>사용</h1></a>
+		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미사용</h1></a>
+		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">새창</h1></a>
+		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a>
 	</dt>
 	<dd style="right: 65px;">
 		<a style="cursor:pointer;" onclick="window.open('/nad/design/views/banner_nav.html','window','width=750, height=800,left=0, top=0, scrollbard=1, scrollbars=yes, resizable=yes')"class="cbtn org_col"><h1 class="btn23"><strong>+</strong>위치별 가이드</h1></a>
 	</dd>
 	<?php if($position){ ?>
 	<dd>
-		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Banner бүртгэл</h1></a>
+		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>배너등록</h1></a>
 	</dd>
 	<?php } ?>
 </dl>
@@ -492,12 +494,12 @@ var main_sel = function( design ){	// 스타일 설정
 <table width="100%" class="ttlt">
 <tr class="bg">
 	<td width="30"><input name="check_all" type="checkbox"></td>
-    <td width="60">"Group" дараалал</td>
-	<td width="90">Banner тохиргоо</td>
-    <td width="40">Дараалал</td>
-    <td>Banner мэдээлэл</td>
-    <td width="80">Бүртгэлийн огноо</td>
-	<td class="e" width="60">Өөрчлөх</td>
+    <td width="60">그룹순서</td>
+	<td width="90">배너설정</td>
+    <td width="40">순서</td>
+    <td>배너정보</td>
+    <td width="80">등록일</td>
+	<td class="e" width="60">편집</td>
 </tr> 
 
 	<tbody id="banner_group_list">
@@ -519,30 +521,30 @@ var main_sel = function( design ){	// 스타일 설정
 			<td>
 				<div class="pb2">
 					<select style="width:70px;" name="roll_type[<?php echo $p_no;?>]" onchange="roll_type('<?php echo $p_no;?>',this);">
-						<option value="0">Засах Banner</option>
-						<option value="1" <?php echo ($roll_info['roll_type'])?'selected':'';?>>Rolling banner</option>
+						<option value="0">고정배너</option>
+						<option value="1" <?php echo ($roll_info['roll_type'])?'selected':'';?>>롤링배너</option>
 					</select>
 				</div>
 				<div class="pb2 roll_type_<?php echo $p_no;?>" style="display:<?php echo ($roll_info['roll_type'])?'':'none';?>;" id="roll_direction_<?php echo $p_code;?>">
 					<select style="width:70px;" name="roll_direction[<?php echo $p_no;?>]">
-						<option value="0">Зүүн тал</option>
-						<option value="1" <?php echo ($roll_info['roll_direction']=='1')?'selected':'';?>>баруун тийш</option>
-						<option value="2" <?php echo ($roll_info['roll_direction']=='2')?'selected':'';?>>Дээд</option>
-						<option value="3" <?php echo ($roll_info['roll_direction']=='3')?'selected':'';?>>Доод</option>
+						<option value="0">좌측방향</option>
+						<option value="1" <?php echo ($roll_info['roll_direction']=='1')?'selected':'';?>>우측방향</option>
+						<option value="2" <?php echo ($roll_info['roll_direction']=='2')?'selected':'';?>>위 방향</option>
+						<option value="3" <?php echo ($roll_info['roll_direction']=='3')?'selected':'';?>>아래방향</option>
 					</select>
 				</div>
 				<div class="roll_type_<?php echo $p_no;?>" style="display:<?php echo ($roll_info['roll_type'])?'':'none';?>;" id="roll_time_<?php echo $p_no;?>"><input type="text" style="width:30px;"  class="txt" name="roll_time[<?php echo $p_no;?>]" value="<?php echo ($roll_info['roll_time'])?$roll_info['roll_time']:3;?>"> 초</div>
 
 				<div class="pb10" style="margin-top:3px;display:;" id="roll_turn_<?php echo $p_no;?>">
 					<select style="width:70px;" name="roll_turn[<?php echo $p_no;?>]">
-						<option value="0">Дараалсан өөрчлөлт</option>
-						<option value="1" <?php echo ($roll_info['roll_turn'])?'selected':'';?>>random change</option>
+						<option value="0">순차변경</option>
+						<option value="1" <?php echo ($roll_info['roll_turn'])?'selected':'';?>>랜덤변경</option>
 					</select>
 				</div>
 
-				<div class="fon11 col" style="line-height:1.2;display:<?php echo ($roll_info['roll_type'])?'none':'';?>;" id="roll_type_<?php echo $p_no;?>">Засах Banner</br> шинээр засаж</br> өөрчиллөө.</div>
+				<div class="fon11 col" style="line-height:1.2;display:<?php echo ($roll_info['roll_type'])?'none':'';?>;" id="roll_type_<?php echo $p_no;?>">고정배너는</br> 새로고침 시</br> 변경 됩니다.</div>
 
-				<div style="margin-top:3px;"><a onClick="banner_rolls('<?php echo $p_no;?>');" class="cbtn lnb_col grf_col"><h1 class="btn23">Хадгалах</h1></a></div>
+				<div style="margin-top:3px;"><a onClick="banner_rolls('<?php echo $p_no;?>');" class="cbtn lnb_col grf_col"><h1 class="btn23">저장</h1></a></div>
 			</td>
 			<td class="none e" colspan="4" style="padding:0; border-bottom:none; vertical-align:top;">
 				<table width="100%">
@@ -557,7 +559,7 @@ var main_sel = function( design ){	// 스타일 설정
 							<dl class="fon11 psr mb3">
 								<?php if($val['type']=='image' && $val['width'] && $val['height']){ ?>
 								<div style="min-height:25px;">
-								<span  class="banner mr5">Бүртгэгдсэн хэмжээ : <?php echo $val['width'];?>px x <?php echo $val['height'];?>px</span><?php } ?>
+								<span  class="banner mr5">등록사이즈 : <?php echo $val['width'];?>px x <?php echo $val['height'];?>px</span><?php } ?>
 								<?php if($val['url']){ ?><span class="banner"> URL : <?php echo $utility->add_http($val['url']);?> </span>
 								
 								<?php } ?>	
@@ -565,7 +567,7 @@ var main_sel = function( design ){	// 스타일 설정
 								<?php echo $banner_control->view_banner($val['no'],$val['type'],$val['position'], "", true);?>
 								<dt class="prt">
 									<span id="views_<?php echo $val['no'];?>">
-									<a onclick="banner_views('<?php echo $val['no'];?>');" class="btn"><h1 class="btn18"><?php if($val['view']){ ?><strong class='col'>O</strong>Ашиглана<?php } else { ?><strong>X</strong>Ашиглахгүй<?php } ?>
+									<a onclick="banner_views('<?php echo $val['no'];?>');" class="btn"><h1 class="btn18"><?php if($val['view']){ ?><strong class='col'>O</strong>사용<?php } else { ?><strong>X</strong>미사용<?php } ?>
 									</h1></a>
 									</span>
 									<?php if($val['type']=='image'){ ?>
@@ -602,16 +604,16 @@ var main_sel = function( design ){	// 스타일 설정
 <dl class="page mb50">
 	<?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонголт</h1></a>
-		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
-		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>Ашиглах</h1></a>
-		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>Ашиглахгүй</h1></a>
-		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">Шинэ цонх</h1></a>
-		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">Үндсэн цонх</h1></a>
+		<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+		<a onClick="sel_delete_banner();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_bannerViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>사용</h1></a>
+		<a onClick="sel_bannerViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미사용</h1></a>
+		<a onClick="sel_bannerTargets('_blank');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">새창</h1></a>
+		<a onClick="sel_bannerTargets('');" class="btn"><h1 class="btn23"><img src="../../images/ic/pop.gif" class="mr2">본창</h1></a>
 	</dt>
 	<?php if($position){ ?>
 	<dd>
-		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Banner бүртгэл</h1></a>
+		<a onClick="update_banner('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>배너등록</h1></a>
 	</dd>
 	<?php } ?>
 </dl>
@@ -626,44 +628,44 @@ var main_sel = function( design ){	// 스타일 설정
 <input type="hidden" name="type" id="type"/><!-- 배너 종류 -->
 
 	<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
-		<img src="../../images/comn/bul_10.png" class="t"><?php echo $menu_name['name'];?> Banner<label id='mode'>Бүртгүүлэх</label>
-		<span>Санал болгож буй хэмжээ : <label id='limit_width'><?php echo $menu_name['width'];?>px (дээд тал нь)</label> * <label id='limit_height'><?php echo ($menu_name['height']=='Хязгааргүй ')?' Хязгааргүй ': $ menu_name [' height '].' Px (дээд тал нь)';?></label> </span>
+		<img src="../../images/comn/bul_10.png" class="t"><?php echo $menu_name['name'];?> 배너<label id='mode'>등록</label>
+		<span>권장사이즈 : <label id='limit_width'><?php echo $menu_name['width'];?>px (최대)</label> * <label id='limit_height'><?php echo ($menu_name['height']=='제한없음')?'제한없음':$menu_name['height'].'px (최대)';?></label> </span>
 		<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 	</dl>
 	<table width="700" class="bg_col">
 	<col width=80><col>
 	<tr>
-		<td class="ctlt">Бүртгүүлэх арга</td>
+		<td class="ctlt">등록방식</td>
 		<td class="pdlnb2">
-			<label><input name="type" type="radio" value="image" class="radio" checked>Зураг оруулах</label> &nbsp; &nbsp;&nbsp;
-			<label><input name="type" type="radio" value="self" class="radio">Шууд утга оруулах</label> &nbsp; &nbsp;&nbsp;
-			<label><input name="type" type="radio" value="adsense" class="radio">Google Adsense</label>
+			<label><input name="type" type="radio" value="image" class="radio" checked>이미지업로드</label> &nbsp; &nbsp;&nbsp;
+			<label><input name="type" type="radio" value="self" class="radio">직접입력</label> &nbsp; &nbsp;&nbsp;
+			<label><input name="type" type="radio" value="adsense" class="radio">구글에드센스</label>
 		</td>
 	</tr>
 	<!-- 업로드 -->
 	<tr id="bannerSize" class="image_upload">
-		<td class="ctlt">Banner хэмжээ</td>
+		<td class="ctlt">배너크기</td>
 		<td class="pdlnb2">
-			<label><input name="size_set" type="radio" value="auto" class="radio" checked>Анхны зургийн хэмжээ</label> &nbsp;
-			<label><input name="size_set" type="radio" value="set" class="radio">Захиалгат хэмжээ</label> &nbsp;
+			<label><input name="size_set" type="radio" value="auto" class="radio" checked>원래이미지크기</label> &nbsp;
+			<label><input name="size_set" type="radio" value="set" class="radio">사용자지정크기</label> &nbsp;
 			<span id="size_set" style="display:none;">
-			Өргөн <input name="width" type="text" class="tnum" size="3"> px ,
-			Урт <input name="height" type="text" class="tnum" size="3"> px
+			가로 <input name="width" type="text" class="tnum" size="3"> px , 
+			세로 <input name="height" type="text" class="tnum" size="3"> px
 			</span>
 		</td>
 	</tr>
 	<tr id="bannerLink" class="image_upload">
-		<td class="ctlt">Холбох хаяг</td>
+		<td class="ctlt">연결주소</td>
 		<td class="pdlnb2">http://
 			<input name="url" type="text" class="txt w50" style="ime-mode:inactive;">
-			<input name="target" type="checkbox" value="_blank" class="check" checked>Шинэ цонх
+			<input name="target" type="checkbox" value="_blank" class="check" checked>새창열기
 		</td>
 	</tr>
 	<tr id="bannerFile" class="image_upload">
-		<td class="ctlt">Banner файл</td>
+		<td class="ctlt">배너파일</td>
 		<td class="pdlnb2">
 			<input name="upload" type="file" class="txt w50">
-			<span class="subtlt"> *.jpg, *.gif, *.png, *.swf оруулах боломжтой.</span>
+			<span class="subtlt">확장자 *.jpg, *.gif, *.png, *.swf 만 가능</span>
 		</td>
 	</tr>
 	<!-- 직접입력 -->
@@ -674,7 +676,7 @@ var main_sel = function( design ){	// 스타일 설정
 		</td>
 	</tr>
 	<tr id="bannerAdsenseContent" style="display:none;">
-		<td class="ctlt">Агуулга</td>
+		<td class="ctlt">내용</td>
 		<td class="pdlnb2"><textarea name="adsense_content" class="bdtxt" style="height:300px"></textarea></td>
 	</tr>
 	</table>
@@ -704,7 +706,7 @@ var showRequest = function (formData, jqForm, form_options){
 	var banner_group = $("#banner_group :selected").val();
 
 	if(!banner_group || banner_group == ''){
-		alert("Баннерын бүлгийг сонгоно уу.");
+		alert("배너그룹을 선택해 주세요.");
 		$("#banner_group").focus();
 		return false;
 	}
