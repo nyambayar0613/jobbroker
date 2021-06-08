@@ -50,7 +50,7 @@ function length_count(num,filed, max_count) {
         } 
 
         if (max_count < str_count) { 
-            alert("Үгийн тоо "+ max_count +" byte хэтэрч болохгүй");
+            alert("글자수가 "+ max_count +" byte 이상은 사용불가능 합니다"); 
             if (escape(str).length > 4) { 
                 str_count -= 2; 
                 max_length += 2; 
@@ -88,7 +88,7 @@ var send_mailing = function( type ){
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Байгууллагын гишүүд өөрсдийн мэдээллийн тохиргоог хадгалах ёстой., <br/><br/>Хүвь хүмүүс ажлын мэдээллийн тохиргоог хадгалах хэрэгтэй.<br/><br/>(Автомат бус)-р илгээх үед <b>Хүлээн авахаас татгалзсан гишүүдийг шалгаж</b>илгээнэ.<br/><br/>Сонгосон гишүүн "+chk_length+"хүмүүс рүү "+send_subject+"илгээх үү?");
+		$('#confirm_msg').html("기업회원은 맞춤 인재정보 설정이 저장되 있어야 하며, <br/><br/>개인회원은 맞춤 채용정보 설정이 저장되 잇어야 발송 됩니다.<br/><br/>수동 발송시엔 <b>수신 거부한 회원도 체크</b>하셨다면 무조건 발송 됩니다.<br/><br/>선택하신 회원 "+chk_length+"명에 "+send_subject+"을(를) 발송 하시겠습니까?");
 		var send_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
@@ -132,8 +132,8 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div>
 <table class="layout">
@@ -152,10 +152,10 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<?php include_once "../include/navi.php"; ?>
 		</dl>
 		<dl class="notbox"><dl>
-			Байгууллагын гишүүн: Ажлын байрны мэдээлэл, Хувь хүн ​​гишүүн: Ажлын байрны мэдээлэлд үндэслэн тогтмол шуудан, SMS илгээх мэдээллийг тохируулах. <br>
-			Email-г тогтмол автоматаар/автомат бусаар тохируулах боломжтой бөгөөд хүссэн үедээ илгээх боломжтой. <br>
-			Дараах 5 мессежийн зөвхөн нэгийг нь л илгээж болох бөгөөд агуулгын уртын дагуу автоматаар LMS руу илгээнэ. <br/>
-			Хэрэв мессеж (SMS) илгээгээгүй дугаарыг ахиг нэг шалгана уу. <br/>
+		기업회원 : 맞춤인재정보, 개인회원 : 맞춤채용정보 기준으로 정기 메일, SMS 발송 정보를 설정합니다.<br>
+		정기메일링은 자동/수동 설정이 가능하며 수동은 원하시는 시간에 직접 수동발송 버튼을 클릭하여 발송을 하실수 있습니다.<br>
+		정기 SMS 발송 문구는 아래 5가지중 한가지만 전송 가능하며, 내용 길이에 따라 자동으로 LMS 로 발송됩니다.<br/>
+		문자(SMS) 발송건수가 없는 경우 SMS메일링이 발송되지 않사오니 SMS발송 건수를 확인하시기 바랍니다.<br/>		
 		</dl></dl>
 
 		<form name="MailingConfigFrm" method="post" id="MailingConfigFrm" action="./process/regist.php" enctype="multipart/form-data">
@@ -169,35 +169,35 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 		<table width="100%" class="bg_col">
 		<col width=150><col>
 		<tr>
-			<td class="ctlt">Mailing ашиглах эсэх</td>
+			<td class="ctlt">메일링 사용유무</td>
 			<td class="pdlnb2">
-				<label><input type="radio" class="radio" name="wr_mail_use" value="1" <?php echo ($mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглана</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_use" value="0" <?php echo (!$mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглахгүй</label> &nbsp;&nbsp;/&nbsp;&nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_auto" value="1" <?php echo ($mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_auto" value="0" <?php echo (!$mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат бус</label>
-				<span class="subtlt">Автоматаар тохируулсан тохиолдолд өдөрт нэг удаа илгээнэ.</span>
+				<label><input type="radio" class="radio" name="wr_mail_use" value="1" <?php echo ($mailing_config['wr_mail_use'])?'checked':'';?>/>사용</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_use" value="0" <?php echo (!$mailing_config['wr_mail_use'])?'checked':'';?>/>미사용</label> &nbsp;&nbsp;/&nbsp;&nbsp; 
+				<label><input type="radio" class="radio" name="wr_mail_auto" value="1" <?php echo ($mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>자동</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_auto" value="0" <?php echo (!$mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>수동</label>
+				<span class="subtlt">자동설정시 1일 1회만 발송 됩니다.</span>
 			</td>
 		</tr>
 		<tr id="mailing_auto_block" style="display:<?php echo ($mailing_config['wr_mail_auto'])?'':'none';?>;">
-			<td class="ctlt">Mail илгээх цаг</td>
+			<td class="ctlt">메일 발송시간</td>
 			<td class="pdlnb2">
-				<label><input type="radio" class="radio" name="wr_mail_time" value="1" checked/>Үдээс өмнө</label> &nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_time" value="2" <?php echo ($mailing_config['wr_mail_time']=='2')?'checked':'';?>/>Үдээс хойш</label> &nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_time" value="3" <?php echo ($mailing_config['wr_mail_time']=='3')?'checked':'';?>/>Орой</label>
+				<label><input type="radio" class="radio" name="wr_mail_time" value="1" checked/>오전</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_mail_time" value="2" <?php echo ($mailing_config['wr_mail_time']=='2')?'checked':'';?>/>오후</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_mail_time" value="3" <?php echo ($mailing_config['wr_mail_time']=='3')?'checked':'';?>/>저녁</label>
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">SMS ашилгах эсэх</td>
+			<td class="ctlt">SMS 사용유무</td>
 			<td class="pdlnb2">
-				<label><input type="radio" class="radio" name="wr_mail_use" value="1" <?php echo ($mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглана</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_use" value="0" <?php echo (!$mailing_config['wr_mail_use'])?'checked':'';?>/>Ашиглахгүй</label> &nbsp;&nbsp;/&nbsp;&nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_auto" value="1" <?php echo ($mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат</label> &nbsp;<label><input type="radio" class="radio" name="wr_mail_auto" value="0" <?php echo (!$mailing_config['wr_mail_auto'])?'checked':'';?> onclick="mail_autos(this);"/>Автомат бус</label>
-				<span class="subtlt">Автоматаар тохируулсан тохиолдолд өдөрт нэг удаа илгээнэ.</span>
+				<label><input type="radio" class="radio" name="wr_sms_use" value="1" <?php echo ($mailing_config['wr_sms_use'])?'checked':'';?>/>사용</label> &nbsp;<label><input type="radio" class="radio" name="wr_sms_use" value="0" <?php echo (!$mailing_config['wr_sms_use'])?'checked':'';?>/>미사용</label> &nbsp;&nbsp;/&nbsp;&nbsp; 
+				<label><input type="radio" class="radio" name="wr_sms_auto" value="1" <?php echo ($mailing_config['wr_sms_auto'])?'checked':'';?> onclick="sms_autos(this);"/>자동</label> &nbsp;<label><input type="radio" class="radio" name="wr_sms_auto" value="0" <?php echo (!$mailing_config['wr_sms_auto'])?'checked':'';?> onclick="sms_autos(this);"/>수동</label>
+				<span class="subtlt">자동설정시 1일 1회만 발송 됩니다.</span>
 			</td>
 		</tr>
 		<tr id="sms_auto_block" style="display:<?php echo ($mailing_config['wr_sms_auto'])?'':'none';?>;">
-			<td class="ctlt">Mэйл илгээх цаг</td>
+			<td class="ctlt">SMS 발송시간</td>
 			<td class="pdlnb2">
-				<label><input type="radio" class="radio" name="wr_mail_time" value="1" checked/>Үдээс өмнө</label> &nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_time" value="2" <?php echo ($mailing_config['wr_mail_time']=='2')?'checked':'';?>/>Үдээс хойш</label> &nbsp;
-				<label><input type="radio" class="radio" name="wr_mail_time" value="3" <?php echo ($mailing_config['wr_mail_time']=='3')?'checked':'';?>/>Орой</label>
+				<label><input type="radio" class="radio" name="wr_sms_time" value="1" checked/>오전</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_sms_time" value="2" <?php echo ($mailing_config['wr_sms_time']=='2')?'checked':'';?>/>오후</label> &nbsp;
+				<label><input type="radio" class="radio" name="wr_sms_time" value="3" <?php echo ($mailing_config['wr_sms_time']=='3')?'checked':'';?>/>저녁</label>
 			</td>
 		</tr>
 		</table>
@@ -207,18 +207,18 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			<img src="../../images/btn/b35_24.png" class="ln_col hand" onclick="self_mailing();"/>
 		</dl>
 
-		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Тохиргоо</dl>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">정기메일링 내용 설정</dl>  
 
 		<table width="100%" class="bg_col">
 		<col width=150><col>
 		<tr>
-			<td class="ctlt">Орлуулах тэмдэгт</td>
+			<td class="ctlt">치환문자</td>
 			<td class="pdlnb2">
-				{Дээд лого}  {Доод лого}  {Мэйл доод хэсэг}  {Сайтын нэр}  {Домэйн}  {Гишүүний нэр}  {Гишүүний ID}  {Горилж буй албан тушаал}  {Байршил}  {Ажилд авах}  {Ажлын байрны хаяг}  {Тохирсон ажлын байрны мэдээлэл}  {Ажилд авах захиалгын мэдээлэл}  <!-- {성명}  {기업명}  {직종}  {근무지역}  {경력}  {학력}  {등록일} -->
+				{메일상단로고}  {메일하단로고}  {메일하단}  {사이트명}  {도메인}  {회원이름}  {회원아이디}  {희망직종}  {희망근무지역}  {채용직종}  {근무지역}  {맞춤인재정보}  {맞춤채용정보}  <!-- {성명}  {기업명}  {직종}  {근무지역}  {경력}  {학력}  {등록일} -->
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Байгууллагын гишүүн (Тохирсон ажлын байрны мэдээлэл)<br/>Захидлын агуулгыг засах</td>
+			<td class="ctlt">기업회원 (맞춤 인재정보)<br/>메일링 내용 편집</td>
 			<td class="pdlnb2">
 				<div id="skinContent">
 					<?php echo $utility->make_cheditor('wr_company_mailing', stripslashes($mailing_config['wr_company_mailing']));	// 에디터 생성?>
@@ -226,7 +226,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 			</td>
 		</tr>
 		<tr>
-			<td class="ctlt">Хувь хүн (Тохирсон ажлын байрны мэдээлэл)<br/>Захидлын агуулгыг засах</td>
+			<td class="ctlt">개인회원 (맞춤 채용정보)<br/>메일링 내용 편집</td>
 			<td class="pdlnb2">
 				<?php echo $utility->make_cheditor('wr_individual_mailing', stripslashes($mailing_config['wr_individual_mailing']));	// 에디터 생성?>
 			</td>
@@ -235,70 +235,70 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 
 		<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
 
-		<dl style="width:95.4%" class="ntlt lnb6_col"><img src="../../images/comn/bul_10.png" class="t">SMS хэвлэх</dl>
+		<dl style="width:95.4%" class="ntlt lnb6_col"><img src="../../images/comn/bul_10.png" class="t">메세지 출력 안내</dl>
 		<table cellspacing="0" width="95.4%" class="smsbox smsbottom">
 		 <tbody bgcolor="#ffffff">
 			<tr>
 				<td class="smsboxbg" width="98%"colspan="4">
-					<p>※ SMS тэмдэгтийн дээд хэмжээ 90 byte, LMS тэмдэгтийн хамгийн ихдээ 2000 byte байна.</p>
-					<p>※ <strong>LMS ашиглахгүй </strong>: Хэрэв утга 90 byte хэтэрвэл зөвхөн <u> 90 byte </u> хүртэл таслагдаж мессежээр илгээнэ.</p>
-					<p>※ <strong>LMS ашиглахгүй </strong>: Хэрэв утга 90 byte хэтэрвэл зөвхөн <u> 90 byte </u> хүртэл таслагдаж мессежээр илгээнэ.</p>
+					<p>※ SMS 최대 글자수는 90Byte이며, LMS 최대 글자수는 2,000Byte 입니다.</p>
+					<p>※ <strong>LMS 사용시</strong> : 문자내용이 90byte를 초과하면 <u>LMS(장문)</u>로 발송 됩니다.</p>
+					<p>※ <strong>LMS 미사용시</strong> : 문자내용이 90byte를 초과하면 <u>SMS(단문)로 90byte 까지</u>만 잘려서 발송 됩니다.</p>
 				</td>
 			</tr>
 			<tr>
 				<td width="12%"   class="smsName" >
-					<p>{Сайтын нэр}</p>
+					<p>{사이트명}</p>
 				</td>
 				<td width="48%"  class="smsNamep">
-					<p>сайтын нэр <br> жишээ)<?php echo $env['site_name'];?></p>
+					<p>고객님의 사이트명이 출력됩니다 <br> 예)<?php echo $env['site_name'];?></p>
 				</td>
 				<td width="12%"  class="smsName">
-					<p>{Домэйн}</p>
+					<p>{도메인}</p>
 				</td>
 				<td width="28%"  class="smsNamep">
-					<p>домэйн нэр <br>жишээ)<?php echo str_replace('/','',$host_name);?></p>
+					<p>사이트의 도메인명이 출력됩니다 <br>예)<?php echo str_replace('/','',$host_name);?></p>
 				</td>
 			</tr>
 			<tr>
 				<td width="12%"   class="smsName" >
-					<p>{Гишүүний нэр}</p>
+					<p>{회원명}</p>
 				</td>
 				<td width="48%"  class="smsNamep">
-					<p>гишүүний нэр <br> жишээ) Timmy</p>
+					<p>회원 이름이 출력됩니다 <br> 예)홍길동</p>
 				</td>
 				<td width="12%"  class="smsName">
-					<p>{ID}</p>
+					<p>{아이디}</p>
 				</td>
 				<td width="28%"  class="smsNamep">
-					<p>ID <br>жишээ)netfu</p>
+					<p>회원 아이디가 출력됩니다 <br>예)netfu</p>
 				</td>
 			</tr>
 			<tr>
 				<td width="12%"   class="smsName" >
-					<p>{Горилж буй албан тушаал}</p>
+					<p>{희망직종}</p>
 				</td>
 				<td width="48%"  class="smsNamep">
-					<p>Ажлын зар,өжлын байр <br> жишээ) үйлчилгээ</p>
+					<p>구인,구직 희망직종이 출력됩니다 <br> 예)서비스</p>
 				</td>
 				<td width="12%"  class="smsName">
-					<p>{Горилж буй байршил}</p>
+					<p>{희망근무지역}</p>
 				</td>
 				<td width="28%"  class="smsNamep">
-					<p>байршил<br>жишээ)сөүл</p>
+					<p>희망근무지역이 출력됩니다 <br>예)서울</p>
 				</td>
 			</tr>
 			<tr>
 				<td width="12%"   class="smsName" >
-					<p>{Ажлын төрөл}</p>
+					<p>{근무형태}</p>
 				</td>
 				<td width="48%"  class="smsNamep">
-					<p>ажлын төрөл <br> жишээ) цагын, бүтэн цагын</p>
+					<p>설정한 근무형태가 출력됩니다 <br> 예)아르바이트,정규직</p>
 				</td>
 				<td width="12%"  class="smsName">
-					<p>{Бүртгэлийн тоо}</p>
+					<p>{등록건수}</p>
 				</td>
 				<td width="28%"  class="smsNamep">
-					<p>ажлын байрны бүртгэлд хамрагдсан гишүүд <br>жишээ)10</p>
+					<p>인재정보, 채용정보 등록건수가 출력됩니다 <br>예)10</p>
 				</td>
 			</tr>
 
@@ -306,7 +306,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 		</table>
 
 
-		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Байгууллага (ажлын байр,хүний нөөцийн мэдээлэл) Тогтмол LMS агуулгын тохиргоо</dl>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">기업회원 (맞춤 인재정보) 정기 LMS 내용 설정</dl>  
 
 		<table style="width:100%;">
 		<tr>
@@ -315,7 +315,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 					<?php for($i=0;$i<5;$i++){ ?>
 					<li style="width:19%;">
 						<h1 style="text-align:center;">
-							<label><input type="radio" name="wr_sms_company[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_company_use==$i)?'checked':'';?>/>Ашиглана</label>
+							<label><input type="radio" name="wr_sms_company[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_company_use==$i)?'checked':'';?>/>사용</label>
 						</h1>
 						<ul>
 							<li style="width:97%;">
@@ -332,7 +332,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 		</tr>
 		</table>
 
-		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Хувь хүн (хувийн мэдээлэл) LMS агуулгын тогтмол тохиргоо</dl>
+		<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">개인회원 (맞춤 채용정보) 정기 LMS 내용 설정</dl>  
 
 		<table style="width:100%;">
 		<tr>
@@ -341,7 +341,7 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 					<?php for($i=0;$i<5;$i++){ ?>
 					<li style="width:19%;">
 						<h1 style="text-align:center;">
-							<label><input type="radio" name="wr_sms_individual[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_individual_use==$i)?'checked':'';?>/>Ашиглана</label>
+							<label><input type="radio" name="wr_sms_individual[use]" value="<?php echo $i;?>" class="radio" <?php echo ($sms_individual_use==$i)?'checked':'';?>/>사용</label>
 						</h1>
 						<ul>
 							<li style="width:97%;">
