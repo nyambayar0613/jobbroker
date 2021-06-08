@@ -71,10 +71,10 @@ var searchFrmInit = function(){
 			<a class="bbtn set_day" date='week'><h1 class="btn19">Энэ 7 хоног</h1></a>
 			<a class="bbtn set_day" date='month'><h1 class="btn19">Энэ сар</h1></a>
 			<a class="bbtn set_day" date='7day'><h1 class="btn19">1 долоо хоног</h1></a>
-			<a class="bbtn set_day" date='15day'><h1 class="btn19">15өдөр</h1></a>
-			<a class="bbtn set_day" date='30day'><h1 class="btn19">1сар</h1></a>
-			<a class="bbtn set_day" date='60day'><h1 class="btn19">3сар</h1></a>
-			<a class="bbtn set_day" date='120day'><h1 class="btn19">6сар</h1></a>
+			<a class="bbtn set_day" date='15day'><h1 class="btn19">15 өдөр</h1></a>
+			<a class="bbtn set_day" date='30day'><h1 class="btn19">1 сар</h1></a>
+			<a class="bbtn set_day" date='60day'><h1 class="btn19">3 сар</h1></a>
+			<a class="bbtn set_day" date='120day'><h1 class="btn19">6 сар</h1></a>
 		</td>
 	</tr>
 	<tr>
@@ -84,7 +84,7 @@ var searchFrmInit = function(){
 			<label><input name="mb_type" type="radio" value="individual" class="radio" <?php echo ($_GET['mb_type']=='individual')?'checked':'';?>>Хувь хүн</label> &nbsp;
 			<label><input name="mb_type" type="radio" value="company" class="radio" <?php echo ($_GET['mb_type']=='company')?'checked':'';?>>Байгууллага</label> &nbsp;
 		</td>
-		<td class="ctlt">Зочилсон хүмүүсийн тоо</td>
+		<td class="ctlt">Нэвтэрсэн хүмүүсийн тоо</td>
 		<td class="pdlnb2">
 			<label><input name="loginAll" type="checkbox" value="1" class="check" id='loginAll' <?php echo ($_GET['loginAll']=='1')?'checked':'';?>>Нийт</label> &nbsp;
 			<input name="loginCnt_low" type="text" class="tnum tc" size="8" id='loginCnt_low' <?php echo ($_GET['loginAll']=='1')?"disabled value=''":"value='".$_GET['loginCnt_low']."'";?>> ~
