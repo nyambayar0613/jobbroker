@@ -29,7 +29,7 @@
 				$positions = explode('_',$position);
 				$menu_name = $banner_control->_position($positions[0], $position);
 				$banner_group = $banner_control->_group($position);
-				$cookie_arr = array('main_top','alba_top','resume_top','adult_top','individual_top','company_top','board_top','map_top','search_top','service_top','etc_login');	// 일간 보이지 않기 position 배열
+				$cookie_arr = array('main_top','alba_top','resume_top','adult_top','individual_top','company_top','board_top','map_top','search_top','service_top','etc_login');	// 일간 보이지бы 않기 position 배열
 ?>
 			<form name="BannerRegistFrm" method="post" id="BannerRegistFrm" action="./process/banner.php" enctype="multipart/form-data">
 			<input type="hidden" name="mode" value="insert" id="mode"/><!-- 배너 등록 -->
