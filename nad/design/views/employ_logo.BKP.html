@@ -6,7 +6,7 @@ $(function(){
 	$('#EmployLogoFrm').ajaxForm(form_options);
 });
 var logo_delete = function( no ){
-	if(confirm('Устгах уу')){
+	if(confirm('삭제하시겠습니까?')){
 		$.post('./process/logo.php', { mode:'employ_logo_delete', no:no }, function(result){
 			if(result=='0002'){
 				location.reload();
@@ -42,7 +42,7 @@ var logo_sel = function( vals ){
 	<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 	<dl class="notbox"><dl>
-		Хэрэв та хуудсан дээр олон лого байрлуулсан бол аж ахуйн нэгжийн гишүүд ажлын зар бүртгүүлэхдээ өөрийн нэр (лого) байхгүй бол сонгож бүртгүүлэх боломжтой.<br/>
+	해당 페이지에서 여러 로고를 올려놓으면 기업회원들이 구인공고 등록시 자신의 제호(로고)가 없을경우 선택해서 등록할수있습니다.<br/>
 	</dl></dl>
 
 	<form name="EmployLogoFrm" method="post" id="EmployLogoFrm" action="./process/logo.php" enctype="multipart/form-data">
