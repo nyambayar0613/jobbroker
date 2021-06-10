@@ -42,7 +42,7 @@ var logo_sel = function( vals ){
 	<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 	<dl class="notbox"><dl>
-		Хэрэв та хуудсан дээр олон лого байрлуулсан бол аж ахуйн нэгжийн гишүүд ажлын зар бүртгүүлэхдээ өөрийн нэр (лого) байхгүй бол сонгож бүртгүүлэх боломжтой.<br/>
+		Хэрэв та хуудсан дээр хэд хэдэн лого байрлуулсан бол гишүүд ажлын зар бүртгүүлэхдээ өөрийн нэр (лого) байхгүй тохиолдолд бүртгүүлэх боломжтой.<br/>
 	</dl></dl>
 
 	<form name="EmployLogoFrm" method="post" id="EmployLogoFrm" action="./process/logo.php" enctype="multipart/form-data">
@@ -56,13 +56,13 @@ var logo_sel = function( vals ){
 		<colgroup><col width="110"><col> 
 		<tbody>
 			<tr>
-				<td class="ctlt">기본 로고 등록</td>
+				<td class="ctlt">Ерөнхий логоны бүртгэл</td>
 				<td class="pdlnb2">
-					<input type="file" class="txt ml8" name="wr_content" id="wr_content" style="width:350px;"/>&nbsp; <input type='image' src="../../images/btn/19_01.gif" class="ln_col"> [ 권장사이즈 : 넓이 130px 이하, 높이 65px 이하 ]
+					<input type="file" class="txt ml8" name="wr_content" id="wr_content" style="width:350px;"/>&nbsp; <input type='image' src="../../images/btn/19_01.gif" class="ln_col"> [ Зөвлөмж: өргөн 130px ба түүнээс бага, өндөр нь 65px ба түүнээс бага ]
 				</td>
 			</tr>
 			<tr>
-				<td class="ctlt">등록 기본 로고</td>
+				<td class="ctlt">Бүртгэх лого</td>
 				<td class="pdlnb2 st_mn bnner">
 					<ul>
 					<?php 
