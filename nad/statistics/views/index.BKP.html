@@ -15,9 +15,9 @@
 <td width="1"></td><td class="nb access">
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox"><dl>
-Хугацааны дагуу цаг / өдөр / сар) зочин / гишүүний бүртгэл / бүртгэлийн байдлыг нэг дороос харах боломжтой.<br>
-Чухал өгөгдлийг хялбархан анализ хийх боломжтой.<br>
-Хэрэв та өдөр бүр гарч ирдэг Датаг хэвлэж, цуглуулдаг бол энэ нь сайтын ашиглалтын гарын авлага болох боломжтой.
+시간 흐름(시간/일간/월간)에 따른 방문자/회원가입/등록현황 등을 한눈에 볼 수 있습니다.<br> 
+시간 흐름에 따른 중요 데이터를 쉽게 분석할 수 있습니다.<br> 
+하루 하루 나타나는 데이터를 출력하여 모아 놓으면, 아주 소중한 사이트 운영가이드책이 될 수 있습니다.
 </dl></dl>
 <?php 
 	include_once "./views/_include/section.php"; 
@@ -27,14 +27,14 @@
 			$domain_data = $statistics_control->statistics_IO('domain',$sdate,$edate,$page_rows,$page);
 			if($domain){
 ?>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Холбоос</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 경로</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
 		<td>IP</td>
-		<td>Холбоос зам</td>
-		<td>Browser</td>
+		<td>접속 경로</td>
+		<td>브라우저</td>
 		<td>OS</td>
-		<td class="e">Yэвтрэх огноо</td>
+		<td class="e">접속일</td>
 	</tr>
 	<?php foreach($domain_data as $val){?>
 	<tr class="num3">
@@ -47,12 +47,12 @@
 	<?php } ?>
 	</table>
 <?php } else { ?>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Холболтын өмнө домэйн</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속전 도메인</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
-		<td>Холболтын өмнө домэйн</td>
-		<td>Хэрэглэгчдийн тоо</td>
-		<td class="e">Харьцаа</td>
+		<td>접속전 도메인</td>
+		<td>접속자수</td>
+		<td class="e">비율</td>
 	</tr>
 	<?php foreach($domain_data['result'] as $val){ ?>
 	<tr class="num3">
@@ -62,7 +62,7 @@
 	</tr>
 	<?php } ?>
 	<tr class="num3 b col">
-		<td>Нэгтгэх</td>
+		<td>합계</td>
 		<td><?php echo number_format($domain_data['total_count']);?></td>
 		<td class="e">100 %</td>
 	</tr>
@@ -77,12 +77,11 @@
 	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 IP</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
-		<td>Холбоос IP</td>
-		<td style="width:30%;">Холбоос зам</td>
-		<td>Browser</td>
+		<td>접속 IP</td>
+		<td style="width:30%;">접속 경로</td>
+		<td>브라우저</td>
 		<td>OS</td>
-		<td class="e">Yэвтрэх огноо</td>
-	</tr>
+		<td class="e">접속일</td>
 	</tr>
 	<?php foreach($ip_data['result'] as $val){ ?>
 	<tr class="num3">
@@ -102,12 +101,12 @@
 		} else if($type=="browser"){	// 접속 브라우저 
 			$browser_data = $statistics_control->statistics_IO('browser',$sdate,$edate,$page_rows,$page);
 	?>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Холбох browser</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 브라우저</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
-		<td>Browser</td>
-		<td>Зочдын тоо</td>
-		<td class="e">Харьцаа</td>
+		<td>브라우저</td>
+		<td>방문자수</td>
+		<td class="e">비율</td>
 	</tr>
 	<?php foreach($browser_data['result'] as $val){ ?>
 	<tr class="num3">
@@ -117,7 +116,7 @@
 	</tr>
 	<?php } ?>
 	<tr class="num3 b col">
-		<td>Нэгтгэх</td>
+		<td>합계</td>
 		<td><?php echo number_format($browser_data['total_count']);?></td>
 		<td class="e">100 %</td>
 	</tr>
@@ -126,12 +125,12 @@
 		} else if($type=="os"){	 // 접속 OS 
 			$os_data = $statistics_control->statistics_IO('os',$sdate,$edate,$page_rows,$page);
 	?>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Холбоос OS</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 OS</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
 		<td>OS</td>
-		<td>Зочдын тоо</td>
-		<td class="e">Харьцаа</td>
+		<td>방문자수</td>
+		<td class="e">비율</td>
 	</tr>
 	<?php foreach($os_data['result'] as $val){ ?>
 	<tr class="num3">
@@ -159,7 +158,7 @@
 				$total_num += $week_row['c'];
 			}
 		?>
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Өдөр бүрийн статистик</dl>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">요일별 통계</dl>
 			<table width="100%" class="access ttlt tf">
 			<colgroup>
 			<col width="100" />
@@ -169,11 +168,11 @@
 			<col width="" />
 			</colgroup>
 			<tr class="bg">
-				td> Долоо хоногийн өдөр </td>
-				<td> IP дугаар </td>
-				<td> Зочдын тоо </td>
-				<td> Харьцаа (%) </td>
-				<td class = "e"> График </td>
+				<td>요일</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
 			</tr>
 			<?php
 			for($i=0; $i<7; $i++) {
@@ -190,7 +189,7 @@
 				$graph_width2 = round($_time_int/$total_num*100).'%';
 			?>
 			<tr>
-				<td><?php echo $netfu_util->week_arr[$_int];?>Долоо хоногийн өдөр</td>
+				<td><?php echo $netfu_util->week_arr[$_int];?>요일</td>
 				<td style="color:red;font-weight:bold;"><?php echo number_format($_ip_int);?></td>
 				<td style="font-weight:bold;"><?php echo number_format($_time_int);?></td>
 				<td>
@@ -217,7 +216,7 @@
 					$total_num += $time_row['c'];
 				}
 		?>
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Цагийн статистик</dl>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">시간별 통계</dl>
 			<table width="100%" class="access ttlt tf">
 			<colgroup>
 			<col width="100" />
@@ -227,11 +226,11 @@
 			<col width="" />
 			</colgroup>
 			<tr class="bg">
-				td> Өдөр </td>
-				<td> IP дугаар </td>
-				<td> Зочдын тоо </td>
-				<td> Харьцаа (%) </td>
-				<td class = "e"> График </td>
+				<td>시간</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
 			</tr>
 			<?php
 			$time_total = 0;
@@ -282,7 +281,7 @@
 					$total_num += $date_row['c'];
 				}
 		?>
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Өдөр тутмын статистик</dl>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">일별 통계</dl>
 			<table width="100%" class="access ttlt tf">
 			<colgroup>
 			<col width="100" />
@@ -292,11 +291,11 @@
 			<col width="" />
 			</colgroup>
 			<tr class="bg">
-				td> Өдөр </td>
-				<td> IP дугаар </td>
-				<td> Зочдын тоо </td>
-				<td> Харьцаа (%) </td>
-				<td class = "e"> График </td>
+				<td>일</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
 			</tr>
 			<?php
 			$date_total = 0;
@@ -345,7 +344,7 @@
 					$total_num += $date_row['c'];
 				}
 		?>
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сарын статистик</dl>
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">월별 통계</dl>
 			<table width="100%" class="ttlt tf">
 			<colgroup>
 			<col width="100" />
@@ -355,11 +354,11 @@
 			<col width="" />
 			</colgroup>
 			<tr class="bg">
-				<td> сар </td>
-				<td> IP дугаар </td>
-				<td> Зочдын тоо </td>
-				<td> Харьцаа (%) </td>
-				<td class = "e"> График </td>
+				<td>월</td>
+				<td>아이피수</td>
+				<td>방문자수</td>
+				<td>비율(%)</td>
+				<td class="e">그래프</td>
 			</tr>
 			<?php
 			$date_total = 0;
@@ -407,14 +406,14 @@
 			}
 	} else { 
 ?>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сайтын хандалтын байдал</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">사이트 접속현황</dl>
 	<table width="100%" class="ttlt tf">
 	
 	<tr class="bg">
-		<td> Нийт хэрэглэгчийн тоо </td>
-		<td> Өнөөдрийн зочдын тоо </td>
-		<td> Хамгийн их хандсан огноо </td>
-		<td class = "e"> Хамгийн их хандалттай өдрүүд </td>
+		<td>총 접속자 수</td>
+		<td>오늘 접속자 수</td>
+		<td>가장 많이 접속한 날짜</td>
+		<td class="e">가장 많이 접속한 요일</td>
 	</tr>
 	<tr class="num3 b col">
 		<td><?php echo number_format($get_visits['total']);?></td>
@@ -422,9 +421,9 @@
 		<td><?php echo $get_visits['max_date'];?></td>
 		<td class="e"><?php echo $get_visits['max_week'];?></td>
 	</tr>
-	</table>
+	</table>  
 
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Өнгөрсөн долоо хоногын зочдын статистик</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">최근 일주일 방문자 통계</dl>
 	<table width="100%" class="ttlt tf">
 	<tr>
 		<td><?php echo $statistics_control->week_statistics('bar_3d'); ?></td>
@@ -432,13 +431,13 @@
 	</tr>
 	</table>
 
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Нэвтрэхээс өмнөх домэйн TOP 10</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속전 도메인 TOP 10</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
-		<td>Өнөөдөр хүртэлх TOP 10 домайн </td>
-		<td>Өчигдөр хүртэлх TOP 10 домайн </td>
-		<td>Энэ 7 хоногын TOP 10 домайн</td>
-		<td class="e">Энэ сарын TOP 10 домайн</td>
+		<td>오늘 접속전 도메인 TOP 10</td>
+		<td>어제 접속전 도메인 TOP 10</td>
+		<td>이번주 접속전 도메인 TOP 10</td>
+		<td class="e">이번달 접속전 도메인 TOP 10</td>
 	</tr>
 
 	<tr class="num3 b">
@@ -446,7 +445,7 @@
 			<?php $today_data = $statistics_control->domain_top10('today'); ?>
 			<ol class="mt3" style="vertical-aling:top;padding:20px;">
 				<?php foreach($today_data as $val){ ?>
-				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -454,7 +453,7 @@
 			<?php $yesterday_data = $statistics_control->domain_top10('yesterday'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($yesterday_data as $val){ ?>
-				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -462,7 +461,7 @@
 			<?php $week_data = $statistics_control->domain_top10('week'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($week_data as $val){ ?>
-				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -470,27 +469,27 @@
 			<?php $month_data = $statistics_control->domain_top10('month'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($month_data as $val){ ?>
-				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_referer'];?><dt class="prt num3"><?php echo $val['visit_referer_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
 	</tr>
 	</table>
 
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Холбоос IP TOP 10</dl>
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">접속 IP TOP 10</dl>
 	<table width="100%" class="ttlt tf">
 	<tr class="bg">
-		<td>Өнөөдөр хүртэлх TOP 10 домайн </td>
-		<td>Өчигдөр хүртэлх TOP 10 домайн </td>
-		<td>Энэ 7 хоногын TOP 10 домайн</td>
-		<td class="e">Энэ сарын TOP 10 домайн</td>
+		<td>오늘 접속 IP TOP 10</td>
+		<td>어제 접속 IP TOP 10</td>
+		<td>이번주 접속 IP TOP 10</td>
+		<td class="e">이번달 접속 IP TOP 10</td>
 	</tr>
 	<tr class="num3 b">
 		<td>
 			<?php $today_ip = $statistics_control->ip_top10('today'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($today_ip as $val){ ?>
-				<li class="psr"><span style="width:80%;"><?php echo $val['visit_ip'];?></span><span class="prt num3"><?php echo $val['visit_ip_cnt'];?>хүн</span></li>
+				<li class="psr"><span style="width:80%;"><?php echo $val['visit_ip'];?></span><span class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</span></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -498,7 +497,7 @@
 			<?php $yesterday_ip = $statistics_control->ip_top10('yesterday'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($yesterday_ip as $val){ ?>
-				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -506,7 +505,7 @@
 			<?php $week_ip = $statistics_control->ip_top10('week'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($week_ip as $val){ ?>
-				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
@@ -514,7 +513,7 @@
 			<?php $month_ip = $statistics_control->ip_top10('month'); ?>
 			<ol class="mt3"  style="padding:20px;">
 				<?php foreach($month_ip as $val){ ?>
-				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>хүн</dt></li>
+				<li class="psr"><?php echo $val['visit_ip'];?><dt class="prt num3"><?php echo $val['visit_ip_cnt'];?>명</dt></li>
 				<?php } ?>
 			</ol>
 		</td>
