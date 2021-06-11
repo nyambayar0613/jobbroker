@@ -112,7 +112,7 @@ var sel_delete_category = function(){	// 선택삭제
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '인기검색어 선택삭제',
+			title: 'Хайлт устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -171,8 +171,8 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 <div id="question" style="display:none; cursor: default">
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
 	</p>
 </div> 
 
@@ -190,7 +190,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox">
 	<dl>
-	유저들이 통합검색을 통해 검색한 키워드 리스트입니다. 
+	Нэгдсэн хайлтаар дамжсан keyword list юм.
 	</dl>
 </dl>
 
@@ -208,16 +208,16 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	</tr>
 	</table> -->
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">실시간검색어 설정</dl>  
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Хайлтын хугацааны тохиргоо</dl>
 
 	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 		<dt>
-			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
 		</dt>
 		<dd>
 			<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
-			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
 		</dd>
 	</dl>
 
@@ -225,11 +225,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	<col width=30><col width=50><col><col width=50><col span="2" width=56> 
 		<tr class="bg">
 			<td><input type='checkbox' name='check_all'></td>
-			<td>순서</td>
-			<td>검색어</td>
-			<td>조회수</td>
-			<td>수정</td>
-			<td class="e">삭제</td>
+			<td>Дараалал</td>
+			<td>Хайх үг</td>
+			<td>Линк</td>
+			<td>Шинэ цонх</td>
+			<td>Өөрчлөх</td>
+			<td class="e">Устгах</td>
 		</tr>
 		<tbody id="category_list">
 		<?php if(!$category_list){ ?>
@@ -260,7 +261,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 		<input type="hidden" name="type" value="realtime" id="type"/>
 		<input type="hidden" name="ajax" value="1"/>
 			<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
-				<td colspan='2'>검색어 입력</td>
+				<td colspan='2'>Хайлт оруулах</td>
 				<td class="pdlnb1"><input name="wr_content" type="text" class="txt w100" id="wr_content"></td>
 				<td class="pdlnb1"><input name="wr_hit" type="text" class="txt w100" id="wr_hit" value="1"></td>
 				<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
@@ -270,12 +271,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 		<dl class="page mb50"> 
 			<dt>
-				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
-				<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
+				<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
 			</dt>
 			<dd>
 				<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
-				<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
+				<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
 			</dd>
 		</dl>
 
