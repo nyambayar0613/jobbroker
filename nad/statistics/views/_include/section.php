@@ -4,18 +4,18 @@
 <table class="bg_col">
   <col width=80><col>
   <tr>
-    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">통계분류</td>
+    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">Статистик ангилал</td>
     <td class="wbg pl7">
     <ul class="List">
-    <li class="f"><a href='./' <?=(!$type)?"class='none b col' ":"";?>>접속통계</a></li>
-    <li><a href='./?type=time' <?=($type=='time')?"class='none b col' ":"";?>>시간별 통계</a></li>
-    <li><a href='./?type=week' <?=($type=='week')?"class='none b col' ":"";?>>요일별 통계</a></li>
-    <li><a href='./?type=date' <?=($type=='date')?"class='none b col' ":"";?>>일별 통계</a></li>
-    <li><a href='./?type=month' <?=($type=='month')?"class='none b col' ":"";?>>월별 통계</a></li>
-    <li><a href='./?type=domain' <?=($type=='domain')?"class='none b col' ":"";?>>접속전 도메인</a></li>
-    <li><a href='./?type=ip' <?=($type=='ip')?"class='none b col' ":"";?>>접속 IP</a></li>
-    <li><a href='./?type=browser' <?=($type=='browser')?"class='none b col' ":"";?>>접속 브라우저</a></li>
-    <li><a href='./?type=os' <?=($type=='os')?"class='none b col' ":"";?>>접속 OS</a></li>
+    <li class="f"><a href='./' <?=(!$type)?"class='none b col' ":"";?>>Холбоосийн статистик</a></li>
+    <li><a href='./?type=time' <?=($type=='time')?"class='none b col' ":"";?>>Хугацааны статистик</a></li>
+    <li><a href='./?type=week' <?=($type=='week')?"class='none b col' ":"";?>>Өдөр өдрийн статистик</a></li>
+    <li><a href='./?type=date' <?=($type=='date')?"class='none b col' ":"";?>>Ажлын статистик</a></li>
+    <li><a href='./?type=month' <?=($type=='month')?"class='none b col' ":"";?>>Сарын статистик</a></li>
+    <li><a href='./?type=domain' <?=($type=='domain')?"class='none b col' ":"";?>>Холболтын өмнө домэйн</a></li>
+    <li><a href='./?type=ip' <?=($type=='ip')?"class='none b col' ":"";?>>Холбоос IP</a></li>
+    <li><a href='./?type=browser' <?=($type=='browser')?"class='none b col' ":"";?>>Холбох Browser</a></li>
+    <li><a href='./?type=os' <?=($type=='os')?"class='none b col' ":"";?>>Холбоос OS</a></li>
     </ul>
     </td>
   </tr>		 
