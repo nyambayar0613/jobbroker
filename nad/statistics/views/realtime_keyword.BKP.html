@@ -4,6 +4,13 @@
 $(function(){
 	var form_options = { target: '', beforeSubmit: showRequest, success : showResponse };
 	$('#AdminSearchFrm').ajaxForm(form_options);
+
+	$("#wr_content").keydown(function(event){
+		if(event.keyCode==13){	 // 엔터키 이벤트
+			$('#AdminSearchFrm').submit();
+		}
+	});
+
 });
 var config_search = function( vals ){	// 검색어 출력설정
 	var sel = vals.value;
@@ -12,14 +19,14 @@ var config_search = function( vals ){	// 검색어 출력설정
 		var msg = "";
 		//var search = results[0];
 		if(results[0]=='popular'){
-			msg = "Олон хайгдсан хайгдсан үг";
+			msg = "인기검색어";
 		} else if(results[0]=='realtime'){
-			msg = "Олон хайгдсан үгс";
+			msg = "실시간검색어";
 		}
 		if(results[1]){
-			alert("Хайлтыг үг хэвлэлтийг ["+msg+"] өөрчлөх.");
+			alert("검색어 출력이 ["+msg+"] 로 변경 되었습니다.");
 		} else {
-			alert("Хайлтын явцад алдаа гаралаа.");
+			alert("검색어 출력 설정중 오류가 발생하였습니다.");
 		}
 	});
 }
@@ -62,10 +69,9 @@ var change_rank = function(direction, src){	// 카테고리 순위조절 (단일
 }
 var update_category = function(no){	 // 카테고리 수정 (단일)
 	var wr_content = $('#wr_content_'+no).val();
-	var wr_url = $('#wr_url_'+no).val();
-	var wr_blank = $('#wr_blank_'+no).is(':checked');
+	var wr_hit = $('#wr_hit_'+no).val();
 
-	$.post('./process/search.php', { mode:'update', no:no, wr_content:wr_content, wr_url:wr_url, wr_blank:wr_blank } , function(result){
+	$.post('./process/search.php', { mode:'update', no:no, wr_content:wr_content, wr_hit:wr_hit } , function(result){
 		if(result){
 			location.reload();
 		} else {
@@ -78,12 +84,12 @@ var delete_category = function(no){	 // 카테고리 삭제 (단일)
 	var name = $('#name'+no).val();
 	$('#quest_name').html(name);
 	$('#quest_info').show();
-	$('#confirm_msg').html("Дээрх мэдээллийг устгах уу?<br/></br>Утгасан мэдэллийг сэргээх боломжгүй.");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\', \''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\', \''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'Хайлтыг устгах',
+		title: '인기검색어 삭제',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -91,22 +97,22 @@ var delete_category = function(no){	 // 카테고리 삭제 (단일)
 var sel_delete_category = function(){	// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert("Утгах хайлтаа оруулна уу.");
+		alert("삭제할 인기검색어를 선택해 주세요.");
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон хайлт "+chk_length+"устгах уу?<br/></br>Утгасан мэдэллийг сэргээх боломжгүй.");
+		$('#confirm_msg').html("선택하신 인기검색어 "+chk_length+"건을 삭제 하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Хайлт устгах',
+			title: '인기검색어 선택삭제',
 			showOverlay: false,
 			message: $('#question')
 		});
@@ -116,7 +122,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	if(answer=='yes'){
 		switch(mode){
 			case 'delete':	// 삭제
-				$.post('./process/search.php', { mode:'delete', no:no, type:"popular" } , function(result){
+				$.post('./process/search.php', { mode:'delete', no:no, type:"realtime" } , function(result){
 					if(result=='0006'){
 						alert("<?php echo $category_control->_errors('0006');?>");
 						$.unblockUI();
@@ -133,7 +139,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 				});
 			break;
 			case 'sel_delete':	// 선택삭제
-				$.post('./process/search.php', { mode:mode, no:no, type:"popular" }, function(result){
+				$.post('./process/search.php', { mode:mode, no:no, type:"realtime" }, function(result){
 					if(result){
 						location.reload();
 					} else {
@@ -165,8 +171,8 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 <div id="question" style="display:none; cursor: default">
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -184,7 +190,7 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox">
 	<dl>
-	Энэ нь хэрэглэгчийн хуудасны зүүн талд байрлах 'Олон хайгдсан үгс' байрлалд гарч ирэх хайлтын нэр томъёоны тохиргоо юм.
+	유저들이 통합검색을 통해 검색한 키워드 리스트입니다. 
 	</dl>
 </dl>
 
@@ -202,29 +208,28 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 	</tr>
 	</table> -->
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">"Олон хайгдсан үгс" тохиргоо</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">실시간검색어 설정</dl>  
 
 	<dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 		<dt>
-			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
+			<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+			<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 		</dt>
 		<dd>
 			<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
-			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
+			<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
 		</dd>
 	</dl>
 
 	<table width="100%" class="ttlt">
-	<col width=30><col width=50><col width=150><col><col width=40><col span="2" width=56> 
+	<col width=30><col width=50><col><col width=50><col span="2" width=56> 
 		<tr class="bg">
 			<td><input type='checkbox' name='check_all'></td>
-			<td>Дараалал</td>
-			<td>Хайх үг</td>
-			<td>Линк хаяг</td>
-			<td>Шинэ цонх</td>
-			<td>Өөрчдөх</td>
-			<td class="e">Устгах</td>
+			<td>순서</td>
+			<td>검색어</td>
+			<td>조회수</td>
+			<td>수정</td>
+			<td class="e">삭제</td>
 		</tr>
 		<tbody id="category_list">
 		<?php if(!$category_list){ ?>
@@ -239,9 +244,8 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 				<a onClick="change_rank('up',this);">▲</a>
 				<a onClick="change_rank('down',this);">▼</a>&nbsp;
 			</td>
-			<td><input name="wr_content[]" type="text" class="txt" id="wr_content_<?php echo $val['no'];?>" value="<?php echo $wr_content;?>"></td>
-			<td><input name="wr_url[]" type="text" class="txt" id="wr_url_<?php echo $val['no'];?>" style="width:98%;" value="<?php echo $val['wr_url'];?>"></td>
-			<td><input name="wr_blank[]" type="checkbox" id="wr_blank_<?php echo $val['no'];?>" value="1" <?php echo ($val['wr_blank'])?'checked':'';;?>></td>
+			<td><input name="wr_content[]" type="text" class="txt" id="wr_content_<?php echo $val['no'];?>" style="width:98%;" value="<?php echo $wr_content;?>"></td>
+			<td><input name="wr_hit[]" type="text" class="txt" id="wr_hit_<?php echo $val['no'];?>" style="width:70%;" value="<?php echo $val['wr_hit'];?>"></td>
 			<td><a onClick="update_category(<?php echo $val['no'];?>);"><img src="../../images/btn/19_05.gif"></a></td>
 			<td class="e"><a onClick="delete_category(<?php echo $val['no'];?>);""><img src="../../images/btn/19_06.gif"></a></td>
 		</tr>
@@ -253,13 +257,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 		<form name="AdminSearchFrm" method="post" id="AdminSearchFrm" action="./process/search.php">
 		<input type="hidden" name="mode" value="insert" id="mode"/>
-		<input type="hidden" name="type" value="popular" id="type"/>
+		<input type="hidden" name="type" value="realtime" id="type"/>
 		<input type="hidden" name="ajax" value="1"/>
 			<tr class="bg_col" id='insertField' style='display:<?php echo ($mode=='insert')?'':'none';?>;'>
-				<td colspan='2'>Хайлт оруулах</td>
+				<td colspan='2'>검색어 입력</td>
 				<td class="pdlnb1"><input name="wr_content" type="text" class="txt w100" id="wr_content"></td>
-				<td class="pdlnb1"><input name="wr_url" type="text" class="txt w100" id="wr_url"></td>
-				<td class="pdlnb1"><input name="wr_blank" type="checkbox" class="w100" id="wr_blank" value="1"></td>
+				<td class="pdlnb1"><input name="wr_hit" type="text" class="txt w100" id="wr_hit" value="1"></td>
 				<td colspan='2' class="e"><input type='image' src="../../images/btn/19_01.gif" /></td>
 			</tr> 
 		</form>
@@ -267,12 +270,12 @@ var questionAnswer = function(answer, mode, no, name){	 // 질의 응답에 따�
 
 		<dl class="page mb50"> 
 			<dt>
-				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>Бүгдийг сонгох</h1></a>
-				<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголт устгах</h1></a>
+				<a onClick="selAll();" class="btn"><h1 class="btn23"><strong>A</strong>전체선택</h1></a>
+				<a onClick="sel_delete_category();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
 			</dt>
 			<dd>
 				<!-- <a onClick="sel_category();" class="btn"><h1 class="btn23"><strong class="col">O</strong>일괄적용</h1></a> -->
-				<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>Утга нэмэх</h1></a>
+				<a onClick="category_add();" class="cbtn grf_col lnb_col"><h1 class="btn23"><strong>+</strong>항목추가</h1></a>
 			</dd>
 		</dl>
 
