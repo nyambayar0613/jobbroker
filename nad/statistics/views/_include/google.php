@@ -4,12 +4,12 @@
 <table class="bg_col">
   <col width=80><col>
   <tr>
-    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">통계분류</td>
+    <td class="ctlt bno"><img src="../../images/comn/bul_08.png" class="t">Статистик ангилал</td>
     <td class="wbg pl7">
     <ul class="List">
-    <li class="f"><a href='./google.php' <?=(!$type)?"class='none b col' ":"";?>>접속통계</a></li>
-    <li><a href='./google.php?type=page' <?=($type=='page')?"class='none b col' ":"";?>>페이지 통계</a></li>
-    <li><a href='./google.php?type=system' <?=($type=='system')?"class='none b col' ":"";?>>시스템 통계</a></li>
+    <li class="f"><a href='./google.php' <?=(!$type)?"class='none b col' ":"";?>>Холбоосийн статистик</a></li>
+    <li><a href='./google.php?type=page' <?=($type=='page')?"class='none b col' ":"";?>>Хуудасны статистик</a></li>
+    <li><a href='./google.php?type=system' <?=($type=='system')?"class='none b col' ":"";?>>Системийн статистик</a></li>
     </ul>
     </td>
   </tr>		 
