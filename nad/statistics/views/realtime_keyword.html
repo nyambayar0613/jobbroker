@@ -19,14 +19,14 @@ var config_search = function( vals ){	// 검색어 출력설정
 		var msg = "";
 		//var search = results[0];
 		if(results[0]=='popular'){
-			msg = "인기검색어";
+			msg = "Олон хайгдсан үгс";
 		} else if(results[0]=='realtime'){
-			msg = "실시간검색어";
+			msg = "Хайгдсан үг";
 		}
 		if(results[1]){
-			alert("검색어 출력이 ["+msg+"] 로 변경 되었습니다.");
+			alert("Хайлтыг үг хэвлэлтийг ["+msg+"] өөрчлөх.");
 		} else {
-			alert("검색어 출력 설정중 오류가 발생하였습니다.");
+			alert("Хайлтын явцад алдаа гаралаа.");
 		}
 	});
 }
@@ -84,12 +84,12 @@ var delete_category = function(no){	 // 카테고리 삭제 (단일)
 	var name = $('#name'+no).val();
 	$('#quest_name').html(name);
 	$('#quest_info').show();
-	$('#confirm_msg').html("위의 정보를 삭제하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\', \''+no+'\');" value="예" />');
+	$('#confirm_msg').html("Дээрх мэдээллийг устгах уу?<br/></br>Утгасан мэдэллийг сэргээх боломжгүй.");
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\', \''+no+'\');" value="тийм" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: '인기검색어 삭제',
+		title: 'Олон хайгдсан үгс устгах',
 		showOverlay: false,
 		message: $('#question')
 	});
@@ -97,11 +97,11 @@ var delete_category = function(no){	 // 카테고리 삭제 (단일)
 var sel_delete_category = function(){	// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert("삭제할 인기검색어를 선택해 주세요.");
+		alert("Утгах хайлтаа оруулна уу.");
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("선택하신 인기검색어 "+chk_length+"건을 삭제 하시겠습니까?<br/></br>한번 삭제된 데이터는 복구가 불가능 합니다.");
+		$('#confirm_msg').html("Сонгосон хайлт "+chk_length+"устгах уу?<br/></br>Утгасан мэдээллийг сэргээх боломжгүй.");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
