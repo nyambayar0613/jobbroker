@@ -33,7 +33,7 @@ $(function(){
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 <dl class="notbox">
 	<dl>
-		실제 솔루션 설치시에는 모바일웹은 설치되지 않습니다. 모바일웹은 유료옵션을 통해 신청하신 후 이용하실 수 있습니다. 
+		Solution суулгаж байх үед гар утасны апп татагдахгүй. Та төлбөртэй сонголтоор өргөдөл гаргасны дараа мобайл вэб ашиглаж болно.
 	</dl>
 </dl>
 
@@ -49,22 +49,22 @@ $(function(){
 		<td class="pdlnb2">
 			<label><input name="wr_use" type="radio" value="1" class="radio" checked>Ашиглана</label> &nbsp;
 			<label><input name="wr_use" type="radio" value="0" class="radio" <?php echo (!$mobile_info['wr_use'])?'checked':'';?>>Ашиглахгүй</label> &nbsp;
-			<font class="fon11 dgr">고객님의 모바일웹 접속주소는 <input type="text" name="wr_mobile_url" id="wr_mobile_url" value="<?php echo $mobile_info['wr_mobile_url'];?>" class="txt" size="33" hname="접속주소" required title="모바일의 접속주소를 입력해주시기 바랍니다."> 입니다.</font>
+			<font class="fon11 dgr">Таны мобайл вэб хаяг <input type="text" name="wr_mobile_url" id="wr_mobile_url" value="<?php echo $mobile_info['wr_mobile_url'];?>" class="txt" size="33" hname="нэвтрэх хаяг" required title="Please enter your mobile access address."> </font>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">상단로고</td>
+		<td class="ctlt">дээд лого</td>
 		<td class="pdlnb2">
-			<input type="file" name="wr_logo" id="wr_logo" class="txt"  size="40" title="모바일 페이지의 로고등록을 할때 사용합니다.">
+			<input type="file" name="wr_logo" id="wr_logo" class="txt"  size="40" title="Mobile хуудасны логог бүртгэхэд хэрэглэгддэг.">
 			<dl class="fon11 bl mt5 ">
-				- 로고 가로크기는 220 픽셀, 세로크기는 32 픽셀 이내<br>
-				- 이미지는 jpg, gif, png 파일만 등록 가능
+				- Логоны өргөн нь 220 px, босоо хэмжээ нь 32px дотор байна.<br>
+				- Зөвхөн jpg, gif, png файлуудыг зураг дээр бүртгэх боломжтой.
 			</dl>
 			<div class="fl bgb2_col" style="width:300px; text-align:center; height:50px; line-height:50px; border:1px solid #ddd;"><img style="padding-top:10px;" class="vm" src="<?php echo $mobile_info['wr_logo'];?>"/></div>
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">색상선택</td>
+		<td class="ctlt">Өнгөгий сонголт</td>
 		<td class="pdlnb2">
 			<dt class="st_col">
 				<input type="radio" class="radio" name='wr_color' value="gr" <?php echo $mobile_info['wr_color']=="gr" ? "checked":"";?>><img src="../../images/comn/b.gif" class="grf_gr">
@@ -83,7 +83,7 @@ $(function(){
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">카피라이트</td>
+		<td class="ctlt">Зохиогчийн эрх</td>
 		<td class="pdlnb2">
 			<dl class="twrap">
 				<textarea name="wr_copyright" class="fon11 h15" style="height:80px;" id="wr_copyright"><?php echo stripslashes($mobile_info['wr_copyright']);?></textarea>
@@ -92,46 +92,46 @@ $(function(){
 	</tr>
 	</table>
 
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 메인 페이지 설정</dl>  
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Mobile main хуудасны үндсэн тохиргоо</dl>
 	<table width="100%" class="bg_col">
 	<col width=130><col> 
 	<tr>
-		<td class="ctlt">메인 박스형 채용정보</td>
+		<td class="ctlt">Үндсэн мэдээлэл</td>
 		<td class="pdlnb2">
-			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">메인 리스트형 채용정보</td>
+		<td class="ctlt">Ажлын байрны үндсэн(Main)жагсаалт</td>
 		<td class="pdlnb2">
-			<label><input name="wr_main_list_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_list_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_list_total" size='7' value="<?php echo $mobile_info['wr_main_list_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_list_page" size='7' value="<?php echo $mobile_info['wr_main_list_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">메인 포커스 인재정보</td>
+		<td class="ctlt">Main focus ажлын байрны мэдээлэл</td>
 		<td class="pdlnb2">
-			<label><input name="wr_main_focus_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_focus_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_focus_total" size='7' value="<?php echo $mobile_info['wr_main_focus_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_focus_page" size='7' value="<?php echo $mobile_info['wr_main_focus_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">메인 게시판</td>
+		<td class="ctlt">Main мэдээллийн самбар</td>
 		<td class="pdlnb2">
-			<label><input name="wr_main_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_board_use']==1)?'checked':'';?>>출력</label> &nbsp;
+			<label><input name="wr_main_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_board_use']==1)?'checked':'';?>>хэвлэх</label> &nbsp;
 			<table width="700" cellspacing="1" class="ln sep tf">
 			<tbody>
 			<tr height="25" align="center" class="bg b">
-				<th style="width:15px;">출력</th>
-				<th style="width:120px;">게시판명</th>
-				<th style="width:25px;">총 출력수</th>
+				<th style="width:15px;">Хэвлэх</th>
+				<th style="width:120px;">Мэдээллийн самбарын нэр</th>
+				<th style="width:25px;">Нийт хэвлэх тоо</th>
 				<!-- <th  style="width:30px;">1페이지당 출력수</th> -->
 			</tr>
 			<?php 
@@ -144,7 +144,7 @@ $(function(){
 			<tr  height="30" class="wbg tc">
 				<td><input type="checkbox" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($main_board[$boards['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
 				<td><?php echo stripslashes($boards['bo_subject']);?></td>
-				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $mobile_info['wr_main_board_total'];?>"/>건</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $mobile_info['wr_main_board_total'];?>"/>төрөл</td>
 				<!-- 
 				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_board[<?php echo $boards['bo_table'];?>][wr_page]" size='7' value="<?php echo $mobile_info['wr_main_board_page'];?>"/>건</td> 
 				-->
@@ -176,79 +176,79 @@ $(function(){
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">메인 공지사항</td>
+		<td class="ctlt">Main Notice</td>
 		<td class="pdlnb2">
-			<label><input name="wr_main_notice_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_notice_use'])?'checked':'';?>>출력</label> &nbsp;
+			<label><input name="wr_main_notice_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_notice_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
 		</td>
 	</tr>
 	</table>
 
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 서브 페이지 설정</dl>  
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Mobile subpage тохиргоо</dl>
 	<table width="100%" class="bg_col">
 	<col width=130><col> 
 	<tr><td height="5" colspan="2" style="background-color:#fff;"></td></tr>
 	<tr>
-		<td class="ctlt">서브 박스형 채용정보</td>
+		<td class="ctlt">Sub-Box ажлууд</td>
 		<td class="pdlnb2">
-			<label><input name="wr_sub_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_box_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_box_total" size='7' value="<?php echo $mobile_info['wr_sub_box_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_box_page" size='7' value="<?php echo $mobile_info['wr_sub_box_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">서브 리스트형 채용정보</td>
+		<td class="ctlt">Sub list төрлийн ажлын мэдээлэл</td>
 		<td class="pdlnb2">
-			<label><input name="wr_sub_list_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_list_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_list_total" size='7' value="<?php echo $mobile_info['wr_sub_list_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_list_page" size='7' value="<?php echo $mobile_info['wr_sub_list_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">서브 일반 채용정보</td>
+		<td class="ctlt">Sub Энгийн ажлууд</td>
 		<td class="pdlnb2">
-			<label><input name="wr_sub_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_use'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_total" size='7' value="<?php echo $mobile_info['wr_sub_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_page" size='7' value="<?php echo $mobile_info['wr_sub_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">서브 포커스 인재정보</td>
+		<td class="ctlt">Sub focus хүний нөөцийн мэдээлэл</td>
 		<td class="pdlnb2">
-			<label><input name="wr_sub_focus" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_focus'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_focus_total" size='7' value="<?php echo $mobile_info['wr_sub_focus_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_focus_page" size='7' value="<?php echo $mobile_info['wr_sub_focus_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	<tr>
-		<td class="ctlt">서브 일반 인재정보</td>
+		<td class="ctlt">Sub энгийн хүний нөөцийн мэдээлэл</td>
 		<td class="pdlnb2">
-			<label><input name="wr_sub_individual" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_sub_individual'])?'checked':'';?>>출력</label> &nbsp;
-			총 출력수 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_individual_total" size='7' value="<?php echo $mobile_info['wr_sub_individual_total'];?>"/>건, 
-			1페이지당 <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_sub_individual_page" size='7' value="<?php echo $mobile_info['wr_sub_individual_page'];?>"/>건 출력
+			<label><input name="wr_main_box_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_main_box_use'])?'checked':'';?>>хэвлэх</label> &nbsp;
+			Нийт хэвлэх тоо <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_total" size='7' value="<?php echo $mobile_info['wr_main_box_total'];?>"/>төрөл,
+			хуудас тутамд <input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_main_box_page" size='7' value="<?php echo $mobile_info['wr_main_box_page'];?>"/>төрөл хэвлэх
 
 		</td>
 	</tr>
 	</table>
-	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 커뮤니티 설정</dl>  
+	<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Хөдөлгөөнт вэб комиунити тохиргоо</dl>
 	<table width="100%" class="bg_col">
 	<col width=130><col> 
 	<tr><td height="5" colspan="2" style="background-color:#fff;"></td></tr>
 	<tr>
-		<td class="ctlt">커뮤니티</td>
+		<td class="ctlt">комиунити</td>
 		<td class="pdlnb2">
-			<label><input name="wr_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_board_use']==1)?'checked':'';?>>출력</label> &nbsp;
+			<label><input name="wr_board_use" type="checkbox" value="1" class="check" <?php echo ($mobile_info['wr_board_use']==1)?'checked':'';?>>хэвлэх</label> &nbsp;
 			<table width="700" cellspacing="1" class="ln sep tf">
 			<tbody>
 			<tr height="25" align="center" class="bg b">
-				<th style="width:15px;">출력</th>
-				<th style="width:90px;">게시판명</th>
-				<th style="width:25px;">메인 출력수</th>
-				<th style="width:25px;">총 출력수</th>
-				<th style="width:30px;">1페이지당 출력수</th>
+				<th style="width:15px;">хэвлэх</th>
+				<th style="width:90px;">мэдээллийн самбарын нэр</th>
+				<th style="width:25px;">үндсэн хэвлэлтийн тоо</th>
+				<th style="width:25px;">нийт хэвлэх тоо</th>
+				<th style="width:30px;">нэг хуудсанд хэвлэх тоо</th>
 			</tr>
 			<?php 
 
@@ -261,13 +261,13 @@ $(function(){
 			<tr  height="30" class="wbg tc">
 				<td><input type="checkbox" name="wr_board[<?php echo $boards['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($wr_board[$boards['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
 				<td><?php echo stripslashes($boards['bo_subject']);?></td>
-				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_total[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_total'];?>"/>건</td>
-				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $boards['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_main'];?>"/>건</td>
-				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_board[<?php echo $boards['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_page'];?>"/>건</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_total[<?php echo $boards['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_total'];?>"/>төрөл</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $boards['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_main'];?>"/>төрөл</td>
+				<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board_board[<?php echo $boards['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$boards['bo_table']]['wr_page'];?>"/>төрөл</td>
 			</tr>
 			<?php 
 					}	// get_boardCode foreach end.
-				} else {	 // 하위 있는 게시판의 경우
+				} else {	 //
 					$pcode_List = $category_control->pcode_List($menus['code']);
 					$k = 0;
 					foreach($pcode_List as $boards){
@@ -277,9 +277,9 @@ $(function(){
 				<tr height="30" class="wbg tc">
 					<td><input type="checkbox" name="wr_board[<?php echo $val['bo_table'];?>][wr_view]" class="check" value="yes" <?php echo ($wr_board[$val['bo_table']]['wr_view']=='yes')?'checked':'';?>/></td>
 					<td><?php echo stripslashes($val['bo_subject']);?></td>
-					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_total'];?>"/>건</td>
-					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_main'];?>"/>건</td>
-					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_page'];?>"/>건</td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_total]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_total'];?>"/>төрөл</td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_main]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_main'];?>"/>төрөл</td>
+					<td><input type="text" style="width:50px; margin-right:5px;" class="tnum tc b" name="wr_board[<?php echo $val['bo_table'];?>][wr_page]" size='7' value="<?php echo $wr_board[$val['bo_table']]['wr_page'];?>"/>төрөл</td>
 				</tr>
 			<?php
 						} // board_info foreach end.
