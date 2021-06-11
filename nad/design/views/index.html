@@ -72,10 +72,10 @@ var cate_sels = function( cate, no, code ){	 // 카테고리 선택
 
 }
 var main_skin_msg = function(){
-	alert("메인 스타일을 변경 하시면 스타일에 맞는 배너를 다시 설정 해 주세요.");
+	alert(" Mainstyle өөрчилвөл style-д тохирсон Banner ийг дахин тохируулна уу.");
 }
 var main_left_msg = function(){
-	alert("좌측메뉴 사용시 서브 페이지 좌측에 출력되는 공고/이력서 메뉴가 메인 좌측에 출력 됩니다.");
+	alert("Зүүн цэсийг ашиглахдаа дэд хуудасны зүүн талд хэвлэгдсэн зар / үргэлжлүүлэх цэсийг үндсэн хуудасны зүүн талд гаргана.");
 }
 var update_content = function( type ){
 
@@ -144,8 +144,8 @@ var update_content = function( type ){
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="아니오" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
 	</p>
 </div> 
 
@@ -163,7 +163,7 @@ var update_content = function( type ){
 			<dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 			<dl class="notbox">
 				<dl>
-				구인구직 사이트의 전반적인 색상, 레이아웃, 문구등을 수정 관리하는 페이지 입니다. <br>
+					Ажлын байрны сайтын ерөнхий өнгө, layout , текстийг засах, удирдах хуудас.<br>
 				</dl>
 			</dl>
 
@@ -174,11 +174,11 @@ var update_content = function( type ){
 			<input type="hidden" name="no" value="<?=$design['no']?>"/><!-- 현재 설정 no -->
 			<input type="hidden" name="site_color" value="0"/>
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">사이트기본설정</dl>  
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Сайтын ерөнхий тохиргоо</dl>
 			<table width="100%" class="bg_col">
 			<col width=110><col> 
 			<tr>
-				<td class="ctlt">사이트기본색</td>
+				<td class="ctlt">Сайтын ерөнхий өнгө</td>
 				<td class="pdlnb2">
 					<dt class="st_col" style="display:<?php echo ($design['site_color'])?'none':'';?>;" id="site_colorSkin">
 						<input name="skin_color" type="radio" value="gr" class="radio" <?php echo ($design['skin_color']=='gr')?'checked':'';?>><img src="../../images/comn/b.gif" class="grf_gr">
@@ -202,45 +202,45 @@ var update_content = function( type ){
 			<dl class="pbtn"><input type='image' src="../../images/btn/b35_14.png" class="ln_col">&nbsp;</dl>
 
 
-			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">서비스 출력설정</dl>  
+			<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Үйлчилгээний хэвлэлтийн тохиргоо</dl>
 			<table width="100%" class="bg_col">
 			<col width=130><col> 
 			
 
 	        <tr>
-				<td class="ctlt">플래티넘 구인정보</td>
+				<td class="ctlt">Пилатинум ажлын байр</td>
 				<td class="pdlnb2">
 					<div>
-						<input name="main_platinum_use" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_use'])?'checked':'';?> onclick="use_sel('main_platinum',this);" id="main_platinum_use" /><label for="main_platinum_use">출력</label>
-						<input name="main_platinum_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_limit'])?'checked':'';?> onclick="" id="main_platinum_limit" /><label for="main_platinum_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+						<input name="main_platinum_use" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_use'])?'checked':'';?> onclick="use_sel('main_platinum',this);" id="main_platinum_use" /><label for="main_platinum_use">Хэвлэх</label>
+						<input name="main_platinum_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_platinum_limit'])?'checked':'';?> onclick="" id="main_platinum_limit" /><label for="main_platinum_limit">No limit</label><span class="subtlt"></span>
 					</div>
 					<table width="790px" cellspacing="1" class="ln sep tf  main_platinum_print" style="display:<?php echo ($design['main_platinum_use'])?'':'none';?>;">
 					<tbody>
 					<tr height="25" align="center" class="bg b">
-						<th style="width:80px;">가로 출력수</th>
-						<th style="width:80px;">세로 출력수</th>
-						<th style="width:80px;">총 출력수</th>
-						<th style="width:250px">테두리칼라설정</th>
-						<th style="width:500px">배경칼라설정</th>
+						<th style="width:80px;">Хэвтээ гаралт</th>
+						<th style="width:80px;">Босоо хэвлэх тоо</th>
+						<th style="width:80px;">Нийт гаралтын тоо</th>
+						<th style="width:250px">Хүрээний өнгөний тохиргоо</th>
+						<th style="width:500px">Background өнгөний тохиргоо</th>
 					</tr>
 					<tr  height="30" class="wbg tc">
 						<td>
-						<input type="text" name="main_platinum_row" value="<?=$design['main_platinum_row'];?>" style="width:10px;border:0" readOnly />개
+						<input type="text" name="main_platinum_row" value="<?=$design['main_platinum_row'];?>" style="width:10px;border:0" readOnly />ш
 						</td>
 						<td>  
-						<input type="text" name="main_platinum_row2" value="<?=$design['main_platinum_row2'];?>" style="width:50px;" />개
+						<input type="text" name="main_platinum_row2" value="<?=$design['main_platinum_row2'];?>" style="width:50px;" />ш
 						</td>
 						<td>  
-						<input type="text" name="main_platinum_total" value="<?=$design['main_platinum_total'];?>" style="width:50px;" />개
+						<input type="text" name="main_platinum_total" value="<?=$design['main_platinum_total'];?>" style="width:50px;" />ш
 						</td>
 						<td>
 							<div id="site_colorUser" style="">
 								<p style="padding:10px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_platinum_border_color" id="main_platinum_border_color"><?php echo $utility->gwsc($design['main_platinum_border_color']); ?></select>
 								</p>
 								<p style="padding:1px 2px 10px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_platinum_border_gold_color" id="main_platinum_border_gold_color"><?php echo $utility->gwsc($design['main_platinum_border_gold_color']); ?></select>
 								</p>
 							</div>
@@ -248,15 +248,15 @@ var update_content = function( type ){
 						<td>
 							<div id="site_colorUser" style="">
 								<p style="padding:5px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_platinum_background_color" id="main_platinum_background_color"><?php echo $utility->gwsc($design['main_platinum_background_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_platinum_font_color" id="main_platinum_font_color"><?php echo $utility->gwsc($design['main_platinum_font_color']); ?></select>
 								</p>
 								<p style="padding:1px 2px 5px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_platinum_background_gold_color" id="main_platinum_background_gold_color"><?php echo $utility->gwsc($design['main_platinum_background_gold_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_platinum_font_gold_color" id="main_platinum_font_gold_color"><?php echo $utility->gwsc($design['main_platinum_font_gold_color']); ?></select>
 								</p>
 							</div>						
@@ -267,46 +267,46 @@ var update_content = function( type ){
 				</td>
 			</tr>
 	        <tr>
-				<td class="ctlt">플래티넘 서비스안내</td>
+				<td class="ctlt">Пилатинум үйлчилгээний танилцуулга</td>
 				<td class="pdlnb2">
-					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_platinum_content');" id="update_main_platinum_content">내용수정</a></span>
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_platinum_content');" id="update_main_platinum_content">Агуулга тохируулах</a></span>
 				</td>
 			</tr>
 			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
 			<tr>
-				<td class="ctlt">그랜드 구인정보</td>
+				<td class="ctlt">Гранд ажлын байрны мэдээлэл</td>
 				<td class="pdlnb2">
 					<div>
-						<input name="main_grand_use" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_use'])?'checked':'';?> onclick="use_sel('main_grand',this);" id="main_grand_use" /><label for="main_grand_use">출력</label>
-						<input name="main_grand_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_limit'])?'checked':'';?> onclick="" id="main_grand_limit" /><label for="main_grand_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+						<input name="main_grand_use" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_use'])?'checked':'';?> onclick="use_sel('main_grand',this);" id="main_grand_use" /><label for="main_grand_use">Хэвлэх</label>
+						<input name="main_grand_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_grand_limit'])?'checked':'';?> onclick="" id="main_grand_limit" /><label for="main_grand_limit">no limit</label><span class="subtlt"></span>
 					</div>
 					<table width="790px" cellspacing="1" class="ln sep tf main_grand_print" style="display:<?php echo ($design['main_grand_use'])?'':'none';?>;">
 					<tbody>
 					<tr height="25" align="center" class="bg b">
-						<th style="width:80px;">가로 출력수</th>
-						<th style="width:80px;">세로 출력수</th>
-						<th style="width:80px;">총 출력수</th>
-						<th style="width:250px">테두리칼라설정</th>
-						<th style="width:500px">배경칼라설정</th>
+						<th style="width:80px;">Хэвтээ гаралт</th>
+						<th style="width:80px;">Босоо хэвлэх тоо</th>
+						<th style="width:80px;">Нийт гаралтын тоо</th>
+						<th style="width:250px">Хүрээний өнгөний тохиргоо</th>
+						<th style="width:500px">Background өнгөний тохиргоо</th>
 					</tr>
 					<tr  height="30" class="wbg tc">
 						<td>
-						<input type="text" name="main_grand_row" value="<?=$design['main_grand_row'];?>" style="width:10px;border:0" readOnly />개
+						<input type="text" name="main_grand_row" value="<?=$design['main_grand_row'];?>" style="width:10px;border:0" readOnly /ш
 						</td>
 						<td>  
-						<input type="text" name="main_grand_row2" value="<?=$design['main_grand_row2'];?>" style="width:50px;" />개
+						<input type="text" name="main_grand_row2" value="<?=$design['main_grand_row2'];?>" style="width:50px;" />ш
 						</td>
 						<td>  
-						<input type="text" name="main_grand_total" value="<?=$design['main_grand_total'];?>" style="width:50px;" />개
+						<input type="text" name="main_grand_total" value="<?=$design['main_grand_total'];?>" style="width:50px;" />ш
 						</td>
 						<td>
 							<div id="site_colorUser" style="">
 							<p style="padding:3px 2px 1px;">
-								<label>일반:</label>
+								<label>Энгийн:</label>
 								<select name="main_grand_border_color" id="main_grand_border_color"><?php echo $utility->gwsc($design['main_grand_border_color']); ?></select>
 							</p>
 							<p style="padding:1px 2px 3px;">
-								<label>골드:</label>
+								<label>Gold:</label>
 								<select name="main_grand_border_gold_color" id="main_grand_border_gold_color"><?php echo $utility->gwsc($design['main_grand_border_gold_color']); ?></select>
 							</p>
 							</div>
@@ -314,15 +314,15 @@ var update_content = function( type ){
 						<td>
 							<div id="site_colorUser" style="">
 								<p style="padding:3px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_grand_background_color" id="main_grand_background_color"><?php echo $utility->gwsc($design['main_grand_background_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_grand_font_color" id="main_grand_font_color"><?php echo $utility->gwsc($design['main_grand_font_color']); ?></select>
 								</p>
 								<p style="padding:1px 2px 3px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_grand_background_gold_color" id="main_grand_background_gold_color"><?php echo $utility->gwsc($design['main_grand_background_gold_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_grand_font_gold_color" id="main_grand_font_gold_color"><?php echo $utility->gwsc($design['main_grand_font_gold_color']); ?></select>
 								</p>
 							</div>						
@@ -333,46 +333,46 @@ var update_content = function( type ){
 				</td>
 			</tr>
 	        <tr>
-				<td class="ctlt">그랜드 서비스안내</td>
+				<td class="ctlt">Гранд үйлчилгээний танилцуулга</td>
 				<td class="pdlnb2">
-					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_grand_content');" id="update_main_grand_content">내용수정</a></span>
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_grand_content');" id="update_main_grand_content">Агуулга тохиргоо</a></span>
 				</td>
 			</tr>
 			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
 	        <tr>
-				<td class="ctlt">스페셜 구인정보</td>
+				<td class="ctlt">Онцгой ажлын байрны мэдээлэл</td>
 				<td class="pdlnb2">
 					<div>
-						<input name="main_special_use" type="checkbox" value="1" class="check" <?php echo ($design['main_special_use'])?'checked':'';?> onclick="use_sel('main_special',this);" id="main_special_use" /><label for="main_special_use">출력</label>
-						<input name="main_special_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_special_limit'])?'checked':'';?> onclick="" id="main_special_limit" /><label for="main_special_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+						<input name="main_special_use" type="checkbox" value="1" class="check" <?php echo ($design['main_special_use'])?'checked':'';?> onclick="use_sel('main_special',this);" id="main_special_use" /><label for="main_special_use">хэвлэх</label>
+						<input name="main_special_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_special_limit'])?'checked':'';?> onclick="" id="main_special_limit" /><label for="main_special_limit">No limit</label><span class="subtlt"></span>
 					</div>
 					<table width="790px" cellspacing="1" class="ln sep tf main_special_print" style="display:<?php echo ($design['main_special_use'])?'':'none';?>;">
 					<tbody>
 					<tr height="25" align="center" class="bg b">
-						<th style="width:80px;">가로 출력수</th>
-						<th style="width:80px;">세로 출력수</th>
-						<th style="width:80px;">총 출력수</th>
-						<th style="width:250px">테두리칼라설정</th>
-						<th style="width:500px">배경칼라설정</th>
+						<th style="width:80px;">Хэвтээ гаралтын тоо</th>
+						<th style="width:80px;">Босоо гаралтын тоо</th>
+						<th style="width:80px;">Нийт гаралтын тоо</th>
+						<th style="width:250px">Хүрээний өнгөний тохиргоо</th>
+						<th style="width:500px">Background өнгөний тохиргоо</th>
 					</tr>
 					<tr  height="30" class="wbg tc">
 						<td>
-						<input type="text" name="main_special_row" value="<?=$design['main_special_row'];?>" style="width:10px;border:0" readOnly />개
+						<input type="text" name="main_special_row" value="<?=$design['main_special_row'];?>" style="width:10px;border:0" readOnly />ш
 						</td>
 						<td>  
-						<input type="text" name="main_special_row2" value="<?=$design['main_special_row2'];?>" style="width:50px;" />개
+						<input type="text" name="main_special_row2" value="<?=$design['main_special_row2'];?>" style="width:50px;" />ш
 						</td>
 						<td>  
-						<input type="text" name="main_special_total" value="<?=$design['main_special_total'];?>" style="width:50px;" />개
+						<input type="text" name="main_special_total" value="<?=$design['main_special_total'];?>" style="width:50px;" />ш
 						</td>
 						<td>
 							<div id="site_colorUser" style="">
 								<p style="padding:10px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_special_border_color" id="main_special_border_color"><?php echo $utility->gwsc($design['main_special_border_color']); ?></select>		
 								</p>
 								<p style="padding:1px 2px 10px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_special_border_gold_color" id="main_special_border_gold_color"><?php echo $utility->gwsc($design['main_special_border_gold_color']); ?></select>
 								</p>
 							</div>
@@ -380,15 +380,15 @@ var update_content = function( type ){
 						<td>
 							<div id="site_colorUser" style="">
 								<p style="padding:3px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_special_background_color" id="main_special_background_color"><?php echo $utility->gwsc($design['main_special_background_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">текстийн өнгө:</label>
 									<select name="main_special_font_color" id="main_special_font_color"><?php echo $utility->gwsc($design['main_special_font_color']); ?></select>									
 								</p>
 								<p style="padding:1px 2px 3px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_special_background_gold_color" id="main_special_background_gold_color"><?php echo $utility->gwsc($design['main_special_background_gold_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">текстийн өнгө:</label>
 									<select name="main_special_font_gold_color" id="main_special_font_gold_color"><?php echo $utility->gwsc($design['main_special_font_gold_color']); ?></select>
 								</p>
 							</div>						
@@ -399,32 +399,32 @@ var update_content = function( type ){
 				</td>
 			</tr>
 	        <tr>
-				<td class="ctlt">스페셜 서비스안내</td>
+				<td class="ctlt">Онцгой үйлчилгээний танилцуулга</td>
 				<td class="pdlnb2">
-					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_special_content');" id="update_main_special_content">내용수정</a></span>
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_special_content');" id="update_main_special_content">Агуулга тохиргоо</a></span>
 				</td>
 			</tr>
 			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
 	        <tr>
-				<td class="ctlt">급구 서비스안내</td>
+				<td class="ctlt">Яаралтай үйлчилгээний танилцуулга</td>
 				<td class="pdlnb2">
-					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_busy_content');" id="update_main_busy_content">내용수정</a></span>
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_busy_content');" id="update_main_busy_content">Агуулга тохиргоо</a></span>
 				</td>
 			</tr>
 			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
 			<tr>
-				<td class="ctlt">포커스 인재정보</td>
+				<td class="ctlt">Focus ажлын байрны мэдээлэл</td>
 				<td class="pdlnb2">
 					<div>
-						<input name="main_focus_use" type="checkbox" value="1" class="check" <?php echo ($design['main_focus_use'])?'checked':'';?> onclick="use_sel('main_focus',this);" id="main_focus_use" /><label for="main_focus_use">출력</label>
-						<input name="main_focus_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_focus_limit'])?'checked':'';?> onclick="" id="main_focus_limit"/><label for="main_focus_limit">총출력수 제한</label><span class="subtlt">('총출력수 제한'을 설정하시면 총출력수 만큼만 등록/출력 됩니다)</span>
+						<input name="main_special_use" type="checkbox" value="1" class="check" <?php echo ($design['main_special_use'])?'checked':'';?> onclick="use_sel('main_special',this);" id="main_special_use" /><label for="main_special_use">Хэвлэх</label>
+						<input name="main_special_limit" type="checkbox" value="1" class="check" <?php echo ($design['main_special_limit'])?'checked':'';?> onclick="" id="main_special_limit" /><label for="main_special_limit">No limit</label><span class="subtlt"></span>
 					</div>
 					<table width="790px" cellspacing="1" class="ln sep tf main_focus_print" style="display:<?php echo ($design['main_platinum_use'])?'':'none';?>;">
 					<tbody>
 					<tr height="25" align="center" class="bg b">
-						<th style="width:240px;">총출력수</th>
-						<th style="width:250px">테두리칼라설정</th>
-						<th style="width:500px">배경칼라설정</th>
+						<th style="width:80px;">Хэвтээ гаралтын тоо</th>
+						<th style="width:80px;">Босоо гаралтын тоо</th>
+						<th style="width:80px;">Нийт гаралтын тоо</th>
 					</tr>
 					<tr  height="30" class="wbg tc">
 						<td>
@@ -433,11 +433,11 @@ var update_content = function( type ){
 						<td>
 							<div id="site_colorUser" style="">
 								<div style="padding:3px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_focus_border_color" id="main_focus_border_color"><?php echo $utility->gwsc($design['main_focus_border_color']); ?></select>
 								</div>
 								<div style="padding:1px 2px 3px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_focus_border_gold_color" id="main_focus_border_gold_color"><?php echo $utility->gwsc($design['main_focus_border_gold_color']); ?></select>
 								</div>
 							</div>
@@ -445,15 +445,15 @@ var update_content = function( type ){
 						<td>
 							<div id="site_colorUser" style="">
 								<div style="padding:3px 2px 1px;">
-									<label>일반:</label>
+									<label>Энгийн:</label>
 									<select name="main_focus_background_color" id="main_focus_background_color"><?php echo $utility->gwsc($design['main_focus_background_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_focus_font_color" id="main_focus_font_color"><?php echo $utility->gwsc($design['main_focus_font_color']); ?></select>
 								</div>
 								<div style="padding:1px 2px 3px;">
-									<label>골드:</label>
+									<label>Gold:</label>
 									<select name="main_focus_background_gold_color" id="main_focus_background_gold_color"><?php echo $utility->gwsc($design['main_focus_background_gold_color']); ?></select>
-									<label style="margin-left:45px">글자색:</label>
+									<label style="margin-left:45px">Текстын өнгө:</label>
 									<select name="main_focus_font_gold_color" id="main_focus_font_gold_color"><?php echo $utility->gwsc($design['main_focus_font_gold_color']); ?></select>
 								</div>
 							</div>						
@@ -464,14 +464,14 @@ var update_content = function( type ){
 				</td>
 			</tr>
 	        <tr>
-				<td class="ctlt">포커스 서비스안내</td>
+				<td class="ctlt">Focus үйлчилгээний танилцуулга</td>
 				<td class="pdlnb2">
-					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_focus_content');" id="update_main_focus_content">내용수정</a></span>
+					<span><a class="btn wbl" style="padding:0 5px;" onclick="update_content('main_focus_content');" id="update_main_focus_content">Агуулга тохиргоо</a></span>
 				</td>
 			</tr>
 			<tr><td colspan="2" style="border-bottom:1px solid #E9F0F4;background-color:#ffffff;height:5px;"></td></tr>
 	        <tr>
-				<td class="ctlt">메인 일반형 구인정보</td>
+				<td class="ctlt">메인 일반형 구인정보 </td>
 				<td class="pdlnb2">
 					<label><input name="main_bottom_alba_use" type="checkbox" value="1" class="check" <?php echo ($design['main_bottom_alba_use'])?'checked':'';?> />출력</label>
 					/ 1페이지당 출력건수 <input type="text" class="tnum tc b" name="main_bottom_alba_total" size='7' value="<?php echo $design['main_bottom_alba_total'];?>"/> 건
