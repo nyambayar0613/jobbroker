@@ -97,7 +97,7 @@
 	foreach($banner_group_list as $group){ 
 		$p_no = $group['p_no'];
 		$banner_list = $banner_control->banner_list(" where `p_no` = '".$p_no."' ");
-		$banner_list_cnt = $banner_list['total_count'];
+		$banner_list_cnt = $banner_list['total_count'];яся
 		$rowspan = ($banner_list_cnt > 1) ? "rowspan='".$banner_list_cnt."'" : "";
 		for($i=0;$i<$banner_list_cnt;$i++){
 			$vals = $banner_list['result'][$i];
