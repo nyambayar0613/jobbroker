@@ -13,8 +13,8 @@ $(function(){
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -37,7 +37,7 @@ $(function(){
 	</dl>
 </dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Mobile app-н ерөнхий тохиргоо</dl>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">모바일웹 기본 설정</dl>  
 
 <form name="MobileConfigFrm" method="post" id="MobileConfigFrm" action="./process/regist.php" enctype="multipart/form-data">
 <input type="hidden" name="ajax" value="1"/>
@@ -45,10 +45,10 @@ $(function(){
 	<table width="100%" class="bg_col">
 	<col width=150><col> 
 	<tr>
-		<td class="ctlt">Ашиглах эсэх</td>
+		<td class="ctlt">사용여부</td>
 		<td class="pdlnb2">
-			<label><input name="wr_use" type="radio" value="1" class="radio" checked>Ашиглана</label> &nbsp;
-			<label><input name="wr_use" type="radio" value="0" class="radio" <?php echo (!$mobile_info['wr_use'])?'checked':'';?>>Ашиглахгүй</label> &nbsp;
+			<label><input name="wr_use" type="radio" value="1" class="radio" checked>사용함</label> &nbsp;
+			<label><input name="wr_use" type="radio" value="0" class="radio" <?php echo (!$mobile_info['wr_use'])?'checked':'';?>>사용안함</label> &nbsp;
 			<font class="fon11 dgr">고객님의 모바일웹 접속주소는 <input type="text" name="wr_mobile_url" id="wr_mobile_url" value="<?php echo $mobile_info['wr_mobile_url'];?>" class="txt" size="33" hname="접속주소" required title="모바일의 접속주소를 입력해주시기 바랍니다."> 입니다.</font>
 		</td>
 	</tr>
