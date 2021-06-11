@@ -24,7 +24,7 @@ var change_rank = function(direction, src){	// 순위 조절
 	if(direction =='up'){
 		var next_no = $('tr.popup_list', $(parent)).first().attr('no');
 		if(no == next_no){
-			alert('Highest rank.');
+			alert('최상위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.popup_list').prev().attr('no');
@@ -32,7 +32,7 @@ var change_rank = function(direction, src){	// 순위 조절
 	} else if(direction =='down'){
 		var next_no = $('tr.popup_list', $(parent)).last().attr('no');
 		if(no == next_no){
-			alert('Highest rank.');
+			alert('최하위 순위 입니다.');
 			return false;
 		} else {
 			next_no = $(src).parents('tr.popup_list').next().attr('no');
@@ -66,12 +66,12 @@ var update_popup = function(mode, no){	 // 팝업 등록/수정
 		});
 		// 출력기간
 		$('#popup_begin, #popup_end').datetimepicker({
-			currentText: 'Яг одоо',
-			closeText: 'Хэрэглэх',
-			timeText: 'Хугацаа',
-			hourText: 'Цаг',
-			minuteText: 'Минут',
-			secondText: 'Секунт',
+			currentText: '지금',
+			closeText: '적용',
+			timeText: '시간',
+			hourText: '시',
+			minuteText: '분',
+			secondText: '초',
 			showSecond: true,
 			timeFormat: 'hh:mm:ss'
 		});
@@ -80,12 +80,12 @@ var update_popup = function(mode, no){	 // 팝업 등록/수정
 }
 var delete_popup = function(no, popup_title){	 // 삭제
 	$('#quest_info').show();
-	$('#confirm_msg').html("["+popup_title+"] POPUP устгах уу?");
-	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="тийм" />');
+	$('#confirm_msg').html("["+popup_title+"] 팝업을 삭제하시겠습니까?");	
+	$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'delete\',\''+no+'\');" value="예" />');
 	// 질의(Confirm) 창 띄우기
 	$.blockUI({ 
 		theme: true,
-		title: 'POPUP цонх устгах',
+		title: '팝업창 정보 삭제',
 		showOverlay: false,
 		message: $('#question'),
 		css: { 
@@ -96,22 +96,22 @@ var delete_popup = function(no, popup_title){	 // 삭제
 var sel_delete_popup = function(){		// 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('Устгах POPUP цонхоо сонгоно уу.');
+		alert('삭제할 팝업 정보를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгогдсон popuop мэдээлэл "+chk_length+"устгах уу?");
+		$('#confirm_msg').html("선택하신 팝업 정보 "+chk_length+"건을 삭제 하시겠습니까?");
 		var del_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			del_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_delete\',\''+del_no+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Popup мэдээллийг устгах',
+			title: '팝업 정보 선택삭제',
 			showOverlay: false,
 			message: $('#question'),
 			css: { 
@@ -125,10 +125,10 @@ var popup_views = function(no, sels){	// 출력/미출력
 	$.post('./process/popup.php', { mode:'views', no:no, views:sel }, function(result){
 		if(result){
 			if(sel==true)
-				msg = "хэвлэх";
+				msg = "출력";
 			else
-				msg = "хэвлэхгүй";
-			alert("POPUP ["+msg+"] - өөрчлөх.");
+				msg = "미출력";
+			alert("팝업을 ["+msg+"] 으로 변경했습니다.");
 		} else {
 			alert("<?php echo $config->_errors('0008');?>");
 		}
@@ -139,10 +139,10 @@ var popup_sub_views = function(no, sels){	// 서브페이지 출력/미출력
 	$.post('./process/popup.php', { mode:'sub_views', no:no, views:sel }, function(result){
 		if(result){
 			if(sel==true)
-				msg = "хэвлэх";
+				msg = "출력";
 			else
-				msg = "хэвлэхгүй";
-			alert("Popup on subpage ["+msg+"].");
+				msg = "미출력";
+			alert("팝업을 서브페이지에 ["+msg+"] 합니다.");
 		} else {
 			alert("<?php echo $config->_errors('0008');?>");
 		}
@@ -150,25 +150,24 @@ var popup_sub_views = function(no, sels){	// 서브페이지 출력/미출력
 }
 var sel_popupViews = function(views){	// 선택 팝업 출력/미출력
 	var chk_length = $("input[name='no[]']:checked").length;
-	var msg = (views=='yes') ? "хэвлэнэ" : "хэвлэхгүй";
+	var msg = (views=='yes') ? "출력" : "미출력";
 	if(chk_length==0){
-		alert('Өөрчлөх POPUP мэдээллийг сонгоно уу.');
+		alert('변경할 팝업 정보를 선택해 주세요.');
 		return false;
 	} else {
 		$('#quest_info').hide();
-		$('#confirm_msg').html("Сонгосон "+chk_length+"төрлийг ["+msg+"] өөрчлөх үү?");
-
+		$('#confirm_msg').html("선택하신 팝업 정보 "+chk_length+"건을 ["+msg+"] 으로 변경 하시겠습니까?");
 		var view_no = new Array();
 		var i = 0;
 		$("input[name='no[]']:checked").each(function(){
 			view_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="тийм" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_view\',\''+view_no+'\',\''+views+'\');" value="예" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: 'Попап мэдээлэл хэвлэх /  тохиргоо ',
+			title: '팝업 정보 출력/미출력 설정',
 			showOverlay: false,
 			message: $('#question'),
 			css: { 
@@ -232,8 +231,8 @@ var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따
 	<div id='quest_info'></div>
 	<p align='center' id='confirm_msg'></p><br/>
 	<p align='center'>
-		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="тийм" /> </span>
-		<input type="button" onClick="questionAnswer('no');" value="үгүй" />
+		<span id='questionAnswerYes'><input type="button" onClick="questionAnswer('yes');" value="예" /> </span>
+		<input type="button" onClick="questionAnswer('no');" value="아니오" />
 	</p>
 </div> 
 
@@ -251,47 +250,47 @@ var questionAnswer = function(answer, mode, no, views){	 // 질의 응답에 따
 <dl class="loc"><?php echo $sub_menu_name; include_once "../include/navi.php"; ?></dl>
 
 <dl class="notbox"><dl>
-Сайт руу нэвтрэх үед нээгдэх эхний дэлгэц, Mainpage дээр тохируулсан POPUP гарч ирнэ.<br>
-POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг нь сонгоод 'Хэвлэхгүй' товчийг дарна уу. <br>
-Хэвлэх POPUP олон тохиолдолд гарч ирэх дарааллын дагуу цонхнуудын дарааллыг өөрчилнө.<br>
+사이트접속시 열리는 첫화면 즉, 메인페이지에서 설정하신 팝업이 뜨게 됩니다.<br>
+팝업기능을 사용하지 않으려면 전체선택후 '미출력'버튼을 클릭하시면 됩니다. <br>
+출력할 팝업이 여러개라면 팝업순서에 따라 팝업의 출력 순서가 바뀝니다. <br>
 </dl></dl>
 
-<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">POPUP удирдлага
-<span class="bar">Нийт <b class="num3 col"><?php echo number_format($popup_list['total_count']);?></b>POPUP бүртгэгдлээ.</span>
+<dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">팝업관리
+<span class="bar">총 <b class="num3 col"><?php echo number_format($popup_list['total_count']);?></b>개의 팝업이 등록되었습니다.</span>
 <dt>
 <select name="page_rows" onchange="page_rows(this);">
-	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш хэвлэх</option>
-	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30ш хэвлэх</option>
-	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50ш хэвлэх</option>
-	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70ш хэвлэх</option>
-	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100ш хэвлэх</option>
+	<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15개 출력</option>
+	<option value='30' <?php echo ($page_rows==30)?'selected':'';?>>30개 출력</option>
+	<option value='50' <?php echo ($page_rows==50)?'selected':'';?>>50개 출력</option>
+	<option value='70' <?php echo ($page_rows==70)?'selected':'';?>>70개 출력</option>
+	<option value='100' <?php echo ($page_rows==100)?'selected':'';?>>100개 출력</option>
 </select>
 </dt></dl>
 <dl class="page top lnb_col" style="border-bottom:1px solid #ddd;">
 	<dt>
-		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
-		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>Хэвлэх</h1></a>
-		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>Хэвлэхгүй</h1></a>
+		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>출력</h1></a>
+		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미출력</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>POPUP бүртгэх</h1></a>
+		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>팝업등록</h1></a>
 	</dd>
 </dl> 
 <table width="100%" class="ttlt">
 <col width=30><col width=40><col><col width=210><col width=100><col span="3" width=50><col width=100><col span="1" width=75><col span="2" width=55> 
   <tr class="bg">
     <td><input name="check_all" type="checkbox"></td>
-    <td>Дараалал</td>
-    <td>POPUP Title</td>
-    <td>Хэвлэх хугацаа</td>
-    <td>POPUP хэмжээ</td>
+    <td>순서</td>
+    <td>팝업제목</td>
+    <td>출력기간</td>
+    <td>팝업크기</td>
     <td>Top</td>
     <td>Left</td>
-    <td>Хэвлэх</td>
-    <td>Subpage хэвлэх</td>
-    <td>Бүртгүүлсэн огноо</td>
-    <td>Тохиргоо</td>
-    <td class="e">Устгах</td>
+    <td>출력</td>
+    <td>서브페이지출력</td>    
+    <td>등록일</td>
+    <td>수정</td>
+    <td class="e">삭제</td>
   </tr> 
   <?php if(!$popup_list['result']){ ?>
   <tr><td colspan="12" class="stlt"></td></tr>
@@ -301,7 +300,7 @@ POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг н�
 
   <?php 
 	  foreach($popup_list['result'] as $val){ 
-	  $popup_time = ($val['popup_unlimit']) ? "unlimited" : substr($val['popup_begin'],0,13) . "시 ~ " . substr($val['popup_end'],0,13) . "시";
+	  $popup_time = ($val['popup_unlimit']) ? "무제한" : substr($val['popup_begin'],0,13) . "시 ~ " . substr($val['popup_end'],0,13) . "시";
 	?>
   <tr class="popup_list" no="<?php echo $val['no'];?>">
     <td><input type="checkbox" name='no[]' class='check_all' value="<?php echo $val['no'];?>"></td>
@@ -331,12 +330,12 @@ POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг н�
 <dl class="page mb50">
 <?php include_once "../include/paging.php"; ?>
 	<dt>
-		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>Сонголтыг устгах</h1></a>
-		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>Хэвлэх</h1></a>
-		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>Хэвлэхгүй</h1></a>
+		<a onClick="sel_delete_popup();" class="btn"><h1 class="btn23"><strong>-</strong>선택삭제</h1></a>
+		<a onClick="sel_popupViews('yes');" class="btn"><h1 class="btn23"><strong class="col">O</strong>출력</h1></a>
+		<a onClick="sel_popupViews('no');" class="btn"><h1 class="btn23"><strong>X</strong>미출력</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>POPUP бүртгэл</h1></a>
+		<a onClick="update_popup('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>팝업등록</h1></a>
 	</dd>
 </dl>
 
@@ -348,14 +347,14 @@ POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг н�
 <input type="hidden" name="uid" value="<?php echo $admin_info['uid'];?>"/>
 
 	<dl class="ntlt lnb_col m0 hand" id="addFrmHandle">
-	<img src="../../images/comn/bul_10.png" class="t">POPUP бүртгэл
+	<img src="../../images/comn/bul_10.png" class="t">팝업등록
 	<a onClick="MM_showHideLayers('add_form','','hide')"><img src="../../images/comn/pclose.png" class="lclose ln_col"></a>
 	</dl>
 	
 	<table width="750" class="bg_col">
 	<col width=80><col>
 	  <tr>
-		<td class="ctlt">POPUP skin</td>
+		<td class="ctlt">팝업스킨</td>
 		<td class="pdlnb2">
 			<select name="popup_skin">
 				<?php 
@@ -367,48 +366,48 @@ POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг н�
 					} // foreach end. 
 					} else {
 				?>
-				<option value=''>POPUP skin байхгүй байна.</option>
+				<option value=''>팝업스킨이 존재하지 않습니다.</option>
 				<?php } ?>
 			</select>
-			<?php if(!$popup_skin['result']){?><span class="subtlt"><a href='./pop_skin.php'>POPUP skin эхлээд сонгоно уу.</a></span><?php } ?>
+			<?php if(!$popup_skin['result']){?><span class="subtlt"><a href='./pop_skin.php'>팝업스킨을 먼저 설정해 주세요.</a></span><?php } ?>
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">POPUP title</td>
+		<td class="ctlt">팝업제목</td> 
 		<td class="pdlnb2">
-			<input name="popup_title" type="text" class="txt w50" required hname='POPUP title' maxbyte='40'> &nbsp;
-			<label><input name="popup_title_view" type="checkbox" value="1" class="check" checked>Хэвлэх</label>
-			<span class="subtlt">Хэвлэхэд гарч ирэх POPUP дээд хэсэгт гарч ирэх POPUP гарчгийг харуулна (20 тэмдэгт хүртэл)</span>
+			<input name="popup_title" type="text" class="txt w50" required hname='팝업제목' maxbyte='40'> &nbsp;
+			<label><input name="popup_title_view" type="checkbox" value="1" class="check" checked>출력</label>
+			<span class="subtlt">출력시 팝업창 상단에 팝업제목 노출 (20자 이내)</span>
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">Хэвлэх хугацаа</td>
+		<td class="ctlt">출력타입</td>
 		<td class="pdlnb2">
-			<label><input name="popup_type" type="radio" value="1" class="radio" checked>Layer</label> &nbsp; &nbsp; &nbsp;&nbsp;
-			<label><input name="popup_type" type="radio" value="0" class="radio">POPUP(Шинэ цонх)</label>  &nbsp;
+			<label><input name="popup_type" type="radio" value="1" class="radio" checked>레이어</label> &nbsp; &nbsp; &nbsp;&nbsp;
+			<label><input name="popup_type" type="radio" value="0" class="radio">팝업(새창)</label>  &nbsp;
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">Хэвлэх эсэх</td>
+		<td class="ctlt">출력여부</td>
 		<td class="pdlnb2">
-			<label><input name="popup_view" type="radio" value="1" class="radio" checked>Хэвлэнэ</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-			<label><input name="popup_view" type="radio" value="0" class="radio">Хэвлэхгүй</label>
+			<label><input name="popup_view" type="radio" value="1" class="radio" checked>출력</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<label><input name="popup_view" type="radio" value="0" class="radio">미출력</label>
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">POPUP хэмжээ</td>
+		<td class="ctlt">팝업크기</td>
 		<td class="pdlnb2">
-			Өргөн <input name="popup_width" type="text" class="tnum" size="3" value="0"> px ,
-			Урт <input name="popup_height" type="text" class="tnum" size="3" value="0"> px
-			<span class="subtlt">Хэвлэх хэмжээ нь үйлдлийн системээс хамаарч өөр өөр байж болно.</span>
+			가로 <input name="popup_width" type="text" class="tnum" size="3" value="0"> px , 
+			세로 <input name="popup_height" type="text" class="tnum" size="3" value="0"> px
+			<span class="subtlt">운영체제에 따라 실제 출력크기와 다를 수 있음</span>
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">POPUP байршил</td>
+		<td class="ctlt">팝업위치</td>
 		<td class="pdlnb2">
-			Дээд тал <input name="popup_top" type="text" class="tnum" size="3" value="0"> px ,
-			Зүүн тал <input name="popup_left" type="text" class="tnum" size="3" value="0"> px
-			<span class="subtlt">Шинэ цонх ашиглах үед хөтөчийн зүүн дээд булан нь 0,0 байх бөгөөд Layer ашиглахдаа вэб хуудасны агуулгаас эхлэн тооцно.</span>
+			상단 <input name="popup_top" type="text" class="tnum" size="3" value="0"> px , 
+			왼쪽 <input name="popup_left" type="text" class="tnum" size="3" value="0"> px
+			<span class="subtlt">새창 사용시 브라우저의 좌측상단 끝이 0,0 이며, 레이어 사용시 웹페이지 내용부터 계산</span>
 		</td>
 	  </tr>
 	  <tr>
@@ -416,11 +415,11 @@ POPUP ашиглахыг хүсэхгүй байгаа бол бүгдийг н�
 		<td class="pdlnb2">
 			시작일 <input name="popup_begin" type="text" class="tday" id="popup_begin" readonly style="width:125px;" value="">
 			종료일 <input name="popup_end" type="text" class="tday" id="popup_end" readonly style="width:125px;" value="">
-			<input name="popup_unlimit" type="checkbox" value="1" class="check">no limit
+			<input name="popup_unlimit" type="checkbox" value="1" class="check">제한없음
 		</td>
 	  </tr>
 	  <tr>
-		<td class="ctlt">Агуулга</td>
+		<td class="ctlt">내용</td>
 		<td class="pdlnb2">
 			<?php echo $utility->make_cheditor('popup_content', "");	// 에디터 생성?>
 		</td>
