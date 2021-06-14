@@ -710,75 +710,70 @@ include_once(NFE_PATH.'/head.php');
               <button class="more_option"><span>Дэлгэрэнгүй</span></button>
 							<div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
+								<div class="title"><a href="#"> Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол) </a></div>
 								<div class="info">
-                  <span>서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="gender">남자</span>
-									<span class="time">시간협의</span>
-									<span class="etc"><p>상시모집</p></span>
+                                    <span class="area">Seongdong-gu, Сөүл</span>
+                                    <span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+									<span class="time">Цаг тохиролцох</span>
+									<span class="etc"><p>Тогтмол элсэлт</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-              <button class="more_option"><span>더보기</span></button>
-							<div class="company"><a href="recruit_detail01.php">(주)파이낸뷰</a></div>
-							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
-								<div class="info">
-                  <span>서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="gender">남자</span>
-									<span class="time">시간협의</span>
-									<span class="etc"><p>상시모집</p></span>
+                            <button class="more_option"><span>Дэлгэрэнгүй</span></button>
+                            <div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
+                            <div class="text_box">
+                                <div class="title"><a href="#"> Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол) </a></div>
+                                <div class="info">
+                                    <span class="area">Seongdong-gu, Сөүл</span>
+                                    <span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+                                    <span class="time">Цаг тохиролцох</span>
+                                    <span class="etc"><p>Тогтмол элсэлт</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-              <button class="more_option"><span>더보기</span></button>
-							<div class="company"><a href="recruit_detail01.php">(주)파이낸뷰</a></div>
-							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
+                            <button class="more_option"><span>Дэлгэрэнгүй</span></button>
+                            <div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
+                            <div class="text_box">
+                                <div class="title"><a href="#"> Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол) </a></div>
 								<div class="info">
-                  <span>서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="gender">남자</span>
-									<span class="time">시간협의</span>
-									<span class="etc"><p>상시모집</p></span>
+                                    <span class="area">Seongdong-gu, Сөүл</span>
+                                    <span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+                                    <span class="time">Цаг тохиролцох</span>
+                                    <span class="etc"><p>Тогтмол элсэлт</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-              <button class="more_option"><span>더보기</span></button>
-							<div class="company"><a href="recruit_detail01.php">(주)파이낸뷰</a></div>
-							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
-								<div class="info">
-                  <span>서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="gender">남자</span>
-									<span class="time">시간협의</span>
-									<span class="etc"><p>상시모집</p></span>
+                            <button class="more_option"><span>Дэлгэрэнгүй</span></button>
+                            <div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
+                            <div class="text_box">
+                                <div class="title"><a href="#"> Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол) </a></div>
+                                <div class="info">
+                                    <span class="area">Seongdong-gu, Сөүл</span>
+                                    <span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+                                    <span class="time">Цаг тохиролцох</span>
+                                    <span class="etc"><p>Тогтмол элсэлт</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
-              <button class="more_option"><span>더보기</span></button>
-							<div class="company"><a href="recruit_detail01.php">(주)파이낸뷰</a></div>
-							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 </a></div>
-								<div class="info">
-                  <span>서울 성동구</span>
-									<span class="pay"><b>월급</b> <em>100만원</em></span>
-									<span class="gender">남자</span>
-									<span class="time">시간협의</span>
-									<span class="etc"><p>상시모집</p></span>
+                            <button class="more_option"><span>Дэлгэрэнгүй</span></button>
+                            <div class="company"><a href="recruit_detail01.php">Финанс Вью ХХК</a></div>
+                            <div class="text_box">
+                                <div class="title"><a href="#"> Онлайн худалдааны төвийн цагийн ажилд зуучлах(агуулахын менежмент, бүтээгдэхүүн хүргэх, сав баглаа боодол) </a></div>
+                                <div class="info">
+                                    <span class="area">Seongdong-gu, Сөүл</span>
+                                    <span class="pay"><b>Цалин</b> <em>1 сая</em></span>
+                                    <span class="time">Цаг тохиролцох</span>
+                                    <span class="etc"><p>Тогтмол элсэлт</p></span>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="text_box2">
-								<div class="title"><img src="images/info.png" alt="">등록된 내용이 없습니다.</div>
+								<div class="title"><img src="images/info.png" alt="">Бүртгэлтэй агуулга байхгүй байна.</div>
 							</div>
 						</li>
 					</ul>
@@ -803,11 +798,11 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 공지사항 -->
 			  <section class="cont_box notice_con">
-          <h2>[공지]</h2>
+          <h2>[Зар]</h2>
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>
