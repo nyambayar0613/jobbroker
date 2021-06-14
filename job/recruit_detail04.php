@@ -181,7 +181,7 @@ include_once(NFE_PATH.'/head.php');
 										a2a_config.icon_color = "transparent";
 										a2a_config.onclick = 1;
 										a2a_config.num_services = 10;
-										a2a_config.icon_color = "unset,#fff"; /* #d0d0d0  original */
+										a2a_config.icon_color = "unset,#fff"; /* #d0d0d0  original *ёбы/
 										a2a_config.prioritize = ["facebook_messenger", "google_plus", "tumblr", "wordpress", "google_gmail", "evernote", "sms", "instapaper", "Linkedln", "facebook"];
 								</script>
 								<script async src="https://static.addtoany.com/menu/page.js"></script>
