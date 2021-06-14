@@ -391,7 +391,7 @@ var college_add = function(){
 	college += "Жил ~ ";
 	college += "<span id=\"college_eyear_block_"+college_cnt+"\">";
 	college += "<select name=\"wr_college_eyear[]\" class=\"ipSelect\">";
-	college += "<option value=\"\">년도</option>";
+	college += "<option value=\"\"> Жил</option>";
 	for(i=year;i>=1900;--i){
 		college += "<option value=\""+i+"\">"+i+"</option>";
 	}
@@ -710,8 +710,8 @@ var career_add = function(){	// 경력 추가
 	}
 	career += "</select> ";
 	career += "сар ~ ";
-	career += "<select name=\"wr_career_eyear[]\" class=\"ipSelect\" required hname=\"근무기간\" style=\"width:80px;\">";
-	career += "<option value=\"\">년</option>";
+	career += "<select name=\"wr_career_eyear[]\" class=\"ipSelect\" required hname=\"Ажиллах хугацаа\" style=\"width:80px;\">";
+	career += "<option value=\"\">жил</option>";
 	for(i=year;i>=1900;--i){
 		career += "<option value=\""+i+"\">"+i+"</option>";
 	}
@@ -1101,7 +1101,7 @@ var update_mb_photos = function( mode ){
 var mb_photo_submit = function( ){	// 근무회사  이미지 등록하기 버튼 클릭시
 	var mb_photo_files = $('#mb_photo_files').val();
 	if(!mb_photo_files || mb_photo_files==''){
-		alert("등록할 사진을 첨부해 주세요.");
+		alert("Бүртгүүлэхийн тулд зураг хавсаргана уу.");
 		return;
 	}
 	var mb_photo_options = { beforeSubmit : mb_photoRequest, success : mb_photoResponse }
@@ -1179,7 +1179,7 @@ var new_postSearchPops = function(mb_type){
 var postSearchs = function(mb_type){
 	var keyword = $('#postSearchKeyword').val();
 	if(!keyword || keyword==''){
-		alert("동명을 입력해 주세요.");
+		alert("Please enter the same name.");
 		$('#postSearchKeyword').focus();
 		return false;
 	} else {
@@ -1205,7 +1205,7 @@ var postSearchs = function(mb_type){
 					}
 				});
 			} else {
-				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">Хайлтын үр дүн олдсонгүй.</td></tr>");
 			}
 		});
 	}
