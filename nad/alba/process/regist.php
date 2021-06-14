@@ -93,34 +93,34 @@
 				$vals['wr_area'] = $_POST['wr_area'];	 // 근무지 주소
 
 				$wr_area_0 = $_POST['wr_area_0'];
-				$wr_area_0[3] = ($wr_area_0[3]=='번지수 입력') ? "" : $wr_area_0[3];
+				$wr_area_0[3] = ($wr_area_0[3]=='Гудамжны дугаараа оруулна уу') ? "" : $wr_area_0[3];
 				$vals['wr_area_0'] = ($wr_area_0[0]) ? @implode($wr_area_0,'/') : "";	// 근무지 주소 0
 
 				$wr_area_1 = $_POST['wr_area_1'];
-				$wr_area_1[3] = ($wr_area_1[3]=='번지수 입력') ? "" : $wr_area_1[3];
+				$wr_area_1[3] = ($wr_area_1[3]=='Гудамжны дугаараа оруулна уу') ? "" : $wr_area_1[3];
 				$vals['wr_area_1'] = ($wr_area_1[0]) ? @implode($wr_area_1,'/') : "";	// 근무지 주소 1
 
 				$wr_area_2 = $_POST['wr_area_2'];
-				$wr_area_2[3] = ($wr_area_2[3]=='번지수 입력') ? "" : $wr_area_2[3];
+				$wr_area_2[3] = ($wr_area_2[3]=='Гудамжны дугаараа оруулна уу') ? "" : $wr_area_2[3];
 				$vals['wr_area_2'] = ($wr_area_2[0]) ? @implode($wr_area_2,'/') : "";	// 근무지 주소 2
 
 				$vals['wr_subway_area_0'] = $_POST['wr_subway_area_0'];				// 인근 지하철 지역 0
 				$vals['wr_subway_line_0'] = $_POST['wr_subway_line_0'];				// 인근 지하철 호선 0
 				$vals['wr_subway_station_0'] = $_POST['wr_subway_station_0'];		// 인근 지하철 역 0
 
-				$wr_subway_content_0 = ($_POST['wr_subway_content_0']=='출구, 소요시간을 입력해주세요.') ? "" : $_POST['wr_subway_content_0'];
+				$wr_subway_content_0 = ($_POST['wr_subway_content_0']=='Гарах хугацаа, шаардлагатай цагийг оруулна уу.') ? "" : $_POST['wr_subway_content_0'];
 				$vals['wr_subway_content_0'] = $wr_subway_content_0;					// 인근 지하철 출구,소요시간 0
 				$vals['wr_subway_area_1'] = $_POST['wr_subway_area_1'];				// 인근 지하철 지역 1
 				$vals['wr_subway_line_1'] = $_POST['wr_subway_line_1'];				// 인근 지하철 호선 1
 				$vals['wr_subway_station_1'] = $_POST['wr_subway_station_1'];		// 인근 지하철 역 1
 
-				$wr_subway_content_1 = ($_POST['wr_subway_content_1']=='출구, 소요시간을 입력해주세요.') ? "" : $_POST['wr_subway_content_1'];
+				$wr_subway_content_1 = ($_POST['wr_subway_content_1']=='Гарах хугацаа, шаардлагатай цагийг оруулна уу.') ? "" : $_POST['wr_subway_content_1'];
 				$vals['wr_subway_content_1'] = $wr_subway_content_1;					// 인근 지하철 출구,소요시간 1
 				$vals['wr_subway_area_2'] = $_POST['wr_subway_area_2'];				// 인근 지하철 지역 2
 				$vals['wr_subway_line_2'] = $_POST['wr_subway_line_2'];				// 인근 지하철 호선 2
 				$vals['wr_subway_station_2'] = $_POST['wr_subway_station_2'];		// 인근 지하철 역 2
 
-				$wr_subway_content_2 = ($_POST['wr_subway_content_2']=='출구, 소요시간을 입력해주세요.') ? "" : $_POST['wr_subway_content_2'];
+				$wr_subway_content_2 = ($_POST['wr_subway_content_2']=='Гарах хугацаа, шаардлагатай цагийг оруулна уу.') ? "" : $_POST['wr_subway_content_2'];
 				$vals['wr_subway_content_2'] = $wr_subway_content_2;					// 인근 지하철 출구,소요시간 2
 
 				$vals['wr_college_area'] = $_POST['wr_college_area'];			// 대학 지역
