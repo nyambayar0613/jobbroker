@@ -132,7 +132,7 @@ var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/
 			handle: '#albaPhotoPop_handle'
 		});
 	} else if(mode=='delete') {
-		if(confirm('근무회사 이미지를 삭제하시겠습니까?\n\n한번 삭제된 데이터는 복구가 불가능합니다.')){
+		if(confirm('Устгах уу?\n\nУстгасны дараа өгөгдлийг сэргээх боломжгүй болно.')){
 			$.post('./process/regist.php', { mode:'alba_photo_delete', mb_id:mb_id, photo_no:no }, function(result){
 				$('#alba_photo_'+no).attr('src',result);
 				close_alba_photos();
@@ -143,7 +143,7 @@ var update_alba_photos = function( mode, no ){	// 근무회사 이미지 등록/
 var alba_photo_submit = function(){	// 근무회사  이미지 등록하기 버튼 클릭시
 	var alba_photo_files = $('#alba_photo_files').val();
 	if(!alba_photo_files || alba_photo_files==''){
-		alert("등록할 사진을 첨부해 주세요.");
+		alert("Бүртгүүлэхийн тулд зураг хавсаргана уу.");
 		return;
 	}
 	var alba_photo_options = { beforeSubmit : alba_photoRequest, success : alba_photoResponse }
@@ -163,7 +163,7 @@ var alba_photoResponse = function(responseText, statusText, xhr, $form){	// 근�
 	//alert(responseText);   
 	var responseSplit = responseText.split("/");
 	if(responseText=='extension_error'){
-		alert("GIF, JPEG, JPG 이미지만 업로드 가능합니다.\n\n업로드 이미지 확장자를 확인해 주세요.");
+		alert("GIF, JPEG, JPG зураг байршуулах боломжтой.\n\n Оруулах зургаа шалгана уу..");
 		return false;
 	} else {
 		var alba_photos = $('#alba_photos').val();		
