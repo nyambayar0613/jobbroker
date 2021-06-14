@@ -197,7 +197,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 			</td>   
 		<td class="ctlt">Бүс нутгаар</td>
 		<td class="pdlnb2">
-			<select  style="width:180px;" id="wr_area0" name="wr_area0" title="시·도 선택" onchange="area_sel_first(this,'wr_area1');" hname="Ажлын байршил">
+			<select  style="width:180px;" id="wr_area0" name="wr_area0" title="хот·дүүрэг сонгох" onchange="area_sel_first(this,'wr_area1');" hname="Ажлын байршил">
 			<option value=""> -- хот·дүүрэг --</option>
 			<?php 
 				foreach($area_list as $val){ 
@@ -208,7 +208,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 			<?php } ?>
 			</select>
 			<span id="wr_area1_display">
-				<select  style="width:180px;" id="wr_area1" name="wr_area1" title="시·군·구 선택">
+				<select  style="width:180px;" id="wr_area1" name="wr_area1" title="хороо·тоот сонгох">
 				<option value=""> -- хороо·тоот --</option>
 				<?php
 				if($wr_area1){
@@ -237,7 +237,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 			<label><input name="wr_career_type" type="radio" value="1" class="radio" onclick="career_sel(this);" <?php echo ($wr_career_type=='1')?'checked':'';?>>Шинэ ажилтан</label> &nbsp;
 			<label><input name="wr_career_type" type="radio" value="2" class="radio" onclick="career_sel(this);" <?php echo ($wr_career_type=='2')?'checked':'';?>>Дадлага, туршалага</label> &nbsp;
 			<span id="wr_career_display" style="display: <?php echo ($wr_career_type=='2')?'':'none';?>;">
-				<select class="ipSelect2" name="wr_career" id="wr_career" hname="경력" option="select">
+				<select class="ipSelect2" name="wr_career" id="wr_career" hname="Ажил мэргэжил" option="select">
 				<option value=""> Туршлага сонгох </option>
 				<?php
 				if($job_career_list) {
@@ -313,9 +313,9 @@ var career_sel = function( vals ){	// 경력사항 선택
 			<option value="wr_email" <?php echo ($_GET['search_field']=='wr_email')?'selected':'';?>>И-мэйл</option>
 		</select>
 		<input type="text" name="search_keyword" value="<?php echo stripslashes($_GET['search_keyword']);?>" class="txt i23 w50" id="search_keyword">
-		<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='검색'></span>
-		<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" value='초기화' onclick="searchFrmInit();"></span>
-		<span class="btn" id="dsrchType" enum="yes"><input type='button' class="btn23 b" onFocus="blur()" value='상세검색' id="searchBtn"></span>
+		<span class="cbtn grf_col lnb_col" style="width:40px"><input type='submit' class="btn23 b" onFocus="blur()" value='Хайх'></span>
+		<span class="bbtn"><input type='button' class="btn23 b" onFocus="blur()" value='Эхлэл' onclick="searchFrmInit();"></span>
+		<span class="btn" id="dsrchType" enum="yes"><input type='button' class="btn23 b" onFocus="blur()" value='Дэлгэрэнгүй хайх' id="searchBtn"></span>
 		<!--<span onClick="MM_showHideLayers('dsrch','','hide')"  class="btn"><input type='submit' class="btn23 b" onFocus="blur()" value='간편검색'></span> -->
 	</dl>
 
