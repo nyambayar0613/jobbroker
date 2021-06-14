@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-					<a href="person_main.php">Хүний нөөц</a>
-					<a href="community_main.php">Комиунити</a>
+					<a href="recruit_main.php" class="active">лбсбы</a>
+					<a href="person_main.php">인хат</a>
+					<a href="community_main.php">커뮤니티</a>
 				</div>
 			</div>
 		</header>
@@ -29,12 +29,12 @@ include_once(NFE_PATH.'/head.php');
 			<div class="container">
 
         <section class="cont_box detail_con">
-				  <h2 class="top_tit"> Онлайн худалдааны төвийн цагийн ажилд зуучлах (агуулахын менежмент, бүтээгдэхүүн хүргэх, савлах))</h2>
+				  <h2 class="top_tit">온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</h2>
           <div class="top_area">
             <ul>
-							<li class="etc">Ажилд авах эцсийн хугацаа</li>
-							<li class="ktid"><span>Kakao ID : <em>kakao-id</em></span></li>
-							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="мэдэгдэх">Мэдэгдэх</a></li>
+							<li class="etc">마감일 상시모집</li>		
+							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>		
+							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고</a></li>
 						</ul>
 					</div>
 				  <div class="company_con cf">
@@ -42,16 +42,16 @@ include_once(NFE_PATH.'/head.php');
 							<img src="/images/logo01.png" alt="LOGO">
 						</div>
 						<div class="text_box">
-							<div class="company">Finance wu LLC</div>
+							<div class="company">(주)파이낸뷰</div>
 						</div>
 					</div>
 					<div class="company_info cf">
 						<div class="mb_info ceo_info">
 							<div class="ceo_inner">
 								<dl>
-									<dt class="hd hd2"><span><img src="/images/info1-1.png" alt="Хариуцсан хүн"></span>Хариуцсан хүн</dt>
+									<dt class="hd hd2"><span><img src="/images/info1-1.png" alt="담당자"></span>담당자</dt>
 									<dd class="col1 col2">
-										<a href="#" class="hide">Ажлын байрны мэдээллийг үзэх үйлчилгээний өргөдөл</a>
+										<a href="#" class="hide">구인정보 열람서비스 신청</a>
 									</dd>
 								</ul>
 							</div>
@@ -59,9 +59,9 @@ include_once(NFE_PATH.'/head.php');
 						<div class="mb_info address_info">
 							<div class="address_inner">
 								<dl>
-									<dt class="hd hd2"><span><img src="/images/info1-2.png" alt="연락처"></span>Холбогдох дугаар</dt>
+									<dt class="hd hd2"><span><img src="/images/info1-2.png" alt="연락처"></span>연락처</dt>
 									<dd class="col1 col2">
-										<a href="#" class="hide">Ажлын байрны мэдээллийг үзэх, үйлчилгээний талаар</a>
+										<a href="#" class="hide">구인정보 열람서비스 신청</a>
 									</dd>
 								</ul>
 							</div>

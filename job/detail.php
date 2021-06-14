@@ -137,7 +137,7 @@ $(window).ready(function(){
 
 	<div class="button_group scrap_bt">
 	<?php if(@in_array("online", $_wr_requisition)) {?>
-	<button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">Ажилд орох өргөдөл (Онлайн )</button>
+	<button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">Ажилд орох өргөдөл (Онлайн)</button>
 	<?php }?>
 	<?php if(@in_array("email", $_wr_requisition)) {?>
 	<button type="button" class="bt-email _btn requisition_btn" k="email" no="<?=$get_alba['no'];?>">Ажлын байрны өргөдөл (И-мэйл)</button>
