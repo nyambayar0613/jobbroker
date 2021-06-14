@@ -94,7 +94,7 @@
 				$wr_school_type_cnt = count($wr_school_type);
 				$vals['wr_school_type'] = ($wr_school_type) ? @implode($wr_school_type,',') : "";	// 입력한 학력
 
-				$vals['wr_high_school_name'] = ($_POST['wr_high_school_name']=='출신학교 선택') ? "" : $_POST['wr_high_school_name'];		// 출신 고등학교
+				$vals['wr_high_school_name'] = ($_POST['wr_high_school_name']=='Сургууль оруулна уу') ? "" : $_POST['wr_high_school_name'];		// 출신 고등학교
 				$vals['wr_high_school_syear'] = $_POST['wr_high_school_syear'];		// 고등학교 입학년도
 				$vals['wr_high_school_eyear'] = $_POST['wr_high_school_eyear'];	// 고등학교 졸업년도
 				$vals['wr_high_school_graduation'] = $_POST['wr_high_school_graduation'];	// 고등학교 졸업여부
