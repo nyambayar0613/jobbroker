@@ -714,9 +714,9 @@ var manager_sels = function( vals ){
 var service_toggle = function( no ){
 	$('#service_view_'+no).toggle();
 	if( $('#service_view_'+no).css('display') == 'none' ){
-		$('#service_toggle_'+no).html("+ 서비스 보기");
+		$('#service_toggle_'+no).html("+ үйлчилгээ харах");
 	} else {
-		$('#service_toggle_'+no).html("+ 서비스 닫기");
+		$('#service_toggle_'+no).html("+ үйлчилгээ харах");
 	}
 }
 
@@ -1076,7 +1076,7 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 				<?php echo $wr_blink;?>
 				<?php echo $wr_jump;?>
 			</span>
-		<?php } else { // 서비스가 아예 없는 경우 ?>
+		<?php } else { // Хэрэв үйлчилгээ огт байхгүй бол ?>
 			<span style="color:#dfdfdf;">Үйлчилгээ байхгүй байна.</span>
 		<?php } // is_service if end. ?>
 	</td>
