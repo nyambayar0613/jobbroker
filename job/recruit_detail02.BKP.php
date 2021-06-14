@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-					<a href="person_main.php">Хүний нөөц</a>
-					<a href="community_main.php">Комиунити</a>
+					<a href="recruit_main.php" class="active">구인정보</a>
+					<a href="person_main.php">인재정보</a>
+					<a href="community_main.php">커뮤니티</a>
 				</div>
 			</div>
 		</header>
@@ -31,76 +31,76 @@ include_once(NFE_PATH.'/head.php');
 	      <section class="cont_box detail_con">
           <div class="top_area">
             <ul>
-							<li class="ktid"><span>Kakao talk ID : <em>kakao-id</em></span></li>
-							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
+							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>		
+							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고</a></li>
 						</ul>
 					</div>
 					<div class="logo_box">
 						<img src="/images/logo01.png" alt="LOGO">
 					</div>
 					<div class="text_box">
-					  <div class="company">Finance wu LLC</div>
-						<div class="title">Онлайн худалдааны төвийн цагийн ажилд зуучлах (агуулахын менежмент, бүтээгдэхүүн хүргэх, савлах)</div>
-						<div class="info">Ажилд авах эцсийн хугацаа</div>
+					  <div class="company">(주)파이낸뷰</div>
+						<div class="title">온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</div>
+						<div class="info">마감일 상시모집</div>
 					</div>
 					<div class="adm_name">
 					  <div class="name_inner">
 						  <dl>
-							  <dt class="hd"><span><img src="/images/info1.png" alt="Хариуцсан хүн"></span>Хариуцсан  хүн</dt>
-								<dd class="col1">Mr Kim</dd>
+							  <dt class="hd"><span><img src="/images/info1.png" alt="담당자"></span>담당자</dt>
+								<dd class="col1">김범</dd>
 							</ul>
 						</div>
 					</div>
 					<div class="tel_info">
 					  <div class="tel_inner">
 						  <dl>
-							  <dt class="hd"><span><img src="/images/info2.png" alt="Холбогдох дугаар"></span>Холбогдох дугаар</dt>
+							  <dt class="hd"><span><img src="/images/info2.png" alt="연락처"></span>연락처</dt>
 								<dd class="col1">010-1234-5678</dd>
-								<dd class="col2"><a href="#"><span><img src="/images/tel_ico.png" alt="Холбогдох"></span><em>Холбогдох дугаар</em></a></dd>
+								<dd class="col2"><a href="#"><span><img src="/images/tel_ico.png" alt="전화하기"></span><em>전화하기</em></a></dd>
 							</dl>
 						</div>
 					</div>
 					<div class="button_group scrap_bt">
-					  <button type="button" class="bt-online">Ажилд орох өргөдөл (Онлайн)</button>
-						<button type="button" class="bt-email">Ажилд орох өргөдөл (Мэйл)</button>
-					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="scrab"><!--<img src="/images/scrap_icon1.png">-->Scrab</button>
+					  <button type="button" class="bt-online">온라인 입사지원</button>
+						<button type="button" class="bt-email">이메일 입사지원</button>
+					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="스크랩"><!--<img src="/images/scrap_icon1.png">-->스크랩</button>
 					</div>
 				</section>
 
 				<section class="cont_box detail_con detail_con2">
 				  <div class="tab1-con cf">
 					  <ul>
-						  <li><a href="#">Ажилд урьж байна</a></li>
-						  <li class="active"><a href="#">Дэлгэрэнгүй мэдээлэ</a></li>
-						  <li><a href="#">Ажлын байршил</a></li>
-						  <li><a href="#">Байгуууллагын тухай</a></li>
+						  <li><a href="#">모집요강</a></li>
+						  <li class="active"><a href="#">상세요강</a></li>
+						  <li><a href="#">근무위치</a></li>
+						  <li><a href="#">회사정보</a></li>
             </ul>
 					</div>
 					<div class="tab-box tab4-box">
             <table>
 						  <tr>
-							  <th>Ажлын байршил</th>
-								<td>Lotte Mart Jeju (Тоглоомын дэлгүүр))</td>
+							  <th>근무위치</th>
+								<td>롯데마트 제주점(완구매장)</td>
 							</tr>
 						  <tr>
-							  <th>Албан тушаал</th>
-								<td>Business G Green Mart тоглоомын урамшуулал - Хэрэв та хүүхэд дуртай бол өргөдөл гаргана уу.</td>
+							  <th>업무내용</th>
+								<td>G그린마트 완구판촉 - 아이들 좋아하시는 분 꼭 지원하세요.</td>
 							</tr>
 						  <tr>
-							  <th>Мэргэжил</th>
-								<td>20-30 настай эмэгтэй - Мэргэжилгүй - чин сэтгэлтээсээ хүн <br> Ажлын өдрүүдэд дэлгүүрийн сургалтанд хамрагдах боломжтой хүмүүст давуу эрх олгоно</td>
+							  <th>자격요건</th>
+								<td>20~30세 여성 - 학력무관 - 성실한 분<br>평일 매장교육 가능하신 분 우대</td>
 							</tr>
 						  <tr>
-							  <th>Ажлын өдөр</th>
-								<td>Лотте Мартыг сургалтанд суух боломжтой хүмүүс</td>
+							  <th>근무시간</th>
+								<td>평일 롯데마트 교육 가능하신분</td>
 							</tr>
 						  <tr>
-							  <th>Homepage</th>
+							  <th>홈페이지</th>
 								<td>http://</td>
 							</tr>
 						  <tr>
-							  <th>Цалин ба олгох өдөр</th>
-								<td>Сарын 15-нд (33% татвар))</td>
+							  <th>급여 및 지급일</th>
+								<td>익월 15일 일괄 정산 지급(세금 33%공제)</td>
 							</tr>
 						</table>
           </div>
