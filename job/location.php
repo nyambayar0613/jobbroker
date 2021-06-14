@@ -1,5 +1,5 @@
 <?php
-$head_title = "지도검색";
+$head_title = "Байршилаар хайх";
 include_once "../include/top.php";
 include_once NFE_PATH."/engine/netfu_map.class.php";
 $netfu_map = new netfu_map();
