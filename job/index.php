@@ -8,7 +8,7 @@ if($_GET['code']=='univ') $head_title = "Их сургуультай ойр";
 if($_GET['code']=='date') $head_title = "Ажлын байрны мэдээлэл хугацаагаар";
 if($_GET['code']=='pay') $head_title = "Ажлын цалин, хөлсний мэдээлэл";
 if($_GET['code']=='etc') $head_title = "Ажлын байрны нөхцөл мэдээлэл";
-if($_GET['code']=='search') $head_title = "Дэлгэрэнгүй мэдээлэл хайх";
+if($_GET['code']=='search') $head_title = "Дэлгэрэнгүй мэдээлэл";
 include_once "../include/top.php";
 
 // : 'Яаралтай' утгыг энэ функцээс хайж болно .
