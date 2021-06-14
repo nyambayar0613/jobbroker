@@ -1,5 +1,5 @@
 <?php
-$head_title = "지도검색";
+$head_title = "Байршилаар хайх";
 include_once "../include/top.php";
 include_once NFE_PATH."/engine/netfu_map.class.php";
 $netfu_map = new netfu_map();
@@ -40,7 +40,7 @@ include NFE_PATH.'/include/inc/banner.inc.php';
 
 <!-- 일반형 -->
 <section class="cont_box cont_list recruit1">
-	<h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Ажлын байрны сул орон тоо<span class="bt_box"><a href="#"><span class="btn">Зар сурталчилгааны мэдээлэл<img src="/images/chevron.png" alt="Зар сурталчилгааны мэдээлэл"></span></a></span></h2>
+	<h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Ажлын байрны сул орон тоо<span class="bt_box"><a href="#"><span class="btn">Зар сурталчилгааны мэдээлэл<img src="/images/chevron.png" alt="광고안내"></span></a></span></h2>
 	<div class="">
 		<ul class="list_box cont_box_inner map_job_list" style="width:100% !important;"></ul>
 	</div>
@@ -65,7 +65,7 @@ navigator.geolocation.getCurrentPosition(function(pos) {
 	daum_map.load_pos(_lat, _lng, 'daum_map.map_list(lat, lng)');
 }, function() {
 	daum_map.map_basic('location_map');
-	daum_map.load_area('110, Sejong-daero, Jung-gu, Seoul', 'daum_map.map_list(result[0].y, result[0].x)');
+	daum_map.load_area('서울특별시 중구 세종대로 110', 'daum_map.map_list(result[0].y, result[0].x)');
 });
 
 var search_map = function() {
@@ -79,7 +79,7 @@ $(window).ready(function(){
 	setTimeout(function(){
 		if(!daum_map.load_map) {
 			daum_map.map_basic('location_map');
-			daum_map.load_area('110, Sejong-daero, Jung-gu, Seoul', 'daum_map.map_list(result[0].y, result[0].x)');
+			daum_map.load_area('서울특별시 중구 세종대로 110', 'daum_map.map_list(result[0].y, result[0].x)');
 		}
 	},100);
 });

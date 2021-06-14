@@ -81,7 +81,7 @@ $(window).ready(function(){
 	<ul>
 		<li class="etc">Эцсийн хугацаа <?=$job_info['volume_text'];?></li>
 		<li class="ktid"><span>Kakao talk ID : <em><?=$get_alba['kakao_id'];?></em></span></li>
-		<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="신고하기">Мэдэгдэх</a></li>
+		<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
 	</ul>
 	</div>
 	<?php
