@@ -199,7 +199,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 			</td>   
 		<td class="ctlt">Бүс нутгаар</td>
 		<td class="pdlnb2">
-			<select  style="width:180px;" id="wr_area0" name="wr_area0" title="시·도 선택" onchange="area_sel_first(this,'wr_area1');"  hname="Ажлын байршил">
+			<select  style="width:180px;" id="wr_area0" name="wr_area0" title="хот·дүүрэг сонгох" onchange="area_sel_first(this,'wr_area1');"  hname="Ажлын байршил">
 			<option value=""> -- хот·дүүрэг --</option>
 			<?php 
 				foreach($area_list as $val){ 
@@ -210,7 +210,7 @@ var career_sel = function( vals ){	// 경력사항 선택
 			<?php } ?>
 			</select>
 			<span id="wr_area1_display">
-				<select  style="width:180px;" id="wr_area1" name="wr_area1" title="시·군·구 선택">
+				<select  style="width:180px;" id="wr_area1" name="wr_area1" title="дүүрэг·хороо сонгох">
 				<option value=""> --дүүрэг·хороо --</option>
 				<?php
 				if($wr_area1){
