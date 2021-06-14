@@ -6,7 +6,7 @@ $_where = " and no=".$_GET['no']." and is_delete=0 and !(".$netfu_mjob->job_wher
 $q = "alice_alba where 1 ".$_where;
 $end_chk_total = sql_fetch("select no from ".$q);
 if($end_chk_total['no']) { 
-	echo "<script>alert('Үйлчилгээний хугацаа дууссан болохыг анхаарна уу.'); history.go(-1);</script>";
+	echo "<script>alert('서비스기간이 만료된 공고입니다.'); history.go(-1);</script>";
 }
 
 $_cate1_array = array('alba_pay_type', 'job_ability', 'preferential', 'job_target');
@@ -79,9 +79,9 @@ $(window).ready(function(){
 
 <div class="top_area">
 	<ul>
-		<li class="etc">Эцсийн хугацаа <?=$job_info['volume_text'];?></li>
-		<li class="ktid"><span>Kakao talk ID : <em><?=$get_alba['kakao_id'];?></em></span></li>
-		<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="신고하기">Мэдэгдэх</a></li>
+		<li class="etc">마감일 <?=$job_info['volume_text'];?></li>		
+		<li class="ktid"><span>카톡ID : <em><?=$get_alba['kakao_id'];?></em></span></li>		
+		<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="신고하기">신고</a></li>
 	</ul>
 	</div>
 	<?php
@@ -102,7 +102,7 @@ $(window).ready(function(){
 		<div class="mb_info ceo_info">
 			<div class="ceo_inner">
 				<dl>
-					<dt class="hd hd2"><span><img src="<?=NFE_URL;?>/images/info1-1.png" alt="Хариуцсан хүн" /></span>Хариуцсан хүн</dt>
+					<dt class="hd hd2"><span><img src="<?=NFE_URL;?>/images/info1-1.png" alt="담당자" /></span>담당자</dt>
 					<dd class="col1 col2" style="line-height:20px">
 						<?=$job_info['wr_person'];?>
 					</dd>
@@ -112,10 +112,10 @@ $(window).ready(function(){
 		<div class="mb_info address_info">
 			<div class="address_inner">
 				<dl>
-					<dt class="hd hd2"><span><img src="<?=NFE_URL;?>/images/info1-2.png" alt="Холбоо барих дугаар" /></span>Холбоо барих</dt>
+					<dt class="hd hd2"><span><img src="<?=NFE_URL;?>/images/info1-2.png" alt="연락처" /></span>연락처</dt>
 					<dd class="col1 col2 ph_no">
-						<div><span class="ph_no_tx" style="color:#8895b3;font-size:.9em">Холбоо барих</span> : <?=$job_info['wr_phone'];?></div>
-						<div><span class="ph_no_tx" style="color:#8895b3;font-size:.9em">Утасны дугаар</span> : <?=$job_info['wr_hphone'];?></div>
+						<div><span class="ph_no_tx" style="color:#8895b3;font-size:.9em">연락처</span> : <?=$job_info['wr_phone'];?></div>
+						<div><span class="ph_no_tx" style="color:#8895b3;font-size:.9em">핸드폰</span> : <?=$job_info['wr_hphone'];?></div>
 					</dd>
 				</ul>
 			</div>
@@ -123,13 +123,13 @@ $(window).ready(function(){
 		<div class="company_info2 cf">
 		  <ul>
 			  <li class="nvli1">
-				  <button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba', '<?=$_GET['no'];?>')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="Scrab"></span><span class="txt">Scrab</span></button>
+				  <button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba', '<?=$_GET['no'];?>')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="스크랩"></span><span class="txt">스크랩</span></button>
 				</li>
 			  <li class="nvli2">
-				  <a href="javascript:netfu_mjob.read_func('<?=$get_alba['no'];?>', 'job', 'sms')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/letter_ico.png" alt="мессеж илгээх" />&nbsp</span><span class="txt">Мессеж илгээх</span></a>
+				  <a href="javascript:netfu_mjob.read_func('<?=$get_alba['no'];?>', 'job', 'sms')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/letter_ico.png" alt="문자하기" />&nbsp</span><span class="txt">문자문의</span></a>
 				</li>
 			  <li class="nvli3">
-          <a href="javascript:netfu_mjob.read_func('<?=$get_alba['no'];?>', 'job', 'tel')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/tel_ico.png" alt="дуудлага хийх" />&nbsp</span><span class="txt">Дуудлага хийх</span></a>
+          <a href="javascript:netfu_mjob.read_func('<?=$get_alba['no'];?>', 'job', 'tel')"><span class="li-icon"><img src="<?=NFE_URL;?>/images/tel_ico.png" alt="전화하기" />&nbsp</span><span class="txt">전화문의</span></a>
 				</li>
 			</ul>
 		</div>
@@ -137,10 +137,10 @@ $(window).ready(function(){
 
 	<div class="button_group scrap_bt">
 	<?php if(@in_array("online", $_wr_requisition)) {?>
-	<button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">Ажилд орох өргөдөл (Онлайн )</button>
+	<button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">온라인 입사지원</button>
 	<?php }?>
 	<?php if(@in_array("email", $_wr_requisition)) {?>
-	<button type="button" class="bt-email _btn requisition_btn" k="email" no="<?=$get_alba['no'];?>">Ажлын байрны өргөдөл (И-мэйл)</button>
+	<button type="button" class="bt-email _btn requisition_btn" k="email" no="<?=$get_alba['no'];?>">이메일 입사지원</button>
 	<?php }?>
 	</div>
 </section>
@@ -165,10 +165,10 @@ receive_click($("._btn").eq(_btn_code)[0]);
 <section class="cont_box detail_con detail_con2">
 	<div class="tab1-con cf">
 		<ul>
-			<li class="active"><a>Ажилд урьж байна</a></li>
-			<li><a>Дэлгэрэнгүй мэдээлэл</a></li>
-			<li><a>Ажлын байршил</a></li>
-			<li><a>Байгуууллагын тухай</a></li>
+			<li class="active"><a>모집요강</a></li>
+			<li><a>상세요강</a></li>
+			<li><a>근무위치</a></li>
+			<li><a>회사정보</a></li>
 		</ul>
 	</div>
 
@@ -182,16 +182,16 @@ receive_click($("._btn").eq(_btn_code)[0]);
 
 	<div class="button_group scrap_bt">
 	<?php if(@in_array("online", $_wr_requisition)) {?>
-        <button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">Ажилд орох өргөдөл (Онлайн )</button>
-    <?php }?>
-        <?php if(@in_array("email", $_wr_requisition)) {?>
-            <button type="button" class="bt-email _btn requisition_btn" k="email" no="<?=$get_alba['no'];?>">Ажлын байрны өргөдөл (И-мэйл)</button>
+	<button type="button" class="bt-online _btn requisition_btn" k="online" no="<?=$get_alba['no'];?>">온라인 입사지원</button>
 	<?php }?>
-	<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="scrab"><!--<img src="images/scrap_icon1.png">-->scrab</button>
+	<?php if(@in_array("email", $_wr_requisition)) {?>
+	<button type="button" class="bt-email _btn requisition_btn" k="email" no="<?=$get_alba['no'];?>">이메일 입사지원</button>
+	<?php }?>
+	<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="스크랩"><!--<img src="images/scrap_icon1.png">-->스크랩</button>
 	</div>
 
 <div class="caution">
-<p>Тус мэдээлэл нь <?=stripslashes($get_alba['wr_company_name']);?>ээс <?php echo strtr(substr($get_alba['wr_wdate'],0,10),'-','/');?>  хойш олгож эхэлсэн, <?php echo $env['site_name'];?>агуулгад гарсан алдаа, саатал гарсан тохиолдолд компани хариуцахгүй. <?php echo $env['site_name'];?> зөвшөөрөөгүй тохиолдолд ашиглах боломжгүй.<зохиогчийн эрх  ⓒ <?php echo $env['site_name'];?>.Зөвшөөрөлгүй ашиглах-дахин хуулбарлахыг хориглоно.>&gt;</p>
+<p>본 정보는 <?=stripslashes($get_alba['wr_company_name']);?>에서 <?php echo strtr(substr($get_alba['wr_wdate'],0,10),'-','/');?> 이후로 제공한 자료이며, <?php echo $env['site_name'];?>(은)는 그 내용상의 오류 및 지연, 그 내용을 신뢰하여 취해진 조치에 대하여 책임을 지지 않습니다. 본 정보는 <?php echo $env['site_name'];?>의 동의없이 재배포할 수 없습니다.<저작권자 ⓒ <?php echo $env['site_name'];?>. 무단전재-재배포 금지>&gt;</p>
 </div>
 <div class="share-con">
 	<div class="sns_btn_group cf">
