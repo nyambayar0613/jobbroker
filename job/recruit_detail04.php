@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php" class="active">구인정보</a>
-					<a href="person_main.php">인재정보</a>
-					<a href="community_main.php">커뮤니티</a>
+                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
+                  <a href="person_main.php">Хүний нөөц</a>
+                  <a href="community_main.php">Комиунити</a>
 				</div>
 			</div>
 		</header>
@@ -31,127 +31,126 @@ include_once(NFE_PATH.'/head.php');
 	      <section class="cont_box detail_con">
           <div class="top_area">
             <ul>
-							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>		
-							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고</a></li>
+                <li class="ktid"><span>Kakao talk ID : <em>kakao-id</em></span></li>
+                <li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
 						</ul>
 					</div>
 					<div class="logo_box">
 						<img src="/images/logo01.png" alt="LOGO">
 					</div>
 					<div class="text_box">
-					  <div class="company">(주)파이낸뷰</div>
-						<div class="title">온라인 쇼핑몰 아르바이트 모집(창고 물류 관리, 상품 택배 포장)</div>
-						<div class="info">마감일 상시모집</div>
+                        <div class="company">Finance wu LLC</div>
+                        <div class="title">Онлайн худалдааны төвийн цагийн ажилд зуучлах (агуулахын менежмент, бүтээгдэхүүн хүргэх, савлах)</div>
+                        <div class="info">Ажилд авах эцсийн хугацаа</div>
 					</div>
 					<div class="adm_name">
 					  <div class="name_inner">
 						  <dl>
-							  <dt class="hd"><span><img src="/images/info1.png" alt="담당자"></span>담당자</dt>
-								<dd class="col1">김범</dd>
-							</ul>
-						</div>
-					</div>
-					<div class="tel_info">
-					  <div class="tel_inner">
-						  <dl>
-							  <dt class="hd"><span><img src="/images/info2.png" alt="연락처"></span>연락처</dt>
-								<dd class="col1">010-1234-5678</dd>
-								<dd class="col2"><a href="#"><span><img src="/images/tel_ico.png" alt="전화하기"></span><em>전화하기</em></a></dd>
+							  <dt <dt class="hd"><span><img src="/images/info1.png" alt="Хариуцсан хүн"></span>Хариуцсан  хүн</dt>
+                              <dd class="col1">Mr Kim</dd>
+                              </ul>
+                      </div>
+                    </div>
+              <div class="tel_info">
+                  <div class="tel_inner">
+                      <dl>
+                          dt class="hd"><span><img src="/images/info2.png" alt="Холбогдох дугаар"></span>Холбогдох дугаар</dt>
+                          <dd class="col1">010-1234-5678</dd>
+                          <dd class="col2"><a href="#"><span><img src="/images/tel_ico.png" alt="Холбогдох"></span><em>Холбогдох дугаар</em></a></dd>
 							</dl>
 						</div>
 					</div>
-					<div class="button_group scrap_bt">
-					  <button type="button" class="bt-online">온라인 입사지원</button>
-						<button type="button" class="bt-email">이메일 입사지원</button>
-					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="스크랩"><!--<img src="/images/scrap_icon1.png">-->스크랩</button>
-					</div>
-				</section>
+              <button type="button" class="bt-online">Ажилд орох өргөдөл (Онлайн)</button>
+              <button type="button" class="bt-email">Ажилд орох өргөдөл (Мэйл)</button>
+              <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="scrab"><!--<img src="/images/scrap_icon1.png">-->Scrab</button>
+            </div>
+            </section>
 
-				<section class="cont_box detail_con detail_con2">
-				  <div class="tab1-con cf">
-					  <ul>
-						  <li><a href="#">모집요강</a></li>
-						  <li><a href="#">상세요강</a></li>
-						  <li><a href="#">근무위치</a></li>
-						  <li class="active"><a href="#">회사정보</a></li>
+            <section class="cont_box detail_con detail_con2">
+                <div class="tab1-con cf">
+                    <ul>
+                        <li><a href="#">Ажилд урьж байна</a></li>
+                        <li class="active"><a href="#">Дэлгэрэнгүй мэдээлэ</a></li>
+                        <li><a href="#">Ажлын байршил</a></li>
+                        <li><a href="#">Байгуууллагын тухай</a></li>
             </ul>
 					</div>
 					<div class="tab-box tab4-box">
             <table>
 						  <tr>
-							  <th>회사명</th>
-								<td>상시모집</td>
+							  <th>Байгууллагын нэр</th>
+								<td>тогтмол ажилд авна</td>
 							</tr>
 						  <tr>
-							  <th>사업내용</th>
-								<td>네트워크 트래픽 관리제품 개발</td>
+							  <th>Үйл ажиллагааны талаарх мэдээлэл</th>
+								<td>Сүлжээний замын хөдөлгөөний менежментийн бүтээгдэхүүн боловсруулах</td>
 						  <tr>
-							  <th>대표자명</th>
-								<td>김범</td>
+							  <th>Захирал</th>
+								<td>Mr Kim</td>
 							</tr>
-         
+
 							<tr>
-							  <th>회사분류</th>
-								<td>파견대행 및 아웃소싱</td>
+							  <th>Компанийн ангилал</th>
+								<td>Dispatch agency and outsourcing</td>
               </tr>
 							<tr>
-							  <th>사업자번호</th>
+							  <th>Бизнесийн дугаар</th>
 								<td>408-14-86591</td>
               </tr>
 							<tr>
-							  <th>전화번호</th>
+							  <th>Утасны дугаар</th>
 								<td>1544-9638</td>
               </tr>
 							<tr>
-							  <th>팩스번호</th>
+							  <th>факсын дугаар</th>
 								<td>010-1234-5678</td>
               </tr>
 						  <tr>
-							  <th>회사주소</th>
-								<td>강원도 동해시 추암동 남형빌딩 524동</td>
+							  <th>Байгууллагын хаяг</th>
+								<td>524, Namhyeong Building, Chuam-dong, Donghae-si, Gangwon-do</td>
 							</tr>
 						  <tr>
-							  <th>홈페이지</th>
+							  <th>Homepage</th>
 								<td>http://</td>
 							</tr>
 						  <tr>
-							  <th>설립연도</th>
+							  <th>Байгуулагдсан он</th>
 								<td>1999년</td>
 							</tr>
 						  <tr>
-							  <th>직원수</th>
+							  <th>Ажилчдын тоо</th>
 								<td>500명</td>
 							</tr>
 						  <tr>
-							  <th>기업형태</th>
-								<td>중소기업(300명 이하)</td>
+							  <th>Байгууллагын төрөл</th>
+								<td>ЖДҮ (300хүн дотор)</td>
 							</tr>
 						  <tr>
-							  <th>상장여부</th>
-								<td>비상장</td>
+							  <th>Жагсаалтанд орсон эсэх</th>
+								<td>Орсон</td>
 							</tr>
 						  <tr>
-							  <th>자본금</th>
-								<td>100억</td>
+							  <th>Үндсэн хөрөнгө</th>
+								<td>10 тэрбум</td>
 							</tr>
 						  <tr>
-							  <th>매출액</th>
-								<td>500억</td>
+							  <th>Ашиг</th>
+								<td>50 тэрбум</td>
 							</tr>
 						</table>
           </div>
 					<div class="tab-box tab4-box2 cf">
 						<dl>						 
-							<dt class="intro">기업개요 및 비전</dt>
+							<dt class="intro">Компанийн тойм, алсын хараа</dt>
 							<dd>
-							  풍부한 경험과 기술력으로 디지털 환경의 차별화된 가능성을 제시합니다.
+                                Бид баялаг туршлага, технологитой дижитал орчны боломжуудыг танилцуулж байна.
 							</dd>
 						</dl>
 						<dl>						 
-							<dt class="intro">기업연혁 및 실적</dt>
+							<dt class="intro">Компанийн түүх, амжилт</dt>
 							<dd>
-							  1. 기업연혁<br>
-								2. 기업실적<br>
+							  1.Компанийн түүх<br>
+								2. Компанийн амжилт<br>
 							</dd>
 						</dl>
 						</table>
@@ -196,7 +195,7 @@ include_once(NFE_PATH.'/head.php');
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>

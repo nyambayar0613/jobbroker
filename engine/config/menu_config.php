@@ -39,7 +39,7 @@
 			"menus" => array(
 				0 => array("code" => "100100", "name" => "구인공고 관리", 
 				"sub_menu" => array(
-					array("code" => "100101", "name" => "전체 구인공고 관리", "url" => "../alba/"),
+					array("code" => "100101", "name" => "전체 구인공고 관리", "url" => "../alba/"), // 전체 구인공고 관리
 					//array("code" => "100102", "name" => "사용자 등록 구인공고", "url" => "../alba/?is_admin=0"),
 					//array("code" => "100103", "name" => "관리자 등록 구인공고", "url" => "../alba/?is_admin=1"),
 					array("code" => "100102", "name" => "진행중인 구인공고", "url" => "../alba/employ_ing.php"),
