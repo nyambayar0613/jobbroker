@@ -6,7 +6,7 @@ $_where = " and no=".$_GET['no']." and is_delete=0 and !(".$netfu_mjob->job_wher
 $q = "alice_alba where 1 ".$_where;
 $end_chk_total = sql_fetch("select no from ".$q);
 if($end_chk_total['no']) { 
-	echo "<script>alert('Үйлчилгээний хугацаа дууссан болохыг анхаарна уу.'); history.go(-1);</script>";
+	echo "<script>alert('Үйлчилгээний хугацаа дууссан байна.'); history.go(-1);</script>";
 }
 
 $_cate1_array = array('alba_pay_type', 'job_ability', 'preferential', 'job_target');

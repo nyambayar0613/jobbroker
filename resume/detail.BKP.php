@@ -71,9 +71,9 @@ include NFE_PATH.'/include/inc/resume_pop.inc.php';
 ?>
 <div class="top_area">
 <ul>
-	<li class="ktid"><span>Kakao ID : <em><?=$re_row['kakao_id'];?></em></span></li>
-	<li><span>Холбогдох боломжтой цаг <em><?=$re_row['wr_calltime_always'] ? 'Үргэлж боломжтой' : $wr_calltime[0].":00~".$wr_calltime[1].":00";?></em></span></li>
-	<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
+	<li class="ktid"><span>카톡ID : <em><?=$re_row['kakao_id'];?></em></span></li>
+	<li><span>통화가능시간 <em><?=$re_row['wr_calltime_always'] ? '상시가능' : $wr_calltime[0].":00~".$wr_calltime[1].":00";?></em></span></li>
+	<li class="btn_report"><a onClick="netfu_util1.open($('.report_bx'))"><img src="<?=NFE_URL;?>/images/icon_notify.gif" alt="신고하기">신고</a></li>
 </ul>
 </div>
 <div class="profile_con cf">
@@ -83,12 +83,12 @@ NFE_URL/images/id_pic.png NFE_URL/images/id_pic2.png
 */
 ?>
 <div class="pic_box">
-	<img src="<?=$re_info['mb_photo'];?>" alt="ID зураг">
+	<img src="<?=$re_info['mb_photo'];?>" alt="증명사진">
 </div>
 <div class="txt_box cf">
 	<ul>
 		<li>
-		  <span><img src="<?=NFE_URL;?>/images/info1-1.png" alt="Нэр, ID"></span>
+		  <span><img src="<?=NFE_URL;?>/images/info1-1.png" alt="이름, 아이디"></span>
 			<p>
 			  <ol>
 					<li class="pf_name"><?=$utility->make_pass_○○($get_member['mb_name']);?> </li>
@@ -98,19 +98,19 @@ NFE_URL/images/id_pic.png NFE_URL/images/id_pic2.png
 				</ol>
 			</p>
 		</li>
-		<li><span><img src="<?=NFE_URL;?>/images/info1-3.png" alt="Холбогдох дугаар"></span><p><?=$read_info['phone'];?></p></li>
-		<li><span><img src="<?=NFE_URL;?>/images/info1-2.png" alt="Утасны дугаар"></span><p><?=$read_info['hphone'];?></p><em class="msn_btn"><a href="javascript:netfu_mjob.read_func('<?=$re_row['no'];?>', 'resume', 'sms')"><img src="<?=NFE_URL;?>/images/letter_icon.png" alt="SMS илгээх">SMS</a></em><em class="call_btn"><a href="javascript:netfu_mjob.read_func('<?=$re_row['no'];?>', 'resume', 'tel')"><img src="<?=NFE_URL;?>/images/tel_ico.png" alt="Залгах">Залгах</a></em></li>
-		<li><span><img src="<?=NFE_URL;?>/images/info1-4.png" alt="И-мэйл"></span><p><?=$read_info['email'];?></p></li>
-		<li class="address4"><span><img src="<?=NFE_URL;?>/images/info1-5.png" alt="Хаяг"></span><p><?=$read_info['address'];?></p></li>
+		<li><span><img src="<?=NFE_URL;?>/images/info1-3.png" alt="전화번호"></span><p><?=$read_info['phone'];?></p></li>
+		<li><span><img src="<?=NFE_URL;?>/images/info1-2.png" alt="휴대폰"></span><p><?=$read_info['hphone'];?></p><em class="msn_btn"><a href="javascript:netfu_mjob.read_func('<?=$re_row['no'];?>', 'resume', 'sms')"><img src="<?=NFE_URL;?>/images/letter_icon.png" alt="문자보내기">문자</a></em><em class="call_btn"><a href="javascript:netfu_mjob.read_func('<?=$re_row['no'];?>', 'resume', 'tel')"><img src="<?=NFE_URL;?>/images/tel_ico.png" alt="전화하기">전화</a></em></li>
+		<li><span><img src="<?=NFE_URL;?>/images/info1-4.png" alt="이메일"></span><p><?=$read_info['email'];?></p></li>
+		<li class="address4"><span><img src="<?=NFE_URL;?>/images/info1-5.png" alt="주소"></span><p><?=$read_info['address'];?></p></li>
 	</ul>
 </div>
 <div class="etc_box cf">
   <ul>
-	  <li><span>Боловсрол</span><p><?php echo stripslashes($re_info['wr_school_ability']['name']);?></p></li>
-		<li><span>Адбан тушаал</span><p><?=$list['career'];?></p></li>
-		<li><span>Хүсэж буй цалин</span><p><?=$re_info['pay_type'];?></p></li>
-		<li><span>Мэргэжлийн үнэмлэх</span><p><?=$re_info['license'];?></p></li>
-		<li><span>Гадаад хэлний түвшин</span><p><?=$re_info['language_txt'];?></p></li>
+	  <li><span>최종학력</span><p><?php echo stripslashes($re_info['wr_school_ability']['name']);?></p></li>
+		<li><span>경력사항</span><p><?=$list['career'];?></p></li>
+		<li><span>희망급여</span><p><?=$re_info['pay_type'];?></p></li>
+		<li><span>자격증</span><p><?=$re_info['license'];?></p></li>
+		<li><span>외국어능력</span><p><?=$re_info['language_txt'];?></p></li>
 	</ul>
 </div>
 </div>
@@ -127,9 +127,9 @@ NFE_URL/images/id_pic.png NFE_URL/images/id_pic2.png
 <section class="cont_box detail_con detail_con2">
 <div class="tab2-con cf">
 <ul>
-  <li class="active"><a href="#none;">CV мэдээлэл</a></li>
-  <li><a href="#none;">Мэргэшсэн байдал</a></li>
-  <li><a href="#none;">Миний танилцуулга</a></li>
+  <li class="active"><a href="#none;">이력서정보</a></li>
+  <li><a href="#none;">자격사항</a></li>
+  <li><a href="#none;">자기소개서</a></li>
 </ul>
 </div>
 
@@ -140,12 +140,12 @@ include NFE_PATH.'/include/inc/resume_detail_tab3.inc.php';
 ?>
 
 <div class="button_group scrap_bt resume__">
-<button type="button" class="bt-apply _btn" k="become">Ажилд орох өргөдөл</button>
+<button type="button" class="bt-apply _btn" k="become">입사지원요청</button>
 <?
 /*
 <button type="button" class="bt-apply _btn" k="interview">면접제의요청</button>
 */?>
-<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba_resume', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="scrab"><!--<img src="<?=NFE_URL;?>/images/scrap_icon1.png">-->scrab</button>
+<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba_resume', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="스크랩"><!--<img src="<?=NFE_URL;?>/images/scrap_icon1.png">-->스크랩</button>
 </div>
 
 <div class="caution">
