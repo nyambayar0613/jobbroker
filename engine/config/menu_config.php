@@ -136,7 +136,7 @@
 					),
 					array("code" => "200402", "name" => "Гишүүнчлэлийн ангилал", "url" => "../config/category.php?type=email", "subs"=>
 						array(
-							//"passwd_question" => array("name" => "비밀번호재발급 질문", "url" => "../config/category.php?type=passwd_question"),
+							//"passwd_question" => array("name" => "비밀번호재발급 질문", "url" => "../config/category.php?type=passwd_question"),оүз
 							"email" => array("name" => "И-мэйл", "url" => "../config/category.php?type=email"),
 							"biz_type" => array("name" => "Байгууллагын төрөл", "url" => "../config/category.php?type=biz_type"),
 							"biz_success" => array("name" => "Жагсаалтанд орсон эсэх", "url" => "../config/category.php?type=biz_success"),
