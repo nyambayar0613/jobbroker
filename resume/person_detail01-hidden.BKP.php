@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-                  <a href="person_main.php">Хүний нөөц</a>
-                  <a href="community_main.php">Комиунити</a>
+					<a href="recruit_main.php">구인정보</a>
+					<a href="person_main.php" class="active">인재정보</a>
+					<a href="community_main.php">커뮤니티</a>
 				</div>
 			</div>
 		</header>
@@ -29,7 +29,7 @@ include_once(NFE_PATH.'/head.php');
 			<div class="container">
 
 			  <section class="cont_box detail_con">
-                  <h2 class="top_tit">Гэрээсээ удаан хугацаанд ажиллах боломжтой цагийн ажил хайж байна.</h2>
+				  <h2 class="top_tit">오랫동안 일할 수 있는 재택알바 구합니다. 오랫동안 일할 수 있는 재택알바 구합니다.</h2>
           <div class="top_area">
             <ul>
 							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>						  

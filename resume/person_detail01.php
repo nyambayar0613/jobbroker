@@ -22,7 +22,7 @@ include_once(NFE_PATH.'/head.php');
                   <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
                   <a href="person_main.php">Хүний нөөц</a>
                   <a href="community_main.php">Комиунити</a>
-				</div>및 불건전 이력서
+				</div>and bad resumes
 			</div>
 		</header>
 		<div id="main" class="cf">
