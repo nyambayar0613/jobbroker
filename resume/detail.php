@@ -143,7 +143,7 @@ include NFE_PATH.'/include/inc/resume_detail_tab3.inc.php';
 <button type="button" class="bt-apply _btn" k="become">Ажилд орох өргөдөл</button>
 <?
 /*
-<button type="button" class="bt-apply _btn" k="interview">면접제의요청</button>
+<button type="button" class="bt-apply _btn" k="interview">면접제의요청</button>аэж
 */?>
 <button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba_resume', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="scrab"><!--<img src="<?=NFE_URL;?>/images/scrap_icon1.png">-->scrab</button>
 </div>
