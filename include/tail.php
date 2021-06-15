@@ -39,7 +39,7 @@ $(window).load(function(){
 <?php }?>
 </script>
 
-<footer class="cf">
+<footer class="cf ">
 	<div class="footer_link">
 		<?php
 		if($member['mb_id']) {
@@ -76,7 +76,28 @@ $(window).load(function(){
 		</div>
 	</div>
 </footer>
-</div>
+
+<!-- Back to top -->
+<a href="#" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
+
+<!-- javascript -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/plugins.js"></script>
+
+<!-- selectize js -->
+<script src="/js/selectize.min.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
+
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/counter.int.js"></script>
+
+<script src="/js/app.js"></script>
+<script src="/js/home.js"></script>
 
 <script>
 $(function() {

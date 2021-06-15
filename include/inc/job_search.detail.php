@@ -24,7 +24,7 @@ if($_GET['code']!='search') {
 <input type="hidden" name="code" value="<?=$_GET['code'];?>" />
 <div class="schbox_wrap sch_wrap cf">
 	<div class="search_con search_box">
-		<table class="search_tb">
+		<table class="search_tb table table-bordered">
 
 		<!-- 근무지역 -->
 		<tr class="_view">
@@ -32,7 +32,7 @@ if($_GET['code']!='search') {
 				<div>근무지역</div>
 			</th>
 			<td class="sch_td1">
-				<select name="area[]" sel="1" type="area" val="<?=$_GET['area'][1];?>" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
+				<select name="area[]" sel="1" class="form-control" type="area" val="<?=$_GET['area'][1];?>" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
 				<option value="">시·도</option>
 				<?php
 				if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
@@ -45,7 +45,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="area[]" sel="2" type="area" this="<?=$_GET['area'][1];?>" val="<?=$_GET['area'][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)">
+				<select name="area[]" sel="2" class="form-control" type="area" this="<?=$_GET['area'][1];?>" val="<?=$_GET['area'][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)">
 				<option value="">시·군·구</option>
 				</select>
 			</td>
@@ -62,7 +62,7 @@ if($_GET['code']!='search') {
 				<div>업직종</div>
 			</th>
 			<td class="sch_td1">
-				<select name="job_type[]" sel="1" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
+				<select name="job_type[]" sel="1" class="form-control" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
 				<option value="">직종1차</option>
 				<?php
 				if(is_array($_cate_['job_type'])) { foreach($_cate_['job_type'] as $k=>$v) {
@@ -75,7 +75,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="job_type[]" sel="2" type="job_type" this="<?=$_GET['job_type'][1];?>" val="<?=$_GET['job_type'][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)">
+				<select name="job_type[]" sel="2" class="form-control" type="job_type" this="<?=$_GET['job_type'][1];?>" val="<?=$_GET['job_type'][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)">
 				<option value="">직종2차</option>
 				</select>
 			</td>
@@ -92,7 +92,7 @@ if($_GET['code']!='search') {
 				<div>역세권</div>
 			</th>
 			<td class="sch_td1">
-				<select name="subway[]" sel="1" type="subway" val="<?=$_GET['subway'][1];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)">
+				<select name="subway[]" sel="1" class="form-control" type="subway" val="<?=$_GET['subway'][1];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)">
 				<option value="">시/도</option>
 				<?php
 				if(is_array($_cate_['subway'])) { foreach($_cate_['subway'] as $k=>$v) {
@@ -105,7 +105,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="subway[]" sel="2" type="subway" this="<?=$_GET['subway'][1];?>" val="<?=$_GET['subway'][2];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)">
+				<select name="subway[]" sel="2" class="form-control" type="subway" this="<?=$_GET['subway'][1];?>" val="<?=$_GET['subway'][2];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)">
 				<option value="">호선</option>
 				</select>
 			</td>
@@ -122,7 +122,7 @@ if($_GET['code']!='search') {
 				<div>대학가</div>
 			</th>
 			<td class="sch_td1">
-				<select name="job_college[]" sel="1" type="job_college" val="<?=$_GET['job_college'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)">
+				<select name="job_college[]" sel="1" class="form-control" type="job_college" val="<?=$_GET['job_college'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)">
 				<option value="">시·도</option>
 				<?php
 				if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
@@ -135,7 +135,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2" colspan="2">
-				<select name="job_college[]" sel="2" type="job_college" val="<?=$_GET['job_college'][2];?>">
+				<select name="job_college[]" sel="2" class="form-control" type="job_college" val="<?=$_GET['job_college'][2];?>">
 				<option value="">인근대학 선택</option>
 				</select>
 			</td>
@@ -147,7 +147,7 @@ if($_GET['code']!='search') {
 				<div>근무기간</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="alba_date">
+				<select name="alba_date" class="form-control">
 				<option value="">근무기간</option>
 				<?php
 				if(is_array($_cate_['alba_date'])) { foreach($_cate_['alba_date'] as $k=>$v) {
@@ -167,7 +167,7 @@ if($_GET['code']!='search') {
 				<div>근무요일</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="alba_week">
+				<select name="alba_week" class="form-control">
 				<option value="">근무요일</option>
 				<?php
 				if(is_array($_cate_['alba_week'])) { foreach($_cate_['alba_week'] as $k=>$v) {
@@ -187,7 +187,7 @@ if($_GET['code']!='search') {
 				<div>대상</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="wr_target">
+				<select name="wr_target" class="form-control">
 				<option value="">대상별</option>
 				<?php
 				if(is_array($_cate_['job_target'])) { foreach($_cate_['job_target'] as $k=>$v) {
@@ -209,7 +209,7 @@ if($_GET['code']!='search') {
 			<td class="sch_td1 sch_td1-2" colspan="3">
 			  <fieldset>
 					<legend>근무시간</legend>
-					<select name="wr_stime[]">
+					<select name="wr_stime[]" class="form-control">
 						<option value="">선택</option>
 						<?php
 						for($i=0; $i<24; $i++) {
@@ -221,7 +221,7 @@ if($_GET['code']!='search') {
 						}
 						?>
 					</select>
-					<select name="wr_stime[]">
+					<select name="wr_stime[]" class="form-control">
 						<option value="">선택</option>
 						<?php
 						for($i=0; $i<6; $i++) {
@@ -234,7 +234,7 @@ if($_GET['code']!='search') {
 						?>
 					</select>
 					~
-					<select name="wr_etime[]">
+					<select name="wr_etime[]" class="form-control">
 						<option value="">선택</option>
 						<?php
 						for($i=0; $i<24; $i++) {
@@ -246,7 +246,7 @@ if($_GET['code']!='search') {
 						}
 						?>
 					</select>
-					<select name="wr_etime[]">
+					<select name="wr_etime[]" class="form-control">
 						<option value="">선택</option>
 						<?php
 						for($i=0; $i<6; $i++) {

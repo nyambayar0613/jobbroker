@@ -290,11 +290,11 @@
 						$result .= "<script type=\"text/javascript\" src=\"" . $alice['js_path'] . "/unitpngfix.js\"></script>\n";
 						$result .= "<![endif]-->\n";
 
-						$result .= "<script type='text/javascript' src='" . $alice['js_path'] . "/jquery.min.js?t=".date('YmdH')."'></script>\n";
+						/*$result .= "<script type='text/javascript' src='" . $alice['js_path'] . "/jquery.min.js?t=".date('YmdH')."'></script>\n";
 						$result .= "<script type='text/javascript' src='" . $alice['js_ui'] . "/jquery-ui.min.js?t=".date('YmdH')."'></script>\n";
 						$result .= "<script type='text/javascript' src='" . $alice['js_path'] . "/plugin/jquery.form.js?t=2018010121'></script>\n";
 						$result .= "<script type='text/javascript' src='" . $alice['js_i18n'] . "/jquery.ui.datepicker-ko.js?t=".date('YmdH')."'></script>\n";
-						$result .= "<script src='".NFE_URL."/_helpers/_js/util1.class.js?time=".time()."'></script>";
+						$result .= "<script src='".NFE_URL."/_helpers/_js/util1.class.js?time=".time()."'></script>";*/
 						//<script src='".NFE_URL."/sample/_helpers/_js/jquery-3.2.1.min.js'></script> 이걸 사용하면 이상해짐
 
 						$result .= '

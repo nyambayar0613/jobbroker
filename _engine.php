@@ -340,7 +340,22 @@
 			$head_title = $netfu_util->site_content[$_GET['code']];
 		}
 		
-		$style_arr = array( 'default', 'style', 'color_'.$design['skin_color']);
+		//$style_arr = array( 'default', 'style', 'color_'.$design['skin_color']);
+		$style_arr = array(
+
+            'job/bootstrap.min',
+            'job/fontawesome',
+            'job/materialdesignicons.min',
+            'job/nice-select',
+            'job/owl.carousel',
+            'job/owl.theme',
+            'job/owl.transitions',
+            'job/selectize',
+            'job/style',
+            /*'default',*/
+            'style',
+            /*'color_'.$design['skin_color'],*/
+        );
 		$plugin_arr = array( 'scrollfollow' );
 		echo $config->_user_header( '', $style_arr, '', $plugin_arr, $view);		// body, css style, css media, jQuery plugin
 
