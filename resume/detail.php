@@ -115,12 +115,12 @@ NFE_URL/images/id_pic.png NFE_URL/images/id_pic2.png
 </div>
 </div>
 <div class="button_group scrap_bt resume__">
-<button type="button" class="bt-apply _btn" k="become">입사지원요청</button>
+<button type="button" class="bt-apply _btn" k="become">Ажилл орох хүсэлт</button>
 <?
 /*
 <button type="button" class="bt-apply _btn" k="interview">면접제의요청</button>
 */?>
-<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba_resume', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="스크랩"><!--<img src="<?=NFE_URL;?>/images/scrap_icon1.png">-->스크랩</button>
+<button type="button" class="bt-scrap" onClick="netfu_mjob.scrap('alba_resume', '<?=$_GET['no'];?>')"><img src="<?=NFE_URL;?>/images/scrap_icon2.png" alt="scrab"><!--<img src="<?=NFE_URL;?>/images/scrap_icon1.png">-->scrab</button>
 </div>
 </section>
 

@@ -19,41 +19,41 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-                  <a href="person_main.php">Хүний нөөц</a>
-                  <a href="community_main.php">Комиунити</a>
-				</div>및 불건전 이력서
+					<a href="recruit_main.php">구인정보</a>
+					<a href="person_main.php" class="active">인재정보</a>
+					<a href="community_main.php">커뮤니티</a>
+				</div>
 			</div>
 		</header>
 		<div id="main" class="cf">
 			<div class="container">
 
 			  <section class="cont_box detail_con">
-				  <h2 class="top_tit">Гэрээсээ удаан хугацаанд ажиллах боломжтой цагийн ажил хайж байна.</h2>
+				  <h2 class="top_tit">오랫동안 일할 수 있는 재택알바 구합니다. 오랫동안 일할 수 있는 재택알바 구합니다.</h2>
 
           <!-- 신고하기 팝업 -->			 
 						<div class="detail_ly mail_ly report_bx cf" style="display:block">
 							<div class="detail_inner">
-								<div class="box-title"><h2>Ажлын байрны талаар мэдээлэх</h2>
+								<div class="box-title"><h2>채용정보 신고하기</h2>
 									<div class="btn-r">
 										<button id="close_ly" type="button">X</button>
 									</div>
 								</div>
 								<div class="text_area">
 									<fieldset>
-										<legend>Мэдээллэх шалтгаан</legend>
+										<legend>신고사유</legend>
 										<ul>
-											<li><input type="radio" id="" name=""> Холбоо барих мэдээлэл буруу</li>
-											<li><input type="radio" id="" name=""> Алдаатай анкет</li>
-											<li><input type="radio" id="" name=""> Хуурамч мэдээлэл</li>
-											<li><input type="radio" id="" name=""> Өөрөө шууд бичих</li>
+											<li><input type="radio" id="" name=""> 잘못 기재된 연락처</li>
+											<li><input type="radio" id="" name=""> 유흥업소 및 불건전 이력서</li>
+											<li><input type="radio" id="" name=""> 허위 사기성 내용</li>
+											<li><input type="radio" id="" name=""> 직접입력</li>
 										</ul>
 									</fieldset>
 								</div>
 								<div class="btn_area">
 									<ul>
-										<li class="rept_bt1"><a href="#">Мэдэгдэх</a></li>
-										<li class="rept_bt2"><a href="#">Цуцлах</a></li>
+										<li class="rept_bt1"><a href="#">신고</a></li>
+										<li class="rept_bt2"><a href="#">취소</a></li>
 									</ul>
 								</div>
 							</div>
@@ -62,7 +62,7 @@ include_once(NFE_PATH.'/head.php');
 
           <div class="top_area">
             <ul>
-							<li class="ktid"><span>Kakao ID : <em>kakao-id</em></span></li>
+							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>						  
 							<li><span>통화가능시간 <em>18:00~00:00</em></span></li>
 							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고</a></li>
 						</ul>
