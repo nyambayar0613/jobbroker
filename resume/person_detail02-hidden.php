@@ -39,7 +39,7 @@ include_once(NFE_PATH.'/head.php');
 					</div>
 					<div class="profile_con cf">
 						<div class="pic_box">
-							<a href="#"><img src="/images/id_pic.png" alt="증명사진"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
+							<a href="#"><img src="/images/id_pic.png" alt="ID зураг"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
 						</div>
 						<div class="txt_box cf">
 							<ul class="indi-profile">
