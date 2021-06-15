@@ -19,103 +19,91 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php">구인정보</a>
-					<a href="person_main.php" class="active">인재정보</a>
-					<a href="community_main.php">커뮤니티</a>
-				</div>
-			</div>
-		</header>
-		<div id="main" class="cf">
-			<div class="container">
+                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
+                  <a href="person_main.php">Хүний нөөц</a>
+                  <a href="community_main.php">Комиунити</a>
+              </div>
+            </div>
+    </header>
+    <div id="main" class="cf">
+        <div class="container">
 
-			  <section class="cont_box detail_con">
-				  <h2 class="top_tit">오랫동안 일할 수 있는 재택알바 구합니다. 오랫동안 일할 수 있는 재택알바 구합니다.</h2>
-          <div class="top_area">
-            <ul>
-							<li><span>통화가능시간 <em>18:00~00:00</em></span></li>
-							<li><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고하기</a></li>
+            <section class="cont_box detail_con">
+                <h2 class="top_tit">Гэрээсээ удаан хугацаанд ажиллах боломжтой цагийн ажил хайж байна.</h2>
+                <div class="top_area">
+                    <ul>
+                        <li><span>Холбогдох боломжтой цаг <em>18:00~00:00</em></span></li>
+                        <li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
 						</ul>
 					</div>
 					<div class="profile_con cf">
 						<div class="pic_box">
-							<a href="#"><img src="/images/id_pic.png" alt="증명사진"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
-						</div>
-						<div class="txt_box cf">
-							<ul>
-								<li>
-								  <span><img src="/images/info1-1.png" alt="이름, 아이디"></span>
-									<p>
-									  <ol>
-											<li class="pf_name">홍길동</li>
-											<li class="pf_info"><p class="gender">남</p><p class="birth">1989</p></li>
+                            <a href="#"><img src="/images/id_pic.png" alt="ID зураг"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
+                        </div>
+                        <div class="txt_box cf">
+                            <ul>
+                                <li>
+                                    <span><img src="/images/info1-1.png" alt="Нэр, ID"></span>
+                                    <p>
+                                        <ol>
+                                            <li class="pf_name">Mr Hong</li>
+											<li class="pf_info"><p class="gender">Эр</p><p class="birth">1989</p></li>
 											<li class="slash">/</li>
 											<li class="pf_id">test_individual</li>
 										</ol>
 									</p>
 								</li>
-								<li><span><img src="/images/info1-3.png" alt="전화번호"></span><p>02-000-0000</p></li>
-								<li><span><img src="/images/info1-2.png" alt="휴대폰"></span><p>010-1234-5678</p><em class="call_btn"><a href="#"><img src="/images/tel_ico.png" alt="전화하기">전화걸기</a></em></li>
-								<li><span><img src="/images/info1-4.png" alt="이메일"></span><p>webmaster@test.com</p></li>			
-								<li class="address4"><span><img src="/images/info1-5.png" alt="주소"></span><p>광주광역시 동구 금남로5가 남선빌딩 407호 광주광역시 동구 금남로5가 남선빌딩 407호</p></li>								
+                                <li><span><img src="/images/info1-3.png" alt="Холбогдох дугаар"></span><p>02-000-0000</p></li>
+                                <li><span><img src="/images/info1-2.png" alt="Утасны дугаар"></span><p>010-1234-5678</p><em class="call_btn"><a href="#"><img src="/images/tel_ico.png" alt="Залгах">Залгах</a></em></li>
+                                <li><span><img src="/images/info1-4.png" alt="И-мэйл"></span><p>webmaster@test.com</p></li>
+                                <li class="address4"><span><img src="/images/info1-5.png" alt="Хаяг"></span><p>Namseon Building, Namseon Building, Geumnam-ro 5-ga, Dong-gu, Gwangju, БНСУ, 407 тоот.</p></li>
 							</ul>
 						</div>
 						<div class="etc_box cf">
 						  <ul>
-							  <li><span>최종학력</span><p>대학(4년)졸업</p></li>
-								<li><span>경력사항</span><p>없음</p></li>
-								<li><span>희망급여</span><p>추후협의</p></li>
-								<li><span>자격증</span><p>컴퓨터활용능력 1급</p></li>
-								<li><span>외국어능력</span><p>영어중 외 1개국어</p></li>
+                              <li><span>Боловсрол</span><p>Их сургууль(4жил)төгссөн</p></li>
+                              <li><span>Туршлага</span><p>Байхгүй</p></li>
+                              <li><span>Хүсч буй цалин</span><p>Дараа нь тохиролцох</p></li>
+                              <li><span>Мэргэжлийн үнэмлэх</span><p>Компьютер ашиглах түвшин 1</p></li>
+                              <li><span>Гадаад хэдний түвшин</span><p>Англи хэл<em>Дунд</em> 1 хэл</p></li>
 							</ul>
 						</div>
 					</div>
 					<div class="button_group scrap_bt">
-					  <button type="button" class="bt-apply">입사지원요청</button>
-					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="스크랩"><!--<img src="/images/scrap_icon1.png">-->스크랩</button>
+                        <button type="button" class="bt-apply">Ажилд орох өргөдөл</button>
+                        <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="scrab"><!--<img src="/images/scrap_icon1.png">-->scrab</button>
 					</div>
 				</section>
 
 				<section class="cont_box detail_con detail_con2">
 				  <div class="tab2-con cf">
 					  <ul>
-						  <li><a href="#">이력서정보</a></li>
-						  <li><a href="#">자격사항</a></li>
-						  <li class="active"><a href="#">자기소개서</a></li>
+                          <li class="active"><a href="#">CV мэдээлэл</a></li>
+                          <li><a href="#">Мэргэшсэн байдал</a></li>
+                          <li><a href="#">Өөрийн танилцуулга</a></li>
             </ul>
 					</div>
 					<div class="tab5-box">
 					  <div class="container cf">
 							<dl>
-								<dt>[성장과정]</dt>
+								<dt>[Бага нас]</dt>
 								<dd>
-	저는 자기 신념과 자애로운 마음을 가지고 계신 부모님 밑에서 2녀의 차녀로 
-	태어나서 자라왔습니다. 어렸을때부터 넉넉치 않았던 형편이었으나 서로를 
-	이해하고 배려하며 챙겨주는 화목한 가정이었기에 부족함없이 생활하였습니
-	다. 부모님께서는 언니와 저를 독립적이고 올바른 사람으로 키우기 위해 학교
-	교육뿐 아니라 가정교육을 비롯하여 여러 인성교육을 지원하셨고 도덕적 인간
-	이 되기를 종용하셨습니다. 
+                                    Би өөрийн гэсэн итгэл үнэмшилтэй, сайхан сэтгэлтэй аав, ээжийнхээ хоёр дахь охин.
+                                    Аав, ээж маань эгч бид хоёрыг бие даасан, шулуун шударга хүн болгож өсгөхийн тулд сургуульд сурган гэх мэт...
 								</dd>
 							</dl>
 							<dl>
-								<dt>[성격의 장단점/가치관]</dt>
+								<dt>[Давуу болон сул тал/Үнэт зүйлс]</dt>
 								<dd>
-저는 자기 신념과 자애로운 마음을 가지고 계신 부모님 밑에서 2녀의 차녀로 
-태어나서 자라왔습니다. 어렸을때부터 넉넉치 않았던 형편이었으나 서로를 
-이해하고 배려하며 챙겨주는 화목한 가정이었기에 부족함없이 생활하였습니
-다. 부모님께서는 언니와 저를 독립적이고 올바른 사람으로 키우기 위해 학교
-교육뿐 아니라 가정교육을 비롯하여 여러 인성교육을 지원하셨고 도덕적 인간
-이 되기를 종용하셨습니다. 
+                                    Би өөрийн гэсэн итгэл үнэмшилтэй, сайхан сэтгэлтэй аав, ээжийнхээ хоёр дахь охин.
+                                    Аав, ээж маань эгч бид хоёрыг бие даасан, шулуун шударга хүн болгож өсгөхийн тулд сургуульд сурган гэх мэт...
 								</dd>
 							</dl>
 							<dl>
-								<dt>[성격의 장단점/가치관]</dt>
+                                <dt>[Давуу болон сул тал/Үнэт зүйлс]</dt>
 								<dd>
-저는 자기 신념과 자애로운 마음을 가지고 계신 부모님 밑에서 2녀의 차녀로 
-태어나서 자라왔습니다. 어렸을때부터 넉넉치 않았던 형편이었으나 서로를 
-이해하고 배려하며 챙겨주는 화목한 가정이었기에 부족함없이 생활하였습니
-다. 부모님께서는 언니와 저를 독립적이고 올바른 사람으로 키우기 위해 학교
-교육뿐 아니라 가정교육을 비롯하여 여러 인성교육을 지원하셨고 도덕적 인간
-이 되기를 종용하셨습니다. 
+                                    Би өөрийн гэсэн итгэл үнэмшилтэй, сайхан сэтгэлтэй аав, ээжийнхээ хоёр дахь охин.
+                                    Аав, ээж маань эгч бид хоёрыг бие даасан, шулуун шударга хүн болгож өсгөхийн тулд сургуульд сурган гэх мэт...
 								</dd>
 							</dl>
 						</div>
@@ -160,7 +148,7 @@ include_once(NFE_PATH.'/head.php');
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>
