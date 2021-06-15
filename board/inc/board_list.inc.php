@@ -93,22 +93,22 @@ $i++;
 	  <ul class="sort_inner cf">
 			<li class="sort_select">
 				<select name="search_field">
-					<option value="wr_subject" <?=$_GET['search_field']=='wr_subject' ? 'selected' : '';?>>제목</option>
-					<option value="wr_content" <?=$_GET['search_field']=='wr_content' ? 'selected' : '';?>>내용</option>
-					<option value="wr_subject||wr_content" <?=$_GET['search_field']=='wr_subject||wr_content' ? 'selected' : '';?>>제목+내용</option>
-					<option value="wr_name" <?=$_GET['search_field']=='wr_name' ? 'selected' : '';?>>작성자</option>
+					<option value="wr_subject" <?=$_GET['search_field']=='wr_subject' ? 'selected' : '';?>>Гарчиг</option>
+					<option value="wr_content" <?=$_GET['search_field']=='wr_content' ? 'selected' : '';?>>Агуулга</option>
+					<option value="wr_subject||wr_content" <?=$_GET['search_field']=='wr_subject||wr_content' ? 'selected' : '';?>>Гарчиг+Агуулга</option>
+					<option value="wr_name" <?=$_GET['search_field']=='wr_name' ? 'selected' : '';?>>Бичсэн</option>
 				</select>
 			</li>
 			<li class="sort_sch">
-			  <input type="text" id="" name="search_keyword" value="<?=$_GET['search_keyword'];?>"><button type="button" onClick="document.forms['boardListFrm'].submit()">검색</button>
+			  <input type="text" id="" name="search_keyword" value="<?=$_GET['search_keyword'];?>"><button type="button" onClick="document.forms['boardListFrm'].submit()">Хайх</button>
 			</li>
 			<li class="sort_bx">
 				<select name="page_rows" onChange="netfu_util1.page_rows(this)">
-					<option value='15' <?=$_GET['page_rows']==15 ? 'selected' : '';?>>15개 출력</option>
-					<option value='30' <?=$_GET['page_rows']==30 ? 'selected' : '';?>>30개 출력</option>
-					<option value='50' <?=$_GET['page_rows']==50 ? 'selected' : '';?>>50개 출력</option>
-					<option value='70' <?=$_GET['page_rows']==70 ? 'selected' : '';?>>70개 출력</option>
-					<option value='100' <?=$_GET['page_rows']==100 ? 'selected' : '';?>>100개 출력</option>
+					<option value='15' <?=$_GET['page_rows']==15 ? 'selected' : '';?>>15ш хэвлэх</option>
+					<option value='30' <?=$_GET['page_rows']==30 ? 'selected' : '';?>>30ш хэвлэх</option>
+					<option value='50' <?=$_GET['page_rows']==50 ? 'selected' : '';?>>50ш хэвлэх</option>
+					<option value='70' <?=$_GET['page_rows']==70 ? 'selected' : '';?>>70ш хэвлэх</option>
+					<option value='100' <?=$_GET['page_rows']==100 ? 'selected' : '';?>>100ш хэвлэх</option>
 				</select>
 			</li>
 		</ul>
@@ -123,7 +123,7 @@ $i++;
 			?>
 			<li>
 				<div class="text_box2">
-					<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+					<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэгдсэн мэдээлэл байхгүй байна.</div>
 				</div>
 			</li>
 			<?php
@@ -160,7 +160,7 @@ $i++;
 				} else if($board['bo_use_name']=='2'){
 					$bo_row['wr_name'] = ($get_member['mb_name']) ? $get_member['mb_name'] : $tmp_name;
 				} else if($board['bo_use_name']=='3'){
-					$bo_row['wr_name'] = "익명";
+					$bo_row['wr_name'] = "нэргүй";
 				}
 			?>
 				<li style="<?php if($board['bo_skin']=='image') {?>width:<?=$arr['li_width'];?>%;<?php }?>">
