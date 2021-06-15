@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-                  <a href="person_main.php">Хүний нөөц</a>
-                  <a href="community_main.php">Комиунити</a>
+					<a href="recruit_main.php">구인정보</a>
+					<a href="person_main.php">인재정보</a>
+					<a href="community_main.php" class="active">커뮤니티</a>
 				</div>
 			</div>
 		</header>
@@ -30,15 +30,15 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 커뮤니티 텍스트형 -->
 			  <section class="cont_box notice_txt">
-                  <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>Ажлын нөу хау<span class="bt_box"><a href="#" class="write_bt">Бичих</a></span></h2>
-                  <div class="community_inner cf">
-                      <div class="view_wrap">
-                          <div class="view_top cf">
-                              <div class="view_title"><a href="#">Coffeeshop-т цагийн ажил хийх тухай ~ </a></div>
-                              <div class="view_info">
-                                  <span class="mb_id"><strong>Netfu цагын ажил</strong></span>
-                                  <span>2019.11.08&nbsp;&nbsp;12:11</span>
-                                  <span class="hits">Үзсэн тоо : <em>14</em></span>
+          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>취업노하우</h2>
+          <div class="notice_inner cf">
+						<div class="view_wrap">
+						  <div class="view_top cf">
+								<div class="view_title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a></div>
+								<div class="view_info">
+									<span class="mb_id"><strong>넷퓨알바</strong></span>
+									<span>2019.11.08&nbsp;&nbsp;12:11</span>
+									<span class="hits">조회수 : <em>14</em></span>
 								</div>
 							</div>
 							<div class="view_con cf">
@@ -57,10 +57,10 @@ include_once(NFE_PATH.'/head.php');
 
 					<div class="button-group view_bt">
 						<ul>
-							<li><a href="#">Жагсаалт</a></li>
-							<li><a href="#">Өөрчлөх</a></li>
-							<li><a href="#">Устгах</a></li>
-							<li><a href="#">Бичсэн</a></li>
+							<li><a href="#">목록</a></li>
+							<li><a href="#">수정</a></li>
+							<li><a href="#">삭제</a></li>
+							<li><a href="#">글작성</a></li>
 						</ul>
 					</div>
 				</section>
@@ -68,12 +68,12 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 댓글 -->
         <section class="cont_box comment_con">
-				  <h2>Сэтгэгдэл<span>999</span></h2>
+				  <h2>댓글<span>999</span></h2>
 				  <div class="comment_box cf">
 					  <div class="cmt_write">
 						  <div class="cmt_hd cf">
 							  <ul>
-								  <li class="wr_name"><label>Нэр<input type="text" name="" id=""></label></li>
+								  <li class="wr_name"><label>이름<input type="text" name="" id=""></label></li>
 									<li class="wr_pw"><label>비밀번호<input type="password" name="" id="" maxlength="16"></label></li>
 									<li class="captcha_key"><label>자동등록방지문자<input type="text" name="" id=""></label><span>777777</span></li>
 								</ul>

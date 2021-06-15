@@ -73,7 +73,7 @@ include_once(NFE_PATH.'/head.php');
 							  <ul>
 								  <li class="wr_name"><label>Нэр<input type="text" name="" id=""></label></li>
 									<li class="wr_pw"><label>Нууц дугаар<input type="password" name="" id="" maxlength="16"></label></li>
-									<li class="captcha_key"><label>авто бүртгэлээс сэргийлэх<input type="text" name="" id=""></label><span>777777</span></li>
+									<li class="captcha_key"><label>Автомат бүртгэлээс сэргийлэх<input type="text" name="" id=""></label><span>777777</span></li>
 								</ul>
 							</div>
 							<div class="input_box">
