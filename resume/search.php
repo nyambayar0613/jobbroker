@@ -16,7 +16,7 @@ $resume_where = $netfu_mjob->resume_search_func();
 	<div class="schbtn_con cf">
 	<ul>
 		<li class="search_bx sch_bt sch_bt2" style="width:100%">
-			<button type="button" class="sch_button"><img src="<?=NFE_URL;?>/images/search_icon3.png" alt="검색">검색</button>
+			<button type="button" class="sch_button"><img src="<?=NFE_URL;?>/images/search_icon3.png" alt="Хайх">Хайх</button>
 		</li>
 	</ul>
 	</div>
@@ -45,7 +45,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_box_num, 'total'=>
 $paging_group = ceil($list_num/($_width*$_height));
 ?>
 <section class="cont_box focus_con">
-	<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon01.png" alt=""></span>포커스 인재정보<span class="bt_box"><em>1</em>/<?=$paging_group;?>건 <a href="#"><span class="btn">광고안내<img src="<?=NFE_URL;?>/images/chevron.png" alt="광고안내"></span></a></span></h2>
+	<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon01.png" alt=""></span>Focus ажлын байр<span class="bt_box"><em>1</em>/<?=$paging_group;?>төрөл <a href="#"><span class="btn">зарын танилцуулга<img src="<?=NFE_URL;?>/images/chevron.png" alt="광고안내"></span></a></span></h2>
 	<div class="cycle-slideshow" 
 	data-cycle-pause-on-hover="true"
 	data-cycle-slides="ul.focus_box"
@@ -62,7 +62,7 @@ $paging_group = ceil($list_num/($_width*$_height));
 		?>
 		<li>
 			<div class="text_box2">
-				<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+				<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэгдсэн мэдээлэл байхгүй байна.</div>
 			</div>
 		</li>
 		<?php
@@ -111,7 +111,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_total, 'total'=>$t
 $paging_group = ceil($total['c']/($_width*$_height));
 ?>
 <section class="cont_box cont_list person1">
-	<h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>일반형 인재정보<em class="ad_btn"><a href="#"><span class="btn">광고안내<img src="/images/chevron.png" alt="광고안내"></span></a></em></h2>
+	<h2><span class="tit_ico"><img src="/images/title_icon01.png" alt=""></span>Хүний нөөцийн мэдээлэл<em class="ad_btn"><a href="#"><span class="btn">Зар сурталчилгааны мэдээлэл<img src="/images/chevron.png" alt="Зар сурталчилгааны мэдээлэл"></span></a></em></h2>
 	<ul class="cont_box_inner">
 	<?php
 	// li의ㅣ class ->  class="gold1",  class="gold2"
@@ -120,7 +120,7 @@ $paging_group = ceil($total['c']/($_width*$_height));
 		?>
 		<li>
 			<div class="text_box2">
-				<div class="title"><img src="/images/info.png" alt="">등록된 내용이 없습니다.</div>
+				<div class="title"><img src="/images/info.png" alt="">Бүртгэгдсэн мэдээлэл байхгүй байна.</div>
 			</div>
 		</li>
 		<?php
