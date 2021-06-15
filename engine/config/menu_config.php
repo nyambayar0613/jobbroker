@@ -37,29 +37,29 @@
 		$menu['100'] = array(
 			"eng_name" => "Service",
 			"menus" => array(
-				0 => array("code" => "100100", "name" => "구인공고 관리", 
+				0 => array("code" => "100100", "name" => "Ажлын байрны зар удирдах",
 				"sub_menu" => array(
-					array("code" => "100101", "name" => "전체 구인공고 관리", "url" => "../alba/"), // 전체 구인공고 관리
+					array("code" => "100101", "name" => "Нийт ажлын байрны зар", "url" => "../alba/"), // 전체 구인공고 관리
 					//array("code" => "100102", "name" => "사용자 등록 구인공고", "url" => "../alba/?is_admin=0"),
 					//array("code" => "100103", "name" => "관리자 등록 구인공고", "url" => "../alba/?is_admin=1"),
-					array("code" => "100102", "name" => "진행중인 구인공고", "url" => "../alba/employ_ing.php"),
-					array("code" => "100103", "name" => "마감된 구인공고", "url" => "../alba/employ_end.php"),
-					array("code" => "100104", "name" => "구인공고 등록", "url" => "../alba/?mode=insert"),
-					array("code" => "100105", "name" => "신고 공고 관리", "url" => "../alba/employ_report.php"),
-					array("code" => "100109", "name" => "서비스기간 만료 구인공고", "url" => "../alba/employ_serviced.php"),
+					array("code" => "100102", "name" => "Үргэлжилж буй ажлын зар", "url" => "../alba/employ_ing.php"),
+					array("code" => "100103", "name" => "Хугацаа дууссан ажлын зар", "url" => "../alba/employ_end.php"),
+					array("code" => "100104", "name" => "Ажлын зар бүртгүүлэх", "url" => "../alba/?mode=insert"),
+					array("code" => "100105", "name" => "Мэдээ мэдээлэл", "url" => "../alba/employ_report.php"),
+					array("code" => "100109", "name" => "Хугацаа дууссан үйлчилгээ", "url" => "../alba/employ_serviced.php"),
 					//array("code" => "100106", "name" => "구인공고 댓글 관리", "url" => "../alba/employ_comment.php"),
-					array("code" => "100107", "name" => "입사지원 관리", "url" => "../alba/employ_become.php"),
-					array("code" => "100108", "name" => "구인공고 스크랩 관리", "url" => "../alba/employ_scrap.php"),
+					array("code" => "100107", "name" => "Ажлын байрны өрөгдөл", "url" => "../alba/employ_become.php"),
+					array("code" => "100108", "name" => "Ажлын байрны scrab", "url" => "../alba/employ_scrap.php"),
 					),
 				),
 
-				1 => array("code" => "100200", "name" => "인재정보 관리",
+				1 => array("code" => "100200", "name" => "Хүний нөөц удирдлага",
 				"sub_menu" => array(
-					array("code" => "100201", "name" => "이력서 관리", "url" => "../alba/resume.php"),
-					array("code" => "100202", "name" => "이력서 등록", "url" => "../alba/resume.php?mode=insert"),
-					array("code" => "100203", "name" => "신고 이력서 관리", "url" => "../alba/resume_report.php"),
-					array("code" => "100205", "name" => "서비스기간 만료 이력서", "url" => "../alba/resume_serviced.php"),
-					array("code" => "100204", "name" => "이력서 스크랩 관리", "url" => "../alba/resume_scrap.php"),
+					array("code" => "100201", "name" => "Анкет удирдлага", "url" => "../alba/resume.php"),
+					array("code" => "100202", "name" => "Анкет бүртгэл", "url" => "../alba/resume.php?mode=insert"),
+					array("code" => "100203", "name" => "Анкет менежментийг удирдах", "url" => "../alba/resume_report.php"),
+					array("code" => "100205", "name" => "Үйлчилгээний хугацаа дууссан анкет", "url" => "../alba/resume_serviced.php"),
+					array("code" => "100204", "name" => "Анкет scrab удирдах", "url" => "../alba/resume_scrap.php"),
 					),
 				),
 				/* 누락 시켜 두었습니다. 추후 업데이트 활성화 하겠습니다.
@@ -77,37 +77,37 @@
 		$menu['200'] = array(
 			"eng_name" => "Environment",
 			"menus" => array(
-				0 => array("code" => "200100", "name" => "사이트 관리", 
+				0 => array("code" => "200100", "name" => "Сайт удирдах",
 				"sub_menu" => array(
-					array("code" => "200101", "name" => "기본정보설정", "url" => "../config/"),
+					array("code" => "200101", "name" => "Ерөнхий мэдээллийн тохиргоо", "url" => "../config/"),
 					//array("code" => "200102", "name" => "사이트소개", "url" => "../config/content.php?type=site_introduce"),
-					array("code" => "200103", "name" => "회원약관", "url" => "../config/content.php?type=site_agreement"),
-					array("code" => "200104", "name" => "개인정보취급방침", "url" => "../config/content.php?type=site_privacy"),
-					array("code" => "200105", "name" => "개인정보수집이용안내", "url" => "../config/content.php?type=privacy_info"),
-					array("code" => "200105", "name" => "게시판관리기준", "url" => "../config/content.php?type=board_criterion"),
-					array("code" => "200106", "name" => "이메일무단수집거부", "url" => "../config/content.php?type=email_denied"),
-					array("code" => "200107", "name" => "사이트하단", "url" => "../config/content.php?type=site_bottom"),
-					array("code" => "200108", "name" => "메일하단", "url" => "../config/content.php?type=email_bottom"),
+					array("code" => "200103", "name" => "Гишүүнчлэлийн нөхцөл", "url" => "../config/content.php?type=site_agreement"),
+					array("code" => "200104", "name" => "Нууцлалын мэдэгдэл", "url" => "../config/content.php?type=site_privacy"),
+					array("code" => "200105", "name" => "Хувийн мэдээллийг цуглуулах, ашиглах заавар", "url" => "../config/content.php?type=privacy_info"),
+					array("code" => "200105", "name" => "Мэдээллийн самбар", "url" => "../config/content.php?type=board_criterion"),
+					array("code" => "200106", "name" => "Зөвшөөрөлгүй и-мэйл цуглуулахаас татгалзах", "url" => "../config/content.php?type=email_denied"),
+					array("code" => "200107", "name" => "Сайтын доод хэсэг", "url" => "../config/content.php?type=site_bottom"),
+					array("code" => "200108", "name" => "Шуудангийн доод хэсэг", "url" => "../config/content.php?type=email_bottom"),
 					),
 				),
 
-				1 => array("code" => "200200", "name" => "서비스/출력수 설정",
+				1 => array("code" => "200200", "name" => "Үйлчилгээ / гаралтын тоог тохируулах",
 				"sub_menu" => array(
 					//array("code" => "200201", "name" => "구인정보 설정", "url" => "../config/alba.php"),
 					//array("code" => "200202", "name" => "인재정보 설정", "url" => "../config/alba_individual.php"),
-					array("code" => "200201", "name" => "SMS 환경설정", "url" => "../config/sms.php"),
-					array("code" => "200202", "name" => "지도설정", "url" => "../config/map.php"),
+					array("code" => "200201", "name" => "SMS орчны тохиргоо", "url" => "../config/sms.php"),
+					array("code" => "200202", "name" => "Map тохиргоо", "url" => "../config/map.php"),
 					),
 				),
 
-				2 => array("code" => "200300", "name" => "등록폼 관리",
+				2 => array("code" => "200300", "name" => "Бүртгэл",
 				"sub_menu" => array(
-					array("code" => "200301", "name" => "기업회원 가입폼 설정", "url" => "../config/register_form.php?type=company_form"),
-					array("code" => "200302", "name" => "구인정보 항목 설정", "url" => "../config/register_form.php?type=alba_form"),
-					array("code" => "200303", "name" => "이력서 항목 설정", "url" => "../config/register_form.php?type=alba_resume"),
-					array("code" => "200304", "name" => "회원 탈퇴요청 사유", "url" => "../config/category.php?type=member_left_reason"),
-					array("code" => "200305", "name" => "구인공고 신고 사유", "url" => "../config/category.php?type=alba_report_reason"),
-					array("code" => "200306", "name" => "이력서 신고 사유", "url" => "../config/category.php?type=alba_resume_report_reason"),
+					array("code" => "200301", "name" => "Байгууллагын бүртгэл тохируулах", "url" => "../config/register_form.php?type=company_form"),
+					array("code" => "200302", "name" => "Ажлын байрны мэдээллийн тохиргоо", "url" => "../config/register_form.php?type=alba_form"),
+					array("code" => "200303", "name" => "Анкем тохиргоо", "url" => "../config/register_form.php?type=alba_resume"),
+					array("code" => "200304", "name" => "Гишүүнээс гарах хүсэлт", "url" => "../config/category.php?type=member_left_reason"),
+					array("code" => "200305", "name" => "Ажлын зарын талаар мэдээлэх", "url" => "../config/category.php?type=alba_report_reason"),
+					array("code" => "200306", "name" => "Анкет тайлагнах", "url" => "../config/category.php?type=alba_resume_report_reason"),
 					/*
 					array("code" => "200306", "name" => "구인공고 신고 사유", "url" => "../config/board.php?type=reason_alba"),
 					array("code" => "200306", "name" => "이력서 신고 사유", "url" => "../config/board.php?type=reason_alba_individual"),
@@ -115,18 +115,18 @@
 					),
 				),
 
-				3 => array("code" => "200400", "name" => "분류관리",
+				3 => array("code" => "200400", "name" => "Ангилал",
 				"sub_menu" => array(
-					array("code" => "200401", "name" => "공통적용 분류", "url" => "../config/category.php?type=job_type", "subs" => 
+					array("code" => "200401", "name" => "Нийтлэг хэрэглээний ангилал", "url" => "../config/category.php?type=job_type", "subs" =>
 						array(
-							"job_type" => array("code" => "200401", "name" => "직종", "url" => "../config/category.php?type=job_type"),
-							"area" => array("name" => "지역", "url" => "../config/category.php?type=area"),
-							"subway" => array("name" => "역세권", "url" => "../config/category.php?type=subway"),
-							"impediment" => array("name" => "장애등급", "url" => "../config/category.php?type=impediment"),
-							"work_type" => array("name" => "근무형태", "url" => "../config/category.php?type=work_type"),
-							"alba_date" => array("name" => "근무기간", "url" => "../config/category.php?type=alba_date"),
-							"alba_week" => array("name" => "근무요일", "url" => "../config/category.php?type=alba_week"),
-							"alba_pay" => array("name" => "급여조건", "url" => "../config/category.php?type=alba_pay"),
+							"job_type" => array("code" => "200401", "name" => "Ажил мэргэжил", "url" => "../config/category.php?type=job_type"),
+							"area" => array("name" => "Бүс нутаг", "url" => "../config/category.php?type=area"),
+							"subway" => array("name" => "Метроны буудалтай ойр", "url" => "../config/category.php?type=subway"),
+							"impediment" => array("name" => "Хөгжлийн бэрхшээлийн түвшин", "url" => "../config/category.php?type=impediment"),
+							"work_type" => array("name" => "Албан тушаалын төрөл", "url" => "../config/category.php?type=work_type"),
+							"alba_date" => array("name" => "Ажиллах хугацаа", "url" => "../config/category.php?type=alba_date"),
+							"alba_week" => array("name" => "Ажлын өдөр", "url" => "../config/category.php?type=alba_week"),
+							"alba_pay" => array("name" => "Цалингийн нөхцөл", "url" => "../config/category.php?type=alba_pay"),
 							//"pay" => array("name" => "연봉", "url" => "../config/category.php?type=pay"),
 							//"high_school" => array("name" => "고등학교", "url" => "../config/category.php?type=high_school"),
 							//"half_college" => array("name" => "대학(2,3년)", "url" => "../config/category.php?type=half_college"),
@@ -134,16 +134,16 @@
 							//"graduate" => array("name" => "대학원", "url" => "../config/category.php?type=graduate"),
 						),
 					),
-					array("code" => "200402", "name" => "회원가입 분류", "url" => "../config/category.php?type=email", "subs"=> 
+					array("code" => "200402", "name" => "Гишүүнчлэлийн ангилал", "url" => "../config/category.php?type=email", "subs"=>
 						array(
 							//"passwd_question" => array("name" => "비밀번호재발급 질문", "url" => "../config/category.php?type=passwd_question"),
-							"email" => array("name" => "이메일", "url" => "../config/category.php?type=email"),
-							"biz_type" => array("name" => "회사분류", "url" => "../config/category.php?type=biz_type"),
-							"biz_success" => array("name" => "상장여부", "url" => "../config/category.php?type=biz_success"),
-							"biz_form" => array("name" => "기업형태", "url" => "../config/category.php?type=biz_form"),
+							"email" => array("name" => "И-мэйл", "url" => "../config/category.php?type=email"),
+							"biz_type" => array("name" => "Байгууллагын төрөл", "url" => "../config/category.php?type=biz_type"),
+							"biz_success" => array("name" => "Жагсаалтанд орсон эсэх", "url" => "../config/category.php?type=biz_success"),
+							"biz_form" => array("name" => "Байгуулагын хэлбэр", "url" => "../config/category.php?type=biz_form"),
 						),
 					),
-					array("code" => "200403", "name" => "구인정보 분류", "url" => "../config/category.php?type=job_welfare", "subs" => 
+					array("code" => "200403", "name" => "Ажлын байрны ангилал", "url" => "../config/category.php?type=job_welfare", "subs" =>
 						array(
 							"job_welfare" => array("name" => "복리후생", "url" => "../config/category.php?type=job_welfare"),
 							"job_ability" => array("name" => "학력조건", "url" => "../config/category.php?type=job_ability"),
