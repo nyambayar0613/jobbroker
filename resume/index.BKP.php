@@ -1,10 +1,10 @@
 <?php
-$head_title = "Хүний нөөцийн мэдээлэл";
-if($_GET['code']=='hurry') $head_title = "Яаралтай";
-if($_GET['code']=='area') $head_title = "Бүс нутгаар";
-if($_GET['code']=='job_type') $head_title = "Албан тушаалаар";
-if($_GET['code']=='date') $head_title = "Хугацаагаар";
-if($_GET['code']=='search') $head_title = "Дэлгэрэнгүй хайлт";
+$head_title = "인재정보";
+if($_GET['code']=='hurry') $head_title = "급구 인재정보";
+if($_GET['code']=='area') $head_title = "지역별 인재정보";
+if($_GET['code']=='job_type') $head_title = "업직종별 인재정보";
+if($_GET['code']=='date') $head_title = "기간별 인재정보";
+if($_GET['code']=='search') $head_title = "상세검색 인재정보";
 
 include_once "../include/top.php";
 
