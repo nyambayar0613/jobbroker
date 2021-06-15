@@ -39,15 +39,15 @@ include_once(NFE_PATH.'/head.php');
 					</div>
 					<div class="profile_con cf">
 						<div class="pic_box">
-							<a href="#"><img src="/images/id_pic.png" alt="증명사진"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
-						</div>
-						<div class="txt_box cf">
-							<ul class="indi-profile">
-								<li><span><img src="/images/info1-1.png" alt="이름, 아이디"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-3.png" alt="전화번호"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-2.png" alt="휴대폰"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-4.png" alt="이메일"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>			
-								<li class="address4"><span><img src="/images/info1-5.png" alt="주소"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>								
+                            <a href="#"><img src="/images/id_pic.png" alt="ID зураг"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
+                        </div>
+                        <div class="txt_box cf">
+                            <ul class="indi-profile">
+                                <li><span><img src="/images/info1-1.png" alt="Нэр, ID"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+                                <li><span><img src="/images/info1-3.png" alt="Холблогдох дугаар"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+                                <li><span><img src="/images/info1-2.png" alt="Утасны дугаар"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+                                <li><span><img src="/images/info1-4.png" alt="И-мэйл"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+                                <li class="address4"><span><img src="/images/info1-5.png" alt="Хаяг"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
 							</ul>
 						</div>
 
@@ -55,10 +55,10 @@ include_once(NFE_PATH.'/head.php');
 						  <div class="cf">
 							  <div class="svc_info_bx">
 							   	<!-- <img src="/images/icon/bg_resume1.gif"> -->
-						      <p>기업회원으로 로그인 하신 후 이력서 열람서비스를 이용하시면 해당 인재의 연락처를 열람하실 수 있습니다.</p>
-							    <div class="member_btn">
-									  <div class="mb_login_bt"><a href="#">기업회원 로그인</a></div>
-										<div class="mb_join_bt"><a href="#">기업회원 가입</a></div>
+                                  <p>Хэрэв та байгуулагын гишүүнээр нэвтэрч, анкет харах үйлчилгээг ашиглаж байгаа бол холбогдох хүний ​​холбоо барих мэдээллийг үзэх боломжтой.</p>
+                                  <div class="member_btn">
+                                      <div class="mb_login_bt"><a href="#">Байгууллагын гишүүнээр нэвртэх</a></div>
+                                      <div class="mb_join_bt"><a href="#">Байгууллагаар нэвтрэх</a></div>
 							    </div>
 								</div>
 							</div>
@@ -66,34 +66,34 @@ include_once(NFE_PATH.'/head.php');
 
 						<div class="etc_box cf">
 						  <ul>
-							  <li><span>최종학력</span><p>대학(4년)졸업</p></li>
-								<li><span>경력사항</span><p>없음</p></li>
-								<li><span>희망급여</span><p>추후협의</p></li>
-								<li><span>자격증</span><p>컴퓨터활용능력 1급</p></li>
-								<li><span>외국어능력</span><p>영어<em>중</em> 외 1개국어</p></li>
+                              <li><span>Боловсрол</span><p>Их сургууль(4жил)төгссөн</p></li>
+                              <li><span>Туршлага</span><p>Байхгүй</p></li>
+                              <li><span>Хүсч буй цалин</span><p>Дараа нь тохиролцох</p></li>
+                              <li><span>Мэргэжлийн үнэмлэх</span><p>Компьютер ашиглах түвшин 1</p></li>
+                              <li><span>Гадаад хэдний түвшин</span><p>Англи хэл<em>Дунд</em> 1 хэл</p></li>
 							</ul>
 						</div>
 					</div>
 					<div class="button_group scrap_bt">
-					  <button type="button" class="bt-apply">입사지원요청</button>
-					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="스크랩"><!--<img src="/images/scrap_icon1.png">-->스크랩</button>
+                        <button type="button" class="bt-apply">Ажилд орох өргөдөл</button>
+                        <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="scrab"><!--<img src="/images/scrap_icon1.png">-->scrab</button>
 					</div>
 				</section>
 
 				<section class="cont_box detail_con detail_con2">
 				  <div class="tab2-con cf">
 					  <ul>
-						  <li><a href="#">이력서정보</a></li>
-						  <li><a href="#">자격사항</a></li>
-						  <li class="active"><a href="#">자기소개서</a></li>
+                          <li class="active"><a href="#">CV мэдээлэл</a></li>
+                          <li><a href="#">Мэргэшсэн байдал</a></li>
+                          <li><a href="#">Өөрийн танилцуулга</a></li>
             </ul>
 					</div>
 					<div class="tab5-box">
 					  <div class="container cf">
               <div class="resume_service">
-							  <p>자기소개서 내용을 열람하시려면 이력서 열람서비스를 신청하세요.</p>
+							  <p>CV-ийнхээ агуулгыг үзэхийн тулд Анкет унших үйлчилгээнд хамрагдана уу.</p>
 								<div class="member_btn">
-									<div class="resume_service_bt"><a href="#">이력서 열람서비스 신청</a></div>
+									<div class="resume_service_bt"><a href="#">Унших үйлчилгээг үргэлжлүүлэх өргөдөл</a></div>
 								</div>
 							</div>
 						</div>
@@ -138,7 +138,7 @@ include_once(NFE_PATH.'/head.php');
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+								<div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>
