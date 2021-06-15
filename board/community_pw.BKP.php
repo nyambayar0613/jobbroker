@@ -5,15 +5,15 @@ include_once "../include/top.php";
 
 				<!-- 커뮤니티 텍스트형 -->
 			  <section class="cont_box community_txt">
-          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>Ажлын нөу хау<span class="bt_box"><em>1</em>/18төрөл</span></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>취업노하우<span class="bt_box"><em>1</em>/18건</span></h2>
           <div class="community_inner cf">
 						<div class="view_wrap">
 						  <div class="view_top cf">
-								<div class="view_title"><a href="#">100% тэнцүүлэх ярилцлагын арга 100% тэнцүүлэх ярилцлагын арга 100% тэнцүүлэх ярилцлагын арга </a></div>
+								<div class="view_title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a></div>
 								<div class="view_info">
-									<span class="mb_id"><strong>Netfu цагын ажил</strong></span>
+									<span class="mb_id"><strong>넷퓨알바</strong></span>
 									<span>2019.11.08&nbsp;&nbsp;12:11</span>
-									<span class="hits">Үзсэн тоо : <em>14</em></span>
+									<span class="hits">조회수 : <em>14</em></span>
 								</div>
 							</div>
 							<div class="view_con cf">
@@ -32,10 +32,10 @@ include_once "../include/top.php";
 
 					<div class="button-group view_bt">
 						<ul>
-							<li><a href="#">Жагсаалт<img src="/images/arrow.png" alt="Дараагийх"></a></li>
-							<li><a href="#">Устгах<img src="/images/arrow.png" alt="Дараагийх"></a></li>
-							<li><a href="#">Өөрчлөх<img src="/images/arrow.png" alt="Дараагийх"></a></li>
-							<li><a href="#">Бичсэн<img src="/images/arrow.png" alt="Дараагийх"></a></li>
+							<li><a href="#">목록<img src="/images/arrow.png" alt="다음"></a></li>
+							<li><a href="#">삭제<img src="/images/arrow.png" alt="다음"></a></li>
+							<li><a href="#">수정<img src="/images/arrow.png" alt="다음"></a></li>
+							<li><a href="#">글작성<img src="/images/arrow.png" alt="다음"></a></li>
 						</ul>
 					</div>
 					<div class="paging_con cf">
@@ -58,7 +58,7 @@ include_once "../include/top.php";
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
+								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>

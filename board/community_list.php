@@ -30,7 +30,7 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 커뮤니티 텍스트형 -->
 			  <section class="cont_box community_txt">
-          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>Ажлын Know How<span class="bt_box"><a href="#" class="write_bt">Бичих</a></span></h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>Ажлын нөу хау<span class="bt_box"><a href="#" class="write_bt">Бичих</a></span></h2>
 
 					<!--  분류탭 -->
 					<div class="sort_area cf">
