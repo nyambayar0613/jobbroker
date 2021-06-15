@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불г가
+if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 if(defined('G5_THEME_PATH')) {
     require_once(G5_THEME_PATH.'/index.php');
@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
-                  <a href="person_main.php">Хүний нөөц</a>
-                  <a href="community_main.php">Комиунити</a>
+					<a href="recruit_main.php">구인정보</a>
+					<a href="person_main.php">인재정보</a>
+					<a href="community_main.php">커뮤니티</a>
 				</div>
 			</div>
 		</header>
@@ -31,44 +31,44 @@ include_once(NFE_PATH.'/head.php');
 		<!-- 커뮤니티 글수정 -->
 		<div class="layer1 cf">
 			<section class="cont_box community_con">
-				<h2><img src="/images/modify.png" alt="засах">Засах</h2>
+				<h2><img src="/images/modify.png" alt="글수정">글수정</h2>
 					<ul class="info_con">
 						<li class="row1">
-							<label for="sort">Төрөл<span class="check"></span></label>
+							<label for="sort">분류<span class="check"></span></label>
 							<select id="sort" class="st_sort">
-							  <option>Төрөл сонгох</option>
+							  <option>분류선택</option>
                 <option></option>
 								<option></option>
 							</select>
 						</li>	
 						<li class="row2">
-							<label>Бичсэн<span class="check"></span></label>
+							<label>작성자<span class="check"></span></label>
 							<input type="text" id="" name="" maxlength="41">
 						</li>
 						<li class="row3">
-							<label>Нууц үг<span class="check"></span></label>
+							<label>비밀번호<span class="check"></span></label>
 							<input type="password" id="" name="" maxlength="16">
 						</li>
 						<li class="row7">
-							<label for="title">Гарчиг<span class="check"></span></label>
+							<label for="title">제목<span class="check"></span></label>
 							<input type="text" id="title" name="">
 						</li>
 						<li class="row8">
-							<label for="content">Агуулга<span class="check"></span></label>
+							<label for="content">내용<span class="check"></span></label>
 							<textarea id="content" name="" rows="9"></textarea>
 						</li>
 						<li class="row9">
-							<label for="capcha">Автомат бүртгэлээс урьдчилан сэргийлэх</label>
+							<label for="capcha">자동등록방지</label>
 							<div class="capcha_group">
 								<div class="capcha_bx">1256KDS3</div>
-								<input type="text" id="capcha" name=""><p>Дээрх текстийг оруулна уу.</p>
+								<input type="text" id="capcha" name=""><p>위에 보이는 문자를 입력하세요.</p>
 							<div>
 						</li>
 					</ul>
 			</section>
 
 			<div class="button_con">
-				<a href="#" class="bottom_btn06">Бүртгэх</a><a href="#" class="bottom_btn02">Цуцлах</a>
+				<a href="#" class="bottom_btn06">등록</a><a href="#" class="bottom_btn02">취소</a>
 			</div>
 
 		</div>
