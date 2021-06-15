@@ -32,22 +32,22 @@ include_once(NFE_PATH.'/head.php');
                   <h2 class="top_tit">Гэрээсээ удаан хугацаанд ажиллах боломжтой цагийн ажил хайж байна.</h2>
           <div class="top_area">
             <ul>
-							<li class="ktid"><span>카톡ID : <em>kakao-id</em></span></li>						  
-							<li><span>통화가능시간 <em>18:00~00:00</em></span></li>
-							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="신고하기">신고</a></li>
+							<li class="ktid"><span>Kakao ID : <em>kakao-id</em></span></li>
+							<li><span>Холбогдох боломжтой цаг <em>18:00~00:00</em></span></li>
+							<li class="btn_report"><a href="#"><img src="/images/icon_notify.gif" alt="Мэдэгдэх">Мэдэгдэх</a></li>
 						</ul>
 					</div>
 					<div class="profile_con cf">
 						<div class="pic_box">
-							<a href="#"><img src="/images/id_pic.png" alt="증명사진"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
+							<a href="#"><img src="/images/id_pic.png" alt="ID зураг"><!-- <img src="/images/id_pic2.png" alt="증명사진"> --></a>
 						</div>
 						<div class="txt_box cf">
 							<ul class="indi-profile">
-								<li><span><img src="/images/info1-1.png" alt="이름, 아이디"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-3.png" alt="전화번호"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-2.png" alt="휴대폰"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>
-								<li><span><img src="/images/info1-4.png" alt="이메일"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>			
-								<li class="address4"><span><img src="/images/info1-5.png" alt="주소"></span><em>비공개</em><a href="#">이력서 열람서비스 신청</a></li>								
+								<li><span><img src="/images/info1-1.png" alt="Нэр, ID"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+								<li><span><img src="/images/info1-3.png" alt="Холблогдох дугаар"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+								<li><span><img src="/images/info1-2.png" alt="Утасны дугаар"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+								<li><span><img src="/images/info1-4.png" alt="И-мэйл"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
+								<li class="address4"><span><img src="/images/info1-5.png" alt="Хаяг"></span><em>Private</em><a href="#">Үйлчилгээг үргэлжлүүлэх өргөдөл</a></li>
 							</ul>
 						</div>
 
@@ -55,10 +55,10 @@ include_once(NFE_PATH.'/head.php');
 						  <div class="cf">
 							  <div class="svc_info_bx">
 							   	<!-- <img src="/images/icon/bg_resume1.gif"> -->
-						      <p>기업회원으로 로그인 하신 후 이력서 열람서비스를 이용하시면 해당 인재의 연락처를 열람하실 수 있습니다.</p>
+						      <p>Хэрэв та байгуулагын гишүүнээр нэвтэрч, анкет харах үйлчилгээг ашиглаж байгаа бол холбогдох хүний ​​холбоо барих мэдээллийг үзэх боломжтой.</p>
 							    <div class="member_btn">
-									  <div class="mb_login_bt"><a href="#">기업회원 로그인</a></div>
-										<div class="mb_join_bt"><a href="#">기업회원 가입</a></div>
+									  <div class="mb_login_bt"><a href="#">Байгууллагын гишүүнээр нэвртэх</a></div>
+										<div class="mb_join_bt"><a href="#">Байгууллагаар нэвтрэх</a></div>
 							    </div>
 								</div>
 							</div>
@@ -66,214 +66,197 @@ include_once(NFE_PATH.'/head.php');
 
 						<div class="etc_box cf">
 						  <ul>
-							  <li><span>최종학력</span><p>대학(4년)졸업</p></li>
-								<li><span>경력사항</span><p>없음</p></li>
-								<li><span>희망급여</span><p>추후협의</p></li>
-								<li><span>자격증</span><p>컴퓨터활용능력 1급</p></li>
-								<li><span>외국어능력</span><p>영어<em>중</em> 외 1개국어</p></li>
+                              <li><span>Боловсрол</span><p>Их сургууль(4жил)төгссөн</p></li>
+                              <li><span>Туршлага</span><p>Байхгүй</p></li>
+                              <li><span>Хүсч буй цалин</span><p>Дараа нь тохиролцох</p></li>
+                              <li><span>Мэргэжлийн үнэмлэх</span><p>Компьютер ашиглах түвшин 1</p></li>
+                              <li><span>Гадаад хэдний түвшин</span><p>Англи хэл<em>Дунд</em> 1 хэл</p></li>
 							</ul>
 						</div>
 					</div>
 					<div class="button_group scrap_bt">
-					  <button type="button" class="bt-apply">입사지원요청</button>
-					  <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="스크랩"><!--<img src="/images/scrap_icon1.png">-->스크랩</button>
+                        <button type="button" class="bt-apply">Ажилд орох өргөдөл</button>
+                        <button type="button" class="bt-scrap"><img src="/images/scrap_icon2.png" alt="scrab"><!--<img src="/images/scrap_icon1.png">-->scrab</button>
 					</div>
 				</section>
 
 				<section class="cont_box detail_con detail_con2">
 				  <div class="tab2-con cf">
 					  <ul>
-						  <li class="active"><a href="#">이력서정보</a></li>
-						  <li><a href="#">자격사항</a></li>
-						  <li><a href="#">자기소개서</a></li>
+                          <li class="active"><a href="#">CV мэдээлэл</a></li>
+                          <li><a href="#">Мэргэшсэн байдал</a></li>
+                          <li><a href="#">Өөрийн танилцуулга</a></li>
             </ul>
 					</div>
 
 					<!-- 희망근무조건 -->
 					<div class="tab-box tab1-box">
 					  <div class="resume_ct r_ct1 cf">
-							<h3>희망근무조건</h3>
-							<table class="cf">
-								<tr>
-									<th scope="row">희망근무지</th>
-									<td>서울</td>
-								</tr>
-								<tr>
-									<th scope="row">희망직종</th>
-									<td>IT, 디자인, 사이트운영, 관리, 컨텐츠관리, 사이트운영, 컨텐츠관리</td>
-								</tr>
-								<tr>
-									<th scope="row">근무일시</th>
-									<td>개월~3개월, 월~토, 시간협의</td>
-								</tr>
-								<tr>
-									<th scope="row">희망급여</th>
-									<td>추후협의</td>
-								</tr>
-								<tr>
-									<th scope="row">근무형태</th>
-									<td>계약직 파견직 아르바이트</td>
+                          <h3>Хүсч буй ажлын нөхцөл</h3>
+                          <table class="cf">
+                              <tr>
+                                  <th scope="row">Байржил</th>
+                                  <td>Сөүл</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Салбар</th>
+                                  <td>IT, design, site operation, management, content management, site operation, content management</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Ажлын өдөр</th>
+                                  <td>3 сар хүртэл, Даваа гарагаас Бямба гараг хүртэл</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Цалин</th>
+                                  <td>Тохирно</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Ажлын төрөл</th>
+                                  <td>Гэрээт цагын ажилтан</td>
 								</tr>
 							</table>
 						</div>
 
 						<!-- 학력사항 -->
 					  <div class="resume_ct r_ct2 cf">
-							<h3>학력사항</h3>
-							<!-- 대학원 재학 -->
-							<table class="edu_tb1">
-								<tr>
-									<th scope="row">최종학력</th>
-									<td>대학원 재학<span class="off">(휴학중)</span></td>
-								</tr>
-							</table>
-							<table class="edu_tb3" style="width:100%">
-							  <colgroup>
-								  <col style="width:40%"><col style="width:25%"><col style="width:20%"><col style="width:15%">
-								</colgroup>
-                <tr>
-								  <th scope="row">기간</th>
-									<th scope="row">학교명</th>
-									<th scope="row">전공</th>
-									<th scope="row">학위</th>
-								</tr>
-                <tr>
-								  <td>2019~2020 중퇴</td>
-									<td>00대학교</td>
-									<td>전산</td>
-									<td>석사</td>
-								</tr>
-                <tr>
-								  <td>2019~2020 재학</td>
-									<td>00대학교</td>
-									<td>전산</td>
-									<td>석사</td>
-								</tr>
-                <tr>
-								  <td>2019~2020 졸업</td>
-									<td>00대학교</td>
-									<td>전산</td>
-									<td>석사</td>
+                          <h3>Боловсрол</h3>
+                          <!-- 대학원 재학 -->
+                          <table class="edu_tb1">
+                              <tr>
+                                  <th scope="row">Боловсрол</th>
+                                  <td>Магистр суралцагч<span class="off">(Чөлөө авсан)</span></td>
+                              </tr>
+                          </table>
+                          <table class="edu_tb3" style="width:100%">
+                              <colgroup>
+                                  <col style="width:40%"><col style="width:25%"><col style="width:20%"><col style="width:15%">
+                              </colgroup>
+                              <tr>
+                                  <th scope="row">Хугацаа</th>
+                                  <th scope="row">Сургуулийн нэр</th>
+                                  <th scope="row">Мэргэжил</th>
+                                  <th scope="row">Зэрэг</th>
+                              </tr>
+                              <tr>
+                                  <td>2019~2020 Сургуулиа орхисон</td>
+                                  <td>00 Их сургууль</td>
+                                  <td>전산</td>
+                                  <td>Магистр</td>
+                              </tr>
+                              <tr>
+                                  <td>2019~2020 Суралцаж байгаа</td>
+                                  <td>00 Их сургууль</td>
+                                  <td>전산</td>
+                                  <td>Магистр</td>
+                              </tr>
+                              <tr>
+                                  <td>2019~2020 Төгссөн</td>
+                                  <td>00 Их сургууль</td>
+                                  <td>전산</td>
+                                  <td>Магистр</td>
 								</tr>
 							</table>
 
 							<!-- 대학교(4학년) 재학 -->
 							<table class="edu_tb1">
 								<tr>
-									<th scope="row">최종학력</th>
-									<td>대학교(4학년) 재학<span class="off">(휴학중)</span></td>
-								</tr>
-							</table>
-							<table class="edu_tb3" style="width:100%">
-							  <colgroup>
-								  <col style="width:40%"><col style="width:40%"><col style="width:20%">
-								</colgroup>
-                <tr>
-								  <th scope="row">기간</th>
-									<th scope="row">학교명</th>
-									<th scope="row">전공</th>
-								</tr>
-                <tr>
-								  <td>2019~2020 중퇴</td>
-									<td>00대학교</td>
-									<td>전산</td>
-								</tr>
-                <tr>
-								  <td>2019~2020 재학</td>
-									<td>00대학교</td>
-									<td>전산</td>
-								</tr>
-                <tr>
-								  <td>2019~2020 졸업</td>
-									<td>00대학교</td>
-									<td>전산</td>
+                                    th scope="row">Боловсролын мэдээлэл</th>
+                                    <td>Суралцагч<span class="off">(Чөлөө авсан)</span></td>
+                                </tr>
+                            </table>
+                          <table class="edu_tb3" style="width:100%">
+                              <colgroup>
+                                  <col style="width:40%"><col style="width:40%"><col style="width:20%">
+                              </colgroup>
+                              <tr> <th scope="row">Хугацаа</th>
+                                  <th scope="row">Сургуулийн нэр</th>
+                                  <th scope="row">Мэргэжил</th>
+                              </tr>
+                              <tr>
+                                  <td>2019~2020 Сургуулиа орхисон</td>
+                                  <td>00 Их сургууль</td>
+                                  <td>전산</td>
+                                  <td>Магистр</td>
 								</tr>
 							</table>
 
 							<!-- 고등학교 재학 -->
 							<table class="edu_tb1">
 								<tr>
-									<th scope="row">최종학력</th>
-									<td>고등학교 재학<span class="off">(휴학중)</span></td>
-								</tr>
-							</table>
-							<table class="edu_tb3" style="width:100%">
-							  <colgroup>
-								  <col style="width:50%"><col style="width:50%">
-								</colgroup>
-                <tr>
-								  <th scope="row">기간</th>
-									<th scope="row">학교명</th>
-								</tr>
-                <tr>
-								  <td>2019~2020 재학</td>
-									<td>00고등학교</td>
+                                    <th scope="row">Боловсрол</th>
+                                    <td>Ахлах сургууль<span class="off">(Чөлөө авсан)</span></td>
+                                </tr>
+                            </table>
+                          <table class="edu_tb3" style="width:100%">
+                              <colgroup>
+                                  <col style="width:50%"><col style="width:50%">
+                              </colgroup>
+                              <tr>
+                                  <th scope="row">Хугацаа</th>
+                                  <th scope="row">Сургуулийн нэр</th>
+                              </tr>
+                              <tr>
+                                  <td>2019~2020 Суралцаж байгаа</td>
+                                  <td>00 Ахлах сургууль</td>
 								</tr>
 							</table>
 						</div>
 
             <!-- 경력사항 -->
 					  <div class="resume_ct r_ct3 cf">
-							<h3>경력사항</h3>
+                          <h3>Ажлын салбар</h3>
 
-							<!-- 경력사항1 -->
-							<table class="edu_tb2">
-							  <caption style="border-top:0">경력사항1</caption>
-							  <tr>
-								  <th scope="row">회사명</th>
-                  <td>넷퓨</td>
-								</tr>
-							  <tr>
-								  <th scope="row">근무직종</th>
-                  <td>IT, 디자인, 사이트운영, 관리, 컨텐츠관리, 사이트운영, 컨텐츠관리</td>
-								</tr>
-							  <tr>
-								  <th scope="row">근무기간</th>
-                  <td>2019년 11월 ~ 2020년 12월</td>
-								</tr>
-								  <th scope="row">담당업무</th>
-                  <td>마케팅</td>
-								</tr>
-								</tr>
-								  <th scope="row">상세업무</th>
-                  <td>사이트운영/컨텐츠관리</td>
+                          <!-- 경력사항1 -->
+                          <table class="edu_tb2">
+                              <caption style="border-top:0">Ажил мэргэжил 1</caption>
+                              <tr>
+                                  <th scope="row">Байгууллагын нэр</th>
+                                  <td>Netfu</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Салбар</th>
+                                  <td>IT, design, site operation, management, content management, site operation, content management</td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">Ажиллах хугацаа</th>
+                                  <td>2019он 11сар ~ 2020жил 12сар</td>
+                              </tr>
+                              <th scope="row">Хариуцсан албан тушаал</th>
+                              <td>Маркетинг</td>
+                              </tr>
+                              </tr>
+                              <th scope="row">Дэлгэрэнгүй</th>
 								</tr>
 							</table>
 
 							<!-- 경력사항1 -->
 							<table class="edu_tb2">
-							  <caption>경력사항2</caption>
-							  <tr>
-								  <th scope="row">회사명</th>
-                  <td>넷퓨</td>
-								</tr>
-							  <tr>
-								  <th scope="row">근무직종</th>
-                  <td>IT, 디자인, 사이트운영, 관리, 컨텐츠관리, 사이트운영, 컨텐츠관리</td>
-								</tr>
-							  <tr>
-								  <th scope="row">근무기간</th>
-                  <td>2019년 11월 ~ 2020년 12월</td>
-								</tr>
-								  <th scope="row">담당업무</th>
-                  <td>마케팅</td>
-								</tr>
-								</tr>
-								  <th scope="row">상세업무</th>
-                  <td>사이트운영/컨텐츠관리</td>
+                                <caption>Ажил мэргэжил 2</caption>
+                                <tr>
+                                    <th scope="row">Байгууллагын нэр</th>
+                                    <td>Netfu</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Салбар</th>
+                                    <td>IT, design, site operation, management, content management, site operation, content management</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ажиллах хугацаа</th>
+                                    <td>2019он 11сар ~ 2020жил 12сар</td>
+                                </tr>
+                                <th scope="row">Хариуцсан албан тушаал</th>
+                                <td>Маркетинг</td>
+                                </tr>
+                                </tr>
+                                <th scope="row">Дэлгэрэнгүй</th>
 								</tr>
 							</table>
             </div>
 
           </div>
 					<div class="caution">
-<p>본 정보는 취업활동을 위해 등록한 이력서 정보이며 정규직 구인구직 홈페이지 - 넷퓨는(은) 기재된 내
-용에 대한 오류와 사용자가 신뢰하여 취한 조치에 대한 책임을 지지 않습니다. 누구든 본 정보를 정규직
-구인구직 홈페이지 - 넷퓨의 동의없이 재배포할 수 없으며 본 정보를 출력 및 복사하더라도 채용목적 이
-외의 용도로 사용할 수 없습니다. 본 정보를 출력 및 복사한 경우의 개인정보보호에 대한 책임은 출력 
-및 복사한 당사자에게 있으며 정보통신부 고시 제2005-18호 (개인정보의 기술적·관리적 보호조치 기
-준)에 따라 개인정보가 담긴 이력서 등을 불법유출 및 배포하게 되면 법에 따라 책임지게 됨을 양지하시
-기 바랍니다. &lt;저작권자 ⓒ 정규직 구인구직 홈페이지 - 넷퓨. 무단전재-재배포 금지&gt;</p>
+                        <p>Зохиогчийн эрх эзэмшигч ⓒ Нэгдсэн ажил хайх вэбсайт - Netpyu.  Зөвшөөрөлгүй хуулбарлахыг хориглоно &gt;</p>
+
 					</div>
 					<div class="share-con">
 						<div class="sns_btn_group cf">
@@ -315,7 +298,7 @@ include_once(NFE_PATH.'/head.php');
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>
