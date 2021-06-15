@@ -347,10 +347,10 @@
 */
 				3 => array("code" => "600400", "name" => "Ангилал",
 				"sub_menu" => array(
-					array("code" => "600401", "name" => "Анхаарах зүйлс ангилал", "url" => "../board/category.php?type=notice"),
-					array("code" => "600402", "name" => "Хэрэглэгчийн лавлагаа ангилал", "url" => "../board/category.php?type=on2on"),
+					array("code" => "600401", "name" => "Анхаарах зүйлс", "url" => "../board/category.php?type=notice"),
+					array("code" => "600402", "name" => "Хэрэглэгчийн лавлагаа", "url" => "../board/category.php?type=on2on"),
 					//array("code" => "600403", "name" => "광고문의 분류", "url" => "../board/category.php?type=advert"),
-					array("code" => "600404", "name" => "Нэгдсэн лавлагаа ангилал", "url" => "../board/category.php?type=concert"),
+					array("code" => "600404", "name" => "Нэгдсэн лавлагаа", "url" => "../board/category.php?type=concert"),
 					//array("code" => "600405", "name" => "게시글 신고사유", "url" => "../board/category.php?type=board_reason"),
 					//array("code" => "600405", "name" => "FAQ 분류", "url" => "../config/board.php?type=faq"),
 					),
@@ -364,7 +364,7 @@
 			"menus" => array(
 				0 => array("code" => "700100", "name" => "Статистик",
 				"sub_menu" => array(
-					array("code" => "700101", "name" => "Нэвтрэлтийн статистик", "url" => "../statistics/"),
+					array("code" => "700101", "name" => "Нэвтрэлт", "url" => "../statistics/"),
 					//array("code" => "700102", "name" => "구글로그분석", "url" => "../statistics/google.php"),
 					//array("code" => "700103", "name" => "사이트이용현황", "url" => "../statistics/service.php"),
 					),
@@ -372,9 +372,9 @@
 
 				1 => array("code" => "700200", "name" => "Хайлтын нэр",
 				"sub_menu" => array(
-					array("code" => "700201", "name" => "Хайлтын статистик", "url" => "../statistics/keyword.php"),
+					array("code" => "700201", "name" => "Хайлт", "url" => "../statistics/keyword.php"),
 					//array("code" => "700202", "name" => "인기검색어관리", "url" => "../statistics/popular_keyword.php"),
-					array("code" => "700203", "name" => "Цаг тутмын хайлтын статистик", "url" => "../statistics/realtime_keyword.php"),
+					array("code" => "700203", "name" => "Цаг тутмын хайлт", "url" => "../statistics/realtime_keyword.php"),
 					//array("code" => "700204", "name" => "HOT검색어관리", "url" => "../statistics/hot_keyword.php"),
 					),
 				),
