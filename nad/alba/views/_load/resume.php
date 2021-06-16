@@ -2035,17 +2035,17 @@
 						<ul class="handicapWrap clearfix">
 							<li class="positionR pr10 fl">
 								<input type="radio" class="chk" name="wr_impediment_use" id="wr_impediment_use_0" value="0" checked onclick="impediment_use(this);" hname="хөгжлийн бэрхшээлтэй эсэх" option="radio">
-								<label for="wr_impediment_use_0">비대상</label>
+								<label for="wr_impediment_use_0">Статус</label>
 							</li>
 							<li class="positionR fl">
 								<input type="radio" class="chk" name="wr_impediment_use" id="wr_impediment_use_1" value="1" onclick="impediment_use(this);" <?php echo ($get_resume['wr_impediment_use'])?'checked':'';?> hname="장애여부" option="radio">
-								<label for="wr_impediment_use_1">대상</label>
+								<label for="wr_impediment_use_1">Статус</label>
 							</li>
 						</ul>
 						<div class="mt10" id="impediment_block" style="display:<?php echo ($get_resume['wr_impediment_use'])?'':'none';?>;">
 							<span class="pr10">
 								<label>хөгжлийн бэрхшээлийн түвшин</label>
-								<select title="장애등급선택" name="wr_impediment_level" id="wr_impediment_level" style="width:130px;" class="ipSelect">
+								<select title="" name="wr_impediment_level" id="wr_impediment_level" style="width:130px;" class="ipSelect">
 								<option value=""> хөгжлийн бэрхшээлийн түвшинг сонгох</option>
 								<?php 
 									foreach($impediment_list as $val){

@@ -57,7 +57,7 @@ if($_GET['code']!='search') {
 		<!-- 업직종 -->
 		<tr class="_view">
 			<th class="sch_hd">
-				<div>Ажлйн төрөл</div>
+				<div>Ажлын төрөл</div>
 			</th>
 			<td class="sch_td1">
 				<select name="job_type[]" sel="1" class="nice-select rounded" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
