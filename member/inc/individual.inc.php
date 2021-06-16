@@ -29,40 +29,40 @@ $basic_update = ''; //$member['mb_id'];
 		} else {
 		?>
 		<input type="text" id="member_id" name="mb_id" maxlength="41">
-		<input type="hidden" name="member_check" id="member_check" value="" message="아이디를 중복확인해주시기 바랍니다." required nofocus style="display:none;" />
-		<button type="button" class="form_bt" onClick="netfu_member.dupl_mid($('#member_id').val())">중복확인</button>
+            <input type="hidden" name="member_check" id="member_check" value="" message="ID-гаа давхар шалгана уу." required nofocus style="display:none;" />
+		<button type="button" class="form_bt" onClick="netfu_member.dupl_mid($('#member_id').val())">Шалгах</button>
 		<?php }?>
 	</li>
 	<li class="row2">
-		<label for="name">이름<span class="check"></span></label>
+		<label for="name">Нэр<span class="check"></span></label>
 		<?php
 		if($basic_update || $_SESSION['certify_info']) {
 			echo $_mb_name;
 			if($_member_write_input_view) {
 			?>
-			<input type="hidden" id="name" name="mb_name" value="<?=$_mb_name;?>" hname="이름" required maxlength="41">
+			<input type="hidden" id="name" name="mb_name" value="<?=$_mb_name;?>" hname="Нэр" required maxlength="41">
 			<?php
 			}
 		} else {
 		?>
-		<input type="text" id="name" name="mb_name" value="<?=$member['mb_name'];?>" hname="이름" required maxlength="41">
+		<input type="text" id="name" name="mb_name" value="<?=$member['mb_name'];?>" hname="Нэр" required maxlength="41">
 		<?php }?>
 	</li>
 	<?php
 	if(!$member['mb_id']) {
 	?>
 	<li class="row3">
-		<label for="pw">비밀번호<span class="check"></span></label>
-		<input type="password" id="pw" name="mb_password" hname="비밀번호" option="userpw" required maxlength="16">
+		<label for="pw">Нууц үг<span class="check"></span></label>
+		<input type="password" id="pw" name="mb_password" hname="Нууц үг" option="userpw" required maxlength="16">
 	</li>
 	<li class="row4">
-		<label for="pw2">비번확인<span class="check"></span></label>
-		<input type="password" id="pw2" name="mb_password_re" hname="비번확인" matching="mb_password" option="userpw" required maxlength="16">
+		<label for="pw2">Нууц үг батлах<span class="check"></span></label>
+		<input type="password" id="pw2" name="mb_password_re" hname="Нууц үг батлах" matching="mb_password" option="userpw" required maxlength="16">
 	</li>
 	<?php }?>
 	<li class="row5">
 		<fieldset>
-			<legend>성별<span class="check"></span></legend>
+			<legend>Хүйс<span class="check"></span></legend>
 			<?php
 			if($basic_update || $_SESSION['certify_info']) {
 				echo $netfu_util->gender_arr[$_mb_gender];
@@ -73,14 +73,14 @@ $basic_update = ''; //$member['mb_id'];
 				}
 			?>
 			<?php } else {?>
-			<label for="male"><input type="radio" id="male" name="mb_gender" value="0" <?=$member['mb_gender']==0 ? 'checked' : '';?> checked>남자</label>
-			<label for="female"><input type="radio" id="female" name="mb_gender" value="1" <?=$member['mb_gender']==1 ? 'checked' : '';?>>여자</label>
+			<label for="male"><input type="radio" id="male" name="mb_gender" value="0" <?=$member['mb_gender']==0 ? 'checked' : '';?> checked>Эр</label>
+			<label for="female"><input type="radio" id="female" name="mb_gender" value="1" <?=$member['mb_gender']==1 ? 'checked' : '';?>>Эм</label>
 			<?php }?>
 		</fieldset>
 	</li>
 	<li class="row6">
 		<fieldset>
-			<legend>생년월일<span class="check"></span></legend>
+			<legend>Төрсөн огноо<span class="check"></span></legend>
 			<?php
 			if($basic_update || $_SESSION['certify_info']) {
 				echo date("Y년 m월 d일", strtotime($_mb_birth));
@@ -92,8 +92,8 @@ $basic_update = ''; //$member['mb_id'];
 			<?php
 				}
 			} else {?>
-			<select name="mb_birth_year" hname="년도" required>
-				<option value="">년도</option>
+			<select name="mb_birth_year" hname="он" required>
+				<option value="">он</option>
 				<?php
 				for($i=date('Y')-15;$i>=1900;--$i){
 					$selected = $_birth_arr[0]==$i ? 'selected' : '';
@@ -102,8 +102,8 @@ $basic_update = ''; //$member['mb_id'];
 				<?php } ?>
 			</select>
 			<p>-</p>
-			<select name="mb_birth_month" hname="월" required>
-				<option value="">월</option>
+			<select name="mb_birth_month" hname="сар" required>
+				<option value="">сар</option>
 				<?php
 				for($i=1;$i<=12;$i++){
 					$selected = $_birth_arr[1]==$i ? 'selected' : '';
@@ -112,8 +112,8 @@ $basic_update = ''; //$member['mb_id'];
 				<?php } ?>
 			</select>
 			<p>-</p>
-			<select name="mb_birth_day" hname="일" required>
-				<option value="">일</option>
+			<select name="mb_birth_day" hname="өдөр" required>
+				<option value="">өдөр</option>
 				<?php
 				for($i=1;$i<=31;$i++){
 					$selected = $_birth_arr[2]==$i ? 'selected' : '';
@@ -125,14 +125,14 @@ $basic_update = ''; //$member['mb_id'];
 		</fieldset>
 	</li>
 	<li class="row7">
-		<label for="nickname">닉네임<span class="check"></span></label>
-		<input type="text" id="nickname" name="mb_nick" value="<?=$member['mb_nick'];?>" hname="닉네임" required maxlength="41">
-		<input type="hidden" name="nick_check" id="nick_check" value="<?=$member['mb_id'] ? 1 : '';?>" message="닉네임을 중복확인해주시기 바랍니다." required nofocus style="display:none;" />
-		<button type="button" class="form_bt" onClick="netfu_member.dupl_nick($('#nickname').val())">중복확인</button>
+		<label for="nickname">Nickname<span class="check"></span></label>
+		<input type="text" id="nickname" name="mb_nick" value="<?=$member['mb_nick'];?>" hname="Nickname" required maxlength="41">
+		<input type="hidden" name="nick_check" id="nick_check" value="<?=$member['mb_id'] ? 1 : '';?>" message="Nickname оруулна уу." required nofocus style="display:none;" />
+		<button type="button" class="form_bt" onClick="netfu_member.dupl_nick($('#nickname').val())">Шалгах</button>
 	</li>
 	<li class="row8" style="height:auto">
 		<fieldset>
-			<legend>휴대폰<span class="check"></span></legend>
+			<legend>Утасны дугаар<span class="check"></span></legend>
 			<?php
 			if($_member_write_input_view) {
 				echo @implode(" - ", $_hphone_arr);
@@ -142,23 +142,23 @@ $basic_update = ''; //$member['mb_id'];
 				<input type="hidden" name="mb_hphone[]" value="<?=$_hphone_arr[2];?>" />
 				<?php
 			} else {?>
-			<select name="mb_hphone[]" hname="휴대폰번호" required>
+			<select name="mb_hphone[]" hname="Холбогдох дугаар" required>
 				<?php echo $hp_num_option; ?>
 			</select>
-			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_hphone[]" value="<?=$_hphone_arr[1];?>" hname="휴대폰번호" required class="cel1 phone1">
-			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_hphone[]" value="<?=$_hphone_arr[2];?>" hname="휴대폰번호" required class="cel2 ">
+			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_hphone[]" value="<?=$_hphone_arr[1];?>" hname="Холбогдох дугаар" required class="cel1 phone1">
+			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_hphone[]" value="<?=$_hphone_arr[2];?>" hname="Холбогдох дугаар" required class="cel2 ">
 			<?php }?>
-			<div class="receive smschk"><input type="checkbox" name="mb_receive[]" value="sms" checked="checked">취업/구인관련 소식 등의 SMS 수신</div>
+			<div class="receive smschk"><input type="checkbox" name="mb_receive[]" value="sms" checked="checked">Ажилд орох / ажилд зуучлахтай холбоотой мэдээний талаар SMS хүлээн авах</div>
 		</fieldset>
 	</li>
 	<li class="row9" style="height:32px;line-height:32px">
 		<fieldset>
-			<legend>전화번호</legend>
-				<select name="mb_phone[]" hname="전화번호" >
+			<legend>Холбогдох дугаар</legend>
+				<select name="mb_phone[]" hname="Холбогдох дугаар" >
 					<?php echo $tel_num_option; ?>
 				</select>
-				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_phone[]" value="<?=$_phone_arr[1];?>" hname="전화번호"  class="tel1 phone2">
-				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_phone[]" value="<?=$_phone_arr[2];?>" hname="전화번호"  class="tel2 ">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_phone[]" value="<?=$_phone_arr[1];?>" hname="Холбогдох дугаар"  class="tel1 phone2">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_phone[]" value="<?=$_phone_arr[2];?>" hname="Холбогдох дугаар"  class="tel2 ">
 		</fieldset>
 	</li>
 	<li class="row10">
@@ -166,38 +166,38 @@ $basic_update = ''; //$member['mb_id'];
 		include NFE_PATH.'/include/inc/post.inc.php';
 		?>
 	  <fieldset>
-			<legend>주소<span class="check"></span></legend>
-			<input type="text" size="4" maxlength="4" name="mb_doro_post" hname="도로명" value="<?=$member['mb_doro_post'];?>" required id="mb_doro_post" class="post">
+			<legend>Хаяг<span class="check"></span></legend>
+			<input type="text" size="4" maxlength="4" name="mb_doro_post" hname="замын нэр" value="<?=$member['mb_doro_post'];?>" required id="mb_doro_post" class="post">
 			<input type="hidden" name="mb_zipcode[]" value="<?=$_zipcode_arr[0];?>" /><input type="hidden" name="mb_zipcode[]" value="<?=$_zipcode_arr[1];?>" />
-			<input type="text" maxlength="" name="mb_address0" value="<?=$member['mb_address0'];?>" hname="주소" required id="mb_address0" class="address1">
-			<button class="form_bt form_bt2" onClick="post_click(); return false;">우편번호</button>
+			<input type="text" maxlength="" name="mb_address0" value="<?=$member['mb_address0'];?>" hname="Хаяг" required id="mb_address0" class="address1">
+			<button class="form_bt form_bt2" onClick="post_click(); return false;">шуудангын дугаар</button>
 			<div class="cf">
-				<input type="text" name="mb_address1" value="<?=$member['mb_address1'];?>" hname="상세주소"  class="address2" placeholder="상세주소를 입력하세요.">
+				<input type="text" name="mb_address1" value="<?=$member['mb_address1'];?>" hname="Дэлгэрэнгүй хаяг"  class="address2" placeholder="Дэлгэрэнгүй хаягаа оруулна уу.">
 			</div>
 		</fieldset>
 	</li>
 	<li class="row11" style="height:auto">
 		<fieldset>
-			<legend>이메일<span class="check"></span></legend>
-			<input type="text" name="mb_email[]" hname="이메일" value="<?=$_email_arr[0];?>" required class="email">
-			<p>@</p><input type="text" name="mb_email[]" value="<?=$_email_arr[1];?>" hname="이메일" required class="email">
+			<legend>И-мэйл<span class="check"></span></legend>
+			<input type="text" name="mb_email[]" hname="И-мэйл" value="<?=$_email_arr[0];?>" required class="email">
+			<p>@</p><input type="text" name="mb_email[]" value="<?=$_email_arr[1];?>" hname="И-мэйл required class="email">
 			<select onChange="netfu_util1.put_text(this, $('[name=\'mb_email[]\']').eq(1))" style="margin-right:0">
-				<option value="">직접입력</option>
+				<option value="">мэйл</option>
 				<?php echo $email_option; ?>
 			</select>
-			<div class="receive smschk"><input type="checkbox" name="mb_receive[]" value="email" checked="checked">취업/구인관련 소식 등의 SMS 수신</div>
+			<div class="receive smschk"><input type="checkbox" name="mb_receive[]" value="email" checked="checked">Ажилд орох / ажилд зуучлахтай холбоотой мэдээний талаар SMS хүлээн авах</div>
 		</fieldset>
 	</li>
 	<li class="row12">
-		<label>회원사진</label>
+		<label>Цээж зураг</label>
 		<div class="member_photo">
-			<img src="<?=$member['mb_id'] ? $mb_photo : NFE_URL.'/images/id_pic.png';?>" alt="증명사진">
+			<img src="<?=$member['mb_id'] ? $mb_photo : NFE_URL.'/images/id_pic.png';?>" alt="Цээж зураг">
 			<div><input type="file" id="" name="photo" onChange="netfu_util1.filesize_check(this, '<?=$netfu_mjob->photo_size;?>')"></div>
-			<p>gif, jpg, png 파일형식으로, 100×130픽셀, 100kb 용량 이내의 파일만 등록 가능합니다.</p>
+			<p>gif, jpg, png формат 100 × 130 пиксел, 100 кб багтаамжтай файлуудыг бүртгэх боломжтой.</p>
 		</div>
 	</li>
 	<li class="row13">
-		<label for="homepage">홈페이지</label>
+		<label for="homepage">Homepage</label>
 			<span>http://</span><input type="text" name="mb_homepage" value="<?=$_homepage_val;?>" class="">
 </li>
 </ul>
