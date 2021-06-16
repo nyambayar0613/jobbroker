@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php">구인정보</a>
-					<a href="person_main.php">인재정보</a>
-					<a href="community_main.php">커뮤니티</a>
+                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
+                  <a href="person_main.php">Хүний нөөц</a>
+                  <a href="community_main.php">Комиунити</a>
 				</div>
 			</div>
 		</header>
