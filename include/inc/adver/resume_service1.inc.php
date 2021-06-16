@@ -41,7 +41,7 @@ if($total['c']>0) {
 <?php }?>
 
 <section class="reservice1__ cont_box focus_con">
-	<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>포커스 인재정보<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php?code=individual"><span class="btn">광고안내<img src="<?=NFE_URL;?>/images/chevron.png" alt="광고안내"></span></a></span></h2>
+	<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>Focus хүний нөөцийн мэдээлэл<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php?code=individual"><span class="btn">광고안내<img src="<?=NFE_URL;?>/images/chevron.png" alt="Зар сурталчилгаа"></span></a></span></h2>
 	<div class="cycle-slideshow" 
 	data-cycle-pause-on-hover="true"
 	data-cycle-slides="ul.focus_box"
@@ -58,7 +58,7 @@ if($total['c']>0) {
 		?>
 		<li>
 			<div class="text_box2">
-				<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+                <div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 			</div>
 		</li>
 		<?php
