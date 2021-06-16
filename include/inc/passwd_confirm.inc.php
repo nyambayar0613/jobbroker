@@ -10,7 +10,7 @@
 <input type="hidden" name="no" value="<?=$_GET['no'];?>" />
 <div class="layer1 cf passwd_confirm">
 	<section class="cont_box community_con">
-		<h2><img src="/images/unlock.png" alt="글작성">Password шалгана уу.</h2>
+		<h2><img src="/images/unlock.png" alt="Writer">Password шалгана уу.</h2>
 		<div class="pw_con cf">
 			<label for="pw2">Оруулсан password</label><input type="password" id="pw2" name="" maxlength="16">
 		</div>
