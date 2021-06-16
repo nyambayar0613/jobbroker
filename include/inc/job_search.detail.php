@@ -29,7 +29,7 @@ if($_GET['code']!='search') {
 		<!-- 근무지역 -->
 		<tr class="_view">
 			<th class="sch_hd">
-				<div>Ажлын барйшил</div>
+				<div>Ажлын байршил</div>
 			</th>
 			<td class="sch_td1">
 				<select name="area[]" sel="1" class="form-control" type="area" val="<?=$_GET['area'][1];?>" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
@@ -59,7 +59,7 @@ if($_GET['code']!='search') {
 		<!-- 업직종 -->
 		<tr class="_view">
 			<th class="sch_hd">
-				<div>Ажлйн төрөл</div>
+				<div>Ажлын төрөл</div>
 			</th>
 			<td class="sch_td1">
 				<select name="job_type[]" sel="1" class="form-control" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
