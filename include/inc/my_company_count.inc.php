@@ -8,15 +8,15 @@ $_my_count['scrap'] = sql_fetch("select count(*) as c from alice_scrap where `mb
 	<ul>
 		<li>
 			<div class="count"><?=number_format($_my_count['alba']['c']);?></div>
-			<div class="info_txt">구인공고<br>현황</div>
+			<div class="info_txt">Ажлын зар<br>Одоогын байдлаар</div>
 		</li>
 		<li>
 			<div class="count"><?=number_format($_my_count['receive']['c']);?></div>
-			<div class="info_txt">공고<br>지원자</div>
+			<div class="info_txt">Зар<br>Хүсэлт гаргагч</div>
 		</li>
 		<li>
 			<div class="count"><?=number_format($_my_count['scrap']['c']);?></div>
-			<div class="info_txt">스크랩<br>인재정보</div>
+			<div class="info_txt">Scrab<br>Хүний нөөцийн мэдээлэл</div>
 		</li>
 	</ul>
 </div>
