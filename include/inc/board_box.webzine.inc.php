@@ -15,7 +15,7 @@ $reply_icon = ($get_board_info2['wr_reply']) ? "<i class='reply-ico'>&nbsp;&nbsp
 	<span class="name"><?php if($get_member['level_icon']) {?><em class="cmt_ic_mbv"><?=$get_member['level_icon'];?></em><?php }?><?=$bo_row['wr_name'];?></span>
 		<span class="date"><?=date("Y.m.d", strtotime($bo_row['wr_datetime']));?></span>
 		<?php if($bo_row['wr_secret']) {?><em class="cmt_ic"><img src="../images/ic/lock.gif" alt="비밀글"></em><?php }?>
-		<?php if($get_board_info2['icon_file']) {?><em class="cmt_ic"><img src="../images/ic/file.gif" alt="파일"></em><?php }?>
+		<?php if($get_board_info2['icon_file']) {?><em class="cmt_ic"><img src="../images/ic/file.gif" alt=""></em><?php }?>
 		<em class="cmt_ic"><?=$get_board_info['new'];?></em>
 	</div>
 </div>
