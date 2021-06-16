@@ -40,7 +40,7 @@ if($total['c']>0) {
 </style>
 <?php }?>
 <section class="service1__ cont_box platinum_con">
-	<h2><span class="tit_ico"><img src="/images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>플래티넘 구인정보<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php"><span class="btn">광고안내<img src="<?=NFE_URL;?>/images/chevron.png" alt="광고안내"></span></a></span></h2>
+	<h2><span class="tit_ico"><img src="/images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>Пилатинум ажлын зар<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php"><span class="btn">광고안내<img src="<?=NFE_URL;?>/images/chevron.png" alt="광고안내"></span></a></span></h2>
 	<div class="cycle-slideshow" 
 	data-cycle-pause-on-hover="true"
 	data-cycle-slides="ul.platinum_box"
@@ -57,7 +57,7 @@ if($total['c']>0) {
 		?>
 			<li>
 				<div class="text_box2">
-					<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+                    <div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 				</div>
 			</li>
 		<?php
