@@ -30,7 +30,7 @@ if(strpos($_SERVER['PHP_SELF'], 'main/search.php')!==false) {
 }
 
 if(!$title_txt)
-	$title_txt = (array_key_exists($_GET['code'], $netfu_mjob->sub_title['resume']) ? $netfu_mjob->sub_title['resume'][$_GET['code']] : '일반형').' 인재정보';
+    $title_txt = (array_key_exists($_GET['code'], $netfu_mjob->sub_title['job']) ? $netfu_mjob->sub_title['job'][$_GET['code']] : 'Ерөнхий төрөл').' Хүний нөөц';
 ?>
 
 <section class="cont_box cont_list person1">
@@ -43,7 +43,7 @@ if(!$title_txt)
 		?>
 		<li>
 			<div class="text_box2">
-				<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+                <div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 			</div>
 		</li>
 		<?php
@@ -68,7 +68,7 @@ if(!$title_txt)
 	<li>
 		<div class="text_box2">
 			<div class="title" id="sch_result_more">
-				<a href="<?=NFE_URL;?>/resume/index.php?top_keyword=<?=urlencode($_GET['top_keyword']);?>"><em>인재정보 검색결과 더보기</em></a>
+				<a href="<?=NFE_URL;?>/resume/index.php?top_keyword=<?=urlencode($_GET['top_keyword']);?>"><em>Дэлгэрэнгүй үзэх</em></a>
 			</div>
 		</div>
 	</li>
