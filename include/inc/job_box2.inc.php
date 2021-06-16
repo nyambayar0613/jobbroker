@@ -15,7 +15,7 @@ if($row) {
 	$_option = $netfu_mjob->get_service_option('alba', $row);
 	$_logo_c = $netfu_mjob->get_logo_type('wr_service_grand_main_logo', $row, $get_logo);
 ?>
-<button class="more_option job_more_option" no="<?=$row['no'];?>"><span>더보기</span></button>
+<button class="more_option job_more_option" no="<?=$row['no'];?>"><span>Цааш үзэх</span></button>
 <div class="bg_ gold_bx">
 	<a href="<?=NFE_URL;?>/job/detail.php?no=<?=$row['no'];?>"><div class="logo_box <?=$_logo_c[2];?>">
 		<?=$_logo_c['img'];?>
