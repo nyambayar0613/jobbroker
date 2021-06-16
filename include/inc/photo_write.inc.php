@@ -7,7 +7,7 @@ var photo_submit = function() {
 	if(in_array(_ext.toLowerCase(), ['gif', 'jpeg', 'jpg', 'png'])) {
 		netfu_util1.ajax_submit(form);
 	} else {
-		alert("gif, jpeg, jpg, png 파일형식만 가능합니다.");
+		alert("gif, jpeg, jpg, png файл л боломжтой.");
 	}
 	return;
 }
@@ -20,11 +20,11 @@ var photo_submit = function() {
 <input type="hidden" name="no" value="<?php echo $member['no'];?>"/>
 <div class="wrap_bg_div pic_change_div" style="display:none;">
 <div class="pic_change">
-	<h2>내사진 수정</h2>
-	<p>gif, jpeg, jpg, png 파일형식으로, 100×130픽셀, <?=$netfu_mjob->logo_size;?>kb 용량 이내의 파일만 등록 가능합니다.</p>
+	<h2>Зураг засварлах</h2>
+	<p>gif, jpeg, jpg, png Font, 100×130 pexel, <?=$netfu_mjob->logo_size;?>kb хэмжээтэй зураг л оруулах боломжтой.</p>
 	<div><input type="file" name="photo_file"  onChange="netfu_util1.filesize_check(this, '<?=$netfu_mjob->photo_size;?>')"></div>
 	<div class="button_con">
-		<a href="#none;" class="bottom_btn01" onClick="photo_submit()">등록</a><a href="#none;" class="bottom_btn02" onClick="netfu_util1.photo_write_view('.pic_change_div')">취소</a>
+		<a href="#none;" class="bottom_btn01" onClick="photo_submit()">Бүртгэх</a><a href="#none;" class="bottom_btn02" onClick="netfu_util1.photo_write_view('.pic_change_div')">Цуцлах</a>
 	</div>
 </div>
 <div class="wrap_bg"></div>
