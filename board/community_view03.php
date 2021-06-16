@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가hr
 
 if(defined('G5_THEME_PATH')) {
     require_once(G5_THEME_PATH.'/index.php');
@@ -62,7 +62,7 @@ include_once(NFE_PATH.'/head.php');
 						</ul>
 					</div>
 				</section>
-				<!-- //커뮤니티 텍스트형 -->
+				<!-- //커뮤니티 텍스트형 -->;u
 
 				<!-- 댓글 -->
         <section class="cont_box comment_con">
