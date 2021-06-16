@@ -22,7 +22,7 @@ $_count = '';
 $paging = $netfu_util->_paging_(array('var'=>'page1', 'num'=>$_box_num, 'total'=>$total['c']));
 $paging_group = ceil($list_num/($_width*$_height));
 ?>
-	<h2><span class="tit_ico"><img src="images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>일반형 인재정보<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php?code=individual"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
+	<h2><span class="tit_ico"><img src="images/<?=$netfu_util->icon_tit('title_icon01');?>.png" alt=""></span>Ерөнхий хүний нөөцийн мэдээлэл<span class="bt_box"><?=$_count;?> <a href="<?=NFE_URL;?>/etc/adver.php?code=individual"><span class="btn">광고안내<img src="images/chevron.png" alt="광고안내"></span></a></span></h2>
 	<div>
 	<?php
 	// li의ㅣ class ->  class="gold1",  class="gold2"
@@ -31,7 +31,7 @@ $paging_group = ceil($list_num/($_width*$_height));
 		?>
 			<li>
 				<div class="text_box2">
-					<div class="title"><img src="images/info.png" alt="">등록된 내용이 없습니다.</div>
+                    <div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 				</div>
 			</li>
 		<?php
