@@ -19,10 +19,10 @@ $basic_update = ''; //$member['mb_id'];
 .info1_con .row11 .smschk input{margin-top:9px;width:20px;margin-right:5px;}
 </style>
 <section class="cont_box join_con">
-<h2>개인정보 <?=$member['mb_id'] ? '수정' : '가입';?></h2>
+<h2>Хувийн мэдээллээр <?=$member['mb_id'] ? 'засах' : 'нэвтрэх';?></h2>
 <ul class="info1_con">
 	<li class="row1">
-		<label for="member_id">아이디<span class="check"></span></label>
+		<label for="member_id">ID<span class="check"></span></label>
 		<?php
 		if($member['mb_id']) {
 			echo $member['mb_id'];
