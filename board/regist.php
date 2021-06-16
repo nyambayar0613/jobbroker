@@ -85,7 +85,7 @@
 		if($_POST['mode']=='rand_number_check') {
 			$arr['msg'] = "";
 			if(!$member['mb_id'] && $_SESSION['_reply_rand_'][$_POST['no']]!=$_POST['wr_key']) {
-				$arr['msg'] = "자동등록방지 문자를 올바르게 입력해주시기 바랍니다.";
+				$arr['msg'] = "Текстээ өөр аргаар оруулна уу.";
 			} else {
 			}
 			die(json_encode($arr));
@@ -111,7 +111,7 @@
 			} else if($_POST['bo_mode']=='read') {
 				$bo_row = sql_fetch("select * from ".$write_table." where `wr_no`='".addslashes($_POST['wr_no'])."'");
 				if($bo_row['wr_password'] && $bo_row['wr_password']!=$_password && $bo_row['wr_id']!=$member['mb_id']) {
-					$arr['msg'] = "비밀번호를 정확히 입력해주시기 바랍니다.";
+					$arr['msg'] = "Нууц дугаараа зөв оруулна уу.";
 					$netfu_util->page_move($arr['msg'], $_SERVER['HTTP_REFERER']);
 				} else {
 					$wr = $board_control->get_write($write_table, $wr_no);
@@ -127,21 +127,21 @@
 				$arr['js'] = "";
 				$arr['msg'] = "";
 				if(!$bo_row['wr_id'] && $bo_row['wr_password'] && $bo_row['wr_password']!=$_password) {
-					$arr['msg'] = "비밀번호를 정확히 입력해주시기 바랍니다.";
+					$arr['msg'] = "Нууц дугаараа зөв оруулна уу.";
 				} else {
 					if($bo_row['wr_id']!=$member['mb_id']) {
-						$arr['msg'] = "작성자만 허용가능합니다.";
+						$arr['msg'] = "Бичсэн хэрэглэгч л орох зөвшөөрөлтөй болно.";
 					} else {
 						switch($_POST['reply_mode']) {
 							case "delete":
 								$delete = sql_query("delete from ".$_table." where `wr_no`='".addslashes($_POST['comment_id'])."'");
 								if($delete) {
-									$arr['msg'] = "삭제가 완료되었습니다.";
+									$arr['msg'] = "Устгалт амжилттай.";
 									$arr['js'] = '$("#c_'.$_POST['comment_id'].'").remove();';
 
 									// 코멘트 삭제
-									if (!$point_control->point_delete($bo_row['wr_id'], $bo_table, $comment_id, '코멘트'))
-										$point_control->point_insert($bo_row['wr_id'], $board['bo_comment_point'] * (-1), $board['bo_subject']." ". $bo_row['wr_parent']."-".$comment_id." 코멘트삭제");
+									if (!$point_control->point_delete($bo_row['wr_id'], $bo_table, $comment_id, 'Сэтгэгдэл'))
+										$point_control->point_insert($bo_row['wr_id'], $board['bo_comment_point'] * (-1), $board['bo_subject']." ". $bo_row['wr_parent']."-".$comment_id." Сэтгэгдэл устгах");
 
 									// 코멘트가 삭제되므로 해당 게시물에 대한 최근 시간을 다시 얻는다.
 									$sql = " select max(wr_datetime) as wr_last from `".$write_table."` where `wr_parent` = '".$bo_row['wr_parent']."' ";
@@ -156,7 +156,7 @@
 									// 새글 삭제
 									$db->_query(" delete from `".$alice['table_prefix']."board_new` where `bo_table` = '".$bo_table."' and `wr_no` = '".$comment_id."' ");
 								} else {
-									$arr['msg'] = "삭제가 실패되었습니다.";
+									$arr['msg'] = "Устгалт амжилтгүй.";
 								}
 
 								break;
@@ -233,10 +233,10 @@
 				// 서버에 설정된 값보다 큰파일을 업로드 한다면
 				if ($filename){
 					if ($_FILES['file_name']['error'][$i] == 1){
-						$file_upload_msg .= "[".$filename."] 파일의 용량이 서버에 설정(".$upload_max_filesize.")된 값보다 크므로 업로드 할 수 없습니다.\\n";
+						$file_upload_msg .= "[".$filename."] Файлын сервер тохиргоо(".$upload_max_filesize.") заасан хэмжээнээс их тул байршуулах боломжгүй.\\n";
 						$utility->popup_msg_alert($file_upload_msg);
 					} else if ($_FILES['file_name']['error'][$i] != 0) {
-						$file_upload_msg .= "[".$filename."] 파일이 정상적으로 업로드 되지 않았습니다.\\n";
+						$file_upload_msg .= "[".$filename."] Файл upload хийгдсэнгүй.\\n";
 						$utility->popup_msg_alert($file_upload_msg);
 					}
 				}
@@ -244,7 +244,7 @@
 				if (is_uploaded_file($tmp_file)) {
 					// 관리자가 아니면서 설정한 업로드 사이즈보다 크다면 건너뜀
 					if (!$is_admin && $filesize > $board['bo_upload_size']) {
-						$file_upload_msg .= "[".$filename."] 파일의 용량(".number_format($filesize)." 바이트)이 게시판에 설정(".number_format($board['bo_upload_size'])." 바이트)된 값보다 크므로 업로드 하지 않습니다.\\n";
+						$file_upload_msg .= "[".$filename."] Файлын хэмжээ(".number_format($filesize)." byte) мэдээллийн самбар тохиргоо(".number_format($board['bo_upload_size'])." byte) заасан хэмжээнээс их тул байршуулах боломжгүй.\\n";
 						$utility->popup_msg_alert($file_upload_msg);
 					}
 
@@ -398,7 +398,7 @@
 				}
 
 				// 글작성 포인트
-				$point_control->point_insert($member['mb_id'], $board['bo_write_point'], $board['bo_subject']." ".$wr_id." 글쓰기", $bo_table, $wr_no, "쓰기");
+				$point_control->point_insert($member['mb_id'], $board['bo_write_point'], $board['bo_subject']." ".$wr_id." Бичих", $bo_table, $wr_no, "Бичих");
 
 			break;
 
@@ -508,7 +508,7 @@
 
 				// 답변은 코멘트 포인트를 부여함
 				// 답변 포인트가 많은 경우 코멘트 대신 답변을 하는 경우가 많음
-				$point_control->point_insert($member['mb_id'], $board['bo_comment_point'], $board['bo_subject']." ".$wr_no." 글답변", $bo_table, $wr_no, '쓰기');
+				$point_control->point_insert($member['mb_id'], $board['bo_comment_point'], $board['bo_subject']." ".$wr_no." хариу", $bo_table, $wr_no, 'бичих');
 
 			break;
 
@@ -724,7 +724,7 @@
 					$db->_query(" update `".$alice['table_prefix']."board` set `bo_write_count` = bo_write_count - '".$count_write."', `bo_comment_count` = bo_comment_count - '".$count_comment."' where `bo_table` = '".$bo_table."' ");
 				
 				$is_mobile = $_POST['is_mobile'];
-				$utility->popup_msg_js("삭제가 완료되었습니다.","../board/list.php?board_code=".$board_code."&code=".$code."&bo_table=".$bo_table);
+				$utility->popup_msg_js("Устгалт амжилттай.","../board/list.php?board_code=".$board_code."&code=".$code."&bo_table=".$bo_table);
 				exit;
 
 				break;
