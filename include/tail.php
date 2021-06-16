@@ -39,7 +39,7 @@ $(window).load(function(){
 <?php }?>
 </script>
 
-</div>
+
 
 <footer class="cf footer">
 	<!--<div class="footer_link">
