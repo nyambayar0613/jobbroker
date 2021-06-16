@@ -15,23 +15,23 @@ include_once "../include/top.php";
 	<section class="cont_box resume_con find_info" >
 		<ul class="info3_con info2_con">
 			<li class="row2">
-				<label for="name">Нэр</label>
+				<label for="name">이름</label>
 				<input type="text" name="mb_name" hname="이름" required>
 			</li>
 			<li class="row2">
-				<label for="name">ID</label>
+				<label for="name">아이디</label>
 				<input type="text" name="mb_id" hname="아이디" required>
 			</li>
 			<li class="row17">
-				<label for="email">И-мэйл"</label>
-				<input type="text" name="mb_email[]" class="email" hname="И-мэйл" required>
-				<p>@</p><input type="tel" name="mb_email[]" class="email" hname="И-мэйл" required>
+				<label for="email">이메일</label>
+				<input type="text" name="mb_email[]" class="email" hname="이메일" required>
+				<p>@</p><input type="tel" name="mb_email[]" class="email" hname="이메일" required>
 				<select onChange="netfu_util1.put_text(this, $('[name=\'mb_email[]\']').eq(1))" style="margin-right:0">
-					<option value="">Мэйл</option>
+					<option value="">직접입력</option>
 					<?php echo $email_option; ?>
 				</select>
 			</li>
-			<li class="find_bt"><button onClick="netfu_member.find_id()">Нууц үг хайх</button></li>
+			<li class="find_bt"><button onClick="netfu_member.find_id()">비밀번호 찾기</button></li>
 		</ul>
 	</section>
 </div>

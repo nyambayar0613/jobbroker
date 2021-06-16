@@ -24,7 +24,7 @@ include NFE_PATH.'/member/inc/'.$_GET['kind'].'.inc.php';
 ?>
 
 <div class="button_con">
-	<a href="javascript:mem_submit(this)" class="bottom_btn01">Батлах</a><a href="#" class="bottom_btn02">Цуцлах</a>
+	<a href="javascript:mem_submit(this)" class="bottom_btn01">확인</a><a href="#" class="bottom_btn02">취소</a>
 </div>
 </form>
 

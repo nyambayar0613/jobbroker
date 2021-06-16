@@ -1,5 +1,5 @@
 <?php
-$head_title = "회원가입약관";
+$head_title = "Гишүүнчлэлийн нөхцөл, журам";
 include_once "../include/top.php";
 
 include NFE_PATH.'/engine/netfu_auth.class.php';
@@ -14,12 +14,12 @@ var member_agree = function(val) {
 	var privacy = $("[name='privacy']:checked");
 
 	if(guide.val()=='N') {
-		alert("이용약관을 체크해주시기 바랍니다.");
+		alert("Ашиглалтын нөхцөлийг бөглөнө үү.");
 		return;
 	}
 
 	if(privacy.val()=='N') {
-		alert("개인정보 취급방침을 체크해주시기 바랍니다.");
+		alert("Хувийн мэдээлэлтэй харьцах нөхцөлийг бөглөнө үү.");
 		return;
 	}
 
@@ -32,7 +32,7 @@ var member_agree = function(val) {
 		}
 	?>
 	if(!netfu_auth.auth_read) {
-		alert("본인인증해 주시기 바랍니다.");
+		alert("Та баталгаажуулалт хийнэ үү.");
 		return;
 	}
 	<?php
@@ -44,26 +44,26 @@ var member_agree = function(val) {
 </script>
 <form name="fagree">
 <section class="cont_box service_con register_con ">
-<h2>이용약관</h2>
+<h2>Ашиглалтын нөхцөл</h2>
 <div class="text_box terms">
-	<h3 class="register_tit">개인을 위한 서비스 이용약관</h3>
+	<h3 class="register_tit">Хувь хүнд үзүүлэх үйлчилгээний нөхцөл</h3>
 	<?=stripslashes($env['site_agreement']);?>
 </div>
 <div class="radio_group2">
-	<label for="guide_agree"><input type="radio" id="guide_agree" name="guide" value="Y">동의합니다.</label>
-	<label for="guide_disagree"><input type="radio" id="guide_disagree" value="N" name="guide" checked>동의하지 않습니다.</label>
+	<label for="guide_agree"><input type="radio" id="guide_agree" name="guide" value="Y">Зөвшөөрч байна.</label>
+	<label for="guide_disagree"><input type="radio" id="guide_disagree" value="N" name="guide" checked>Зөвшөөрөхгүй.</label>
 </div>
 </section>
 
 <section class="cont_box service_con register_con">
-<h2>개인정보수집이용안내</h2>
+<h2>Хувийн мэдээлэлтэй харьцах нөхцөл</h2>
 <div class="text_box terms">
 	<?=stripslashes($env['privacy_info']);?>
 </div>
 
 <div class="radio_group2">
-	<label for="privacy_agree"><input type="radio" id="privacy_agree" name="privacy" value="Y">동의합니다.</label>
-	<label for="privacy_disagree"><input type="radio" id="privacy_disagree" value="N" name="privacy" checked>동의하지 않습니다.</label>
+	<label for="privacy_agree"><input type="radio" id="privacy_agree" name="privacy" value="Y">Зөвшөөрч байна.</label>
+	<label for="privacy_disagree"><input type="radio" id="privacy_disagree" value="N" name="privacy" checked>Зөвшөөрөхгүй.</label>
 </div>
 </section>
 
@@ -72,15 +72,15 @@ if(!$_SESSION['certify_info']) {
 if($env['use_ipin'] || $env['use_hphone']) {
 ?>
 <section class="confirm_con cf">
-<h2>본인인증</h2>
+<h2>Баталгаажуулалт</h2>
 	<div class="confirm_wrap">
 		<?php
 		if($env['use_ipin']) {
 		?>
 		<a href="#none;" onClick="netfu_auth.click_auth('ipin')">
 			<div class="confirm_bt cf">
-				<div class="bt-icon"><img src="<?=NFE_URL;?>/images/ipin.png" alt="아이핀 인증" width="25"></div>
-				<div class="bt-txt">IPIN인증</div>
+				<div class="bt-icon"><img src="<?=NFE_URL;?>/images/ipin.png" alt="IPIN баталгаажуулалт" width="25"></div>
+				<div class="bt-txt">IPIN баталгаажуулалт</div>
 			</div>
 		</a>
 		<?php }
@@ -88,8 +88,8 @@ if($env['use_ipin'] || $env['use_hphone']) {
 		?>
 		<a href="#none;" onClick="netfu_auth.click_auth('sms')">
 			<div class="confirm_bt cf">
-				<div class="bt-icon"><img src="<?=NFE_URL;?>/images/cellPhone.png" alt="휴대폰 인증" width="15"></div>
-				<div class="bt-txt">휴대폰 인증</div>
+				<div class="bt-icon"><img src="<?=NFE_URL;?>/images/cellPhone.png" alt="Дугаараар баталгаажуулах" width="15"></div>
+				<div class="bt-txt">Дугаараар баталгаажуулах</div>
 			</div>
 		</a>
 		<?php }?>
@@ -99,7 +99,7 @@ if($env['use_ipin'] || $env['use_hphone']) {
 }?>
 
 <div class="button_con">
-	<a href="javascript:member_agree('individual')" class="bottom_btn07">개인회원 가입<img src="<?=NFE_URL;?>/images/icon_arrow_right2.png" alt="개인회원가입"></a><a href="javascript:member_agree('company')" class="bottom_btn08">기업회원가입<img src="<?=NFE_URL;?>/images/icon_arrow_right2.png" alt="기업회원가입"></a>
+	<a href="javascript:member_agree('individual')" class="bottom_btn07">Хувь хүнээр нэвтрэх<img src="<?=NFE_URL;?>/images/icon_arrow_right2.png" alt="Хувь хүнээр нэвтрэх"></a><a href="javascript:member_agree('company')" class="bottom_btn08">Байгууллагаар нэвтрэх<img src="<?=NFE_URL;?>/images/icon_arrow_right2.png" alt="Байгууллагаар нэвтрэх"></a>
 </div>
 </form>
 

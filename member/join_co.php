@@ -18,7 +18,7 @@ include_once(NFE_PATH.'/head.php');
 ?>
 
 			<div class="top_title">
-        <a href="#"><img src="images/top_arrow.png" alt="이전"></a><h2>Байгууллагын бүртгэл</h2>
+        <a href="#"><img src="images/top_arrow.png" alt="Өмнөх"></a><h2>Байгууллагын бүртгэл</h2>
 			</div>
 		</header>
 		<div id="main" class="cf">

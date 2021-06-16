@@ -51,7 +51,7 @@ while($row=sql_fetch_array($bo_query)) {
 			?>
 			<li>
 				<div class="text_box2">
-					<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Мэдээлэл байхгүй байна.</div>
+					<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
 				</div>
 			</li>
 			<?php
@@ -73,7 +73,7 @@ while($row=sql_fetch_array($bo_query)) {
 				} else if($board['bo_use_name']=='2'){
 					$bo_row['wr_name'] = ($get_member['mb_name']) ? $get_member['mb_name'] : $tmp_name;
 				} else if($board['bo_use_name']=='3'){
-					$bo_row['wr_name'] = "wrong name";
+					$bo_row['wr_name'] = "익명";
 				}
 			?>
 			<li style="width:<?=$arr['li_width'];?>%;">
@@ -107,7 +107,7 @@ while($row=sql_fetch_array($bo_query)) {
 		?>
 		<div class="list_box cont_box_inner" style="display:inline-block;width:100%;">
 			<div class="text_box2">
-				<div class="title" id="sch_result_more"><a href="<?=NFE_URL;?>/board/list.php?board_code=<?=$board_code;?>&code=<?=$code;?>&bo_table=<?=$row['bo_table'];?>&search_field=wr_subject||wr_content&search_keyword=<?=urlencode($_GET['top_keyword']);?>"><em><?=stripslashes($row['bo_subject']);?> Цааш үзэх</em></a></div>
+				<div class="title" id="sch_result_more"><a href="<?=NFE_URL;?>/board/list.php?board_code=<?=$board_code;?>&code=<?=$code;?>&bo_table=<?=$row['bo_table'];?>&search_field=wr_subject||wr_content&search_keyword=<?=urlencode($_GET['top_keyword']);?>"><em><?=stripslashes($row['bo_subject']);?> 검색결과 더보기</em></a></div>
 			</div>
 		</div>
 		<?php }?>

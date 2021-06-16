@@ -1,6 +1,6 @@
 <?php
 $menu_code = 'text';
-$menu_text = '아이디 찾기';
+$menu_text = 'ID хайх';
 include_once "../include/top.php";
 ?>
 <style type="text/css">
@@ -17,19 +17,19 @@ include_once "../include/top.php";
 	<section class="cont_box resume_con find_info">
 		<ul class="info3_con info2_con">
 			<li class="row2">
-				<label for="name">이름</label>
-				<input type="text" name="mb_name" hname="이름" required>
+				<label for="name">Нэр</label>
+				<input type="text" name="mb_name" hname="Нэр" required>
 			</li>
 			<li class="row17">
-				<label for="email">이메일</label>
-				<input type="text" name="mb_email[]" class="email" hname="이메일" required>
-				<p>@</p><input type="tel" name="mb_email[]" class="email" hname="이메일" required>
+				<label for="email">И-мэйл</label>
+				<input type="text" name="mb_email[]" class="email" hname="И-мэйл" required>
+				<p>@</p><input type="tel" name="mb_email[]" class="email" hname="И-мэйл" required>
 				<select onChange="netfu_util1.put_text(this, $('[name=\'mb_email[]\']').eq(1))" style="margin-right:0">
-					<option value="">직접입력</option>
+					<option value="">Мэйл</option>
 					<?php echo $email_option; ?>
 				</select>
 			</li>
-			<li class="find_bt"><button onClick="netfu_member.find_id()">아이디 찾기</button></li>
+			<li class="find_bt"><button onClick="netfu_member.find_id()">ID хайх</button></li>
 		</ul>
 	</section>
 </div>
