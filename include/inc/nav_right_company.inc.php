@@ -66,7 +66,7 @@
 			<li><a href="<?=NFE_URL;?>/mypage/password_change.php">Нууц үг солих<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="비밀번호변경"></a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/member_leave.php">Гишүүнчлэлээс гарах хүсэлт</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/payment_list.php">Төлбөртэй ашиглалтын түүх</a></li>
-			<li><a href="<?=NFE_URL;?>/mypage/tax_company.php">Татварын нэхэмжлэх гаргах өргөдөл</a></li>
+			<li><a href="<?=NFE_URL;?>/mypage/tax_company.php">Баримт авах өргөдөл</a></li>
 		</ul>
 	</div>
 </div>
