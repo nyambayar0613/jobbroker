@@ -62,8 +62,8 @@
 			<?php }else{ ?>
 			<li style="height:65px"><a href="#">Jump үйлчилгээг цэнэглэх <em><span><?=number_format($member_service['mb_alba_jump_count']);?></span>төрөл</em></a></li>
 			<?php } ?>
-			<li><a href="<?=NFE_URL;?>/mypage/member_modify.php">Компанийн мэдээллийг засах<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="기업정보수정"></a></li>
-			<li><a href="<?=NFE_URL;?>/mypage/password_change.php">Нууц үг солих<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="비밀번호변경"></a></li>
+			<li><a href="<?=NFE_URL;?>/mypage/member_modify.php">Компанийн мэдээллийг засах<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="Компанийн мэдээллийг засах"></a></li>
+			<li><a href="<?=NFE_URL;?>/mypage/password_change.php">Нууц үг солих<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="Нууц үг солих"></a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/member_leave.php">Гишүүнчлэлээс гарах хүсэлт</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/payment_list.php">Төлбөртэй ашиглалтын түүх</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/tax_company.php">Баримт авах өргөдөл</a></li>
