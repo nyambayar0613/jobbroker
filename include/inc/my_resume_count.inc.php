@@ -9,25 +9,25 @@ $_my_count['scrap'] = sql_fetch("select count(*) as c from alice_scrap where `mb
 		<li>
 			<a href="<?=NFE_URL;?>/mypage/resume_list.php">
 				<div class="count"><?=number_format($_my_count['resume']['c']);?></div>
-				<div class="info_txt">이력서<br>등록수</div>
+				<div class="info_txt">Анкет<br>Бүртгүүлсэн тоо</div>
 			</a>
 		</li>
 		<li>
 			<a href="<?=NFE_URL;?>/mypage/report_individual.php">
 				<div class="count"><?=number_format($_my_count['receive']['c']);?></div>
-				<div class="info_txt">입사지원<br>현황</div>
+				<div class="info_txt">Ажилд орох хүсэлт<br>Одоогын байдлаар</div>
 			</a>
 		</li>
 		<li>
 			<a href="<?=NFE_URL;?>/mypage/setting_individual.php">
 				<div class="count"><?=number_format($_my_count['12121']['c']);?></div>
-				<div class="info_txt">맞춤구인<br>정보</div>
+				<div class="info_txt">Санал болгох ажлын байр<br>Мэдээлэл</div>
 			</a>
 		</li>
 		<li>
 			<a href="<?=NFE_URL;?>/mypage/scrap_individual.php">
 				<div class="count"><?=number_format($_my_count['scrap']['c']);?></div>
-				<div class="info_txt">스크랩<br>구인정보</div>
+				<div class="info_txt">Scrab<br>Ажлын байрны мэдээлэл</div>
 			</a>
 		</li>
 	</ul>
