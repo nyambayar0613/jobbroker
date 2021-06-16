@@ -33,8 +33,8 @@ if($row) {
 <?php } else {?>
 <div class="white_box grand-wbx">
 	<div class="whitebox_inner">
-		<div class="text">신규광고 등록 대기중</div>
-		<a href="<?=NFE_URL;?>/etc/adver.php"><div class="btn">광고안내 및 신청<img src="/images/chevron.png" alt="광고안내 및 신청"></div></a>
+        <div class="text">Зар сурталчилгааны бүртгэл хүлээгдэж байна.</div>
+        <a href="<?=NFE_URL;?>/etc/adver.php"><div class="btn">Зар сурталчилгааны мэдээлэл болон хүсэлт<img src="/images/chevron.png" alt="Зар сурталчилгааны мэдээлэл болон хүсэлт"></div></a>
 	</div>
 </div>
 <?php }?>
