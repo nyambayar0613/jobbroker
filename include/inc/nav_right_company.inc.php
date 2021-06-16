@@ -31,7 +31,7 @@
 				</ol>
 			</li>
 			<li class="top_cate"><a href="<?=NFE_URL;?>/mypage/job_write.php">Ажлын байрны мэдээлэл бүртгэл</a></li>
-			<li><a href="<?=NFE_URL;?>/mypage/employ_list.php">Ажлын байрны мэдээлэл удирдах<em class="go">진행<span><?=number_format($_my_count['job_ing']['c']);?></span>төрөл</em><em>Дуусах хугацаа<span><?=number_format($_my_count['job_end']['c']);?></span>건</em></a></li>
+			<li><a href="<?=NFE_URL;?>/mypage/employ_list.php">Ажлын байрны мэдээлэл удирдах<em class="go">үргэлжилж байна<span><?=number_format($_my_count['job_ing']['c']);?></span>төрөл</em><em>Дуусах хугацаа<span><?=number_format($_my_count['job_end']['c']);?></span>건</em></a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/company_list.php">Байгууллагын мэдээлэл удирдах</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/manager_info.php">Хариуцсан хүн удирдлага</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/report_company.php">Өргөдөл гаргагч</a></li>
