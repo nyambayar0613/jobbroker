@@ -73,14 +73,14 @@ include_once(NFE_PATH.'/head.php');
 					  <div class="cmt_write">
 						  <div class="cmt_hd cf">
 							  <ul>
-								  <li class="wr_name"><label>Нэр<input type="text" name="" id=""></label></li>
-									<li class="wr_pw"><label>비밀번호<input type="password" name="" id="" maxlength="16"></label></li>
-									<li class="captcha_key"><label>자동등록방지문자<input type="text" name="" id=""></label><span>777777</span></li>
+                                  <li class="wr_name"><label>Нэр<input type="text" name="" id=""></label></li>
+                                  <li class="wr_pw"><label>Нууц дугаар<input type="password" name="" id="" maxlength="16"></label></li>
+                                  <li class="captcha_key"><label>Автомат бүртгэлээс сэргийлэх<input type="text" name="" id=""></label><span>777777</span></li>
 								</ul>
 							</div>
 							<div class="input_box">
-							  <div class="text-box"><textarea rows="3" placeholder="댓글을 입력하세요."></textarea></div>
-								<button>등록</button>
+							  <div class="text-box"><textarea rows="3" placeholder="Сэтгэгдэл бичнэ үү."></textarea></div>
+								<button>Бүртгэх</button>
 							</div>
 						</div>
 					</div>
@@ -92,40 +92,40 @@ include_once(NFE_PATH.'/head.php');
 						<div class="rpy_cont cf">
 							<div class="reply_hd cf">
 								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
-								</ul>
-							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
-							</div>
-							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
+                                </ul>
+                            </div>
+                            <div class="reply_txt cf">
+                                Хариулт.
+                            </div>
+                            <div class="rpy_etc cf">
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>
 							</div>
             </div>
 					</div>
 					<div class="del_con">
-						<span>비밀번호 : <input type="password" name="" id="" maxlength="16"></li>
-						<button>입력</button>
-						<button>취소</button>
-					</div>
+						<span>Нууц дугаар : <input type="password" name="" id="" maxlength="16"></li>
+                            <button>Утга оруулах</button>
+						<button>Цуцлах</button>
+                    </div>
 
-				  <div class="reply_box depth depth2 cf">
-					  <div class="rpy_icon">└</div>
-						<div class="rpy_cont cf">
-							<div class="reply_hd cf">
-								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
+                    <div class="reply_box depth depth2 cf">
+                        <div class="rpy_icon">└</div>
+                        <div class="rpy_cont cf">
+                            <div class="reply_hd cf">
+                                <ul>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
 								</ul>
 							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
-							</div>
-							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+							<div class="reply_txt cf">
+                                Хариулт.
+                            </div>
+                            <div class="rpy_etc cf">
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>
 							</div>
             </div>
 					</div>
@@ -135,16 +135,16 @@ include_once(NFE_PATH.'/head.php');
 						<div class="rpy_cont cf">
 							<div class="reply_hd cf">
 								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
-								</ul>
-							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
-							</div>
-							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
+                                </ul>
+                            </div>
+                            <div class="reply_txt cf">
+                                Хариулт.
+                            </div>
+                            <div class="rpy_etc cf">
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>
 							</div>
             </div>
 					</div>
@@ -159,8 +159,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 </a><span class="n_date">작성자</span></div>
-								</div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">Бичсэн</span></div>								</div>
 							</li>
 						</ul>
 					</div>
@@ -169,7 +168,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -179,7 +178,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -189,7 +188,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -199,7 +198,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -223,11 +222,11 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 공지사항 -->
 			  <section class="cont_box notice_con">
-          <h2>[공지]</h2>
+          <h2>[Зар]</h2>
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>
