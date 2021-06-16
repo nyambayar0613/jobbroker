@@ -4,37 +4,37 @@
 	<ul>
 		<li class="close_btn"><a href="#none;" onClick="nav_right_view()"><img src="<?=NFE_URL;?>/images/close.png" alt="닫기"></a></li>
         <li class="title_area">Байгууллагын гишүүний үйлчилгээ</li>
-		<li class="id_area"><?=$member['mb_name'];?><span>님</span></li>
+		<li class="id_area"><?=$member['mb_name'];?><span></span></li>
 		<li class="nav_menu">
 			<ol>
 				<li>
 					<a href="<?=NFE_URL;?>/">
-						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/home_ico.png" alt="홈"></div>
+						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/home_ico.png" alt="Home"></div>
 						<div class="nav_txt">Home</div>
 					</a>
 				</li>
 				<li>
 					<a href="<?=NFE_URL;?>/mypage/member_modify.php">
-						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/admin_ico.png" alt="정보수정"></div>
-						<div class="nav_txt">정보수정</div>
+						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/admin_ico.png" alt="Мэдээллийг өөрчлөх"></div>
+						<div class="nav_txt">Мэдээллийг өөрчлөх</div>
 					</a>
 				</li>
 				<li>
 					<a href="<?=NFE_URL;?>/regist.php?mode=logout">
-						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/login_ico.png" alt="정보수정"></div>
-						<div class="nav_txt">로그아웃</div>
+						<div class="nav_ico"><img src="<?=NFE_URL;?>/images/login_ico.png" alt="Мэдээллийг өөрчлөх"></div>
+						<div class="nav_txt">Log out</div>
 					</a>
 				</li>
 			</ol>
 		</li>
 		<li class="top_cate"><a href="<?=NFE_URL;?>/mypage/resume_write.php">Анкет бүртгэл</a></li>
 		<li><a href="<?=NFE_URL;?>/mypage/resume_list.php">Анкеи удирдах<em><span><?=number_format($_my_count['resume']['c']);?></span>төрөл</em></a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/photo_individual.php">내사진관리</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/report_individual.php">입사지원관리<em><span><?=number_format($_my_count['receive']['c']);?></span>төрөл</em></a></li>
-		<!-- <li><a href="#">내이력서 열람기업<em><span>0</span>건</em></a></li> -->
-		<li><a href="<?=NFE_URL;?>/mypage/report_company_request.php">입사지원요청 기업</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/scrap_individual.php">스크랩 구인정보<em><span><?=number_format($_my_count['scrap']['c']);?></span>төрөл</em></a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/setting_individual.php">맞춤 구인정보<em><span><?=number_format(count($custom_titles));?></span>төрөл</em></a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/photo_individual.php">Зураг удирдах</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/report_individual.php">Ажлын өргөдөл удирдах<em><span><?=number_format($_my_count['receive']['c']);?></span>төрөл</em></a></li>
+		<!-- <li><a href="#">Миний анкетыг уншсан байгууллагууд<em><span>0</span>төрөл</em></a></li> -->
+		<li><a href="<?=NFE_URL;?>/mypage/report_company_request.php">Ажилд орохыг хүссэн компаниуд</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/scrap_individual.php">Scrab ажлын байр<em><span><?=number_format($_my_count['scrap']['c']);?></span>төрөл</em></a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/setting_individual.php">Санал болгох хүний нөөц<em><span><?=number_format(count($custom_titles));?></span>төрөл</em></a></li>
 		<?php
 		if($netfu_mjob->job_read_check['is_pay']) {
 		?>
@@ -59,8 +59,8 @@
         <?php }else{ ?>
             <li style="height:65px"><a href="#">Jump үйлчилгээг цэнэглэх <em><span><?=number_format($member_service['mb_alba_jump_count']);?></span>төрөл</em></a></li>
 		<?php } ?>
-        <li><a href="<?=NFE_URL;?>/mypage/member_modify.php">Компанийн мэдээллийг засах<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="기업정보수정"></a></li>
-        <li><a href="<?=NFE_URL;?>/mypage/password_change.php">Нууц үг солих<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="비밀번호변경"></a></li>
+        <li><a href="<?=NFE_URL;?>/mypage/member_modify.php">Компанийн мэдээллийг засах<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="Компанийн мэдээллийг засах"></a></li>
+        <li><a href="<?=NFE_URL;?>/mypage/password_change.php">Нууц үг солих<img src="<?=NFE_URL;?>/images/adm_ico.png" alt="Нууц үг солих"></a></li>
         <li><a href="<?=NFE_URL;?>/mypage/member_leave.php">Гишүүнчлэлээс гарах хүсэлт</a></li>
         <li><a href="<?=NFE_URL;?>/mypage/payment_list.php">Төлбөртэй ашиглалтын түүх</a></li>
         <li><a href="<?=NFE_URL;?>/mypage/tax_company.php">Баримт авах өргөдөл</a></li>
