@@ -23,19 +23,19 @@ var get_info_func = function(el, no) {
 <ul class="list_con">
 	<div class="detail_ly cf _receive_box" id="ly02">
 		<div class="detail_inner">
-			<div class="bx-top"><h2>입사지원 내용보기</h2>
+			<div class="bx-top"><h2>Ажлын байрны өргөдлийн дэлгэрэнгүй</h2>
 				<div class="btn-r btn-r2"><button id="close_ly" type="button" onClick="$('._receive_box').css({'top':'999999px'})">X</button></div>
 			</div>
 			<div class="content">
-				<h3><strong class="_company">(주)파이낸뷰</strong>에서 보내온 면접제의 내용입니다.</h3>
+				<h3><strong class="_company">Financial co LLC</strong>-с илгээсэн ярилцлагын агуулга.</h3>
 				<p class="_content">
-					파이낸뷰에서 면접제의 합니다.<br>
-					회사에 방문하셔서 면접 보시기 바랍니다.
+                    Financial LLC дээр ярилцлага өгөхийг санал болгож байна.<br>
+                    Тус компани дээр очиж ярилцлага өгнө үү.
 				</p>
 			</div>
 		</div>
 		<div class="button_con">
-			<a href="#none;" class="bottom_btn07" onClick="receive_click(this)" no="" k="">지원하기<img src="<?=NFE_URL;?>/images/icon_arrow_right3.png" alt="지원하기"></a>
+			<a href="#none;" class="bottom_btn07" onClick="receive_click(this)" no="" k="">지원하기<img src="<?=NFE_URL;?>/images/icon_arrow_right3.png" alt="Өргөдөл гаргах"></a>
 		</div>
 	</div>
 </ul>
