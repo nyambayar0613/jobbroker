@@ -18,11 +18,11 @@ else $mb_latlng = explode(",", $com_member['mb_latlng']);
 <div class="tab-box tab3-box">
 <table>
 <tr>
-	<th>근무지주소</th>
+	<th>Ажлын хаяг</th>
 	<td><?=$wr_area;?></td>
 </tr>
 <tr>
-	<th>인근지하철</th>
+	<th>Ойролцоох автобусны буудал</th>
 	<td>
 		<?php
 		if(is_array($subway_cate)) foreach($subway_cate as $k=>$v) {
@@ -33,7 +33,7 @@ else $mb_latlng = explode(",", $com_member['mb_latlng']);
 	</td>
 </tr>
 <tr>
-	<th>인근대학</th>
+	<th>Ойролцоох их сургууль</th>
 	<td>
 		<?php
 		echo $_wr_college_area['name'].' '.$wr_college_vicinity['name'];
