@@ -155,7 +155,7 @@ $category_list = $category_control->category_codeList('company_form', " `rank` a
 			</div>
 		</li>
 		<li class="row12">
-			<label>로고</label>
+			<label>Лого</label>
 			<div class="logo_pic">
 				<div class="logo_bx"><img src="<?=$member['mb_id'] ? $mb_logo : NFE_URL.'/images/no-img.png';?>" alt="No Image"></div>
 				<div class="bt_group">
