@@ -16,8 +16,8 @@ if($arr['img_size'][1]) $img_css .= ' height:'.$arr['img_size'][1].'px;';
 	<div class="info">
 		<span class="name"><em class="cmt_ic_mbv"><?=$get_member['level_icon'];?></em><?=$bo_row['wr_name'];?></span>
 		<span class="date"><?=date("Y.m.d", strtotime($bo_row['wr_datetime']));?></span>
-		<?php if($bo_row['wr_secret']) {?><em class="cmt_ic"><img src="../images/ic/lock.gif" alt="비밀글"></em><?php }?>
-		<?php if($get_board_info2['icon_file']) {?><em class="cmt_ic"><img src="../images/ic/file.gif" alt="파일"></em><?php }?>
+		<?php if($bo_row['wr_secret']) {?><em class="cmt_ic"><img src="../images/ic/lock.gif" alt="Нууц үг"></em><?php }?>
+		<?php if($get_board_info2['icon_file']) {?><em class="cmt_ic"><img src="../images/ic/file.gif" alt="Файл"></em><?php }?>
 		<em class="cmt_ic_n"><?=$get_board_info['new'];?></em>
 	</div>
 </div>

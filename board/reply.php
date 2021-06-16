@@ -36,7 +36,7 @@ $is_comment_write = ($board['bo_use_comment']) ? true : false; // 댓글 기능 
 <?php } ?>
 
 <section class="cont_box comment_con">
-<h2>댓글<span class="reply_total"><?=number_format($total_num);?></span></h2>
+<h2>Сэтгэгдэл<span class="reply_total"><?=number_format($total_num);?></span></h2>
 <div class="comment_box cf">
 	<div class="cmt_write">
 		<?php
@@ -45,15 +45,15 @@ $is_comment_write = ($board['bo_use_comment']) ? true : false; // 댓글 기능 
 		<div class="cmt_hd cf">
 			<ul>
 				
-				<li class="wr_name"><label>이름<input type="text" name="wr_name"  hname="이름" required></label></li>
-				<li class="wr_pw"><label>비밀번호<input type="password" name="wr_password" maxlength="16" hname="비밀번호" required></label></li>
-				<li class="captcha_key"><label>자동등록방지문자<input type="text" name="wr_key" hname="자동등록방지" required></label><span class="reply_rand_text"><img src="<?=NFE_URL;?>/include/rand_text.php" /></span></li>
+				<li class="wr_name"><label>Нэр<input type="text" name="wr_name"  hname="Нэр" required></label></li>
+				<li class="wr_pw"><label>Нууц дугаар<input type="password" name="wr_password" maxlength="16" hname="Нууц дугаар" required></label></li>
+				<li class="captcha_key"><label>Автомат бүртгэлээс сэргийлэх<input type="text" name="wr_key" hname="Автомат бүртгэлээс сэргийлэх" required></label><span class="reply_rand_text"><img src="<?=NFE_URL;?>/include/rand_text.php" /></span></li>
 			</ul>
 		</div>
 		<?php }?>
 		<div class="input_box">
-			<div class="text-box"><textarea name="wr_content" rows="3" hname="댓글내용" required placeholder="댓글을 입력하세요."></textarea></div>
-			<button onClick="return netfu_board.reply_write(this)">등록</button>
+			<div class="text-box"><textarea name="wr_content" rows="3" hname="Сэтгэгдэлийн агуулга" required placeholder="Сэтгэглэл олууна уу."></textarea></div>
+			<button onClick="return netfu_board.reply_write(this)">Бүртгэх</button>
 		</div>
 	</div>
 </div>

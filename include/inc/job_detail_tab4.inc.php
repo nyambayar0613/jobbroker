@@ -40,14 +40,14 @@ $wr_mb_address = $wr_mb_phone = $wr_mb_hphone = $wr_mb_fax = "";
 if($open_is_pay){	// 열람서비스를 사용한다면 
 	if($is_open_count && !$is_open_alba){	 // 열람 건수가 있다면
 		//$wr_mb_phone = $wr_mb_fax = $wr_mb_address = "<a href=\"javascript:void(0);\" onclick=\"open_alba('".$no."','".$get_alba['wr_id']."','alba', '".$is_open_count."');\"><img alt=\"열람권사용\" src=\"../images/icon/icon_used.gif\"></a>";
-		$wr_mb_address = $wr_mb_phone = $wr_mb_hphone = $wr_mb_fax = "<img alt=\"열람권사용\" src=\"../images/icon/icon_used.gif\">";
+		$wr_mb_address = $wr_mb_phone = $wr_mb_hphone = $wr_mb_fax = "<img alt=\"Үйлчилгээ ашиглах\" src=\"../images/icon/icon_used.gif\">";
 	} else if( $service_open || $is_open_alba ) {
 		$wr_mb_address = $mb_address;
 		$wr_mb_phone = $mb_phone;
 		$wr_mb_hphone = $mb_hphone;
 		$wr_mb_fax = $mb_fax;
 	} else {
-		$wr_mb_address = $wr_mb_phone = $wr_mb_hphone = $wr_mb_fax = "<img width=\"41\" height=\"14\" alt=\"비공개\" src=\"../images/icon/icon_closed.gif\">";
+		$wr_mb_address = $wr_mb_phone = $wr_mb_hphone = $wr_mb_fax = "<img width=\"41\" height=\"14\" alt=\"Private\" src=\"../images/icon/icon_closed.gif\">";
 	}
 } else {
 	$wr_mb_address = $mb_address;
@@ -64,27 +64,27 @@ $mb_biz_success = $category_control->get_categoryCodeName($com_member['mb_biz_su
 	<div>
 		<table>
 		<tr>
-			<th>회사명</th>
+			<th>Байгуулагын нэр</th>
 			<td><?=stripslashes($com_member['mb_company_name']);?></td>
 		</tr>
 		<tr>
-			<th>대표자명</th>
+			<th>Захирлын нэр</th>
 			<td><?php echo $com_member['mb_ceo_name'];?></td>
 		</tr>
 		<tr>
-			<th>회사분류</th>
+			<th>Байгууллагын төрөл</th>
 			<td><?php echo $mb_biz_type;?></td>
 		</tr>
 		<tr>
-			<th>전화번호</th>
+			<th>Холбогдох дугаар</th>
 			<td><?=$wr_mb_phone;?></td>
 		</tr>
 		<tr>
-			<th>휴대폰</th>
+			<th>Утасны дугаар</th>
 			<td><?=$wr_mb_hphone;?></td>
 		</tr>
 		<tr>
-			<th>회사주소</th>
+			<th>Байгууллагын хаяг</th>
 			<td><?=trim($wr_mb_address);?></td>
 		</tr>
 		<?php
@@ -93,118 +93,118 @@ $mb_biz_success = $category_control->get_categoryCodeName($com_member['mb_biz_su
 			if($v['view']=='no') continue; // : 사용안함
 
 			switch($v['name']) {
-				case "사업자등록번호":
+				case "Компанийн бүртгэлийн дугаар":
 		?>
 		<tr>
-			<th>사업자번호</th>
+			<th>Компанийн бүртгэлийн дугаар</th>
 			<td><?php echo $utility->make_pass_($mb_biz_no);?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "팩스번호":
+				case "Шуудангын дугаар":
 					if(!preg_replace("/-/", "", $wr_mb_fax)) break;
 		?>
 		<tr>
-			<th>팩스번호</th>
+			<th>Шуудангын дугаар</th>
 			<td><?php if(preg_replace("/-/", "", $wr_mb_fax)) echo $wr_mb_fax;?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "홈페이지주소":
+				case "Вэбсайтын хаяг":
 					if(!$mb_homepage) break;
 		?>
 		<tr>
-			<th>홈페이지</th>
+			<th>Нүүр хуудас</th>
 			<td><a href="<?=$netfu_util->get_homepage($mb_homepage);?>" target="_blank"><?=$netfu_util->get_homepage($mb_homepage);?></a></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "이메일":
+				case "И-мэйл":
 					$_mb_email = explode("@", $mb_email);
 					if(!$_mb_email[0]) break;
 		?>
 		<tr>
-			<th>이메일</th>
+			<th>И-мэйл</th>
 			<td><?=$mb_email;;?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "상장여부":
+				case "Жагсаалтанд орсон эсэх":
 		?>
 		<tr>
-			<th>상장여부</th>
+			<th>Жагсаалтанд орсон эсэх</th>
 			<td><?php echo $mb_biz_success;?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "기업형태":
+				case "Байгуулагын төрөл":
 		?>
 		<tr>
-			<th>기업형태</th>
+			<th>Байгуулагын төрөл</th>
 			<td><?php echo $mb_biz_form;?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "주요사업내용":
+				case "Бизнесийн үндсэн мэдээлэл":
 		?>
 		<tr>
-			<th>사업내용</th>
+			<th>Бизнесийн үндсэн мэдээлэл</th>
 			<td><?php echo $com_member['mb_biz_content'];?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "설립연도":
+				case "Байгуулагдсан он":
 					if(!$com_member['mb_biz_foundation']) break;
 		?>
 		<tr>
-			<th>설립연도</th>
-			<td><?=$com_member['mb_biz_foundation'];?>년</td>
+			<th>Байгуулагдсан он</th>
+			<td><?=$com_member['mb_biz_foundation'];?>жил</td>
 		</tr>
 		<?php
 					break;
 
 
-				case "사원수":
+				case "Ажилчдын тоо":
 					if(!$com_member['mb_biz_member_count']) break;
 		?>
 		<tr>
-			<th>사원수</th>
-			<td><?=$com_member['mb_biz_member_count'];?>명</td>
+			<th>Ажилчдын тоо</th>
+			<td><?=$com_member['mb_biz_member_count'];?>хүн</td>
 		</tr>
 		<?php
 					break;
 
 
-				case "자본금":
+				case "Үндсэн хөрөнгө":
 					if(!$com_member['mb_biz_stock']) break;
 		?>
 		<tr>
-			<th>자본금</th>
+			<th>Үндсэн хөрөнгө</th>
 			<td><?php echo $com_member['mb_biz_stock'];?></td>
 		</tr>
 		<?php
 					break;
 
 
-				case "매출액":
+				case "Ашиг":
 					if(!$com_member['mb_biz_sale']) break;
 		?>
 		<tr>
-			<th>매출액</th>
+			<th>Ашиг</th>
 			<td><?php echo $com_member['mb_biz_sale'];?></td>
 		</tr>
 		<?php
@@ -225,7 +225,7 @@ $mb_biz_success = $category_control->get_categoryCodeName($com_member['mb_biz_su
 		if($com_member['mb_biz_vision']) {
 		?>
 		<dl>
-			<dt class="intro">기업개요 및 비전</dt>
+			<dt class="intro">Байгууллагын тухай, алсын хараа</dt>
 			<dd>
 				<?php echo nl2br(stripslashes($com_member['mb_biz_vision']));?>
 			</dd>
@@ -234,7 +234,7 @@ $mb_biz_success = $category_control->get_categoryCodeName($com_member['mb_biz_su
 		if($com_member['mb_biz_vision']) {
 		?>
 		<dl>
-			<dt class="intro">기업연혁 및 실적</dt>
+			<dt class="intro">Компанийн түүх, гүйцэтгэл</dt>
 			<dd>
 				<?php echo nl2br(stripslashes($com_member['mb_biz_result']));?>
 			</dd>

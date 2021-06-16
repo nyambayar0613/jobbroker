@@ -17,7 +17,7 @@ $wr_pay = ($row['wr_pay_conference']) ? "<strong>".$netfu_mjob->pay_conference[$
 
 $_option = $netfu_mjob->get_service_option('alba', $row);
 ?>
-<button class="more_option job_more_option" no="<?=$row['no'];?>"><span>더보기</span></button>
+<button class="more_option job_more_option" no="<?=$row['no'];?>"><span>Цааш үзэх</span></button>
 <div class="<?=$_option['bold'];?>">
 	<div class="company" style="overflow:hidden;"><a href="<?=NFE_URL;?>/job/detail.php?no=<?=$row['no'];?>"><?=stripslashes($row['wr_company_name']);?><?=$map_distance;?></a></div>
 	<div class="text_box">

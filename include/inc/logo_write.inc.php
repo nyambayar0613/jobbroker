@@ -10,7 +10,7 @@ if(!$member['mb_id']) return false;
 var logo_write = function() {
 	var form = document.forms['flogo'];
 	if(!form.logo.value) {
-		alert("로고를 등록해주시기 바랍니다.");
+		alert("Логогоо бүртгүүлнэ үү.");
 		return;
 	} else {
 		form.submit();
@@ -34,11 +34,11 @@ $(window).ready(function(){
 <input type="hidden" name="company_no" value="<?php echo $company_member['no'];?>"/>
 <input type="hidden" name="job_no" value="<?php echo $_GET['no'];?>"/>
 <div class="wrap_bg_div logo_change _none">
-	<h2>로고파일 수정</h2>
-	<p>gif, jpeg, jpg 파일형식으로, 135×65픽셀, <?=$netfu_mjob->logo_size;?>kb 용량 이내의 파일만 등록 가능합니다.</p>
+	<h2>Лого файл бүртгэх</h2>
+	<p>gif, jpeg, jpg 파일형식으로, 135×65픽셀, <?=$netfu_mjob->logo_size;?>Зөвхөн kb багтаамжтай файлуудыг бүртгэх боломжтой.</p>
 	<div><input type="file" name="mb_logo" id="mb_logo" onChange="netfu_util1.filesize_check(this, '<?=$netfu_mjob->logo_size;?>')"></div>
 	<div class="button_con">
-		<a href="#none;" class="bottom_btn01" onClick="netfu_mjob.logo_submit()">등록</a><a href="#none;" class="bottom_btn02" onClick="$('.logo_change').addClass('_none')">취소</a>
+		<a href="#none;" class="bottom_btn01" onClick="netfu_mjob.logo_submit()">Бүртгэх</a><a href="#none;" class="bottom_btn02" onClick="$('.logo_change').addClass('_none')">취소</a>
 	</div>
 <!--div class="wrap_bg"></div-->
 </div>

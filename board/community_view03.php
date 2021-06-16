@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가hr
 
 if(defined('G5_THEME_PATH')) {
     require_once(G5_THEME_PATH.'/index.php');
@@ -19,9 +19,9 @@ include_once(NFE_PATH.'/head.php');
 
 			<div class="lnb">
 			  <div class="navi_menu">
-					<a href="recruit_main.php">구인정보</a>
-					<a href="person_main.php">인재정보</a>
-					<a href="community_main.php" class="active">커뮤니티</a>
+                  <a href="recruit_main.php" class="active">Ажлын байрны мэдээлэл</a>
+                  <a href="person_main.php">Хүний нөөц</a>
+                  <a href="community_main.php">Комиунити</a>
 				</div>
 			</div>
 		</header>
@@ -30,21 +30,21 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 커뮤니티 텍스트형 -->
 			  <section class="cont_box community_txt">
-          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>취업노하우</h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon02.png" alt=""></span>Ажлын Ноу Хау</h2>
           <div class="community_inner cf">
 						<div class="view_wrap">
 						  <div class="view_top cf">
-								<div class="view_title"><a href="#">커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ 커피전문점 알바에 관해서~ </a></div>
-								<div class="view_info">
-									<span class="mb_id"><strong>넷퓨알바</strong></span>
-									<span>2019.11.08&nbsp;&nbsp;12:11</span>
-									<span class="hits">조회수 : <em>14</em></span>
+                              <div class="view_title"><a href="#">Coffeeshop-т цагийн ажил хийх тухай ~ </a></div>
+                              <div class="view_info">
+                                  <span class="mb_id"><strong>Netfu цагын ажил</strong></span>
+                                  <span>2019.11.08&nbsp;&nbsp;12:11</span>
+                                  <span class="hits">Үзсэн тоо : <em>14</em></span>
 								</div>
 							</div>
 							<div class="view_con cf">
                 <img src="/images/photo2.jpg" alt="">
 							  <p>
-[Q] 어떻게 그 아르바이트를 알게 되었나요?<br>
+[Q] Энэ ажлыг яаж олсон бэ?<br>
 방학을 알차게 보내기 위해 아르바이트를 검색하던 중 알게 되었습니다.<br>
 사실 방학때 아무런 계획이 없었기에 뭐 할꺼 없나 이것저것 검색하던중에 알게 되었습니다.<br>
 커피전문점이라서 로스팅에서 부터 다양한 라떼아트까지 배울께 너무 많아서 좋네요~~~ 화이팅<br>								
@@ -55,30 +55,30 @@ include_once(NFE_PATH.'/head.php');
 
 					<div class="button-group view_bt">
 						<ul>
-							<li><a href="#">목록</a></li>
-							<li><a href="#">수정</a></li>
-							<li><a href="#">삭제</a></li>
-							<li><a href="#">글작성</a></li>
+                            li><a href="#">Жагсаалт</a></li>
+                            <li><a href="#">Өөрчлөх</a></li>
+                            <li><a href="#">Устгах</a></li>
+                            <li><a href="#">Бичсэн</a></li>
 						</ul>
 					</div>
 				</section>
-				<!-- //커뮤니티 텍스트형 -->
+				<!-- //커뮤니티 텍스트형 -->;u
 
 				<!-- 댓글 -->
         <section class="cont_box comment_con">
-				  <h2>댓글<span>999</span></h2>
-				  <div class="comment_box cf">
-					  <div class="cmt_write">
-						  <div class="cmt_hd cf">
-							  <ul>
-								  <li class="wr_name"><label>이름<input type="text" name="" id=""></label></li>
-									<li class="wr_pw"><label>비밀번호<input type="password" name="" id="" maxlength="16"></label></li>
-									<li class="captcha_key"><label>자동등록방지문자<input type="text" name="" id=""></label><span>777777</span></li>
-								</ul>
-							</div>
-							<div class="input_box">
-							  <div class="text-box"><textarea rows="3" placeholder="댓글을 입력하세요."></textarea></div>
-								<button>등록</button>
+            <h2>Сэтгэгдэл<span>999</span></h2>
+            <div class="comment_box cf">
+                <div class="cmt_write">
+                    <div class="cmt_hd cf">
+                        <ul>
+                            <li class="wr_name"><label>Нэр<input type="text" name="" id=""></label></li>
+                            <li class="wr_pw"><label>Нууц дугаар<input type="password" name="" id="" maxlength="16"></label></li>
+                            <li class="captcha_key"><label>Автомат бүртгэлээс сэргийлэх<input type="text" name="" id=""></label><span>777777</span></li>
+                        </ul>
+                    </div>
+                    <div class="input_box">
+                        <div class="text-box"><textarea rows="3" placeholder="Сэтгэгдэл бичнэ үү."></textarea></div>
+                        <button>Бүртгэх</button>
 							</div>
 						</div>
 					</div>
@@ -90,23 +90,23 @@ include_once(NFE_PATH.'/head.php');
 						<div class="rpy_cont cf">
 							<div class="reply_hd cf">
 								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
-								</ul>
-							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
-							</div>
-							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
+                                </ul>
+                            </div>
+                            <div class="reply_txt cf">
+                                Хариулт.
+                            </div>
+                            <div class="rpy_etc cf">
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>
 							</div>
             </div>
 					</div>
 					<div class="del_con">
-						<span>비밀번호 : <input type="password" name="" id="" maxlength="16"></li>
-						<button>입력</button>
-						<button>취소</button>
+						<span>Нууц дугаар : <input type="password" name="" id="" maxlength="16"></li>
+						<button>Оруулах</button>
+						<button>Цуцлах</button>
 					</div>
 
 				  <div class="reply_box depth depth2 cf">
@@ -114,16 +114,16 @@ include_once(NFE_PATH.'/head.php');
 						<div class="rpy_cont cf">
 							<div class="reply_hd cf">
 								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
 								</ul>
 							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
+							<div class="reply_txt cf">
+                                Хариулт.
 							</div>
 							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>
 							</div>
             </div>
 					</div>
@@ -133,16 +133,16 @@ include_once(NFE_PATH.'/head.php');
 						<div class="rpy_cont cf">
 							<div class="reply_hd cf">
 								<ul>
-									<li class="rpy_name">작성자</li>
-									<li class="rpy_date">2019-11-28 07:11</li>
+                                    <li class="rpy_name">Бичсэн</li>
+                                    <li class="rpy_date">2019-11-28 07:11</li>
 								</ul>
 							</div>
-							<div class="reply_txt cf">	
-								답글내용입니다.
-							</div>
-							<div class="rpy_etc cf">
-								<span class="rpy_btn">답글</span>
-								<span class="rpy_del">삭제</span>
+							<div class="reply_txt cf">
+                                Хариулт.
+                            </div>
+                            <div class="rpy_etc cf">
+                                <span class="rpy_btn">Хариулт</span>
+                                <span class="rpy_del">Устгах</span>>
 							</div>
             </div>
 					</div>
@@ -157,7 +157,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">Бичсэн</span></div>								</div>
 								</div>
 							</li>
 						</ul>
@@ -167,7 +167,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -177,7 +177,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -187,7 +187,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -197,7 +197,7 @@ include_once(NFE_PATH.'/head.php');
 						<ul class="cont_box_inner">
 							<li>
 								<div class="text_box">
-									<div class="title"><a href="#">100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법 100%합격하는 면접법</a><span class="n_date">작성자</span></div>
+                                    <div class="title"><a href="#">100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга  100% тэнцүүлэх ярилцлагын арга </a><span class="n_date">작성자</span></div>
 								</div>
 							</li>
 						</ul>
@@ -220,11 +220,11 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 공지사항 -->
 			  <section class="cont_box notice_con">
-          <h2>[공지]</h2>
+          <h2>[Зар]</h2>
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
-								<div class="title"><a href="#">온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집 온라인 쇼핑몰 아르바이트 모집</a><span class="n_date">2019.10.16</span></div>
+                                <div class="title"><a href="#">Худалдааны төв цагийн ажил ажилд зуучлах онлайн дэлгүүр худалдааны төв цагийн ажил ажилд зуучлах</a><span class="n_date">2019.10.16</span></div>
 							</div>
 						</li>
 					</ul>

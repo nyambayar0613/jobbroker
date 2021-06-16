@@ -4,15 +4,15 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
 <div class="tab-box tab2-box" style="display:block;">
 <table>
   <tr>
-	  <th>마감일</th>
+	  <th>Эцсийн хугацаа</th>
 		<td><?=$job_info['volume_text'];?></td>
 	</tr>
   <tr>
-	  <th>모집인원</th>
+	  <th>Ажилд авах хүний тоо</th>
 		<td><?=$volmue;?></td>
 	</tr>
   <tr>
-	  <th>지원방법</th>
+	  <th>Элсэх арга</th>
 		<td>
 			<div>
 				<?php
@@ -22,23 +22,23 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
 			</div>
 			<div class="button_group">
 				<?php if(@in_array("online", $_wr_requisition)) {?>
-				<button type="button" class="bt-online bt-small requisition_btn" k="online" no="<?=$get_alba['no'];?>">온라인 입사지원</button>
+				<button type="button" class="bt-online bt-small requisition_btn" k="online" no="<?=$get_alba['no'];?>">Онлайн хүсэлт</button>
 				<?php }?>
 				<?php if(@in_array("email", $_wr_requisition)) {?>
-				<button type="button" class="bt-email bt-small requisition_btn" k="email" no="<?=$get_alba['no'];?>">이메일 입사지원</button>
+				<button type="button" class="bt-email bt-small requisition_btn" k="email" no="<?=$get_alba['no'];?>">И-мэйл хүсэлт</button>
 				<?php }?>
 				<?php if(@in_array("homepage", $_wr_requisition)) {?>
-				<button type="button" class="bt-click bt-small" onClick="window.open('<?=$netfu_util->get_homepage($get_alba['wr_homepage']);?>', 'homepage_move')">홈페이지 지원하기 ⇒</button>
+				<button type="button" class="bt-click bt-small" onClick="window.open('<?=$netfu_util->get_homepage($get_alba['wr_homepage']);?>', 'homepage_move')">Нүүр хуудсанд хүсэлт гаргах ⇒</button>
 				<?php }?>
 			</div>
 		</td>
 	</tr>
   <tr>
-	  <th>제출서류</th>
+	  <th>Бүрдүүлэх баримт бичиг</th>
 		<td><?=preg_replace("/,/", ", ", str_replace(array_keys($_wr_papers), $_wr_papers, $get_alba['wr_papers']));?></td>
 	</tr>
   <tr>
-	  <th>모집직종</th>
+	  <th>Ажлын байрны төрөл</th>
 		<td>
 			<div><?=$job_type[0] ? $job_type[0].' > '.$job_type[1].' > '.$job_type[2] : '';?></div>
 			<div><?=$job_type[3] ? $job_type[3].' > '.$job_type[4].' > '.$job_type[5] : '';?></div>
@@ -56,7 +56,7 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
 	</tr>
   <tr>
 	  <th>경력</th>
-		<td><?=$wr_career = ($get_alba['wr_career_type']) ? $category_control->get_categoryCodeName($get_alba['wr_career']) : "경력무관";?></td>
+		<td><?=$wr_career = ($get_alba['wr_career_type']) ? $category_control->get_categoryCodeName($get_alba['wr_career']) : "Ажил мэргэжлийн хувьд хамаагүй";?></td>
 	</tr>
   <tr>
 	  <th>급여</th>
@@ -82,7 +82,7 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
 		<td>
 			<?php
 			if($get_alba['wr_time_conference']){	// 시간 협의
-				$wr_time = "시간협의";
+				$wr_time = "Цаг тохирох";
 			} else {
 				$wr_time = $get_alba['wr_stime'] . " ~ " . $get_alba['wr_etime'];	// 근무시간
 			}
@@ -131,7 +131,7 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
   <tr>
 	  <th>연령</th>
 		<td>
-			<?=$get_alba['wr_age_limit']==1 ? preg_replace("/-/", " ~ ", $get_alba['wr_age']).'세' : '연령무관';?>
+			<?=$get_alba['wr_age_limit']==1 ? preg_replace("/-/", " ~ ", $get_alba['wr_age']).'нас' : 'Нас хамаарахгүй';?>
 			<?=$get_alba['wr_age_etc'] ?  '/ '.@implode(", ", $wr_age_etc_cate) : '';?>
 		</td>
 	</tr>
@@ -143,9 +143,9 @@ $_wr_pay_support_arr = explode(",", $get_alba['wr_pay_support']);
 -->
 <?php if($form_question['view']=='yes' && $get_alba['wr_pre_question']){ ?>
   <tr>
-	<th>사전질문</th>
+	<th>урьдчилсан асуулт</th>
 	<td>
-		<div class="inf_block"><strong>'<?php echo stripslashes($get_alba['wr_company_name']);?>'</strong>에 입사지원시 아래 질문에 대한 답변을  함께 보내주세요.</div>
+		<div class="inf_block"><strong>'<?php echo stripslashes($get_alba['wr_company_name']);?>'</strong>Ажилд орохдоо доорх асуултанд хариулна уу.</div>
 		<div class="q_txt"><i><?php echo nl2br(stripslashes($get_alba['wr_pre_question']));?></i></div>
 	</td>
 	</tr>

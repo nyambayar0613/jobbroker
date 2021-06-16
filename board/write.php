@@ -81,13 +81,13 @@ var submit_func = function() {
 <input type="hidden" name="page" value="<?=$_GET['page']?>">
 <div class="layer1 cf">
 	<section class="cont_box community_con cmt_write">
-		<h2><img src="<?=NFE_URL;?>/images/write.png" alt="글작성">글작성</h2>
+		<h2><img src="<?=NFE_URL;?>/images/write.png" alt="Бичсэн">Writer</h2>
 			<ul class="info_con">
 			<?php if($is_category){ ?>
 				<li class="row1">
-					<label for="sort">분류<span class="check"></span></label>
-					<select id="sort" name="wr_category" class="st_sort" hname="분류" required>
-						<option value="">분류선택</option>
+					<label for="sort">Төрөл<span class="check"></span></label>
+					<select id="sort" name="wr_category" class="st_sort" hname="Төрөл" required>
+						<option value="">Төрөл сонгох</option>
 						<?php
 						if(is_array($bo_category)) { foreach($bo_category as $k=>$v) {
 							$selected = $write['wr_category']==$v['code'] ? 'selected' : '';
@@ -102,35 +102,35 @@ var submit_func = function() {
 
 				<?php if ($is_name) { ?>
 				<li class="row2">
-					<label for="writer">작성자<span class="check"></span></label>
-					<input type="text" id="writer" name="wr_name" value="<?=$write['wr_name'];?>" hname="작성자" required maxlength="41">
+					<label for="writer">Writer<span class="check"></span></label>
+					<input type="text" id="writer" name="wr_name" value="<?=$write['wr_name'];?>" hname="Writer" required maxlength="41">
 				</li>
 				<?php } ?>
 				<?php if ($is_password) { ?>
 				<li class="row3">
-					<label for="pw">비밀번호<span class="check"></span></label>
-					<input type="password" id="pw" name="wr_password" hname="비밀번호" required maxlength="16">
+					<label for="pw">Нууц дугаар<span class="check"></span></label>
+					<input type="password" id="pw" name="wr_password" hname="Нууц дугаар" required maxlength="16">
 				</li>
 				<?php } ?>
 				<li class="row7">
-					<label for="title">제목<span class="check"></span></label>
-					<input type="text" id="title" name="wr_subject" hname="제목" required value="<?=$write['wr_subject'];?>" style="width:55%;margin-right:10px"><?php if($board['bo_use_secret']) {?><input type="checkbox" name="wr_secret" value="1">비밀글<?php }?>
+					<label for="title">Гарчиг<span class="check"></span></label>
+					<input type="text" id="title" name="wr_subject" hname="Гарчиг" required value="<?=$write['wr_subject'];?>" style="width:55%;margin-right:10px"><?php if($board['bo_use_secret']) {?><input type="checkbox" name="wr_secret" value="1">비밀글<?php }?>
 				</li>
 				<li class="row8">
-					내용<span class="check"></span>
-					<textarea type="editor" name="wr_content" hname="내용" required style="width:100%;height:250px;"><?=$content;?></textarea>
+					Агуулга<span class="check"></span>
+					<textarea type="editor" name="wr_content" hname="Агуулга" required style="width:100%;height:250px;"><?=$content;?></textarea>
 				</li>
 
 
 				<?php if ($is_file) { ?>
 				<li style="height:auto">
-					<label for="content" style="letter-spacing:-0.1em;">썸네일이미지</label>
-						<div class="file_name"><input type="file" id="" name="file_name[]" onChange="file_check(this)" title='파일 용량 <?=$upload_max_filesize?> 이하만 업로드 가능' class="file_in"></div>
+					<label for="content" style="letter-spacing:-0.1em;">Thumbnail image</label>
+						<div class="file_name"><input type="file" id="" name="file_name[]" onChange="file_check(this)" title='Файлын хэмжээ <?=$upload_max_filesize?> Зөвхөн дараах хэмжээ дотор байршуулах боломжтой' class="file_in"></div>
 						<table id="variableFiles" cellpadding=0 cellspacing=0>
 						<?php
 						for($i=1; $i<$file['count']; $i++) {
 						?>
-						<tr><td><input type="file" id="" name="file_name[]" title='파일 용량 <?=$upload_max_filesize?> 이하만 업로드 가능' class="file_in"></td></tr>
+						<tr><td><input type="file" id="" name="file_name[]" title='Файлын хэмжээ <?=$upload_max_filesize?> Зөвхөн дараах хэмжээ дотор байршуулах боломжтой' class="file_in"></td></tr>
 						<?php
 						}
 						?>
@@ -155,7 +155,7 @@ var submit_func = function() {
 
 						function add_file(delete_code){
 							if(flen>=file_count) {
-								alert("이 게시판은 "+file_count+"개 까지만 파일 업로드가 가능합니다.");
+								alert("Эн мэдээллийн самбар нь "+file_count+"хүртэл орох боломжтой.");
 								return;
 							}
 							var objTbl = $("#variableFiles");
@@ -166,7 +166,7 @@ var submit_func = function() {
 						}
 
 						function del_file(){
-							if(confirm("삭제하시겠습니까?")) {
+							if(confirm("Устгах уу?")) {
 								var objTbl = $("#variableFiles");
 								var tr_len = objTbl.find("tr").length;
 								objTbl.find("tr").eq(tr_len-1).remove();
@@ -175,12 +175,12 @@ var submit_func = function() {
 						</script>
 
 						<div id="ImageAttach0" class="file_bt_gp">
-							<div class="file_bt1"><a class="btn commentBtn add" href="javascript:add_file();" style="display:;"><span class="btn commentBtnBg">추가</span></a></div>
-							<div class="file_bt2"><a class="btn commentBtn del" href="javascript:del_file();" style="display:;"><span class="btn commentBtnBg">삭제</span></a></div>
+							<div class="file_bt1"><a class="btn commentBtn add" href="javascript:add_file();" style="display:;"><span class="btn commentBtnBg">Нэмэх</span></a></div>
+							<div class="file_bt2"><a class="btn commentBtn del" href="javascript:del_file();" style="display:;"><span class="btn commentBtnBg">Устгах</span></a></div>
 						</div>
 						<div class="file_bt_tx" style="clear:both">
-						  <p class="pt10 pb10" style="line-height:1.8"><strong><?php echo strtoupper(strtr($board['bo_upload_ext_img'],'|',','));?></strong> 파일형식으로,
-						  <strong>파일당 <?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</strong> 용량 이내의 파일만 등록 가능합니다.</p>
+						  <p class="pt10 pb10" style="line-height:1.8"><strong><?php echo strtoupper(strtr($board['bo_upload_ext_img'],'|',','));?></strong> Format-аар,
+						  <strong>нэг файл тутамд <?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</strong> Зөвхөн дараах хэмжээ дотор байршуулах боломжтой.</p>
 						</div>
 					
 				</li>
@@ -196,10 +196,10 @@ var submit_func = function() {
 					<div class="capcha_group">
 					  <div class="cf">
 						  <div class="capcha_bx" style="float:left"><img src="<?=NFE_URL;?>/include/rand_text.php" /></div>
-						  <div class="refs"><a href="javascript:rand_word_change()"><img src="../images/icon/icon0501.png" alt="새로고침">새로고침</a></div>
+						  <div class="refs"><a href="javascript:rand_word_change()"><img src="../images/icon/icon0501.png" alt="Шинээр зассан">Шинээр зассан</a></div>
 						</div>
-						<div class="cf"><input type="text" id="capcha" hname="자동등록방지" required name="wr_key"></div>
-						<div><p>위에 보이는 문자를 입력하세요.</p></div>
+						<div class="cf"><input type="text" id="capcha" hname="Автомат бүртгэлэээс сэргийлэх" required name="wr_key"></div>
+						<div><p>Дээрх текстийг оруулна уу.</p></div>
 					<div>
 				</li>
 				<?php }?>
@@ -208,7 +208,7 @@ var submit_func = function() {
 
 
 	<div class="button_con">
-		<a href="#none;" onClick="submit_func()" class="bottom_btn06">등록</a><a href="#" class="bottom_btn02">취소</a>
+		<a href="#none;" onClick="submit_func()" class="bottom_btn06">Бүртгэх</a><a href="#" class="bottom_btn02">Цуцлах</a>
 	</div>
 
 </div>

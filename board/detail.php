@@ -103,9 +103,9 @@ if ($wr_no){
 		} else {
 			// 글읽기 포인트가 설정되어 있다면
 			if ($board['bo_read_point'] && $member['mb_point'] + $board['bo_read_point'] < 0)
-				$utility->popup_msg_js("보유하신 포인트(".number_format($member['mb_point']).")가 없거나 모자라서 글읽기(".number_format($board['bo_read_point']).")가 불가합니다.\\n\\n포인트를 모으신 후 다시 글읽기 해 주십시오.");
+				$utility->popup_msg_js("танд байгаа оноо(".number_format($member['mb_point']).")байхгүй эсвэл хангалтгүй байгаа тул унших(".number_format($board['bo_read_point']).")боломжгүй.\\n\\n포인트를 모으신 후 다시 글읽기 해 주십시오 .");
 
-			$point_control->point_insert($member['mb_id'], $board['bo_read_point'], $board['bo_subject']." ".$wr_no." 글읽기", $bo_table, $wr_no, "읽기");
+			$point_control->point_insert($member['mb_id'], $board['bo_read_point'], $board['bo_subject']." ".$wr_no." унших", $bo_table, $wr_no, "унших");
 		}
 
 	}
@@ -134,7 +134,7 @@ if($board['bo_use_name']=='0'){
 } else if($board['bo_use_name']=='2'){
 	$bo_row['wr_name'] = ($get_member['mb_name']) ? $get_member['mb_name'] : $tmp_name;
 } else if($board['bo_use_name']=='3'){
-	$bo_row['wr_name'] = "익명";
+	$bo_row['wr_name'] = "Wrong name";
 }
 ?>
 <script type="text/javascript" src="<?=NFE_URL;?>/board/netfu_board.class.js?num=<?=time();?>"></script>
@@ -145,7 +145,7 @@ function file_download(link, file) {
 
 // 삭제 검사 확인
 function del(href) {
-	if(confirm("한번 삭제한 자료는 복구할 방법이 없습니다.\n\n정말 삭제하시겠습니까?")) {
+	if(confirm("1 удаа устгасан мэдээллийг сэргээх арга.\n\n Устгах уу?")) {
 		document.location.href = encodeURI(href);
 	}
 }
@@ -167,7 +167,7 @@ include NFE_PATH.'/include/inc/banner.inc.php';
 			<div class="view_info">
 				<span class="mb_id"><strong><?=stripslashes($bo_row['wr_name']);?></strong></span>
 				<span><?=date("Y.m.d H:i", strtotime($bo_row['wr_datetime']));?></span>
-				<span class="hits">조회수 : <em><?=number_format($bo_row['wr_hit']);?></em></span>
+				<span class="hits">Үзсэн тоо : <em><?=number_format($bo_row['wr_hit']);?></em></span>
 			</div>
 		</div>
 
@@ -219,10 +219,10 @@ include NFE_PATH.'/include/inc/banner.inc.php';
 
 <div class="button-group view_bt">
 	<ul>
-		<li><a href="<?php echo $list_href;?>">목록</a></li>
-		<li><a href="<?php echo $update_href;?>">수정</a></li>
-		<li><a href="<?php echo $delete_href;?>">삭제</a></li>
-		<li><a href="<?php echo $write_href;?>">글작성</a></li>
+		<li><a href="<?php echo $list_href;?>">Жагсаалт</a></li>
+		<li><a href="<?php echo $update_href;?>">Өөрчлөх</a></li>
+		<li><a href="<?php echo $delete_href;?>">Устгах</a></li>
+		<li><a href="<?php echo $write_href;?>">Writer</a></li>
 	</ul>
 </div>
 </section>
