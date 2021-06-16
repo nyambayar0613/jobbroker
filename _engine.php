@@ -342,7 +342,6 @@
 		
 		//$style_arr = array( 'default', 'style', 'color_'.$design['skin_color']);
 		$style_arr = array(
-
             'job/bootstrap.min',
             'job/fontawesome',
             'job/materialdesignicons.min',
