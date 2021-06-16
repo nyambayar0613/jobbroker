@@ -24,40 +24,40 @@ if($job_type[6] || $job_type[7] || $job_type[8]) $__job_type_arr[] = array($job_
 	</div>
 	<div class="info_area">
 		<ul>
-			<?php if($area_array[0]) {?><li><span class="info_tit">근무지역</span><span><?=$area_array[0];?></span></li><?php }?>
+			<?php if($area_array[0]) {?><li><span class="info_tit">Ажлын барйшил</span><span><?=$area_array[0];?></span></li><?php }?>
 			<?php if($area_array[1]) {?><li><span class="info_tit">&nbsp;&nbsp;&nbsp;&nbsp;</span><span><?=$area_array[1];?></span></li><?php }?>
 			<?php if($area_array[2]) {?><li><span class="info_tit">&nbsp;&nbsp;&nbsp;&nbsp;</span><span><?=$area_array[2];?></span></li><?php }?>
-			<li><span class="info_tit">근무기간</span><span><?=$category_control->get_categoryCodeName($get_alba['wr_date']);?></span></li>
-			<li><span class="info_tit">근무요일</span><span><?=$category_control->get_categoryCodeName($get_alba['wr_week']);?></span></li>
-			<li><span class="info_tit">근무형태</span><span><?=@implode(", ", $work_type_cate);?></span></li>
-			<li><span class="info_tit">마감일</span><span><?=$job_info['volume_text'];?></span></li>
+			<li><span class="info_tit">Ажиллах хугацаа</span><span><?=$category_control->get_categoryCodeName($get_alba['wr_date']);?></span></li>
+			<li><span class="info_tit">Ажлын өдөр</span><span><?=$category_control->get_categoryCodeName($get_alba['wr_week']);?></span></li>
+			<li><span class="info_tit">Ажлын нөхцөл</span><span><?=@implode(", ", $work_type_cate);?></span></li>
+			<li><span class="info_tit">Эцсийн хугацаа</span><span><?=$job_info['volume_text'];?></span></li>
 		</ul>
 	</div>
 	<div class="etc_area">
 		<ul>
 			<li>
-				<div class="etc_tit"><strong>급여조건</strong></div>
+				<div class="etc_tit"><strong>Цалингийн нөхцөл</strong></div>
 				<div class="etc_txt pay">
 					<?php echo ($get_alba['wr_pay_conference']) ? '<b>'.$alba_user_control->pay_conference[$get_alba['wr_pay_conference']].'</b>' : '<b>'.$pay_type.'</b><span>'.$wr_pay.'</span>'; ?>
 				</div>
 			</li>
 			<li>
-			  <div class="etc_tit"><strong>성별</strong></div>
+			  <div class="etc_tit"><strong>Хүйс</strong></div>
 				<div class="etc_txt"><?=$alba_user_control->gender_val[$get_alba['wr_gender']];?></div>
 			</li>
 			<li>
-			  <div class="etc_tit"><strong>연령</strong></div>
-				<div class="etc_txt"><?=$get_alba['wr_age_limit']==1 ? preg_replace("/-/", " ~ ", $get_alba['wr_age']).'세' : '연령무관';?></div>
+			  <div class="etc_tit"><strong>Нас</strong></div>
+				<div class="etc_txt"><?=$get_alba['wr_age_limit']==1 ? preg_replace("/-/", " ~ ", $get_alba['wr_age']).'нас' : '';?></div>
 			</li>
 			<li>
-			  <div class="etc_tit"><strong>모집인원</strong></div>
+			  <div class="etc_tit"><strong>Ажилд авах хүний тоо</strong></div>
 				<div class="etc_txt"><?=$volmue;?></div><!--<span>0</span>명, <span>00<span>명-->
 			</li>
 		</ul>
 	</div>
 	<div class="btn_area">
 	  <ul>
-			<li class="sbtn"><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')"><img src="/images/scrap_icon3.png" alt="스크랩">스크랩</a></li>
+			<li class="sbtn"><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')"><img src="/images/scrap_icon3.png" alt="스크랩">Scrab</a></li>
 			<li class="abtn"><a href="<?=NFE_URL;?>/job/detail.php?no=<?=$get_alba['no'];?>&code=receive_online">지원하기</a></li>
 		</ul>
 	</div>
