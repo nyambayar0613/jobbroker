@@ -2,8 +2,8 @@
 <div class="right_nav right_nav1">
 <div class="nav_wrap">
 	<ul>
-		<li class="close_btn"><a href="#none;" onClick="nav_right_view()"><img src="<?=NFE_URL;?>/images/close.png" alt="닫기"></a></li>					 
-		<li class="title_area">개인회원 서비스</li>
+		<li class="close_btn"><a href="#none;" onClick="nav_right_view()"><img src="<?=NFE_URL;?>/images/close.png" alt="닫기"></a></li>
+        <li class="title_area">Байгууллагын гишүүний үйлчилгээ</li>
 		<li class="id_area"><?=$member['mb_name'];?><span>님</span></li>
 		<li class="nav_menu">
 			<ol>

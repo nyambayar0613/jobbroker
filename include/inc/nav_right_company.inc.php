@@ -37,7 +37,7 @@
 			<li><a href="<?=NFE_URL;?>/mypage/report_company.php">Өргөдөл гаргагч</a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/srcap_company.php">Scrab хүний нөөц<em><span><?=number_format($_my_count['scrap']['c']);?></span>төрөл</em></a></li>
 			<li><a href="<?=NFE_URL;?>/mypage/setting_company.php">Санал болгох хүний нөөцийн мэдээлэл<em><span><?=number_format($save_query_num_);?></span>төрөл</em></a></li>
-			<li><a href="<?=NFE_URL;?>/mypage/interview_company.php">Ажлын байрнө өргөдөл удирдах</a></li>
+			<li><a href="<?=NFE_URL;?>/mypage/interview_company.php">Ажлын байрны өргөдөл удирдах</a></li>
 			<?php
 			if($netfu_mjob->resume_read_check['is_pay']) {
 			?>
