@@ -11,7 +11,7 @@ if($job_type[6] || $job_type[7] || $job_type[8]) $__job_type_arr[] = array($job_
 <div class="detail_inner">
 	<div class="company_name"><h2><?=stripslashes($get_alba['wr_company_name']);?></h2>
 		<div class="btn-r">
-			<a href="<?=NFE_URL;?>/job/detail.php?no=<?=$get_alba['no'];?>">상세모집내용</a><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')">공고 스크랩</a><button id="close_ly" type="button" onClick='$(".detail_ly").hide()'>X</button>
+			<a href="<?=NFE_URL;?>/job/detail.php?no=<?=$get_alba['no'];?>">Дэлгэрэнгүй</a><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')">Зарын scrab</a><button id="close_ly" type="button" onClick='$(".detail_ly").hide()'>X</button>
 		</div>
 	</div>
 	<div class="title_area">
@@ -57,7 +57,7 @@ if($job_type[6] || $job_type[7] || $job_type[8]) $__job_type_arr[] = array($job_
 	</div>
 	<div class="btn_area">
 	  <ul>
-			<li class="sbtn"><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')"><img src="/images/scrap_icon3.png" alt="스크랩">Scrab</a></li>
+			<li class="sbtn"><a href="#none;" onClick="netfu_mjob.scrap('alba', '<?=$get_alba['no'];?>')"><img src="/images/scrap_icon3.png" alt="Scrab">Scrab</a></li>
 			<li class="abtn"><a href="<?=NFE_URL;?>/job/detail.php?no=<?=$get_alba['no'];?>&code=receive_online">지원하기</a></li>
 		</ul>
 	</div>
