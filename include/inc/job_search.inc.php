@@ -42,7 +42,7 @@ var search_func = function() {
 				</select>
 			</td>
 		</tr>
-		<!-- 검색유형1 -->
+		<!-- 검색유형1 -->w
 		<tr>
 			<th class="sch_hd">
 				<div>Бүс нутгаар</div>
