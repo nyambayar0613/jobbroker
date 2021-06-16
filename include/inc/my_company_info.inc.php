@@ -32,7 +32,7 @@ if(!$__company_row) {
 		<div class="company"><?=$__company_name;?></div>
 	</div>
 	<div class="btn_group">
-		<a href="#none" class="bt_item1 logo_write__"><?=is_file(NFE_PATH.$mb_logo_file) ? '수정' : '등록';?></a>
+		<a href="#none" class="bt_item1 logo_write__"><?=is_file(NFE_PATH.$mb_logo_file) ? 'Засварлах' : 'Бүртгэх';?></a>
 		<a href="#none" class="bt_item2" id="logo_remove" onClick="netfu_mjob.logo_delete('<?=$__no;?>')" style="<?=(!is_file(NFE_PATH.$mb_logo_file)) ? 'display:none;' : '';?>;">삭제</a>
 	</div>
 </div>
@@ -41,7 +41,7 @@ if(!$__company_row) {
 	<div class="mb_info ceo_info">
 		<div class="ceo_inner">
 			<dl>
-				<dt class="hd hd2">대표자명</dt>
+				<dt class="hd hd2">Төлөөлөгчийн нэр</dt>
 				<dd class="col1 col2">
 					<?=$__ceo_name;?>
 				</dd>
@@ -51,7 +51,7 @@ if(!$__company_row) {
 	<div class="mb_info address_info">
 		<div class="address_inner">
 			<dl>
-				<dt class="hd hd2">회사주소</dt>
+				<dt class="hd hd2">Байгууллагын хаяг</dt>
 				<dd class="col1 col3">
 					<?=$__address;?>
 				</dd>

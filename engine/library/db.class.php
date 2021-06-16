@@ -14,10 +14,10 @@
 			var $db_name		= "jobbroker";
 			var $db_user		= "itwizard";
 			var $db_pass		= "DP3Y5M32wD9TXWgt";*/
-            var $db_host		= "127.0.0.1";
+            var $db_host		= "192.168.0.103";
             var $db_name		= "jobbroker";
-            var $db_user		= "root";
-            var $db_pass		= "";
+            var $db_user		= "mjobUser1";
+            var $db_pass		= "mjobWizard$%";
 
 			/**
 			 * 	Connection link.
