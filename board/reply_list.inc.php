@@ -63,15 +63,15 @@ while($reply_row=sql_fetch_array($query)) {
 				?>
 				<div class="cmt_hd cf">
 					<ul>
-						<li class="wr_name"><label>이름<input type="text" name="reply_name[]"></label></li>
-						<li class="wr_pw"><label>비밀번호<input type="password" name="reply_password[]" maxlength="16"></label></li>
-						<li class="captcha_key"><label>자동등록방지문자<input type="text" name="reply_wr_key[]" id=""></label><span><img src="<?=NFE_URL;?>/include/rand_text.php?wr_no=<?=$reply_row['wr_no'];?>" /></span></li>
+                        <li class="wr_name"><label>Нэр<input type="text" name="wr_name"  hname="Нэр" required></label></li>
+                        <li class="wr_pw"><label>Нууц дугаар<input type="password" name="wr_password" maxlength="16" hname="Нууц дугаар" required></label></li>
+                        <li class="captcha_key"><label>Автомат бүртгэлээс сэргийлэх<input type="text" name="wr_key" hname="Автомат бүртгэлээс сэргийлэх" required></label><span class="reply_rand_text"><img src="<?=NFE_URL;?>/include/rand_text.php" /></span></li>
 					</ul>
 				</div>
 				<?php }?>
 				<div class="input_box">
-					<div class="text-box"><textarea rows="3" name="reply_content[]" placeholder="댓글을 입력하세요."></textarea></div>
-					<button class="_button" onClick="netfu_board.reply_reply_write(this, '<?=$reply_row['wr_no'];?>');return false;">등록</button>
+                    <div class="text-box"><textarea name="wr_content" rows="3" hname="Сэтгэгдэлийн агуулга" required placeholder="Сэтгэглэл олууна уу."></textarea></div>
+                    <button onClick="return netfu_board.reply_write(this)">Бүртгэх</button>
 				</div>
 			</div>
 		</div>
@@ -79,9 +79,9 @@ while($reply_row=sql_fetch_array($query)) {
 	<!-- // 답글 텍스트 폼 -->
 
 	<div class="del_con _none">
-		<span>비밀번호 : <input type="password" name="reply_confirm_password[]" id="" maxlength="16"></span>
-		<button onClick="netfu_board.reply_process(this, '<?=$reply_row['wr_no'];?>');return false;">입력</button>
-		<button>취소</button>
+		<span>Нууц дугаар : <input type="password" name="reply_confirm_password[]" id="" maxlength="16"></span>
+		<button onClick="netfu_board.reply_process(this, '<?=$reply_row['wr_no'];?>');return false;">Оруулах</button>
+		<button>Цуцлах</button>
 	</div>
 </div>
 <?php }
