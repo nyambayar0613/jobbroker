@@ -10,14 +10,14 @@
 <input type="hidden" name="no" value="<?=$_GET['no'];?>" />
 <div class="layer1 cf passwd_confirm">
 	<section class="cont_box community_con">
-		<h2><img src="/images/unlock.png" alt="글작성">패스워드 확인</h2>
+		<h2><img src="/images/unlock.png" alt="글작성">Password шалгана уу.</h2>
 		<div class="pw_con cf">
-			<label for="pw2">입력한 패스워드</label><input type="password" id="pw2" name="" maxlength="16">
+			<label for="pw2">Оруулсан password</label><input type="password" id="pw2" name="" maxlength="16">
 		</div>
 	</section>
 
 	<div class="button_con">
-		<a href="#" class="bottom_btn06">확인</a><a href="#" class="bottom_btn02">취소</a>
+		<a href="#" class="bottom_btn06">Батлах</a><a href="#" class="bottom_btn02">Цуцлах</a>
 	</div>
 </div>
 </form>
