@@ -1,4 +1,4 @@
-<!-- 패스워드 확인 -->
+<!-- 패스워드 확인 -->ыу
 <style type="text/css">
 .passwd_confirm { position:absolute; top:9999px; background-color:#fff; height:200px; border:1px solid #ddd; width:80%; text-align:center; margin:0 auto; }
 </style>
