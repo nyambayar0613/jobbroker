@@ -1,5 +1,5 @@
 <?php
-$head_title = "Өргөдөл гаргагч удирдах";
+$head_title = "입사지원관리";
 $page_code = 'mypage';
 include_once "../include/top.php";
 
@@ -28,14 +28,14 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 active"><a href="#">Өргөдөл гаргагч удирдах<span class="list_num"><?=number_format($total['c'])?></span></a></li>
+			<li class="tab01 active"><a href="#">입사지원요청관리<span class="list_num"><?=number_format($total['c'])?></span></a></li>
 			<li class="sort_st sort_st1">
 				<span>
 					<select onChange="location.replace('<?=$_SERVER['PHP_SELF'];?>?_limit='+this.value)">
-						<option value="20" <?=$_GET['_limit']==20 ? 'selected' : '';?>>20 харуулах</option>
-						<option value="40" <?=$_GET['_limit']==40 ? 'selected' : '';?>>40 харуулах</option>
-						<option value="60" <?=$_GET['_limit']==60 ? 'selected' : '';?>>60 харуулах</option>
-						<option value="80" <?=$_GET['_limit']==80 ? 'selected' : '';?>>80 харуулах</option>
+						<option value="20" <?=$_GET['_limit']==20 ? 'selected' : '';?>>20개씩 보기</option>
+						<option value="40" <?=$_GET['_limit']==40 ? 'selected' : '';?>>40개씩 보기</option>
+						<option value="60" <?=$_GET['_limit']==60 ? 'selected' : '';?>>60개씩 보기</option>
+						<option value="80" <?=$_GET['_limit']==80 ? 'selected' : '';?>>80개씩 보기</option>
 					</select>
 				</span>
 			</li>
@@ -46,7 +46,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 공고가 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -64,18 +64,18 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 			<li class="col1"><input type="checkbox" id="" name="chk[]" value="<?=$row['no'];?>"></li>
 			<li class="col2"><a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['wr_resume'];?>">
 				<div class="picture_box">
-					<img src="<?=$re_info['mb_photo'];?>" alt="Цээж зураг"><!-- <img src="<?=NFE_URL;?>/images/id_pic2.png" alt="증명사진"> -->
+					<img src="<?=$re_info['mb_photo'];?>" alt="증명사진"><!-- <img src="<?=NFE_URL;?>/images/id_pic2.png" alt="증명사진"> -->
 				</div>
-				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>нас)</div>
+				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>세)</div>
 				<div class="list_txt list_color"><?=$netfu_util->get_stag($get_resume['wr_subject']);?></a></div>
 				<div class="list_etc"><span><?php echo $list['mb_email'];?></span></div>
-				<div class="list_etc3"><span>Зорьж буй байршил : <?=$re_info['area_val'][0];?></span><span><i>경력</i><?=$netfu_util->get_stag($list['career']);?></span></div>
-				<div class="list_etc3"><span><em>Мэргэжлийн үнэмлэх</em><?=$re_info['license'];?></span></div>
+				<div class="list_etc3"><span>희망지역 : <?=$re_info['area_val'][0];?></span><span><i>경력</i><?=$netfu_util->get_stag($list['career']);?></span></div>
+				<div class="list_etc3"><span><em>자격증</em><?=$re_info['license'];?></span></div>
 			</a></li>
 			<li class="col3">
 				<div class="date_box date_box2 cf"> 
 					<div class="con1 cf" style="margin-bottom:0">
-					  <div>Өргөдөл гаргасан огноо</div>
+					  <div>요청일</div>
 						<div class="date-bx"><?=date("y.m.d", strtotime($row['wdate']));?></div>
 					</div>
 				</div>
@@ -92,7 +92,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 </form>
 
 <div class="button_con button_con3">
-	<a href="#" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">Устгах</a>
+	<a href="#" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">삭제</a>
 </div>
 
 <?php
