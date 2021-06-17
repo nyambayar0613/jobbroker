@@ -27,54 +27,45 @@ $job_where = $netfu_mjob->job_search_func();
             </div>
         </div>
 
+        <!-- хайх -->
+        <?php
+            // : дэлгэрэнгүй хайлтын өнгө
+            //include NFE_PATH.'/include/inc/job_search.detail.php';
+            // : энгийн өнгө
+            //else include NFE_PATH.'/include/inc/job_search.inc.php';
 
 
-<!-- хайх -->
-<?php
-// : дэлгэрэнгүй хайлтын өнгө
-include NFE_PATH.'/include/inc/job_search.detail.php';
-// : энгийн өнгө
-//else include NFE_PATH.'/include/inc/job_search.inc.php';
+            // : платинум
+            //$_banner = 'alba_platinum';
+            /*include NFE_PATH.'/include/inc/banner.inc.php';*/
+            include NFE_PATH.'/include/inc/adver/service1.inc.php';
+
+            // : grand
+            //$_banner = 'alba_grand';
+            //include NFE_PATH.'/include/inc/banner.inc.php';
+            //include NFE_PATH.'/include/inc/adver/service2.inc.php';
+
+            // : онцгой
+            //$_banner = 'alba_special';
+            //include NFE_PATH.'/include/inc/banner.inc.php';
+            //include NFE_PATH.'/include/inc/adver/service3.inc.php';
 
 
-
-
-// : платинум
-$_banner = 'alba_platinum';
-include NFE_PATH.'/include/inc/banner.inc.php';
-include NFE_PATH.'/include/inc/adver/service1.inc.php';
-
-
-
-// : grand
-$_banner = 'alba_grand';
-include NFE_PATH.'/include/inc/banner.inc.php';
-include NFE_PATH.'/include/inc/adver/service2.inc.php';
-
-
-
-// : онцгой
-$_banner = 'alba_special';
-include NFE_PATH.'/include/inc/banner.inc.php';
-include NFE_PATH.'/include/inc/adver/service3.inc.php';
-
-
-
-// : энгийн лист
-$_banner = 'alba_job_list';
-include NFE_PATH.'/include/inc/banner.inc.php';
-include NFE_PATH.'/include/inc/adver/em_list.inc.php';
-?>
-
-
-<?php
-$_banner = 'alba_job_list_bottom';
-include NFE_PATH.'/include/inc/banner.inc.php';
-
-
-include "../include/job_detail.box.php";
-include "../include/tail.php";
-?>
+            // : энгийн лист
+            //$_banner = 'alba_job_list';
+            //include NFE_PATH.'/include/inc/banner.inc.php';
+            //include NFE_PATH.'/include/inc/adver/em_list.inc.php';
+        ?>
 
     </div>
 </section>
+
+<?php
+    //$_banner = 'alba_job_list_bottom';
+    //include NFE_PATH.'/include/inc/banner.inc.php';
+
+    //include "../include/job_detail.box.php";
+    include "../include/tail.php";
+?>
+
+
