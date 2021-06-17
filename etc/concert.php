@@ -27,7 +27,7 @@ var concert_submit = function() {
 .partner_con input[type="radio"]{width:20px;height:auto}
 </style>
 <section class="cont_box partner_con ">
-<h2>Түншлэлийн лавлагаа</h2>
+<h2>Түншлэл</h2>
 <ol class="info3_con">
 	<li>· Бизнесийн үйл ажиллагааг амжилттай явуулах талаар таны үнэтэй санал, зөвлөмжийг бид хүлээж авах болно.</li>
 	<li>· Бүртгүүлсний дараа засварлах боломжгүй.</li>
