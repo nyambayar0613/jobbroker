@@ -65,7 +65,7 @@ var email_sel = function( vals ){	// 이메일 서비스 선택
 			foreach($cs_category as $val){ 
 			$name = $utility->remove_quoted($val['name']);	 // (쌍)따옴표 등록시 필터링
 		?>
-			<input type="radio" class="chk selt_chk" name="wr_cate" id="wr_cate_<?php echo $val['code'];?>" value="<?php echo $val['code'];?>" hname="문의분류" required option="radio" /> <label class="selt_chk_txt" for="wr_cate_<?php echo $val['code'];?>"><?php echo $name;?></label>
+			<input type="radio" class="chk selt_chk" name="wr_cate" id="wr_cate_<?php echo $val['code'];?>" value="<?php echo $val['code'];?>" hname="Лавлагааны төрөл" required option="radio" /> <label class="selt_chk_txt" for="wr_cate_<?php echo $val['code'];?>"><?php echo $name;?></label>
 		<?php } ?>
 	</li>
 	<li class="row2">
