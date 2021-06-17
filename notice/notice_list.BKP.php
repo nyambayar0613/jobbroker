@@ -1,5 +1,5 @@
 <?php
-$head_title = "Зарлалын жагсаалт";
+$head_title = "공지사항 리스트";
 include_once "../include/top.php";
 $netfu_util->session_put('notice_list');
 
@@ -28,7 +28,7 @@ $paging_group = ceil($total['c']/($_width*$_height));
 
 <!-- 공지사항 리스트 -->
 <section class="cont_box community_txt">
-<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon02.png" alt=""></span>Анхааруулга</h2>
+<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon02.png" alt=""></span>공지사항</h2>
 
 <!-- 검색/분류 -->
 	<form name="noticeListFrm" method="GET" id="noticeListFrm" action="<?=$_SERVER['PHP_SELF'];?>">
@@ -36,22 +36,22 @@ $paging_group = ceil($total['c']/($_width*$_height));
 		<ul class="sort_inner cf">
 			<li class="sort_select">
 				<select name="search_field">
-					<option value="wr_subject" <?=$_GET['search_field']=='wr_subject' ? 'selected' : '';?>>Гарчиг</option>
-					<option value="wr_content" <?=$_GET['search_field']=='wr_content' ? 'selected' : '';?>>Агуулга</option>
-					<option value="wr_subject||wr_content" <?=$_GET['search_field']=='wr_subject||wr_content' ? 'selected' : '';?>>Гарчиг+Агуулга</option>
-					<option value="wr_name" <?=$_GET['search_field']=='wr_name' ? 'selected' : '';?>>Бичсэн</option>
+					<option value="wr_subject" <?=$_GET['search_field']=='wr_subject' ? 'selected' : '';?>>제목</option>
+					<option value="wr_content" <?=$_GET['search_field']=='wr_content' ? 'selected' : '';?>>내용</option>
+					<option value="wr_subject||wr_content" <?=$_GET['search_field']=='wr_subject||wr_content' ? 'selected' : '';?>>제목+내용</option>
+					<option value="wr_name" <?=$_GET['search_field']=='wr_name' ? 'selected' : '';?>>작성자</option>
 				</select>
 			</li>
 			<li class="sort_sch">
-				<input type="text" id="" name="search_keyword" value="<?=$_GET['search_keyword'];?>"><button type="button" onClick="document.forms['noticeListFrm'].submit()">Хайх</button>
+				<input type="text" id="" name="search_keyword" value="<?=$_GET['search_keyword'];?>"><button type="button" onClick="document.forms['noticeListFrm'].submit()">검색</button>
 			</li>
 			<li class="sort_bx">
 				<select name="page_rows" onChange="netfu_util1.page_rows(this)">
-					<option value='15' <?=$_GET['page_rows']==15 ? 'selected' : '';?>>15ш хэвлэх</option>
-					<option value='30' <?=$_GET['page_rows']==30 ? 'selected' : '';?>>30ш хэвлэх</option>
-					<option value='50' <?=$_GET['page_rows']==50 ? 'selected' : '';?>>50ш хэвлэх</option>
-					<option value='70' <?=$_GET['page_rows']==70 ? 'selected' : '';?>>70ш хэвлэх/option>
-					<option value='100' <?=$_GET['page_rows']==100 ? 'selected' : '';?>>100ш хэвлэх</option>
+					<option value='15' <?=$_GET['page_rows']==15 ? 'selected' : '';?>>15개 출력</option>
+					<option value='30' <?=$_GET['page_rows']==30 ? 'selected' : '';?>>30개 출력</option>
+					<option value='50' <?=$_GET['page_rows']==50 ? 'selected' : '';?>>50개 출력</option>
+					<option value='70' <?=$_GET['page_rows']==70 ? 'selected' : '';?>>70개 출력</option>
+					<option value='100' <?=$_GET['page_rows']==100 ? 'selected' : '';?>>100개 출력</option>
 				</select>
 			</li>
 		</ul>
@@ -65,8 +65,7 @@ $paging_group = ceil($total['c']/($_width*$_height));
 		?>
 				<li>
 					<div class="text_box2">
-						<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">.</div>
-						<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
+						<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
 					</div>
 				</li>
 		<?php
