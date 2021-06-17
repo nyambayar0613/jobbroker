@@ -81,7 +81,7 @@ $paging_group = ceil($total['c']/($_width*$_height));
 						<div class="info">
 							<span class="name"><?=$netfu_util->get_stag($row['wr_name']);?></span>
 							<span class="date"><?=$netfu_util->get_date('', $row['wr_date']);?></span>
-							<span class="hit">조회 <?=number_format($row['wr_hit']);?></span>
+							<span class="hit">Хайх <?=number_format($row['wr_hit']);?></span>
 						</div>
 					</div>
 				</li>
