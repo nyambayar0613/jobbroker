@@ -131,7 +131,7 @@ var concert_submit = function() {
 </section>
 
 <div class="button_con">
-<a href="#none;" onClick="concert_submit()" class="bottom_btn01">Бүртгүүлэх</a><a href="#" class="bottom_btn02">Орох</a>
+<a href="#none;" onClick="concert_submit()" class="bottom_btn01">Бүртгүүлэх</a><a href="#" class="bottom_btn02">Буцах</a>
 </div>
 
 <?php
