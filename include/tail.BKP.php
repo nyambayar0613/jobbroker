@@ -1,10 +1,10 @@
 <!-- 공지사항 -->
 <?php
 
-//include NFE_PATH."/include/job_detail.box.php";
-//include NFE_PATH."/include/resume_detail.box.php";
+include NFE_PATH."/include/job_detail.box.php";
+include NFE_PATH."/include/resume_detail.box.php";
 
-//include NFE_PATH.'/include/inc/notice.inc.php';
+include NFE_PATH.'/include/inc/notice.inc.php';
 
 
 
@@ -179,7 +179,7 @@ $(".button_group.resume__").find("._btn").click(function(){
 	?>
 		var form = document.forms['f_resume_pop1'];
 		var k = $(this).attr("k");
-		var _txt = k=="become" ? 'Ажилд орох өргөдөл' : 'Ярилцлага';
+		var _txt = k=="become" ? '입사지원' : '면접제의';
 		
 		form.wr_type.value = k;
 		$(".resume_pop_bx").find("._txt").html(_txt);
@@ -192,18 +192,18 @@ $(".button_group.resume__").find("._btn").click(function(){
 	<?php
 			} else {
 	?>
-				if(confirm("Үйлчилгээ худалдаж авах уу?")) {
+				if(confirm("열람권 구매하시겠습니까?")) {
 					location.href = base_url+"/payment/read_payment.php";
 				}
 	<?php
 			}
 		} else if($member['mb_id']) {
 	?>
-		alert("Байгууллагын гишүүн л ашиглах боломжтой.");
+		alert("기업회원만 이용가능합니다.");
 	<?php
 		} else {
 	?>
-		alert("Ашиглахын тулд нэвтрэнэ үү.");
+		alert("로그인하셔야 이용가능합니다.");
 		location.href = base_url+'/include/login.php';
 	<?php
 		}

@@ -27,7 +27,7 @@ $(window).ready(function(){
 
 
 <div class="top_title">
-<a href="#"><img src="<?=NFE_URL;?>/images/top_arrow.png" alt="Өмнөх"></a><h2>Log in</h2>
+<a href="#"><img src="<?=NFE_URL;?>/images/top_arrow.png" alt="이전"></a><h2>로그인</h2>
 </div>
 </header>
 <form method="post" name="MemberLoginFrm" action="<?=NFE_URL;?>/regist.php" onSubmit="return netfu_util1.member_logins(this)">
@@ -45,20 +45,20 @@ include NFE_PATH.'/include/inc/banner.inc.php';
 		<div class="login_box">
 			<div class="tabs cf">
 				<ul>
-					<li class="tab1 tab_bt" k="individual"><a href="#none;" class="active">Хувь хүн</a></li>
-					<li class="tab2 tab_bt" k="company"><a href="#none;">Байгууллага</a></li>
+					<li class="tab1 tab_bt" k="individual"><a href="#none;" class="active">개인회원</a></li>
+					<li class="tab2 tab_bt" k="company"><a href="#none;">기업회원</a></li>
 				</ul>
 			</div>
 			<div class="login_con cf">
 				<ul>
-					<li class="id"><label for="mb_id">ID</label><input type="text" name="login_id" value="<?=($is_demo) ? 'test_indi' : '';?>" required hname="ID" id="mb_id" title="ID оруулах" maxlength="41"></li>
-					<li class="pw"><label for="mb_pw">Нууц</label><input type="password" value="<?=($is_demo) ? 'test_indi' : '';?>" name="login_passwd" required hname="Нууц үг" id="mb_pw" title="Password оруулах" maxlength="16"></li>
-					<li class="login_bt"><button>Log in</button></li>
+					<li class="id"><label for="mb_id">아이디</label><input type="text" name="login_id" value="<?=($is_demo) ? 'test_indi' : '';?>" required hname="아이디" id="mb_id" title="아이디 입력" maxlength="41"></li>
+					<li class="pw"><label for="mb_pw">비밀번호</label><input type="password" value="<?=($is_demo) ? 'test_indi' : '';?>" name="login_passwd" required hname="비밀번호" id="mb_pw" title="패스워드 입력" maxlength="16"></li>
+					<li class="login_bt"><button>로그인</button></li>
 					<li class="etc">
 						<ol>
-							<li><a href="<?=NFE_URL;?>/member/find_id.php"><span>ID хайх</span></a></li>
-							<li><a href="<?=NFE_URL;?>/member/find_pw.php"><span>Нууц үг хайх</span></a></li>
-							<li><a href="<?=NFE_URL;?>/member/register.php"><span>Гишүүнээр нэвтрэх</span></a></li>
+							<li><a href="<?=NFE_URL;?>/member/find_id.php"><span>아이디 찾기</span></a></li>
+							<li><a href="<?=NFE_URL;?>/member/find_pw.php"><span>비밀번호 찾기</span></a></li>
+							<li><a href="<?=NFE_URL;?>/member/register.php"><span>회원가입</span></a></li>
 						</ol>
 					</li>
 				</ul>
