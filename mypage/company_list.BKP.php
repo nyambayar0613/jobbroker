@@ -1,5 +1,5 @@
 <?php
-$head_title = "Байгууллагын мэдээлэл удирдлага";
+$head_title = "기업정보관리";
 $page_code = 'mypage';
 include_once "../include/top.php";
 
@@ -37,9 +37,9 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 <section class="cont_box resume_list" style="box-shadow:none;border-bottom:0">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 active"><a href="#none;">Байгууллагын мэдээлэл удирдлага<span class="list_num"><?=number_format($total['c']);?></span></a></li>
+			<li class="tab01 active"><a href="#none;">기업정보관리<span class="list_num"><?=number_format($total['c']);?></span></a></li>
 			<!-- <li class="tab02"><a href="#">마감된 구인공고<span class="list_num">1</span></a></li> -->
-			<li class="add_bt"><a href="./company_write.php">Байгууллагын нэмэх+</a></li>
+			<li class="add_bt"><a href="./company_write.php">기업정보 추가 +</a></li>
 		</ul>
 		<?php
 		switch($total['c']<=0) {
@@ -47,7 +47,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		?>
 		<ul class="list_con" style="border-bottom:1px solid #dee3eb">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="images/info.png" alt="">Мэдээлэл байхгүй байна.</div>
+				<div class="list_txt2"><img src="images/info.png" alt="">등록된 정보가 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -62,30 +62,30 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 			<li class="col2">
 				<table class="list_con2">
 					<tr>
-						<th>Байгууллагын нэр</th>
+						<th>회사명</th>
 						<td class="company"><?php echo stripslashes(strip_tags($row['mb_company_name']));?></td>
 					</tr>
 					<tr>
-						<th>Хариуцсан хүний нэр</th>
+						<th>대표자명</th>
 						<td><?php echo stripslashes(strip_tags($row['mb_ceo_name']));?></td>
 					</tr>
 					<tr>
-						<th>Байгууллагын төрөл</th>
+						<th>회사분류</th>
 						<td><?=$category_control->get_categoryCodeName($row['mb_biz_type']);?></td>
 					</tr>
 					<tr>
-						<th>Холбогдох дугаар</th>
+						<th>전화번호</th>
 						<td><?php echo $row['mb_biz_phone'];?></td>
 					</tr>
 					<tr>
-						<th>Бизнесийн дугаар</th>
+						<th>사업자번호</th>
 						<td><?php echo $row['mb_biz_no'];?></td>
 					</tr>
 				</table>
 			</li>
 			<li class="col3 col3-1">
-				<div class="list_btn list_btn1 list_btn5"><input type="radio" name="is_public[]" <?php echo ($row['is_public']) ? 'checked' : '';?> value="<?=$row['no'];?>" onClick="is_public_click(this)">Захирал</div>
-				<a href="./company_write.php?no=<?php echo $row['no'];?>" class="url"><div class="list_btn list_btn1 list_btn2-1" class="btn-a" style="color:#3694ed">Өөрчлөх</div></a>
+				<div class="list_btn list_btn1 list_btn5"><input type="radio" name="is_public[]" <?php echo ($row['is_public']) ? 'checked' : '';?> value="<?=$row['no'];?>" onClick="is_public_click(this)">대표</div>
+				<a href="./company_write.php?no=<?php echo $row['no'];?>" class="url"><div class="list_btn list_btn1 list_btn2-1" class="btn-a" style="color:#3694ed">수정</div></a>
 			</li>
 		</ul>
 		<?php
@@ -99,7 +99,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 </form>
 
 <div class="button_con button_con3">
-	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">Сонголтыг устгах</a>
+	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">선택삭제</a>
 </div>
 <?php
 include "../include/tail.php";
