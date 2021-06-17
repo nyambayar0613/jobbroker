@@ -69,7 +69,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>нас)</div>
 				<div class="list_txt list_color"><?=$netfu_util->get_stag($get_resume['wr_subject']);?></a></div>
 				<div class="list_etc"><span><?php echo $list['mb_email'];?></span></div>
-				<div class="list_etc3"><span>Зорьж буй байршил : <?=$re_info['area_val'][0];?></span><span><i>경력</i><?=$netfu_util->get_stag($list['career']);?></span></div>
+				<div class="list_etc3"><span>Зорьж буй байршил : <?=$re_info['area_val'][0];?></span><span><i>Ажил мэргэжил</i><?=$netfu_util->get_stag($list['career']);?></span></div>
 				<div class="list_etc3"><span><em>Мэргэжлийн үнэмлэх</em><?=$re_info['license'];?></span></div>
 			</a></li>
 			<li class="col3">

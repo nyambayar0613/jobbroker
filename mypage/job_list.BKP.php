@@ -14,8 +14,8 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 <section class="cont_box resume_list">
 <div class="resume_list_con cf">
 	<ul class="list-tab">
-		<li class="tab01 active"><a href="#">Үргэлжилж буй ажлын зар<span class="list_num">31</span></a></li>
-		<li class="tab02"><a href="#">Хугацаа дууссан ажлын зар<span class="list_num">1</span></a></li>
+		<li class="tab01 active"><a href="#">진행중인 구인공고<span class="list_num">31</span></a></li>
+		<li class="tab02"><a href="#">마감된 구인공고<span class="list_num">1</span></a></li>
 	</ul>
 	<ul class="list_con search_gp">
 		<li class="sch_bt"><input type="radio" id="" name="search_slt" checked="checked"><label for="company">근무회사</label></li>
