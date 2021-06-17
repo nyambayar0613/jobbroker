@@ -324,12 +324,12 @@ if($menu_is) {
 <?php break; /* 마이페이지 개인회원 상단메뉴 */ case "individual1": ?>
 <div class="mypage_btn">
 	<ul>
-		<li><a href="<?=NFE_URL;?>/mypage/resume_write.php">Анкет бүртгэх</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/resume_list.php">Анкет удирдах</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/report_individual.php">Ажилд орох өргөдөл удирдах</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/scrap_individual.php">Scrab ажлын байр</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/setting_individual.php">Санал болгох ажлын байр</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/member_modify.php">Хувийн мэдээлэл удирдах</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/resume_write.php">이력서등록</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/resume_list.php">이력서관리</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/report_individual.php">입사지원관리</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/scrap_individual.php">스크랩구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/setting_individual.php">맞춤구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/member_modify.php">개인정보관리</a></li>
 	</ul>
 </div>
 </header>
@@ -338,12 +338,12 @@ if($menu_is) {
 
 <div class="mypage_btn">
 	<ul>
-		<li><a href="<?=NFE_URL;?>/mypage/job_write.php">Ажлын байрны мэдээлэл бүртгэх</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/employ_list.php">Ажлын байрны мэдээлэл улирдах</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/report_company.php">Өргөдөл гаргагч удирдах</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/company_list.php">Байгууллагын мэдээлэл удирдах</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/srcap_company.php">Scrab хүний нөөц</a></li>
-		<li><a href="<?=NFE_URL;?>/mypage/setting_company.php">Санал болгох хүний нөөц</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/job_write.php">구인정보등록</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/employ_list.php">구인정보관리</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/report_company.php">지원자관리</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/company_list.php">기업정보관리</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/srcap_company.php">스크랩인재정보</a></li>
+		<li><a href="<?=NFE_URL;?>/mypage/setting_company.php">맞춤인재정보</a></li>
 	</ul>
 </div>
 
@@ -352,10 +352,10 @@ if($menu_is) {
 <div class="guide_tab cf">
 	<ul>
 		<li class="tab-1">
-			<a href="<?=NFE_URL;?>/payment/guide.php" class="<?=!$_GET['code'] ? 'active' : '';?>">Байгууллагын гишүүн үйлчилгээ</a>
+			<a href="<?=NFE_URL;?>/payment/guide.php" class="<?=!$_GET['code'] ? 'active' : '';?>">기업회원 서비스</a>
 		</li>
 		<li class="tab-2">
-			<a href="<?=NFE_URL;?>/payment/guide.php?code=individual" class="<?=$_GET['code']=='individual' ? 'active' : '';?>">Хувь хүн үйлчилгээ</a>
+			<a href="<?=NFE_URL;?>/payment/guide.php?code=individual" class="<?=$_GET['code']=='individual' ? 'active' : '';?>">개인회원 서비스</a>
 		</li>
 	</ul>
 </div>
@@ -366,7 +366,7 @@ if($menu_is) {
 		case "adult":
 ?>
 <section class="adult_con cf">
-	<h2>Насанд хүрсэн батлах</h2>
+	<h2>성인인증</h2>
 
 	<div class="text-group cf">
 		<p><img src="images/adult.png" alt="성인인증"><em>이 정보 내용은 청소년 유해 매체물로서 정보통신망 이용 촉진 및 정보보호 등에 관한 법률 및 청소년 보호법의 규정에 의하여</em>
@@ -376,7 +376,7 @@ if($menu_is) {
 		</p>
 	</div>
 	<div class="button_con button_con5">
-		<a href="#" class="bottom_btn05">19-өөс доош настай</a>
+		<a href="#" class="bottom_btn05">19세 미만 나가기</a>
 	</div>
 </section>
 <?php break; } ?>
