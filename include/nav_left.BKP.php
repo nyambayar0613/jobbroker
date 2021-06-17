@@ -5,18 +5,18 @@ $bo_query = sql_query($q);
 switch(!$member['mb_id']) {
 	case true:
 		$login_move = NFE_URL.'/include/login.php';
-		$login_txt = 'Log in';
+		$login_txt = '로그인';
 
 		$member_move = NFE_URL.'/member/register.php';
-		$member_txt = 'Гишүүнээр нэвтрэх';
+		$member_txt = '회원가입';
 		break;
 
 	default:
 		$login_move = NFE_URL.'/regist.php?mode=logout';
-		$login_txt = 'Log out';
+		$login_txt = '로그아웃';
 
 		$member_move = NFE_URL.'/mypage/member_modify.php';
-		$member_txt = 'Гишүүн өөрчлөх';
+		$member_txt = '회원수정';
 		break;
 }
 ?>
@@ -27,8 +27,8 @@ switch(!$member['mb_id']) {
 <div class="nav_left_view left_nav">
 <div class="nav_wrap">
 	<ul>
-		<li class="close_btn"><a href="#none;" onClick="all_menu()"><img src="<?=NFE_URL;?>/images/close.png" alt="Хаах"></a></li>
-		<li class="title_area">Нийт цэс</li>
+		<li class="close_btn"><a href="#none;" onClick="all_menu()"><img src="<?=NFE_URL;?>/images/close.png" alt="닫기"></a></li>					 
+		<li class="title_area">전체메뉴</li>
 		<?php if($member['mb_id']) {?>
 		<li class="id_area"><?=$member['mb_name'];?><span>님</span></li>
 		<?php }?>
@@ -39,8 +39,8 @@ switch(!$member['mb_id']) {
 			?>
 				<li>
 				<a href="<?=NFE_URL;?>/job/location.php">
-					<div class="nav_ico"><img src="<?=NFE_URL;?>/images/map_ico.png" alt="Байршил хайх"></div>
-					<div class="nav_txt">Байршил хайх</div>
+					<div class="nav_ico"><img src="<?=NFE_URL;?>/images/map_ico.png" alt="지도검색"></div>
+					<div class="nav_txt">지도검색</div>
 					</a>
 				</li>
 			<?php }?>
@@ -55,8 +55,8 @@ switch(!$member['mb_id']) {
 				<?php if($member['mb_id']) { ?>
 				<li>
 				<a href="<?=$member_move;?>">
-					<div class="nav_ico"><img src="<?=NFE_URL;?>/images/admin_ico.png" alt="Мэдээлэл өөрчлөх"></div>
-					<div class="nav_txt">Мэдээлэл өөрчлөх</div>
+					<div class="nav_ico"><img src="<?=NFE_URL;?>/images/admin_ico.png" alt="정보수정"></div>
+					<div class="nav_txt">정보수정</div>
 					</a>
 				</li>
 				<?php } ?>
@@ -68,22 +68,22 @@ switch(!$member['mb_id']) {
 				</li>
 			</ol>
 		</li>
-		<li class="home_bt"><a href="<?=NFE_URL;?>/">Нүүр хуудас руу</a></li>
-		<li class="menu_tit"><a href="<?=NFE_URL;?>/job/index.php">Ажлын байрны мэдээлэл</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=hurry">Яаралтай</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=area">Бүс нутгаар</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=job_type">Ажлын төрлөөр</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=subway">Ойролцоох байгууламжаар</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=univ">Их сургуулиар</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=date">Хугацаагаар</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=pay">Цалин хөлсөөр</a></li>
-		<li><a href="<?=NFE_URL;?>/job/index.php?code=etc">Нөхцөлөөр</a></li>
-		<li class="menu_tit"><a href="<?=NFE_URL;?>/resume/index.php">Хүний нөөц</a></li>
-		<li><a href="<?=NFE_URL;?>/resume/index.php?code=hurry">Яаралтай/a></li>
-		<li><a href="<?=NFE_URL;?>/resume/index.php?code=area">Бүс нутгаар</a></li>
-		<li><a href="<?=NFE_URL;?>/resume/index.php?code=job_type">Ажлын төрлөөр</a></li>
-		<li><a href="<?=NFE_URL;?>/resume/index.php?code=date">Хугацаагаар</a></li>
-		<li class="menu_tit"><a href="<?=NFE_URL;?>/board/index.php">Комиунити</a></li>
+		<li class="home_bt"><a href="<?=NFE_URL;?>/">홈바로가기</a></li>
+		<li class="menu_tit"><a href="<?=NFE_URL;?>/job/index.php">구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=hurry">급구 구인정보</a></li>					 
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=area">지역별 구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=job_type">업직종별 구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=subway">역세권별 구인정보</a></li>					 
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=univ">대학가별 구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=date">기간별 구인정보</a></li>
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=pay">급여별 구인정보</a></li>					 
+		<li><a href="<?=NFE_URL;?>/job/index.php?code=etc">대상별 구인정보</a></li>
+		<li class="menu_tit"><a href="<?=NFE_URL;?>/resume/index.php">인재정보</a></li>
+		<li><a href="<?=NFE_URL;?>/resume/index.php?code=hurry">급구 인재정보</a></li>					 
+		<li><a href="<?=NFE_URL;?>/resume/index.php?code=area">지역별 인재정보</a></li>
+		<li><a href="<?=NFE_URL;?>/resume/index.php?code=job_type">업직종별 인재정보</a></li>
+		<li><a href="<?=NFE_URL;?>/resume/index.php?code=date">기간별 인재정보</a></li>
+		<li class="menu_tit"><a href="<?=NFE_URL;?>/board/index.php">커뮤니티</a></li>
 		<?php
 		while($row=sql_fetch_array($bo_query)) {
 			$q = "select * from alice_category where p_code='".$row['code']."' and `type`='board_menu' order by `rank` asc";
@@ -103,8 +103,8 @@ switch(!$member['mb_id']) {
 			}
 		}
 		?>
-		<li class="menu_tit">Анхааруулга</li>
-		<li><a href="<?=NFE_URL;?>/notice/notice_list.php">Анхааруулга</a></li>
+		<li class="menu_tit">공지사항</li>
+		<li><a href="<?=NFE_URL;?>/notice/notice_list.php">공지사항</a></li>
 		</ul>
 	</div>
 </div>
