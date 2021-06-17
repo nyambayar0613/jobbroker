@@ -36,30 +36,30 @@ $(window).ready(function(){
 if($env['use_adult']) {
 ?>
 <section class="adult_con cf">
-	<h2>Насанд хүрсэн баталгаажуулалт</h2>
+	<h2>성인인증</h2>
 
 	<div class="text-group cf">
-		<p><img src="<?=NFE_URL;?>/images/adult.png" alt="Насанд хүрсэн баталгаажуулалт"><em>Энэхүү мэдээллийн агуулга нь Мэдээлэл, харилцаа холбооны сүлжээг ашиглах, мэдээллийн хамгаалалтыг дэмжих тухай хууль, Залуучуудыг хамгаалах тухай хуулийн дагуу.</em>
-		<strong>19-өөс доош насны хүүхдийг зөвшөөрөхгүй.</strong>
-		<b>19 нас хүрээгүй байгаа бол</b>
-            Except for juvenile harmful media<span><?=$env['site_name'];?></span>You can use all contents and services of
+		<p><img src="<?=NFE_URL;?>/images/adult.png" alt="성인인증"><em>이 정보 내용은 청소년 유해 매체물로서 정보통신망 이용 촉진 및 정보보호 등에 관한 법률 및 청소년 보호법의 규정에 의하여</em>
+		<strong>19세 미만의 청소년은 사용할 수 없습니다.</strong>
+		<b>19세 미만 또는 성인인증을 원하지 않으실 경우</b>
+		청소년 유해 매체물을 제외한 <span><?=$env['site_name'];?></span>의 모든컨텐츠 및 서비스를 이용 하실 수 있습니다.
 		</p>
 	</div>
 	<div class="button_con button_con5">
-		<a href="#none;" class="bottom_btn05" onClick="history.back()">19-өөс доош настай</a>
+		<a href="#none;" class="bottom_btn05" onClick="history.back()">19세 미만 나가기</a>
 	</div>
 </section>
 <?php }?>
 <section class="confirm_con cf">
-	<h2>Баталгаажуулах</h2>
+	<h2>본인인증</h2>
 		<div class="confirm_wrap">
 			<?php
 			if($env['use_ipin']) {
 			?>
 			<a href="#none;" onClick="netfu_auth.click_auth('ipin')">
 				<div class="confirm_bt cf">
-					<div class="bt-icon"><img src="<?=NFE_URL;?>/images/ipin.png" alt="IPIN батлах" width="25"></div>
-					<div class="bt-txt">IPIN батлах</div>
+					<div class="bt-icon"><img src="<?=NFE_URL;?>/images/ipin.png" alt="아이핀 인증" width="25"></div>
+					<div class="bt-txt">IPIN인증</div>
 				</div>
 			</a>
 			<?php }
@@ -68,8 +68,8 @@ if($env['use_adult']) {
 			?>
 			<a href="#none;" onClick="netfu_auth.click_auth('sms')">
 				<div class="confirm_bt cf">
-					<div class="bt-icon"><img src="<?=NFE_URL;?>/images/cellPhone.png" alt="Дугаараар баталгаажуулах" width="15"></div>
-					<div class="bt-txt">Дугаараар баталгаажуулах</div>
+					<div class="bt-icon"><img src="<?=NFE_URL;?>/images/cellPhone.png" alt="휴대폰 인증" width="15"></div>
+					<div class="bt-txt">휴대폰 인증</div>
 				</div>
 			</a>
 			<?php }?>
@@ -81,18 +81,18 @@ if($env['use_adult']) {
 <input type="hidden" name="url" value="<?php echo urlencode($_SERVER['HTTP_REFERER']);?>"/>
 <input type="hidden" name="mb_type" value="individual"/>
 <section class="login_box cf">
-	<h2>Гишүүн нэвтрэх</h2>
+	<h2>회원 로그인</h2>
 	<div class="tabs cf">
 		<ul>
-			<li class="tab1 tab_bt" k="individual"><a href="#none;" class="active">Хувь хүн</a></li>
-			<li class="tab2 tab_bt" k="company"><a href="#none;">Байгууллага</a></li>
+			<li class="tab1 tab_bt" k="individual"><a href="#none;" class="active">개인회원</a></li>
+			<li class="tab2 tab_bt" k="company"><a href="#none;">기업회원</a></li>
 		</ul>
 	</div>
 	<div class="login_con cf">
 		<ul>
-			<li class="id"><label for="mb_id">ID</label><input type="text" id="mb_id" name="login_id" title="ID оруулах" required hname="ID" maxlength="41"></li>
-			<li class="pw"><label for="mb_pw">Нууц үг</label><input type="password" id="mb_pw" name="login_passwd" required hname="Нууц үг" title="Нууц үг оруулах" maxlength="16"></li>
-			<li class="login_bt"><button type="button" onClick="netfu_util1.member_logins()">Нэвтрэх</button></li>
+			<li class="id"><label for="mb_id">아이디</label><input type="text" id="mb_id" name="login_id" title="아이디 입력" required hname="아이디" maxlength="41"></li>
+			<li class="pw"><label for="mb_pw">비밀번호</label><input type="password" id="mb_pw" name="login_passwd" required hname="비밀번호" title="패스워드 입력" maxlength="16"></li>
+			<li class="login_bt"><button type="button" onClick="netfu_util1.member_logins()">로그인</button></li>
 			<!--
 			<li class="etc">
 				<ol>
