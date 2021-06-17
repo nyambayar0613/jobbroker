@@ -1,7 +1,7 @@
 <?php
 $editor_use = true;
 $menu_code = 'text';
-$head_title = $menu_text = '제휴문의';
+$head_title = $menu_text = 'Түншлэлийн лавлагаа';
 include_once "../include/top.php";
 
 $hphone_num = explode("-", $member['mb_hphone']);
@@ -27,10 +27,10 @@ var concert_submit = function() {
 .partner_con input[type="radio"]{width:20px;height:auto}
 </style>
 <section class="cont_box partner_con ">
-<h2>제휴문의</h2>
+<h2>Түншлэлийн лавлагаа</h2>
 <ol class="info3_con">
-	<li>· 성공적인 비즈니스 사업을 위하여 귀사의 소중한 의견이나 제안을 받습니다.</li>
-	<li>· 한번 등록한 내용은 수정이 불가능합니다.</li>
+	<li>· Бизнесийн үйл ажиллагааг амжилттай явуулах талаар таны үнэтэй санал, зөвлөмжийг бид хүлээж авах болно.</li>
+	<li>· Бүртгүүлсний дараа засварлах боломжгүй.</li>
 </ol>
 
 <form name="fwrite" action="<?=NFE_URL;?>/regist.php" method="post">
@@ -40,7 +40,7 @@ var concert_submit = function() {
 <ul class="info_con">
 	<li class="row1">
 		<fieldset>
-			<legend>제휴문의<span class="check"></span></legend>
+			<legend>Түншлэлийн лавлагаа<span class="check"></span></legend>
 			<ul>
 				<?php
 				$count = 0;
@@ -55,74 +55,74 @@ var concert_submit = function() {
 		</fieldset>
 	</li>
 	<li class="row2">
-	<label for="manager">담당자명<span class="check"></span></label>
-		<input type="text" id="manager" name="wr_name" maxlength="41" hname="담당자명" required>
+	<label for="manager">Хариуцсан хүний нэр<span class="check"></span></label>
+		<input type="text" id="manager" name="wr_name" maxlength="41" hname="Хариуцагчын нэр" required>
 	</li>
 	<li class="row3">
-		<label for="company">회사명<span class="check"></span></label>
-		<input type="text" id="company" name="wr_biz_name" hname="회사명" required>
+		<label for="company">Байгууллагын нэр<span class="check"></span></label>
+		<input type="text" id="company" name="wr_biz_name" hname="Байгууллагын нэр" required>
 	</li>
 	<li class="row3">
 		<fieldset>
-		<legend>휴대폰<span class="check"></span></legend>
+		<legend>Утсаны дугаар<span class="check"></span></legend>
 			<select name="wr_hphone[]">
-				<option value="">국번</option>
+				<option value="">Улсын дугаар</option>
 				<?php echo $hp_num_option; ?>
 			</select>
-			<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_hphone[]" hname="휴대폰 앞자리" required value="<?php echo $hphone_num[1];?>" class="cel1 phone1">
-			<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_hphone[]" hname="휴대폰 뒷자리" required value="<?php echo $hphone_num[2];?>" class="cel2 ">
+			<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_hphone[]" hname="Эхний цифр" required value="<?php echo $hphone_num[1];?>" class="cel1 phone1">
+			<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_hphone[]" hname="Сүүлийн цифр" required value="<?php echo $hphone_num[2];?>" class="cel2 ">
 		</fieldset>
 	</li>
 	<li class="row4">
 		<fieldset>
-		<legend>전화번호</legend>
+		<legend>Хол</legend>
 			<select name="wr_phone[]">
-				<option value="">국번</option>
+				<option value="">Улсын дугаар</option>
 				<?php echo $tel_num_option; ?>
 			</select>
-		<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_phone[]" hname="전화번호 앞자리" value="<?php echo $phone_num[1];?>" class="tel1 phone2">
-		<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_phone[]" hname="전화번호 뒷자리" value="<?php echo $phone_num[2];?>" class="tel2 ">
+		<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_phone[]" hname="Эхний цифр" value="<?php echo $phone_num[1];?>" class="tel1 phone2">
+		<p>-</p><input type="tel" size="4" maxlength="4" id="" name="wr_phone[]" hname="Сүүлийн цифр" value="<?php echo $phone_num[2];?>" class="tel2 ">
 		</fieldset>
 	</li>
 	<li class="row_con">
-		<label for="business">주요사업<span class="check"></span></label>
+		<label for="business">Явуулдаг үйл ажиллагаа<span class="check"></span></label>
 		<input type="text" id="business" name="wr_biz">
 	</li>
 	<li class="row_con">
-		<label for="partner">제휴부분<span class="check"></span></label>
+		<label for="partner">Түншлэлийн хэсэг<span class="check"></span></label>
 			<input type="text" id="partner" name="wr_biz_type">
 		</li>
 		<li class="row5">
 			<fieldset>
-			<legend>이메일<span class="check"></legend>
-			<input type="tel" name="wr_email[]" hname="이메일" required value="<?php echo $mb_email[0];?>" class="email">
+			<legend>И-мэйл<span class="check"></legend>
+			<input type="tel" name="wr_email[]" hname="И-мэйл" required value="<?php echo $mb_email[0];?>" class="email">
 			<p>@</p><input type="tel" name="wr_email[]" id="mb_email_put" value="<?php echo $mb_email[1];?>" class="email">
 			<select onChange="netfu_util1.put_text(this, $('#mb_email_put'))">
-				<option value="">직접입력</option>
+				<option value="">мэйл</option>
 				<?php echo $email_option; ?>
 			</select>
 			</fieldset>
 		</li>
 		<li class="row6">
-			<label for="homepage">홈페이지</label>
+			<label for="homepage">Вэб сайт</label>
 			<p>http://</p><input type="text" id="homepage"  name="wr_site" value="<?php echo $utility->remove_http($member['mb_homepage']);?>" class="homepage">
 		</li>
 		<li class="row7">
-			<label for="title">제목<span class="check"></span></label>
-			<input type="text" id="title" name="wr_subject" hname="제목" required>
+			<label for="title">Гарчиг<span class="check"></span></label>
+			<input type="text" id="title" name="wr_subject" hname="Гарчиг" required>
 		</li>
 		<li class="row8">
-			내용<span class="check"></span>
-			<textarea type="editor" name="wr_content" hname="내용" required style="width:100%;height:200px;"></textarea>
+			Агуулга<span class="check"></span>
+			<textarea type="editor" name="wr_content" hname="Агуулга" required style="width:100%;height:200px;"></textarea>
 		</li>
 		<?php
 		if(!$member['mb_id']) {
 		?>
 		<li class="row9">
-			<label for="capcha">자동등록방지</label>
+			<label for="capcha">Автомат бүртгэлээс сэргийлэх</label>
 			<div class="capcha_group">
 			<div><span class="reply_rand_text"><img src="<?=NFE_URL;?>/include/rand_text.php" /></span></div>
-				<input type="text" name="wr_key" hname="자동등록방지" required><p>자동등록방지 숫자를 입력하세요.</p>
+				<input type="text" name="wr_key" hname="Автомат бүртгэлээс сэргийлэх" required><p>Автомат бүртгэлээс урьдчилан сэргийлэхийн тулд дугаараа оруулна уу.</p>
 			<div>
 		</li>
 		<?php }?>
@@ -131,7 +131,7 @@ var concert_submit = function() {
 </section>
 
 <div class="button_con">
-<a href="#none;" onClick="concert_submit()" class="bottom_btn01">등록하기</a><a href="#" class="bottom_btn02">돌아가기</a>
+<a href="#none;" onClick="concert_submit()" class="bottom_btn01">Бүртгүүлэх</a><a href="#" class="bottom_btn02">Орох</a>
 </div>
 
 <?php
