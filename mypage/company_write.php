@@ -41,38 +41,38 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 <input type="hidden" name="mode" value="company_write" />
 <input type="hidden" name="no" value="<?=$_GET['no'];?>" />
 <section class="cont_box add1_info">
-<h2>기업정보 추가</h2>
+<h2>Байгууллагын мэдээлэл нэмэх</h2>
 	<ul class="info3_con">
 
 		<li class="row1">
-			<label for="logo_bx">회사로고<span class="check"></span></label>
+			<label for="logo_bx">Байгууллагын лого<span class="check"></span></label>
 			<div class="logo_pic">
 				<div class="logo_bx"><img src="<?=$company_logo;?>" alt="No Image"></div>
 				<div class="bt_group">
-					<div><input type="file" name="mb_logo" hname="회사로고" onChange="netfu_util1.filesize_check(this, '100')"></div>
-					<p>gif, jpg, png 파일형식으로, 135×65픽셀 이하, 100kb이내의 파일만 등록 가능합니다.</p>
+					<div><input type="file" name="mb_logo" hname="Байгууллагын лого" onChange="netfu_util1.filesize_check(this, '100')"></div>
+					<p>gif, jpg, png format, 135 × 65 пикселээс бага, 100кб-аас бага файлыг бүртгэх боломжтой.</p>
 				</div>
 			</div>
 		</li>
 		<li class="row3">
-			<label for="company_name">회사명<span class="check"></span></label>
-			<input type="text" id="company_name" name="mb_company_name" value="<?php echo $get_company['mb_company_name'];?>" hname="회사/점포명" required>
+			<label for="company_name">Байгууллагын нэр<span class="check"></span></label>
+			<input type="text" id="company_name" name="mb_company_name" value="<?php echo $get_company['mb_company_name'];?>" hname="Байгууллага/Jump нэр" required>
 		</li>
 		<li class="row2">
-			<label for="ceo_name">대표자명<span class="check"></span></label>
-			<input type="text" id="ceo_name" name="mb_ceo_name" value="<?php echo $get_company['mb_ceo_name'];?>" hname="대표자명" required>
+			<label for="ceo_name">Хариуцсан хүний нэр<span class="check"></span></label>
+			<input type="text" id="ceo_name" name="mb_ceo_name" value="<?php echo $get_company['mb_ceo_name'];?>" hname="Хариуцсан хүний нэр" required>
 		</li>
 		<li class="row4">
-			<label for="classify">회사분류<span class="check"></span></label>
-			<select id="classify" name="mb_biz_type" title="회사분류 선택" required hname="회사분류" option="select">
-				<option value="">회사분류 선택</option>
+			<label for="classify">Байгууллагын төрөл<span class="check"></span></label>
+			<select id="classify" name="mb_biz_type" title="Байгууллагын төрөл сонгох" required hname="Байгууллагын төрөл" option="select">
+				<option value="">Байгууллагын төрөл сонгох</option>
 				<?php echo $biz_type_option; ?>
 			</select>
 		</li>
 		<li class="row5">
 			<fieldset>
-				<legend>전화번호<span class="check"></span></legend>
-				<select name="mb_biz_phone[]" title="지역번호 선택" required hname="지역번호">
+				<legend>Холбогдох дугаар<span class="check"></span></legend>
+				<select name="mb_biz_phone[]" title="Сонгох" required hname="Улсын дугаар">
 					<?php echo $phone_num_option; ?>
 				</select>
 				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_phone[]" required hname="전화번호 앞자리" value="<?php echo $mb_biz_phone[1];?>" class="tel1 phone2">
@@ -81,8 +81,8 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 		</li>
 		<li class="row6">
 			<fieldset>
-			<legend>휴대폰</legend>
-				<select name="mb_biz_hphone[]" title="휴대폰 국번">
+			<legend>Утасны дугаар</legend>
+				<select name="mb_biz_hphone[]" title="Сонгох">
 				<?php echo $hphone_num_option; ?>
 				</select>
 				<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_hphone[]" hname="휴대폰 앞자리" value="<?php echo $mb_biz_hphone[1];?>" class="cel1 phone1">
@@ -104,12 +104,12 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 			<input type="hidden" name="map_latlng[]" value="<?=$map_latlng[0];?>" />
 			<input type="hidden" name="map_latlng[]" value="<?=$map_latlng[1];?>" />
 			<fieldset>
-				<legend>주소<span class="check"></span></legend>
-				<input type="text" size="4" maxlength="4" id="mb_doro_post" name="mb_doro_post" readonly required hname="도로명" value="<?php echo $get_company['mb_biz_doro_post'];?>" class="post">
-				<input type="text" maxlength="" name="mb_address0" id="mb_address0" required hname="주소" value="<?php echo $get_company['mb_biz_address0'];?>"  class="address1">
-				<button type="botton" class="form_bt form_bt2" onClick="post_click(); return false;">우편번호</button>
+				<legend>Хаяг<span class="check"></span></legend>
+				<input type="text" size="4" maxlength="4" id="mb_doro_post" name="mb_doro_post" readonly required hname="Гудамжны нэр" value="<?php echo $get_company['mb_biz_doro_post'];?>" class="post">
+				<input type="text" maxlength="" name="mb_address0" id="mb_address0" required hname="Хаяг" value="<?php echo $get_company['mb_biz_address0'];?>"  class="address1">
+				<button type="botton" class="form_bt form_bt2" onClick="post_click(); return false;">Шуудангын дугаар</button>
 				<div class="cf">
-				<input type="text" name="mb_address1" required hname="상세주소" value="<?php echo $get_company['mb_biz_address1'];?>" class="address2" placeholder="상세주소를 입력하세요.">
+				<input type="text" name="mb_address1" required hname="Дэлгэрэнгүй хаяг" value="<?php echo $get_company['mb_biz_address1'];?>" class="address2" placeholder="Дэлгэрэнгүй хаяг оруулна уу.">
 				</div>
 			</fieldset>
 		</li>
@@ -121,16 +121,16 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 			$_required = $v['etc_0']==1 ? 'required' : '';
 
 			switch($v['name']) {
-				case "사업자등록번호":
+				case "Компанийн бүртгэлийн дугаар":
 		?>
 		<li class="row8">
 			<fieldset>
 				<legend>사업자번호<?=$_check;?></legend>
-				<input type="text" name="mb_biz_no[]" hname="사업자번호" <?=$_required;?> value="<?=$biz_no[0];?>">
+				<input type="text" name="mb_biz_no[]" hname="Компанийн бүртгэлийн дугаар" <?=$_required;?> value="<?=$biz_no[0];?>">
 				<p>-</p>
-				<input type="text" name="mb_biz_no[]" hname="사업자번호" <?=$_required;?> value="<?=$biz_no[1];?>">
+				<input type="text" name="mb_biz_no[]" hname="Компанийн бүртгэлийн дугаар" <?=$_required;?> value="<?=$biz_no[1];?>">
 				<p>-</p>
-				<input type="text" name="mb_biz_no[]" hname="사업자번호" <?=$_required;?> value="<?=$biz_no[2];?>">
+				<input type="text" name="mb_biz_no[]" hname="Компанийн бүртгэлийн дугаар" <?=$_required;?> value="<?=$biz_no[2];?>">
 			</fieldset>
 		</li>
 		<?php
@@ -138,15 +138,15 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "팩스번호":
+				case "Факсын дугаар":
 		?>
 		<li class="row9">
-			<legend>팩스번호<?=$_check;?></legend>
-			<select name="mb_biz_fax[]" hname="팩스번호">
+			<legend>Факсын дугаар<?=$_check;?></legend>
+			<select name="mb_biz_fax[]" hname="Факсын дугаар">
 			<?=$fax_num_option;?>
 			</select>
-			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_fax[]" hname="팩스번호" <?=$_required;?> value="<?=$biz_fax[1];?>" class="fax1 phone2">
-			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_fax[]" hname="팩스번호" <?=$_required;?> value="<?=$biz_fax[2];?>" class="fax2 ">
+			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_fax[]" hname="Факсын дугаар" <?=$_required;?> value="<?=$biz_fax[1];?>" class="fax1 phone2">
+			<p>-</p><input type="tel" size="4" maxlength="4" name="mb_biz_fax[]" hname="Факсын дугаар" <?=$_required;?> value="<?=$biz_fax[2];?>" class="fax2 ">
 			</fieldset>
 		</li>
 		<?php
@@ -154,11 +154,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "홈페이지주소":
+				case "Вэб сайт":
 		?>
 		<li class="row10">
-			<label for="homepage">홈페이지<?=$_check;?></label>
-			<span>http://</span><input type="text" name="mb_homepage" hname="홈페이지주소" <?=$_required;?> value="<?=$utility->remove_http($mb_homepage);?>" class="">
+			<label for="homepage">Вэб сайт<?=$_check;?></label>
+			<span>http://</span><input type="text" name="mb_homepage" hname="Вэб сайт" <?=$_required;?> value="<?=$utility->remove_http($mb_homepage);?>" class="">
 		</li>
 		<?php
 					break;
@@ -166,15 +166,15 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "이메일":
+				case "И-мэйл":
 		?>
 		<li class="row11">
 		<fieldset>
-			<legend>이메일<?=$_check;?></legend>
-			<input type="text" name="mb_email[]" hname="이메일" <?=$_required;?> value="<?=$mb_email[0];?>" class="email" hname="이메일" >
-			<p>@</p><input type="text" name="mb_email[]" hname="이메일" value="<?=$mb_email[1];?>" id="mb_email_put" class="email" hname="이메일" >
+			<legend>И-мэйл<?=$_check;?></legend>
+			<input type="text" name="mb_email[]" hname="И-мэйл" <?=$_required;?> value="<?=$mb_email[0];?>" class="email" hname="И-мэйл" >
+			<p>@</p><input type="text" name="mb_email[]" hname="И-мэйл" value="<?=$mb_email[1];?>" id="mb_email_put" class="email" hname="И-мэйл" >
 			<select onChange="netfu_util1.put_text(this, $('#mb_email_put'))">
-			<option value="">직접입력</option>
+			<option value="">мэйл</option>
 			<?=$email_option;?>
 			</select>
 		</fieldset>
@@ -184,12 +184,12 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "상장여부":
+				case "Жагсаалтанд орсон эсэх":
 		?>
 		<li class="row12">
-			<label for="listed">상장여부<?=$_check;?></label>
-			<select id="listed" name="mb_biz_success" hname="상장여부" <?=$_required;?>>
-				<option value="">상장여부 선택</option>
+			<label for="listed">Жагсаалтанд орсон эсэх<?=$_check;?></label>
+			<select id="listed" name="mb_biz_success" hname="Жагсаалтанд орсон эсэх" <?=$_required;?>>
+				<option value="">Сонгох</option>
 				<?=$biz_success_option;?>
 			</select>
 		</li>
@@ -199,12 +199,12 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "기업형태":
+				case "Байгууллагын хэлбэр":
 		?>
 		<li class="row13">
-			<label for="type">기업형태<?=$_check;?></label>
-			<select id="type" name="mb_biz_form" hname="기업형태" <?=$_required;?>>
-				<option value="">기업형태 선택</option>
+			<label for="type">Байгууллагын хэлбэр<?=$_check;?></label>
+			<select id="type" name="mb_biz_form" hname="Байгууллагын хэлбэр" <?=$_required;?>>
+				<option value="">Сонгох</option>
 				<?=$biz_form_option;?>
 			</select>
 		</li>
@@ -214,11 +214,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "주요사업내용":
+				case "Бизнесийн үндсэн мэдээлэл":
 		?>
 		<li class="row14">
-			<label for="business">주요사업내용<?=$_check;?></label>
-			<input type="text" id="business" name="mb_biz_content" hname="주요사업내용" <?=$_required;?> value="<?=$get_company['mb_biz_content'];?>" />
+			<label for="business">Бизнесийн үндсэн мэдээлэл<?=$_check;?></label>
+			<input type="text" id="business" name="mb_biz_content" hname="Бизнесийн үндсэн мэдээлэл" <?=$_required;?> value="<?=$get_company['mb_biz_content'];?>" />
 		</li>
 		<?php
 					break;
@@ -226,22 +226,22 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "설립연도":
+				case "Байгуулагдсан он":
 		?>
 		<li class="row15">
-			<label for="f_year">설립년도<?=$_check;?></label>
-			<select id="f_year" name="mb_biz_foundation" hname="설립년도" <?=$_required;?>>
-				<option value="">선택</option>
+			<label for="f_year">Байгуулагдсан он<?=$_check;?></label>
+			<select id="f_year" name="mb_biz_foundation" hname="Байгуулагдсан он" <?=$_required;?>>
+				<option value="">Сонгох</option>
 				<?php
 				$foundation_option = "";
 				for($i=date('Y');$i>=1900;--$i){
 					$selected = ($get_company['mb_biz_foundation']==$i) ? 'selected' : '';
-					$foundation_option .= "<option value='".$i."' ".$selected.">".$i." 년</option>";
+					$foundation_option .= "<option value='".$i."' ".$selected.">".$i." жил</option>";
 				}
 				?>
 				<?=$foundation_option;?>
 			</select>
-			설립
+            Байгуулагдсан он
 		</li>
 		<?php
 					break;
@@ -249,11 +249,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "사원수":
+				case "Ажилчдын тоо":
 		?>
 		<li class="row16">
-			<label for="employee">사원수<?=$_check;?></label>
-			<input type="text" id="employee" name="mb_biz_member_count" hname="사원수" <?=$_required;?> value="<?=$get_company['mb_biz_member_count'];?>" hname="사원수">명
+			<label for="employee">Ажилчдын тоо<?=$_check;?></label>
+			<input type="text" id="employee" name="mb_biz_member_count" hname="Ажилчдын тоо" <?=$_required;?> value="<?=$get_company['mb_biz_member_count'];?>" hname="Ажилчдын тоо">хүн
 		</li> 
 		<?php
 					break;
@@ -261,11 +261,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "자본금":
+				case "Үндсэн хөрөнгө":
 		?>
 		<li class="row17">
-			<label for="capital">자본금<?=$_check;?></label>
-			<input type="text" id="capital" name="mb_biz_stock" hname="자본금" <?=$_required;?> value="<?=$get_company['mb_biz_stock'];?>" hname="자본금" /> 
+			<label for="capital">Үндсэн хөрөнгө<?=$_check;?></label>
+			<input type="text" id="capital" name="mb_biz_stock" hname="Үндсэн хөрөнгө" <?=$_required;?> value="<?=$get_company['mb_biz_stock'];?>" hname="Үндсэн хөрөнгө" />
 		</li>
 		<?php
 					break;
@@ -273,11 +273,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "매출액":
+				case "Ашиг":
 		?>
 		<li class="row18">
-			<label for="sales">매출액<?=$_check;?></label>
-			<input type="text" id="sales" name="mb_biz_sale" hname="매출액" <?=$_required;?> value="<?=$get_company['mb_biz_sale'];?>" hname="매출액">원
+			<label for="sales">Ашиг<?=$_check;?></label>
+			<input type="text" id="sales" name="mb_biz_sale" hname="Ашиг" <?=$_required;?> value="<?=$get_company['mb_biz_sale'];?>" hname="Ашиг">төгрөг
 		</li> 
 		<?php
 					break;
@@ -285,11 +285,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "기업개요 및 비전":
+				case "Компанийн тойм, алсын хараа":
 		?>
 		<li class="row19">
-			기업개요 및 비전<?=$_check;?>
-			<textarea type="editor" name="mb_biz_vision" rows="9" hname="기업개요 및 비전" <?=$_required;?>><?=stripslashes($get_company['mb_biz_vision']);?></textarea>
+            Компанийн тойм, алсын хараа<?=$_check;?>
+			<textarea type="editor" name="mb_biz_vision" rows="9" hname="Компанийн тойм, алсын хараа" <?=$_required;?>><?=stripslashes($get_company['mb_biz_vision']);?></textarea>
 		</li> 
 		<?php
 					break;
@@ -297,11 +297,11 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 
 
 
-				case "기업연혁 및 실적":
+				case "Компанийн түүх, гүйцэтгэл":
 		?>
 		<li class="row20">
-			기업연혁 및 실적<?=$_check;?>
-			<textarea type="editor" name="mb_biz_result" rows="9" hname="기업연혁 및 실적" <?=$_required;?>><?=stripslashes($get_company['mb_biz_result']);//$utility->make_cheditor('mb_biz_result',stripslashes($get_company['mb_biz_result']))?></textarea>
+            Компанийн түүх, гүйцэтгэл<?=$_check;?>
+			<textarea type="editor" name="mb_biz_result" rows="9" hname="Компанийн түүх, гүйцэтгэл" <?=$_required;?>><?=stripslashes($get_company['mb_biz_result']);//$utility->make_cheditor('mb_biz_result',stripslashes($get_company['mb_biz_result']))?></textarea>
 		</li> 
 		<?php
 					break;
@@ -314,7 +314,7 @@ $biz_form_option = $config->get_biz_form($get_company['mb_biz_form']);	// 기업
 </section>
 
 <div class="button_con">
-	<a href="#none;" class="bottom_btn01" onClick="netfu_util1.ajax_submit(document.forms['fwrite'])">저장</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">취소</a>
+	<a href="#none;" class="bottom_btn01" onClick="netfu_util1.ajax_submit(document.forms['fwrite'])">Хадгалах</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">Цуцлах</a>
 </div>
 </form>
 
