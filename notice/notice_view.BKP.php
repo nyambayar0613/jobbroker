@@ -26,7 +26,7 @@ $n_row = sql_fetch("select * from alice_notice where `no`='".addslashes($_GET['n
 
 <div class="button-group view_bt">
 	<ul>
-		<li><a href="<?=NFE_URL;?>/notice/notice_list.php?<?=$netfu_util->session_get('notice_list');?>">Жагсаалтууд үзэх</a></li>
+		<li><a href="<?=NFE_URL;?>/notice/notice_list.php?<?=$netfu_util->session_get('notice_list');?>">Жагсаалт үзэх</a></li>
 	</ul>
 </div>
 </section>
