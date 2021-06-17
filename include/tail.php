@@ -1,10 +1,10 @@
 <!-- 공지사항 -->
 <?php
 
-include NFE_PATH."/include/job_detail.box.php";
-include NFE_PATH."/include/resume_detail.box.php";
+//include NFE_PATH."/include/job_detail.box.php";
+//include NFE_PATH."/include/resume_detail.box.php";
 
-include NFE_PATH.'/include/inc/notice.inc.php';
+//include NFE_PATH.'/include/inc/notice.inc.php';
 
 
 
