@@ -1,6 +1,6 @@
 <?php
 $menu_code = 'text';
-$menu_text = '광고안내';
+$menu_text = 'Зар сурталчилгааны мэдээлэл';
 $head_title = $_GET['code']=='individual' ? '개인회원 서비스 광고안내' : '기업회원 서비스 광고안내';
 include_once "../include/top.php";
 
@@ -22,10 +22,10 @@ $pack_length = mysql_num_rows($pack_query);
 <div class="guide_tab cf">
 	<ul>
 		<li class="tab-1">
-			<a href="<?=NFE_URL;?>/etc/adver.php" class="<?=!$_GET['code'] ? 'active' : '';?>">기업회원 서비스</a>
+			<a href="<?=NFE_URL;?>/etc/adver.php" class="<?=!$_GET['code'] ? 'active' : '';?>">Байгууллага</a>
 		</li>
 		<li class="tab-2">
-			<a href="<?=NFE_URL;?>/etc/adver.php?code=individual" class="<?=$_GET['code']=='individual' ? 'active' : '';?>">개인회원 서비스</a>
+			<a href="<?=NFE_URL;?>/etc/adver.php?code=individual" class="<?=$_GET['code']=='individual' ? 'active' : '';?>">Хувь хүн</a>
 		</li>
 	</ul>
 </div>
@@ -36,7 +36,7 @@ $pack_length = mysql_num_rows($pack_query);
 if($pack_length>0) {
 ?>
 	<article>
-		<h2><span>패키지상품</span></h2>
+		<h2><span>Package бүтээгдэхүүн</span></h2>
 		<?php
 		while($pack_row=sql_fetch_array($pack_query)) {
 			$wr_content = unserialize($pack_row['wr_content']);
@@ -59,7 +59,7 @@ if($pack_length>0) {
 				<li class="box-info2 cf">
 					<ul>
 					  <li>=</li>
-						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>원</li>
+						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>төгрөг</li>
 					</ul>
 				</li>
 			</ul>
@@ -70,7 +70,7 @@ if($pack_length>0) {
 }?>
 
 <article>
-		<h2><span>서비스 상품</span></h2>
+		<h2><span>Servise бүтээгдэхүүн</span></h2>
 		<?php
 		if(is_array($service_control->service_lists)) { foreach($service_control->service_lists as $k=>$v) {
 			$service_key = $_GET['code']=='individual' ? 'alba_resume_' : 'main_';
@@ -91,7 +91,7 @@ if($pack_length>0) {
 				if(!$alba_option['is_pay']) continue;
 		?>
 		<div class="item_box cf">
-			<h3><?=$v2['name'];?> <?=$_GET['code']=='individual' ? '' : '구인정보';?></h3>
+			<h3><?=$v2['name'];?> <?=$_GET['code']=='individual' ? '' : 'Ажлын байрны мэдээлэл';?></h3>
 			<ul>
 				<li class="box-info1 cf">
 	<p>
@@ -105,10 +105,10 @@ if($pack_length>0) {
 				?>
 				<li class="box-info2 cf">
 					<ul>
-						<li class="item_info1">오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
+						<li class="item_info1">Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
 						<li class="item_info2"><?php if($val['service_price']>0 && $val['service_percent']>0) echo $val['service_price'];?><li>
 						<li class="item_info3"><?php if($val['service_percent']>0) {?>(<em><?=$val['service_percent'];?>%↓</em>)<?php }?></li>
-						<li class="item_info4"><?=$_sale_price>0 ? number_format($_sale_price).'원' : '무료';?></li>
+						<li class="item_info4"><?=$_sale_price>0 ? number_format($_sale_price).'төгрөг' : 'үнэгүй';?></li>
 					</ul>
 				</li>
 				<?php
@@ -127,11 +127,11 @@ if($pack_length>0) {
 $service_key = $_GET['code']=='individual' ? 'resume_option' : 'alba_option';
 $option_service_arr = $service_control->service_lists[$service_key];
 $option_array = array(
-	'busy'=>array('name'=>'급구', 'option'=>array('busy')),
-	'strong'=>array('name'=>'강조옵션', 'option'=>array('neon', 'bold', 'icon', 'color', 'blink')),
-	'jump'=>array('name'=>'점프', 'option'=>array('jump')),
-	'open'=>array('name'=>($service_key=='resume_option' ? '채용정보 열람' : '이력서 열람'), 'option'=>array('open')),
-	//'sms'=>array('name'=>'SMS충전', 'option'=>array('sms')),
+	'busy'=>array('name'=>'Яаралтай', 'option'=>array('busy')),
+	'strong'=>array('name'=>'Highlight option', 'option'=>array('neon', 'bold', 'icon', 'color', 'blink')),
+	'jump'=>array('name'=>'Jump', 'option'=>array('jump')),
+	'open'=>array('name'=>($service_key=='resume_option' ? 'Ажлын мэдээллийг үзэх' : 'Анкет үзэх'), 'option'=>array('open')),
+	//'sms'=>array('name'=>'SMS цэнэглэх', 'option'=>array('sms')),
 );
 if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 
@@ -139,29 +139,29 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 	ob_start();
 ?>
 <article>
-		<h2><span><?=$v['name'];?> 서비스</span></h2>
+		<h2><span><?=$v['name'];?> Үйлчилгээ</span></h2>
 
 		<?php
 		if(is_array($v['option'])) { foreach($v['option'] as $k2=>$v2) {
 			$_part = in_array($v2, array('open', 'sms', 'alba')) ? 'etc' : $service_key;
 
-			// : 이력서 열람, SMS 충전
+			// : Анкет үзэх, SMS цэнэглэх
 			if(in_array($k, array('open', 'sms', 'alba'))) {
 				if($k=='open') $__service_key = 'etc_'.($service_key=='alba_option' ? 'open' : 'alba');
 				else $__service_key = 'etc_'.$k;
 				$__content_key = $__service_key;
 				if(in_array($k, array('open'))) $__content_key = ($service_key=='alba_option' ? 'resume' : 'alba').'_'.$k;
 				if(in_array($k, array('sms'))) $__content_key = $service_key=='alba_option' ? 'etc_alba_sms' : 'etc_resume_sms';
-				$service_option_array = $service_control->service_check($__service_key);	// 알바 급구 옵션
-				$service_list = $service_control->__ServiceList($service_option_array['service']);	// 알바 급구 서비스 리스트
+				$service_option_array = $service_control->service_check($__service_key);	// Яаралтай цагийн ажил
+				$service_list = $service_control->__ServiceList($service_option_array['service']);	// Яаралтай үйлчилгээний жагсаалт
 
 			// : 그외
 			} else {
 				$__service_key = $service_key.'_'.$v2;
 				if(in_array($k, array('busy'))) $__content_key = 'main_'.$k;
 				if(in_array($k, array('jump'))) $__content_key = preg_replace("/_option/", "", $service_key).'_'.$k;
-				$service_option_array = $service_control->service_check($__service_key);	// 알바 급구 옵션
-				$service_list = $service_control->__ServiceList($service_option_array['service']);	// 알바 급구 서비스 리스트
+				$service_option_array = $service_control->service_check($__service_key);	// Яаралтай цагийн ажил
+				$service_list = $service_control->__ServiceList($service_option_array['service']);	// Яаралтай үйлчилгээний жагсаалт
 			}
 
 			if(!$service_option_array['is_pay']) continue;
@@ -202,19 +202,19 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 						switch($v2) {
 							case 'icon':
 					?>
-					<img src="<?=NFE_URL;?>/data/icon/<?=$v3['name'];?>" alt="아이콘<?=$k3;?>"></label>
+					<img src="<?=NFE_URL;?>/data/icon/<?=$v3['name'];?>" alt="Айкон<?=$k3;?>"></label>
 					<?php
 								break;
 
 							case 'color':
 					?>
-					<em style="color:#<?=$v3;?>;">글자색</em>
+					<em style="color:#<?=$v3;?>;">Текстын өнгө</em>
 					<?php
 								break;
 
 							case 'neon':
 					?>
-					<em style="color:#fff; background:#<?=$v3;?>;">형광펜</em>
+					<em style="color:#fff; background:#<?=$v3;?>;">Тодруулга</em>
 					<?php
 								break;
 						}
@@ -230,14 +230,14 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 				if(is_array($service_list)) {
 					foreach($service_list as $val){
 						$_sale_price = $netfu_util->sale_price($val['service_percent'], $val['service_price']);
-						$_txt = $val['etc_3'] ? number_format($val['etc_3']).'건' : '오늘+'.$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);
+						$_txt = $val['etc_3'] ? number_format($val['etc_3']).'төрөл' : 'Өнөөдөр+'.$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);
 				?>
 				<li class="box-info2 cf">
 					<ul>
 						<li class="item_info1"><?=$_txt;?></li>
 						<li class="item_info2"><?php if($val['service_price']>0 && $val['service_percent']>0) echo number_format($val['service_price']);?><li>
 						<li class="item_info3"><?php if($val['service_percent']>0) {?>(<em><?=$val['service_percent'];?>%↓</em>)<?php }?></li>
-						<li class="item_info4"><?=$_sale_price>0 ? number_format($_sale_price).'원' : '무료';?></li>
+						<li class="item_info4"><?=$_sale_price>0 ? number_format($_sale_price).'төгрөг' : 'үнэгүй';?></li>
 					</ul>
 				</li>
 				<?php
@@ -264,7 +264,7 @@ else {
 ?>
 
 <div class="ad_bt_wrap">
-  <a href="<?=$_move;?>" class="ad_btn">광고신청하기</a>
+  <a href="<?=$_move;?>" class="ad_btn">Зар сурталчилгаанд хамрагдах</a>
 </div>
 
 </section>
