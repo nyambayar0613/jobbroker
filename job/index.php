@@ -15,6 +15,19 @@ include_once "../include/top.php";
 $job_where = $netfu_mjob->job_search_func();
 ?>
 
+<!-- JOB LIST START -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center mb-4 pb-2">
+                    <h4 class="title title-line pb-5">Available job for you</h4>
+                    <p class="text-muted para-desc mx-auto mb-1">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+                </div>
+            </div>
+        </div>
+
+
 
 <!-- хайх -->
 <?php
@@ -62,3 +75,6 @@ include NFE_PATH.'/include/inc/banner.inc.php';
 include "../include/job_detail.box.php";
 include "../include/tail.php";
 ?>
+
+    </div>
+</section>

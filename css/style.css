@@ -138,8 +138,8 @@ header .wrap_bg{display:block;background:url('../images/nav_bg.png') repeat 100%
 
 
 /*** MAIN ***/
-section{float:left;width:100%;background:#fff;border-bottom:1px solid #dee3eb;border-top:1px solid #4572a5;margin-bottom:10px;box-shadow: 0px 1px 1px rgba(222,227,235,0.8);}
-section h2{position:relative;font:normal 15px/44px 'NG_B';letter-spacing:-0.05em;padding:0 2%;height:44px ;border-bottom:1px solid #dee3eb;top:1px}
+/*section{float:left;width:100%;background:#fff;border-bottom:1px solid #dee3eb;border-top:1px solid #4572a5;margin-bottom:10px;box-shadow: 0px 1px 1px rgba(222,227,235,0.8);}
+section h2{position:relative;font:normal 15px/44px 'NG_B';letter-spacing:-0.05em;padding:0 2%;height:44px ;border-bottom:1px solid #dee3eb;top:1px}*/
 
 /* 박스 - 공통 */
 .cont_box ul li{float:left;position:relative;width:100%;border:1px solid #dee3eb;border-top:0;border-left:0;background:#fff}
@@ -481,10 +481,10 @@ background:#fff;text-shadow:0px 1px 1px #fff;font-family:'NG_B';font-size:.9em;c
 
 /* 상세검색 테이블 */
 .schbox_wrap{margin-top:0;margin-bottom:10px;}
-.sch_wrap{border-bottom:1px solid #dee3eb}
+/*.sch_wrap{border-bottom:1px solid #dee3eb}*/
 .search_box{float:left;height:auto;padding:10px 10px;background:#fff;}
 .search_con .search_tb{float:left;width:100%;border-collapse:collapse;border:1px solid #ccc;background:#fff;}
-.search_con .search_tb .sch_hd{width:70px;height:30px;line-height:30px;background:#f6fbff;border-top:1px solid #dee3eb;border-right:1px solid #dee3eb;padding:0 8px;text-align:left}
+.search_con .search_tb .sch_hd{/*width:70px;height:30px;line-height:30px;*/background:#f6fbff;border-top:1px solid #dee3eb;border-right:1px solid #dee3eb;padding:0 8px;text-align:left}
 .search_con .search_tb .sch_hd > div{width:100%;padding:0;}
 .search_con .search_tb td {border-top:1px solid #dee3eb;border-left:1px solid #dee3eb}
 .search_con .search_tb td:first-child{border-left:0}

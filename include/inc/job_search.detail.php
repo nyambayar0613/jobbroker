@@ -29,28 +29,26 @@ if($_GET['code']!='search') {
 		<!-- 근무지역 -->
 		<tr class="_view">
 			<th class="sch_hd">
-				<div>Ажлын байршил</div>
+				Ажлын барйшил
 			</th>
 			<td class="sch_td1">
-				<select name="area[]" sel="1" class="form-control" type="area" val="<?=$_GET['area'][1];?>" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
+				<select name="area[]" sel="1" class="nice-select rounded" type="area" val="<?=$_GET['area'][1];?>" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
 				<option value="">хот·дүүрэг</option>
 				<?php
 				if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
 					$selected = $v['code']==$_GET['area'][0] ? 'selected' : '';
 				?>
 				<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
-				<?php
-				} }
-				?>
+				<?php } } ?>
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="area[]" sel="2" class="form-control" type="area" this="<?=$_GET['area'][1];?>" val="<?=$_GET['area'][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)">
+				<select name="area[]" sel="2" class="nice-select rounded" type="area" this="<?=$_GET['area'][1];?>" val="<?=$_GET['area'][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)">
 				<option value="">хороо·гудамж·тоот</option>
 				</select>
 			</td>
 			<td class="sch_td3">
-				<select name="area[]">
+				<select name="area[]" class="nice-select rounded">
 				<option value="">хороо·гудамж·тоот</option>
 				</select>
 			</td>
@@ -62,7 +60,7 @@ if($_GET['code']!='search') {
 				<div>Ажлын төрөл</div>
 			</th>
 			<td class="sch_td1">
-				<select name="job_type[]" sel="1" class="form-control" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
+				<select name="job_type[]" sel="1" class="nice-select rounded" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
 				<option value="">Төрөл 1</option>
 				<?php
 				if(is_array($_cate_['job_type'])) { foreach($_cate_['job_type'] as $k=>$v) {
@@ -75,12 +73,12 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="job_type[]" sel="2" class="form-control" type="job_type" this="<?=$_GET['job_type'][1];?>" val="<?=$_GET['job_type'][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)">
+				<select name="job_type[]" sel="2" class="nice-select rounded" type="job_type" this="<?=$_GET['job_type'][1];?>" val="<?=$_GET['job_type'][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)">
 				<option value="">Төрөл 2</option>
 				</select>
 			</td>
 			<td class="sch_td3">
-				<select name="job_type[]">
+				<select name="job_type[]" class="nice-select rounded">
 				<option value="">Төрөл 3</option>
 				</select>
 			</td>
@@ -92,7 +90,7 @@ if($_GET['code']!='search') {
 				<div>Ойролцоох метроны буудал</div>
 			</th>
 			<td class="sch_td1">
-				<select name="subway[]" sel="1" class="form-control" type="subway" val="<?=$_GET['subway'][1];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)">
+				<select name="subway[]" sel="1" class="nice-select rounded" type="subway" val="<?=$_GET['subway'][1];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)">
 				<option value="">хот/дүрэг</option>
 				<?php
 				if(is_array($_cate_['subway'])) { foreach($_cate_['subway'] as $k=>$v) {
@@ -105,7 +103,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2">
-				<select name="subway[]" sel="2" class="form-control" type="subway" this="<?=$_GET['subway'][1];?>" val="<?=$_GET['subway'][2];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)">
+				<select name="subway[]" sel="2" class="nice-select rounded" type="subway" this="<?=$_GET['subway'][1];?>" val="<?=$_GET['subway'][2];?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)">
 				<option value="">гарц</option>
 				</select>
 			</td>
@@ -122,7 +120,7 @@ if($_GET['code']!='search') {
 				<div>Их сургууль</div>
 			</th>
 			<td class="sch_td1">
-				<select name="job_college[]" sel="1" class="form-control" type="job_college" val="<?=$_GET['job_college'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)">
+				<select name="job_college[]" sel="1" class="nice-select rounded" type="job_college" val="<?=$_GET['job_college'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)">
 				<option value="">хот·дүүрэг</option>
 				<?php
 				if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
@@ -135,7 +133,7 @@ if($_GET['code']!='search') {
 				</select>
 			</td>
 			<td class="sch_td2" colspan="2">
-				<select name="job_college[]" sel="2" class="form-control" type="job_college" val="<?=$_GET['job_college'][2];?>">
+				<select name="job_college[]" sel="2" class="nice-select rounded" type="job_college" val="<?=$_GET['job_college'][2];?>">
 				<option value="">Ойролцоох их сургууль сонгох</option>
 				</select>
 			</td>
@@ -147,7 +145,7 @@ if($_GET['code']!='search') {
 				<div>Ажиллах хугацаа</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="alba_date" class="form-control">
+				<select name="alba_date" class="nice-select rounded">
 				<option value="">Ажиллах хугацаа</option>
 				<?php
 				if(is_array($_cate_['alba_date'])) { foreach($_cate_['alba_date'] as $k=>$v) {
@@ -167,7 +165,7 @@ if($_GET['code']!='search') {
 				<div>Ажлын өдөр</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="alba_week" class="form-control">
+				<select name="alba_week" class="nice-select rounded">
 				<option value="">Ажлын өдөр</option>
 				<?php
 				if(is_array($_cate_['alba_week'])) { foreach($_cate_['alba_week'] as $k=>$v) {
@@ -187,7 +185,7 @@ if($_GET['code']!='search') {
 				<div>대상</div>
 			</th>
 			<td class="sch_td1" colspan="3">
-				<select name="wr_target" class="form-control">
+				<select name="wr_target" class="nice-select rounded">
 				<option value="">대상별</option>
 				<?php
 				if(is_array($_cate_['job_target'])) { foreach($_cate_['job_target'] as $k=>$v) {
@@ -209,7 +207,7 @@ if($_GET['code']!='search') {
 			<td class="sch_td1 sch_td1-2" colspan="3">
 			  <fieldset>
 					<legend>Ажлын цаг</legend>
-					<select name="wr_stime[]" class="form-control">
+					<select name="wr_stime[]" class="nice-select rounded">
 						<option value="">Сонгох</option>
 						<?php
 						for($i=0; $i<24; $i++) {
@@ -221,7 +219,7 @@ if($_GET['code']!='search') {
 						}
 						?>
 					</select>
-					<select name="wr_stime[]" class="form-control">
+					<select name="wr_stime[]" class="nice-select rounded">
 						<option value="">Сонгох</option>
 						<?php
 						for($i=0; $i<6; $i++) {
@@ -234,7 +232,7 @@ if($_GET['code']!='search') {
 						?>
 					</select>
 					~
-					<select name="wr_etime[]" class="form-control">
+					<select name="wr_etime[]" class="nice-select rounded">
 						<option value="">Сонгох</option>
 						<?php
 						for($i=0; $i<24; $i++) {
@@ -246,7 +244,7 @@ if($_GET['code']!='search') {
 						}
 						?>
 					</select>
-					<select name="wr_etime[]" class="form-control">
+					<select name="wr_etime[]" class="nice-select rounded">
 						<option value="">Сонгох</option>
 						<?php
 						for($i=0; $i<6; $i++) {
@@ -388,13 +386,9 @@ if($_GET['code']!='search') {
 		</tr>
 		</table>
 	</div>
-	<div class="schbtn_con cf">
-	<ul>
-	<li class="search_bx sch_bt sch_bt2" style="width:100%">
-		<button type="button" class="sch_button" onClick="document.forms['ftsearch'].submit()"><img src="<?=NFE_URL;?>/images/search_icon3.png" alt="Хайх">Хайх</button>
-	</li>
-	</ul>
-	</div>
+
+		<button type="button" class="btn btn-primary btn-block" onClick="document.forms['ftsearch'].submit()"><i class="mdi mdi-search-web"></i> Хайх</button>
+
 </div>
 </form>
 <!-- //상세검색 -->

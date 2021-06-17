@@ -413,7 +413,7 @@ $alba_option_logo_effects = explode("/", $alba_option_logo['effect']);
 ?>
 <!--시작태그 -- 이태그 닫는곳은 include/tail.php에 있음.-->
 
-	<div class="container">
+
 
 
 
