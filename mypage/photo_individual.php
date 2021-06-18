@@ -16,13 +16,13 @@ var photo_delete = function() {
 </script>
 <section class="cont_box detail_con">
 	<div class="picture_box">
-		<img src="<?=$mb_photo;?>" alt="증명사진"><!-- <img src="images/id_pic2.png" alt="증명사진"> -->
+		<img src="<?=$mb_photo;?>" alt="Цээж зураг"><!-- <img src="images/id_pic2.png" alt="증명사진"> -->
 	</div>
 	<div class="file_info">
 		<ul>
 			<li>Зургийн хэмжээ : 100 × 130px</li>
 			<li>Файлын формат : gif, jpg, png</li>
-			<li>Хэмжээ : 100kb 이내</li>
+			<li>Хэмжээ : 100kb дотор</li>
 		</ul>
 	</div>
 	<div class="set_bt">
