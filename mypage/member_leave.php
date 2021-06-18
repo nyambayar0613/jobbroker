@@ -27,7 +27,7 @@ var member_left = function() {
             <li>3. Ажлын мэдээлэл, анкет, ажил хайх, төлбөртэй үйлчилгээ зэргийг бүгдийг нь устгана.</li>
 		</ol>
 	</div>
-	<div class="info4_con agree"><input type="checkbox" id="" name="left_agreement" value="Y">위 내용에 동의합니다.</div>
+	<div class="info4_con agree"><input type="checkbox" id="" name="left_agreement" value="Y">Дээрх агуулгыг зөвшөөрч байна.</div>
 </section>
 
 <section class="cont_box remove_con">
