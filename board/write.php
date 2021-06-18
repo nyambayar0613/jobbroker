@@ -81,7 +81,7 @@ var submit_func = function() {
 <input type="hidden" name="page" value="<?=$_GET['page']?>">
 <div class="layer1 cf">
 	<section class="cont_box community_con cmt_write">
-		<h2><img src="<?=NFE_URL;?>/images/write.png" alt="Бичсэн">Writer</h2>
+		<h2><img src="<?=NFE_URL;?>/images/write.png" alt="Бичсэн">Сэдгэгдэл бичих</h2>
 			<ul class="info_con">
 			<?php if($is_category){ ?>
 				<li class="row1">
@@ -109,12 +109,12 @@ var submit_func = function() {
 				<?php if ($is_password) { ?>
 				<li class="row3">
 					<label for="pw">Нууц дугаар<span class="check"></span></label>
-					<input type="password" id="pw" name="wr_password" hname="Нууц дугаар" required maxlength="16">
+					<input type="password" id="pw" name="wr_password" hname="Нууц үг" required maxlength="16">
 				</li>
 				<?php } ?>
 				<li class="row7">
 					<label for="title">Гарчиг<span class="check"></span></label>
-					<input type="text" id="title" name="wr_subject" hname="Гарчиг" required value="<?=$write['wr_subject'];?>" style="width:55%;margin-right:10px"><?php if($board['bo_use_secret']) {?><input type="checkbox" name="wr_secret" value="1">비밀글<?php }?>
+					<input type="text" id="title" name="wr_subject" hname="Гарчиг" required value="<?=$write['wr_subject'];?>" style="width:55%;margin-right:10px"><?php if($board['bo_use_secret']) {?><input type="checkbox" name="wr_secret" value="1">Нууцлах<?php }?>
 				</li>
 				<li class="row8">
 					Агуулга<span class="check"></span>
@@ -130,7 +130,7 @@ var submit_func = function() {
 						<?php
 						for($i=1; $i<$file['count']; $i++) {
 						?>
-						<tr><td><input type="file" id="" name="file_name[]" title='Файлын хэмжээ <?=$upload_max_filesize?> Зөвхөн дараах хэмжээ дотор байршуулах боломжтой' class="file_in"></td></tr>
+						<tr><td><input type="file" id="" name="file_name[]" title='Файлын хэмжээ <?=$upload_max_filesize?>хэмжээ дотор байршуулах боломжтой' class="file_in"></td></tr>
 						<?php
 						}
 						?>
@@ -155,7 +155,7 @@ var submit_func = function() {
 
 						function add_file(delete_code){
 							if(flen>=file_count) {
-								alert("Эн мэдээллийн самбар нь "+file_count+"хүртэл орох боломжтой.");
+								alert(""+file_count+"хүртэл орох боломжтой.");
 								return;
 							}
 							var objTbl = $("#variableFiles");
@@ -180,7 +180,7 @@ var submit_func = function() {
 						</div>
 						<div class="file_bt_tx" style="clear:both">
 						  <p class="pt10 pb10" style="line-height:1.8"><strong><?php echo strtoupper(strtr($board['bo_upload_ext_img'],'|',','));?></strong> Format-аар,
-						  <strong>нэг файл тутамд <?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</strong> Зөвхөн дараах хэмжээ дотор байршуулах боломжтой.</p>
+						  <strong> <?php echo number_format(intval(substr(ini_get('post_max_size'),0,-1)) * 1024);?>KB</strong> хэмжээ дотор байршуулах боломжтой.</p>
 						</div>
 					
 				</li>
@@ -192,7 +192,7 @@ var submit_func = function() {
 				if(!$member['mb_id']) {
 				?>
 				<li class="row9">
-					<label for="capcha">자동등록방지</label>
+					<label for="capcha">Prevention of automatic registration</label>
 					<div class="capcha_group">
 					  <div class="cf">
 						  <div class="capcha_bx" style="float:left"><img src="<?=NFE_URL;?>/include/rand_text.php" /></div>
