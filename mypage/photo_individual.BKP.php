@@ -1,11 +1,11 @@
 <?php
-$head_title = $menu_text = "Зураг";
+$head_title = $menu_text = "내사진관리";
 $page_code = 'mypage';
 include "../include/top.php";
 ?>
 <script type="text/javascript">
 var photo_delete = function() {
-	if(confirm("Зураг устгах уу?")) {
+	if(confirm("사진을 삭제하시겠습니까?")) {
 		$.post(base_url+"/regist.php", "mode=photo_delete", function(data) {
 			data = $.parseJSON(data);
 			if(data.js) eval(data.js);
@@ -20,14 +20,14 @@ var photo_delete = function() {
 	</div>
 	<div class="file_info">
 		<ul>
-			<li>Зургийн хэмжээ : 100 × 130px</li>
-			<li>Файлын формат : gif, jpg, png</li>
-			<li>Хэмжээ : 100kb 이내</li>
+			<li>사진규격 : 100 × 130px</li>
+			<li>파일형식 : gif, jpg, png</li>
+			<li>용량 : 100kb 이내</li>
 		</ul>
 	</div>
 	<div class="set_bt">
-		<button type="button" onClick="netfu_util1.photo_write_view('.pic_change_div')">Батлах</button>
-		<button type="button" onClick="photo_delete()">Устгах</button>
+		<button type="button" onClick="netfu_util1.photo_write_view('.pic_change_div')">수정</button>
+		<button type="button" onClick="photo_delete()">삭제</button>
 	</div>
 </section>
 
