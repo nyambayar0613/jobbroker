@@ -7,7 +7,7 @@ $n_row = sql_fetch("select * from alice_notice where `no`='".addslashes($_GET['n
 
 <!-- 공지사항 View -->
 <section class="cont_box community_txt">
-<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon02.png" alt=""></span>Анхааруулга</h2>
+<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/title_icon02.png" alt=""></span>공지사항</h2>
 <div class="community_inner cf">
 	<div class="view_wrap">
 		<div class="view_top cf">
@@ -15,7 +15,7 @@ $n_row = sql_fetch("select * from alice_notice where `no`='".addslashes($_GET['n
 			<div class="view_info">
 				<span class="mb_id"><strong><?=$netfu_util->get_stag($n_row['wr_name']);?></strong></span>
 				<span><?=date("Y.m.d H:i", strtotime($n_row['wr_date']));?></span>
-				<span class="hits">Үзсэн тоо : <em><?=number_format($n_row['wr_hit']);?></em></span>
+				<span class="hits">조회수 : <em><?=number_format($n_row['wr_hit']);?></em></span>
 			</div>
 		</div>
 		<div class="view_con cf">
@@ -26,7 +26,7 @@ $n_row = sql_fetch("select * from alice_notice where `no`='".addslashes($_GET['n
 
 <div class="button-group view_bt">
 	<ul>
-		<li><a href="<?=NFE_URL;?>/notice/notice_list.php?<?=$netfu_util->session_get('notice_list');?>">Жагсаалт үзэх</a></li>
+		<li><a href="<?=NFE_URL;?>/notice/notice_list.php?<?=$netfu_util->session_get('notice_list');?>">목록보기</a></li>
 	</ul>
 </div>
 </section>
