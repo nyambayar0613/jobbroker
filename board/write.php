@@ -213,7 +213,7 @@ var submit_func = function() {
 
 </div>
 </form>
-<!-- //커뮤니티 글쓰기 -->
+<!-- //커뮤니티 글쓰기 -->k
 
 
 <?php
