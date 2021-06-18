@@ -45,7 +45,7 @@ var member_left_submit = function() {
 			<li>3. Ажлын мэдээлэл, анкет, ажил хайх, төлбөртэй үйлчилгээ зэргийг бүгдийг нь устгана.</li>
 		</ol>
 	</div>
-	<div class="info4_con agree"><input type="checkbox" name="left_agreement">дээрх агуулгыг зөвшөөрч байна</div>
+	<div class="info4_con agree"><input type="checkbox" name="left_agreement">Дээрх агуулгыг зөвшөөрч байна</div>
 </section>
 
 <section class="cont_box remove_con">
