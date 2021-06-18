@@ -1,5 +1,5 @@
 <?php
-$head_title = "Хүсэлт гаргагч";
+$head_title = "지원자관리";
 $page_code = 'mypage';
 include_once "../include/top.php";
 $_GET['code'] = $_GET['code'] ? $_GET['code'] : 'ing';
@@ -45,14 +45,14 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 active"><a href="<?=$_SERVER['PHP_SELF'];?>?code=ing">Үргэлжилж буй зар<span class="list_num"><?=number_format($_num[0]['c']);?></span></a></li>
-			<li class="tab02"><a href="<?=$_SERVER['PHP_SELF'];?>?code=end">Хугацаа дууссан зар<span class="list_num"><?=number_format($_num[1]['c']);?></span></a></li>
+			<li class="tab01 active"><a href="<?=$_SERVER['PHP_SELF'];?>?code=ing">진행중인 구인공고<span class="list_num"><?=number_format($_num[0]['c']);?></span></a></li>
+			<li class="tab02"><a href="<?=$_SERVER['PHP_SELF'];?>?code=end">마감된 구인공고<span class="list_num"><?=number_format($_num[1]['c']);?></span></a></li>
 		</ul>
 		<ul class="search_area">
 			<li>
 				<div class="match select_op">
 					<select name="job_sel" onChange="location.replace('<?=$_SERVER['PHP_SELF'];?>?job_sel='+this.value)">
-						<option value="">---------------- <?=($_GET['code']=='end') ? 'Хугацаа дууссан' : 'Үргэлжилж буй';?> Ажлын зар сонгох ---------------- </option>
+						<option value="">---------------- <?=($_GET['code']=='end') ? '마감된' : '진행중인';?> 구인공고 선택 ---------------- </option>
 						<?php
 						while($row=sql_fetch_array($q_sel)) {
 							$selected = $_GET['job_sel']==$row['no'] ? 'selected' : '';
@@ -73,7 +73,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй зар байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 공고가 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -98,7 +98,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		<ul class="list_con">
 			<li class="col1"><input type="checkbox" name="chk[]" value="<?=$row['no'];?>"><?=$row['no'];?></li>
 			<li class="col2">
-				Устгагдёан анкет.
+				삭제된 이력서입니다.
 			</li>
 		</ul>
 		<?php
@@ -113,16 +113,16 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 				<div class="picture_box">
 					<?php echo $list['wr_photo'];?>
 				</div>
-				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>нас)</div>
+				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>세)</div>
 				<div class="address_con addc"><?php echo $list['mb_address'];?></div>
 				<div class="list_txt list_txt3"><?=$netfu_util->get_stag($row['etc_0']);?></div>
 				<div class="list_etc"><span><?php echo $get_member['mb_hphone'];?></span></div>
 				<div class="list_etc"><span><?php echo $get_member['mb_email'];?></span></div>
-				<div class="list_etc3"><span><i>Албан тушаал</i><?=$netfu_util->get_stag($list['career']);?></span></div>
+				<div class="list_etc3"><span><i>경력</i><?=$netfu_util->get_stag($list['career']);?></span></div>
 				<?php
 				if($re_info['license']) {
 				?>
-				<div class="list_etc3"><span><em>Мэргэжлийн үнэмлэх</em><?=$re_info['license'];?></span></div>
+				<div class="list_etc3"><span><em>자격증</em><?=$re_info['license'];?></span></div>
 				<?php }?>
 			</a></li>
 		</ul>
@@ -139,7 +139,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 </section>
 
 <div class="button_con button_con3">
-	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">Устгах</a>
+	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">삭제</a>
 </div>
 </form>
 
