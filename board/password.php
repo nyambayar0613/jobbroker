@@ -34,9 +34,9 @@ var false_move = function() {
 
 <div class="layer1 cf passwd_confirm">
 	<section class="cont_box community_con">
-		<h2><img src="/images/unlock.png" alt="Writer">Password шалгана уу</h2>
+		<h2><img src="/images/unlock.png" alt="Writer">Нууц үг шалгах</h2>
 		<div class="pw_con cf">
-			<label for="pw2">Таны оруулсан password</label><input type="password" id="pw2" name="wr_password" id="password_wr_password" hname="Password" required maxlength="16" style="height:34px;line-height:34px;border:1px solid #dee3eb">
+			<label for="pw2">Таны оруулсан нууц гү</label><input type="password" id="pw2" name="wr_password" id="password_wr_password" hname="Password" required maxlength="16" style="height:34px;line-height:34px;border:1px solid #dee3eb">
 		</div>
 	</section>
 
