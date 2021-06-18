@@ -2,7 +2,7 @@
 $editor_use = true;
 $page_code = 'mypage';
 $member_type = 'company';
-$head_title = "Ажлын байрны зар бүртгүүлэх";
+$head_title = "구인정보등록";
 include "../include/top.php";
 include_once NFE_PATH."/engine/netfu_map.class.php";
 $netfu_map = new netfu_map();
@@ -216,12 +216,12 @@ $(window).ready(function(){
 $_len = sql_num_rows($load_com);
 ?>
 <section class="cont_box resume_con" style="display:<?=$_len>1 ? 'block' : 'none';?>">
-	<h2>Байгууллагын мэдээлэл бүртгэл</h2>
+	<h2>기업정보 선택</h2>
 	<ul class="info3_con">
 		<li class="row1">
-			<p>Ажлын байрны зар бүртгэхдээ та нэмэлт бүртгэлтэй компанийн мэдээллийн агуулгыг дуудаж ашиглах боломжтой.</p>
+			<p>구인공고를 작성하실때 추가 등록된 기업정보의 내용을 불러와서 사용하실 수 있습니다.</p>
 			<select name="company_list" class="resume_st1" id="resume_st1" onChange="netfu_mjob.company_list_sel(this)">
-			<option value="">Байгууллага сонгох</option>
+			<option value="">기업선택</option>
 			<?php
 			$c_no = $company_member['no'];
 			if($job_row['wr_company']) $c_no = $job_row['wr_company'];
@@ -259,12 +259,12 @@ $_len = sql_num_rows($load_query);
 if($_len>0) {
 ?>
 <section class="cont_box resume_con">
-	<h2>Өнгөрсөн ажлын заруудыг татаж авах</h2>
+	<h2>과거 구인공고 불러오기</h2>
 	<ul class="info3_con">
 		<li class="row1">
-			<p>Та өнгөрсөн ажлын зарын  агуулгыг ашиглаж болно.</p>
+			<p>구인공고를 작성하실때 과거 구인공고의 저장된 내용을 불러와서 사용하실 수 있습니다.</p>
 			<select class="resume_st1" id="resume_st1" onchange="netfu_mjob.info_load(this);">
-			<option>Өмнөх ажлын зар</option>
+			<option>과거구인공고 불러오기</option>
 			<?php
 			while($row=sql_fetch_array($load_query)) {
 				$selected = $row['no']==$_GET['load_no'] ? 'selected' : '';
@@ -280,15 +280,15 @@ if($_len>0) {
 <?php }?>
 
 <section class="cont_box job_con">
-	<h2>Хариуцагчын мэдээлэл</h2>
+	<h2>담당자정보</h2>
 	<ul class="info_con">
 		<?php
 		if($manage_query_len>0) {
 		?>
 		<li class="row1">
-			<label for="manager">Сонгох</label>
+			<label for="manager">담당자선택</label>
 			<select name="manager_sel" onChange="netfu_mjob.manager_sel(this)">
-			<option value="">Сонгох</option>
+			<option value="">담당자선택</option>
 			<?php
 			while($row=sql_fetch_array($manage_query)) {
 			?>
@@ -298,39 +298,39 @@ if($_len>0) {
 		</li>
 		<?php }?>
 		<li class="row2">
-			<label for="manager_name">Хариуцсан хүний нэр<span class="check"></span></label>
-			<input type="text" id="manager_name" name="wr_person" value="<?=$job_row['wr_person'];?>" hname="Хариуцсан хүний нэр" requied>
+			<label for="manager_name">담당자명<span class="check"></span></label>
+			<input type="text" id="manager_name" name="wr_person" value="<?=$job_row['wr_person'];?>" hname="담당자명" requied>
 		</li>
 		<?php
-		if($add_form_arr['Холбогдох дугаар']['view']=='yes'){ ?>
+		if($add_form_arr['전화번호']['view']=='yes'){ ?>
 		<li class="row4">
 			<fieldset>
-			<legend>전화번호<?=$add_form_chk['Холбогдох дугаар']['tag'];?></legend>
-				<select name="wr_phone[]" hname="Холбогдох дугаар" <?=$add_form_chk['Холбогдох дугаар']['required'];?>>
+			<legend>전화번호<?=$add_form_chk['전화번호']['tag'];?></legend>
+				<select name="wr_phone[]" hname="전화번호" <?=$add_form_chk['전화번호']['required'];?>>
 				<?php echo $tel_num_option; ?>
 				</select>
-				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_phone[]" hname="Холбогдох дугаар" <?=$add_form_chk['Холбогдох дугаар']['required'];?> value="<?=$_phone[1];?>" class="tel1 phone2">
-				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_phone[]" hname="Холбогдох дугаар" <?=$add_form_chk['Холбогдох дугаар']['required'];?> value="<?=$_phone[2];?>" class="tel2 ">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_phone[]" hname="전화번호" <?=$add_form_chk['전화번호']['required'];?> value="<?=$_phone[1];?>" class="tel1 phone2">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_phone[]" hname="전화번호" <?=$add_form_chk['전화번호']['required'];?> value="<?=$_phone[2];?>" class="tel2 ">
 			</fieldset>
 		</li>
 		<?php }?>
-		<?php if($add_form_arr['Утасны дугаар']['view']=='yes'){ ?>
+		<?php if($add_form_arr['휴대폰']['view']=='yes'){ ?>
 		<li class="row4">
 			<fieldset>
-			<legend>Утасны дугаар<?=$add_form_chk['Утасны дугаар']['tag'];?></legend>
-				<select name="wr_hphone[]" hname="Утасны дугаар" <?=$add_form_chk['Утасны дугаар']['required'];?>>
+			<legend>휴대폰<?=$add_form_chk['휴대폰']['tag'];?></legend>
+				<select name="wr_hphone[]" hname="휴대폰" <?=$add_form_chk['휴대폰']['required'];?>>
 				<?php echo $hp_num_option; ?>
 				</select>
-				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_hphone[]" hname="Утасны дугаар" <?=$add_form_chk['휴대폰']['required'];?> value="<?=$_hphone[1];?>" class="tel1 phone2">
-				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_hphone[]" hname="Утасны дугаар" <?=$add_form_chk['휴대폰']['required'];?> value="<?=$_hphone[2];?>" class="tel2 ">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_hphone[]" hname="휴대폰" <?=$add_form_chk['휴대폰']['required'];?> value="<?=$_hphone[1];?>" class="tel1 phone2">
+				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_hphone[]" hname="휴대폰" <?=$add_form_chk['휴대폰']['required'];?> value="<?=$_hphone[2];?>" class="tel2 ">
 			</fieldset>
 		</li>
 		<?php } ?>
-		<?php if($add_form_arr['Шуудангын дугаар']['view']=='yes'){ ?>
+		<?php if($add_form_arr['팩스번호']['view']=='yes'){ ?>
 		<li class="row5">
 			<fieldset>
-			<legend>Шуудангын дугаар<?=$add_form_chk['Шуудангын дугаар']['tag'];?></legend>
-				<select name="wr_fax[]" <?=$add_form_chk['Шуудангын дугаар']['required'];?>>
+			<legend>팩스번호<?=$add_form_chk['팩스번호']['tag'];?></legend>
+				<select name="wr_fax[]" <?=$add_form_chk['팩스번호']['required'];?>>
 				<?php echo $fax_num_option; ?>
 				</select>
 				<p>-</p><input type="tel" size="4" maxlength="4" name="wr_fax[]" value="<?=$_fax[1];?>" <?=$add_form_chk['팩스번호']['required'];?> class="fax1 phone2">
@@ -338,27 +338,27 @@ if($_len>0) {
 			</fieldset>
 		</li>
 		<?php } ?>
-		<?php if($add_form_arr['И-мэйл']['view']=='yes'){ ?>
+		<?php if($add_form_arr['이메일']['view']=='yes'){ ?>
 		<li class="row6">
 			<fieldset>
-			<legend>И-мэйл<?=$add_form_chk['И-мэйл']['tag'];?></legend>
-				<input type="tel" name="wr_email[]" value="<?=$_email[0];?>" hname="И-мэйл" <?=$add_form_chk['И-мэйл']['required'];?> class="email">
-				<p>@</p><input type="tel" name="wr_email[]" value="<?=$_email[1];?>" hname="И-мэйл" <?=$add_form_chk['이메일']['required'];?> class="email">
+			<legend>이메일<?=$add_form_chk['이메일']['tag'];?></legend>
+				<input type="tel" name="wr_email[]" value="<?=$_email[0];?>" hname="이메일" <?=$add_form_chk['이메일']['required'];?> class="email">
+				<p>@</p><input type="tel" name="wr_email[]" value="<?=$_email[1];?>" hname="이메일" <?=$add_form_chk['이메일']['required'];?> class="email">
 				<select onChange="netfu_util1.email_put(this)">
-				<option value="">мэйл</option>
+				<option value="">직접입력</option>
 				<?php echo $email_option; ?>
 				</select>
 			</fieldset>
 		</li>
 		<?php } ?>
-		<?php if($add_form_arr['Вэбсайт']['view']=='yes'){ ?>
+		<?php if($add_form_arr['홈페이지(블로그)']['view']=='yes'){ ?>
 		<li class="row7">
-			<label for="homepage">Вэбсайт<?=$add_form_chk['Вэбсайт']['tag'];?></label>
-			<span>http://</span><input type="text" name="wr_page" <?=$add_form_chk['Вэбсайт']['required'];?> hname="Вэбсайт" value="<?php echo ($job_row['wr_page']) ? $job_row['wr_page'] : $company_member['mb_homepage'];?>">
+			<label for="homepage">홈페이지<?=$add_form_chk['홈페이지(블로그)']['tag'];?></label>
+			<span>http://</span><input type="text" name="wr_page" <?=$add_form_chk['홈페이지(블로그)']['required'];?> hname="홈페이지" value="<?php echo ($job_row['wr_page']) ? $job_row['wr_page'] : $company_member['mb_homepage'];?>">
 		</li>
 		<?php } ?>
 		<li class="row8">
-		  <label for="kakao">Kakao ID</label>
+		  <label for="kakao">카카오톡ID</label>
 			<input type="text" id="kakao" name="kakao_id" value="<?=$job_row['kakao_id'];?>">
 		</li>
 	</ul>
@@ -366,19 +366,19 @@ if($_len>0) {
 
 
 <section class="cont_box job_con2">
-	<h2>Ажлын байрны дэлгэрэнгүй мэдээлэл</h2>
+	<h2>업무내용 및 근무지정보</h2>
 	<ul class="info_con">
 		<li class="row1">
-			<label for="co_name">Байгууллагын нэр<span class="check"></span></label>
-			<input type="text" id="co_name" name="wr_company_name" value="<?=$job_row['wr_company_name'];?>" hname="Байгууллагын нэр" required>
+			<label for="co_name">회사명<span class="check"></span></label>
+			<input type="text" id="co_name" name="wr_company_name" value="<?=$job_row['wr_company_name'];?>" hname="회사명" required>
 		</li>
 		<li class="row2">
-			<label for="title">Зарын нэр<span class="check"></span></label>
-			<input type="text" id="title" name="wr_subject" value="<?=$job_row['wr_subject'];?>" hname="Зарын нэр" required>
+			<label for="title">구인제목<span class="check"></span></label>
+			<input type="text" id="title" name="wr_subject" value="<?=$job_row['wr_subject'];?>" hname="구인제목" required>
 		</li>
 		<li class="row3">
 			<fieldset>
-				<legend>Албан тушаал<span class="check"></span></legend>
+				<legend>업직종<span class="check"></span></legend>
 				<div class="select_job_type_put">
 				<?php
 				for($i=0; $i<count($job_job_type); $i++) {
@@ -390,8 +390,8 @@ if($_len>0) {
 				?>
 				<div class="select_job_type select_gp cf">
 					<div class="select_inner cf">
-						<select name="wr_job_type<?=$_name1;?>" sel="1" type="job_type" val="<?=$job_job_type[$i][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)" put="wr_job_type<?=$_name1+1;?>_id" auto_none hname="Ажлын төрөл 1" required>
-						<option value="">ё</option>
+						<select name="wr_job_type<?=$_name1;?>" sel="1" type="job_type" val="<?=$job_job_type[$i][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)" put="wr_job_type<?=$_name1+1;?>_id" auto_none hname="직종1차" required>
+						<option value="">직종1차</option>
 						<?php
 						if(is_array($_cate_['job_type'])) { foreach($_cate_['job_type'] as $k=>$v) {
 							$selected = $job_job_type[$i][0]==$v['code'] ? 'selected' : '';
@@ -401,8 +401,8 @@ if($_len>0) {
 						} }
 						?>
 						</select>
-						<select name="wr_job_type<?=$_name1+1;?>" type="job_type" id="wr_job_type<?=$_name1+1;?>_id" put="wr_job_type<?=$_name1+2;?>_id" sel="2" type="job_type" val="<?=$job_job_type[$i][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)" auto_none hname="Ажлын төрөл 2" required>
-						<option value="">Ажлын төрөл 2</option>
+						<select name="wr_job_type<?=$_name1+1;?>" type="job_type" id="wr_job_type<?=$_name1+1;?>_id" put="wr_job_type<?=$_name1+2;?>_id" sel="2" type="job_type" val="<?=$job_job_type[$i][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)" auto_none hname="2차직종선택" required>
+						<option value="">2차직종선택</option>
 						<?php
 						if(is_array($job_type1_arr)) { foreach($job_type1_arr as $k=>$v) {
 							$selected = $job_job_type[$i][1]==$v['code'] ? 'selected' : '';
@@ -410,8 +410,8 @@ if($_len>0) {
 						<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
 						<?php } }?>
 						</select>
-						<select name="wr_job_type<?=$_name1+2;?>" id="wr_job_type<?=$_name1+2;?>_id" hname="Ажлын төрөл 3" >
-						<option value="">Ажлын төрөл 3</option>
+						<select name="wr_job_type<?=$_name1+2;?>" id="wr_job_type<?=$_name1+2;?>_id" hname="3차직종선택" >
+						<option value="">3차직종선택</option>
 						<?php
 						if(is_array($job_type2_arr)) { foreach($job_type2_arr as $k=>$v) {
 							$selected = $job_job_type[$i][2]==$v['code'] ? 'selected' : '';
@@ -428,7 +428,7 @@ if($_len>0) {
 		</li>
 		<li class="row4">
 			<fieldset>
-				<legend>Байршил<span class="check"></span></legend>
+				<legend>근무지<span class="check"></span></legend>
 				<div class="select_area_put">
 				<?php
 				for($i=0; $i<count($job_area); $i++) {
@@ -442,8 +442,8 @@ if($_len>0) {
 				?>
 				<div class="select_area select_gp cf" type="[]">
 					<div class="select_inner cf">
-						<select name="wr_area_<?=$_name1;?>[]" sel="1" type="area" val="<?=$job_area[$i][1];?>" put="wr_area<?=$_name2+1;?>_id" onChange="netfu_util1.ajax_cate(this, 'area', 1)" auto_none hname="хот·дүүрэг" required>
-						<option value="">хот·дүүрэг</option>
+						<select name="wr_area_<?=$_name1;?>[]" sel="1" type="area" val="<?=$job_area[$i][1];?>" put="wr_area<?=$_name2+1;?>_id" onChange="netfu_util1.ajax_cate(this, 'area', 1)" auto_none hname="시·도" required>
+						<option value="">시·도</option>
 						<?php
 						if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
 							$selected = $v['code']==$job_area[$i][0] ? 'selected' : '';
@@ -453,8 +453,8 @@ if($_len>0) {
 						} }
 						?>
 						</select>
-						<select name="wr_area_<?=$_name1;?>[]" id="wr_area<?=$_name2+1;?>_id" put="wr_area<?=$_name2+2;?>_id" sel="2" type="area" val="<?=$job_area[$i][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)" auto_none hname="хот·дүүрэг·тоот" required>
-						<option value="">хот·дүүрэг·тоот</option>
+						<select name="wr_area_<?=$_name1;?>[]" id="wr_area<?=$_name2+1;?>_id" put="wr_area<?=$_name2+2;?>_id" sel="2" type="area" val="<?=$job_area[$i][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)" auto_none hname="시·군·구" required>
+						<option value="">시·군·구</option>
 						<?php
 						if(is_array($area1_arr)) { foreach($area1_arr as $k=>$v) {
 							$selected = $job_area[$i][1]==$v['code'] ? 'selected' : '';
@@ -462,8 +462,8 @@ if($_len>0) {
 						<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
 						<?php } }?>
 						</select>
-						<select name="wr_area_<?=$_name1;?>[]" id="wr_area<?=$_name2+2;?>_id" hname="гудамж·тоот·дугаар" >
-						<option value="">гудамж·тоот·дугаар</option>
+						<select name="wr_area_<?=$_name1;?>[]" id="wr_area<?=$_name2+2;?>_id" hname="읍·면·동" >
+						<option value="">읍·면·동</option>
 						<?php
 						if(is_array($area2_arr)) { foreach($area2_arr as $k=>$v) {
 							$selected = $job_area[$i][2]==$v['code'] ? 'selected' : '';
@@ -472,9 +472,9 @@ if($_len>0) {
 						<?php } }?>
 						</select>
 						<div class="num_box cf">
-							<label for="number">Хаяг оруулах : </label><input type="text" name="wr_area_<?=$_name1;?>[]" value="<?=$job_area[$i][3];?>" id="number">
+							<label for="number">번지입력 : </label><input type="text" name="wr_area_<?=$_name1;?>[]" value="<?=$job_area[$i][3];?>" id="number">
 						</div>
-						<button type="button" class="plus_bt1 _add_button" onClick="netfu_mjob.area_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? 'Нэмэх' : 'устгах';?> +</button>
+						<button type="button" class="plus_bt1 _add_button" onClick="netfu_mjob.area_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? '추가' : '삭제';?> +</button>
 					</div>
 				</div>
 				<?php }?>
@@ -484,8 +484,8 @@ if($_len>0) {
 		<li class="row5">
 			<div class="map_con cf">
 				<fieldset>
-					<legend>Ажлын байршил</legend>
-					<input type="radio" id="site" name="wr_area_company" value="0" checked><span></span>
+					<legend>근무지위치</legend>	
+					<input type="radio" id="site" name="wr_area_company" value="0" checked><span>직접입력</span>
 					<input type="radio" id="site" name="wr_area_company" value="1" <?php echo ($job_row['wr_area_company']) ? 'checked' : '';?>><span>기업정보 위치와 동일</span>
 					<div class="addr_sch cf">
 						<input type="text" name="wr_area" value="<?=$job_row['wr_area'];?>" onClick="post_click(this)"><button type="button" class="plus_bt" onClick="post_click(document.forms['fwrite'].wr_area); return false;">주소검색</button>
