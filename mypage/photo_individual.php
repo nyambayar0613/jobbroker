@@ -38,7 +38,7 @@ var photo_delete = function() {
 		<li>
 			<div class="image_box">
 				<a href="#"><img src="images/sample_img03.png" alt=""></a>
-			</div>
+			</div>иа
 			<div class="btn_box">
 <button type="button">등록</button><button type="button">삭제</button>
 			</div>
