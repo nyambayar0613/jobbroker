@@ -1,5 +1,5 @@
 <?php
-$head_title = 'Төлбөртэй ашиглалтын түүх';
+$head_title = '유료이용내역';
 $page_code = 'mypage';
 include "../include/top.php";
 
@@ -44,23 +44,23 @@ if($member['mb_type']=='company') {
 <!-- 유료이용내역 검색 -->
 <form name="fsearch" action="<?=$_SERVER['PHP_SELF'];?>" method="get">
 <section class="cont_box use_con">
-	<h2>Төлбөртэй ашиглалтын түүх</h2>
+	<h2>유료이용내역</h2>
 	<div class="date_wrap cf">
 		<div class="btn_group">
-			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 week"));?>')">сүүлийн 1 долоо хоног</button>
-			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 month"));?>')">сүүлийн 1 сар</button>
-			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-3 month"));?>')">сүүлийн 3 сар</button>
+			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 week"));?>')">최근1주일</button>
+			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 month"));?>')">최근1개월</button>
+			<button type="button" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-3 month"));?>')">최근3개월</button>
 		</div>
 		<div class="date_group date_gr">
 			<ul>
 				<li><input type="text" name="_sdate" class="datepicker_inp" readOnly value="<?=$_get['_sdate'];?>"></li>
-				<li class="date_list_txt">эхлэн ~</li>
+				<li class="date_list_txt">부터 ~</li>
 				<li><input type="text" name="_edate" class="datepicker_inp" readOnly value="<?=$_get['_edate'];?>"></li>
-				<li class="date_list_txt">хүртэл</li>
+				<li class="date_list_txt">까지</li>
 			</ul>
 		</div>
 
-		<div class="search_btn3 cf"><button type="button" onClick="document.forms['fsearch'].submit()"><img src="<?=NFE_URL;?>/images/search_icon.png">Хайх</button></div>
+		<div class="search_btn3 cf"><button type="button" onClick="document.forms['fsearch'].submit()"><img src="<?=NFE_URL;?>/images/search_icon.png">검색</button></div>
 	</div>
 </section>
 </form>
@@ -89,7 +89,7 @@ if($member['mb_type']=='company') {
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Төлбөртэй хэрэглээний түүх байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">검색된 유료이용내역이 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -104,10 +104,10 @@ if($member['mb_type']=='company') {
 		<ul class="list_con">
 			<li class="col2 col2-1 no_chk2">
 				<?php
-				echo ($val['pay_service']=='direct')?"<p class='pl5'>Direct төлбөр</p>":@implode($list['user'],"<br/>");
+				echo ($val['pay_service']=='direct')?"<p class='pl5'>다이렉트 결제</p>":@implode($list['user'],"<br/>");
 				?>
 				<div class="list_etc">
-					<span><?=$netfu_util->pay_method[$row['pay_method']];?></span><span><?=$row['pay_sdate'];?></span><span><em><?=number_format($row['pay_price']);?>төгрөг</em></span>
+					<span><?=$netfu_util->pay_method[$row['pay_method']];?></span><span><?=$row['pay_sdate'];?></span><span><em><?=number_format($row['pay_price']);?>원</em></span>
 				</div>
 			</li>
 		</ul>
