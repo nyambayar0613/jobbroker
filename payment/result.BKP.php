@@ -5,8 +5,8 @@ $netfu_payment = new netfu_payment();
 
 $pay_row = sql_fetch("select * from alice_payment where `no`='".addslashes($_GET['no'])."'");
 
-$_txt = $pay_row['pay_status'] ? "Амжилттай" : "Хүсэлт гаргах";
-$head_title = $menu_text = "Төлбөр".$_txt;
+$_txt = $pay_row['pay_status'] ? "완료" : "신청";
+$head_title = $menu_text = "결제".$_txt;
 
 include '../conn.php';
 $_pg_un = (array)unserialize(base64_decode($pay_row['pg_un']));
@@ -25,11 +25,11 @@ include_once "../include/top.php";
 	<?php
 	if($pay_row['pay_method']=='bank' && !$pay_row['pay_status']) {
 	?>
-	Хүсэлт амжиллттай.
+	무통장 입금 신청이 완료되었습니다.
 	<?php
 	} else {
 	?>
-	<?=$netfu_payment->pay_method_arr[$pay_row['pay_method']];?> Төлбөр <?=$_txt;?>боллоо.
+	<?=$netfu_payment->pay_method_arr[$pay_row['pay_method']];?> 결제가 <?=$_txt;?>되었습니다.
 	<?php
 	}
 	?>
@@ -38,18 +38,18 @@ include_once "../include/top.php";
 	<table class="search_tb">
 	<tr>
 		<th class="sch_hd">
-			<div>Төлбөрийн арга</div>
+			<div>결제방식</div>
 		</th>
 		<td class="sch_td1">
-			<?=$pay_row['pay_price']<=0 ? 'Үнэгүй' : $netfu_payment->pay_method_arr[$pay_row['pay_method']];?>
+			<?=$pay_row['pay_price']<=0 ? '무료' : $netfu_payment->pay_method_arr[$pay_row['pay_method']];?>
 		</td>
 	</tr>
 	<tr>
 		<th class="sch_hd">
-			<div>Захиалгын хэмжээ</div>
+			<div>주문금액</div>
 		</th>
 		<td class="sch_td1">
-			<?=number_format($pay_row['pay_total']);?>төгрөг
+			<?=number_format($pay_row['pay_total']);?>원
 		</td>
 	</tr>
 	<?php
@@ -57,7 +57,7 @@ include_once "../include/top.php";
 	?>
 	<tr>
 		<th class="sch_hd">
-			<div>Бүтээгдэхүүн point</div>
+			<div>사용포인트</div>
 		</th>
 		<td class="sch_td1">
 			<?=number_format($pay_row['pay_dc']);?>p
@@ -68,10 +68,10 @@ include_once "../include/top.php";
 	?>
 	<tr>
 		<th class="sch_hd">
-			<div>Төлбөрийн эцсийн дүн</div>
+			<div>최종결제금액</div>
 		</th>
 		<td class="sch_td1">
-			<span class="result"><?=number_format($pay_row['pay_price']);?>төгрөг<span>
+			<span class="result"><?=number_format($pay_row['pay_price']);?>원<span>
 		</td>
 	</tr>
 	<?php
@@ -79,15 +79,15 @@ include_once "../include/top.php";
 	?>
 	<tr>
 		<th class="sch_hd">
-			<div>Хадгаламжийн данс</div>
+			<div>입금계좌</div>
 		</th>
 		<td class="sch_td1">
-			<?=$_bank_arr[0];?> <?=$_bank_arr[1];?>(Данс эзэмшигч:<?=$_bank_arr[2];?>)
+			<?=$_bank_arr[0];?> <?=$_bank_arr[1];?>(예금주:<?=$_bank_arr[2];?>)
 		</td>
 	</tr>
 	<tr>
 		<th class="sch_hd">
-			<div>Данс эзэмшигчийн нэр</div>
+			<div>입금자명</div>
 		</th>
 		<td class="sch_td1" colspan="3">
 			<?=$pay_row['pay_bank_name'];?>
@@ -110,7 +110,7 @@ include_once "../include/top.php";
 	<?php }*/?>
 	<tr>
 		<th class="sch_hd">
-			<div><?=$pay_row['pay_status']==0 ? 'Хүсэлт гаргасан огноо' : 'Төлбөр хийсэн огноо';?></div>
+			<div><?=$pay_row['pay_status']==0 ? '신청일시' : '결제일시';?></div>
 			</th>
 			<td class="sch_td1" colspan="3">
 				<?=$pay_row['pay_status']==0 ? $pay_row['pay_wdate'] : $pay_row['pay_sdate'];?>
@@ -120,7 +120,7 @@ include_once "../include/top.php";
 </section>
 
 <div class="button_con button_con4">
-	<a href="<?=NFE_URL;?>/" class="bottom_btn04">Үндсэн хуудас<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
+	<a href="<?=NFE_URL;?>/" class="bottom_btn04">메인페이지<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="메인페이지"></a>
 </div>
 
 <?php
