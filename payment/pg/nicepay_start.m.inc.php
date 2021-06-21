@@ -63,24 +63,25 @@ function getTomorrow(){
 <form name="tranMgr" method="post" accept-charset= "euc-kr" >
 <input type="hidden" name="mode" value="payment_process" />
 <input type="hidden" name="no" value="" />
-<input type="hidden" name="PayMethod" value="" title="결제 수단" />
-<input type="hidden" name="GoodsName" value="<?=$goodsName;?>" title="결제 상품명" />
-<input type="hidden" name="GoodsCnt" value="<?=$goodsCnt;?>" title="결제 상품개수" />
-<input type="hidden" name="Amt" value="" title="결제 상품금액" />
-<input type="hidden" name="BuyerName" value="<?=$member['mb_name'];?>" title="구매자명" />
-<input type="hidden" name="BuyerTel" value="<?=$member['mb_hphone'];?>" title="구매자 연락처" />
-<input type="hidden" name="Moid" value="<?=$_SESSION['__pay_order__'];?>" title="상품 주문번호" />
-<input type="hidden" name="MID" value="<?=$merchantID;?>" title="상점 아이디" />
+    <input type="hidden" name="PayMethod" value="" title="Төлбөр хийх төрөл" />
+    <input type="hidden" name="GoodsName" value="<?=$__service_name;?>" title="Төлбөрийн бүтээгдэхүүний нэр" />
+    <input type="hidden" name="GoodsCnt" value="<?=$goodsCnt;?>" title="Төлбөрийн бүтээгдэхүүний тоо" />
+    <input type="hidden" name="Amt" value="" title="Төлбөрийн бүтээгдэхүүний хэмжээ" />
+    <input type="hidden" name="BuyerName" value="<?=$member['mb_name'];?>" title="Худалдан авагчийн нэр" />
+    <input type="hidden" name="BuyerTel" value="<?=$member['mb_hphone'];?>" title="Холбоо барих" />
+    <input type="hidden" name="Moid" value="<?=$_SESSION['__pay_order__'];?>" title="Бүтээгдэхүүний захиалгын дугаар" />
+    <input type="hidden" name="MID" value="<?=$merchantID;?>" title="Нэгжийн ID" />
+    <input type="hidden" name="UserIP" value="<?=$ip?>" title="Гишүүний IP" />
 
-<!-- 옵션 -->
-<input type="hidden" name="ReturnURL" value="<?=$ReturnURL?>" title="Return URL"/>
-<input type="hidden" name="CharSet" value="<?=$CharSet?>"/>
-<input type="hidden" name="VbankExpDate" id="vExp" value="" title="가상계좌입금만료일" />
-<input type="hidden" name="BuyerEmail" value="<?=$member['mb_email'];?>" title="구매자 이메일" />
-<input type="hidden" name="TransType" value="0" title="일반(0)/에스크로(1)" />
-<input type="hidden" name="GoodsCl" value="0" title="상품구분(실물(1),컨텐츠(0))" />
+    <!-- 옵션 -->
+    <input type="hidden" name="VbankExpDate" id="vExp" value="" title="Виртуал дансны хугацаа дуусах огноо" />
+    <input type="hidden" name="BuyerEmail" value="<?=$member['mb_email'];?>" title="Худалдан авагчийн и-мэйл" />
+    <input type="hidden" name="TransType" value="0" title="Энгийн(0)/Эскроу(1)" />
+    <input type="hidden" name="GoodsCl" value="0" title="Бүтээгдэхүүний ангилал(real(1),contents(0))" />
 
- <!-- 변경 불가능 -->
-<input type="hidden" name="EdiDate" value="" title="전문 생성일시" />
-<input type="hidden" name="EncryptData" value="" title="해쉬값" />
+    <!-- 변경 불가능 -->
+    <input type="hidden" name="EncodeParameters" value="" title="Encode утга" />
+    <input type="hidden" name="EdiDate" value="" title="Professional creation date" />
+    <input type="hidden" name="EncryptData" value="" title="hash утга" />
+    <input type="hidden" name="TrKey" value="asfsafasd" title="Field л шаардлагатай />
 </form>
