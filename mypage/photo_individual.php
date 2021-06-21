@@ -1,5 +1,5 @@
 <?php
-$head_title = $menu_text = "Зураг";
+$head_title = $menu_text = "Миний зураг";
 $page_code = 'mypage';
 include "../include/top.php";
 ?>
