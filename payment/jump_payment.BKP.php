@@ -1,6 +1,6 @@
 <?php
 $page_code = 'mypage';
-$head_title = $menu_text = "Jump цэнэглэх үйлчилгээ";
+$head_title = $menu_text = "점프 충전 서비스";
 include_once "../include/top.php";
 
 $_type = $member['mb_type']=='individual' ? 'resume' : 'alba';
@@ -14,18 +14,18 @@ $query = sql_query("select * from `alice_service` where `type` in ('".$_type."_o
 
 <section class="item_con">
 	<article>
-		<h2><span>Jump цэнэглэх үйлчилгээ</span></h2>
+		<h2><span>점프 충전 서비스</span></h2>
 		<div class="item_box cf">
-			<h3>Jump цэнэглэх үйлчилгээ</h3>
+			<h3>점프 충전 서비스</h3>
 			<ul>
 				<li class="box-tit cf">
 					<select name="service[]" onChange="netfu_payment.money_click(this)">
-						<option value="">Сонгох</option>
+						<option value="">선택</option>
 						<?php
 						while($row=sql_fetch_array($query)) {
 							$_txt = $row['etc_3'];
 						?>
-						<option value="<?=$_type;?>_option/<?=$row['no'];?>"><?=number_format($_txt);?>төрөл</option>
+						<option value="<?=$_type;?>_option/<?=$row['no'];?>"><?=number_format($_txt);?>건</option>
 						<?php
 						}
 						?>
@@ -45,7 +45,7 @@ $query = sql_query("select * from `alice_service` where `type` in ('".$_type."_o
 </section>
 
 <div class="button_con button_con4">
-	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
+	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">신청하기<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="메인페이지"></a>
 </div>
 </form>
 
