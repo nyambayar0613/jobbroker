@@ -1,6 +1,6 @@
 <?php
 $menu_code = "payment_guide";
-$head_title = $menu_text = $_GET['code']=='resume' ? '개인회원 서비스 신청' : "기업회원 서비스 신청";
+$head_title = $menu_text = $_GET['code']=='resume' ? 'Хувь хүний үйлчилгээний хүсэлт' : "Байгууллагын үйлчилгээний хүсэлт";
 include_once "../include/top.php";
 
 $wr_type = !$_GET['code'] ? 'employ' : 'individual';
@@ -9,7 +9,7 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 <section class="item_con guide_con">
 
 	<article>
-		<h2><span>패키지상품</span></h2>
+		<h2><span>Package бүтээгдэхүүн</span></h2>
 		<?php
 		while($pack_row=sql_fetch_array($pack_query)) {
 			$wr_content = unserialize($pack_row['wr_content']);
@@ -32,7 +32,7 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 				<li class="box-info2 cf">
 					<ul>
 					  <li>=</li>
-						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>원</li>
+						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>төгрөг</li>
 					</ul>
 				</li>
 			</ul>
@@ -75,7 +75,7 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 			?>
 			<li class="box-info2 cf">
 				<ul>
-					<li class="item_info1">오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
+					<li class="item_info1">Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
 					<li class="item_info2"><?=$_price;?><li>
 					<li class="item_info3"><?=$_sale;?></li>
 					<li class="item_info4"><?=$_price_txt ? number_format($_price_txt).'원' : '무료';?></li>
@@ -95,7 +95,7 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 	if($_tag) {
 	?>
 		<article>
-			<h2><span><?=$wr_type=='employ' ? '메인/구인정보 페이지' : '메인/구직정보 페이지';?></span></h2>
+			<h2><span><?=$wr_type=='employ' ? 'Үндсэн/Ажлын байрны мэдээлэл' : 'Үндсэн/ажил хайх мэдээлэл';?></span></h2>
 
 			<?php
 			echo $_tag
@@ -115,16 +115,16 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 	$_service_code = $wr_type=='employ' ? 'alba_option' : 'resume_option';
 	$option_service_arr = $service_control->service_lists[$_service_code];
 	$option_array = array(
-		'busy'=>array('name'=>'급구', 'option'=>array('busy')),
-		'strong'=>array('name'=>'강조옵션', 'option'=>array('neon', 'bold', 'icon', 'color', 'blink')),
-		'jump'=>array('name'=>'점프', 'option'=>array('jump')),
-		'open'=>array('name'=>'이력서 열람', 'option'=>array('open')),
-		'sms'=>array('name'=>'SMS충전', 'option'=>array('sms')),
+		'busy'=>array('name'=>'Яаралтай', 'option'=>array('busy')),
+		'strong'=>array('name'=>'Highlight option', 'option'=>array('neon', 'bold', 'icon', 'color', 'blink')),
+		'jump'=>array('name'=>'Jump', 'option'=>array('jump')),
+		'open'=>array('name'=>'Анкет үзэх', 'option'=>array('open')),
+		'sms'=>array('name'=>'SMS цэнэглэх', 'option'=>array('sms')),
 	);
 	if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 	?>
 	<article class="_option_service_article">
-			<h2><span><?=$v['name'];?> 서비스</span></h2>
+			<h2><span><?=$v['name'];?> Үйлчилгээ</span></h2>
 			<?php
 			if(is_array($v['option'])) { foreach($v['option'] as $k2=>$v2) {
 				if($_part_txt && $_part_txt!=$v2) continue; // : 각각의 서비스신청을 누른경우
@@ -189,13 +189,13 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 
 								case 'color':
 						?>
-						<em style="color:#<?=$v3;?>;">글자색</em>
+						<em style="color:#<?=$v3;?>;">Текстийн өнгө</em>
 						<?php
 									break;
 
 								case 'neon':
 						?>
-						<em style="color:#fff; background:#<?=$v3;?>;">형광펜</em>
+						<em style="color:#fff; background:#<?=$v3;?>;">Тодруулагч</em>
 						<?php
 									break;
 							}
@@ -215,10 +215,10 @@ $pack_query = sql_query("select * from `alice_payment_package` where `wr_type` =
 					?>
 					<li class="box-info2 cf">
 						<ul>
-							<li class="service_info1 item_info1">오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
+							<li class="service_info1 item_info1">Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></li>
 							<li class="service_info2 item_info2"><?=$_price;?><li>
 							<li class="service_info3 item_info3"><?=$_sale;?></li>
-							<li class="service_info4 item_info4"><?=$_price_txt ? number_format($_price_txt).'원' : '무료';?></li>
+							<li class="service_info4 item_info4"><?=$_price_txt ? number_format($_price_txt).'төгрөг' : 'Үнэгүй';?></li>
 						</ul>
 					</li>
 					<?php
