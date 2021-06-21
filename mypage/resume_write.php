@@ -160,7 +160,7 @@ if($_nums>0) {
 					<div class="select_area select_gp cf">
 						<div class="select_inner cf">
 							<select name="wr_area<?=$_name1;?>" hname="Хүсч буй байршил" required sel="1" type="area" val="<?=$resume_area[$i][1];?>" put="wr_area<?=$_name1+1;?>_id" onChange="netfu_util1.ajax_cate(this, 'area', 1)">
-							<option value="">시·도</option>
+							<option value="">хот·дүүрэг</option>
 							<?php
 							if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
 								$selected = $v['code']==$resume_area[$i][0] ? 'selected' : '';
@@ -215,7 +215,7 @@ if($_nums>0) {
 							</select>
 						</div>
 					</div>
-					<div class="work"><label for="home_work"><input type="checkbox" id="work" name="wr_work_direct" value="1" <?=$get_resume['wr_work_direct'] ? 'checked' : '';?>>즉시출근가능</label></div>
+					<div class="work"><label for="home_work"><input type="checkbox" id="work" name="wr_work_direct" value="1" <?=$get_resume['wr_work_direct'] ? 'checked' : '';?>>Яаралтай ажилд орох боломжтой</label></div>
 				</fieldset>
 			</li>
 			<li class="row3">
@@ -283,7 +283,7 @@ if($_nums>0) {
 						?>
 					</select>
 					<input type="text"  id="pay" name="wr_pay" value="<?=$get_resume['wr_pay'];?>" class="pay1" <?php echo ($get_resume['wr_pay_conference']) ? 'disabled' : 'required';?> hname="Цалин">
-					<span>төгрөг</span><input type="checkbox" id="wr_pay_conference_1" value="1" name="wr_pay_conference" <?php echo ($get_resume['wr_pay_conference'])?'checked':'';?> onClick="netfu_mjob.pay_conference(this)"><label for="wr_pay_conference_1"><span>추후협의</span></label>
+					<span>төгрөг</span><input type="checkbox" id="wr_pay_conference_1" value="1" name="wr_pay_conference" <?php echo ($get_resume['wr_pay_conference'])?'checked':'';?> onClick="netfu_mjob.pay_conference(this)"><label for="wr_pay_conference_1"><span>дараа хэлэлцэнэ</span></label>
 				</fieldset>
 			</li>
 			<li class="row5">
@@ -310,7 +310,7 @@ if($_nums>0) {
 	<ul class="info3_con career_ul">
 		<li class="row_con">
 			<label for="career">Туршлага</label>
-			<input type="checkbox" name="wr_career_use" value="1" id="wr_career_use_1" onClick="netfu_mjob.career_use(this)" <?php echo ($get_resume['wr_career_use'])?'checked':'';?> <?=$add_form_chk['경력사항']['required'];?> hname="경력사항"><label for="wr_career_use_1">경력있음</label>
+			<input type="checkbox" name="wr_career_use" value="1" id="wr_career_use_1" onClick="netfu_mjob.career_use(this)" <?php echo ($get_resume['wr_career_use'])?'checked':'';?> <?=$add_form_chk['경력사항']['required'];?> hname="Туршлагатай эсэх"><label for="wr_career_use_1">Туршлагатай</label>
 		</li>
 		<?php
 		for($career_int=0; $career_int<count($wr_career_un); $career_int++) {
@@ -369,9 +369,9 @@ if($_nums>0) {
 				</td>
 			</tr>
 			<tr>
-				<th>Ажиллах хугацаа<?php if($add_form_chk['경력사항']['required']=='required') {?><span class="check"></span><?php }?></th>
+				<th>Ажиллах хугацаа<?php if($add_form_chk['Туршлага']['required']=='required') {?><span class="check"></span><?php }?></th>
 				<td class="term">
-					<select name="wr_career_syear[]" class="st_year" hname="Ажиллах хугацаа" <?=$add_form_chk['경력사항']['required'];?>>
+					<select name="wr_career_syear[]" class="st_year" hname="Ажиллах хугацаа" <?=$add_form_chk['Туршлага']['required'];?>>
 						<option value="">жил</option>
 						<?php
 						for($i=date('Y');$i>=1900;--$i){
@@ -390,7 +390,7 @@ if($_nums>0) {
 						<?php } ?>
 					</select>
 						<span>эхлэн</span>
-					<select name="wr_career_eyear[]" class="st_year" hname="Ажиллах хугацаа" <?=$add_form_chk['경력사항']['required'];?>>
+					<select name="wr_career_eyear[]" class="st_year" hname="Ажиллах хугацаа" <?=$add_form_chk['Туршлага']['required'];?>>
 						<option value="">жил</option>
 						<?php
 						for($i=date('Y');$i>=1900;--$i){
@@ -399,7 +399,7 @@ if($_nums>0) {
 						<option value='<?=$i?>' <?=$selected;?>><?=$i?></option>
 						<?php } ?>
 					</select>
-					<select name="wr_career_emonth[]" class="st_month" hname="Ажиллах хугацаа" <?=$add_form_chk['경력사항']['required'];?>>
+					<select name="wr_career_emonth[]" class="st_month" hname="Ажиллах хугацаа" <?=$add_form_chk['Туршлага']['required'];?>>
 						<option>сар</option>
 						<?php
 						for($i=1;$i<=12;$i++){
@@ -420,7 +420,7 @@ if($_nums>0) {
 					<td><textarea name="wr_career_content[]"><?=$career_arr['content'];?></textarea></td>
 				</tr>
 			</table>
-			<button type="button" class="plus_bt1 plus_bt_r" style="margin-left:10px !important" onClick="netfu_mjob.career_job_type_add(this, '<?=$career_int==0 ? 'add' : 'del';?>')"><?=$career_int==0 ? '추가' : '삭제';?> +</button>
+			<button type="button" class="plus_bt1 plus_bt_r" style="margin-left:10px !important" onClick="netfu_mjob.career_job_type_add(this, '<?=$career_int==0 ? 'add' : 'del';?>')"><?=$career_int==0 ? 'Нэмэх' : 'Устгах';?> +</button>
 		</li>
 		<?php }?>
 	</ul>
@@ -665,7 +665,7 @@ if($_nums>0) {
 	  <ul class="info3_con">
 			<li class="row_con">
 			  <label for="license">Мэргэжлийн үнэмлэх</label>
-				<input type="checkbox" id="wr_license_use_1" name="wr_license_use" value="1" onClick="netfu_mjob.career_use_click(this)" <?php echo ($get_resume['wr_license_use'])?'checked':'';?> <?=$add_form_chk['보유자격증']['required'];?> hname="자격증" option="checkbox"><label for="wr_license_use_1">자격증있음</label>
+				<input type="checkbox" id="wr_license_use_1" name="wr_license_use" value="1" onClick="netfu_mjob.career_use_click(this)" <?php echo ($get_resume['wr_license_use'])?'checked':'';?> <?=$add_form_chk['Эзэмшиж буй мэргэжлийн үнэмлэх']['required'];?> hname="Мэргэжлийн үнэмлэх" option="checkbox"><label for="wr_license_use_1">Үнэмлэхтэй</label>
 			</li>
 			<li class="row_con">
 				<label for="license_con" style="text-indent:-9999px">Мэргэжлийн үнэмлэх</label>
@@ -954,7 +954,7 @@ if($_nums>0) {
 			<fieldset>
 				<div class="impd cf">
 				<legend>Хөгжлийн бэрхшээлийн түвшин</legend>
-				<label for="wr_impediment_use_0"><input type="radio" id="wr_impediment_use_0" name="wr_impediment_use" value="0" checked class="first" <?=$add_form_chk['Нэмэлт мэдээлэл (гэрлэлт, хөгжлийн бэрхшээл гэх мэт)']['required'];?> hname="Хөгжлийн бэрхшээлтэй эсэх" option="radio" onClick="netfu_util1.open2(this, '1', '._impediment')">비대상</label>
+				<label for="wr_impediment_use_0"><input type="radio" id="wr_impediment_use_0" name="wr_impediment_use" value="0" checked class="first" <?=$add_form_chk['Нэмэлт мэдээлэл (гэрлэлт, хөгжлийн бэрхшээл гэх мэт)']['required'];?> hname="Хөгжлийн бэрхшээлтэй эсэх" option="radio" onClick="netfu_util1.open2(this, '1', '._impediment')">Үгүй</label>
 				<label for="wr_impediment_use_1"><input type="radio" id="wr_impediment_use_1" name="wr_impediment_use" value="1" <?php echo ($get_resume['wr_impediment_use']) ? 'checked' : '';?> <?=$add_form_chk['Нэмэлт мэдээлэл (гэрлэлт, хөгжлийн бэрхшээл гэх мэт)']['required'];?> hname="Хөгжлийн бэрхшээлтэй эсэх" option="radio" onClick="netfu_util1.open2(this, '1', '._impediment')">대상</label>
 				</div>
 				<div class="impd_block cf _impediment" style="display:<?php echo (!$get_resume['wr_impediment_use']) ? 'none' : 'block';?>;">
@@ -984,7 +984,7 @@ if($_nums>0) {
 		</li>
 		<li class="row_con">
 			<fieldset>
-				<legend>цэргийн алба</legend>
+				<legend>Цэргийн алба</legend>
 				<div class="milt cf">
 				<label for="wr_military_0"><input type="radio" id="wr_military_0" name="wr_military" value="0" checked="checked" class="first" <?=$add_form_chk['Нэмэлт мэдээлэл (гэрлэлт, хөгжлийн бэрхшээл гэх мэт)']['required'];?> hname="Цэргийн алба хаасан эсэх" option="radio" onClick="netfu_util1.open2(this, '1', '._military')">Гүйцээгээгүй</label>
 				<label for="wr_military_1"><input type="radio" id="wr_military_1" name="wr_military" value="1" <?php echo ($get_resume['wr_military']=='1') ? 'checked' : '';?> <?=$add_form_chk['Нэмэлт мэдээлэл (гэрлэлт, хөгжлийн бэрхшээл гэх мэт)']['required'];?> hname="Цэргийн алба" option="radio" onClick="netfu_util1.open2(this, '1', '._military')">Үгүй</label>
@@ -1030,8 +1030,8 @@ if($_nums>0) {
 			<li class="set1">
 			  <fieldset>
 					<legend>Тодруулга</legend>
-					<label for="wr_open_1"><input type="radio" id="wr_open_1" name="wr_open" value="1" checked class="first">공개</label>
-					<label for="wr_open_2"><input type="radio" id="wr_open_2" name="wr_open" value="0" <?php echo ($mode=='update' && !$get_resume['wr_open']) ? 'checked':'';?>>비공개</label>
+					<label for="wr_open_1"><input type="radio" id="wr_open_1" name="wr_open" value="1" checked class="first">Нээлттэй</label>
+					<label for="wr_open_2"><input type="radio" id="wr_open_2" name="wr_open" value="0" <?php echo ($mode=='update' && !$get_resume['wr_open']) ? 'checked':'';?>>Хаалттай</label>
 				</fieldset>
 			</li>
 			<li class="set3">
