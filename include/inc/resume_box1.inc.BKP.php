@@ -21,7 +21,7 @@ switch($row) {
 		$_gold = $row['wr_service_main_focus_gold']>=date("Y-m-d") ? 'gold2' : 'gold1'; // : 골드 클래스값
 ?>
 <div class="picture_box"> <!--//gold1, gold2-->
-	<a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['no'];?>"><img src="<?=$info['mb_photo'];?>" alt="Үнэмлэхний зураг"><!-- <img src="/images/id_pic.png" alt="증명사진"> --></a>
+	<a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['no'];?>"><img src="<?=$info['mb_photo'];?>" alt="증명사진"><!-- <img src="/images/id_pic.png" alt="증명사진"> --></a>
 </div>
 <div class="text_box bg_ <?=$_option['bold'];?>">
 	<div class="profile_name"><a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['no'];?>"><?=$utility->make_pass_○○($get_member['mb_name']);?> <span class="profile">(<?=$user_control->mb_gender[$get_member['mb_gender']];?>·<?=$netfu_util->get_age($get_member['mb_birth']);?>)</span><!-- <span class="career"><?=$list['career'];?></span> --> </a></div>
