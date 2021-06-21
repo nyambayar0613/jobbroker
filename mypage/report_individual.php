@@ -1,5 +1,5 @@
 <?php
-$head_title = "입사지원관리";
+$head_title = "Ажлын байрны хүсэлтийн удирдлага";
 $page_code = 'mypage';
 include "../include/top.php";
 $_GET['code'] = $_GET['code'] ? $_GET['code'] : 'online';
@@ -33,8 +33,8 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 <?=$_GET['code']=='online' ? 'active' : '';?>"><a href="<?=$_SERVER['PHP_SELF'];?>?code=online">온라인 지원현황<span class="list_num"><?=number_format($_my_count['receive_online']['c']);?></span></a></li>
-			<li class="tab02 <?=$_GET['code']=='email' ? 'active' : '';?>"><a href="<?=$_SERVER['PHP_SELF'];?>?code=email">이메일 지원현황<span class="list_num"><?=number_format($_my_count['receive_email']['c']);?></span></a></li>
+			<li class="tab01 <?=$_GET['code']=='online' ? 'active' : '';?>"><a href="<?=$_SERVER['PHP_SELF'];?>?code=online">Онлайн өргөдөл<span class="list_num"><?=number_format($_my_count['receive_online']['c']);?></span></a></li>
+			<li class="tab02 <?=$_GET['code']=='email' ? 'active' : '';?>"><a href="<?=$_SERVER['PHP_SELF'];?>?code=email">И-мэйл өргөдөл<span class="list_num"><?=number_format($_my_count['receive_email']['c']);?></span></a></li>
 		</ul>
 		
 
@@ -44,7 +44,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 			</li>
 		</ul>
 		<?php
@@ -57,16 +57,16 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 					$info = $netfu_mjob->get_alba($job_row);
 
 					if($row['etc_4']){
-						$open_date = '<span><em>열람</em></span> <span class="reading_date">' . strtr(substr($row['etc_4'],0,11),'-','.') . '</span>';
+						$open_date = '<span><em>Унших</em></span> <span class="reading_date">' . strtr(substr($row['etc_4'],0,11),'-','.') . '</span>';
 					} else {
 						if($type=='become_email'){
 							if(stristr($row['etc_1'],'email')){	// 이메일의 경우 이메일 확인
-								$open_date = "<span>이메일 확인</span>";
+								$open_date = "<span>И-мэйл батлах</span>";
 							} else {
-								$open_date = "<span>열람전</span>";
+								$open_date = "<span>Уншихийн өмнө</span>";
 							}
 						} else {
-							$open_date = "<span>열람전</span>";
+							$open_date = "<span>Уншихийн өмнө</span>";
 						}
 					}
 		?>
@@ -75,7 +75,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 			<li class="col2">
 				<div class="list_txt"><a href="../job/detail.php?no=<?=$row['wr_to'];?>"><?=stripslashes(strip_tags($job_row['wr_subject']));?></a></div>
 				<div class="list_etc">
-					<span>지원일 : <span class="join_date"><?=$netfu_util->get_date('dot', $row['wdate']);?></span></span>
+					<span>өргөдөл гаргасан огноо : <span class="join_date"><?=$netfu_util->get_date('dot', $row['wdate']);?></span></span>
 				</div>
 				<div class="list_etc">
 					<span><?=stripslashes(strip_Tags($job_row['wr_company_name']));?></span><span><?=$info['volume_text'];?></span>
@@ -96,7 +96,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 </section>
 
 <div class="button_con button_con3">
-	<a href="javascript:netfu_mjob.receive_all_delete()" class="bottom_btn03">삭제</a>
+	<a href="javascript:netfu_mjob.receive_all_delete()" class="bottom_btn03">Устгах</a>
 </div>
 </form>
 
