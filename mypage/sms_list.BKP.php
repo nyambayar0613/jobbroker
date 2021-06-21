@@ -1,12 +1,12 @@
 <?php
-$head_title = $_GET['code']=='get' ? 'SMS Текст хүлээн авах' : 'SMS Хүлээн авагч';
+$head_title = $_GET['code']=='get' ? 'SMS 문자수신 현황' : 'SMS 문자발송 현황';
 include_once '../conn.php';
 
 $_get = $netfu_util->input_htmlspecialchars($_GET);
 
 $_GET['code'] = $_GET['code'] ? $_GET['code'] : 'get';
 $page_code = 'mypage';
-$menu_text = "SMS".$netfu_util->sms_type_arr[$_GET['code']]."Одоогын байдал";
+$menu_text = "SMS 문자".$netfu_util->sms_type_arr[$_GET['code']]." 현황";
 
 include_once "../include/top.php";
 
@@ -66,22 +66,22 @@ var move_page = function(el) {
 			</li>
 		</ul>
 		<ul class="list_con list_sch">
-			<h3>Лавлагааны хугацаа</h3>
+			<h3>조회기간</h3>
 			<li>
 				<ol>
-					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 week"));?>')">Сүүлийн 1 долоо хоног</a></li>
-					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 month"));?>')">Сүүлийн 1 сар</a></li>
-					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-3 month"));?>')">сүүлийн 3 сар</a></li>
+					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 week"));?>')">최근 1주일</a></li>
+					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-1 month"));?>')">최근 1개월</a></li>
+					<li><a href="#none;" onClick="netfu_util1.date_put('<?=date("Y-m-d", strtotime("-3 month"));?>')">최근 3개월</a></li>
 				</ol>
 			</li>
 			<li class="ymd">
 				<ol>
 					<li><input type="text" name="_sdate" class="tday hasDatepicker" readOnly value="<?=$_get['_sdate'];?>"></li>
-					<li class="date_list_txt">Эхлэн ~</li>
+					<li class="date_list_txt">부터 ~</li>
 					<li><input type="text" name="_edate" class="tday hasDatepicker" readOnly value="<?=$_get['_edate'];?>"></li>
-					<li class="date_list_txt">хүртэл</li>
+					<li class="date_list_txt">까지</li>
 					<li>
-						<button class="plus_bt" onClick="document.forms['fsearch'].submit()"><img src="<?=NFE_URL;?>/images/search_icon.png" alt="Хайх">Хайх</button>
+						<button class="plus_bt" onClick="document.forms['fsearch'].submit()"><img src="<?=NFE_URL;?>/images/search_icon.png" alt="조회기간 검색">검색</button>
 					</li>
 				</ol>
 			</li>
@@ -101,7 +101,7 @@ var move_page = function(el) {
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Илгээсэн түүх байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">발송 내역이 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -138,7 +138,7 @@ var move_page = function(el) {
 </section>
 
 <div class="button_con button_con3">
-	<a href="#none;" onClick="netfu_mjob.sms_all_delete()" class="bottom_btn03">Устгах</a>
+	<a href="#none;" onClick="netfu_mjob.sms_all_delete()" class="bottom_btn03">삭제</a>
 </div>
 
 <?php
