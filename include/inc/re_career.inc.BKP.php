@@ -10,9 +10,9 @@ if($wr_career){
 	$strtime = time() - strtotime("-".$career.' day');
 	$year = date("Y", $strtime) - 1970;
 	$month = date("m", $strtime);
-	$career_periods = "약 " . sprintf('%02d',$year) . "жил " . $month . "сар";
+	$career_periods = "약 " . sprintf('%02d',$year) . "년 " . $month . "개월";
 } else {
-	$career_periods = "Байхгүй";
+	$career_periods = "없음";
 }
 
 if($re_row['wr_career']){
@@ -27,7 +27,7 @@ if(!$wr_career_use) return false;
 ?>
 <!-- 경력사항 -->
 <div class="resume_ct r_ct3 cf">
-<h3>Туршлага</h3>
+<h3>경력사항</h3>
 
 <?php
 $read_is = 'N';
@@ -42,7 +42,7 @@ switch($read_is) {
 // : 열람신청
 	case "N":
 ?>
-Дэлгэрэнгүй уншихийг хүсвэл <span class="text_color">анкет үзэх үйлчилгээнд</span>хүсэлт гаргана уу.
+경력사항 내용을 열람하시려면 <span class="text_color">이력서 열람서비스</span>를 신청하세요
 <?php
 		break;
 
@@ -52,9 +52,9 @@ switch($read_is) {
 ?>
 <div class="resumeOpen  tc">
 	<ul>
-		<li class="pt20"><strong>Ашиглах боломжтой анкет үзэх үйлчилгээ<?php echo $is_open_count;?></strong></li>
+		<li class="pt20"><strong>사용가능한 이력서 열람권이 <?php echo $is_open_count;?>건 있습니다 열람권을 사용하시면 열람이 가능합니다.</strong></li>
 		<li class="pt20">
-		<a href="javascript:void(0);" onclick="open_resume('<?php echo $no;?>','<?php echo $re_row['wr_id'];?>','resume', '<?php echo $is_open_count;?>');"><img width="192" height="28" alt="Анкет үзэх үйлёилгээний хүсэлт" src="../images/basic/btn_resume6.png" class="bg_color5"></a>
+		<a href="javascript:void(0);" onclick="open_resume('<?php echo $no;?>','<?php echo $re_row['wr_id'];?>','resume', '<?php echo $is_open_count;?>');"><img width="192" height="28" alt="이력서열람서비스 신청" src="../images/basic/btn_resume6.png" class="bg_color5"></a>
 		</li>
 	</ul>
 </div>
@@ -69,9 +69,9 @@ switch($read_is) {
 			foreach($wr_career as $key => $val){
 				$date_val = "";
 				$sdate = ($val['sdate']) ? explode('-',$val['sdate']) : "";
-				$date_val = $sdate[0]."жил " . $sdate[1] . "월 ~ ";
+				$date_val = $sdate[0]."년 " . $sdate[1] . "월 ~ ";
 				$edate = ($val['edate']) ? explode('-',$val['edate']) : "";
-				$date_val .= $edate[0]."жил " . $edate[1] . "월";
+				$date_val .= $edate[0]."년 " . $edate[1] . "월";
 				$career_type = $val['type'];
 				$career_type_cnt = count($val['type']);
 
@@ -85,24 +85,24 @@ switch($read_is) {
 ?>
 <!-- 경력사항1 -->
 <table class="edu_tb2">
-<caption style="border-top:0">Туршлага<?=$count+1;?></caption>
+<caption style="border-top:0">경력사항<?=$count+1;?></caption>
 <tr>
-	<th>Байгууллагын нэр</th>
+	<th>회사명</th>
 	<td><?php echo $val['company'];?></td>
 </tr>
 <tr>
-	<th>Ажлын төрөл</th>
+	<th>근무직종</th>
 	<td><?=@implode(", ", $career_jobtype);?></td>
 </tr>
 <tr>
-	<th>Ажиллах хугацаа</th>
+	<th>근무기간</th>
 	<td><?php echo $date_val;?></td>
 </tr>
-	<th>Албан тушаал</th>
+	<th>담당업무</th>
 	<td><?php echo $val['job'];?></td>
 </tr>
 </tr>
-	<th>Дэлгэрэнгүй</th>
+	<th>상세업무</th>
 	<td><?php echo nl2br(stripslashes($val['content']));?></td>
 </tr>
 </table>
