@@ -29,9 +29,9 @@ $_mode_arr = explode("_", $_POST['mode']);
 				<?php
 				if($_checkbox_is===true) {
 				?>
-				<div>Highlight option</div><div class="info-txt">(Логоны төрөл / баннерын төрөл / box төрөл / сурталчилгаа болон ажлын ерөнхий мэдээллийн жагсаалтад бүгдэд хамааралтай)</div>
+				<div>강조옵션</div><div class="info-txt">(로고형/배너형/박스형/줄광고와 일반채용정보 리스트 모두 적용)</div>
 				<?php } else {?>
-				<div><?=$netfu_payment->etc_payment_arr[$_mode_arr[0]];?> Үйлчилгээ</div><div class="info-txt"></div>
+				<div><?=$netfu_payment->etc_payment_arr[$_mode_arr[0]];?> 서비스</div><div class="info-txt"></div>
 				<?php }?>
 			</th>
 		</tr>
@@ -117,12 +117,12 @@ $_mode_arr = explode("_", $_POST['mode']);
 									break;
 
 								case 'color':
-						?><em style="color:#<?=$v3;?>;">Текстийн өнгө</em><?php
+						?><em style="color:#<?=$v3;?>;">글자색</em><?php
 									break;
 
 								case 'neon':
 						?>
-						<em style="color:#fff; background:#<?=$v3;?>;">Тодруулагч</em>
+						<em style="color:#fff; background:#<?=$v3;?>;">형광펜</em>
 						<?php
 									break;
 							}
@@ -139,9 +139,9 @@ $_mode_arr = explode("_", $_POST['mode']);
 		<div class="option_view_c select_result box-info2 cf <?=$chk_is ? '' : '_none';?>">
 			<ul class="result_inner">
 				<li class="srv_info service_info1">오늘+<?=$netfu_util->date_txt($chk_is['service_cnt'].$chk_is['service_unit']);?></li>
-				<li class="srv_info service_info2"><?=number_format($chk_is['service_price']);?>төгрөг</li>
+				<li class="srv_info service_info2"><?=number_format($chk_is['service_price']);?>원</li>
 				<li class="srv_info service_info3">(<em><?=$chk_is['service_percent'];?>%</em>)</li>
-				<li class="srv_info service_info4"><?=number_format($netfu_util->sale_price($chk_is['service_percent'], $chk_is['service_price']));?>төгрөг</li>
+				<li class="srv_info service_info4"><?=number_format($netfu_util->sale_price($chk_is['service_percent'], $chk_is['service_price']));?>원</li>
 			</ul>
 		</div>
 	</li>
