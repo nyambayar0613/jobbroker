@@ -10,9 +10,9 @@ $open_is_pay = $service_check['is_pay'];
 
 if(!$open_is_pay) { 
 	if($member['mb_type']=='individual') {
-		echo "<script>javascript:alert('Энэ үйлчилгээг зөвхөн байгууллагын гишүүд ашиглах боломжтой. '); location.href='/';</script>";
+		echo "<script>javascript:alert('기업회원만 가능한 서비스입니다. '); location.href='/';</script>";
 	}else{
-		echo "<script>javascript:alert('Энэ үйлчилгээг хувь хүн ашиглах боломжтой. '); location.href='/';</script>";
+		echo "<script>javascript:alert('개인회원만 가능한 서비스입니다. '); location.href='/';</script>";
 	}
 }
 
@@ -25,13 +25,13 @@ $query = sql_query("select * from `alice_service` where `type` in ('".$_type."')
 <input type="hidden" name="pay_type" value="alba" />
 <section class="item_con">
 	<article>
-		<h2><span><?=$netfu_payment->read_service_type[$_type];?>Унших</span></h2>
+		<h2><span><?=$netfu_payment->read_service_type[$_type];?>열람</span></h2>
 		<div class="item_box cf">
-			<h3><?=$netfu_payment->read_service_type[$_type];?>Унших үйлчилгээ</h3>
+			<h3><?=$netfu_payment->read_service_type[$_type];?>열람 서비스</h3>
 			<ul>
 				<li class="box-tit cf">
 					<select name="service[]" onChange="netfu_payment.money_click(this)">
-						<option value="">Сонгох</option>
+						<option value="">선택</option>
 						<?php
 						while($row=sql_fetch_array($query)) {
 							$_txt = $netfu_util->day_arr[$row['service_unit']];
@@ -56,7 +56,7 @@ $query = sql_query("select * from `alice_service` where `type` in ('".$_type."')
 </section>
 
 <div class="button_con button_con4">
-	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
+	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">신청하기<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="메인페이지"></a>
 </div>
 </form>
 
