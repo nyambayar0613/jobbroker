@@ -1,7 +1,7 @@
 <?php
 // : 신고하기 팝업
 
-$title_txt = $report_code=='job' ? 'Ажилд авна' : 'Хүний нөөц';
+$title_txt = $report_code=='job' ? '채용' : '인재';
 ?>
 <style type="text/css">
 .report_content__ { display:none; }
@@ -25,7 +25,7 @@ var report_sel = function(el) {
 </script>
 <div class="detail_ly mail_ly report_bx cf">
 	<div class="detail_inner">
-		<div class="box-title"><h2><?=$title_txt;?>Мэдээлэл мэдэгдэх</h2>
+		<div class="box-title"><h2><?=$title_txt;?>정보 신고하기</h2>
 			<div class="btn-r">
 				<button id="close_ly" type="button" onClick="netfu_util1.close($('.report_bx'))">X</button>
 			</div>
@@ -35,25 +35,25 @@ var report_sel = function(el) {
 		<input type="hidden" name="no" value="<?=$_GET['no'];?>"/>
 		<div class="text_area">
 			<fieldset>
-				<legend>Мэдэгдэх шалтгаан</legend>
+				<legend>신고사유</legend>
 				<ul>
 					<?php
 					if(is_array($category_list)) { foreach($category_list as $k=>$v) {
 					?>
-					<li><label><input type="radio" name="wr_report" value="<?=$v['code'];?>" onclick="report_sel(this);" required hname="Мэдэгдэх шалтгаан" option="radio"><?=$v['name'];?></label></li>
+					<li><label><input type="radio" name="wr_report" value="<?=$v['code'];?>" onclick="report_sel(this);" required hname="신고사유" option="radio"><?=$v['name'];?></label></li>
 					<?php
 					} }
 					?>
-					<li><label><input type="radio" name="wr_report" value="self" id="wr_report_self" onclick="report_sel(this);" required hname="Мэдэгдэх шалтгаан" option="radio"></label></li>
-					<li class="report_content__" style="height:auto"><textarea name="wr_report_content" placeholder="оруулна уу." hname="Мэдэгдэх шалтгаан" style="border:1px solid #ddd;width:100%;height:100px;"></textarea></li>
+					<li><label><input type="radio" name="wr_report" value="self" id="wr_report_self" onclick="report_sel(this);" required hname="신고사유" option="radio">직접입력</label></li>
+					<li class="report_content__" style="height:auto"><textarea name="wr_report_content" placeholder="입력해주세요." hname="상세사유" style="border:1px solid #ddd;width:100%;height:100px;"></textarea></li>
 				</ul>
 			</fieldset>
 		</div>
 		<div style="clear:both"></div>
 		<div class="btn_area" style="clear:both">
 			<ul>
-				<li class="rept_bt1 cp" onClick="netfu_mjob.report('alba', '<?=$_GET['no'];?>')">Мэдэгдэх</li>
-				<li class="rept_bt2 cp" onClick="netfu_mjob.alba_report_close()">Цуцлах</li>
+				<li class="rept_bt1 cp" onClick="netfu_mjob.report('alba', '<?=$_GET['no'];?>')">신고</li>
+				<li class="rept_bt2 cp" onClick="netfu_mjob.alba_report_close()">취소</li>
 			</ul>
 		</div>
 		</form>
