@@ -1,6 +1,6 @@
 <?php
 $page_code = 'mypage';
-$menu_text = "Байгууллагын гишүүн үйлчилгээний хүсэлт";
+$menu_text = "기업회원 서비스 신청";
 include_once "../include/top.php";
 
 $query = sql_query("select * from `alice_service` where `type` in ('etc_sms') order by `rank` asc");
@@ -12,13 +12,13 @@ $query = sql_query("select * from `alice_service` where `type` in ('etc_sms') or
 <input type="hidden" name="pay_type" value="alba" />
 <section class="item_con">
 	<article>
-		<h2><span>SMS цэнэглэх үйлчилгээ</span></h2>
+		<h2><span>SMS 충전 서비스</span></h2>
 		<div class="item_box cf">
-			<h3>SMS цэнэглэх үйлчилгээ</h3>
+			<h3>SMS 충전 서비스</h3>
 			<ul>
 				<li class="box-tit cf">
 					<select name="service[]" onChange="netfu_payment.money_click(this)">
-						<option value="">SMS цэнэглэх</option>
+						<option value="">SMS 충전</option>
 						<?php
 						while($row=sql_fetch_array($query)) {
 							$_txt = $netfu_util->day_arr[$row['service_unit']];
@@ -31,10 +31,10 @@ $query = sql_query("select * from `alice_service` where `type` in ('etc_sms') or
 				</li>
 				<li class="box-info2 cf">
 					<ul>
-						<li class="item_info1 service_info1">10,000төрөл</li>
+						<li class="item_info1 service_info1">10,000건</li>
 						<li class="item_info2 service_info2">120,000<li>
 						<li class="item_info3 service_info3">(<em>20%↓</em>)</li>
-						<li class="item_info4 service_info4">96,000төгрөг</li>
+						<li class="item_info4 service_info4">96,000원</li>
 					</ul>
 				</li>
 			</ul>
@@ -42,7 +42,7 @@ $query = sql_query("select * from `alice_service` where `type` in ('etc_sms') or
 	</article>
 </section>
 <div class="button_con button_con4">
-	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Хүслэт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
+	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">신청하기<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="메인페이지"></a>
 </div>
 </form>
 
