@@ -21,19 +21,19 @@ background: #f6fbff;border:1px solid #dee3eb;height:32px;line-height:32px;paddin
 <input type="hidden" name="resume_no" value="<?=$_GET['no'];?>" />
 <div class="detail_ly mail_ly report_bx resume_pop resume_pop_bx cf" style="display:none">
 	<div class="detail_inner">
-		<div class="box-title"><h2><span class="_txt">Ажилд орох хүсэлт</span> хүсэлт</h2>
+		<div class="box-title"><h2><span class="_txt">입사지원</span> 요청</h2>
 			<div class="btn-r">
 				<button id="close_ly" type="button" onClick="$('.resume_pop_bx').css({'display':'none'})">X</button>
 			</div>
 		</div>
 		<div class="text_area">
 			<fieldset>
-				<legend>Зар сонгох</legend>
+				<legend>구인공고 선택</legend>
 				<ul>
 					<li>
-						<label for="resume_info1">Ажлын байрны зар сонгох
-							<select id="resume_info1" name="wr_employ" required hname="Ажлын зар">
-								<option value="">Зар сонгох</option>
+						<label for="resume_info1">구인공고선택
+							<select id="resume_info1" name="wr_employ" required hname="채용공고">
+								<option value="">구인공고 선택</option>
 								<?php
 								while($row=sql_fetch_array($my_em)) {
 								?>
@@ -44,22 +44,22 @@ background: #f6fbff;border:1px solid #dee3eb;height:32px;line-height:32px;paddin
 							</select>
 						</label>
 					</li>
-					<li><label for="resume_info2">Ажилд авах хүний ​​нэр<input type="text" id="resume_info2" name="wr_person" required hname="Ажилд авах хүний ​​нэр" value=""></label></li>
-					<li><label for="resume_info3">Хариуцсан хүнтэй холбоо барих<input type="text" id="resume_info3" name="wr_phone" required hname="Хариуцсан хүнтэй холбоо барих" value=""></label></li>
-					<li><label for="resume_info4">Хариуцсан хүний утасны дугаар<input type="text" id="resume_info4" name="wr_hphone" required hname="Хариуцсан хүний утасны дугаар" value=""></label></li>
-					<li><label for="resume_info3">Хариу имэйл<input type="text" id="resume_info5" name="wr_email" required hname="Хариу имэйл" value=""></label></li>
+					<li><label for="resume_info2">구인담당자명<input type="text" id="resume_info2" name="wr_person" required hname="채용담당자명" value=""></label></li>
+					<li><label for="resume_info3">담당자연락처<input type="text" id="resume_info3" name="wr_phone" required hname="담당자연락처" value=""></label></li>
+					<li><label for="resume_info4">담당자휴대폰<input type="text" id="resume_info4" name="wr_hphone" required hname="담당자휴대폰" value=""></label></li>
+					<li><label for="resume_info3">회신이메일<input type="text" id="resume_info5" name="wr_email" required hname="이메일주소" value=""></label></li>
 				</ul>
 			</fieldset>
 			<fieldset>
-				<legend>Илгээх SMS</legend>
-				<label for="resume_info2"><textarea rows="5" name="wr_content" required hname="Илгээх SMS"></textarea></li>
+				<legend>전달메세지</legend>
+				<label for="resume_info2"><textarea rows="5" name="wr_content" required hname="전달메시지"></textarea></li>
 			</fieldset>
 		</div>
 
 		<div class="btn_area">
 			<ul>
-				<li class="rept_bt1"><a href="#none;" onClick="netfu_util1.ajax_submit(document.forms['f_resume_pop1'], $('.resume_pop_bx'))">Илгээх</a></li>
-				<li class="rept_bt2"><a href="#none;" onClick="$('.resume_pop_bx').css({'display':'none'})">Цуцлах</a></li>
+				<li class="rept_bt1"><a href="#none;" onClick="netfu_util1.ajax_submit(document.forms['f_resume_pop1'], $('.resume_pop_bx'))">전송</a></li>
+				<li class="rept_bt2"><a href="#none;" onClick="$('.resume_pop_bx').css({'display':'none'})">취소</a></li>
 			</ul>
 		</div>
 	</div>
