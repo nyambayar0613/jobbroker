@@ -94,7 +94,7 @@ function getTomorrow(){
 
  <!-- 변경 불가능 -->
 <input type="hidden" name="EncodeParameters" value="" title="Encode утга" />
-<input type="hidden" name="EdiDate" value="" title="전문 생성일시" />
-<input type="hidden" name="EncryptData" value="" title="해쉬값" />
+<input type="hidden" name="EdiDate" value="" title="Professional creation date" />
+<input type="hidden" name="EncryptData" value="" title="hash утга" />
 <input type="hidden" name="TrKey" value="asfsafasd" title="Field л шаардлагатай />
 </form>
