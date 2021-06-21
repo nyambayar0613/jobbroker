@@ -14,7 +14,7 @@ $url = domain.'module/regist.php';
 <input type="hidden" name="param_opt_3"     value="<?=$param_opt_3;?>">
 
 
-<input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="Төлбөрийн нөхцөл" />
+<input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="Төлбөрийн арга" />
 <input type="hidden" name="ordr_idxx" value="" title="<?=$_SESSION['payment_oid'];?>" />
 <input type="hidden" name="good_name" value="<?=$service_name;?> Үйлчилгээ" title="Үйлчилгээний нэр" />
 <input type="hidden" name="good_mny" value="<?=$price_re['price_int'];?>" title="Төлбөрийн хэмжээ" />
