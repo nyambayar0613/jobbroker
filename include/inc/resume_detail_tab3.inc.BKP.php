@@ -12,7 +12,7 @@ $_open_view_allow = $read_info['_open_view_allow'];
 	// : 차감
 	} else if($_allow=='count') {
 	?>
-	Ашиглах боломжтой үйлчилгээ. <?php echo $is_open_count;?>
+	사용가능한 이력서 열람권이 <?php echo $is_open_count;?>건 있습니다 열람권을 사용하시면 열람이 가능합니다.
 	<?php
 
 
@@ -20,9 +20,9 @@ $_open_view_allow = $read_info['_open_view_allow'];
 	} else {
 	?>
 	<div class="resume_service">
-		<p>CV-ийн агуулгыг уншихын тулд Анкет үзэх үйлчилгээнд хамрагдана уу.</p>
+		<p>자기소개서 내용을 열람하시려면 이력서 열람서비스를 신청하세요.</p>
 		<div class="member_btn">
-			<div class="resume_service_bt"><a href="<?=NFE_URL;?>/payment/read_payment.php">Анкет үзэх үйлчилгээний хүсэлт</a></div>
+			<div class="resume_service_bt"><a href="<?=NFE_URL;?>/payment/read_payment.php">이력서 열람서비스 신청</a></div>
 		</div>
 	</div>
 	<?php
