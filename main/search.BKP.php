@@ -27,7 +27,7 @@ var real_open = function() {
 </script>
 <!-- 실시간 검색어 -->
 <section class="cont_box realtime_con" >
-  <h2>Хайх</h2>
+  <h2>실시간 검색</h2>
 	<?php
 	$row = sql_fetch_array($query);
 	?>
@@ -37,7 +37,7 @@ var real_open = function() {
 	<?php
 	?>
 	<div class="rt_btn">
-	  <a href="#none" onClick="real_open()"><img src="<?=NFE_URL;?>/images/rt_ico_up.png" alt="Нээх"></a>
+	  <a href="#none" onClick="real_open()"><img src="<?=NFE_URL;?>/images/rt_ico_up.png" alt="열기"></a>
 	</div>
 
 <!-- 실시간 검색어 자세히 보기 -->
@@ -62,13 +62,13 @@ var real_open = function() {
 
 <?php
 // : 구인정보 검색결과
-$title_txt = 'Ажлын байрны хайлтын үр дүн';
+$title_txt = '구인정보 검색결과';
 $more_view = true;
 include NFE_PATH.'/include/inc/adver/em_list.inc.php';
 
 // : 인재정보 검색결과
 $var_page = 'page2';
-$title_txt = 'Хүний нөөцийн мэдээллийн хайлтын үр дүн';
+$title_txt = '인재정보 검색결과';
 $more_view = true;
 include NFE_PATH.'/include/inc/adver/re_service2.inc.php';
 
@@ -80,7 +80,7 @@ include NFE_PATH.'/include/board_main.php';
 if($view_count<=0) {
 ?>
 <section class="cont_box cont_list recruit1" id="sch_result">
-<img src="/images/info.png" alt="검색결과 없음">Хайлт олдсонгүй.
+<img src="/images/info.png" alt="검색결과 없음">검색결과가 없습니다.
 </section>
 <?php
 }
