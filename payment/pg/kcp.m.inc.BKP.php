@@ -14,14 +14,14 @@ $url = domain.'module/regist.php';
 <input type="hidden" name="param_opt_3"     value="<?=$param_opt_3;?>">
 
 
-<input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="Төлбөрийн нөхцөл" />
+<input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="결제방법" />
 <input type="hidden" name="ordr_idxx" value="" title="<?=$_SESSION['payment_oid'];?>" />
-<input type="hidden" name="good_name" value="<?=$service_name;?> Үйлчилгээ" title="Үйлчилгээний нэр" />
-<input type="hidden" name="good_mny" value="<?=$price_re['price_int'];?>" title="Төлбөрийн хэмжээ" />
-<input type="hidden" name="buyr_name" value="<?=$member_info['name'];?>" title="Захиалагчийн нэр" />
-<input type="hidden" name="buyr_mail" value="<?=$member_info['email'];?>" title="Захиалагчийн Email" />
-<input type="hidden" name="buyr_tel1" value="<?=$member_info['phone'];?>" title="Захиалагчийн холбоо барих мэдээлэл 1" />
-<input type="hidden" name="buyr_tel2" value="<?=$member_info['hphone'];?>" title="Утсаны дугаар" />
+<input type="hidden" name="good_name" value="<?=$service_name;?> 서비스" title="서비스명" />
+<input type="hidden" name="good_mny" value="<?=$price_re['price_int'];?>" title="결제금액" />
+<input type="hidden" name="buyr_name" value="<?=$member_info['name'];?>" title="주문자명" />
+<input type="hidden" name="buyr_mail" value="<?=$member_info['email'];?>" title="주문자 Email" />
+<input type="hidden" name="buyr_tel1" value="<?=$member_info['phone'];?>" title="주문자 연락처1" />
+<input type="hidden" name="buyr_tel2" value="<?=$member_info['hphone'];?>" title="휴대폰번호" />
 
 <!-- 공통정보 -->
 <input type="hidden" name="req_tx"          value="pay" />
@@ -38,7 +38,7 @@ $url = domain.'module/regist.php';
 <input type="hidden" name="van_code"        value="">
 
 <!-- 신용카드 설정 -->
-<input type="hidden" name="quotaopt"        value="<?=$this->pg_info['kcp_pg']['quotaopt'];?>" title="installment option" />
+<input type="hidden" name="quotaopt"        value="<?=$this->pg_info['kcp_pg']['quotaopt'];?>" title="할부옵션" />
 
 <!-- 가상계좌 설정 -->
 <input type="hidden" name="ipgm_date"       value=""/>
@@ -80,8 +80,8 @@ $url = domain.'module/regist.php';
 */
 // : Payplus Plugin 에스크로결제 사용시 필수 정보
 ?>
-<input type="hidden" name="escw_used"       value="<?=$netk_page_form->config['escrow_use'];?>" title="Эскроу ашиглах эсэх"/>
-<input type="hidden" name="pay_mod"         value="<?=$netk_page_form->config['escrow_use'];?>" title="Эскроу төлбөр хийх: Эскроу: Y, Хэвийн: N, KCP тохиргооны нөхцөл: О"/>
+<input type="hidden" name="escw_used"       value="<?=$netk_page_form->config['escrow_use'];?>" title="에스크로 사용 여부"/>
+<input type="hidden" name="pay_mod"         value="<?=$netk_page_form->config['escrow_use'];?>" title="에스크로 결제처리 모드 : 에스크로: Y, 일반: N, KCP 설정 조건: O"/>
 <?php
 /*
 <input type="hidden"  name="deli_term" value="03" title="배송 소요일 : 예상 배송 소요일을 입력"/>
