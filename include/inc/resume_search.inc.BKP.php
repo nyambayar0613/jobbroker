@@ -40,23 +40,23 @@ if($_GET['code']!='search') {
 		</td>
 		<td class="sch_td2">
 			<select name="area[]" sel="2" type="area" this="<?=$_GET['area'][1];?>" val="<?=$_GET['area'][2];?>" onChange="netfu_util1.ajax_cate(this, 'area', 2)">
-			<option value="">хороо·тоот·гудамж</option>
+			<option value="">хороо·군·구</option>
 			</select>
 		</td>
 		<td class="sch_td3">
 			<select name="area[]">
-			<option value="">зам·орц·дугаар</option>
+			<option value="">읍·면·동</option>
 			</select>
 		</td>
 	</tr>
 	<!-- 검색유형2 -->
 	<tr class="_view">
 		<th class="sch_hd">
-			<div>Ажлын төрөл</div>
+			<div>업직종</div>
 		</th>
 		<td class="sch_td1">
 			<select name="job_type[]" sel="1" type="job_type" val="<?=$_GET['job_type'][1];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 1)">
-			<option value="">Ажлын төрөл 1</option>
+			<option value="">직종1차</option>
 			<?php
 			if(is_array($_cate_['job_type'])) { foreach($_cate_['job_type'] as $k=>$v) {
 				$selected = $_GET['job_type'][0]==$v['code'] ? 'selected' : '';
@@ -69,28 +69,28 @@ if($_GET['code']!='search') {
 		</td>
 		<td class="sch_td2">
 			<select name="job_type[]" sel="2" type="job_type" this="<?=$_GET['job_type'][1];?>" val="<?=$_GET['job_type'][2];?>" onChange="netfu_util1.ajax_cate(this, 'job_type', 2)">
-			<option value="">Ажлын төрөл 2</option>
+			<option value="">직종2차</option>
 			</select>
 		</td>
 		<td class="sch_td3">
 			<select name="job_type[]">
-			<option value="">Ажлын төрөл 3</option>
+			<option value="">직종3차</option>
 			</select>
 		</td>
 	</tr>
 	<!-- 검색유형7 -->
 	<tr>
 	<th class="sch_hd">
-		<div>Туршлага</div>
+		<div>경력</div>
 	</th>
 		<td class="sch_td1">
 			<select name="wr_career">
-			<option value="">Туршлага сонгох</option>
+			<option value="">경력선택</option>
 			<?php
 			for($i=1; $i<=50; $i++) {
 				$selected = $_GET['wr_career']==$i ? 'selected' : '';
 			?>
-			<option value="<?=$i;?>" <?=$selected;?>><?=$i;?>жил↑</option>
+			<option value="<?=$i;?>" <?=$selected;?>><?=$i;?>년↑</option>
 			<?php
 			}
 			?>
@@ -98,21 +98,21 @@ if($_GET['code']!='search') {
 		</td>
 		<td class="sch_td2" colspan="2">
 			<fieldset>
-			<legend>Туршлага сонгох</legend>
-			<label><input type="radio" name="wr_career_use" id="unrelated" value="0" <?=$_GET['wr_career_use']=='0' ? 'checked' : '';?> />Хамааралгүй</label>
-			<label><input type="radio" name="wr_career_use" id="new-recruit" value="1" <?=$_GET['wr_career_use']=='1' ? 'checked' : '';?> />Шинэ ажилтан</label>
-			<label><input type="radio" name="wr_career_use" id="career" value="2" <?=$_GET['wr_career_use']=='2' ? 'checked' : '';?> />Туршлага</label>
+			<legend>경력선택</legend>
+			<label><input type="radio" name="wr_career_use" id="unrelated" value="0" <?=$_GET['wr_career_use']=='0' ? 'checked' : '';?> />무관</label>
+			<label><input type="radio" name="wr_career_use" id="new-recruit" value="1" <?=$_GET['wr_career_use']=='1' ? 'checked' : '';?> />신입</label>
+			<label><input type="radio" name="wr_career_use" id="career" value="2" <?=$_GET['wr_career_use']=='2' ? 'checked' : '';?> />경력</label>
 			</fieldset>
 		</td>
 	</tr>
 	<!-- 검색유형8 -->
 	<tr>
 		<th class="sch_hd">
-			<div>Боловсрол</div>
+			<div>학력</div>
 		</th>
 		<td class="sch_td1" colspan="3">
 			<select name="wr_school_ability">
-			<option value="">Сонгох</option>
+			<option value="">학력선택</option>
 			<?php
 			if(is_array($_cate_['indi_ability'])) { foreach($_cate_['indi_ability'] as $k=>$v) {
 				$selected = $v['code']."/".$v['rank']==$_GET['wr_school_ability'] ? 'selected' : '';
@@ -127,24 +127,24 @@ if($_GET['code']!='search') {
 	<!-- 검색유형9 -->
 	<tr>
 		<th class="sch_hd">
-			<div>Хүйс</div>
+			<div>성별</div>
 		</th>
 		<td class="sch_td1" colspan="3">
 			<select name="wr_gender">
-			<option value="">Хүйс сонгох</option>
-			<option value="0" <?=$_GET['wr_gender']=='0' ? 'selected' : '';?>>Эр</option>
-			<option value="1" <?=$_GET['wr_gender']=='1' ? 'selected' : '';?>>Эм</option>
+			<option value="">성별선택</option>
+			<option value="0" <?=$_GET['wr_gender']=='0' ? 'selected' : '';?>>남자</option>
+			<option value="1" <?=$_GET['wr_gender']=='1' ? 'selected' : '';?>>여자</option>
 			</select>
 		</td>
 	</tr>
 	<!-- 검색유형10 -->
 	<tr class="_date">
 		<th class="sch_hd sch_hd1-1">
-			<div>Хүсч буй ажлын нөхцөл</div>
+			<div>희망근무조건</div>
 		</th>
 		<td class="sch_td1 sch_td1-1" colspan="3">
 			<select name="wr_date">
-			<option value="">Ажиллах хугацаа</option>
+			<option value="">근무기간</option>
 			<?php
 			if(is_array($_cate_['alba_date'])) { foreach($_cate_['alba_date'] as $k=>$v) {
 				$selected = $v['code']==$_GET['wr_date'] ? 'selected' : '';
