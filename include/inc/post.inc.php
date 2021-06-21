@@ -11,11 +11,11 @@ if($map_use===true) {
 .post__{border:1px solid #343a41;padding:0px 8px;margin-right:8px !important;height:24px;line-height:24px;margin-top:4px;color:#fff;background:#343a41;font-size:11px}
 </style>
 <div id="address_map_div" style="width:100%;left:0px;top:0px;position:absolute;height:400px;z-index:0;background-color:#fff;padding:0 10px;">
-	<div style="height:34px;line-height:33px;">회사위치(약도) - 클릭시 위치가 지정됩니다.</div>
+	<div style="height:34px;line-height:33px;">Байгууллагын байршил(Map)- дарахад газрын зураг дээр харуулна.</div>
 	<div id="address_map" style="width:100%;height:330px;border:1px solid #000;"></div>
 	<div style="height:34px;line-height:33px;">
-		<span class="pst_bt pst_bt1 post__" style="cursor:pointer;" onclick="change_map_view('none')">확인</span>
-		<span class="pst_bt pst_bt2 post__" style="cursor:pointer;" onclick="change_map_view('post')">우편번호찾기로 변경</span>
+		<span class="pst_bt pst_bt1 post__" style="cursor:pointer;" onclick="change_map_view('none')">Батлах</span>
+		<span class="pst_bt pst_bt2 post__" style="cursor:pointer;" onclick="change_map_view('post')">Шуудангийн код хайж өөрчлөх</span>
 		<?/*<span style="cursor:pointer;" onclick="change_map_view('none')">닫기</span>*/?>
 	</div>
 </div>
