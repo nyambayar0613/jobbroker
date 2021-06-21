@@ -42,7 +42,7 @@ $query = sql_query("select * from `alice_service` where `type` in ('etc_sms') or
 	</article>
 </section>
 <div class="button_con button_con4">
-	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Хүслэт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
+	<a href="#" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
 </div>
 </form>
 
