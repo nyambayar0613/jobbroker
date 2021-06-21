@@ -103,7 +103,7 @@
     if (v_frm.Ret_URL.value == "")
     {
 	  /* Ret_URL값은 현 페이지의 URL 입니다. */
-	  alert("Холбох үед Ret_URL тохируулсан байх ёстой.");
+	  alert("연동시 Ret_URL을 반드시 설정하셔야 됩니다.");
       return false;
     }
     else
@@ -120,7 +120,7 @@
 
     if (pay_form.res_cd.value == "3001" )
     {
-      alert("Хэрэглэгч цуцлагдсан.");
+      alert("사용자가 취소하였습니다.");
       pay_form.res_cd.value = "";
     }
     
@@ -204,22 +204,21 @@
 <input type="hidden" name="param_opt_3"     value="">
 
 
-    <input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="Төлбөрийн арга" />
-    <input type="hidden" name="ordr_idxx" value="" title="<?=$_SESSION['payment_oid'];?>" />
-    <input type="hidden" name="good_name" value="<?=$service_name;?> Үйлчилгээ" title="Үйлчилгээний нэр" />
-    <input type="hidden" name="good_mny" value="<?=$price_re['price_int'];?>" title="Төлбөрийн хэмжээ" />
-    <input type="hidden" name="buyr_name" value="<?=$member_info['name'];?>" title="Захиалагчийн нэр" />
-    <input type="hidden" name="buyr_mail" value="<?=$member_info['email'];?>" title="Захиалагчийн Email" />
-    <input type="hidden" name="buyr_tel1" value="<?=$member_info['phone'];?>" title="Захиалагчийн холбоо барих мэдээлэл 1" />
-    <input type="hidden" name="buyr_tel2" value="<?=$member_info['hphone'];?>" title="Утсаны дугаар" />
-
+<input type="hidden" name="ActionResult" value="" title="결제방법" />
+<input type="hidden" name="ordr_idxx" value="" title="<?=$_SESSION['__pay_order__'];?>" />
+<input type="hidden" name="good_name" value="<?=$__service_name;?>" title="서비스명" />
+<input type="hidden" name="good_mny" value="" title="결제금액" />
+<input type="hidden" name="buyr_name" value="<?=$member['mb_name'];?>" title="주문자명" />
+<input type="hidden" name="buyr_mail" value="<?=$member['mb_email'];?>" title="주문자 Email" />
+<input type="hidden" name="buyr_tel1" value="<?=$member['mb_phone'];?>" title="주문자 연락처1" />
+<input type="hidden" name="buyr_tel2" value="<?=$member['mb_hphone'];?>" title="휴대폰번호" />
 
 <!-- 공통정보 -->
 <input type="hidden" name="req_tx"          value="pay" />
 <input type="hidden" name="shop_name"       value="<?=$g_conf_site_name ?>" />
 <input type="hidden" name="site_cd"         value="<?=$g_conf_site_cd?>" />
 <input type="hidden" name="currency"        value="410"/>                          <!-- 통화 코드 -->
-<input type="hidden" name="eng_flag"        value="N" title="Монгол/Англи" />
+<input type="hidden" name="eng_flag"        value="N" title="한/영" />
 
 <!-- 결제등록 키 -->
 <input type="hidden" name="approval_key"    id="approval">
@@ -229,7 +228,7 @@
 <input type="hidden" name="van_code"        value="">
 
 <!-- 신용카드 설정 -->
-<input type="hidden" name="quotaopt"        value="12" title="Хуваан төлөх" />
+<input type="hidden" name="quotaopt"        value="12" title="할부옵션" />
 
 <!-- 가상계좌 설정 -->
 <input type="hidden" name="ipgm_date"       value=""/>
@@ -269,8 +268,8 @@
 */
 // : Payplus Plugin 에스크로결제 사용시 필수 정보
 ?>
-<input type="hidden" name="escw_used"       value="N" title="Эскроу ашиглах эсэх"/>
-<input type="hidden" name="pay_mod"         value="N" title="Эскроу төлбөр хийх: Эскроу: Y, Хэвийн: N, KCP тохиргооны нөхцөл: O"/>
+<input type="hidden" name="escw_used"       value="N" title="에스크로 사용 여부"/>
+<input type="hidden" name="pay_mod"         value="N" title="에스크로 결제처리 모드 : 에스크로: Y, 일반: N, KCP 설정 조건: O"/>
 <?php
 /*
 <input type="hidden"  name="deli_term" value="03" title="배송 소요일 : 예상 배송 소요일을 입력"/>
