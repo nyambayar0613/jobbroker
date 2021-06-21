@@ -19,15 +19,15 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 	if($re_row['wr_license_use']) {
 	?>
 	<div class="resume_ct r_ct4 cf">
-		<h3>Эзэмшиж буй мэргэжлийн үнэмлэх</h3>
+		<h3>보유자격증</h3>
 		<table class="edu_tb3" style="width:100%">
 		<colgroup>
 		<col style="width:20%"><col style="width:40%"><col style="width:40%">
 		</colgroup>
 		<tr>
-			<th>Авсан огноо</th>
-			<th>Үнэмлэхийн нэр</th>
-			<th>Дуусах хугацаа</th>
+			<th>취득일</th>
+			<th>자격증명</th>
+			<th>발행처</th>
 		</tr>
 		<?php
 		$_len = count($wr_license);
@@ -38,7 +38,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 			$_year = $wr_license[$license_i]['year'];
 		?>
 		<tr>
-			<td><?=$_year;?>жил</td>
+			<td><?=$_year;?>년</td>
 			<td><?=$_name;?></td>
 			<td><?=$_public;?></td>
 		</tr>
@@ -57,14 +57,14 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 	if($re_row['wr_language_use']) {
 	?>
 	<div class="resume_ct r_ct5 cf">
-		<h3>Гадаад хэлний түвшин</h3>
+		<h3>외국어능력</h3>
 		<table class="edu_tb3" style="width:100%">
 		<colgroup>
 		<col style="width:30%"><col style="width:70%">
 		</colgroup>
 		<tr>
-			<th>Гадаал хэлний нэр</th>
-			<th>Хэлний мэдлэг / сертификаттай оноо / хэлний бэлтгэл</th>
+			<th>외국어명</th>
+			<th>구사능력/공인시험/어학연수</th>
 		</tr>
 		<?php
 		$_len = count($wr_language);
@@ -87,7 +87,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 		<tr>
 			<td><?=$_language_txt;?></td>
 			<td>
-				<div><span class="txt_hd">Ярих чадвар</span> <em class="lv1"><?=$_level_txt[0];?></em><span>(<?=$_level_txt[1];?></span></div>
+				<div><span class="txt_hd">구사능력</span> <em class="lv1"><?=$_level_txt[0];?></em><span>(<?=$_level_txt[1];?></span></div>
 				<?php
 				$_len2 = count($_license['license']);
 				if($_len2<=0) $_len2 = 1;
@@ -100,12 +100,12 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 						if($__license==$v['code']) $__language_txt = $v['name'];
 					} }
 				?>
-				<div><span class="txt_hd">Албан ёсны шалгалт</span><span><?=$__language_txt;?></span> / <span><?=$__level;?>оноо</span> / <span><?=$__year;?>жил</span></div>
+				<div><span class="txt_hd">공인시험</span><span><?=$__language_txt;?></span> / <span><?=$__level;?>점</span> / <span><?=$__year;?>년</span></div>
 				<?php
 				}
 				?>
 
-				<div><span class="txt_hd">Хэлний бэлтгэл</span> <?=$_study ? $netfu_mjob->language_date[$_study_date] : 'Байхгүй';?></div>
+				<div><span class="txt_hd">어학연수</span> <?=$_study ? $netfu_mjob->language_date[$_study_date] : '없음';?></div>
 			</td>
 		</tr>
 		<?php }?>
@@ -115,13 +115,13 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 
 	<!-- OA능력 및 특기사항 -->
 	<div class="resume_ct r_ct3 cf">
-		<h3>OA түвшин ба онцлог шинж чанарууд</h3>
+		<h3>OA능력 및 특기사항</h3>
 		<table class="edu_tb2">
 		<colgroup>
 		<col style="width:26%"><col style="width:74%">
 		</colgroup>
 		<tr>
-			<th>OA түвшин</th>
+			<th>OA능력</th>
 			<td>
 				<?php
 				$count = 1;
@@ -137,7 +137,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 			</td>
 		</tr>
 		<tr>
-			<th>Компьютер дээр ажиллах чадвар</th>
+			<th>컴퓨터능력</th>
 			<td>
 				<?php
 				if(is_array($_cate_['indi_oa'])) { foreach($_cate_['indi_oa'] as $k=>$v) {
@@ -149,7 +149,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 			</td>
 		</tr>
 		<tr>
-			<th>Чадвар</th>
+			<th>특기사항</th>
 			<td>
 				<?php
 				unset($_is_arr);
@@ -161,7 +161,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 				<?=@implode("<br/>", $_is_arr);?>
 			</td>
 		</tr>
-			<th>Амжилт / Шагнал</th>
+			<th>수상/수료</th>
 			<td><?php echo stripslashes($re_row['wr_prime']);?></td>
 		</tr>
 		</table>
@@ -169,21 +169,21 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 
 	<!-- 부가정보 -->
 	<div class="resume_ct r_ct6 cf">
-		<h3>Нэмэлт мэдээлэл</h3>
+		<h3>부가정보</h3>
 		<table class="edu_tb3" style="width:100%">
 		<colgroup>
 		<col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:40%">
 		</colgroup>
 		<tr>
-		<th>Хөгжлийн бэрхшээлтэй эсэх</th>
-			<th>Гэрлэсэн эсэх</th>
-			<th>Цэргийн алба хаасан эсэх</th>
-			<th></th>
+		<th>장애여부</th>
+			<th>결혼여부</th>
+			<th>병역여부</th>
+			<th>채용우대</th>
 		</tr>
 		<tr>
 			<td>
 				<?php
-				echo $re_row['wr_impediment_use'] ? 'Байгаа' : 'Байхгүй';
+				echo $re_row['wr_impediment_use'] ? '있음' : '해당없음';
 				if($re_row['wr_impediment_use']) {
 					if($re_row['wr_impediment_level']) $_arr[] = $_cate_['impediment'][$re_row['wr_impediment_level']];
 					if($re_row['wr_impediment_name']) $_arr[] = stripslashes($re_row['wr_impediment_name']);
@@ -191,7 +191,7 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 				}
 				?>
 			</td>
-			<td><?=$re_row['wr_marriage'] ? 'Гэрлэсэн' : 'Ганц бие';?></td>
+			<td><?=$re_row['wr_marriage'] ? '결혼' : '미혼';?></td>
 			<td>
 				<?php
 				echo $netfu_util->military_arr[$re_row['wr_military']];
@@ -203,8 +203,8 @@ $wr_treatment_service = explode(',', $re_row['wr_treatment_service']); // 우대
 			<td>
 				<?php
 				$_txt = array();
-				if($re_row['wr_preferential_use']) $_txt[] = 'National Veterans Recipient<br/>';
-				if($re_row['wr_treatment_use']) $_txt[] = 'National Veterans Recipient<br/>';
+				if($re_row['wr_preferential_use']) $_txt[] = '국가보훈 대상자<br/>';
+				if($re_row['wr_treatment_use']) $_txt[] = '고용지원금 대상자<br/>';
 				echo @implode(", ", $_txt);
 
 				$_txt = array();
