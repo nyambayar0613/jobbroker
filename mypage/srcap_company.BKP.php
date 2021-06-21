@@ -1,5 +1,5 @@
 <?php
-$head_title = "Scrab хүний нөөцийн мэдээлэл";
+$head_title = "스크랩인재정보";
 $page_code = 'mypage';
 include_once "../include/top.php";
 
@@ -28,7 +28,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 active"><a href="#none;">Scrab хүний нөөцийн мэдээлэл<span class="list_num"><?=number_format($total['c']);?></span></a></li>
+			<li class="tab01 active"><a href="#none;">스크랩인재정보<span class="list_num"><?=number_format($total['c']);?></span></a></li>
 			<li class="sort_st">
 				<span>
 					<select name="_limit" onChange="location.replace('<?=$_SERVER['PHP_SELF'];?>?_limit='+this.value)">
@@ -47,7 +47,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Scrab хүний нөөцийн мэдээлэл байхгүй.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">스크랩한 인재정보 내용이 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -67,7 +67,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 		<ul class="list_con">
 			<li class="col1"><input type="checkbox" name="chk[]" value="<?=$row['no'];?>"></li>
 			<li class="col2">
-				Устгагдсан мэдээлэл байна.
+				삭제된 인재정보입니다.
 			</li>
 		</ul>
 		<?php
@@ -82,12 +82,12 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 				<div class="picture_box">
 					<?php echo $list['wr_photo'];?>
 				</div>
-				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>нас)</div>
+				<div class="profile_name pfn"><?=$get_member['mb_name'];?>(<?=$netfu_util->gender_arr[$get_member['mb_gender']];?> <?=$netfu_util->get_age($get_member['mb_birth']);?>세)</div>
 				<div class="address_con addc"><?php echo $list['mb_address'];?></div>
 				<div class="list_txt list_txt3"><?=$netfu_util->get_stag($get_resume['wr_subject']);?></div>
-				<div class="list_etc3"><span><i>Туршлага</i><?=$netfu_util->get_stag($list['career']);?></span><span>Хүсч буй байршил : <?=@implode(", ", $re_info['area_val']);?></span></div>
+				<div class="list_etc3"><span><i>경력</i><?=$netfu_util->get_stag($list['career']);?></span><span>희망지역 : <?=@implode(", ", $re_info['area_val']);?></span></div>
 				<div class="list_etc"><span><?php echo $list['mb_email'];?></span></div>
-				<div class="list_etc3"><span><em>Мэргэжлийн үнэмлэх</em><?=$re_info['license'];?></span></div>
+				<div class="list_etc3"><span><em>자격증</em><?=$re_info['license'];?></span></div>
 			</a></li>
 			<li class="col3">
 				<div class="date_box date_box2 cf"> 
@@ -112,7 +112,7 @@ include NFE_PATH.'/include/inc/my_company_count.inc.php';
 </section>
 
 <div class="button_con button_con3">
-	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">Устгах</a>
+	<a href="#none;" class="bottom_btn03" onClick="netfu_util1.delete_select_func(document.forms['flist'])">삭제</a>
 </div>
 </form>
 
