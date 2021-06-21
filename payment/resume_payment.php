@@ -23,7 +23,7 @@ $pack_num = sql_num_rows($pack_query);
 if(!$_part_txt && $pack_num>0) {
 ?>
 	<article>
-		<h2><span>패키지상품</span></h2>
+		<h2><span>Package бүтээгдэхүүн</span></h2>
 		<?php
 		while($pack_row=sql_fetch_array($pack_query)) {
 			$wr_content = unserialize($pack_row['wr_content']);
