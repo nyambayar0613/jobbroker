@@ -1,7 +1,7 @@
 <?php
 $editor_use = true;
 include "../engine/db_start.php";
-$head_title = $menu_text = $member['mb_type']=='company' ? 'Байгууллагын мэдээлэл засварлах' : "Байгууллагын мэдээлэл засварлах";
+$head_title = $menu_text = $member['mb_type']=='company' ? 'Хувийн мэдээлэл засварлах' : "Хувийн мэдээлэл засварлах";
 
 $page_code = 'mypage';
 $menu_text = $member['mb_type']=='company' ? 'Байгууллагын мэдээлэл засварлах' : "Байгууллагын мэдээлэл засварлах";
