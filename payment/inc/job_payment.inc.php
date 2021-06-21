@@ -36,11 +36,11 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 						<tr>
 							<th class="sch_hd">
 								<div><?=$price_row['_subject'];?></div>
-								<div class="info-txt">(페이지 상단)</div>
+								<div class="info-txt">(Хуудасны дээд хэсэг)</div>
 							</th>
 							<td class="sch_td1">
 								<select class="_service_tag" name="service[]" onChange="netfu_payment.money_click(this)">
-									<option value="">선택</option>
+									<option value="">Сонгох</option>
 									<?php
 									if(is_array($service_list)) {
 										foreach($service_list as $val){ 
@@ -62,10 +62,10 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 					?>
 					<div class="select_result cf">
 						<ul class="result_inner">
-							<li class="srv_info service_info1">오늘+<?=$_date;?></li>
-							<li class="srv_info service_info2"><?=$_selected_val['service_price'];?> 원</li>
+							<li class="srv_info service_info1">Өнөөдөр+<?=$_date;?></li>
+							<li class="srv_info service_info2"><?=$_selected_val['service_price'];?> төгрөг</li>
 							<li class="srv_info service_info3">(<em><?=$_selected_val['service_percent'];?>%↓</em>)</li>
-							<li class="srv_info service_info4"><?=$netfu_util->sale_price($_selected_val['service_percent'], $_selected_val['service_price']);?>원</li>
+							<li class="srv_info service_info4"><?=$netfu_util->sale_price($_selected_val['service_percent'], $_selected_val['service_price']);?>төгрөг</li>
 						</ul>
 					</div>
 				</li>
@@ -78,19 +78,19 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 					<table class="search_tb">
 						<tr>
 							<th class="sch_hd">
-								<div><label for="service_gold_<?=$k;?>" style="width:100%;float:none"><input type="checkbox" name="service_gold[<?=$k;?>]" id="service_gold_<?=$k;?>" value="<?=$_type2;?>_gold" onClick="netfu_payment.gold_check(this, '<?=$k;?>')">골드<br><span>(배경색강조)</span></label></div>
+								<div><label for="service_gold_<?=$k;?>" style="width:100%;float:none"><input type="checkbox" name="service_gold[<?=$k;?>]" id="service_gold_<?=$k;?>" value="<?=$_type2;?>_gold" onClick="netfu_payment.gold_check(this, '<?=$k;?>')">Gols<br><span>(Background color emphasis)</span></label></div>
 							</th>
 							<td class="sch_td1 service_c_">
-								<div class="item_gold"><img src="<?=NFE_URL;?>/images/icon/gold.gif" alt="골드"></div>
+								<div class="item_gold"><img src="<?=NFE_URL;?>/images/icon/gold.gif" alt="Gold"></div>
 								<select class="select_service _service_tag" name="service[]" onChange="netfu_payment.money_click(this, 'gold')" put_tag="<?=$_type."_gold";?>">
-									<option value="">선택</option>
+									<option value="">Сонгох</option>
 									<?php
 									if(is_array($service_gold_list)) {
 										foreach($service_gold_list as $val){ 
 											$_val = $_arr[0].'/'.$val['no'];
 											$selected = @in_array($_val, $_POST['service']) ? 'selected' : '';
 									?>
-									<option value="<?=$_val;?>" <?=$selected;?>>오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
+									<option value="<?=$_val;?>" <?=$selected;?>>Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
 									<?php
 										}
 									}
@@ -101,10 +101,10 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 					</table>
 					<div class="select_result cf box-info2 service_c_" style="visibility:hidden;">
 						<ul class="result_inner">
-							<li class="srv_info service_info1">1개월</li>
-							<li class="srv_info service_info2">40,000원</li>
+							<li class="srv_info service_info1">1 сар</li>
+							<li class="srv_info service_info2">40,000 төгрөг</li>
 							<li class="srv_info service_info3">(<em>10%</em>)</li>
-							<li class="srv_info service_info4">36,000원</li>
+							<li class="srv_info service_info4">36,000 төгрөг</li>
 						</ul>
 					</div>
 				</li>
@@ -120,7 +120,7 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 					<table class="search_tb">
 						<tr>
 							<th class="sch_hd">
-								<div><label for="service_logo_<?=$k;?>" style="width:100%;float:none"><input type="checkbox" name="service_logo[<?=$k;?>]" id="service_logo_<?=$k;?>" value="<?=$_type2;?>_logo" onClick="netfu_payment.logo_check(this, '<?=$k;?>')">로고강조<br><span>(움직이는 로고)</span></label></div>
+								<div><label for="service_logo_<?=$k;?>" style="width:100%;float:none"><input type="checkbox" name="service_logo[<?=$k;?>]" id="service_logo_<?=$k;?>" value="<?=$_type2;?>_logo" onClick="netfu_payment.logo_check(this, '<?=$k;?>')">Logo highlight<br><span>(Хөдөлдөг лого)</span></label></div>
 							</th>
 							<td class="sch_td1 service_c_">
 								<ol>
@@ -129,14 +129,14 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 									<li style="display:inline"><label for="type1"><input type="radio" name="logo_m[<?=$k;?>]" value="2" style=""><span class="slide_image" style="display:inline-block;"><img src="<?=NFE_URL;?>/images/icon/img_aniLogo3.gif" align="absmiddle"><img src="<?=NFE_URL;?>/images/icon/img_aniLogo3.gif" align="absmiddle"></span></label></li>
 								</ol>
 								<select class="select_service _service_tag" name="service[]" onChange="netfu_payment.money_click(this, 'logo')" style="width:100%" put_tag="<?=$_type."_logo";?>">
-									<option value="">선택</option>
+									<option value="">Сонгох</option>
 									<?php
 									if(is_array($service_logo_list)) {
 										foreach($service_logo_list as $val){ 
 											$_val = $_arr[0].'/'.$val['no'];
 											$selected = @in_array($_val, $_POST['service']) ? 'selected' : '';
 									?>
-									<option value="<?=$_val;?>" <?=$selected;?>>오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
+									<option value="<?=$_val;?>" <?=$selected;?>>Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
 									<?php
 										}
 									}
@@ -147,10 +147,10 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 					</table>
 					<div class="select_result cf box-info2 service_c_" style="visibility:hidden;">
 						<ul class="result_inner">
-							<li class="srv_info service_info1">1개월</li>
-							<li class="srv_info service_info2">40,000원</li>
+							<li class="srv_info service_info1">1 сар</li>
+							<li class="srv_info service_info2">40,000 төгрөг</li>
 							<li class="srv_info service_info3">(<em>10%</em>)</li>
-							<li class="srv_info service_info4">36,000원</li>
+							<li class="srv_info service_info4">36,000 төгрөг</li>
 						</ul>
 					</div>
 				</li>
