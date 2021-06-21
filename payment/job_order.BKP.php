@@ -29,7 +29,7 @@ $_SESSION['__pay_order__'] = $utility->getOrderNumber(10);
 <input type="hidden" name="info_no" value="<?=addslashes($_POST['info_no']);?>" />
 <input type="hidden" name="pay_type" value="<?=addslashes($_POST['pay_type']);?>" />
 <section class="cont_box service_con">
-	<h2>Төлбөр хийх</h2>
+	<h2>결제하기</h2>
 	<ul>
 	<?php
 	// : 패키지 서비스 모음
