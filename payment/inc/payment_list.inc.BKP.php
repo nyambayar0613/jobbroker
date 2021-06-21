@@ -6,7 +6,7 @@
 #####################################################################
 ?>
 <section class="cont_box service_con">
-	<h2>Хүсэлт гаргах бүтээгдэхүүн</h2>
+	<h2>신청상품</h2>
 	<ul>
 		<?php
 		if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
@@ -17,10 +17,10 @@
 			$price_row = $netfu_payment->get_price($_arr[0], $_arr[1]);
 
 			if($_arr[0]=='package') {
-				$_date_txt = $pack_service[0]['name'].'төрөл '.(count($pack_service)-1).'төрөл';
+				$_date_txt = $pack_service[0]['name'].'외 '.(count($pack_service)-1).'건';
 			} else {
-				if($price_row['etc_3']) $_date_txt = $price_row['etc_3'].'төрөл';
-				else $_date_txt = 'Өнөөдөр + '.$price_row['_date'];
+				if($price_row['etc_3']) $_date_txt = $price_row['etc_3'].'건';
+				else $_date_txt = '오늘 + '.$price_row['_date'];
 			}
 
 			// : gold, logo 사용여부 체크
