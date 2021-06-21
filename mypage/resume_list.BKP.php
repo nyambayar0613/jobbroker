@@ -1,5 +1,5 @@
 <?php
-$head_title = "Анкет удирдах";
+$head_title = "이력서관리";
 $page_code = 'mypage';
 include "../include/top.php";
 
@@ -25,7 +25,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-		<li class="tab01 active"><a href="#">Анкет удирдах<span class="list_num"><?=number_format($total['c']);?></span></a></li>
+		<li class="tab01 active"><a href="#">이력서관리<span class="list_num"><?=number_format($total['c']);?></span></a></li>
 			<!-- <li class="tab02"><a href="#">파일관리<span class="list_num">1</span></a></li> -->
 		</ul>
 
@@ -35,7 +35,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -44,7 +44,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 
 			default:
 				while($row=sql_fetch_array($query)) {
-					$_open = $row['wr_open'] ? 'Нээлттэй' : 'Хаалттай';
+					$_open = $row['wr_open'] ? '공개' : '비공개';
 					$get_resume = $netfu_mjob->get_resume($row, $member);
 
 					$_remain_service = $netfu_payment->service_is_check('resume', $row);
@@ -53,15 +53,15 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 			<li class="col1"><input type="checkbox" name="chk[]" value="<?=$row['no'];?>"></li>
 			<li class="col2"><a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['no'];?>">
 				<div class="list_txt">[<?=$_open;?>] <?=stripslashes(strip_tags($row['wr_subject']));?></div>
-				<div class="list_etc"><span>Ажлын төрөл : <?=$get_resume['job_type_val'][0];?></span></div>
-				<div class="list_etc"><span>Сүүлд өөрчилсөн огноо : <?=date("Y.m.d", strtotime($row['wr_udate']));?></span></div>
-				<div class="list_etc"><span>Үзсэн тоо : <em style="color:#24afb2"><?=number_format($row['wr_hit']);?>төрөл</em></span></a><span><em>төлбөртэй үйлчилгээ<em></span></div>
+				<div class="list_etc"><span>직종 : <?=$get_resume['job_type_val'][0];?></span></div>
+				<div class="list_etc"><span>최종수정일 : <?=date("Y.m.d", strtotime($row['wr_udate']));?></span></div>
+				<div class="list_etc"><span>열람수 : <em style="color:#24afb2"><?=number_format($row['wr_hit']);?>건</em></span></a><span><em>유료서비스<em></span></div>
 			</li>
 			<li class="col3">
-				<a href="./resume_write.php?no=<?=$row['no'];?>"><div class="list_btn list_btn1 list_btn1-1" class="btn-a" style="color:#3694ed">Өөрчлөх</div></a>
-				<a href="javascript:netfu_mjob.resume_delete('<?=$row['no'];?>')"><div class="list_btn list_btn1 list_btn1-2" class="btn-a" style="color:#3694ed">Устгах</div></a>
-				<a href="#none;" onClick="netfu_mjob.jump_func('resume', '<?=$row['no'];?>')"><div class="list_btn list_btn1"><button type="button">Jump</button></div></a>
-				<a href="../payment/resume_payment.php?no=<?=$row['no'];?>"><div class="list_btn list_btn2" class="btn_a" style="color:#fff">Үйлчилгээний хүсэлт</div></a>
+				<a href="./resume_write.php?no=<?=$row['no'];?>"><div class="list_btn list_btn1 list_btn1-1" class="btn-a" style="color:#3694ed">수정</div></a>
+				<a href="javascript:netfu_mjob.resume_delete('<?=$row['no'];?>')"><div class="list_btn list_btn1 list_btn1-2" class="btn-a" style="color:#3694ed">삭제</div></a>
+				<a href="#none;" onClick="netfu_mjob.jump_func('resume', '<?=$row['no'];?>')"><div class="list_btn list_btn1"><button type="button">점프</button></div></a>
+				<a href="../payment/resume_payment.php?no=<?=$row['no'];?>"><div class="list_btn list_btn2" class="btn_a" style="color:#fff">서비스신청</div></a>
 			</li>
 
 
@@ -71,12 +71,12 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 			?>
 			<li class="col4 cf" style="clear:both">
 				<ul>
-					<h3>Төлбөртэй үйлчилгээний ашиглалтын түүх</h3>
+					<h3>유료서비스 이용내역</h3>
 					<?php
 					if(is_array($_remain_service)) { foreach($_remain_service as $k=>$v) {
 					?>
 					<li>
-						<p><?=$v;?></p><a href="<?=NFE_URL;?>/payment/resume_payment.php?no=<?=$row['no'];?>">Үйлчилгээ сунгах</a>
+						<p><?=$v;?></p><a href="<?=NFE_URL;?>/payment/resume_payment.php?no=<?=$row['no'];?>">서비스연장</a>
 					</li>
 					<?php
 					} }
@@ -98,10 +98,10 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 </form>
 
 <div class="button_con">
-	<a href="javascript:netfu_mjob.resume_all_open(1)" class="bottom_btn01" onClick="">Нээлттэй</a><a href="javascript:netfu_mjob.resume_all_open(0)" onClick="" class="bottom_btn02">Хаалттай</a>
+	<a href="javascript:netfu_mjob.resume_all_open(1)" class="bottom_btn01" onClick="">공개</a><a href="javascript:netfu_mjob.resume_all_open(0)" onClick="" class="bottom_btn02">비공개</a>
 </div>
 <div class="button_con">
-	<a href="/mypage/resume_write.php" class="bottom_btn01" onClick="">Анкет бүртгүүлэх</a><a href="javascript:netfu_mjob.resume_all_delete()" onClick="" class="bottom_btn02">Устгах</a>
+	<a href="/mypage/resume_write.php" class="bottom_btn01" onClick="">이력서등록</a><a href="javascript:netfu_mjob.resume_all_delete()" onClick="" class="bottom_btn02">삭제</a>
 </div>
 
 <!--
