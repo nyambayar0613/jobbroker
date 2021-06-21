@@ -1,5 +1,5 @@
 <?php
-$head_title = ($_GET['kind']=='company' ? '기업' : '개인')."회원가입";
+$head_title = ($_GET['kind']=='company' ? 'Байгууллага' : 'Хувь хүн')."Гишүүнээр нэвтрэх";
 $editor_use = true;
 include_once "../include/top.php";
 ?>
