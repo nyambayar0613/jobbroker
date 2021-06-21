@@ -1,6 +1,6 @@
 <?php
 $menu_code = 'text';
-$menu_text = '비밀번호 찾기';
+$menu_text = 'Нууц дугаар хайх';
 include_once "../include/top.php";
 ?>
 <style>
@@ -16,11 +16,11 @@ include_once "../include/top.php";
 		<ul class="info3_con info2_con">
 			<li class="row2">
 				<label for="name">Нэр</label>
-				<input type="text" name="mb_name" hname="이름" required>
+				<input type="text" name="mb_name" hname="Нэр" required>
 			</li>
 			<li class="row2">
 				<label for="name">ID</label>
-				<input type="text" name="mb_id" hname="아이디" required>
+				<input type="text" name="mb_id" hname="ID" required>
 			</li>
 			<li class="row17">
 				<label for="email">И-мэйл"</label>
