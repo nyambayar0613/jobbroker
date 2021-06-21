@@ -1,5 +1,5 @@
 <?php
-$head_title = "Scrab ажлын байрны мэдээлэл";
+$head_title = "스크랩구인정보";
 $page_code = 'mypage';
 include "../include/top.php";
 
@@ -27,7 +27,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 <section class="cont_box resume_list">
 	<div class="resume_list_con cf">
 		<ul class="list-tab">
-			<li class="tab01 active"><a href="#">Scrab ажлын байрны мэдээлэл<span class="list_num"><?=number_format($total['c']);?></span></a></li>
+			<li class="tab01 active"><a href="#">스크랩구인정보<span class="list_num"><?=number_format($total['c']);?></span></a></li>
 			<!-- <li class="tab02"><a href="#"></a></li> -->
 		</ul>
 
@@ -37,7 +37,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 		?>
 		<ul class="list_con">
 			<li class="col2 none">
-				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">Ажлын байрны мэдээлэл байхгүй байна.</div>
+				<div class="list_txt2"><img src="<?=NFE_URL;?>/images/info.png" alt="">스크랩 정보가 없습니다.</div>
 			</li>
 		</ul>
 		<?php
@@ -54,14 +54,14 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 					$area_arr = $netfu_util->get_cate($_area_arr);
 					$area_txt = $area_arr[0].' '.$area_arr[1];
 
-					$wr_pay = number_format($alba_row['wr_pay'])."төгрөг";
+					$wr_pay = number_format($alba_row['wr_pay'])."원";
 					$wr_pay_type = $category_control->get_categoryCode($alba_row['wr_pay_type']);
 					$wr_pay_txt = ($alba_row['wr_pay_conference']) ? '<i>'.$alba_user_control->pay_conference[$alba_row['wr_pay_conference']].'</i>' : '<i>'.$wr_pay_type['name'].'</i> <em>'.$wr_pay.'</em>';
 		?>
 		<ul class="list_con _<?=!$row ? 'none' : '';?>">
 			<li class="col1"><input type="checkbox" name="chk[]" value="<?=$row['no'];?>"></li>
 			<li class="col2 col4"><a href="<?=NFE_URL;?>/job/detail.php?no=<?=$row['scrap_rel_id'];?>">
-				<div class="company_name"><?=$alba_row ? strip_tags(stripslashes($alba_row['wr_company_name'])) : 'Устгагдсан мэдээлэл байна.';?></div>
+				<div class="company_name"><?=$alba_row ? strip_tags(stripslashes($alba_row['wr_company_name'])) : '삭제된 채용정보입니다.';?></div>
 				<div class="list_txt"><?=strip_tags(stripslashes($alba_row['wr_subject']));?></div>
 				<div class="list_etc">
 					<span>
@@ -70,7 +70,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 					?></span><span><?=$job_info['volume_text'];?></span>
 				</div>
 				<div class="list_etc">
-					<span>Scrab <?=$netfu_util->get_date('dot', $row['wdate']);?></span><span><?=$wr_pay_txt;?></span>
+					<span>스크랩 <?=$netfu_util->get_date('dot', $row['wdate']);?></span><span><?=$wr_pay_txt;?></span>
 				</div>
 			</a></li>
 		</ul>
@@ -85,7 +85,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 </section>
 
 <div class="button_con button_con3">
-	<a href="javascript:netfu_mjob.scrap_all_delete()" class="bottom_btn03">Устгах</a>
+	<a href="javascript:netfu_mjob.scrap_all_delete()" class="bottom_btn03">삭제</a>
 </div>
 </form>
 
