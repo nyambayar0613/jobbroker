@@ -158,17 +158,17 @@ $strCsrf = "csrf.real.js";
 ?>
 <input type="hidden"  name="Column1" maxlength="200" value="payment_process">
 <input type="hidden"  name="Column2" maxlength="200" value="">
-<input type="hidden"  name="Column3" maxlength="200" value="" title="нэмэлт талбар 3">
+<input type="hidden"  name="Column3" maxlength="200" value="" title="추가사용필드3">
 
 
-<input type="hidden" name="OrdNo" value="<?php echo $OrdNo;?>" title="cЗахиалгын дугаар"/>
-<input type="hidden" name="ProdNm"  value="<?=$__service_name;?>" title="Бүтээгдэхүүний нэр"/>
-<input type="hidden" name="Amt" value="" title="Үнэ"/>
-<input type="hidden" name="DutyFree" value="<?=$dutyfree?>" title="Татваргүй дүн"/>
-<input type="hidden" name="OrdNm"  value="<?php echo $member['mb_name'];?>" title="Худалдан авагчийн нэр"/>
-<input type="hidden" name="StoreNm"  value="<?php echo $env['site_title'];?>" title="Нэгжийн нэр"/>
-<input type="hidden" name="OrdPhone"  value="<?php echo $member['mb_hphone'];?>" title="Гар утасны дугаар"/>
-<input type="hidden" name="UserEmail"  value="<?php echo $member['mb_email'];?>" title="И-мэйл"/>
+<input type="hidden" name="OrdNo" value="<?php echo $OrdNo;?>" title="주문번호"/>
+<input type="hidden" name="ProdNm"  value="<?=$__service_name;?>" title="상품명"/>
+<input type="hidden" name="Amt" value="" title="가격"/>
+<input type="hidden" name="DutyFree" value="<?=$dutyfree?>" title="면세금액"/>
+<input type="hidden" name="OrdNm"  value="<?php echo $member['mb_name'];?>" title="구매자이름"/>
+<input type="hidden" name="StoreNm"  value="<?php echo $env['site_title'];?>" title="상점이름"/>
+<input type="hidden" name="OrdPhone"  value="<?php echo $member['mb_hphone'];?>" title="휴대폰번호"/>
+<input type="hidden" name="UserEmail"  value="<?php echo $member['mb_email'];?>" title="이메일"/>
 <?php
 /*
 <option value="card">신용카드</option>
@@ -180,24 +180,24 @@ $strCsrf = "csrf.real.js";
 <option value="hp">휴대폰</option>
 */
 ?>
-<input type="hidden" name="Job"  value="" title="Төлбөрийн арга"/>
-<input type="hidden" name="StoreId" maxlength="20" value="<?php echo $StoreId;?>" title="Нэгжийн ID"/>
-<input type="hidden"  name="MallUrl" value="http://<?php echo $_SERVER['HTTP_HOST'];?>" title="URL"/>
-<input type="hidden"  name="UserId" maxlength="20" value="<?php echo $member['mb_id'];?>" title="Гишүүний ID">
-<input type="hidden"  name="OrdAddr" value="<?=$member['mb_address0'];?>" title="Захиалагчийн хаяг">
-<input type="hidden"  name="RcpNm" value="<?php echo $member['mb_name'];?>" title="Хүлээн авагчийн нэр">
-<input type="hidden"  name="RcpPhone" value="<?php echo $member['mb_hphone'];?>" title="Хүлээн авагчийн холбоо барих мэдээлэл">
-<input type="hidden"  name="DlvAddr" value="" title="Хүргэлтийн хаяг">
-<input type="hidden"  name="Remark" value="" title="Бусад шаардлага">
-<input type="hidden"  name="CardSelect"  value="" title="Кард сонгох">
-<input type="hidden"  name="RtnUrl" value="http://<?=$_SERVER['HTTP_HOST'];?>/regist.php?mode=payment_process" title="Амжилттай URL">
-<input type="hidden"  name="CancelUrl" value="http://<?=$_SERVER['HTTP_HOST'];?>/plugin/PG/allthegate/mobile/AGSMobile_user_cancel.php" title="Цуцлах URL">
-<input type="hidden" name="MallPage" maxlength="100" value="" title="Мэдэгдлийн хуудас">
-<input type="hidden" name="VIRTUAL_DEPODT" maxlength=8 value="<?=date("Y-m-d", strtotime("3 day"));?>" title="Төлбөр төлөх хугацаа">
-<input type="hidden" name="HP_ID" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_cpid'];?>" title="CP ID">
-<input type="hidden" name="HP_PWD" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_code'];?>" title="CP Нууц үг">
-<input type="hidden" name="HP_SUBID" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_subcp'];?>" title="SUB-CP ID">
-<input type="hidden" name="ProdCode" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_code'];?>" title="Бүтээгдэхүүний код">
+<input type="hidden" name="Job"  value="" title="결제방법"/>
+<input type="hidden" name="StoreId" maxlength="20" value="<?php echo $StoreId;?>" title="상점아이디"/>
+<input type="hidden"  name="MallUrl" value="http://<?php echo $_SERVER['HTTP_HOST'];?>" title="상점URL"/>
+<input type="hidden"  name="UserId" maxlength="20" value="<?php echo $member['mb_id'];?>" title="회원아이디">
+<input type="hidden"  name="OrdAddr" value="<?=$member['mb_address0'];?>" title="주문자주소">
+<input type="hidden"  name="RcpNm" value="<?php echo $member['mb_name'];?>" title="수신자명">
+<input type="hidden"  name="RcpPhone" value="<?php echo $member['mb_hphone'];?>" title="수신자연락처">
+<input type="hidden"  name="DlvAddr" value="" title="배송지주소">
+<input type="hidden"  name="Remark" value="" title="기타요구사항">
+<input type="hidden"  name="CardSelect"  value="" title="특정카드사선택">
+<input type="hidden"  name="RtnUrl" value="http://<?=$_SERVER['HTTP_HOST'];?>/regist.php?mode=payment_process" title="성공URL">
+<input type="hidden"  name="CancelUrl" value="http://<?=$_SERVER['HTTP_HOST'];?>/plugin/PG/allthegate/mobile/AGSMobile_user_cancel.php" title="취소URL">
+<input type="hidden" name="MallPage" maxlength="100" value="" title="통보페이지">
+<input type="hidden" name="VIRTUAL_DEPODT" maxlength=8 value="<?=date("Y-m-d", strtotime("3 day"));?>" title="입금예정일">
+<input type="hidden" name="HP_ID" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_cpid'];?>" title="CP아이디">
+<input type="hidden" name="HP_PWD" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_code'];?>" title="CP비밀번호">
+<input type="hidden" name="HP_SUBID" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_subcp'];?>" title="SUB-CP아이디">
+<input type="hidden" name="ProdCode" maxlength="10" value="<?php echo $netfu_payment->use_pg['pg_code'];?>" title="상품코드">
 
 <?
 /*
@@ -205,8 +205,8 @@ $strCsrf = "csrf.real.js";
 <option value="2">실물:2
 */
 ?>
-<input type="hidden" name="HP_UNITType" maxlength="10" value="1" title="Бүтээгдэхүүний төрөл">
-<input type="hidden" name="SubjectData" value="" title="Бүтээгдэхүүн нийлүүлэлтийн хугацаа">
+<input type="hidden" name="HP_UNITType" maxlength="10" value="1" title="상품종류">
+<input type="hidden" name="SubjectData" value="" title="상품제공기간">
 
 <input type="hidden" name="DeviId" value="9000400001">            
 <input type="hidden" name="QuotaInf" value="0">         
@@ -224,7 +224,7 @@ AppRtnScheme + RtnUrl을 합친 값으로 다시 앱을 호출합니다.<br/>
 $app_val = '';
 if(strpos($_SERVER['HTTP_USER_AGENT'], "NAVER(inapp")!==false) $app_val = 'naversearchapp://inappbrowser?url=';
 ?>
-<input type="hidden"  name="AppRtnScheme" value="<?=$app_val;?>" title="">
+<input type="hidden"  name="AppRtnScheme" value="<?=$app_val;?>" title="독자앱일경우">
 
 
 
