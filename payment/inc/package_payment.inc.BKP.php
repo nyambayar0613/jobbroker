@@ -25,11 +25,11 @@ if(@in_array('package', $_use_service['code'])) {
 			<?php
 			if(is_array($pack_service)) { foreach($pack_service as $k=>$v) {
 			?>
-			<tr><th><?=$v['name'];?></th><td>Өнөөдөр+<?=$v['date'];?></td></tr>
+			<tr><th><?=$v['name'];?></th><td>오늘+<?=$v['date'];?></td></tr>
 			<?php
 			} }
 			?>
-			<tr><td colspan="2"><em>Package төлбөр : </em><span><?=number_format($package_row['wr_price']);?>төгрөг</span></td></tr>
+			<tr><td colspan="2"><em>패키지 금액 : </em><span><?=number_format($package_row['wr_price']);?>원</span></td></tr>
 		</table>
 	</div>
 	<input type="hidden" name="service[]" value="package/<?=$_service_no_arr['package'][0];?>" /><?=$pack_row['wr_subject'];?>
