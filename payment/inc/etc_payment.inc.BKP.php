@@ -27,7 +27,7 @@ if(is_array($netfu_payment->etc_se_arr)) { foreach($netfu_payment->etc_se_arr as
 <li class="service_item cf">
 	<table class="search_tb">
 		<tr>
-			<th class="sch_hd"><div><?=$v;?> Үйлчилгээ</div><div class="info-txt"></div></th>
+			<th class="sch_hd"><div><?=$v;?> 서비스</div><div class="info-txt"></div></th>
 		</tr>
 	</table>
 	<ul>
@@ -35,18 +35,18 @@ if(is_array($netfu_payment->etc_se_arr)) { foreach($netfu_payment->etc_se_arr as
 			<table class="search_tb">
 				<tr>
 					<th class="sch_hd">
-						<div><label class="svc_tit"><?php if($_checkbox_is) {?><input type="checkbox" name="" <?=$chk_is ? 'checked' : '';?> onClick="netfu_payment.use_service_check(this)"><?php }?><?=$v;?><br><span>(<?=$v;?> Highlight effect)</span></label></div>
+						<div><label class="svc_tit"><?php if($_checkbox_is) {?><input type="checkbox" name="" <?=$chk_is ? 'checked' : '';?> onClick="netfu_payment.use_service_check(this)"><?php }?><?=$v;?><br><span>(<?=$v;?> 강조 효과)</span></label></div>
 					</th>
 					<td class="option_view_c sch_td1 <?=$chk_is ? '' : '_none';?>">
 						<select class="select_service _service_tag" name="service[]" onChange="netfu_payment.money_click(this)" style="width:100%">
-							<option value="">Сонгох</option>
+							<option value="">선택</option>
 							<?php
 							if(is_array($service_list)) {
 								foreach($service_list as $val){ 
 									$_val = 'etc/'.$val['no'];
 									$selected = @in_array($_val, $_POST['service']) ? 'selected' : '';
 							?>
-							<option value="<?=$_val;?>" <?=$selected;?>>Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
+							<option value="<?=$_val;?>" <?=$selected;?>>오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
 							<?php
 								}
 							}
@@ -57,10 +57,10 @@ if(is_array($netfu_payment->etc_se_arr)) { foreach($netfu_payment->etc_se_arr as
 			</table>
 			<div class="option_view_c select_result box-info2 cf <?=$chk_is ? '' : '_none';?>">
 				<ul class="result_inner">
-					<li class="srv_info service_info1">Өнөөдөр+<?=$netfu_util->date_txt($chk_is['service_cnt'].$chk_is['service_unit']);?></li>
-					<li class="srv_info service_info2"><?=number_format($chk_is['service_price']);?>төгрөг</li>
+					<li class="srv_info service_info1">오늘+<?=$netfu_util->date_txt($chk_is['service_cnt'].$chk_is['service_unit']);?></li>
+					<li class="srv_info service_info2"><?=number_format($chk_is['service_price']);?>원</li>
 					<li class="srv_info service_info3">(<em><?=$chk_is['service_percent'];?>%</em>)</li>
-					<li class="srv_info service_info4"><?=number_format($netfu_util->sale_price($chk_is['service_percent'], $chk_is['service_price']));?>төгрөг</li>
+					<li class="srv_info service_info4"><?=number_format($netfu_util->sale_price($chk_is['service_percent'], $chk_is['service_price']));?>원</li>
 				</ul>
 			</div>
 		</li>
