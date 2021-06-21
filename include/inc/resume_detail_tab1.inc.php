@@ -22,7 +22,7 @@ $implode_tag_job_type = $re_info['max_job_type']>1 ? '<br/>' : ', ';
 		</tr>
 		<tr>
 			<th>Ажлын цаг</th>
-			<td><?=$_wr_date[0];?>, <?=$wr_week[0];?>, <?=$wr_time[0];?>, <?=$re_row['wr_work_direct'] ? '즉시출근가능' : '';?></td>
+			<td><?=$_wr_date[0];?>, <?=$wr_week[0];?>, <?=$wr_time[0];?>, <?=$re_row['wr_work_direct'] ? 'Яаралтай ажилд орох боломжтой' : '';?></td>
 		</tr>
 		<tr>
 			<th>Цалин</th>
