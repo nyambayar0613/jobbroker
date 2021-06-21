@@ -29,7 +29,7 @@ function Pay(form){
 			// 올더게이트 플러그인 설치가 올바르게 되었는지 확인합니다.
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if(document.AGSPay == null || document.AGSPay.object == null){
-				alert("플러그인 설치 후 다시 시도 하십시오.");
+                alert("Залгаасыг суулгасны дараа дахин оролдоно уу.");
 			}else{
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// 올더게이트 플러그인 설정값을 동적으로 적용하기 JavaScript 코드를 사용하고 있습니다.
@@ -145,37 +145,45 @@ function Disable_Flag(form){
         form.Flag.value = "disable"
 }
 
+function Enable_Flag(form){
+    form.Flag.value = "enable";
+}
+
+function Disable_Flag(form){
+    form.Flag.value = "disable"
+}
+
 function Check_Common(form){
-	if(form.StoreId.value == ""){
-		alert("상점아이디를 입력하십시오.");
-		return false;
-	}
-	
-	if(form.StoreNm.value == ""){
-		alert("상점명을 입력하십시오.");
-		return false;
-	}
-	
-	if(form.OrdNo.value == ""){
-		alert("주문번호를 입력하십시오.");
-		return false;
-	}
-	
-	if(form.ProdNm.value == ""){
-		alert("상품명을 입력하십시오.");
-		return false;
-	}
-	
-	if(form.Amt.value == ""){
-		alert("금액을 입력하십시오.");
-		return false;
-	}
-	
-	if(form.MallUrl.value == ""){
-		alert("상점URL을 입력하십시오.");
-		return false;
-	}
-	return true;
+    if(form.StoreId.value == ""){
+        alert("ID оруулна уу.");
+        return false;
+    }
+
+    if(form.StoreNm.value == ""){
+        alert("Нэгжийн нэр оруулна уу.");
+        return false;
+    }
+
+    if(form.OrdNo.value == ""){
+        alert("Захиалгын дугаараа оруулна уу.");
+        return false;
+    }
+
+    if(form.ProdNm.value == ""){
+        alert("Бүтээгдэхүүний нэрийг оруулна уу.");
+        return false;
+    }
+
+    if(form.Amt.value == ""){
+        alert("Төлбөрийн хэмжээ оруулна уу.");
+        return false;
+    }
+
+    if(form.MallUrl.value == ""){
+        alert("Нэгжийн URL оруулна уу.");
+        return false;
+    }
+    return true;
 }
 
 function Display(form){
