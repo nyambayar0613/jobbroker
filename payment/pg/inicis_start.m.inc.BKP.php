@@ -60,11 +60,11 @@ function on_web()
 	{
 		if ((webbrowser.indexOf("Windows NT 5.1")!=-1) && (webbrowser.indexOf("SV1")!=-1)) 
 		{    // Windows XP Service Pack 2
-			alert("POPUP цонхыг хаасан байна. Хөтөчийнхөө дээд хэсэгт байрлах шар [Мэдэгдэх самбар] дээр дарж, popup up windows-ийг зөвшөөрөхийг сонгоно уу.");
+			alert("팝업이 차단되었습니다. 브라우저의 상단 노란색 [알림 표시줄]을 클릭하신 후 팝업창 허용을 선택하여 주세요.");
 		} 
 		else 
 		{
-			alert("POPUP цонх хаагдсан байна.");
+			alert("팝업이 차단되었습니다.");
 		}
 		return false;
 	}
