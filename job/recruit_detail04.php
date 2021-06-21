@@ -115,11 +115,11 @@ include_once(NFE_PATH.'/head.php');
 							</tr>
 						  <tr>
 							  <th>Байгуулагдсан он</th>
-								<td>1999년</td>
+								<td>1999 он</td>
 							</tr>
 						  <tr>
 							  <th>Ажилчдын тоо</th>
-								<td>500명</td>
+								<td>500 хүн</td>
 							</tr>
 						  <tr>
 							  <th>Байгууллагын төрөл</th>
