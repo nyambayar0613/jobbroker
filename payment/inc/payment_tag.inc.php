@@ -16,7 +16,7 @@
 					 <p>(<?=$price_row['_date_txt'];?>)</p>
 					 <?php }?>
 				 </div>
-				 <div class="price"><?=number_format($netfu_util->sale_price($price_row['_sale'], $price_row['_price']));?>원</div>
+                 <div class="price"><?=number_format($netfu_util->sale_price($price_row['_sale'], $price_row['_price']));?>төгрөг</div>
 			 </div>
 		</td>
 	</tr>
