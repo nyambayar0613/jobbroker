@@ -109,26 +109,26 @@ if(!$good_expr) $good_expr = '0';
 <input type="hidden" name="param_opt_2"     value="">
 <input type="hidden" name="param_opt_3"     value="">
 
-<input type="hidden" name="pay_method" value="" title="결제방법" />
-<input type="hidden" name="ordr_idxx" value="<?=$_SESSION['__pay_order__'];?>" title="" />
-<input type="hidden" name="good_name" value="<?=$__service_name;?>" title="" />
-<input type="hidden" name="good_mny" value="" title="결제금액" />
-<input type="hidden" name="buyr_name" value="<?=$member['mb_name'];?>" title="주문자명" />
-<input type="hidden" name="buyr_mail" value="<?=$member['mb_email'];?>" title="주문자 Email" />
-<input type="hidden" name="buyr_tel1" value="<?=$member['mb_phone'];?>" title="주문자 연락처1" />
-<input type="hidden" name="buyr_tel2" value="<?=$member['mb_hphone'];?>" title="휴대폰번호" />
+    <input type="hidden" name="ActionResult" value="<?=$this->kcp_payment_method_m[$_POST['payment_method']];?>" title="Төлбөрийн арга" />
+    <input type="hidden" name="ordr_idxx" value="" title="<?=$_SESSION['payment_oid'];?>" />
+    <input type="hidden" name="good_name" value="<?=$service_name;?> Үйлчилгээ" title="Үйлчилгээний нэр" />
+    <input type="hidden" name="good_mny" value="<?=$price_re['price_int'];?>" title="Төлбөрийн хэмжээ" />
+    <input type="hidden" name="buyr_name" value="<?=$member_info['name'];?>" title="Захиалагчийн нэр" />
+    <input type="hidden" name="buyr_mail" value="<?=$member_info['email'];?>" title="Захиалагчийн Email" />
+    <input type="hidden" name="buyr_tel1" value="<?=$member_info['phone'];?>" title="Захиалагчийн холбоо барих мэдээлэл 1" />
+    <input type="hidden" name="buyr_tel2" value="<?=$member_info['hphone'];?>" title="Утсаны дугаар" />
 
 <?php
 // : 에스크로 정보
 if($escrow_use=='Y') {
 ?>
-<input type="hidden" name="rcvr_name" value="" title="수취인명" />
-<input type="hidden" name="rcvr_tel1" value="" title="수취인 연락처1" />
-<input type="hidden" name="rcvr_tel2" value="" title="수취인 휴대번호" />
-<input type="hidden" name="rcvr_mail" value="" title="수취인 E-mail" />
-<input type="hidden" name="rcvr_zipx" value="" title="수취인 우편번호" />
-<input type="hidden" name="rcvr_add1" value="" title="수취인 주소" />
-<input type="hidden" name="rcvr_add2" value="" title="수취인 상세주소" />
+<input type="hidden" name="rcvr_name" value="" title="Хүлээн авагчын нэр" />
+<input type="hidden" name="rcvr_tel1" value="" title="Холбоо барих 1" />
+<input type="hidden" name="rcvr_tel2" value="" title="Хүлээн авагчын утасны дугаар" />
+<input type="hidden" name="rcvr_mail" value="" title="Хүлээн авагчын E-mail" />
+<input type="hidden" name="rcvr_zipx" value="" title="Хүлээн авагчын шуудангын дугаар" />
+<input type="hidden" name="rcvr_add1" value="" title="Хүлээн авагчын хаяг" />
+<input type="hidden" name="rcvr_add2" value="" title="Хүлээн авагчын дэлгэрэнгүй хаяг" />
 <input type="hidden" name="pay_method" value="" />
 <input type="hidden" name="pay_method" value="" />
 <input type="hidden" name="pay_method" value="" />
@@ -138,22 +138,22 @@ if($escrow_use=='Y') {
 <?php
 // : Payplus Plugin 에스크로결제 사용시 필수 정보
 ?>
-<input type="hidden" name="escw_used"       value="Y" title="에스크로 사용 여부"/>
-<input type="hidden" name="pay_mod"         value="Y" title="에스크로 결제처리 모드 : 에스크로: Y, 일반: N, KCP 설정 조건: O"/>
-<input type="hidden"  name="deli_term" value="03" title="배송 소요일 : 예상 배송 소요일을 입력"/>
-<input type="hidden"  name="bask_cntx" value="3" title="장바구니 상품 개수 : 장바구니에 담겨있는 상품의 개수를 입력(good_info의 seq값 참조)" />
+<input type="hidden" name="escw_used"       value="Y" title="Эскроу ашиглах эсэх"/>
+<input type="hidden" name="pay_mod"         value="Y" title="Эскроу төлбөр хийх: Эскроу: Y, Хэвийн: N, KCP тохиргооны нөхцөл O"/>
+<input type="hidden"  name="deli_term" value="03" title="Хүргэлтийн хугацаа:  хугацааг тооцоолно уу"/>
+<input type="hidden"  name="bask_cntx" value="3" title="Сагсанд байгаа зүйлийн тоо: Сагсанд бүтээгдэхүүний тоог оруулна уу (good_info-ийн дарааллын утгыг харна уу)" />
 <?php
 }
 
 
 // : 가맹점 필수 정보 설정
 ?>
-<input type="hidden" name="good_info"       value="" title="장바구니 상품 상세 정보 (자바 스크립트 샘플 create_goodInfo()가 온로드 이벤트시 설정되는 부분입니다.)"/>
+<input type="hidden" name="good_info"       value="" title="Сагсанд байгаа бүтээгдэхүүний дэлгэрэнгүй мэдээлэл (javascript sample create_goodInfo()on-road event тохируулсан хэсэг.)"/>
 <input type="hidden" name="req_tx"          value="pay" />
 <input type="hidden" name="site_cd"         value="<?=$g_conf_site_cd?>" />
 <input type="hidden" name="site_name"       value="<?=$g_conf_site_name ?>" />
-<input type="hidden" name="quotaopt"        value="" title="할부옵션" />
-<input type="hidden" name="currency"        value="WON" title="결제 금액/화폐단위" />
+<input type="hidden" name="quotaopt"        value="" title="Хувааж төлөх" />
+<input type="hidden" name="currency"        value="WON" title="Төлбөрийн хэмжээ / валютын нэгж" />
 
 <?php
 // : Payplus Plugin 필수 정보(변경 불가)
