@@ -47,7 +47,7 @@ include_once(NFE_PATH.'/head.php');
 									<p>
 									  <ol>
 											<li class="pf_name">Mr Hong</li>
-											<li class="pf_info"><p class="gender">남</p><p class="birth">1989</p></li>
+											<li class="pf_info"><p class="gender"></p><p class="birth">1989</p></li>
 											<li class="slash">/</li>
 											<li class="pf_id">test_individual</li>
 										</ol>
