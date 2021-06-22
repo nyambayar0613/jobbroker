@@ -7,6 +7,6 @@ body{margin:0;padding:0;background:#f8f8f8}
 
 <div class="const cf">
   <div class="const_bx cf">
-	  <img src="<?=NFE_URL;?>/images/const.png" alt="공사중">
+	  <img src="<?=NFE_URL;?>/images/const.png" alt="Засварлаж байна">
 	</div>
 </div>
