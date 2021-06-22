@@ -80,7 +80,7 @@ include NFE_PATH.'/include/board_main.php';
 if($view_count<=0) {
 ?>
 <section class="cont_box cont_list recruit1" id="sch_result">
-<img src="/images/info.png" alt="검색결과 없음">Хайлт олдсонгүй.
+<img src="/images/info.png" alt="Хайлт олдсонгүй.">Хайлт олдсонгүй.
 </section>
 <?php
 }
