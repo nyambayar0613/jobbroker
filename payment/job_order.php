@@ -3,7 +3,7 @@ include "../engine/db_start.php";
 include_once '../engine/netfu_payment.class.php';
 $netfu_payment = new netfu_payment();
 
-$head_title = $netfu_payment->service_kind[$_POST['mode']]." 서비스 신청";
+$head_title = $netfu_payment->service_kind[$_POST['mode']]." Үйлчилгээний хүсэлт";
 
 // : 이전에 선택한 주키값들 가져오기
 if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
@@ -15,7 +15,7 @@ if(is_array($_POST['service'])) { foreach($_POST['service'] as $k=>$v) {
 $page_code = 'mypage';
 $_use_service = $netfu_payment->get_use_service();
 
-$menu_text = $netfu_payment->service_kind[$_POST['mode']]." 서비스 신청";
+$menu_text = $netfu_payment->service_kind[$_POST['mode']]." Үйлчилгээний хүсэлт";
 include_once "../include/top.php";
 $_SESSION['__pay_order__'] = $utility->getOrderNumber(10);
 ?>
@@ -80,7 +80,7 @@ netfu_payment.money_click(sel_se[0]);
 
 <?php
 $__service_name = $netfu_payment->payment_service_name[$_POST['mode']];
-if($_POST['mode']=='open_payment') $head_txt = ($_POST['pay_type']=='alba') ? '채용정보 ' : '이력서 ';
+if($_POST['mode']=='open_payment') $head_txt = ($_POST['pay_type']=='alba') ? 'Зар үзэх ' : 'Анкет ';
 $__service_name = $head_txt.$__service_name;
 include_once NFE_PATH.'/payment/use_pg.inc.php';
 ?>
