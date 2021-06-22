@@ -113,12 +113,12 @@ include_once(NFE_PATH.'/head.php');
                                   <td>Korea Chamber of Commerce and Industry</td>
                               </tr>
                               <tr>
-                                  <td>2020년</td>
+                                  <td>2020он</td>
                                   <td>Компьютерийн мэдлэгийн түвшин 2</td>
                                   <td>Худалдаа Аж Үйлдвэрийн Танхим</td>
                               </tr>
                               <tr>
-                                  <td>2021년</td>
+                                  <td>2021он</td>
                                   <<td>Компьютерийн мэдлэгийн түвшин 2</td>
                                   <td>Худалдаа Аж Үйлдвэрийн Танхим</td>
 								</tr>
