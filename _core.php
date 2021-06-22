@@ -222,7 +222,7 @@
 		include_once $alice['path'] . "engine/core/custom.php";				// 커스터마이징
 
 		if (!$cat_path || preg_match("/:\/\//", $cat_path))
-			die("잘못된 방법으로 변수가 정의되었습니다. [cat_path]");
+			die("Буруу аргаар хувьсагч тодоррхойлсон байна.[cat_path]");
 
 		$cat['path'] = $cat_path;				// 절대경로를 사용하기 위한 변수 (alice 변수 helper)
 
@@ -346,7 +346,7 @@
 
 		// 보안관련 :: PHPSESSID 가 틀리면 로그아웃한다. (그누보드 참고)
 		if ($_REQUEST['PHPSESSID'] && $_REQUEST['PHPSESSID'] != session_id())
-			die("PHPSESSID 가 일치하지 않습니다.");
+			die("PHPSESSID тохирохгүй байна.");
 
 		$chars_array = array_merge(range(0,9), range('a','z'), range('A','Z'));
 
