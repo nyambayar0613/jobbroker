@@ -29,7 +29,7 @@ while($row=sql_fetch_array($bo_query)) {
 	$_tit_img = $netfu_util->icon_tit($_tit_img);
 	?>
 	<section class="cont_box <?=$arr['section_class'];?>">
-		<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/<?=$_tit_img;?>.png" alt=""></span><?php echo stripslashes($row['bo_subject']);?><span class="bt_box"><?php /*if($page_type!='search') {?><em><?=$netfu_util->start_slide_num($arr['paging_group']);?></em>/<?=$arr['paging_group'];?>건<?php }*/?> <a href="<?=NFE_URL;?>/board/list.php?board_code=<?=$first_row2['code'];?>&code=<?=$row['code'];?>&bo_table=<?=$row['bo_table'];?>" class="more_bt">더보기<img src="<?=NFE_URL;?>/images/chevron1.png" alt=""></a></span></h2>
+		<h2><span class="tit_ico"><img src="<?=NFE_URL;?>/images/<?=$_tit_img;?>.png" alt=""></span><?php echo stripslashes($row['bo_subject']);?><span class="bt_box"><?php /*if($page_type!='search') {?><em><?=$netfu_util->start_slide_num($arr['paging_group']);?></em>/<?=$arr['paging_group'];?>건<?php }*/?> <a href="<?=NFE_URL;?>/board/list.php?board_code=<?=$first_row2['code'];?>&code=<?=$row['code'];?>&bo_table=<?=$row['bo_table'];?>" class="more_bt">Цааш үзэх<img src="<?=NFE_URL;?>/images/chevron1.png" alt=""></a></span></h2>
 		<?
 		// : 슬라이드용
 		/*
