@@ -120,7 +120,7 @@ switch($_POST['mode']) {
 
 				if($result){
 					$user_control->user_logout($_SESSION[$user_control->sess_user_val]);	// 로그아웃
-					$arr['msg'] = "Гишүүнээс гарах хүсэлт амжилттай боллоо.";
+					$arr['msg'] = "회원탈퇴 신청이 완료되었습니다.";
 					$arr['move'] = NFE_URL.'/';
 				}
 			}
@@ -147,10 +147,10 @@ switch($_POST['mode']) {
 		if($row){
 			$mail_control->make_mail_Send('member_find', $find_email, $find_id); 
 			if($_POST['mode']=='pw_find') $sms_control->send_sms_user('member_password', $row, $mb_password); // : $mb_password변수는 make_mail_Send 함수에서 global합니다.
-			$arr['msg'] = 'И-мэйл цуцлах ['.$find_email.'] мэйл илгээгдлээ';
+			$arr['msg'] = '이메일 주소 ['.$find_email.'] 로 메일이 발송 되었습니다.';
 			$arr['move'] = NFE_URL.'/include/login.php';
 		} else {
-			$arr['msg'] = "Бүртгэгдсэн мэдээллийг баталгаажуулаагү.\n\n Нэвтэрсэн нэр, и-мэйл ээ шалгана уу.";
+			$arr['msg'] = "가입된 정보가 확인되지 않습니다.\n\n가입하신 회원명, 이메일주소를 확인하세요.";
 		}
 
 		die(json_encode($arr));
@@ -170,9 +170,9 @@ switch($_POST['mode']) {
 
 			$arr['msg'] = "";
 			if(!$get_ext) {
-				$arr['msg'] = "Файл байршуулна уу.";
+				$arr['msg'] = "파일을 업로드해주시기 바랍니다.";
 			} else if(!@in_array($get_ext, $chk_ext)) {
-				$arr['msg'] = str_replace(array("|"), array(", "), $allow_ext)." Файл байршуулах боломжтой.";
+				$arr['msg'] = str_replace(array("|"), array(", "), $allow_ext)." 파일만 업로드 가능합니다.";
 			}
 			die(json_encode($arr));
 		}
@@ -182,7 +182,7 @@ switch($_POST['mode']) {
 		$arr['msg'] = "";
 		$key = $_SESSION['rand_nums'];
 		if (!$member['mb_id'] && !($key && strtolower($key) == strtolower($_POST['word']))) {
-			$arr['msg'] = "Автомат бүртгэлээс сэргийлэх түлхүүр буруу байна.";
+			$arr['msg'] = "자동등록방지키가 잘못되었습니다. 다시 등록해주세요";
 		}
 		die(json_encode($arr));
 		break;
@@ -193,7 +193,7 @@ switch($_POST['mode']) {
 	case "member_write_login":
 		$q = "select * from alice_member where `mb_id`='".addslashes($_POST['login_id'])."' and `mb_password`=md5('".addslashes($_POST['login_passwd'])."') and `is_delete`=0 and `mb_badness`=0 and mb_type='".addslashes($_POST['mb_type'])."'";
 		$row = sql_fetch($q);
-		if(!$row) $arr['msg'] = "ID болон нууц үгээ анхааралтай зөв оруулна уу";
+		if(!$row) $arr['msg'] = "아이디와 비밀번호를 정확히 입력해주시기 바랍니다.";
 		else {
 			$url = urldecode($_POST['url']);
 			$url = strpos($url, 'regist.php')!==false ? NFE_URL.'/' : $url;
@@ -207,17 +207,17 @@ switch($_POST['mode']) {
 
 // : 비밀번호 변경
 	case "password_update":
-		$arr['msg'] = 'Нэвтэрсэн тохиолдолд ашиглах боломжтой.';
+		$arr['msg'] = '로그인하셔야 이용가능합니다.';
 		$arr['move'] = NFE_URL.'/include/login.php';
 
 		if($member['mb_id']) {
 			if($member['mb_password']!=md5($_POST['mb_password'])) {
-				$arr['msg'] = "Нууц үгээ зөв оруулна уу.";
+				$arr['msg'] = "비밀번호를 올바르게 입력해주시기 바랍니다.";
 				$arr['move'] = $_SERVER['HTTP_REFERER'];
 			} else {
 				$q = "update alice_member set `mb_password`=md5('".$_POST['new_password']."') where `mb_id`='".$member['mb_id']."' and `mb_type`='".$member['mb_type']."'";
 				$update = sql_query($q);
-				$arr['msg'] = "Нууц үг засварлалт амжилттай.";
+				$arr['msg'] = "비밀번호 변경이 완료되었습니다.";
 				$arr['move'] = NFE_URL.'/';
 			}
 		}
@@ -285,15 +285,15 @@ switch($_POST['mode']) {
 			$mb_id_chk = sql_fetch("select * from alice_member where mb_password=md5('".addslashes($_POST['password_confirm'])."') and mb_id='".$m_row['mb_id']."'");
 			$nick_row = sql_fetch("select * from alice_member where mb_nick='".addslashes($_POST['mb_nick'])."' and `mb_id`!='".$mb_id."'");
 
-			if(!$mb_id_chk) $arr['msg'] = "Нууц үгээ зөв оруулна уу.";
-			if(!$arr['msg'] && $nick_row) $arr['msg'] = "Nickname давхардсан байна.";
+			if(!$mb_id_chk) $arr['msg'] = "비밀번호를 정확히 입력해주시기 바랍니다.";
+			if(!$arr['msg'] && $nick_row) $arr['msg'] = "닉네임이 중복된 회원이 있습니다.";
 
 		// : 회원가입
 		} else {
 			$m_row = sql_fetch("select * from alice_member where mb_id='".addslashes($_POST['mb_id'])."'");
 			$nick_row = sql_fetch("select * from alice_member where mb_nick='".addslashes($_POST['mb_nick'])."'");
-			if($m_row) $arr['msg'] = "ID давхардсан гишүүн байна.";
-			if($nick_row) $arr['msg'] = "Nickname давхардсан байна.";
+			if($m_row) $arr['msg'] = "아이디가 중복된 회원이 있습니다.";
+			if($nick_row) $arr['msg'] = "닉네임이 중복된 회원이 있습니다.";
 		}
 
 		if(!$arr['msg']) {
@@ -464,7 +464,7 @@ switch($_POST['mode']) {
 					$sms_control->send_sms_user('member_regist', $get_member);
 				}
 				## 03. 회원가입 포인트 지급
-				$point_control->point_insert($mb_id, $env['register_point'], $alice['time_ymd']." Гишүүнээр нэвтрэх", "@register", $mb_id, $alice['time_ymd']);
+				$point_control->point_insert($mb_id, $env['register_point'], $alice['time_ymd']." 회원가입", "@register", $mb_id, $alice['time_ymd']);
 
 				// : 로그인
 				$user_control->user_session( $mb_id, $mb_type );
@@ -473,8 +473,8 @@ switch($_POST['mode']) {
 			}
 
 			
-			if($m_row['mb_id']) $arr['msg'] = "Гишүүний тохиргоо амжилттай.";
-			else $arr['msg'] = "Гишүүний нэвтрэлт амжилттай.";
+			if($m_row['mb_id']) $arr['msg'] = "회원수정이 완료되었습니다.";
+			else $arr['msg'] = "회원가입이 완료되었습니다.";
 
 			if($mb_type=='individual') $arr['move'] = NFE_URL.'/mypage/resume_list.php';
 			else $arr['move'] = NFE_URL.'/mypage/employ_list.php';
@@ -491,11 +491,11 @@ switch($_POST['mode']) {
 		$row = sql_fetch($q);
 		$_allow = false;
 		if(!$_POST['val']) {
-			$arr['txt'] = "ID оруулна уу.";
+			$arr['txt'] = "아이디를 입력해주시기 바랍니다.";
 		} else if($row) {
-			$arr['txt'] = "Давхардсан гишүүн байна";
+			$arr['txt'] = "중복된 회원이 존재합니다.";
 		} else {
-			$arr['txt'] = "Ашиглах боломжтой ID байна.";
+			$arr['txt'] = "사용할 수 있는 아이디입니다.";
 			$_allow = true;
 		}
 		if(!$_allow) {
@@ -514,11 +514,11 @@ switch($_POST['mode']) {
 		$row = sql_fetch($q);
 		$_allow = false;
 		if(!$_POST['val']) {
-			$arr['txt'] = "Nnickname орууна уу.";
+			$arr['txt'] = "닉네임을 입력해주시기 바랍니다.";
 		} else if($row) {
-			$arr['txt'] = "Давхардсан nickname байна.";
+			$arr['txt'] = "중복된 닉네임이 존재합니다.";
 		} else {
-			$arr['txt'] = "Ашиглах боломжтой nickname байна.";
+			$arr['txt'] = "사용할 수 있는 닉네임입니다.";
 			$_allow = true;
 		}
 		if(!$_allow) {
@@ -560,7 +560,7 @@ switch($_POST['mode']) {
 		wr_ip='".$_SERVER['REMOTE_ADDR']."'
 		";
 		$query = sql_query("insert into alice_cs set $q");
-		$arr['msg'] = "Бүртгэл амжилттай.";
+		$arr['msg'] = "등록이 완료되었습니다.";
 		$arr['move'] = NFE_URL."/";
 		die(json_encode($arr));
 		break;
@@ -577,14 +577,14 @@ switch($_POST['mode']) {
 			$key = $_SESSION['rand_nums'];
 			if (!($key && $key == $_POST['wr_key'])) {
 				//session_unregister("captcha_keystring");
-				$arr['msg'] = 'Текстийг зөв орууна уу.';
+				$arr['msg'] = '자동등록방지 글을 정확히 입력해 주세요.';
 				die(json_encode($arr));
 			}
 		}
 		/* //captcha 확인 */
 
 		if (substr_count($_POST['wr_content'], "&#") > 50) {
-			$arr['msg'] = 'Агуулгад маш олон буруу код агуулагдаж байна.';
+			$arr['msg'] = '내용에 올바르지 않은 코드가 다수 포함되어 있습니다.';
 			die(json_encode($arr));
 		}
 
@@ -593,7 +593,7 @@ switch($_POST['mode']) {
 		$vals['wr_id'] = $member['mb_id'];
 
 		if(!$wr_name || $wr_name==''){
-			$arr['msg'] = 'Нэр оруулна уу.';
+			$arr['msg'] = '이름을 입력해 주세요.';
 			die(json_encode($arr));
 		} else {
 			$vals['wr_name'] = $wr_name;
@@ -604,7 +604,7 @@ switch($_POST['mode']) {
 		$vals['wr_biz_type'] = $_POST['wr_biz_type'];	// 제휴부분
 
 		if(!$wr_email || $wr_email==''){
-			$arr['msg'] = 'И-мэйл хаяг оруулна уу.';
+			$arr['msg'] = '이메일 주소를 입력해 주세요.';
 			die(json_encode($arr));
 			exit;
 		} else {
@@ -613,7 +613,7 @@ switch($_POST['mode']) {
 
 		for($i=0;$i<$wr_hphone_cnt;$i++){
 			if($wr_hphone[$i]==''){
-				$arr['msg'] = 'Утасны дугаар оруулна уу.';
+				$arr['msg'] = '휴대폰 번호를 입력해 주세요.';
 			}
 		}
 
@@ -626,7 +626,7 @@ switch($_POST['mode']) {
 
 			if($mode=='concert_insert'){	// 제휴/광고문의
 				if(!$wr_biz_name){
-					$arr['msg'] = 'Албан тушаалын нэрийг оруулна уу.';
+					$arr['msg'] = '업체명을 입력해 주세요.';
 					die(json_encode($arr));
 				} else {
 					$vals['wr_biz_name'] = $_POST['wr_biz_name'];
@@ -634,14 +634,14 @@ switch($_POST['mode']) {
 			}
 
 			if (!isset($_POST['wr_subject']) || !trim($_POST['wr_subject'])) {
-				$arr['msg'] = 'Гарчиг оруулна уу.';
+				$arr['msg'] = '제목을 입력해 주세요.';
 				die(json_encode($arr));
 			} else {
 				$vals['wr_subject'] = $_POST['wr_subject'];
 			}
 
 			if (!isset($_POST['wr_content']) || !trim($_POST['wr_content'])) {
-				$arr['msg'] = 'Агуулга оруулна уу.';
+				$arr['msg'] = '내용을 입력해 주세요.';
 				die(json_encode($arr));
 			} else {
 				$vals['wr_content'] = $_POST['wr_content'];
@@ -650,7 +650,7 @@ switch($_POST['mode']) {
 			$vals['wr_date'] = $now_date;
 
 			$result['result'] = $cs_control->insert_cs($vals);
-			$arr['msg'] = "Бүртгэл амжилттай.";
+			$arr['msg'] = "등록이 완료되었습니다.";
 			$arr['move'] = NFE_URL.'/';
 		}
 		die(json_encode($arr));
@@ -695,7 +695,7 @@ switch($_POST['mode']) {
 				?>
 				<li>
 					<div class="text_box2">
-						<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
+						<div class="title"><img src="<?=NFE_URL;?>/images/info.png" alt="">등록된 내용이 없습니다.</div>
 					</div>
 				</li>
 				<?php
@@ -730,7 +730,7 @@ switch($_POST['mode']) {
 
 // : 현금영수증 발행신청
 	case "tax_write":
-		$arr['msg'] = 'Ашиглахын тулд та нэвтрэх шаардлагатай.';
+		$arr['msg'] = '로그인하셔야 이용가능합니다.';
 		$arr['move'] = NFE_URL.'/include/login.php';
 
 		if($member['mb_id']) {
@@ -758,7 +758,7 @@ switch($_POST['mode']) {
 			$q = " insert alice_tax set " . $val;
 			sql_query($q);
 
-			$arr['msg'] = "Хүсэлт амжилттай.";
+			$arr['msg'] = "신청이 완료되었습니다.";
 			$arr['move'] = $_SERVER['HTTP_REFERER'];
 		}
 		die(json_encode($arr));
@@ -790,7 +790,7 @@ switch($_POST['mode']) {
 			$key = $_SESSION['rand_nums'];
 			if (!($key && $key == $_POST['wr_key'])) {
 				//session_unregister("captcha_keystring");
-				$arr['msg'] = 'Текстээ зөв оруулна уу.';
+				$arr['msg'] = '자동등록방지 글을 정확히 입력해 주세요.';
 				die(json_encode($arr));
 			}
 		}
@@ -912,7 +912,7 @@ switch($_POST['mode']) {
 			// : 댓글수정
 			if($_POST['comment_id']>0 && $_POST['reply_mode']=='modify') {
 				sql_query("update ".$_table." set ".$q." where `wr_no`='".addslashes($_POST['comment_id'])."'");
-				$arr['msg'] = "Сэтгэгдэл амжилттай засагдлаа.";
+				$arr['msg'] = "댓글 수정이 완료되었습니다.";
 			// : 댓글등록
 			} else {
 				sql_query("insert into ".$_table." set ".$q);
@@ -933,7 +933,7 @@ switch($_POST['mode']) {
 
 				if($result){	 // 작성 성공
 					$utility->set_session("ss_comment_".$comment_id, true);	 // 비회원의 경우 세션 할당
-					$arr['msg'] = "Сэтгэгдэл амжилттай бүртгэгдлээ.";
+					$arr['msg'] = "댓글 등록이 완료되었습니다.";
 					//$arr['move'] = "./detail.php?board_code=".$board_code."&code=".$code."&bo_table=".$bo_table."&wr_no=".$wr_no;//."#c_".$comment_id;
 				} else {
 					// 코멘트 작성중 오류가 발생하였습니다.\\n\\n사이트 관리자에게 문의하세요.
@@ -962,22 +962,22 @@ switch($_POST['mode']) {
 
 		$row = sql_fetch("select * from `alice_service` where `no`='".addslashes($_POST['no'])."'");
 		if(!$row && strpos($_SERVER['HTTP_REFERER'], "job_order.php")===false) {
-			$arr['msg'] = "Үнэ сонгоно уу.";
+			$arr['msg'] = "가격을 선택해주시기 바랍니다.";
 		} else {
 
 			$_sale = $row['service_price']-($row['service_price']*($row['service_percent']/100));
 
 			if($row['etc_3']) {
-				$_txt = $row['etc_3'].'төрөл';
+				$_txt = $row['etc_3'].'건';
 			} else {
-				$_txt = 'Өнөөдөр+'.str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, number_format($row['service_cnt']).$row['service_unit']);
+				$_txt = '오늘+'.str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, number_format($row['service_cnt']).$row['service_unit']);
 			}
 
 			$arr = $row;
 			$arr['service_txt'] = $_txt;
 			$arr['sale_price'] = $_sale;
-			$arr['sale_price_txt'] = number_format($_sale).'төгрөг';
-			$arr['ori_price_txt'] = number_format($row['service_price']).'төгрөг';
+			$arr['sale_price_txt'] = number_format($_sale).'원';
+			$arr['ori_price_txt'] = number_format($row['service_price']).'원';
 
 			// : 장바구니 페이지에서만 실행합니다.
 			if(strpos($_SERVER['HTTP_REFERER'], 'payment/job_order.php')!==false) {
@@ -985,7 +985,7 @@ switch($_POST['mode']) {
 				$_val_arr = explode("/", $_POST['val']);
 				// : 가격값
 				$price_row = $netfu_payment->get_price($_val_arr[0], $_val_arr[1]);
-				if(!$row['etc_3']) $_date_txt = 'Өнөөдөр + ';
+				if(!$row['etc_3']) $_date_txt = '오늘 + ';
 				
 				if($price_row['type']) $arr['put_tag'] = '._'.$price_row['type'];
 				else $arr['put_tag'] = '._'.($_POST['chk_se']=='on' ? $_POST['put_tag'] : $_POST['chk_se']);
@@ -1017,7 +1017,7 @@ switch($_POST['mode']) {
 				$_price = $netfu_payment->all_service_price();
 				$arr['price_hap'] = $_price;
 				$arr['price_hap_txt'] = number_format($_price).'원';
-				$arr['price_result_txt'] = number_format($_price-$_POST['use_point']).'төгрөг';
+				$arr['price_result_txt'] = number_format($_price-$_POST['use_point']).'원';
 			}
 		}
 		if($_POST['mode']!='include_get_money') die(json_encode($arr));
@@ -1028,7 +1028,7 @@ switch($_POST['mode']) {
 	// : 결제시작
 	case "payment_start":
 		if(!$member['mb_id']) {
-			$arr['msg'] = "Ашиглахын тулд та нэвтрэх шаардлагатай.";
+			$arr['msg'] = "로그인하셔야 이용가능합니다.";
 			$arr['move'] = NFE_URL.'/include/login.php';
 		}
 
@@ -1041,7 +1041,7 @@ switch($_POST['mode']) {
 			$arr['price'] = $get_price['use_price_hap'];
 
 			if($arr['price']>0 && !$_POST['pay_method']) {
-				$arr['msg'] = "Төлбөрийн аргаа сонгоно уу.";
+				$arr['msg'] = "결제방법을 선택해주시기 바랍니다.";
 			} else {
 				// : 무료인경우
 				if($arr['price']<=0) {
@@ -1051,12 +1051,12 @@ switch($_POST['mode']) {
 						$_POST['status'] = 1;
 						$mu_process = true;
 						$msg = $payment_control->payment_status(1, $pay_row['pay_oid']);
-						if(!$msg) $arr['msg'] = "Аль хэдийн үнэгүй ашиглагдсан тул шинэчлэх боломжгүй байна.";
+						if(!$msg) $arr['msg'] = "이미 무료로 적용중이므로 업데이트할 수가 없습니다.";
 						else {
 							$arr['move'] = NFE_URL."/payment/result.php?no=".$pno;
 						}
 					} else {
-						$arr['msg'] = "Ердийн аргаар төлбөрөө төлнө үү.";
+						$arr['msg'] = "정상적인 방식으로 결제해주시기 바랍니다.";
 					}
 					die(json_encode($arr));
 				} else {
@@ -1093,7 +1093,7 @@ switch($_POST['mode']) {
 					}
 
 					$__service_name = $netfu_payment->payment_service_name[$_POST['mode']];
-					if($_POST['mode']=='open_payment') $head_txt = ($_POST['pay_type']=='alba') ? 'Ажлын байр ' : 'Анкет ';
+					if($_POST['mode']=='open_payment') $head_txt = ($_POST['pay_type']=='alba') ? '채용정보 ' : '이력서 ';
 					$__service_name = $head_txt.$__service_name;
 
 					$_var = $netfu_payment->use_pg['pg_company'].'_method_arr';
@@ -1183,7 +1183,7 @@ switch($_POST['mode']) {
 
 		// : 결제실패
 		} else {
-			if(!$arr['msg']) $arr['msg'] = "Төлбөр төлөлт амжилтгүй боллоо.";
+			if(!$arr['msg']) $arr['msg'] = "결제가 실패되었습니다.";
 		?>
 		<script type="text/javascript">
 		alert("<?=$arr['msg'];?>");
