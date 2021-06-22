@@ -99,7 +99,7 @@ while($row=sql_fetch_array($bo_query)) {
 			?>
 			<li>
 				<div class="text_box2">
-					<div class="title"><img src="images/info.png" alt="">등록된 내용이 없습니다.</div>
+					<div class="title"><img src="images/info.png" alt="">Бүртгэлтэй мэдээлэл байхгүй байна.</div>
 				</div>
 			</li>
 			<?php
