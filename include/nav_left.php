@@ -30,7 +30,7 @@ switch(!$member['mb_id']) {
 		<li class="close_btn"><a href="#none;" onClick="all_menu()"><img src="<?=NFE_URL;?>/images/close.png" alt="Хаах"></a></li>
 		<li class="title_area">Нийт цэс</li>
 		<?php if($member['mb_id']) {?>
-		<li class="id_area"><?=$member['mb_name'];?><span>님</span></li>
+		<li class="id_area"><?=$member['mb_name'];?><span></span></li>
 		<?php }?>
 		<li class="nav_menu">
 			<ol>
@@ -79,7 +79,7 @@ switch(!$member['mb_id']) {
 		<li><a href="<?=NFE_URL;?>/job/index.php?code=pay">Цалин хөлсөөр</a></li>
 		<li><a href="<?=NFE_URL;?>/job/index.php?code=etc">Нөхцөлөөр</a></li>
 		<li class="menu_tit"><a href="<?=NFE_URL;?>/resume/index.php">Хүний нөөц</a></li>
-		<li><a href="<?=NFE_URL;?>/resume/index.php?code=hurry">Яаралтай/a></li>
+		<li><a href="<?=NFE_URL;?>/resume/index.php?code=hurry">Яаралтай></li>
 		<li><a href="<?=NFE_URL;?>/resume/index.php?code=area">Бүс нутгаар</a></li>
 		<li><a href="<?=NFE_URL;?>/resume/index.php?code=job_type">Ажлын төрлөөр</a></li>
 		<li><a href="<?=NFE_URL;?>/resume/index.php?code=date">Хугацаагаар</a></li>
