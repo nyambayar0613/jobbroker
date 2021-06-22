@@ -1,6 +1,6 @@
 <?php
 $page_code = 'mypage';
-$head_title = $menu_text = "기업회원 서비스 신청";
+$head_title = $menu_text = "Байгууллагын үйлчилгээний хүсэлт гаргах";
 include_once "../include/top.php";
 
 if($_GET['_part']) $_part_txt = preg_replace(array("/_gold/", "/_logo/"), array("", ""), $_GET['_part']);
@@ -47,11 +47,11 @@ if(!$_part_txt && $pack_length>0) {
 				<li class="box-info2 cf">
 					<ul>
 					  <li>=</li>
-						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>원</li>
+						<li class="item_info4"><?=number_format($pack_row['wr_price']);?>Төгрөг</li>
 					</ul>
 				</li>
 				<li class="box-btn">
-					<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">신청하기<img src="<?=NFE_URL;?>/images/chevron3.png" alt="신청하기"></a>
+					<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/chevron3.png" alt="Хүсэлт гаргах"></a>
 				</li>
 			</ul>
 		</div>
@@ -92,12 +92,12 @@ if(is_array($service_control->service_lists)) { foreach($service_control->servic
 		</li>
 		<li class="box-tit cf">
 			<select class="_service_tag" name="service[]" onChange="netfu_payment.money_click(this)">
-				<option value="">선택</option>
+				<option value="">Сонгох</option>
 				<?php
 				if(is_array($service_list)) {
 					foreach($service_list as $val){ 
 				?>
-				<option value="main/<?=$val['no'];?>">오늘+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
+				<option value="main/<?=$val['no'];?>">Өнөөдөр+<?=$val['service_cnt'].str_replace(array_keys($netfu_util->day_arr), $netfu_util->day_arr, $val['service_unit']);?></option>
 				<?php
 					}
 				}
@@ -113,7 +113,7 @@ if(is_array($service_control->service_lists)) { foreach($service_control->servic
 			</ul>
 		</li>
 		<li class="box-btn">
-			<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">신청하기<img src="<?=NFE_URL;?>/images/chevron3.png" alt="신청하기"></a>
+			<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/chevron3.png" alt="Хүсэлт гаргах"></a>
 		</li>
 	</ul>
 </div>
@@ -125,7 +125,7 @@ $_tag = ob_get_clean();
 if($_tag) {
 ?>
 	<article>
-		<h2><span>메인/구인정보 페이지</span></h2>
+		<h2><span>Main/Ажлын зар</span></h2>
 
 		<?php
 		echo $_tag
@@ -153,7 +153,7 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 	ob_start();
 ?>
 <article class="_option_service_article">
-		<h2><span><?=$v['name'];?> 서비스</span></h2>
+		<h2><span><?=$v['name'];?> Үйлчилгээ</span></h2>
 		<?php
 		if(is_array($v['option'])) { foreach($v['option'] as $k2=>$v2) {
 			if($_part_txt && $_part_txt!=$v2) continue; // : 각각의 서비스신청을 누른경우
@@ -219,7 +219,7 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 						switch($v2) {
 							case 'icon':
 					?>
-					<img src="<?=NFE_URL;?>/data/icon/<?=$v3['name'];?>" alt="아이콘<?=$k3;?>"></label>
+					<img src="<?=NFE_URL;?>/data/icon/<?=$v3['name'];?>" alt="Айкон<?=$k3;?>"></label>
 					<?php
 								break;
 
@@ -247,7 +247,7 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 					############# 금액값 ############
 					?>
 					<select class="<?=$_part_option;?>" name="service[]" onChange="netfu_payment.money_click(this)">
-						<option value="">선택</option>
+						<option value="">Сонгох</option>
 						<?php
 						if(is_array($service_list)) {
 							foreach($service_list as $val){
@@ -272,7 +272,7 @@ if(is_array($option_array)) { foreach($option_array as $k=>$v) {
 					</ul>
 				</li>
 				<li class="box-btn">
-					<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">신청하기<img src="<?=NFE_URL;?>/images/chevron3.png" alt="신청하기"></a>
+					<a href="#none;" onClick="netfu_payment.order_move('fpayment', this)">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/chevron3.png" alt="Хүсэлт гаргах"></a>
 				</li>
 			</ul>
 		</div>
@@ -294,7 +294,7 @@ $("._option_service_article").each(function() {
 </script>
 
 <div class="button_con button_con4">
-	<a href="#none;" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">서비스 신청하기<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="메인페이지"></a>
+	<a href="#none;" class="bottom_btn04" onClick="netfu_payment.order_move('fpayment', 'all')">Үйлчилгээний хүсэлт гаргах<img src="<?=NFE_URL;?>/images/btn_arrow.png" alt="Үндсэн хуудас"></a>
 </div>
 </form>
 
