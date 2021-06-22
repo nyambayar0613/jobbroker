@@ -10,8 +10,8 @@
 	<span><?=$gender_txt;?></span><span><?=$time_txt;?></span><span></span>
 </div>
 <div class="list_etc2">
-	<span>등록일 : <span><?=$wdate_txt;?></span></span>
+	<span>Бүртгүүлсэн огноо : <span><?=$wdate_txt;?></span></span>
 </div>
 <div class="list_etc2">
-	<span>마감일 : <span><?=$valume_txt;?></span></span>
+	<span>Эцсийн хугацаа : <span><?=$valume_txt;?></span></span>
 </div>
