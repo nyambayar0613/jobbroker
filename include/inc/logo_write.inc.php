@@ -35,10 +35,10 @@ $(window).ready(function(){
 <input type="hidden" name="job_no" value="<?php echo $_GET['no'];?>"/>
 <div class="wrap_bg_div logo_change _none">
 	<h2>Лого файл бүртгэх</h2>
-	<p>gif, jpeg, jpg 파일형식으로, 135×65픽셀, <?=$netfu_mjob->logo_size;?>Зөвхөн kb багтаамжтай файлуудыг бүртгэх боломжтой.</p>
+	<p>gif, jpeg, jpg font, 135×65 pexel, <?=$netfu_mjob->logo_size;?>Зөвхөн kb багтаамжтай файлуудыг бүртгэх боломжтой.</p>
 	<div><input type="file" name="mb_logo" id="mb_logo" onChange="netfu_util1.filesize_check(this, '<?=$netfu_mjob->logo_size;?>')"></div>
 	<div class="button_con">
-		<a href="#none;" class="bottom_btn01" onClick="netfu_mjob.logo_submit()">Бүртгэх</a><a href="#none;" class="bottom_btn02" onClick="$('.logo_change').addClass('_none')">취소</a>
+		<a href="#none;" class="bottom_btn01" onClick="netfu_mjob.logo_submit()">Бүртгэх</a><a href="#none;" class="bottom_btn02" onClick="$('.logo_change').addClass('_none')">Цуцлах</a>
 	</div>
 <!--div class="wrap_bg"></div-->
 </div>
