@@ -35,7 +35,7 @@ var get_info_func = function(el, no) {
 			</div>
 		</div>
 		<div class="button_con">
-			<a href="#none;" class="bottom_btn07" onClick="receive_click(this)" no="" k="">지원하기<img src="<?=NFE_URL;?>/images/icon_arrow_right3.png" alt="Өргөдөл гаргах"></a>
+			<a href="#none;" class="bottom_btn07" onClick="receive_click(this)" no="" k="">Хүсэлт гаргах<img src="<?=NFE_URL;?>/images/icon_arrow_right3.png" alt="Өргөдөл гаргах"></a>
 		</div>
 	</div>
 </ul>
