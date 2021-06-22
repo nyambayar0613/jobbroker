@@ -7,7 +7,7 @@ $list = $alba_resume_user_control->get_resume_service($row['no'],"",80);
 $_option = $netfu_mjob->get_service_option('alba_resume', $row);
 ?>
 
-<button class="more_option resume_more_option" no="<?=$row['no'];?>"><span>더보기</span></button>
+<button class="more_option resume_more_option" no="<?=$row['no'];?>"><span>Дэлгэрэнгүй үзэх</span></button>
 <div class="text_box text_bx2 <?=$_option['bold'];?>">
 	<div class="person">
 		<a href="<?=NFE_URL;?>/resume/detail.php?no=<?=$row['no'];?>"><?=$utility->make_pass_○○($get_member['mb_name']);?></a>
