@@ -1,5 +1,5 @@
 <?php
-$head_title = "커뮤니티 메인";
+$head_title = "Community Main";
 include_once "../include/top.php";
 ?>
 <script src="<?=NFE_URL;?>/plugin/jquery/cycle2/jquery.cycle2.js"></script>
