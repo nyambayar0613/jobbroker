@@ -33,7 +33,7 @@ if(!$__company_row) {
 	</div>
 	<div class="btn_group">
 		<a href="#none" class="bt_item1 logo_write__"><?=is_file(NFE_PATH.$mb_logo_file) ? 'Засварлах' : 'Бүртгэх';?></a>
-		<a href="#none" class="bt_item2" id="logo_remove" onClick="netfu_mjob.logo_delete('<?=$__no;?>')" style="<?=(!is_file(NFE_PATH.$mb_logo_file)) ? 'display:none;' : '';?>;">삭제</a>
+		<a href="#none" class="bt_item2" id="logo_remove" onClick="netfu_mjob.logo_delete('<?=$__no;?>')" style="<?=(!is_file(NFE_PATH.$mb_logo_file)) ? 'display:none;' : '';?>;">Устгах</a>
 	</div>
 </div>
 
