@@ -840,7 +840,7 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 <?php include_once "./views/_include/search.php"; ?>
 
 <dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Бүтэн цагын ажилчдын мэдээллийн удирдлага
-	<span>Нийт<b class="num3 col"><?php echo number_format($alba_list['total_count']);?></b>Төрөл олдлоо.</span>
+	<span>Нийт<b class="num3 col"><?php echo number_format($alba_list['total_count']);?></b> төрөл олдлоо.</span>
 	<dt>
 		<label><input name="alwaysDsrch" type="checkbox" value="1" class="check">Үргэлж дэлгэрэнгүй хайх</label>&nbsp;
 		<select name="page_rows" onchange="page_rows(this);">
@@ -870,7 +870,7 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 	<td><input name="check_all" type="checkbox"></td>
 	<td><a href="./employ_ing.php?<?php echo $alba_list['send_url'];?>&sort=wr_is_admin&flag=<?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'asc':'desc';?>" title="Бүртгэлийн ангилалыг дарж админы бүртгүүлсэн зар/Хэрэглэгчийн бүртгүүлсэн зарыг ангилж хайна.">Бүртгэлийн ангилал<span><?php echo ($sort=='wr_is_admin'&&$flag=='desc')?'▲':'▼';?></span></a></td>
 	<td>Гишүүнчлэлийн түвшин</td>
-	<td>Компанийн нэр / ID  / хариуцсан хүн</td>
+	<td>Байгууллагын мэдээлэл</td>
 	<td>Ажлын байрны мэдээлэл</td>
 	<td>Үйлчилгээ/ Хугацаа</td>
 	<td>Өөрчлөх</td>
@@ -1046,7 +1046,7 @@ var mb_logoResponse = function(responseText, statusText, xhr, $form){	// 근무�
 		<div class="mt10 List fon11 pt3" style="border-top:1px dotted #dddddd">Бүртгүүлсэн өдөр : <?php echo $wr_wdate;?>&nbsp;
 			<li>Засварласан огноо : <?php echo $wr_udate;?> </li>
 			<li>Дуусах хугацаа : <?php echo $volume_end_date;?></li>
-			<li>Хайх : <?php echo number_format($val['wr_hit']);?>건</li>
+			<li>Хайх : <?php echo number_format($val['wr_hit']);?>төрөл</li>
 		</div>
 	</td>
 	<td>
