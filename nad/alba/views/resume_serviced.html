@@ -292,7 +292,7 @@ var school_ability = function( vals ){	 // 학력선택
 	}
 
 }
-// 대학(2,3년) 추가
+// Их сургууль(2,3жил) нэмэх
 var half_college_cnt = 1;
 var half_college_limit = 1;
 var half_college_add = function(){
@@ -359,13 +359,13 @@ half_college_cnt++;
 half_college_limit++;
 }
 
-// 대학(2,3년) 제거	
+// Их сургууль(2,3жил) арилгах
 var half_college_remove = function( cnt ){
 half_college_limit--;
 	$('#half_college_'+cnt).remove();
 }
 
-// 대학(4년) 추가
+// Их сургууль(4жил) нэмэх
 var college_cnt = 1;
 var college_limit = 1;
 var college_add = function(){
@@ -788,7 +788,7 @@ var license_cnt = 1;
 var license_limit = 1;
 var license_add = function(){	// 경력 추가
 	if(license_limit >= 10){
-		alert("자격증은 최대 10개 까지 추가 가능합니다.");
+		alert("Мэргэжлийн үнэмлэхийг дээд тал нь 10 хүртэл нэмэх боломжтой.");
 		return false;
 	}
 
@@ -1202,7 +1202,7 @@ var postSearchs = function(mb_type){
 					}
 				});
 			} else {
-				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">검색 결과가 없습니다.</td></tr>");
+				$('#post_List').html("<tr><td colspan=\"2\" style=\"text-align:center;height:165px;\">Хайлтын үр дүн олдсонгүй.</td></tr>");
 			}
 		});
 	}
@@ -1417,7 +1417,7 @@ var new_addresses = function( vals ){
 		<a onClick="sel_service_resume();" class="btn org"><h1 class="btn23">Сонголт батлах</h1></a>
 	</dt>
 	<dd>
-		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>이력서등록</h1></a>
+		<a onClick="update_resume('insert');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Анкет бүртгэх</h1></a>
 	</dd>
 </dl>
 <table width="100%" class="ttlt">
