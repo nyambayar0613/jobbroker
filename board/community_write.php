@@ -31,7 +31,7 @@ include_once(NFE_PATH.'/head.php');
 			<!-- 커뮤니티 글쓰기 -->
 			<div class="layer1 cf">
 				<section class="cont_box community_con">
-					<h2><img src="/images/write.png" alt="글작성">글작성</h2>
+					<h2><img src="/images/write.png" alt="Бичсэн">Бичсэн</h2>
 						<ul class="info_con">
 							<li class="row1">
 								<label for="sort">Төрөл<span class="check"></span></label>
