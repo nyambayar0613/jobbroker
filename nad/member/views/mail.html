@@ -113,7 +113,7 @@ var page_rows = function(sels){	// 출력 갯수
 <?php include_once "./views/_include/mail_search.php"; ?>
 
 <dl class="ntlt lnb_col"><img src="../../images/comn/bul_10.png" class="t">Гишүүний хаягийн тэмдэглэл
-	<span>Нйит <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b>Гишүүн олдсонгүй.</span>
+	<span>Нйит <b class="num3 col"><?php echo number_format($member_list['total_count']);?></b> гишүүн олдлоо.</span>
 	<dt>
 		<select name="page_rows" onchange="page_rows(this);">
 			<option value='15' <?php echo ($page_rows==15)?'selected':'';?>>15ш</option>
