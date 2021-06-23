@@ -30,7 +30,7 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 커뮤니티 이미지형 -->
 			  <section class="cont_box community_txt">
-          <h2><span class="tit_ico"><img src="/images/title_icon03.png" alt=""></span>Галлер булан</h2>
+          <h2><span class="tit_ico"><img src="/images/title_icon03.png" alt=""></span>Галлерэй булан</h2>
           <div class="community_inner cf">
 						<div class="view_wrap">
 						  <div class="view_top cf">
