@@ -486,9 +486,9 @@ if($_len>0) {
 				<fieldset>
 					<legend>Ажлын байршил</legend>
 					<input type="radio" id="site" name="wr_area_company" value="0" checked><span></span>
-					<input type="radio" id="site" name="wr_area_company" value="1" <?php echo ($job_row['wr_area_company']) ? 'checked' : '';?>><span>기업정보 위치와 동일</span>
+					<input type="radio" id="site" name="wr_area_company" value="1" <?php echo ($job_row['wr_area_company']) ? 'checked' : '';?>><span></span>
 					<div class="addr_sch cf">
-						<input type="text" name="wr_area" value="<?=$job_row['wr_area'];?>" onClick="post_click(this)"><button type="button" class="plus_bt" onClick="post_click(document.forms['fwrite'].wr_area); return false;">주소검색</button>
+						<input type="text" name="wr_area" value="<?=$job_row['wr_area'];?>" onClick="post_click(this)"><button type="button" class="plus_bt" onClick="post_click(document.forms['fwrite'].wr_area); return false;">Байршил хайх</button>
 					</div>
 					<div class="map_area cf">
 						<?php
@@ -540,7 +540,7 @@ if($_len>0) {
 							?>
 						</select>
 						<select name="wr_subway_line_<?=$_name;?>" id="wr_subway_line_<?=$_name;?>" put="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['인근지하철']['required'];?>>
-							<option value="">호선</option>
+							<option value="">Гарц</option>
 							<?php
 							if(is_array($_subway2)) { foreach($_subway2 as $k=>$v) {
 								$selected = $job_subway[$i][1]==$v['code'] ? 'selected' : '';
@@ -551,7 +551,7 @@ if($_len>0) {
 							?>
 						</select>
 						<select name="wr_subway_station_<?=$_name;?>" id="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['인근지하철']['required'];?>>
-							<option value="">지하철역<option>
+							<option value="">Метроны буудал<option>
 							<?php
 							if(is_array($_subway3)) { foreach($_subway3 as $k=>$v) {
 								$selected = $job_subway[$i][2]==$v['code'] ? 'selected' : '';
@@ -589,8 +589,8 @@ if($_len>0) {
 							} }
 							?>
 						</select>
-						<select class="univ" name="wr_college_vicinity" <?=$add_form_chk['인근대학']['required'];?> id="wr_college_vicinity">
-							<option value="">인근대학 선택</option>
+						<select class="univ" name="wr_college_vicinity" <?=$add_form_chk['Ойролцоох их сургууль']['required'];?> id="wr_college_vicinity">
+							<option value="">Ойролцоох их сургууль сонгох</option>
 							<?php
 							if($job_row['wr_college_vicinity']){
 								$_cate_['job_college'] = $netfu_util->get_cate_array('job_college', array('where'=>" and `p_code` = '".$job_row['wr_college_area']."'"));
@@ -611,18 +611,18 @@ if($_len>0) {
 </section>
 
 <section class="cont_box job_con3">
-	<h2>근무조건</h2>
+	<h2>Ажлын нөхцөл</h2>
 	<ul class="info_con3">
 	<li class="row1">
 		<fieldset>
-			<legend>근무기간<span class="check"></span></legend>
+			<legend>Ажиллах хугацаа<span class="check"></span></legend>
 			<div class="select_gp">
 				<ul class="select_inner">
 					<?php
 					if(is_array($_cate_['alba_date'])) { foreach($_cate_['alba_date'] as $k=>$v) {
 						$checked = ($job_row['wr_date'] == $v['code']) ? "checked" : "";
 					?>
-					<li><input type="radio" name="wr_date" value="<?=$v['code'];?>" hname="근무기간" <?=$checked;?> required><?=$v['name'];?></li>
+					<li><input type="radio" name="wr_date" value="<?=$v['code'];?>" hname="Ажиллах хугацаа" <?=$checked;?> required><?=$v['name'];?></li>
 					<?php
 					} }
 					?>
@@ -630,14 +630,14 @@ if($_len>0) {
 			</div>
 		</li>
 		<li class="row2">
-			<label for="week">근무요일<span class="check"></span></label>
+			<label for="week">Ажлын өдөр<span class="check"></span></label>
 			<div class="select_gp">
 				<ul class="select_inner">
 					<?php
 					if(is_array($_cate_['alba_week'])) { foreach($_cate_['alba_week'] as $k=>$v) {
 						$checked = ($job_row['wr_week'] == $v['code']) ? "checked" : "";
 					?>
-					<li><input type="radio" name="wr_week" value="<?=$v['code'];?>" hname="근무요일" required <?=$checked?>><?=$v['name'];?></li>
+					<li><input type="radio" name="wr_week" value="<?=$v['code'];?>" hname="Ажлын өдөр" required <?=$checked?>><?=$v['name'];?></li>
 					<?php
 					} }
 					?>
@@ -647,42 +647,42 @@ if($_len>0) {
 	</li>
 	<li class="row3">
 		<fieldset>
-			<legend>근무시간<span class="check"></span></legend>	
+			<legend>Ажлын цаг<span class="check"></span></legend>
 			<div class="select_gp">
 				<ul class="select_inner">
 					<div class="cf">
-						<select name="wr_stime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="근무시간" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
-							<option value="">선택</option>
+						<select name="wr_stime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
+							<option value="">Сонгох</option>
 							<?php
 							for($i=0;$i<=23;$i++){
 							?>
-							<option value="<?php echo sprintf('%02d', $i);?>" <?php echo ($_wr_stime[0]&&$_wr_stime[0]==$i) ? 'selected' : '';?>><?php echo sprintf('%02d', $i);?>시</option>
+							<option value="<?php echo sprintf('%02d', $i);?>" <?php echo ($_wr_stime[0]&&$_wr_stime[0]==$i) ? 'selected' : '';?>><?php echo sprintf('%02d', $i);?>цаг</option>
 							<?php } ?>
 						</select>
-						<select name="wr_stime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="근무시간" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
-							<option value="">선택</option>
+						<select name="wr_stime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
+							<option value="">Сонгох</option>
 							<?php for($i=0;$i<=5;$i++){?>
-							<option value="<?php echo $i;?>0" <?php echo ($_wr_stime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0분</option>
+							<option value="<?php echo $i;?>0" <?php echo ($_wr_stime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0мин</option>
 							<?php } ?>
 						</select>
 					</div>
 					<span>~</span>
 					<div class="cf">
-						<select name="wr_etime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="근무시간" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
-							<option value="">선택</option>
+						<select name="wr_etime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
+							<option value="">Сонгох</option>
 							<?php for($i=0;$i<=23;$i++){ ?>
-							<option value="<?php echo sprintf('%02d', $i);?>" <?php echo ($_wr_etime[0] && $_wr_etime[0]==$i) ? 'selected' : '';?>><?php echo sprintf('%02d', $i);?>시</option>
+							<option value="<?php echo sprintf('%02d', $i);?>" <?php echo ($_wr_etime[0] && $_wr_etime[0]==$i) ? 'selected' : '';?>><?php echo sprintf('%02d', $i);?>цаг</option>
 							<?php } ?>
 						</select>
-						<select name="wr_etime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="근무시간" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
-							<option value="">선택</option>
+						<select name="wr_etime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
+							<option value="">Сонгох</option>
 							<?php for($i=0;$i<=5;$i++){?>
-							<option value="<?php echo $i;?>0" <?php echo ($_wr_etime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0분</option>
+							<option value="<?php echo $i;?>0" <?php echo ($_wr_etime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0мин</option>
 							<?php } ?>
 						</select>
 					</div>
 					<div class="check_box1 cf">
-						<input type="checkbox" name="wr_time_conference" id="wr_time_conference1" value="1" onClick="time_conference(this)" <?=$job_row['wr_time_conference'] ? 'checked' : '';?>><label for="wr_time_conference">시간협의</label>
+						<input type="checkbox" name="wr_time_conference" id="wr_time_conference1" value="1" onClick="time_conference(this)" <?=$job_row['wr_time_conference'] ? 'checked' : '';?>><label for="wr_time_conference">Цаг тохирох</label>
 					</div>
 				</ul>
 			</div>
@@ -690,11 +690,11 @@ if($_len>0) {
 	</li>
 	<li class="row4">
 		<fieldset>
-			<legend>급여<span class="check"></span></legend>	
+			<legend>Цалин<span class="check"></span></legend>
 			<div class="select_gp cf">
 				<div class="select_inner cf">
-					<select class="pay_slt" name="wr_pay_type" <?php echo ($job_row['wr_pay_conference']) ? '': 'required';?> hname="급여조건" option="select" onChange="pay_type_select(this)">
-						<option value="">급여</option>
+					<select class="pay_slt" name="wr_pay_type" <?php echo ($job_row['wr_pay_conference']) ? '': 'required';?> hname="Цалин" option="select" onChange="pay_type_select(this)">
+						<option value="">Цалин</option>
 						<?php
 						if(is_array($_cate_['alba_pay'])) { foreach($_cate_['alba_pay'] as $k=>$v) {
 							$selected = ($job_row['wr_pay_type'] == $v['code']) ? "selected" : "";
@@ -704,8 +704,8 @@ if($_len>0) {
 						} }
 						?>
 					</select>
-					<div class="pay_in"><input type="text" name="wr_pay"  <?php echo ($job_row['wr_pay_conference']) ? 'disabled' : 'required';?> hname="급여금액" value="<?php echo $job_row['wr_pay']>0 ? $job_row['wr_pay'] : '';?>" placeholder="" data-v-min="0" data-v-max="10000000000">원</div>
-					<p style="margin-top:5px">(최저임금 : 시급 <span><?php echo number_format($env['time_pay']);?>원</span>)</p>
+					<div class="pay_in"><input type="text" name="wr_pay"  <?php echo ($job_row['wr_pay_conference']) ? 'disabled' : 'required';?> hname="Цалин" value="<?php echo $job_row['wr_pay']>0 ? $job_row['wr_pay'] : '';?>" placeholder="" data-v-min="0" data-v-max="10000000000">төгрөг</div>
+					<p style="margin-top:5px">(Хөдөлмөрийн хөлсний доод хэмжээг : Цагын <span><?php echo number_format($env['time_pay']);?>төгрөг</span>)</p>
 					<div class="check_box2 cf">
 						<ul>
 							<?php
@@ -740,14 +740,14 @@ if($_len>0) {
 	</li>
 	<li class="row5">
 		<fieldset>
-			<legend>근무형태<span class="check"></span></legend>
+			<legend>Ажлын төрөл<span class="check"></span></legend>
 			<div class="select_gp cf">
 				<ul class="select_inner cf">
 					<?php
 					if(is_array($work_type_list)) { foreach($work_type_list as $k=>$v) {
 						$checked = (@in_array($v['code'], $_wr_work_type)) ? 'checked' : '';
 					?>
-					<li><input type="checkbox" name="wr_work_type[]" value="<?=$v['code'];?>" hname="근무형태" required option="checkbox" <?php echo $checked;?>><?=$v['name'];?></li>
+					<li><input type="checkbox" name="wr_work_type[]" value="<?=$v['code'];?>" hname="Ажлын төрөл" required option="checkbox" <?php echo $checked;?>><?=$v['name'];?></li>
 					<?php
 					} }
 					?>
@@ -755,16 +755,16 @@ if($_len>0) {
 			</div>
 		</fieldset>
 	</li>
-	<?php if($add_form_arr['복리후생']['view']=='yes'){ ?>
+	<?php if($add_form_arr['Халамж']['view']=='yes'){ ?>
 	<li class="row6">
 		<fieldset>
-			<legend>복리후생<?=$add_form_chk['복리후생']['tag'];?></legend>
-			<input type="text" name="welfare_read" readonly value="<?php echo $job_row['wr_welfare_read'];?>" <?=$add_form_chk['복리후생']['required'];?> hname="복리후생" onClick="netfu_util1.open('.job_welfare_div')"><button type="button" class="plus_bt" id="show_ly" onClick="netfu_util1.open('.job_welfare_div')">선택</button>
+			<legend>Даатгал/Халамж<?=$add_form_chk['Халамж']['tag'];?></legend>
+			<input type="text" name="welfare_read" readonly value="<?php echo $job_row['wr_welfare_read'];?>" <?=$add_form_chk['Халамж']['required'];?> hname="Халамж" onClick="netfu_util1.open('.job_welfare_div')"><button type="button" class="plus_bt" id="show_ly" onClick="netfu_util1.open('.job_welfare_div')">Сонгох</button>
 
 			<!-- 상세보기 레이어 -->
 			<div class="detail_ly cf job_welfare_div" id="ly01" style="display:none;">
 				<div class="detail_inner">
-					<div class="bx-top"><h2>복리후생 선택</h2>
+					<div class="bx-top"><h2>Сонох</h2>
 						<div class="btn-r btn-r2"><button id="close_ly" type="button" onClick="netfu_util1.close('.job_welfare_div')">X</button></div>
 					</div>
 					<ul class="cf">
@@ -802,36 +802,36 @@ if($_len>0) {
 </section>
 
 <section class="cont_box job_con4">
-	<h2>지원조건</h2>
+	<h2>Хэрэглээний нөхцөл</h2>
 	<ul class="info_con3">
-		<?php if($add_form_arr['성별']['view']=='yes'){?>
+		<?php if($add_form_arr['Хүйс']['view']=='yes'){?>
 		<li class="row1">
-			<label>성별<?=$add_form_chk['성별']['tag'];?></label>
+			<label>Хүйс<?=$add_form_chk['Хүйс']['tag'];?></label>
 			<ul>
 				<li>
-					<input type="radio" name="wr_gender" id="all-gender" checked value="0"><label for="all-gender">성별무관</label>
+					<input type="radio" name="wr_gender" id="all-gender" checked value="0"><label for="all-gender">Хүйс хамааралгүй</label>
 				</li>
 				<li>
-					<input type="radio" name="wr_gender" id="male" value="1" <?=$add_form_chk['성별']['required'];?> <?php echo ($job_row['wr_gender']=='1') ? 'checked' : '';?>><label for="male">남자</label>
+					<input type="radio" name="wr_gender" id="male" value="1" <?=$add_form_chk['성별']['required'];?> <?php echo ($job_row['wr_gender']=='1') ? 'checked' : '';?>><label for="male">Эр</label>
 					</li>
 				<li>
-					<input type="radio" name="wr_gender" id="female" value="2" <?=$add_form_chk['성별']['required'];?> <?php echo ($job_row['wr_gender']=='2') ? 'checked' : '';?>><label for="female">여자</label>
+					<input type="radio" name="wr_gender" id="female" value="2" <?=$add_form_chk['성별']['required'];?> <?php echo ($job_row['wr_gender']=='2') ? 'checked' : '';?>><label for="female">Эм</label>
 				</li>
 			</ul>
-		<p>채용에서 남녀를 차별하거나, 여성근로자를 채용할 때 직무수행에 불필요한 용모, 키, 체중 등의 신체조건, 미혼조건을 제시 또는 요구하는 경우 남녀고용평등법 위반 에 따른 500만원이하의 벌금이 부과될 수 있습니다.</p>
+		<p> Ажилд авахдаа эрэгтэй, эмэгтэй хүмүүсийг ялгаварлан гадуурхах, эмэгтэй ажилчин гадаад төрх, өндөр, жин, биеийн хэмжээ гэх мэт зүй бус зүйл шаардсан тохиолдолд Жендэрийн тэгш байдлын тухай хуулийг зөрчсөний улмаас  торгууль ногдуулж болно. </p>
 		</li>
 		<?php }?>
-		<?php if($add_form_arr['연령']['view']=='yes'){?>
+		<?php if($add_form_arr['Нас']['view']=='yes'){?>
 		<li class="row2">
-			<label>연령<?=$add_form_chk['연령']['tag'];?></label>
+			<label>Нас<?=$add_form_chk['Нас']['tag'];?></label>
 			<ul>
 				<li style="width:50%">
-					<input type="radio" name="wr_age_limit" id="wr_age_limit_0" checked value="0" <?=$add_form_chk['연령']['required'];?> hname="연령" option="radio" checked><label for="wr_age_limit_0">연령무관</label>
+					<input type="radio" name="wr_age_limit" id="wr_age_limit_0" checked value="0" <?=$add_form_chk['Нас']['required'];?> hname="Нас" option="radio" checked><label for="wr_age_limit_0">Нас хамааралгүй</label>
 				</li>
 				<li style="width:50%">
-					<input type="radio" name="wr_age_limit" id="wr_age_limit_1" value="1" <?=$add_form_chk['연령']['required'];?> hname="연령" option="radio" <?php echo ($job_row['wr_age_limit']=='1') ? 'checked' : '';?>><label for="wr_age_limit_1">연령제한 있음</label>
+					<input type="radio" name="wr_age_limit" id="wr_age_limit_1" value="1" <?=$add_form_chk['Нас']['required'];?> hname="Нас" option="radio" <?php echo ($job_row['wr_age_limit']=='1') ? 'checked' : '';?>><label for="wr_age_limit_1">Насны хязгаар байгаа.</label>
 				</li>
-				<li class="age_int__" style="display:<?=$job_row['wr_age_limit']==1 ? 'block' : 'none';?>;"><input type="text" hname="연령" name="wr_sage" value="<?=$_wr_age_arr[0];?>" style="width:50px;" <?php echo ($job_row['wr_age_limit']=='1') ? 'required' : '';?> /><span style="float:left;margin:0 5px">~</span> <input type="text" hname="연령" name="wr_eage" value="<?=$_wr_age_arr[1];?>" style="width:50px;" <?php echo ($job_row['wr_age_limit']=='1') ? 'required' : '';?> /> &nbsp;세</li>
+				<li class="age_int__" style="display:<?=$job_row['wr_age_limit']==1 ? 'block' : 'none';?>;"><input type="text" hname="Нас" name="wr_sage" value="<?=$_wr_age_arr[0];?>" style="width:50px;" <?php echo ($job_row['wr_age_limit']=='1') ? 'required' : '';?> /><span style="float:left;margin:0 5px">~</span> <input type="text" hname="Нас" name="wr_eage" value="<?=$_wr_age_arr[1];?>" style="width:50px;" <?php echo ($job_row['wr_age_limit']=='1') ? 'required' : '';?> /> &nbsp;нас</li>
 				<?php
 				if(is_array($_cate_['job_age'])) { foreach($_cate_['job_age'] as $k=>$v) {
 					$checked = (@in_array($v['code'], $_wr_age_etc)) ? "checked" : "";
@@ -847,7 +847,7 @@ if($_len>0) {
 		</li>
 		<?php } ?>
 		<li class="row3">
-			<label>학력조건<span class="check"></span></label>
+			<label>Боловсрол<span class="check"></span></label>
 			<ul>
 				<?php
 				if(is_array($_cate_['job_ability'])) { foreach($_cate_['job_ability'] as $k=>$v) {
@@ -862,19 +862,19 @@ if($_len>0) {
 			</ul>
 		</li>
 		<li class="row4" style="position:relative">
-			<label>경력사항<span class="check"></span></label>
+			<label>Туршлага<span class="check"></span></label>
 			<ul>
 				<li>
-					<label><input type="radio" name="wr_career_type" class="no-experience" onClick="career_sel()" checked value="0" required hname="경력사항" option="radio" checked>경력무관</label>
+					<label><input type="radio" name="wr_career_type" class="no-experience" onClick="career_sel()" checked value="0" required hname="Туршлага" option="radio" checked>Туршлага хамаагүй</label>
 				</li>
 				<li>
-					<label><input type="radio" name="wr_career_type" class="new-recruit" onClick="career_sel()" value="1" required hname="경력사항" option="radio" <?php echo ($job_row['wr_career_type']=='1') ? 'checked' : '';?>>신입</label>
+					<label><input type="radio" name="wr_career_type" class="new-recruit" onClick="career_sel()" value="1" required hname="Туршлагас" option="radio" <?php echo ($job_row['wr_career_type']=='1') ? 'checked' : '';?>>Шинэ төгсөгч</label>
 				</li>
 				<li>
-					<label><input type="radio" name="wr_career_type" class="experience" onClick="career_sel()" value="2" required hname="경력사항" option="radio" <?php echo ($job_row['wr_career_type']=='2') ? 'checked' : '';?>>
-					경력</label>
+					<label><input type="radio" name="wr_career_type" class="experience" onClick="career_sel()" value="2" required hname="Туршлага" option="radio" <?php echo ($job_row['wr_career_type']=='2') ? 'checked' : '';?>>
+                        Туршлага</label>
 					<select name="wr_career" style="float:left">
-						<option value="">경력선택</option>
+						<option value="">Сонгох</option>
 						<?php
 						if(is_array($_cate_['job_career'])) { foreach($_cate_['job_career'] as $k=>$v) {
 							$selected = ($job_row['wr_career']==$v['code']) ? "selected" : "";
@@ -884,7 +884,7 @@ if($_len>0) {
 						} }
 						?>
 					</select>
-					<span style="position:absolute;right:-25px">이상</span>
+					<span style="position:absolute;right:-25px">Дээш</span>
 					<script type="text/javascript">
 					career_sel();
 					</script>
@@ -910,19 +910,19 @@ if($_len>0) {
 </section>
 
 <section class="cont_box job_con5">
-<h2>모집내용</h2>
+<h2>Ажилд авах талаар мэдээлэл</h2>
 <ul class="info_con3">
 	<li class="row1">
-		<label>모집인원<span class="check"></span></label>
+		<label>Ажилд авах хүний тоо<span class="check"></span></label>
 		<ul>
 			<li>
-				<input type="text" id="" name="wr_volume" value="<?php echo $job_row['wr_volume'];?>" <?php echo (@in_array('0', $_wr_volumes, true) || @in_array('00', $_wr_volumes, true)) ? '' : 'required';?> hname="모집인원">명
+				<input type="text" id="" name="wr_volume" value="<?php echo $job_row['wr_volume'];?>" <?php echo (@in_array('0', $_wr_volumes, true) || @in_array('00', $_wr_volumes, true)) ? '' : 'required';?> hname="Ажилд авах хүний тоо">хүн
 			</li>
 			<li>
-				<input type="checkbox" id="" name="wr_volumes[]" value="0" <?php echo (@in_array('0', $_wr_volumes, true)) ? 'checked':'';?> onClick="volume_click(this)"> 0명
+				<input type="checkbox" id="" name="wr_volumes[]" value="0" <?php echo (@in_array('0', $_wr_volumes, true)) ? 'checked':'';?> onClick="volume_click(this)"> 0 хүн
 			</li>
 			<li>
-				<input type="checkbox" id="" name="wr_volumes[]" value="00" <?php echo (@in_array('00', $_wr_volumes, true))?'checked':'';?> onClick="volume_click(this)"> 00명
+				<input type="checkbox" id="" name="wr_volumes[]" value="00" <?php echo (@in_array('00', $_wr_volumes, true))?'checked':'';?> onClick="volume_click(this)"> 00 хүн
 			</li>
 		</ul>
 		<script type="text/javascript">
@@ -930,7 +930,7 @@ if($_len>0) {
 		</script>
 	</li>
 	<li class="row2">
-		<label>모집대상</label>
+		<label>Авах хүн</label>
 		<ul>
 			<?php
 			if(is_array($_cate_['job_target'])) { foreach($_cate_['job_target'] as $k=>$v) {
@@ -945,23 +945,23 @@ if($_len>0) {
 		</ul>
 	</li>
 	<li class="row3">
-		<label>모집종료일<span class="check"></span></label>
+		<label>Зар үргэлжлэх эцсийн хугацаа<span class="check"></span></label>
 		<ul>
-			<li style="margin-bottom:5px"><input type="radio" name="volume_check" checked value="wr_volume_dates" onClick="wr_volume_click()"><input type="text" name="wr_volume_date" class="datepicker_inp wr_volume_date_c" hname="모집종료일" value="<?php echo $job_row['wr_volume_date'];?>" <?php echo (!$job_row['wr_volume_always'] && !$job_row['wr_volume_end']) ? 'required' : '';?>><input type="button" class="plus_bt btn_datepicker" get=".wr_volume_date_c" value="날짜선택"></li>
-			<li><input type="radio" id="volume_check_wr_volume_always" name="volume_check" value="wr_volume_always" onClick="wr_volume_click()" <?php echo ($job_row['wr_volume_always']) ? 'checked' : '';?>><label for="volume_check_wr_volume_always">상시모집</label></li>
-			<li><input type="radio" id="volume_check_wr_volume_end" name="volume_check" value="wr_volume_end" onClick="wr_volume_click()" <?php echo ($job_row['wr_volume_end']) ? 'checked' : '';?>><label for="volume_check_wr_volume_end">채용시까지</label></li>
+			<li style="margin-bottom:5px"><input type="radio" name="volume_check" checked value="wr_volume_dates" onClick="wr_volume_click()"><input type="text" name="wr_volume_date" class="datepicker_inp wr_volume_date_c" hname="Зар үргэлжлэх эцсийн хугацаа" value="<?php echo $job_row['wr_volume_date'];?>" <?php echo (!$job_row['wr_volume_always'] && !$job_row['wr_volume_end']) ? 'required' : '';?>><input type="button" class="plus_bt btn_datepicker" get=".wr_volume_date_c" value="Огноо сонгох"></li>
+			<li><input type="radio" id="volume_check_wr_volume_always" name="volume_check" value="wr_volume_always" onClick="wr_volume_click()" <?php echo ($job_row['wr_volume_always']) ? 'checked' : '';?>><label for="volume_check_wr_volume_always">Тогтмол элсэлт</label></li>
+			<li><input type="radio" id="volume_check_wr_volume_end" name="volume_check" value="wr_volume_end" onClick="wr_volume_click()" <?php echo ($job_row['wr_volume_end']) ? 'checked' : '';?>><label for="volume_check_wr_volume_end">Заасан хугацаанд</label></li>
 		</ul>
 	</li>
-	<?php if($add_form_arr['접수방법']['view']=='yes'){ ?>
+	<?php if($add_form_arr['Бүртгүүлэх арга']['view']=='yes'){ ?>
 	<li class="row4">
-		<label>접수방법<?=$add_form_chk['접수방법']['tag'];?></label>
+		<label>Бүртгүүлэх арга<?=$add_form_chk['Бүртгүүлэх арга']['tag'];?></label>
 		<ul>
 			<?php
 			if(is_array($netfu_mjob->requisition_arr)) { foreach($netfu_mjob->requisition_arr as $k=>$v) {
 				$online_c = in_array($k, array('online', 'email')) ? ' online' : '';
 				$checked = (@in_array($k, $_wr_requisition)) ? 'checked' : '';
 			?>
-			<li><input type="checkbox" id="wr_requisition_<?=$k;?>" name="wr_requisition[]" hname="접수방법" <?=$add_form_chk['접수방법']['required'];?> value="<?=$k;?>" <?=$checked;?> onClick="netfu_mjob.wr_requisition_click(this)"><label for="wr_requisition_<?=$k;?>" class="<?=$online_c;?>" hname="접수방법" option="checkbox"><?=$v;?></label></li>
+			<li><input type="checkbox" id="wr_requisition_<?=$k;?>" name="wr_requisition[]" hname="Бүртгүүлэх арга" <?=$add_form_chk['Бүртгүүлэх арга']['required'];?> value="<?=$k;?>" <?=$checked;?> onClick="netfu_mjob.wr_requisition_click(this)"><label for="wr_requisition_<?=$k;?>" class="<?=$online_c;?>" hname="Бүртгүүлэх арга" option="checkbox"><?=$v;?></label></li>
 			<?php
 			} }
 			?>
@@ -973,39 +973,39 @@ if($_len>0) {
 	<?php
 	}
 
-	if($add_form_arr['제출서류']['view']=='yes'){ ?>
+	if($add_form_arr['Бүрдүүлэх материал']['view']=='yes'){ ?>
 	<li class="row5">
-		<label>제출서류<?=$add_form_chk['제출서류']['tag'];?></label>
+		<label>Бүрдүүлэх материал<?=$add_form_chk['Бүрдүүлэх материал']['tag'];?></label>
 		<ul>
 			<?php
 			if(is_array($_cate_['pt_paper'])) { foreach($_cate_['pt_paper'] as $k=>$v) {
 				$checked = (@in_array($v['code'], $_wr_papers)) ? 'checked' : '';
 			?>
-			<li><input type="checkbox" id="wr_papers_<?=$k;?>" name="wr_papers[]" hname="제출서류" <?=$add_form_chk['제출서류']['required'];?> value="<?=$v['code'];?>" <?=$checked;?>><label for="wr_papers_<?=$k;?>"><?=$v['name'];?></label></li>
+			<li><input type="checkbox" id="wr_papers_<?=$k;?>" name="wr_papers[]" hname="Бүрдүүлэх материал" <?=$add_form_chk['Бүрдүүлэх материал']['required'];?> value="<?=$v['code'];?>" <?=$checked;?>><label for="wr_papers_<?=$k;?>"><?=$v['name'];?></label></li>
 			<?php
 			} }
 			?>
 		</ul>
 	</li>
 	<?php } ?>
-	<?php if($add_form_arr['사전질문']['view']=='yes'){ ?>
+	<?php if($add_form_arr['Урьдчилсан асуулт']['view']=='yes'){ ?>
 	<li class="row6">
-		<label>사전질문<?=$add_form_chk['사전질문']['tag'];?></label>
+		<label>Урьдчилсан асуулт<?=$add_form_chk['사전질문']['tag'];?></label>
 		<div class="text_gp cf">
 			<p>사전인터뷰 질문을 등록하시면 온라인 입사지원시 지원자가 이력서와 함께 질문에 대한 답변을 작성해서 보냅니다.</p>
 		</div>
-		<textarea style="width:100%;height:250px;" name="wr_pre_question" <?=$add_form_chk['사전질문']['required'];?> hname="사전질문"><?php echo stripslashes($job_row['wr_pre_question']);?></textarea>
+		<textarea style="width:100%;height:250px;" name="wr_pre_question" <?=$add_form_chk['사전질문']['required'];?> hname="Урьдчилсан асуулт"><?php echo stripslashes($job_row['wr_pre_question']);?></textarea>
 	</li>
 	<?php } ?>
 </ul>
 </section>
 
 <section class="cont_box job_con5">
-<h2>상세모집요강</h2>
+<h2>Ажилд авах талаархи дэлгэрэнгүй заавар</h2>
 <ul class="info3_con">
 	<li class="row_con">
 		<ul class="resume_chk textarea_put_chk">
-			<li><label for="style1"><input type="checkbox" id="style1" value="1" onClick="netfu_mjob.introduce_part_click(this, 'all', 'wr_content')">전체선택</label></li>
+			<li><label for="style1"><input type="checkbox" id="style1" value="1" onClick="netfu_mjob.introduce_part_click(this, 'all', 'wr_content')">Бүгд</label></li>
 			<?php
 			if(is_array($_cate_['alba_content'])) { foreach($_cate_['alba_content'] as $k=>$v) {
 			?>
@@ -1016,14 +1016,14 @@ if($_len>0) {
 		</ul>
 	</li>
 	<li class="row_con">
-		<textarea type="editor" style="width:100%;height:250px;" name="wr_content" hname="상세모집요강" required><?=stripslashes($job_row['wr_content']);?></textarea>
+		<textarea type="editor" style="width:100%;height:250px;" name="wr_content" hname="Ажилд авах талаархи дэлгэрэнгүй заавар" required><?=stripslashes($job_row['wr_content']);?></textarea>
 	</li>
 </ul>
 </section>
 
 
 <div class="button_con">
-	<a href="#none;" class="bottom_btn01" onClick="submit_func()">다음</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">취소</a>
+	<a href="#none;" class="bottom_btn01" onClick="submit_func()">Дараагийн</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">Цуцлах</a>
 </div>
 </form>
 
