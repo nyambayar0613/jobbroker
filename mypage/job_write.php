@@ -305,7 +305,7 @@ if($_len>0) {
 		if($add_form_arr['Холбогдох дугаар']['view']=='yes'){ ?>
 		<li class="row4">
 			<fieldset>
-			<legend>전화번호<?=$add_form_chk['Холбогдох дугаар']['tag'];?></legend>
+			<legend>Утасны дугаар<?=$add_form_chk['Холбогдох дугаар']['tag'];?></legend>
 				<select name="wr_phone[]" hname="Холбогдох дугаар" <?=$add_form_chk['Холбогдох дугаар']['required'];?>>
 				<?php echo $tel_num_option; ?>
 				</select>
@@ -419,7 +419,7 @@ if($_len>0) {
 						<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
 						<?php } }?>
 						</select>
-						<button type="button" class="plus_bt1 plus_bt2" onClick="netfu_mjob.job_type_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? '추가' : '삭제';?> +</button>
+						<button type="button" class="plus_bt1 plus_bt2" onClick="netfu_mjob.job_type_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? 'Нэмэх' : 'Устгах';?> +</button>
 					</div>
 				</div>
 				<?php }?>
@@ -516,7 +516,7 @@ if($_len>0) {
 		<?php if($add_form_arr['인근지하철']['view']=='yes'){ ?>
 		<li class="row6">
 			<fieldset>
-				<legend>인근지하철<?=$add_form_chk['인근지하철']['tag'];?></legend>
+				<legend>Ойролцоох метроны буудал<?=$add_form_chk['Ойролцоох метроны буудал']['tag'];?></legend>
 				<div class="select_subway_put">
 				<?php
 				$_len = count($job_subway);
@@ -528,8 +528,8 @@ if($_len>0) {
 				?>
 				<div class="select_subway select_gp cf">
 					<div class="select_inner">
-						<select name="wr_subway_area_<?=$_name;?>" id="wr_subway_area_<?=$_name;?>" put="wr_subway_line_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)" auto_none <?=$add_form_chk['인근지하철']['required'];?>>
-							<option value="">지역</option>
+						<select name="wr_subway_area_<?=$_name;?>" id="wr_subway_area_<?=$_name;?>" put="wr_subway_line_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 1)" auto_none <?=$add_form_chk['Ойролцоох метроны буудал']['required'];?>>
+							<option value="">Байршил</option>
 							<?php
 							if(is_array($_cate_['subway'])) { foreach($_cate_['subway'] as $k=>$v) {
 								$selected = $job_subway[$i][0]==$v['code'] ? 'selected' : '';
@@ -539,7 +539,7 @@ if($_len>0) {
 							} }
 							?>
 						</select>
-						<select name="wr_subway_line_<?=$_name;?>" id="wr_subway_line_<?=$_name;?>" put="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['인근지하철']['required'];?>>
+						<select name="wr_subway_line_<?=$_name;?>" id="wr_subway_line_<?=$_name;?>" put="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['Ойролцоох метроны буудал']['required'];?>>
 							<option value="">Гарц</option>
 							<?php
 							if(is_array($_subway2)) { foreach($_subway2 as $k=>$v) {
@@ -550,7 +550,7 @@ if($_len>0) {
 							} }
 							?>
 						</select>
-						<select name="wr_subway_station_<?=$_name;?>" id="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['인근지하철']['required'];?>>
+						<select name="wr_subway_station_<?=$_name;?>" id="wr_subway_station_<?=$_name;?>" onChange="netfu_util1.ajax_cate(this, 'subway', 2)" auto_none <?=$add_form_chk['Ойролцоох метроны буудал']['required'];?>>
 							<option value="">Метроны буудал<option>
 							<?php
 							if(is_array($_subway3)) { foreach($_subway3 as $k=>$v) {
@@ -564,7 +564,7 @@ if($_len>0) {
 						<div class="num_box cf">
 							<label for="exit">출구,소요시간 </label><input type="text" name="wr_subway_content_<?=$_name;?>" id="exit" placeholder="출구,소요시간" value="<?=$job_subway[$i][3];?>">
 						</div>
-						<button type="button" class="plus_bt1 plus_bt2" onClick="netfu_mjob.subway_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? '추가' : '삭제';?> +</button>
+						<button type="button" class="plus_bt1 plus_bt2" onClick="netfu_mjob.subway_add(this, '<?=$i==0 ? 'add' : 'del';?>')"><?=$i==0 ? 'Нэмэх' : 'Устгах';?> +</button>
 					</div>
 				</div>
 				<?php }?>
@@ -572,14 +572,14 @@ if($_len>0) {
 			</fieldset>
 		</li>
 		<?php }?>
-		<?php if($add_form_arr['인근대학']['view']=='yes'){ ?>
+		<?php if($add_form_arr['Ойролцоох их сургууль']['view']=='yes'){ ?>
 		<li class="row7">
 			<fieldset>
-				<legend>인근대학<?=$add_form_chk['인근대학']['tag'];?></legend>
+				<legend>Ойролцоох их сургууль<?=$add_form_chk['Ойролцоох их сургууль']['tag'];?></legend>
 				<div class="select_gp cf">
 					<div class="select_inner">
-						<select class="region1" name="wr_college_area" <?=$add_form_chk['인근대학']['required'];?> put="wr_college_vicinity" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)" auto_none>
-							<option value="">지역</option>
+						<select class="region1" name="wr_college_area" <?=$add_form_chk['Ойролцоох их сургууль']['required'];?> put="wr_college_vicinity" onChange="netfu_util1.ajax_cate(this, 'job_college', 1)" auto_none>
+							<option value="">Байршил</option>
 							<?php
 							if(is_array($_cate_['area'])) { foreach($_cate_['area'] as $k=>$v) {
 								$selected = $v['code']==$job_row['wr_college_area'] ? 'selected' : '';
@@ -662,7 +662,7 @@ if($_len>0) {
 						<select name="wr_stime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
 							<option value="">Сонгох</option>
 							<?php for($i=0;$i<=5;$i++){?>
-							<option value="<?php echo $i;?>0" <?php echo ($_wr_stime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0мин</option>
+							<option value="<?php echo $i;?>0" <?php echo ($_wr_stime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0 мин</option>
 							<?php } ?>
 						</select>
 					</div>
@@ -677,7 +677,7 @@ if($_len>0) {
 						<select name="wr_etime[]" <?php echo ($job_row['wr_time_conference'])?'':'required';?> hname="Ажлын цаг" option="select" <?php echo ($job_row['wr_time_conference'])?'disabled':'';?>>
 							<option value="">Сонгох</option>
 							<?php for($i=0;$i<=5;$i++){?>
-							<option value="<?php echo $i;?>0" <?php echo ($_wr_etime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0мин</option>
+							<option value="<?php echo $i;?>0" <?php echo ($_wr_etime[1]==$i.'0') ? 'selected' : '';?>><?php echo $i;?>0 мин</option>
 							<?php } ?>
 						</select>
 					</div>
@@ -719,7 +719,7 @@ if($_len>0) {
 							}
 							?>
 						</ul>
-						<p>(당사는 본 구인건과 관련하여 '최저임금법'을 준수합니다.)</p>
+						<p>(Манай компани 'Хөдөлмөрийн хөлсний доод хэмжээний тухай хууль' -ийг дагаж мөрддөг.)</p>
 						<ul>
 							<?php
 							if(is_array($_cate_['alba_pay_type'])) { foreach($_cate_['alba_pay_type'] as $k=>$v) {
@@ -992,7 +992,7 @@ if($_len>0) {
 	<li class="row6">
 		<label>Урьдчилсан асуулт<?=$add_form_chk['사전질문']['tag'];?></label>
 		<div class="text_gp cf">
-			<p>사전인터뷰 질문을 등록하시면 온라인 입사지원시 지원자가 이력서와 함께 질문에 대한 답변을 작성해서 보냅니다.</p>
+			<p></p>
 		</div>
 		<textarea style="width:100%;height:250px;" name="wr_pre_question" <?=$add_form_chk['사전질문']['required'];?> hname="Урьдчилсан асуулт"><?php echo stripslashes($job_row['wr_pre_question']);?></textarea>
 	</li>
@@ -1023,7 +1023,7 @@ if($_len>0) {
 
 
 <div class="button_con">
-	<a href="#none;" class="bottom_btn01" onClick="submit_func()">Дараагийн</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">Цуцлах</a>
+	<a href="#none;" class="bottom_btn01" onClick="submit_func()">Дараагийнх</a><a href="#none;" onClick="document.forms['fwrite'].reset()" class="bottom_btn02">Цуцлах</a>
 </div>
 </form>
 
