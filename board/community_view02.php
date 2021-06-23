@@ -44,7 +44,7 @@ include_once(NFE_PATH.'/head.php');
 							<div class="view_con cf">
 							  <img src="/images/photo1.jpg" alt="">
 							  <p>
-아름다운 자연
+Үзэсгэлэнт байгаль
 								</p>
 							</div>
 						</div>
@@ -217,7 +217,7 @@ include_once(NFE_PATH.'/head.php');
 
 				<!-- 공지사항 -->
 			  <section class="cont_box notice_con">
-          <h2>[공지]</h2>
+          <h2>[Зар]</h2>
 					<ul class="cont_box_inner">
 						<li>
 							<div class="text_box">
