@@ -47,9 +47,9 @@ while($reply_row=sql_fetch_array($query)) {
 			</div>
 			<div class="reply_txt cf"><?=nl2br(stripslashes($reply_row['wr_content']));?></div>
 			<div class="rpy_etc cf">
-				<?php if($is_edit) {?><span class="rpy_btn" onClick="netfu_board.reply_update(this, '<?=$reply_row['wr_no'];?>')">수정</span><?php }?>
-				<?php if($is_reply) {?><span class="rpy_btn" onClick="netfu_board.reply_reply(this, 'reply_reply', '<?=$reply_row['wr_no'];?>')">답글</span><?php }?>
-				<?php if($is_del) {?><span class="rpy_del" onClick="netfu_board.reply_delete(this, '<?=$reply_row['wr_no'];?>')">삭제</span><?php }?>
+				<?php if($is_edit) {?><span class="rpy_btn" onClick="netfu_board.reply_update(this, '<?=$reply_row['wr_no'];?>')">Өөрчлөх</span><?php }?>
+				<?php if($is_reply) {?><span class="rpy_btn" onClick="netfu_board.reply_reply(this, 'reply_reply', '<?=$reply_row['wr_no'];?>')">Хариу</span><?php }?>
+				<?php if($is_del) {?><span class="rpy_del" onClick="netfu_board.reply_delete(this, '<?=$reply_row['wr_no'];?>')">Устгах</span><?php }?>
 			</div>
 		</div>
 	</div>
