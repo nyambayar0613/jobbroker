@@ -95,7 +95,7 @@ var send_mailing = function( type ){
 			send_no[i] = $(this).val();
 		i++;
 		});
-		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_send\',\''+send_no+'\',\''+type+'\');" value="예" />');
+		$('#questionAnswerYes').html('<input type="button" onClick="questionAnswer(\'yes\', \'sel_send\',\''+send_no+'\',\''+type+'\');" value="тийм" />');
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
@@ -114,9 +114,9 @@ var questionAnswer = function(answer, mode, no, sels){	 // 질의 응답에 따�
 					var results = result.split("/");
 					var mail_count = results[0], sms_count = results[1];
 					if(sels=='mail'){
-						alert("맞춤 인재/채용정보 정기 메일링 "+mail_count.number_format()+"건이 발송되었습니다.");
+						alert("Мэйлинг үйлчилгээ "+mail_count.number_format()+"төрөл илгээгдлээ.");
 					} else if(sels=='sms'){
-						alert("맞춤 인재/채용정보 정기 SMS "+sms_count.number_format()+"건이 발송되었습니다.");
+						alert("SMS "+sms_count.number_format()+"илгээгдлээ.");
 					}
 					$.unblockUI();
 				});
