@@ -238,7 +238,7 @@ var sel_level = function(){	// 선택 회원 등급 수정
 			// 질의(Confirm) 창 띄우기
 			$.blockUI({ 
 				theme: true,
-				title: 'Гишүүнчлэлийн зэрэглэл засварлалт батлах ',
+				title: 'Гишүүнчлэлийн түвшин засварлалт батлах ',
 				showOverlay: false,
 				message: $('#question')
 			});
@@ -746,11 +746,11 @@ var service_opens = function( mb_id ){	// 열람 서비스
 <col width="2%"><col width="7%"><col width="11%" span="2"><col width="9%"><col width="6%" span="2"><col width="7%"><col width="5%"><col width="5%"><col width="8%"><col width="5%"><col width="8%"><col width="5%"><col width="10%">
 <tr class="bg">
 	<td><input name="check_all" type="checkbox"></td>
-	<td title="커뮤니티에서 사용되는 회원등급 입니다."><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн зэрэг<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td title="Комиунити-д ашиглагддаг гишүүнчлэлийн түвшин"><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_level&flag=<?php echo ($sort=='mb_level'&&$flag=='asc')?'desc':'asc';?>">Гишүүнчлэлийн зэрэг<span><?php echo ($sort=='mb_level'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_id&flag=<?php echo ($sort=='mb_id'&&$flag=='asc')?'desc':'asc';?>">Гишүүний ID<span><?php echo ($sort=='mb_id'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_name&flag=<?php echo ($sort=='mb_name'&&$flag=='asc')?'desc':'asc';?>">Нэр(хүйс/нас)<span><?php echo ($sort=='mb_name'&&$flag=='asc')?'▲':'▼';?></span></a></td>
-	<td>닉네임</td>
-	<td>점프</td>
+	<td>Nickname</td>
+	<td>Jump</td>
 	<!-- 
 	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_sms&flag=<?php echo ($sort=='mb_sms'&&$flag=='asc')?'desc':'asc';?>">SMS<span><?php echo ($sort=='mb_sms'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	-->
@@ -760,7 +760,7 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	<td>Ажилд орох өргөдлийн тоо</td>
 	<td>Унших үйлчилгээ</td>
 	<td>Уншсан тоо</td>
-	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">가입일<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
+	<td><a href="./individual.php?<?php echo $member_list['send_url'];?>&sort=mb_wdate&flag=<?php echo ($sort=='mb_wdate'&&$flag=='asc')?'desc':'asc';?>">Нэвтэрсэн огноо<span><?php echo ($sort=='mb_wdate'&&$flag=='asc')?'▲':'▼';?></span></a></td>
 	<!--<td>탈퇴요청일</td>
 	<td>탈퇴일</td>-->
 	<td>Алдаа</td>
@@ -778,12 +778,12 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	$mb_name .= " (".$get_gender."/".$get_age."세)";
 
 	$mb_wdate = substr($val['mb_wdate'],0,11);	// 가입일
-	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='탈퇴신청을 하지 않은 회원입니다.'>Цуцлах хүсэлт буцаах</span>";
-	$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴하지 않은 회원입니다.'>Цуцлахгүй</span>";
+	$mb_left_request_date = $mb_left = "<span style='color:#dfdfdf;' title='Цуцлах хүсэлт гаргахгүй.'>Цуцлах хүсэлт буцаах</span>";
+	$mb_left_date = "<span style='color:#dfdfdf;' title='Цуцлах хүсэлт гаргахгүй.'>Цуцлахгүй</span>";
 
 	if($val['mb_left_request']){
 		$mb_left_request_date = $val['mb_left_request_date'];
-		$mb_left_date = "<span style='color:#dfdfdf;' title='탈퇴 요청 회원입니다.'>Цуцлах хүсэлт</span>";
+		$mb_left_date = "<span style='color:#dfdfdf;' title='Цуцлах хүсэлт гаргахгүй.'>Цуцлах хүсэлт</span>";
 	}
 	if($val['mb_left']){
 		$mb_left_request_date = $val['mb_left_request_date'];
@@ -805,13 +805,13 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	<td><?php echo ($val['mb_alba_resume_count'])?"<a href='../alba/resume.php?mode=search&page_rows=15&search_field=wr_id&search_keyword=".$val['mb_id']."' class='b'>".number_format($val['mb_alba_resume_count'])."</a>":$val['mb_alba_resume_count'];?></td><!-- 이력서 수 -->
 	<td><?php echo number_format($val['mb_alba_count']);?></td><!-- 정규직 지원수 -->
 	<td><?php echo number_format($become_cnt);?> <!-- /<?php //echo number_format($interview_cnt);?> --></td>
-	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>', 'open');" title="클릭하시면 이력서 열람서비스 기간을 조절할수 있습니다."><?php echo $service_member['mb_service_alba_open'];?></a></td>
-	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>', 'count');" title="클릭하시면 이력서 열람서비스 기간을 조절할수 있습니다."><?php echo $service_member['mb_service_alba_count'];?></a></td>
+	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>', 'open');" title="Дарж анкет үзэх үйлчилгээний хугацааг тохируулах боломжтой. "><?php echo $service_member['mb_service_alba_open'];?></a></td>
+	<td><a onclick="service_opens('<?php echo $val['mb_id'];?>', 'count');" title="Дарж анкет үзэх үйлчилгээний хугацааг тохируулах боломжтой."><?php echo $service_member['mb_service_alba_count'];?></a></td>
 	<td title="<?php echo $val['mb_wdate'];?>"><?php echo $mb_wdate;?></td>
 	<!--<td><?php echo $mb_left_request_date;?></td>
 	<td><?php echo $mb_left_date;?></td>-->
 
-	<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="클릭하시면 <?php echo (!$val['mb_badness'])?'정상':'불량';?>회원으로 변경 됩니다."><?php echo (!$val['mb_badness'])?'정상':'<b>불량</b>';?></a></td>
+	<td><a onclick="pop_badness('<?php echo $val['no'];?>');" title="Дарахад <?php echo (!$val['mb_badness'])?'Хэвийн':'Алдаатай';?>гишүүн болгон өөрчлөгдлөө."><?php echo (!$val['mb_badness'])?'Хэвийн':'<b>Алдаатай</b>';?></a></td>
 
 <td class="edit e">
 				<p class="" style="display:inline-block; width:85px;">
@@ -838,14 +838,15 @@ var service_opens = function( mb_id ){	// 열람 서비스
 	</dt>
 	<dd>
 		<a onClick="sel_level();" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/ref.gif);"></span>Гишүүнчлэлийн зэрэг</h1></a>
-		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-д хадгалах</h1></a>
+		<a href="./process/download.php?mb_type=company&<?php echo ($member_list['send_url'])?$member_list['send_url']:"";?>" class="btn"><h1 class="btn23"><span class="ic" style="background-image:url(../../images/ic/xls.gif);"></span>Excel-
+	</h1></a>
 		<a onClick="update_member('insert','','company');" class="cbtn lnb_col grf_col"><h1 class="btn23"><strong>+</strong>Гишүүний бүртгэл</h1></a>
 	</dd>
 
 	<dl id="pop_level" class="psa boxbg fon11" style="top:27px;right:0;display:none;">
 		Сонгосон гишүүнийг
 		<select name="mb_level" id="mb_level">
-			<option>Гишүүнчлэлийг түвшин</option>
+			<option>Гишүүнчлэлийн түвшин</option>
 			<?php foreach($category_list as $val){ if($val['rank']=='1') continue;?>
 			<option value='<?php echo $val['rank']?>'><?php echo $val['name']?></option>
 			<?php } ?>
