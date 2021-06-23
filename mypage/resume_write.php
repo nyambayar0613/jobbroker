@@ -412,7 +412,7 @@ if($_nums>0) {
 					</td>
 				</tr>
 				<tr>
-				  <th>Хариуцсан албан тушаал<?php if($add_form_chk['Туршлага']['required']=='required') {?><span class="check"></span><?php }?></th>
+				  <th>Албан тушаал<?php if($add_form_chk['Туршлага']['required']=='required') {?><span class="check"></span><?php }?></th>
 					<td><input type="text" name="wr_career_job[]" value="<?=$career_arr['job'];?>" hname="Хариуцсан албан тушаал" <?=$add_form_chk['Туршлага']['required'];?>></td>
 				</tr>
 				<tr>
@@ -788,7 +788,7 @@ if($_nums>0) {
 						</li>
 						<li>
 						<fieldset>
-							<legend>Эзэмшиж авсан огноо</legend>
+							<legend>Авсан огноо</legend>
 							<select name="language_license_year_<?=$language_i;?>[]" class="st-year">
 							<option value="">жил</option>
 							<?php
