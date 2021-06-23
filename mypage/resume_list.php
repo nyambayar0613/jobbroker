@@ -71,7 +71,7 @@ include NFE_PATH.'/include/inc/my_resume_count.inc.php';
 			?>
 			<li class="col4 cf" style="clear:both">
 				<ul>
-					<h3>Төлбөртэй үйлчилгээний ашиглалтын түүх</h3>
+					<h3>Төлбөртэй үйлчилгээ ашиглалтын түүх</h3>
 					<?php
 					if(is_array($_remain_service)) { foreach($_remain_service as $k=>$v) {
 					?>
