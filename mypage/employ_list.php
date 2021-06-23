@@ -161,7 +161,7 @@ $paging = $netfu_util->_paging_(array('var'=>'page', 'num'=>$_limit, 'total'=>$t
 </section>
 
 <div class="button_con">
-	<a href="/mypage/job_write.php" class="bottom_btn01" onClick="">Ажлын байрны мэдэээлэл бүртгэх</a><a href="#none;" onClick="netfu_util1.delete_select_func(document.forms['flist'])" class="bottom_btn02">Устгах</a>
+	<a href="/mypage/job_write.php" class="bottom_btn01" onClick="">Бүртгэх</a><a href="#none;" onClick="netfu_util1.delete_select_func(document.forms['flist'])" class="bottom_btn02">Устгах</a>
 </div>
 
 <!--
