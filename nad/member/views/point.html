@@ -13,7 +13,7 @@ var page_rows = function(sels){	// 출력 갯수
 var sel_delete_member = function(){	// 포인트 내역 선택삭제
 	var chk_length = $("input[name='no[]']:checked").length;
 	if(chk_length==0){
-		alert('삭제 할 포인트를 선택해 주세요.');
+		alert('Устгах point оо сонгоно уу.');
 		return false;
 	} else {
 		$('#quest_info').hide();
@@ -28,7 +28,7 @@ var sel_delete_member = function(){	// 포인트 내역 선택삭제
 		// 질의(Confirm) 창 띄우기
 		$.blockUI({ 
 			theme: true,
-			title: '포인트내역 선택삭제',
+			title: 'Point түүх сонгож устгах',
 			showOverlay: false,
 			message: $('#question')
 		});
