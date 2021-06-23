@@ -52,7 +52,7 @@ $is_comment_write = ($board['bo_use_comment']) ? true : false; // 댓글 기능 
 		</div>
 		<?php }?>
 		<div class="input_box">
-			<div class="text-box"><textarea name="wr_content" rows="3" hname="Сэтгэгдэлийн агуулга" required placeholder="Сэтгэглэл олууна уу."></textarea></div>
+			<div class="text-box"><textarea name="wr_content" rows="3" hname="Сэтгэгдэлийн агуулга" required placeholder="Сэтгэгдэл олууна уу."></textarea></div>
 			<button onClick="return netfu_board.reply_write(this)">Бүртгэх</button>
 		</div>
 	</div>
