@@ -104,7 +104,7 @@
 				"sub_menu" => array(
 					array("code" => "200301", "name" => "Байгууллагын бүртгэл тохируулах", "url" => "../config/register_form.php?type=company_form"),
 					array("code" => "200302", "name" => "Ажлын байрны мэдээллийн тохиргоо", "url" => "../config/register_form.php?type=alba_form"),
-					array("code" => "200303", "name" => "Анкем тохиргоо", "url" => "../config/register_form.php?type=alba_resume"),
+					array("code" => "200303", "name" => "Анкет тохиргоо", "url" => "../config/register_form.php?type=alba_resume"),
 					array("code" => "200304", "name" => "Гишүүнээс гарах хүсэлт", "url" => "../config/category.php?type=member_left_reason"),
 					array("code" => "200305", "name" => "Ажлын зарын талаар мэдээлэх", "url" => "../config/category.php?type=alba_report_reason"),
 					array("code" => "200306", "name" => "Анкет тайлагнах", "url" => "../config/category.php?type=alba_resume_report_reason"),
