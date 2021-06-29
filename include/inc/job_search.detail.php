@@ -12,11 +12,9 @@ $_cate_['job_target'] = $netfu_util->get_cate_array('job_target', array('where'=
 ?>
 <!-- 상세검색 -->
 <style type="text/css">
-<?php
-if($_GET['code']!='search') {
-?>
+<?php if($_GET['code']!='search') { ?>
 .search_tb tr { display:none; }
-<?php }?>
+<?php } ?>
 .search_tb tr._view { display:table-row; }
 .search_tb tr._<?=$_GET['code'];?> { display:table-row; }
 </style>
@@ -168,7 +166,8 @@ if($_GET['code']!='search') {
 				<select name="alba_week" class="nice-select rounded">
 				<option value="">Ажлын өдөр</option>
 				<?php
-				if(is_array($_cate_['alba_week'])) { foreach($_cate_['alba_week'] as $k=>$v) {
+				if(is_array($_cate_['alba_week'])) {
+				    foreach($_cate_['alba_week'] as $k=>$v) {
 					$selected = $v['code']==$_GET['alba_week'] ? 'selected' : '';
 				?>
 				<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
@@ -188,12 +187,14 @@ if($_GET['code']!='search') {
 				<select name="wr_target" class="nice-select rounded">
 				<option value="">대상별</option>
 				<?php
-				if(is_array($_cate_['job_target'])) { foreach($_cate_['job_target'] as $k=>$v) {
+				if(is_array($_cate_['job_target'])) {
+				    foreach($_cate_['job_target'] as $k=>$v) {
 					$selected = $v['code']==$_GET['wr_target'] ? 'selected' : '';
-				?>
+				    ?>
 				<option value="<?=$v['code'];?>" <?=$selected;?>><?=$v['name'];?></option>
 				<?php
-				} }
+				    }
+				}
 				?>
 				</select>
 			</td>
@@ -267,20 +268,22 @@ if($_GET['code']!='search') {
 				<div>Цалин</div>
 			</th>
 			<td class="sch_td2" colspan="3">
-			  <fieldset>
+			    <fieldset>
 					<legend>Цалин сонгох</legend>
 					<ul>
 						<?php
-						if(is_array($_cate_['alba_pay'])) { foreach($_cate_['alba_pay'] as $k=>$v) {
-							$checked = @in_array($v['code'], $_GET['alba_pay']) ? 'checked' : '';
+                            if(is_array($_cate_['alba_pay'])) {
+                                foreach($_cate_['alba_pay'] as $k=>$v) {
+                                $checked = @in_array($v['code'], $_GET['alba_pay']) ? 'checked' : '';
+                                ?>
+                                <li><input type="checkbox" name="alba_pay[]" value="<?=$v['code'];?>" <?=$checked;?>><?=$v['name'];?></li>
+                                <?php
+                                }
+                            }
 						?>
-						<li><input type="checkbox" name="alba_pay[]" value="<?=$v['code'];?>" <?=$checked;?>><?=$v['name'];?></li>
-						<?php
-						} }
-						?>
-						<input type="text" name="wr_pay[]" value="<?=$_GET['wr_pay'][0];?>">-с дээш~<input type="text" name="wr_pay[]" value="<?=$_GET['wr_pay'][1];?>">-с дээш</li>
+                        <li><input type="text" name="wr_pay[]" value="<?=$_GET['wr_pay'][0];?>">-с дээш~<input type="text" name="wr_pay[]" value="<?=$_GET['wr_pay'][1];?>">-с дээш</li>
 					<ul>
-		</fieldset>
+		        </fieldset>
 			</td>
 		</tr>
 
@@ -291,11 +294,11 @@ if($_GET['code']!='search') {
 			</th>
 			<td class="sch_td2" colspan="3">
 			  <fieldset>
-					<legend>Хүйс сонгох</legend>
-					<label><input type="radio" name="wr_gender" value="1" <?=$_GET['wr_gender']==1 ? 'checked' : '';?> />Эр</label>
-					<label><input type="radio" name="wr_gender" value="2" <?=$_GET['wr_gender']==2 ? 'checked' : '';?> />Эм</label>
-					<label><input type="radio" name="wr_gender" value="0" <?=$_GET['wr_gender']=='0' ? 'checked' : '';?> />Хүйс хамаарахгүй</label>
-		</fieldset>
+                <legend>Хүйс сонгох</legend>
+                <label><input type="radio" name="wr_gender" value="1" <?=$_GET['wr_gender']==1 ? 'checked' : '';?> />Эр</label>
+                <label><input type="radio" name="wr_gender" value="2" <?=$_GET['wr_gender']==2 ? 'checked' : '';?> />Эм</label>
+                <label><input type="radio" name="wr_gender" value="0" <?=$_GET['wr_gender']=='0' ? 'checked' : '';?> />Хүйс хамаарахгүй</label>
+		    </fieldset>
 			</td>
 		</tr>
 
